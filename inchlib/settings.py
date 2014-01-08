@@ -19,8 +19,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'inchlibdb',                      # Or path to database file if using sqlite3.
-        'USER': 'config.USER',                      # Not used with sqlite3.
-        'PASSWORD': 'config.PASSWORD',                  # Not used with sqlite3.
+        'USER': config.USER,                      # Not used with sqlite3.
+        'PASSWORD': config.PASSWORD,                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }
@@ -138,23 +138,23 @@ INSTALLED_APPS = (
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
-    'filters': {
-        'require_debug_false': {
-            '()': 'django.utils.log.RequireDebugFalse'
-        }
-    },
-    'handlers': {
-        'mail_admins': {
-            'level': 'ERROR',
-            'filters': ['require_debug_false'],
-            'class': 'django.utils.log.AdminEmailHandler'
-        }
-    },
-    'loggers': {
-        'django.request': {
-            'handlers': ['mail_admins'],
-            'level': 'ERROR',
-            'propagate': True,
-        },
-    }
+    # 'filters': {
+    #     'require_debug_false': {
+    #         '()': 'django.utils.log.RequireDebugFalse'
+    #     }
+    # },
+    # 'handlers': {
+    #     'mail_admins': {
+    #         'level': 'ERROR',
+    #         'filters': ['require_debug_false'],
+    #         'class': 'django.utils.log.AdminEmailHandler'
+    #     }
+    # },
+    # 'loggers': {
+    #     'django.request': {
+    #         'handlers': ['mail_admins'],
+    #         'level': 'ERROR',
+    #         'propagate': True,
+    #     },
+    # }
 }
