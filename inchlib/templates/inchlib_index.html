@@ -1,0 +1,28 @@
+{% extends "inchlib_base.html" %}
+
+{% block content %}
+<script>
+	$(document).ready(function(){
+		window.dendrogram = new InCHlib("dendrogram", 
+			{
+				metadata: true, 
+				dendrogram: true,
+				metadata_type: "categoric", 
+				column_dendrogram:true, 
+				max_height: 800,
+				font: "Inconsolata",
+				metadata_colors: "Reds",
+				// independent_columns_coloring: true,
+				// count_column: true,
+			});
+		dendrogram.read_data_from_file("static/inchlib/js/ecoli.json");
+		dendrogram.draw();
+	});
+</script>
+
+<div class="desc"><b>InCHlib</b> (<i>Interactive Cluster Heatmap library</i>) is an open source interactive visualization library developed in JavaScript. Because of its nature <b>InCHlib</b> is multiplatform and works on all common operating systems (Windows, Linux, iOS) in all major internet browsers (Internet Explorer, Mozzila Firefox, Google Chrome*, Safari, Opera).</div>
+
+<div class="desc"><b>InCHlib</b> is raster-based visualization displayed through the HTML canvas technology. It was developed using KineticJS, JavaScript framework for HTML canvas interaction. Since <b>InCHlib</b> is a client-side application only the hardware and browser of choice determines its speed and smoothnes of graphic events.</div>
+
+<div id="dendrogram"></div>
+{% endblock %}
