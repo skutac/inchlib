@@ -1,0 +1,171 @@
+body{
+	width: 80%;
+	max-width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+	font-family: "Inconsolata";
+}
+
+#footer{
+	height: 25px;
+}
+
+#main_title{
+	margin-top: 20px;
+	margin-left: 20px;
+	font-size: 48px;
+	font-weight: bold;
+}
+#sub_title{
+	margin-top: 5px;
+	margin-left: 20px;
+	font-size: 16px;
+	padding-bottom: 10px;
+	color: gray;
+}
+
+#example #dendrogram, #content > #dendrogram{
+	margin-top: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 80%;
+}
+
+.desc{
+	margin-top: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 90%;
+	text-align: justify;
+	line-height: 1.2;
+}
+
+#examples_menu, #docs_menu{
+	/*margin-top: 20px;*/
+	width: 25%;
+	float: left;
+}
+
+#example, #docs{
+	display: block;
+	width: 72%;
+	margin-top: 20px;
+	margin-left: 28%;
+}
+
+.input_example{
+	width: 90%;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.input_example .title{
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.doc{
+	margin-top: 30px;
+}
+
+.doc .description{
+	margin-top: 15px;
+	width: 95%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.title{
+	font-size: 24px;
+	font-weight: bold;
+}
+
+.small_title{
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.subtitle{
+	font-style: italic;
+	color: grey;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.doc .default{
+	margin-top: 15px;
+	margin-left: 10px;
+}
+
+#example .description, .input_example{
+	margin-top: 20px;
+	text-align: justify;
+	line-height: 1.2;
+}
+
+#example .description a{
+	font-style: italic;
+}
+
+#example .example_settings, #example .example_data{
+	margin-top: 20px;
+}
+
+#example .settings, #example .data, .doc .default_value, #row_ids_callback, .input_example .data{
+	margin-top: 10px;
+	background-color: #E6E6E6;
+	padding: 10px;
+	border-radius: 5px;
+	width: 95%;
+	margin-left: auto;
+	margin-right: auto;
+	font-family: Courier, monospace;
+	font-size: 14px;
+	white-space:pre;
+	/*font-weight: bold;*/
+}
+
+#row_ids_callback{
+	white-space: pre-line;
+	word-break: break-all;
+}
+
+#example .buttons{
+	margin-top: 10px;
+	font-family: "Inconsolata";
+	font-size: 14px;
+}
+
+#example .data{
+	white-space:pre;
+	height: 200px;
+	overflow: auto;
+}
+
+#next_example_button, #previous_example_button{
+	float: right;
+	font-size: 14px;
+}
+
+#previous_example_button{
+	margin-right: 15px;
+}
+
+.format_desc{
+	/*margin-top: 20px;*/
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.input_example .data a, .format_desc a{
+	color: black;
+	font-weight: bold;
+}
+
+.input_example #dendrogram{
+	width: 80%;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top : 30px;
+}

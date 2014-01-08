@@ -1,0 +1,83 @@
+{% extends "inchlib_base.html" %}
+
+{% block content %}
+<script>
+	var settings = {{ settings }};
+
+	$(document).ready(function(){
+		var settings_string = "{}", i, val;
+
+		if(!($.isEmptyObject(settings))){
+			settings_string = "{\n";
+			for(i in settings){
+				val = (typeof(settings[i]) == "string")? '"'+settings[i]+'"': settings[i];
+				if(i == "highlighted_rows"){
+					val = "[" + val + "]";
+				}
+				else if(i == "current_row_ids_callback"){
+					val = settings[i];
+				}
+				settings_string = settings_string + "  " + i + ": " + val + ",\n";
+			}
+			settings_string = settings_string + "}"
+		}
+		
+		$("#example .settings").text(settings_string);
+
+		window.dendrogram = new InCHlib("dendrogram", {{ settings }});
+		dendrogram.settings.font = "Inconsolata";
+		dendrogram.read_data({{ example.data }});
+		dendrogram.draw();
+
+		{% if example.exampleid == 9 %}
+			dendrogram.settings.current_row_ids_callback = function(row_ids){$("#row_ids").text(row_ids);};
+		{% endif %}
+	});
+
+
+</script>
+
+<div id="examples_menu" class="pure-menu pure-menu-open">
+    <a class="pure-menu-heading"><b>Examples</b></a>
+    
+    <ul>
+        {% for e in examples %}
+        	{% if e.exampleid == example.exampleid %}
+        		<li class="pure-menu-selected"><a href="/examples/{{ e.exampleid }}">{{ e.title }}</a></li>
+        	{% else %}
+        		<li><a href="/examples/{{ e.exampleid }}">{{ e.title }}</a></li>
+        	{% endif %}
+        {% endfor %}
+    </ul>
+</div>
+
+<div id="example">
+	<div class="title">{{ example.title }}
+		{% if next %}
+			<a class="pure-button" href="/examples/{{ next }}" id="next_example_button">Next example ></a>
+		{% endif %}
+
+		{% if previous %}
+			<a class="pure-button" href="/examples/{{ previous }}" id="previous_example_button">< Previous example</a>
+		{% endif %}
+	</div>
+
+	<div class="description">{% autoescape off %}{{ example.description }} {% endautoescape %}</div>
+
+	<div class="example_settings">
+		<div class="small_title">Example settings</div>
+		<div class="settings"></div>
+	</div>
+
+	<div class="example_data">
+		<div class="small_title">Example data</div>
+		<div class="data">{{ example.data }}</div>
+	</div>
+
+	{% if example.exampleid == 9 %}
+		<div id="row_ids_callback"><b>Row IDs:</b> <span id="row_ids"></span></div>
+	{% endif %}
+	
+	<div id="dendrogram"></div>
+</div>
+{% endblock %}

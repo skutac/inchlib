@@ -1,0 +1,65 @@
+{% extends "inchlib_base.html" %}
+
+{% block content %}
+<script>
+	var dendrogram;
+
+	$(document).ready(function(){
+		var attr, element, text;
+		dendrogram = new InCHlib("", {});
+
+		var colors_string = JSON.stringify(dendrogram.colors);
+		colors_string = colors_string.replace(/}},/g, "}},\n");
+		
+
+		$("#colors").parent().find(".default_value").text(colors_string);
+
+		for(attr in dendrogram.settings){
+			var element = $("#docs").find("#" + attr).parent().find(".default_value");
+
+			if(attr == "highlighted_rows"){
+				text = attr + ": []" ;
+			}
+			else{
+				text = attr + ": " + dendrogram.settings[attr];
+			}
+			element.text(text);
+		}
+	});
+
+</script>
+
+<div id="docs_menu" class="pure-menu pure-menu-open">
+    <a class="pure-menu-heading"><b>Colors</b></a>
+    
+    <ul>
+    	<li><a href="#colors">Color scales</a></li>
+    	<li class="pure-menu-heading"><b>Settings attributes</b></li>
+        {% for a in attributes %}
+        	<li><a href="#{{ a.name }}">{{ a.name }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+
+<div id="docs">
+	<div class="doc">
+			<div class="small_title" id="colors">Color scales</div>
+			<div class="description">extendable set of color scales contained in InCHlib</div>
+			<div class="default">
+				<div class="subtitle">Color scales:</div>
+				<div class="default_value"></div>
+			</div>
+		</div>
+		<hr />
+	{% for a in attributes %}
+		<div class="doc">
+			<div class="small_title" id="{{ a.name }}">{{ a.name }}</div>
+			<div class="description">{{ a.description }}</div>
+			<div class="default">
+				<div class="subtitle">Default:</div>
+				<div class="default_value"></div>
+			</div>
+		</div>
+	{% endfor %}
+</div>
+{% endblock %}
