@@ -15,7 +15,7 @@ def examples(req, exampleid):
 	next, previous = get_neighbours(int(exampleid), examples)
 
 	settings = example.examplesettings_set.all()
-	#settings = mark_safe(json.dumps(parse_settings({e.settingsattribute.name: e.value for e in settings})))
+	settings = mark_safe(json.dumps(parse_settings({e.settingsattribute.name: e.value for e in settings})))
 
 	data = example.data
 	example.data = mark_safe(example.data)
