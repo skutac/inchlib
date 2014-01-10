@@ -22,7 +22,7 @@ import site
 os.environ['PYTHON_EGG_CACHE'] = '/tmp/python-eggs'
 
 #If your project is not on your PYTHONPATH by default you can add the following
-sys.path.append('/var/www/projects/inchlib/')
+sys.path.append('/var/www/projects/inchlib')
 os.environ['DJANGO_SETTINGS_MODULE'] = 'inchlib.settings'
 
 import django.core.handlers.wsgi

@@ -2,12 +2,12 @@
 <head>
 <link href='http://fonts.googleapis.com/css?family=Inconsolata&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 <!-- <link rel="icon" href="{{ MEDIA_URL }}img/favicon.ico" type="image/x-icon" /> -->
-{% load staticfiles %}
-<link rel="stylesheet" href="{% static 'inchlib/css/pure-min.css' %}" type="text/css"/>
-<link rel="stylesheet" href="{% static 'inchlib/css/inch.css' %}" type="text/css"/>
-<script src="{% static 'inchlib/js/inchlib.js' %}"></script>
-<script src="{% static 'inchlib/js/jquery-2.0.3.min.js' %}"></script>
-<script src="{% static 'inchlib/js/kinetic-v4.7.2.min.js' %}"></script>
+{% load static %}
+<link rel="stylesheet" href="{% get_static_prefix %}inchlib/css/pure-min.css" type="text/css"/>
+<link rel="stylesheet" href="{% get_static_prefix %}inchlib/css/inch.css" type="text/css"/>
+<script src="{% get_static_prefix %}inchlib/js/inchlib.js"></script>
+<script src="{% get_static_prefix %}inchlib/js/jquery-2.0.3.min.js"></script>
+<script src="{{ STATIC_URL }}inchlib/js/kinetic-v4.7.2.min.js"></script>
 <title>InCHlib - Interactive Cluster Heatmap library</title>
 </head>
 <body>
