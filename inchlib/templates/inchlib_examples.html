@@ -43,9 +43,9 @@
     <ul>
         {% for e in examples %}
         	{% if e.exampleid == example.exampleid %}
-        		<li class="pure-menu-selected"><a href="/examples/{{ e.exampleid }}">{{ e.title }}</a></li>
+        		<li class="pure-menu-selected"><a href="/projects/inchlib/examples/{{ e.exampleid }}">{{ e.title }}</a></li>
         	{% else %}
-        		<li><a href="/examples/{{ e.exampleid }}">{{ e.title }}</a></li>
+        		<li><a href="/projects/inchlib/examples/{{ e.exampleid }}">{{ e.title }}</a></li>
         	{% endif %}
         {% endfor %}
     </ul>
@@ -54,11 +54,11 @@
 <div id="example">
 	<div class="title">{{ example.title }}
 		{% if next %}
-			<a class="pure-button" href="/examples/{{ next }}" id="next_example_button">Next example ></a>
+			<a class="pure-button" href="/projects/inchlib/examples/{{ next }}" id="next_example_button">Next example ></a>
 		{% endif %}
 
 		{% if previous %}
-			<a class="pure-button" href="/examples/{{ previous }}" id="previous_example_button">< Previous example</a>
+			<a class="pure-button" href="/projects/inchlib/examples/{{ previous }}" id="previous_example_button">< Previous example</a>
 		{% endif %}
 	</div>
 
