@@ -28,7 +28,6 @@ function InCHlib(element_id, user_settings){
         "current_row_ids_callback": function(row_ids){
             return;
         },
-
     }
 
     this.colors = {
@@ -699,7 +698,7 @@ InCHlib.prototype.draw_heatmap = function(){
         }
 
         if(target_class == "Line"){
-            col_number = self.hack_round((self.stage.getMousePosition().x-self.distance-self.dendrogram_heatmap_distance-0.5*self.pixels_for_dimension)/self.pixels_for_dimension);
+            col_number = self.hack_round((self.stage.getPointerPosition().x-self.distance-self.dendrogram_heatmap_distance-0.5*self.pixels_for_dimension)/self.pixels_for_dimension);
             row_id = evt.targetNode.parent.attrs.id.split("#")[1];            
             
             if(row_id != self.last_highlighted_row){
@@ -797,7 +796,7 @@ InCHlib.prototype.draw_heatmap_row = function(node_id, x1, y1){
                     width = text.getWidth();
                     x = this.hack_round((x1+x2)/2-width/2);
                     y = this.hack_round(y1-this.value_font_size/2);
-                    text.setPosition(x, y);
+                    text.position({x:x, y:y});
                     row.add(text);
                 }
                 x1 = x2;
@@ -823,7 +822,7 @@ InCHlib.prototype.draw_heatmap_row = function(node_id, x1, y1){
             width = text.getWidth();
             x = this.hack_round((x1+x2)/2-width/2);
             y = this.hack_round(y1-this.value_font_size/2);
-            text.setPosition(x, y);
+            text.position({x:x, y:y});
             row.add(text);
         }
         x1 = x2;
@@ -1231,7 +1230,7 @@ InCHlib.prototype.draw_cluster_layer = function(){
         stroke: 'black',
         strokeWidth: 2,
         lineJoin: 'round',
-        dashArray: [10, 5],
+        dash: [10, 5],
     });
 
     var lower_border = new Kinetic.Line({
@@ -1239,7 +1238,7 @@ InCHlib.prototype.draw_cluster_layer = function(){
         stroke: 'black',
         strokeWidth: 2,
         lineJoin: 'round',
-        dashArray: [10, 5],
+        dash: [10, 5],
     });
 
     this.collect_row_ids(y1, y2);
@@ -1725,22 +1724,22 @@ InCHlib.prototype.row_mouseover = function(row_group, col_number){
         }
     }
 
-    var y = line.attrs.points[0]["y"]-0.5*this.pixels_for_leaf;
+    var y = line.attrs.points[1]-0.5*this.pixels_for_leaf;
     var x = this.distance+this.dendrogram_heatmap_distance;
     
     var line_ref = new Kinetic.Line({
-                 points: [[x, y], [x+this.heatmap_width, y]],
+                 points: [x, y, x+this.visible_features*this.pixels_for_dimension, y],
                  stroke: "black",
                  strokeWidth: 0.5,
                  lineCap: "round",
                  shadowOffset: 1,
-                 dashArray: [4, 2]
+                 dash: [4, 2]
 
              });
     this.heatmap_overlay.add(line_ref);
 
     y = y+this.pixels_for_leaf;
-    this.heatmap_overlay.add(line_ref.clone({points:[[x, y], [x+this.heatmap_width, y]]}));
+    this.heatmap_overlay.add(line_ref.clone({points:[x, y, x+this.visible_features*this.pixels_for_dimension, y]}));
 }
 
 InCHlib.prototype.draw_col_label = function(row_group, col_number){
@@ -1754,7 +1753,7 @@ InCHlib.prototype.draw_col_label = function(row_group, col_number){
         }
     }
 
-    var y = line.attrs.points[0]["y"]-0.5*this.pixels_for_leaf;
+    var y = line.attrs.points[1]-0.5*this.pixels_for_leaf;
     var x = this.distance+this.dendrogram_heatmap_distance;
 
     if(this.heatmap_header && this.header[col_number] != ""){
