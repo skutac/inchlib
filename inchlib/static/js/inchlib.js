@@ -1,14 +1,15 @@
 "use strict";
 
-function InCHlib(element_id, user_settings){
-    var element_width = $("#" + element_id).width();
+function InCHlib(settings){
+    var target_width = $("#" + settings.target).width();
+    
     this.settings = {
-        "element_id" : element_id,
+        "target" : settings.target,
         "heatmap" : true,
         "dendrogram": true,
         "metadata": false,
         "max_height" : 800,
-        "width" : element_width,
+        "width" : target_width,
         "heatmap_colors" : "Greens",
         "heatmap_part_width" : 0.7,
         "column_dendrogram" : false,
@@ -60,8 +61,8 @@ function InCHlib(element_id, user_settings){
             "RdYlGn": {"start": {"r":215, "g": 25, "b": 28}, "end": {"r": 26, "g": 150, "b": 65}},
         };
     
-    $.extend(this.settings, user_settings);
-    this.settings.width = (user_settings.max_width && user_settings.max_width < element_width)?user_settings.max_width:this.settings.width;
+    $.extend(this.settings, settings);
+    this.settings.width = (settings.max_width && settings.max_width < target_width)?settings.max_width:this.settings.width;
     this.settings.heatmap_part_width = (this.settings.heatmap_part_width>0.9)?0.9:this.settings.heatmap_part_width;
 
     this.header_height = 150;
@@ -94,21 +95,21 @@ InCHlib.prototype.read_data_from_file = function(json){
 InCHlib.prototype.add_prefix = function(){
     var i, id;
     for(i in this.data.nodes){
-        id = [this.settings.element_id, i].join("#");
+        id = [this.settings.target, i].join("#");
         this.data.nodes[id] = this.data.nodes[i];
         delete this.data.nodes[i];
         if("parent" in this.data.nodes[id]){
-            this.data.nodes[id].parent = [this.settings.element_id, this.data.nodes[id].parent].join("#");
+            this.data.nodes[id].parent = [this.settings.target, this.data.nodes[id].parent].join("#");
         }
         if(this.data.nodes[id]["count"] != 1){
-            this.data.nodes[id].left_id = [this.settings.element_id, this.data.nodes[id].left_id].join("#");
-            this.data.nodes[id].right_id = [this.settings.element_id, this.data.nodes[id].right_id].join("#");
+            this.data.nodes[id].left_id = [this.settings.target, this.data.nodes[id].left_id].join("#");
+            this.data.nodes[id].right_id = [this.settings.target, this.data.nodes[id].right_id].join("#");
         }
     }
 
     if(this.settings.metadata){
         for(i in this.data.metadata.nodes){
-            id = [this.settings.element_id, i].join("#");
+            id = [this.settings.target, i].join("#");
             this.data.metadata.nodes[id] = this.data.metadata.nodes[i];
             delete this.data.metadata.nodes[i];
         }
@@ -326,7 +327,7 @@ InCHlib.prototype.draw = function(){
     }
 
     this.stage = new Kinetic.Stage({
-        container: this.settings.element_id,
+        container: this.settings.target,
     });
 
     this.pixels_for_leaf = (this.settings.max_height-this.header_height-this.footer_height)/this.heatmap_array.length;
@@ -1118,7 +1119,7 @@ InCHlib.prototype.highlight_path = function(path_id){
     
     var prefixed_row_ids = [];
     for(i = 0; i<row_ids.length; i++){
-        prefixed_row_ids.push([this.settings.element_id, row_ids[i]].join("#"));
+        prefixed_row_ids.push([this.settings.target, row_ids[i]].join("#"));
     }
 
     var original_colors = this.settings.heatmap_colors;
@@ -1506,7 +1507,7 @@ InCHlib.prototype.draw_horizontal_path = function(path_id, x1, y1, x2, y2, left_
 
 InCHlib.prototype.filter_icon_click = function(filter_button){
     var filter_list = $("#dendrogram_filter_features").text();
-    var position = $("#" + this.settings.element_id).position();
+    var position = $("#" + this.settings.target).position();
     var position_top = position.top + 10;
     var position_left = position.left + 50;
     var symbol = "✖";
@@ -1532,7 +1533,7 @@ InCHlib.prototype.filter_icon_click = function(filter_button){
             }
         }
         
-        $("#" + self.settings.element_id).append("<div id='dendrogram_filter_features'><ul>" + filter_list + "</ul><hr /><div><span id='cancel_filter_list'>Cancel</span>&nbsp;&nbsp;&nbsp;<span id='update_filter_list'>Update</span></div></div>");
+        $("#" + self.settings.target).append("<div id='dendrogram_filter_features'><ul>" + filter_list + "</ul><hr /><div><span id='cancel_filter_list'>Cancel</span>&nbsp;&nbsp;&nbsp;<span id='update_filter_list'>Update</span></div></div>");
         var filter_features_element = $("#dendrogram_filter_features");
         
         filter_features_element.css({"display":"none",
@@ -1684,9 +1685,9 @@ InCHlib.prototype.dendrogram_layers_click=function(evt, layer){
 InCHlib.prototype.dendrogram_layers_mouseout = function(evt){
     var shape_type = evt.targetNode.className;
     if(shape_type == "Rect"){
-        var overlay = this.dendrogram_hover_layer.get("#" + [this.settings.element_id, "path_hover"].join("_"))[0];
+        var overlay = this.dendrogram_hover_layer.get("#" + [this.settings.target, "path_hover"].join("_"))[0];
         if(overlay){
-            this.dendrogram_hover_layer.get("#" + [this.settings.element_id, "path_hover"].join("_"))[0].destroy();
+            this.dendrogram_hover_layer.get("#" + [this.settings.target, "path_hover"].join("_"))[0].destroy();
             this.dendrogram_hover_layer.draw();
         }
     }
@@ -1699,7 +1700,7 @@ InCHlib.prototype.dendrogram_layers_mouseover = function(evt){
         var path = evt.targetNode.attrs.path;
         var path_overlay = this.clone_path(path);
         path_overlay.setStrokeWidth(4);
-        path_overlay.setId([this.settings.element_id, "path_hover"].join("_"))
+        path_overlay.setId([this.settings.target, "path_hover"].join("_"))
         this.dendrogram_hover_layer.add(path_overlay);
         this.dendrogram_hover_layer.draw();
     }

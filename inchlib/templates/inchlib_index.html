@@ -3,8 +3,9 @@
 {% block content %}
 <script>
 	$(document).ready(function(){
-		window.dendrogram = new InCHlib("dendrogram", 
+		window.dendrogram = new InCHlib(
 			{
+				target: "dendrogram",
 				metadata: true, 
 				dendrogram: true,
 				metadata_type: "categoric", 
@@ -15,14 +16,26 @@
 				// independent_columns_coloring: true,
 				// count_column: true,
 			});
-		dendrogram.read_data_from_file("/projects/inchlib/site_media/js/ecoli.json");
+		dendrogram.read_data_from_file("/static/js/ecoli.json");
 		dendrogram.draw();
 	});
 </script>
 
-<div class="desc"><b>InCHlib</b> (<i>Interactive Cluster Heatmap library</i>) is an open source interactive visualization library developed in JavaScript. Because of its nature <b>InCHlib</b> is multiplatform and works on all common operating systems (Windows, Linux, iOS) in all major internet browsers (Internet Explorer, Mozzila Firefox, Google Chrome*, Safari, Opera).</div>
 
-<div class="desc"><b>InCHlib</b> is raster-based visualization displayed through the HTML canvas technology. It was developed using KineticJS, JavaScript framework for HTML canvas interaction. Since <b>InCHlib</b> is a client-side application only the hardware and browser of choice determines its speed and smoothnes of graphic events.</div>
+<div class="desc"><b>InCHlib</b> <i>(Interactive Cluster Heatmap library)</i> is an open source interactive Javascript library which provides an easy way to integrate, display and work with the hierarchically clustered data and with clustered heatmaps. It implements a raster-based HTML5 canvas visualization utilizing an open source Javascript framework <a href="http://kineticjs.com/">KineticJS</a>.</div>
+
+<div class="desc"><b>InCHlib</b> is multiplatform and works on all common operating systems (Windows, Linux, iOS) in all major internet browsers (Internet Explorer, Mozzila Firefox, Google Chrome, Safari, Opera). Its speed is determined solely by the client’s hardware and internet browser.</div>
 
 <div id="dendrogram"></div>
 {% endblock %}
+
+4 customizable color attributes influence the visualization:
+
+<ol>
+	<li>Color of the clustered data block.</li>
+	<li>Color of the metadata.</li>
+	<li>Color of the highlighted rows.</li>
+	<li>Color of the label upon hoovering a mouse over the column.</li>
+</ol>
+
+Independent columns attribute defines whether the heatmap color shades are calculated on the values of all columns together or for each column separately. 

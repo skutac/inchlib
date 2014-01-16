@@ -3,12 +3,12 @@
 <link href='http://fonts.googleapis.com/css?family=Inconsolata&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 <!-- <link rel="icon" href="{{ MEDIA_URL }}img/favicon.ico" type="image/x-icon" /> -->
 
-{% load static %}
-<link rel="stylesheet" href="/projects/inchlib/site_media/css/pure-min.css" type="text/css"/>
-<link rel="stylesheet" href="/projects/inchlib/site_media/css/inch.css" type="text/css"/>
-<script src="/projects/inchlib/site_media/js/inchlib.js"></script>
-<script src="/projects/inchlib/site_media/js/jquery-2.0.3.min.js"></script>
-<script src="/projects/inchlib/site_media/js/kinetic-v4.7.2.min.js"></script>
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static "css/pure-min.css" %}" type="text/css"/>
+<link rel="stylesheet" href="{% static "css/inch.css" %}" type="text/css"/>
+<script src="{% static "js/inchlib.js" %}"></script>
+<script src="{% static "js/jquery-2.0.3.min.js" %}"></script>
+<script src="{% static "js/kinetic-v5.0.0.min.js" %}"></script>
 
 <title>InCHlib - Interactive Cluster Heatmap library</title>
 </head>
@@ -20,12 +20,12 @@
 <hr />
 <div class="pure-menu pure-menu-open pure-menu-horizontal">
     <ul>
-        <li class="pure-menu-selected"><a href="/projects/inchlib/index">Home</a></li>
-        <li><a href="/projects/inchlib/examples/1">Examples</a></li>
-        <li><a href="/projects/inchlib/input_format">Input format</a></li>
-        <li><a href="/projects/inchlib/docs">Docs</a></li>
-        <li><a href="/projects/inchlib/download">Download</a></li>
-        <li><a href="/projects/inchlib/contact">Contact</a></li>
+        <li class="pure-menu-selected"><a href="/index">Home</a></li>
+        <li><a href="/examples/1">Examples</a></li>
+        <li><a href="/input_format">Input format</a></li>
+        <li><a href="/docs">Docs</a></li>
+        <li><a href="/download">Download</a></li>
+        <li><a href="/contact">Contact</a></li>
         <li><a href="http://www.github.com" target=blank>Github</a></li>
     </ul>
 </div>
