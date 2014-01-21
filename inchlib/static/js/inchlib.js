@@ -11,21 +11,21 @@ function InCHlib(settings){
         "max_height" : 800,
         "width" : target_width,
         "heatmap_colors" : "Greens",
+        "heatmap_font_color" : "black",
         "heatmap_part_width" : 0.7,
         "column_dendrogram" : false,
         "independent_columns" : false,
-        "metadata_type" : "numeric",
         "metadata_colors" : "Oranges",
         "highlight_colors" : "Reds",
         "highlighted_rows" : [],
         "label_color": "grey",
         "draw_values" : true,
-        // "draw_row_ids" : true,
         "count_column": false,
         "min_row_height": false,
         "max_row_height": 25,
         "max_column_width": 100,
         "font": "Arial",
+        "values_center": "median",
         "current_row_ids_callback": function(row_ids){
             return;
         },
@@ -168,10 +168,23 @@ InCHlib.prototype.get_min_max = function(data){
 
 }
 
-InCHlib.prototype.get_columns_min_max = function(data){
+InCHlib.prototype.get_columns_min_max_middle = function(data){
+    var self = this;
     var columns = [];
     var i, j, value;
     var data_length = data[0].length;
+    var middle2fnc = {"zero": function(values){return 0;},
+                      "median": function(values){
+                        values.sort();
+                        var median_pos = self.hack_round(values.length/2);
+                        return values[median_pos];
+                        }, 
+                      "mean": function(values){
+                        var sum = values.reduce(function(a, b){return a + b;});
+                        return sum/values.length;}
+                    };
+
+    this.categories2numbers = {};
 
     for(i = 0; i<data_length; i++){
         columns.push([]);
@@ -186,12 +199,22 @@ InCHlib.prototype.get_columns_min_max = function(data){
         }
     }
 
-    var columns_min_max = [];
+    var columns_min_max = [], min, max, middle;
 
     for(i = 0; i<columns.length; i++){
-        var min = Math.min.apply(null, columns[i]);
-        var max = Math.max.apply(null, columns[i]);
-        columns_min_max.push([min,max]);
+        if(typeof(columns[i][0]) == "number"){
+            min = Math.min.apply(null, columns[i]);
+            max = Math.max.apply(null, columns[i]);
+            middle = middle2fnc[this.settings.values_center](columns[i]);
+        }
+        else{
+            var hash_object = this.get_hash_object(columns[i]);
+            min = 0;
+            max = this.hack_size(hash_object)-1;
+            middle = this.hack_round(max/2);
+            this.categories2numbers[i] = hash_object;
+        }
+        columns_min_max.push([min,max,middle]);
     }
 
     return columns_min_max;
@@ -552,7 +575,7 @@ InCHlib.prototype.set_heatmap_settings = function(){
     }
         
     if(this.settings.independent_columns){
-        this.columns_min_max = this.get_columns_min_max(data);
+        this.columns_min_max = this.get_columns_min_max_middle(data);
     }
     else{
         var min_max = this.get_min_max(data);
@@ -569,32 +592,12 @@ InCHlib.prototype.set_heatmap_settings = function(){
             }
         }
 
-        if(this.settings.metadata_type == "categoric"){
-            this.categories2numbers = [];
-            this.metadata_min_value = 0;
-            
-            for(i = 0; i<this.metadata_dimensions; i++){
-                current_array = [];
-                for(j in this.data.metadata.nodes){
-                    current_array.push(this.data.metadata.nodes[j][i]);
-                }
-                this.categories2numbers.push(this.get_hash_object(current_array));
-            }
-        }
-        else{
-            var metadata = [];
-            for(i in this.data.metadata.nodes){
-                metadata.push(this.data.metadata.nodes[i]);
-            }
-        
-            var min_max = this.get_min_max(metadata);
-            this.metadata_min_value = min_max[0];
-            this.metadata_max_value = min_max[1];
-        }
+        var metadata = [];
 
-        if(this.settings.independent_columns && this.settings.metadata_type != "categoric"){
-            this.metadata_columns_min_max = this.get_columns_min_max(metadata);
+        for(i in this.data.metadata.nodes){
+            metadata.push(this.data.metadata.nodes[i]);
         }
+        this.metadata_columns_min_max = this.get_columns_min_max_middle(metadata);
     }
 
     if(this.settings.count_column){
@@ -654,7 +657,7 @@ InCHlib.prototype.draw_heatmap = function(){
         this.value_text_ref = new Kinetic.Text({
             fontSize: this.value_font_size,
             fontFamily: this.settings.font,
-            fill: 'black',
+            fill: this.settings.heatmap_font_color,
         });
 
         if(this.value_font_size < 4 || this.pixels_for_leaf < 6){
@@ -733,18 +736,18 @@ InCHlib.prototype.draw_heatmap_row = function(node_id, x1, y1){
     x1 = this.hack_round(x1);
     var data_count = node.data.length;
     
-    for (i = 0; i < node.data.length; i++){
+    for (i = 0; i < data_count; i++){
 
         if(this.features[i] == 1){
             value = node.data[i];
 
             if(this.settings.independent_columns){
-
                 this.min_value = this.columns_min_max[i][0];
                 this.max_value = this.columns_min_max[i][1];
+                this.middle_value = this.columns_min_max[i][2];
             }
 
-            color = this.get_color_for_value(value, this.min_value, this.max_value, this.settings.heatmap_colors);
+            color = this.get_color_for_value(value, this.min_value, this.max_value, this.middle_value, this.settings.heatmap_colors);
             x2 = x1 + this.pixels_for_dimension;
             y2 = y1;
 
@@ -772,17 +775,15 @@ InCHlib.prototype.draw_heatmap_row = function(node_id, x1, y1){
             if(this.features[parseInt(i)+data_count] == 1){
                 value = metadata[i];
                 text_value = value;
-                if(this.settings.metadata_type == "categoric"){
-                    this.metadata_max_value = this.hack_size(this.categories2numbers[i])-1;
+                this.metadata_min_value = this.metadata_columns_min_max[i][0];
+                this.metadata_max_value = this.metadata_columns_min_max[i][1];
+                this.metadata_middle_value = this.metadata_columns_min_max[i][2];
+
+                if(typeof(text_value) != "number"){
                     value = this.categories2numbers[i][value];
                 }
-
-                else if(this.settings.independent_columns){
-                    this.metadata_min_value = this.metadata_columns_min_max[i][0];
-                    this.metadata_max_value = this.metadata_columns_min_max[i][1];
-                }
     
-                color = this.get_color_for_value(value, this.metadata_min_value, this.metadata_max_value, this.settings.metadata_colors);
+                color = this.get_color_for_value(value, this.metadata_min_value, this.metadata_max_value, this.metadata_middle_value, this.settings.metadata_colors);
                 x2 = x1 + this.pixels_for_dimension;
                 y2 = y1;
                     
@@ -830,24 +831,11 @@ InCHlib.prototype.draw_heatmap_row = function(node_id, x1, y1){
         }
         x1 = x2;
     }
-
-    // if(this.current_draw_row_ids){
-    //     value = node_id.split("#");
-    //     value = value[value.length-1];
-    //     console.log(value)
-    //     text = this.value_text_ref.clone({
-    //         x: this.hack_round((x1 + x2)/2),
-    //         y: this.hack_round(y1-this.value_font_size/2),
-    //         text: value,
-    //     })
-    //     row.add(text);
-    // }
     return row;
 }
 
 InCHlib.prototype.draw_heatmap_header = function(){
     this.header_layer = new Kinetic.Layer();
-    // var row_count = (this.zoomed_clusters.length>0)?this.data.nodes[this.zoomed_clusters[this.zoomed_clusters.length-1]].count:this.data.nodes[this.root_id].count;
     var row_count = this.hack_size(this.leaves_y_coordinates);
     var y = (this.settings.column_dendrogram && this.heatmap_header)? this.header_height+(this.pixels_for_leaf*row_count) + 10: this.header_height - 25;
     var rotation = (this.settings.column_dendrogram && this.heatmap_header) ? 45 : -45;
@@ -1318,7 +1306,7 @@ InCHlib.prototype.zoom_cluster = function(node_id){
         this.draw_stage_layer();
         this.draw_row_dendrogram(node_id);
 
-        if(this.visible_features_equal_column_dendrogram_count()){
+        if(this.settings.column_dendrogram && this.visible_features_equal_column_dendrogram_count()){
             this.draw_column_dendrogram(this.column_root_id);
         }
 
@@ -1647,7 +1635,7 @@ InCHlib.prototype.refresh_icon_click = function(){
     this.delete_all_layers();
     this.draw_stage_layer();
     this.draw_row_dendrogram(node_id);
-    if(this.visible_features_equal_column_dendrogram_count()){
+    if(this.settings.column_dendrogram && this.visible_features_equal_column_dendrogram_count()){
         this.draw_column_dendrogram(this.column_root_id);
     }
     this.draw_navigation();
@@ -1836,7 +1824,6 @@ InCHlib.prototype.visible_features_equal_column_dendrogram_count = function(){
         }
     }
     return true;
-    // return this.settings.column_dendrogram && this.visible_features >= this.data.column_dendrogram.nodes[this.column_root_id].count;
 }
 
 InCHlib.prototype.clone_path = function(path){
@@ -1862,27 +1849,24 @@ InCHlib.prototype.clone_rect = function(rect){
 
 }
 
-InCHlib.prototype.get_color_for_value = function(value, min, max, color_scale){
-    if(min == max){
-        return 'rgb('+r1+','+g1+','+b1+')';
-    }
-
+InCHlib.prototype.get_color_for_value = function(value, min, max, middle, color_scale){
     var color = this.colors[color_scale];
     var c1 = color["start"];
     var c2 = color["end"];
-    var middle = false;
+
+    if(min == max){
+        return 'rgb('+c1.r+','+c1.g+','+c1.b+')';
+    }
 
     if("middle" in color){
-        middle = true;
-        var center = (min+max)/2;
         
-        if(value >= center){
-            min = center;
+        if(value >= middle){
+            min = middle;
             c1 = color["middle"];
             c2 = color["end"];
         }
         else{
-            max = center;
+            max = middle;
             c1 = color["start"];
             c2 = color["middle"];
         }
