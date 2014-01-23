@@ -75,6 +75,13 @@ body{
 	margin-right: auto;
 }
 
+.doc #colors_table{
+	width: 90%;
+	margin-left: 20px;
+	margin-top: 15px;
+	margin-bottom: 20px;
+}
+
 .title{
 	font-size: 24px;
 	font-weight: bold;
