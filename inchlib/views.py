@@ -63,3 +63,9 @@ def parse_settings(settings):
 
 	return settings
 
+
+def download(req):
+	pass
+
+def contact(req):
+	pass

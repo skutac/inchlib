@@ -19,7 +19,8 @@
 				// values_center: "zero",
 				// count_column: true,
 			});
-		dendrogram.read_data_from_file("/static/js/ecoli.json");
+		{% load staticfiles %}
+		dendrogram.read_data_from_file("{% static "js/ecoli.json" %}");
 		dendrogram.draw();
 	});
 </script>
@@ -31,14 +32,3 @@
 
 <div id="dendrogram"></div>
 {% endblock %}
-
-4 customizable color attributes influence the visualization:
-
-<ol>
-	<li>Color of the clustered data block.</li>
-	<li>Color of the metadata.</li>
-	<li>Color of the highlighted rows.</li>
-	<li>Color of the label upon hoovering a mouse over the column.</li>
-</ol>
-
-Independent columns attribute defines whether the heatmap color shades are calculated on the values of all columns together or for each column separately. 
