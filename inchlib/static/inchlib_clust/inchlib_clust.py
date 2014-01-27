@@ -1,10 +1,8 @@
 #coding: utf-8
 
-import csv, json, copy, re
+import csv, json, copy, re, argparse
 
-import hcluster, fastcluster
-import numpy, scipy
-
+import numpy, scipy, hcluster, fastcluster
 from scipy import spatial
 
 RAW_LNKAGES = ["ward", "centroid"]
@@ -457,25 +455,40 @@ class Cluster():
             self.header = reordered_data
         return
 
-if __name__ == '__main__':
-    
+def process(arguments):
     c = Cluster()
-    # c.read_csv(filename="../static/data/target_correlation_matrix.csv", delimiter=",", header=False)
-    # c.cluster_data(data_type="binary", distance_measure="jaccard", linkage="ward", axis="both")
+    c.read_csv(arguments.file, arguments.delimiter, arguments.header)
+    print "ok"
 
-    # d = Dendrogram(c, heatmap=True)
-    # d.create_dendrogram(contract_clusters=False, cluster_count=1000, write_data=True)
-    # # d.add_metadata(metadata_file="../static/data/activity_imprints_agonist.csv", delimiter=",", header=True)
-    # d.export_dendrogram_as_json("../static/dendrograms/target_correlation_matrix.json")
-
-    # c = Cluster()
-    c.read_csv(filename="/home/ctibor/Desktop/steroid_matrices/chemogenomic_matrix_b_score.csv", delimiter=",", header=True)
-    # c.remove_null_rows_from_data()
-    # c.remove_zero_variance_columns()
-    c.cluster_data(data_type="nonbinary", distance_measure="euclidean", linkage="ward", axis="both")
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument("file", type=str, help="csv(text) file with delimited values")
+    parser.add_argument("distance", type=str, help="set the distance to use for clustering")
+    parser.add_argument("linkage", type=str, help="set the linkage to use for clustering")
+    parser.add_argument("-d", "--delimiter", type=str, help="delimiter of values in datafile")
+    parser.add_argument("--header", help="whether the first row of datafile is a header", action="store_true")
     
-    d = Dendrogram(c, heatmap=True)
-    d.create_dendrogram(contract_clusters=False, cluster_count=20, write_data=True)
-    # metadata = [["id","metadata"],[1, "positive"],[2,"negative"]]
-    # d.add_metadata(metadata, header=True)
-    d.export_dendrogram_as_json("/home/ctibor/Desktop/steroid_matrices/bscore_steroid_matrix.csv")
+
+    args = parser.parse_args()
+    process(args)
+    
+    # c = Cluster()
+    # # c.read_csv(filename="../static/data/target_correlation_matrix.csv", delimiter=",", header=False)
+    # # c.cluster_data(data_type="binary", distance_measure="jaccard", linkage="ward", axis="both")
+
+    # # d = Dendrogram(c, heatmap=True)
+    # # d.create_dendrogram(contract_clusters=False, cluster_count=1000, write_data=True)
+    # # # d.add_metadata(metadata_file="../static/data/activity_imprints_agonist.csv", delimiter=",", header=True)
+    # # d.export_dendrogram_as_json("../static/dendrograms/target_correlation_matrix.json")
+
+    # # c = Cluster()
+    # c.read_csv(filename="/home/ctibor/Desktop/steroid_matrices/chemogenomic_matrix_b_score.csv", delimiter=",", header=True)
+    # # c.remove_null_rows_from_data()
+    # # c.remove_zero_variance_columns()
+    # c.cluster_data(data_type="nonbinary", distance_measure="euclidean", linkage="ward", axis="both")
+    
+    # d = Dendrogram(c, heatmap=True)
+    # d.create_dendrogram(contract_clusters=False, cluster_count=20, write_data=True)
+    # # metadata = [["id","metadata"],[1, "positive"],[2,"negative"]]
+    # # d.add_metadata(metadata, header=True)
+    # d.export_dendrogram_as_json("/home/ctibor/Desktop/steroid_matrices/bscore_steroid_matrix.csv")
