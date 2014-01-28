@@ -124,7 +124,6 @@ class Dendrogram():
         if self.axis == "both" and len(self.cluster_object.column_clustering):
             column_dendrogram = hcluster.to_tree(self.cluster_object.column_clustering)            
             self.dendrogram["column_dendrogram"] = self.get_column_dendrogram()
-
         return
 
     def contract_data(self):
@@ -312,7 +311,7 @@ class Dendrogram():
             data_start = 1
         
         for row in rows[data_start:]:
-            metadata[str(row[0])] = [int(r) for r in row[1:]]
+            metadata[str(row[0])] = [r for r in row[1:]]
 
         return metadata, metadata_header
 
@@ -457,38 +456,35 @@ class Cluster():
 
 def process(arguments):
     c = Cluster()
-    c.read_csv(arguments.file, arguments.delimiter, arguments.header)
-    print "ok"
+    c.read_csv(arguments.data_file, arguments.data_delimiter, arguments.data_header)
+    c.cluster_data(data_type=arguments.datatype, distance_measure=arguments.distance, linkage=arguments.linkage, axis=arguments.axis)
+
+    d = Dendrogram(c, heatmap=True)
+    d.create_dendrogram(contract_clusters=arguments.compress, cluster_count=arguments.compress, write_data=arguments.dont_write_data)
+    d.add_metadata_from_file(metadata_file=arguments.metadata, delimiter=arguments.metadata_delimiter, header=arguments.metadata_header)
+    if arguments.output_file:
+        d.export_dendrogram_as_json(arguments.output_file)
+    else:
+        print json.dumps(d.dendrogram, indent=4)
+
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument("file", type=str, help="csv(text) file with delimited values")
-    parser.add_argument("distance", type=str, help="set the distance to use for clustering")
-    parser.add_argument("linkage", type=str, help="set the linkage to use for clustering")
-    parser.add_argument("-d", "--delimiter", type=str, help="delimiter of values in datafile")
-    parser.add_argument("--header", help="whether the first row of datafile is a header", action="store_true")
     
-
+    parser.add_argument("data_file", type=str, help="csv(text) data file with delimited values")
+    parser.add_argument("-o", "--output_file", type=str, help="the name of output file")
+    parser.add_argument("-d", "--distance", type=str, default="euclidean", help="set the distance to use for clustering")
+    parser.add_argument("-l", "--linkage", type=str, default="ward", help="set the linkage to use for clustering")
+    parser.add_argument("-a", "--axis", type=str, default="row", help="define clustering axis (row/both)")
+    parser.add_argument("-dt", "--datatype", type=str, default="numeric", help="specify the type of the data (numeric/binary)")
+    parser.add_argument("-dd", "--data_delimiter", type=str, default=",", help="delimiter of values in data file")
+    parser.add_argument("-m", "--metadata", type=str, default=None, help="csv(text) metadata file with delimited values")
+    parser.add_argument("-md", "--metadata_delimiter", type=str, default=",", help="delimiter of values in metadata file")
+    parser.add_argument("-dh", "--data_header", default=False, help="whether the first row of data file is a header", action="store_true")
+    parser.add_argument("-mh", "--metadata_header", default=False, help="whether the first row of metadata file is a header", action="store_true")
+    parser.add_argument("-c", "--compress", type=int, default=0, help="compress the data to contain maximum of specified count of rows")
+    parser.add_argument("-dwd", "--dont_write_data", default=False, help="don't write clustered data to the inchlib data format", action="store_true")
+    
     args = parser.parse_args()
     process(args)
     
-    # c = Cluster()
-    # # c.read_csv(filename="../static/data/target_correlation_matrix.csv", delimiter=",", header=False)
-    # # c.cluster_data(data_type="binary", distance_measure="jaccard", linkage="ward", axis="both")
-
-    # # d = Dendrogram(c, heatmap=True)
-    # # d.create_dendrogram(contract_clusters=False, cluster_count=1000, write_data=True)
-    # # # d.add_metadata(metadata_file="../static/data/activity_imprints_agonist.csv", delimiter=",", header=True)
-    # # d.export_dendrogram_as_json("../static/dendrograms/target_correlation_matrix.json")
-
-    # # c = Cluster()
-    # c.read_csv(filename="/home/ctibor/Desktop/steroid_matrices/chemogenomic_matrix_b_score.csv", delimiter=",", header=True)
-    # # c.remove_null_rows_from_data()
-    # # c.remove_zero_variance_columns()
-    # c.cluster_data(data_type="nonbinary", distance_measure="euclidean", linkage="ward", axis="both")
-    
-    # d = Dendrogram(c, heatmap=True)
-    # d.create_dendrogram(contract_clusters=False, cluster_count=20, write_data=True)
-    # # metadata = [["id","metadata"],[1, "positive"],[2,"negative"]]
-    # # d.add_metadata(metadata, header=True)
-    # d.export_dendrogram_as_json("/home/ctibor/Desktop/steroid_matrices/bscore_steroid_matrix.csv")
