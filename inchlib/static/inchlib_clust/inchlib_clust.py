@@ -1,14 +1,13 @@
 #coding: utf-8
-
 import csv, json, copy, re, argparse
 
 import numpy, scipy, hcluster, fastcluster
 from scipy import spatial
 
 RAW_LNKAGES = ["ward", "centroid"]
-NONBINARY_DISTANCES =  ["braycurtis", "canberra", "chebyshev", "cityblock", "correlation", "cosine", "euclidean", "mahalanobis", "minkowski", "seuclidean", "sqeuclidean"]
+NUMERIC_DISTANCES =  ["braycurtis", "canberra", "chebyshev", "cityblock", "correlation", "cosine", "euclidean", "mahalanobis", "minkowski", "seuclidean", "sqeuclidean"]
 BINARY_DISTANCES = ["dice","hamming","jaccard","kulsinski","matching","rogerstanimoto","russellrao","sokalmichener","sokalsneath","yule"]
-DATA_TYPES = {"nonbinary": NONBINARY_DISTANCES,
+DATA_TYPES = {"numeric": NUMERIC_DISTANCES,
               "binary":BINARY_DISTANCES}
 
 class Dendrogram():
@@ -25,7 +24,7 @@ class Dendrogram():
         self.heatmap = heatmap
         self.dendrogram = False
 
-    def get_dendrogram(self, write_data=True):
+    def __get_dendrogram__(self, write_data=True):
         root, nodes = hcluster.to_tree(self.clustering, rd=True)
         node_id2node = {}
         dendrogram = {"nodes":{}}
@@ -56,7 +55,7 @@ class Dendrogram():
                 node_id = self.data_names[original_id]
 
                 while node_id in dendrogram["nodes"]:
-                    node_id = self.create_unique_id(node_id)
+                    node_id = self.__create_unique_id__(node_id)
 
                 if node_id2node[node["parent"]]["left_id"] == n:
                     node_id2node[node["parent"]]["left_id"] = node_id
@@ -75,7 +74,7 @@ class Dendrogram():
 
         return dendrogram
 
-    def get_column_dendrogram(self):
+    def __get_column_dendrogram__(self):
         root, nodes = hcluster.to_tree(self.cluster_object.column_clustering, rd=True)
         node_id2node = {}
         dendrogram = {"nodes":{}}
@@ -104,15 +103,15 @@ class Dendrogram():
 
     def create_dendrogram(self, contract_clusters=False, cluster_count=1000, write_data=True):
         print "Building dendrogram..."
-        self.dendrogram = self.get_dendrogram(write_data)
+        self.dendrogram = self.__get_dendrogram__(write_data)
 
         self.contract_clusters = contract_clusters
         self.contract_cluster_treshold = 0
         if self.contract_clusters:
-            self.contract_cluster_treshold = self.get_distance_treshold(cluster_count)
+            self.contract_cluster_treshold = self.__get_distance_treshold__(cluster_count)
             print "Distance treshold for contraction:", self.contract_cluster_treshold
             if self.contract_cluster_treshold >= 0:
-                self.contract_data()
+                self.__contract_data__()
 
         if self.heatmap:
             self.dendrogram["heatmap"] = {}
@@ -123,10 +122,10 @@ class Dendrogram():
         
         if self.axis == "both" and len(self.cluster_object.column_clustering):
             column_dendrogram = hcluster.to_tree(self.cluster_object.column_clustering)            
-            self.dendrogram["column_dendrogram"] = self.get_column_dendrogram()
+            self.dendrogram["column_dendrogram"] = self.__get_column_dendrogram__()
         return
 
-    def contract_data(self):
+    def __contract_data__(self):
         nodes = {}
         to_remove = set()
         
@@ -167,11 +166,11 @@ class Dendrogram():
                 rows = zip(*self.dendrogram["nodes"][k]["data"])
                 self.dendrogram["nodes"][k]["data"] = [round(numpy.median(row), 3) for row in rows]
 
-        self.adjust_node_counts()
+        self.__adjust_node_counts__()
 
         return
 
-    def adjust_node_counts(self):
+    def __adjust_node_counts__(self):
         leaves = []
 
         for n in self.dendrogram["nodes"]:
@@ -192,7 +191,7 @@ class Dendrogram():
                     parent_id = node["parent"]
         return
 
-    def create_unique_id(self, node_id):
+    def __create_unique_id__(self, node_id):
         if re.match(".*?#\d+", node_id):
             node_id, num = node_id.split("#")
             num = str(int(num)+1)
@@ -201,7 +200,7 @@ class Dendrogram():
             node_id = "#".join([node_id, "2"])
         return node_id
 
-    def get_distance_treshold(self, cluster_count=100):
+    def __get_distance_treshold__(self, cluster_count=100):
         print "Calculating distance treshold for cluster contraction..."
         if cluster_count >= self.tree.count:
             return -1
@@ -224,11 +223,6 @@ class Dendrogram():
 
         return i+test_step*2
 
-    def add_heatmap_settings(self):
-        self.dendrogram["heatmap"] = {}
-        if self.header:
-            self.dendrogram["heatmap"]["header"] = [h for h in self.header]
-
     def export_dendrogram_as_json(self, filename=None):
         dendrogram_json = json.dumps(self.dendrogram, indent=4)
         if filename:
@@ -237,16 +231,16 @@ class Dendrogram():
         return dendrogram_json
 
     def add_metadata_from_file(self, metadata_file, delimiter, header=True):
-        self.metadata, self.metadata_header = self.read_metadata_file(metadata_file, delimiter, header)
-        self.connect_metadata_to_data()
+        self.metadata, self.metadata_header = self.__read_metadata_file__(metadata_file, delimiter, header)
+        self.__connect_metadata_to_data__()
         return
 
     def add_metadata(self, metadata, header=True):
-        self.metadata, self.metadata_header = self.read_metadata(metadata, header)
-        self.connect_metadata_to_data()
+        self.metadata, self.metadata_header = self.__read_metadata__(metadata, header)
+        self.__connect_metadata_to_data__()
         return
 
-    def connect_metadata_to_data(self):
+    def __connect_metadata_to_data__(self):
         if len(set(self.metadata.keys()) & set(self.data_names)) == 0:
             raise Exception("Metadata IDs must correspond with original data IDs.")
 
@@ -283,7 +277,7 @@ class Dendrogram():
 
         return
 
-    def read_metadata(self, metadata, header):
+    def __read_metadata__(self, metadata, header):
         metadata_header = []
         rows = metadata
         metadata = {}
@@ -299,7 +293,7 @@ class Dendrogram():
         return metadata, metadata_header
 
         
-    def read_metadata_file(self, metadata_file, delimiter, header):
+    def __read_metadata_file__(self, metadata_file, delimiter, header):
         csv_reader = csv.reader(open(metadata_file, "r"), delimiter=delimiter)
         metadata_header = []
         rows = [row for row in csv_reader]
@@ -341,7 +335,7 @@ class Cluster():
         self.data = [[float(value) for value in row[1:]] for row in rows[data_start:]]
         return
 
-    def binarize_nominal_data(self):
+    def __binarize_nominal_data__(self):
         nominal_data = zip(*self.data)
         pos2bits = {}
         self.binarized_data = []
@@ -363,7 +357,7 @@ class Cluster():
         self.data = self.binarized_data
         return
 
-    def integerize_nominal_data(self):
+    def __integerize_nominal_data(self__):
         nominal_data = zip(*self.original_data)
         pos2categories = {}
         self.integerized_data = []
@@ -383,14 +377,14 @@ class Cluster():
 
             
 
-    def cluster_data(self, data_type="nonbinary", distance_measure="euclidean", linkage="single", axis="row"):
+    def cluster_data(self, data_type="numeric", distance_measure="euclidean", linkage="single", axis="row"):
         print "Cluster analysis setup:", data_type, distance_measure, linkage, axis
         self.data_type = data_type
         self.clustering_axis = axis
         linkage = str(linkage)
 
         if data_type == "nominal":
-            self.binarize_nominal_data()
+            self.__binarize_nominal_data__()
         
         if linkage in RAW_LNKAGES:
             self.clustering = fastcluster.linkage(self.data, method=linkage, metric=distance_measure)
@@ -398,8 +392,8 @@ class Cluster():
         else:
             self.distance_vector = fastcluster.pdist(self.data, distance_measure)
 
-            if data_type == "nonbinary" and not distance_measure in DATA_TYPES[data_type]:
-                raise Exception("".join(["When clustering nonbinary data you must choose from these distance measures: ", ", ".join(DATA_TYPES[data_type])]))
+            if data_type == "numeric" and not distance_measure in DATA_TYPES[data_type]:
+                raise Exception("".join(["When clustering numeric data you must choose from these distance measures: ", ", ".join(DATA_TYPES[data_type])]))
             elif (data_type == "binary" or data_type == "nominal") and not distance_measure in DATA_TYPES[data_type]:
                 raise Exception("".join(["When clustering binary or nominal data you must choose from these distance measures: ", ", ".join(DATA_TYPES[data_type])]))
             elif not data_type in DATA_TYPES.keys():
@@ -409,10 +403,10 @@ class Cluster():
 
         self.column_clustering = []
         if axis == "both" and len(self.data[0]) > 2:
-            self.cluster_columns()
+            self.__cluster_columns__()
 
         if data_type == "nominal":
-            self.integerize_nominal_data()
+            self.__integerize_nominal_data__()
 
         return
 
@@ -430,14 +424,14 @@ class Cluster():
         self.data = zip(*columns)
         return
 
-    def cluster_columns(self):
+    def __cluster_columns__(self):
         columns = zip(*self.data)
         self.column_clustering = fastcluster.linkage(columns, method="ward", metric="euclidean")
         self.data_order = hcluster.leaves_list(self.column_clustering)
-        self.reorder_data()
+        self.__reorder_data__()
         return
 
-    def reorder_data(self):
+    def __reorder_data__(self):
         for i in xrange(len(self.data)):
             reordered_data = []
             for j in self.data_order:
@@ -454,7 +448,7 @@ class Cluster():
             self.header = reordered_data
         return
 
-def process(arguments):
+def _process_(arguments):
     c = Cluster()
     c.read_csv(arguments.data_file, arguments.data_delimiter, arguments.data_header)
     c.cluster_data(data_type=arguments.datatype, distance_measure=arguments.distance, linkage=arguments.linkage, axis=arguments.axis)
@@ -470,7 +464,7 @@ def process(arguments):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    
+
     parser.add_argument("data_file", type=str, help="csv(text) data file with delimited values")
     parser.add_argument("-o", "--output_file", type=str, help="the name of output file")
     parser.add_argument("-d", "--distance", type=str, default="euclidean", help="set the distance to use for clustering")
@@ -486,5 +480,5 @@ if __name__ == '__main__':
     parser.add_argument("-dwd", "--dont_write_data", default=False, help="don't write clustered data to the inchlib data format", action="store_true")
     
     args = parser.parse_args()
-    process(args)
+    _process_(args)
     
