@@ -3,16 +3,15 @@
 {% block content %}
 <script>
 	$(document).ready(function(){
-		window.dendrogram = new InCHlib("dendrogram", 
+		window.dendrogram = new InCHlib( 
 			{
+                target: "dendrogram",
 				metadata: true, 
 				dendrogram: true,
-				metadata_type: "categoric", 
 				column_dendrogram:true, 
-				max_height: 35000,
 				font: "Inconsolata",
 				metadata_colors: "Reds",
-				independent_columns_coloring: true
+				independent_columns: true
 			});
 		dendrogram.read_data({{ example.data }});
 		dendrogram.draw();
@@ -49,10 +48,10 @@
 <div class="data">    "<span id="format_header"><a href="#header">header</a></span>": ["First", "Second", "Third"],
 </div>
 <div class="data">    "<a href="#metadata">metadata</a>": {
-        "<span id="format_metadata_header"><a href="#metadata_header">header</a></span>": ["metadata"], 
+        "<span id="format_metadata_header"><a href="#metadata_header">header</a></span>": ["Numeric", "Categoric"], 
         "<span id="format_metadata_nodes"><a href="#metadata_nodes">nodes</a></span>": {
-            "1": ["positive"], 
-            "2": ["negative"]
+            "1": [0.03, "positive"], 
+            "2": [0.02, "negative"]
         }
     }, 
 </div>

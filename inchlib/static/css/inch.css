@@ -118,7 +118,7 @@ body{
 	margin-top: 20px;
 }
 
-#example .settings, #example .data, .doc .default_value, #row_ids_callback, .input_example .data{
+#example .settings, #example .data, #example .code, .doc .default_value, #row_ids_callback, .input_example .data{
 	margin-top: 10px;
 	background-color: #E6E6E6;
 	padding: 10px;

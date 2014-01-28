@@ -21,6 +21,7 @@ function InCHlib(settings){
         "label_color": "grey",
         "draw_values" : true,
         "count_column": false,
+        "count_column_colors": "Reds",
         "min_row_height": false,
         "max_row_height": 25,
         "max_column_width": 100,
@@ -424,6 +425,7 @@ InCHlib.prototype.draw_row_dendrogram = function(node_id){
         current_right_count = this.data.nodes[node.right_id].count;
     }
     this.draw_row_dendrogram_node(node_id, node, current_left_count, current_right_count, 0, y);
+    this.middle_item_count = (this.min_item_count+this.max_item_count)/2;
     this.draw_distance_scale(node.distance);
     this.stage.add(this.dendrogram_layer);
 
@@ -809,7 +811,7 @@ InCHlib.prototype.draw_heatmap_row = function(node_id, x1, y1){
     if(this.settings.count_column && this.features[this.dimensions-1] == 1){
         x2 = x1 + this.pixels_for_dimension;
         var count = node.items.length;
-        color = this.get_color_for_value(count, this.min_item_count, this.max_item_count, this.settings.metadata_colors);
+        color = this.get_color_for_value(count, this.min_item_count, this.max_item_count, this.middle_item_count, this.settings.count_column_colors);
         
         line = this.line_ref.clone({
                 stroke: color,

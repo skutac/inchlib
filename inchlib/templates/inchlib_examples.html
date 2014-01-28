@@ -64,6 +64,15 @@
 
 	<div class="description">{% autoescape off %}{{ example.description }} {% endautoescape %}</div>
 
+	{% if example.exampleid == 1 %}
+		<div class="example_settings">
+			<div class="small_title">Example code</div>
+			<div class="code">var inchlib = InCHlib({target:"dendrogram"});
+inchlib.read_data(json_data);
+inchlib.draw();</div>
+		</div>
+	{% endif %}
+
 	<div class="example_settings">
 		<div class="small_title">Example settings</div>
 		<div class="settings"></div>
