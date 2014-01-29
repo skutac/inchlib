@@ -1,6 +1,7 @@
 {% extends "inchlib_base.html" %}
 
 {% block content %}
+{% load staticfiles %}
 <script>
 	var settings = {{ settings }};
 
@@ -26,7 +27,7 @@
 
 		window.dendrogram = new InCHlib({{ settings }});
 		dendrogram.settings.font = "Inconsolata";
-		dendrogram.read_data({{ example.data }});
+		dendrogram.read_data_from_file("{% static "static/data/iris.json" %}");
 		dendrogram.draw();
 
 		{% if example.exampleid == 9 %}
