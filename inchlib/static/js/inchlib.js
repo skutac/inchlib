@@ -77,6 +77,8 @@ function InCHlib(settings){
 
 InCHlib.prototype.read_data = function(json){
     this.data = json;
+    this.data.header = this.data.data.header;
+    this.data.nodes = this.data.data.nodes;
 }
 
 InCHlib.prototype.read_data_from_file = function(json){
@@ -88,6 +90,8 @@ InCHlib.prototype.read_data_from_file = function(json){
         dataType: 'json',
         success: function(data){
             self.data = data;
+            self.data.header = self.data.data.header;
+            self.data.nodes = self.data.data.nodes;
         },
         async: false
     });

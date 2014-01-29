@@ -118,7 +118,7 @@ body{
 	margin-top: 20px;
 }
 
-#example .settings, #example .data, #example .code, .doc .default_value, #row_ids_callback, .input_example .data{
+#example .settings, #example .data, .doc .default_value, #row_ids_callback, .input_example .data, .code{
 	margin-top: 10px;
 	background-color: #E6E6E6;
 	padding: 10px;
@@ -130,6 +130,10 @@ body{
 	font-size: 14px;
 	white-space:pre;
 	/*font-weight: bold;*/
+}
+
+.js_comment{
+	white-space: normal;
 }
 
 #row_ids_callback{
@@ -159,7 +163,6 @@ body{
 }
 
 .format_desc{
-	/*margin-top: 20px;*/
 	width: 90%;
 	margin-left: auto;
 	margin-right: auto;
@@ -175,4 +178,41 @@ body{
 	margin-right: auto;
 	margin-left: auto;
 	margin-top : 30px;
+}
+
+.input_example .example_data{
+	font-weight: bold;
+}
+
+#inchlib_described{
+	margin-top: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	height: 350px;
+}
+
+.input_example #data{
+	background-color: rgba(35,139,69,0.7);
+}
+
+.input_example #metadata{
+	background-color: rgba(203,24,29,0.7);
+}
+
+.input_example #column_dendrogram{
+	background-color: rgba(45,74,243,0.6);
+}
+
+.js_comment{
+	color: rgb(56,56,56);
+}
+
+.interface{
+	margin-top: 20px;
+	line-height: 120%;
+}
+
+.interface .small_title{
+	margin-left: 20px;
 }

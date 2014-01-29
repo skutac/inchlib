@@ -65,7 +65,10 @@ def parse_settings(settings):
 
 
 def download(req):
-	pass
+	return render_to_response("inchlib_download.html", {})
 
 def contact(req):
-	pass
+	return render_to_response("inchlib_contact.html", {})
+
+def inchlib_clust(req):
+	return render_to_response("inchlib_clust.html", {})

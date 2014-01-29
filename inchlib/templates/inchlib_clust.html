@@ -1,0 +1,75 @@
+{% extends "inchlib_base.html" %}
+
+{% block content %}
+<hr/>
+<div class="pure-menu pure-menu-open pure-menu-horizontal">
+    <ul>
+        <li><a href="{% url input_format %}">Description</a></li>
+        <li class="pure-menu-selected"><a href="{% url inchlib_clust %}">Inchlib_clust</a></li>
+    </ul>
+</div>
+
+<div class="desc">
+    <b>Inchlib_clust</b> is a python wrapper for clustering and generation of <b>InCHlib</b> input data format.
+
+</div>
+
+
+<div class="interface">
+    <div class="small_title">Command-line interface</div>
+    <div class="code">
+    positional arguments:
+      <b>data_file             csv(text) data file with delimited values</b>
+
+    optional arguments:
+      <b>-h, --help</b>            show this help message and exit
+      <b>-o OUTPUT_FILE, --output_file OUTPUT_FILE</b>
+                            the name of output file (default: None)
+      <b>-d DISTANCE, --distance DISTANCE</b>
+                            set the distance to use for clustering (default:
+                            euclidean)
+      <b>-l LINKAGE, --linkage LINKAGE</b>
+                            set the linkage to use for clustering (default: ward)
+      <b>-a AXIS, --axis AXIS</b>  define clustering axis (row/both) (default: row)
+      <b>-dt DATATYPE, --datatype DATATYPE</b>
+                            specify the type of the data (numeric/binary)
+                            (default: numeric)
+      <b>-dd DATA_DELIMITER, --data_delimiter DATA_DELIMITER</b>
+                            delimiter of values in data file (default: ,)
+      <b>-m METADATA, --metadata METADATA</b>
+                            csv(text) metadata file with delimited values
+                            (default: None)
+      <b>-md METADATA_DELIMITER, --metadata_delimiter METADATA_DELIMITER</b>
+                            delimiter of values in metadata file (default: ,)
+      <b>-dh, --data_header</b>    whether the first row of data file is a header
+                            (default: False)
+      <b>-mh, --metadata_header</b>
+                            whether the first row of metadata file is a header
+                            (default: False)
+      <b>-c COMPRESS, --compress COMPRESS</b>
+                            compress the data to contain maximum of specified
+                            count of rows (default: 0)
+      <b>-dwd, --dont_write_data</b>
+                            don't write clustered data to the inchlib data format
+                            (default: False)
+    </div>
+</div>
+
+<div class="interface">
+    <div class="small_title">Programming interface</div>
+    <div class="code">
+    import inchlibclust
+
+    c = inchlib_clust.Cluster()
+    c.read_csv(filename="filename", delimiter=",", header=bool)
+    c.cluster_data(data_type="numeric", distance_measure="euclidean", linkage="ward", axis="both")
+
+    d = inchlib_clust.Dendrogram(c, heatmap=bool)
+    d.create_dendrogram(contract_clusters=bool, cluster_count=1000, write_data=bool)
+    d.add_metadata_from_file(metadata_file="filename", delimiter=",", header=bool)
+    d.export_dendrogram_as_json("filename")
+    </div>
+</div>
+
+
+{% endblock %}

@@ -11,79 +11,94 @@
 				column_dendrogram:true, 
 				font: "Inconsolata",
 				metadata_colors: "Reds",
-				independent_columns: true
+				independent_columns: false
 			});
 		dendrogram.read_data({{ example.data }});
 		dendrogram.draw();
 	});
 </script>
+<hr/>
+<div class="pure-menu pure-menu-open pure-menu-horizontal">
+    <ul>
+        <li class="pure-menu-selected"><a href="{% url input_format %}">Description</a></li>
+        <li><a href="{% url inchlib_clust %}">Inchlib_clust</a></li>
+    </ul>
+</div>
+
 <div class="desc"><b>JSON</b> <i>(Javascript Object Notation)</i> serves as an input format for <b>InCHlib</b>. Its structure - defined by us - is easy to read/write for both human and computer. The structure of dendrogram is determined by parent/child relationships and not by the structure of format itself. The reason is to avoid the brackety madness.</div>
+
+{% load staticfiles %}
+<img id="inchlib_described" src="{% static "img/inchlib_described.png" %}" alt="InCHlib described" />
 
 <div class="input_example">
 	<div class="example_data">
-		<div class="data">{
-    "<span id="format_nodes"><a href="#nodes">nodes</a></span>": {
-        "1": {
-            "<span id="format_count"><a href="#count">count</a></span>": 1, 
-            "<span id="format_distance"><a href="#distance">distance</a></span>": 0, 
-            "<span id="format_data"><a href="#data">data</a></span>": [1.4, 3.5, 5.1], 
-            "<span id="format_parent"><a href="#parent">parent</a></span>": "node@2", 
-            "<span id="format_items"><a href="#items">items</a></span>": ["1"]
-        }, 
-        "node@2": {
-            "<a href="#count">count</a>": 2, 
-            "<a href="#distance">distance</a>": 3.32, 
-            "<span id="format_left_id"><a href="left_id">left_id</a></span>": "1", 
-            "<span id="format_right_id"><a href="right_id">right_id</a></span>": "2"
-        }, 
-        "2": {
-            "<a href="#count">count</a>": 1, 
-            "<a href="#distance">distance</a>": 0, 
-            "<a href="#data">data</a>": [2.0, 1.0, 3.0], 
-            "<a href="#parent">parent</a>": "node@2", 
-            "<a href="#items">items</a>": ["2"]
-        }
+		<div class="data" id="data">{
+    "<span id="format_data"><a href="#data">data</a></span>": {    <span class="js_comment">//contains nodes and header section of clustered data</span>
+
+        "<span id="format_nodes"><a href="#nodes">nodes</a></span>": {    <span class="js_comment">//contains nodes and leafs (terminal lines of dendrogram)</span>
+            "leaf_1": {
+                "<span id="format_count"><a href="#count">count</a></span>": 1,    <span class="js_comment">//the count of underlying heatmap rows</span>
+                "<span id="format_distance"><a href="#distance">distance</a></span>": 0,    <span class="js_comment">//the distance from dendrogram base (heatmap)</span>
+                "<span id="format_data"><a href="#data">data</a></span>": [1.4, 3.5, 5.1],    <span class="js_comment">//the list of values in heatmap row</span>
+                "<span id="format_parent"><a href="#parent">parent</a></span>": "node_1",    <span class="js_comment">//the ID of a parent node</span>
+                "<span id="format_items"><a href="#items">items</a></span>": ["item_id"]    <span class="js_comment">//the list of IDs represented by the heatmap row</span>
+            }, 
+            "node_1": {
+                "<a href="#count">count</a>": 2, 
+                "<a href="#distance">distance</a>": 3.32, 
+                "<span id="format_left_id"><a href="left_id">left_id</a></span>": "leaf_1",   <span class="js_comment">//the ID of the left child of the node</span>
+                "<span id="format_right_id"><a href="right_id">right_id</a></span>": "leaf_2"   <span class="js_comment">//the ID of the right child of the node</span>
+            }, 
+            "leaf_2": {
+                "<a href="#count">count</a>": 1, 
+                "<a href="#distance">distance</a>": 0, 
+                "<a href="#data">data</a>": [2.0, 1.0, 3.0], 
+                "<a href="#parent">parent</a>": "node_1", 
+                "<a href="#items">items</a>": ["item_id"]
+            }
+        },
+
+        "<span id="format_header"><a href="#header">header</a></span>": ["First", "Second", "Third"],    <span class="js_comment">//the list of the column header</span>
     },
-</div>
-<div class="data">    "<span id="format_header"><a href="#header">header</a></span>": ["First", "Second", "Third"],
-</div>
-<div class="data">    "<a href="#metadata">metadata</a>": {
-        "<span id="format_metadata_header"><a href="#metadata_header">header</a></span>": ["Numeric", "Categoric"], 
-        "<span id="format_metadata_nodes"><a href="#metadata_nodes">nodes</a></span>": {
-            "1": [0.03, "positive"], 
+    </div>
+
+<div class="data" id="metadata">    "<a href="#metadata">metadata</a>": {    <span class="js_comment">//contains nodes and header section of metadata</span>
+        "<span id="format_metadata_header"><a href="#metadata_header">header</a></span>": ["Numeric", "Categoric"],    <span class="js_comment">//the list of the column header</span>
+        "<span id="format_metadata_nodes"><a href="#metadata_nodes">nodes</a></span>": {    <span class="js_comment">//contains row IDs with metadata values</span>
+            "1": [0.03, "positive"],    <span class="js_comment">//the list of metadata values</span>
             "2": [0.02, "negative"]
         }
     }, 
 </div>
-<div class="data">    "<a href="#column_dendrogram">column_dendrogram</a>": {
-        "nodes": {
-            "node@2": {
+<div class="data" id="column_dendrogram">    "<a href="#column_dendrogram">column_dendrogram</a>": {    <span class="js_comment">//contains nodes section of column dendrogram</span>
+        "nodes": {    <span class="js_comment">//contains nodes of column dendrogram</span>
+            "node_3": {
                 "<a href="#count">count</a>": 1, 
                 "<a href="#distance">distance</a>": 0, 
-                "<a href="#parent">parent</a>": "node@3"
+                "<a href="#parent">parent</a>": "node_4"
             }, 
-            "node@3": {
+            "node_4": {
                 "<a href="#count">count</a>": 2, 
                 "<a href="#distance">distance</a>": 2.326, 
-                "<a href="left_id">left_id</a>": "node@1", 
-                "<a href="#parent">parent</a>": "node@4", 
-                "<a href="right_id">right_id</a>": "node@2"
+                "<a href="left_id">left_id</a>": "node_2", 
+                "<a href="#parent">parent</a>": "node_5", 
+                "<a href="right_id">right_id</a>": "node_3"
             }, 
-            "node@0": {
+            "node_1": {
                 "<a href="#count">count</a>": 1, 
                 "<a href="#distance">distance</a>": 0, 
-                "<a href="#parent">parent</a>": "node@4"
+                "<a href="#parent">parent</a>": "node_5"
             }, 
-            "node@1": {
+            "node_2": {
                 "<a href="#count">count</a>": 1, 
                 "<a href="#distance">distance</a>": 0, 
-                "<a href="#parent">parent</a>": "node@3"
+                "<a href="#parent">parent</a>": "node_4"
             }, 
-            "node@4": {
+            "node_5": {
                 "<a href="#count">count</a>": 3, 
                 "<a href="#distance">distance</a>": 3.516, 
-                "<a href="left_id">left_id</a>": "node@0", 
-                "<a href="right_id">right_id</a>": "node@3"
+                "<a href="left_id">left_id</a>": "node_1", 
+                "<a href="right_id">right_id</a>": "node_4"
             }
         }
     }
@@ -103,27 +118,27 @@
 			<p><b>Leaf-node</b> is a terminal part of dendrogram which has no child-nodes. The distance from the dendrogram base is <b>0</b> and the count is <b>1</b>. Leaf-node also has additional attribute <i>data</i> which is an array representing the heatmap row. Another attribute - <i>items</i> - is an array containing one or more IDs of items which are represented by the row.</p>
 		
 			<ul>
-				<li><a href="#format_count" id="count"><b>count</b></a> - count of rows in the underlying hierarchy of node</li>
-				<li><a href="#format_distance" id="distance"><b>distance</b></a> - distance from the base of the dendrogram</li>
-				<li><a href="#format_parent" id="parent"><b>parent</b></a> - ID of a parent node</li>
-				<li><a href="#format_left_id" id="left_id"><b>left_id</b></a> - ID of a left child</li>
-				<li><a href="#format_right_id" id="right_id"><b>right_id</b></a> - ID of a right child</li>
-				<li><a href="#format_items" id="items"><b>items</b></a> - ID/IDs of items represented by the row</li>
-				<li><a href="#format_data" id="data"><b>data</b></a> - array of values representing the heatmap row</li>
+				<li><a href="#format_count" id="count_attr"><b>count</b></a> - count of rows in the underlying hierarchy of node</li>
+				<li><a href="#format_distance" id="distance_attr"><b>distance</b></a> - distance from the base of the dendrogram</li>
+				<li><a href="#format_parent" id="parent_attr"><b>parent</b></a> - ID of a parent node</li>
+				<li><a href="#format_left_id" id="left_id_attr"><b>left_id</b></a> - ID of a left child</li>
+				<li><a href="#format_right_id" id="right_id_attr"><b>right_id</b></a> - ID of a right child</li>
+				<li><a href="#format_items" id="items_attr"><b>items</b></a> - ID/IDs of items represented by the row</li>
+				<li><a href="#format_data" id="data_attr"><b>data</b></a> - array of values representing the heatmap row</li>
 			</ul>
 		</div>
 	</div>
 
 	<div class="format_desc">
 		<div class="title"><a href="#format_header">Header</a></div>
-		<div id="header">
+		<div>
 			<p>Header is just an array containing labels for heatmap columns. Header for metadata columns is contained under <i>metadata > header</i>.</p>
 		</div>
 	</div>
 
 	<div class="format_desc">
 		<div class="title"><a href="#format_metadata">Metadata</a></div>
-		<div id="metadata">
+		<div>
             <p>Additional data for the main heatmap data. They have no influence on the order of the rows in the heatmap.</p>
             <ul>
                 <li><a href="#format_metadata_nodes" id="metadata_nodes"><b>nodes</b></a> - object containing row IDs matching the leaf-node IDs in <a href="#format_nodes">nodes</a> section with an array of metadata values</li>
@@ -135,7 +150,7 @@
 
 	<div class="format_desc">
 		<div class="title"><a href="#format_column_dendrogram">Column dendrogram</a></div>
-		<div id="column_dendrogram">
+		<div>
 			<p>Column dendrogram represents the vertical dendrogram and has the same structure as the main row dendrogram contained in <a href="#format_nodes">nodes</a> section.</p>
 		</div>
 	</div>

@@ -103,7 +103,7 @@ class Dendrogram():
 
     def create_dendrogram(self, contract_clusters=False, cluster_count=1000, write_data=True):
         print "Building dendrogram..."
-        self.dendrogram = self.__get_dendrogram__(write_data)
+        self.dendrogram = {"data": self.__get_dendrogram__(write_data)}
 
         self.contract_clusters = contract_clusters
         self.contract_cluster_treshold = 0
@@ -113,12 +113,10 @@ class Dendrogram():
             if self.contract_cluster_treshold >= 0:
                 self.__contract_data__()
 
-        if self.heatmap:
-            self.dendrogram["heatmap"] = {}
-            if self.header and write_data:
-                self.dendrogram["heatmap"]["header"] = [h for h in self.header]
-            elif self.header and not write_data:
-                self.dendrogram["heatmap"]["header"] = []
+        if self.header and write_data:
+            self.dendrogram["data"]["header"] = [h for h in self.header]
+        elif self.header and not write_data:
+            self.dendrogram["data"]["header"] = []
         
         if self.axis == "both" and len(self.cluster_object.column_clustering):
             column_dendrogram = hcluster.to_tree(self.cluster_object.column_clustering)            
@@ -129,42 +127,42 @@ class Dendrogram():
         nodes = {}
         to_remove = set()
         
-        for n in self.dendrogram["nodes"]:
-            node = self.dendrogram["nodes"][n]
+        for n in self.dendrogram["data"]["nodes"]:
+            node = self.dendrogram["data"]["nodes"][n]
 
             if node["count"] == 1:
                 items = node["items"]
                 data = node["data"]
                 node_id = n
 
-                while self.dendrogram["nodes"][node["parent"]]["distance"] <= self.contract_cluster_treshold:
+                while self.dendrogram["data"]["nodes"][node["parent"]]["distance"] <= self.contract_cluster_treshold:
                     to_remove.add(node_id)
                     node_id = node["parent"]
-                    node = self.dendrogram["nodes"][node_id]
+                    node = self.dendrogram["data"]["nodes"][node_id]
 
                 if node["count"] != 1:
 
-                    if not "items" in self.dendrogram["nodes"][node_id]:
-                        self.dendrogram["nodes"][node_id]["items"] = []
-                        self.dendrogram["nodes"][node_id]["data"] = []
+                    if not "items" in self.dendrogram["data"]["nodes"][node_id]:
+                        self.dendrogram["data"]["nodes"][node_id]["items"] = []
+                        self.dendrogram["data"]["nodes"][node_id]["data"] = []
                     
-                    self.dendrogram["nodes"][node_id]["items"].extend(items)
+                    self.dendrogram["data"]["nodes"][node_id]["items"].extend(items)
 
                     if data:
-                        self.dendrogram["nodes"][node_id]["data"].append(data)
+                        self.dendrogram["data"]["nodes"][node_id]["data"].append(data)
 
         for node in to_remove:
-            self.dendrogram["nodes"].pop(node)
+            self.dendrogram["data"]["nodes"].pop(node)
 
-        for k in self.dendrogram["nodes"]:
-            node = self.dendrogram["nodes"][k]
+        for k in self.dendrogram["data"]["nodes"]:
+            node = self.dendrogram["data"]["nodes"][k]
             if "items" in node and node["count"] != 1:
-                self.dendrogram["nodes"][k]["distance"] = 0
-                self.dendrogram["nodes"][k]["count"] = 1
-                self.dendrogram["nodes"][k].pop("left_id")
-                self.dendrogram["nodes"][k].pop("right_id")
-                rows = zip(*self.dendrogram["nodes"][k]["data"])
-                self.dendrogram["nodes"][k]["data"] = [round(numpy.median(row), 3) for row in rows]
+                self.dendrogram["data"]["nodes"][k]["distance"] = 0
+                self.dendrogram["data"]["nodes"][k]["count"] = 1
+                self.dendrogram["data"]["nodes"][k].pop("left_id")
+                self.dendrogram["data"]["nodes"][k].pop("right_id")
+                rows = zip(*self.dendrogram["data"]["nodes"][k]["data"])
+                self.dendrogram["data"]["nodes"][k]["data"] = [round(numpy.median(row), 3) for row in rows]
 
         self.__adjust_node_counts__()
 
@@ -173,19 +171,19 @@ class Dendrogram():
     def __adjust_node_counts__(self):
         leaves = []
 
-        for n in self.dendrogram["nodes"]:
-            if self.dendrogram["nodes"][n]["count"] > 1:
-                self.dendrogram["nodes"][n]["count"] = 0
+        for n in self.dendrogram["data"]["nodes"]:
+            if self.dendrogram["data"]["nodes"][n]["count"] > 1:
+                self.dendrogram["data"]["nodes"][n]["count"] = 0
             else:
                 leaves.append(n)
 
         for n in leaves:
-            node = self.dendrogram["nodes"][n]
+            node = self.dendrogram["data"]["nodes"][n]
             parent_id = node["parent"]
 
             while parent_id:
-                node = self.dendrogram["nodes"][parent_id]
-                self.dendrogram["nodes"][parent_id]["count"] += 1
+                node = self.dendrogram["data"]["nodes"][parent_id]
+                self.dendrogram["data"]["nodes"][parent_id]["count"] += 1
                 parent_id = False
                 if "parent" in node:
                     parent_id = node["parent"]
@@ -252,7 +250,7 @@ class Dendrogram():
         if self.metadata_header:
             self.dendrogram["metadata"]["header"] = self.metadata_header
 
-        leaves = {n:self.dendrogram["nodes"][n] for n in self.dendrogram["nodes"] if self.dendrogram["nodes"][n]["count"] == 1}
+        leaves = {n:self.dendrogram["data"]["nodes"][n] for n in self.dendrogram["data"]["nodes"] if self.dendrogram["data"]["nodes"][n]["count"] == 1}
 
         if not self.contract_clusters:
             
@@ -454,8 +452,11 @@ def _process_(arguments):
     c.cluster_data(data_type=arguments.datatype, distance_measure=arguments.distance, linkage=arguments.linkage, axis=arguments.axis)
 
     d = Dendrogram(c, heatmap=True)
-    d.create_dendrogram(contract_clusters=arguments.compress, cluster_count=arguments.compress, write_data=arguments.dont_write_data)
-    d.add_metadata_from_file(metadata_file=arguments.metadata, delimiter=arguments.metadata_delimiter, header=arguments.metadata_header)
+    d.create_dendrogram(contract_clusters=arguments.compress, cluster_count=arguments.compress, write_data= not arguments.dont_write_data)
+    
+    if arguments.metadata:
+        d.add_metadata_from_file(metadata_file=arguments.metadata, delimiter=arguments.metadata_delimiter, header=arguments.metadata_header)
+    
     if arguments.output_file:
         d.export_dendrogram_as_json(arguments.output_file)
     else:
@@ -463,7 +464,7 @@ def _process_(arguments):
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
     parser.add_argument("data_file", type=str, help="csv(text) data file with delimited values")
     parser.add_argument("-o", "--output_file", type=str, help="the name of output file")
