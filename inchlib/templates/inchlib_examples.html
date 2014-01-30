@@ -27,7 +27,7 @@
 
 		window.dendrogram = new InCHlib({{ settings }});
 		dendrogram.settings.font = "Inconsolata";
-		dendrogram.read_data_from_file("{% static "static/data/iris.json" %}");
+		dendrogram.read_data_from_file("{% static "data/iris.json" %}");
 		dendrogram.draw();
 
 		{% if example.exampleid == 9 %}
