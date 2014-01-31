@@ -2,5 +2,34 @@
 
 {% block content %}
 
+{% load staticfiles %}
+<hr/>
+<div class="description">
+	<div class="title">inchlib.js</div>
+	<div class="small_title">
+		Dependencies
+	</div>
+	<ul>
+		<li>jQuery</li>
+	</ul>
+	<div class="pure-button download_button">
+		<a href="{% static "js/inchlib.js" %}" target=blank>Download inchlib.js</a>
+	</div>
+	</div>
+
+	<div class="description">
+	<div class="title">inchlib_clust.py</div>
+	<div class="small_title">
+		Dependencies
+	</div>
+	<ul>
+		<li>Numpy</li>
+		<li>Scipy</li>
+		<li>Fastcluster</li>
+	</ul>
+	<div class="pure-button download_button">
+		<a href="{% static "inchlib_clust/inchlib_clust.py" %}" target=blank>Download inchlib_clust.py</a>
+	</div>
+</div>
 
 {% endblock %}

@@ -6,6 +6,10 @@ body{
 	font-family: "Inconsolata";
 }
 
+#content{
+	min-height: 600px;
+}
+
 #footer{
 	height: 25px;
 }
@@ -216,4 +220,17 @@ body{
 
 .interface .small_title{
 	margin-left: 20px;
+}
+
+.download_button{
+	padding: 20px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.download_button a{
+	color: black;
+	font-weight: bold;
+	text-decoration: none;
+	font-size: 24px;
 }
