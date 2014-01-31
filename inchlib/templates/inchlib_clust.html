@@ -4,13 +4,15 @@
 <hr/>
 <div class="pure-menu pure-menu-open pure-menu-horizontal">
     <ul>
-        <li><a href="{% url input_format %}">Description</a></li>
-        <li class="pure-menu-selected"><a href="{% url inchlib_clust %}">Inchlib_clust</a></li>
+        <li><a href="{% url docs %}">InCHlib.js</a></li>
+        <li><a href="{% url input_format %}">Input format</a></li>
+        <li  class="pure-menu-selected"><a href="{% url inchlib_clust %}">InCHlibClust.py</a></li>
     </ul>
 </div>
+<hr/>
 
 <div class="desc">
-    <b>Inchlib_clust</b> is a python wrapper for clustering and generation of <b>InCHlib</b> input data format.
+    <b>Inchlib_clust</b> is a python wrapper for clustering and generation of <b>InCHlib</b> input data format. It can be used from command-line or directly from your python code (see the examples below). The only obligatory input is the data for clustering in a form of csv(text) file or list of lists. The input data can contain optional header row.
 
 </div>
 
@@ -58,10 +60,11 @@
 <div class="interface">
     <div class="small_title">Programming interface</div>
     <div class="code">
-    import inchlibclust
+    import inchlib_clust
 
     c = inchlib_clust.Cluster()
     c.read_csv(filename="filename", delimiter=",", header=bool)
+    # c.read_data(data, header=bool) use read_data() for list of lists instead of a data file
     c.cluster_data(data_type="numeric", distance_measure="euclidean", linkage="ward", axis="both")
 
     d = inchlib_clust.Dendrogram(c, heatmap=bool)

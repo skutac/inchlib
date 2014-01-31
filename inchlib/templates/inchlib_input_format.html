@@ -17,13 +17,16 @@
 		dendrogram.draw();
 	});
 </script>
+
 <hr/>
 <div class="pure-menu pure-menu-open pure-menu-horizontal">
     <ul>
-        <li class="pure-menu-selected"><a href="{% url input_format %}">Description</a></li>
-        <li><a href="{% url inchlib_clust %}">Inchlib_clust</a></li>
+        <li><a href="{% url docs %}">InCHlib.js</a></li>
+        <li class="pure-menu-selected"><a href="{% url input_format %}">Input format</a></li>
+        <li><a href="{% url inchlib_clust %}">InCHlibClust.py</a></li>
     </ul>
 </div>
+<hr/>
 
 <div class="desc"><b>JSON</b> <i>(Javascript Object Notation)</i> serves as an input format for <b>InCHlib</b>. Its structure - defined by us - is easy to read/write for both human and computer. The structure of dendrogram is determined by parent/child relationships and not by the structure of format itself. The reason is to avoid the brackety madness.</div>
 
