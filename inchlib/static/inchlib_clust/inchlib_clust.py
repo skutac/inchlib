@@ -270,8 +270,19 @@ class Dendrogram():
                         continue
 
                 cols = zip(*items)
-                self.dendrogram["metadata"]["nodes"][leaf] = {}
-                self.dendrogram["metadata"]["nodes"][leaf] = [round(numpy.median(col), 3) for col in cols]
+                row = []
+                cols = [list(c) for c in cols]
+
+                for col in cols:
+                    col.sort()
+                    
+                    try:
+                        value = round(numpy.median(col), 3)
+                    except Exception, e:
+                        value = col[int(len(col)/2)]
+                    row.append(value)
+
+                self.dendrogram["metadata"]["nodes"][leaf] = row
 
         return
 

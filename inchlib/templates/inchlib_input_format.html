@@ -28,7 +28,17 @@
 </div>
 <hr/>
 
-<div class="desc"><b>JSON</b> <i>(Javascript Object Notation)</i> serves as an input format for <b>InCHlib</b>. Its structure - defined by us - is easy to read/write for both human and computer. The structure of dendrogram is determined by parent/child relationships and not by the structure of format itself. The reason is to avoid the brackety madness.</div>
+<div class="description">
+    <div class="title">Input format</div>
+    <b>InCHlib</b> input format is an application of the open standard <b>Javascript Object Notation (JSON)</b> format. It is easily extensible, and it uses human-readable text to define data objects defined as  attribute–value pairs. The structure of the dendrogram is determined by parent/child relationships. Below is the example of the input to <b>InCHlib</b> together with rendered corresponding cluster heatmap.
+</div>
+
+<div class="description">An essence of the <b>InCHlib</b> format is a node/leaf structure. <b>Node</b> is a non-terminal, and <b>leaf</b> is a terminal part of the dendrogram.
+Each <b>node</b> has two child-nodes given by their left (<i>left_id</i>) and right (<i>right_id</i>) ids. The <i>distance</i> of a node from the denrogram base (heatmap) measured in distance units used for clustering (<i>e.g. euclidean, manhattan</i>) is greater than 0. The <i>count</i> attribute meaning the count of underlying heatmap rows is for node always greater than 1.</div>
+
+<div class="description"><b>Leaf</b> has no child nodes. Its <i>distance</i> from the dendrogram base is always 0 and the <i>count</i> is generally 1. <b>Leaf</b> also has an additional attribute <i>data</i> which is an array of values representing the heatmap row. Attribute <i>items</i> is an array containing one (when the heatmap row is not compressed) or more (when the heatmap row is compressed) IDs of items which are represented by the row.</div>
+
+<div class="description">All nodes except for the <b>root</b> have the <i>parent</i> attribute which indicates the ID of its parent node.  </div>
 
 {% load staticfiles %}
 <img id="inchlib_described" src="{% static "img/inchlib_described.png" %}" alt="InCHlib described" />
@@ -111,7 +121,7 @@
 <div id="dendrogram"></div>
 
 
-	<div class="format_desc">
+	<!-- <div class="format_desc">
 		<div class="title"><a href="#format_nodes">Nodes</a></div>
 		<div class="description" id="nodes">
 			<p>The basic <b>InCHlib</b> format structure is <b>node/leaf</b>. All horizontal dendrogram nodes together with heatmap data are contained in the <i>nodes</i> section of the input data and each has its own ID. All nodes except for the root have the parent attribute which indicates the ID of its parent node.</p>
@@ -156,6 +166,6 @@
 		<div>
 			<p>Column dendrogram represents the vertical dendrogram and has the same structure as the main row dendrogram contained in <a href="#format_nodes">nodes</a> section.</p>
 		</div>
-	</div>
+	</div> -->
 
 {% endblock %}

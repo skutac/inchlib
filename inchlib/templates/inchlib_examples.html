@@ -25,9 +25,14 @@
 		
 		$("#example .settings").text(settings_string);
 
+		var filepath = "{% static "data/iris.json" %}";
+		{% if example.exampleid == 9 or example.exampleid == 5 %}
+			filepath = "{% static "data/iris_compressed.json" %}";
+		{% endif %}
+
 		window.dendrogram = new InCHlib({{ settings }});
 		dendrogram.settings.font = "Inconsolata";
-		dendrogram.read_data_from_file("{% static "data/iris.json" %}");
+		dendrogram.read_data_from_file(filepath);
 		dendrogram.draw();
 
 		{% if example.exampleid == 9 %}

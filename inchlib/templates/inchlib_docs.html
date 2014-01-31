@@ -48,7 +48,7 @@
     <ul>
     	<li class="pure-menu-selected"><a href="{% url docs %}">InCHlib.js</a></li>
         <li><a href="{% url input_format %}">Input format</a></li>
-        <li><a href="{% url inchlib_clust %}">InchlibClust.py</a></li>
+        <li><a href="{% url inchlib_clust %}">InCHlibClust.py</a></li>
     </ul>
 </div>
 <hr/>
@@ -67,6 +67,10 @@
 </div>
 
 <div id="docs">
+	<div class="title">InCHlib.js</div>
+
+	<div class="description">Here you can find a list of customizable attributes and color scales that you can use in InCHlib. They serve as input settings when initializing the InCHlib library (<a href="{% url examples 1%}">see Basic usage</a>). The only obligatory attribute is the <a href="#target">target</a> which states the ID of the HTML target element. You can find the default values of other attributes in the list.  </div>
+
 	{% for a in attributes %}
 		<div class="doc">
 			<div class="small_title" id="{{ a.name }}">{{ a.name }}</div>
