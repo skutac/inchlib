@@ -125,6 +125,11 @@ body{
 	font-style: italic;
 }
 
+#example_data_link{
+	float: right;
+	color: grey;
+}
+
 #example .example_settings, #example .example_data{
 	margin-top: 20px;
 }
