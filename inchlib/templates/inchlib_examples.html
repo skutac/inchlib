@@ -62,7 +62,7 @@
 <div id="example">
 	<div class="title">{{ example.title }}
 		{% if next %}
-			<a class="pure-button" href=" " id="next_example_button">Next example ></a>
+			<a class="pure-button" href="{% url examples next %}" id="next_example_button">Next example ></a>
 		{% endif %}
 
 		{% if previous %}
