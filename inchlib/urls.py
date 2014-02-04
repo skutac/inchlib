@@ -6,8 +6,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
-    url(r'^$', 'inchlib.views.redirect_to_index', name='redirect_to_index'),
-    url(r'^index$', 'inchlib.views.index', name='index'),
+    url(r'^$', 'inchlib.views.index', name='index'),
     url(r'^examples/(\d+)$', 'inchlib.views.examples', name='examples'),
     url(r'^docs$', 'inchlib.views.docs', name='docs'),
     url(r'^input_format$', 'inchlib.views.input_format', name='input_format'),

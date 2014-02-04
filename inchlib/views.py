@@ -5,9 +5,6 @@ from django.utils.safestring import mark_safe
 
 from examples.models import Examples, SettingsAttributes
 
-def redirect_to_index(req):
-	return redirect("index")
-
 def index(req):
 	return render_to_response("inchlib_index.html", {})
 
