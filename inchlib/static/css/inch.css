@@ -1,9 +1,15 @@
+@font-face
+{
+	font-family: Ubuntu;
+	src: url('../fonts/Ubuntu-R.ttf');
+}
+
 body{
 	width: 80%;
 	max-width: 1200px;
 	margin-left: auto;
 	margin-right: auto;
-	font-family: "Inconsolata";
+	font-family: 'Ubuntu', sans-serif;
 }
 
 #content{
@@ -35,13 +41,13 @@ body{
 	width: 80%;
 }
 
-.desc{
+.desc, .description{
 	margin-top: 20px;
 	margin-left: auto;
 	margin-right: auto;
 	width: 90%;
 	text-align: justify;
-	line-height: 1.2;
+	line-height: 1.5;
 }
 
 #examples_menu, #docs_menu{
@@ -108,7 +114,7 @@ body{
 .description, .input_example{
 	margin-top: 20px;
 	text-align: justify;
-	line-height: 1.2;
+	line-height: 1.5;
 	width: 95%;
 	margin-right: auto;
 	margin-left: auto;

@@ -1,9 +1,12 @@
 import json
 
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, redirect
 from django.utils.safestring import mark_safe
 
 from examples.models import Examples, SettingsAttributes
+
+def redirect_to_slash(req):
+	return redirect("/software/inchlib/")
 
 def index(req):
 	return render_to_response("inchlib_index.html", {})
