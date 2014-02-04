@@ -1,4 +1,6 @@
-import json
+import json, re
+
+import config
 
 from django.shortcuts import render_to_response, redirect
 from django.utils.safestring import mark_safe
@@ -6,6 +8,7 @@ from django.utils.safestring import mark_safe
 from examples.models import Examples, SettingsAttributes
 
 def index(req):
+	print req.get_host()
 	return render_to_response("inchlib_index.html", {})
 
 def examples(req, exampleid):
@@ -16,11 +19,9 @@ def examples(req, exampleid):
 
 	settings = example.examplesettings_set.all()
 	settings = mark_safe(json.dumps(parse_settings({e.settingsattribute.name: e.value for e in settings})))
+	example.description = re.sub('href="', '"'.join(['href=', config.BASE_URL]), example.description)
 
-	data = example.data
-	example.data = mark_safe(example.data)
-
-	return render_to_response("inchlib_examples.html", {"examples":examples, "example": example, "settings": settings, "data":data, "next": next, "previous": previous})
+	return render_to_response("inchlib_examples.html", {"examples":examples, "example": example, "settings": settings, "next": next, "previous": previous})
 
 def docs(req):
 	attributes = list(SettingsAttributes.objects.all())

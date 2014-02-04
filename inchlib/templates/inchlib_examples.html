@@ -33,7 +33,7 @@
 		$("#example_data_link").attr("href", filepath);
 
 		window.dendrogram = new InCHlib({{ settings }});
-		dendrogram.settings.font = "Inconsolata";
+		dendrogram.settings.font = "Ubuntu";
 		dendrogram.read_data_from_file(filepath);
 		dendrogram.draw();
 
@@ -62,7 +62,7 @@
 <div id="example">
 	<div class="title">{{ example.title }}
 		{% if next %}
-			<a class="pure-button" href="{% url examples next %}" id="next_example_button">Next example ></a>
+			<a class="pure-button" href=" " id="next_example_button">Next example ></a>
 		{% endif %}
 
 		{% if previous %}
@@ -70,7 +70,7 @@
 		{% endif %}
 	</div>
 
-	<div class="description">{% autoescape off %}{{ example.description }} {% endautoescape %}</div>
+	<div class="description">{% autoescape off %}{{ example.description }}{% endautoescape %}</div>
 
 	{% if example.exampleid == 1 %}
 		<div class="example_settings">

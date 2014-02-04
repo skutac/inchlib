@@ -67,7 +67,7 @@ function InCHlib(settings){
     this.settings.heatmap_part_width = (this.settings.heatmap_part_width>0.9)?0.9:this.settings.heatmap_part_width;
 
     this.header_height = 150;
-    this.footer_height = 50;
+    this.footer_height = 70;
     this.dendrogram_heatmap_distance = 5;
     this.heatmap_width = 0;
     this.highlighted_row = null;
