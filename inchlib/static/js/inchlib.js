@@ -1,5 +1,3 @@
-"use strict";
-
 function InCHlib(settings){
     var target_width = $("#" + settings.target).width();
     
@@ -30,7 +28,7 @@ function InCHlib(settings){
         "current_row_ids_callback": function(row_ids){
             return;
         },
-    }
+    };
 
     this.colors = {
             "YlGn": {"start": {"r":255, "g": 255, "b": 204}, "end": {"r": 35, "g": 132, "b": 67}},
@@ -60,7 +58,7 @@ function InCHlib(settings){
             "RdYlGn": {"start": {"r":215, "g": 25, "b": 28}, "end": {"r": 26, "g": 150, "b": 65}, "middle": {"r":255, "g": 255, "b": 178}},
             "BuWhRd": {"start": {"r": 33, "g": 113, "b": 181}, "middle": {"r": 255, "g": 255, "b": 255}, "end": {"r":215, "g": 25, "b": 28}},
             "RdBkGr": {"start": {"r":215, "g": 25, "b": 28}, "middle": {"r": 0, "g": 0, "b": 0}, "end": {"r": 35, "g": 139, "b": 69}},
-        };
+    };
     
     $.extend(this.settings, settings);
     this.settings.width = (settings.max_width && settings.max_width < target_width)?settings.max_width:this.settings.width;

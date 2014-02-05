@@ -12,7 +12,7 @@ DATA_TYPES = {"numeric": NUMERIC_DISTANCES,
 
 class Dendrogram():
 
-    def __init__(self, clustering, heatmap=True):
+    def __init__(self, clustering):
         self.cluster_object = clustering
         self.data_type = clustering.data_type
         self.axis = clustering.clustering_axis
@@ -21,7 +21,6 @@ class Dendrogram():
         self.data = clustering.data
         self.data_names = clustering.data_names
         self.header = clustering.header
-        self.heatmap = heatmap
         self.dendrogram = False
 
     def __get_dendrogram__(self, write_data=True):

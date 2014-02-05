@@ -37,7 +37,9 @@ Each <b>node</b> has two child-nodes given by their left (<i>left_id</i>) and ri
 
 <div class="description"><b>Leaf</b> has no child nodes. Its <i>distance</i> from the dendrogram base is always 0 and the <i>count</i> is generally 1. <b>Leaf</b> also has an additional attribute <i>data</i> which is an array of values representing the heatmap row. Attribute <i>items</i> is an array containing one (when the heatmap row is not compressed) or more (when the heatmap row is compressed) IDs of items which are represented by the row.</div>
 
-<div class="description">All nodes except for the <b>root</b> have the <i>parent</i> attribute which indicates the ID of its parent node.  </div>
+<div class="description">All nodes except for the <b>root</b> have the <i>parent</i> attribute which indicates the ID of its parent node.</div>
+
+<div class="description">For the generation of <b>InCHlib</b> data format you can use our python wrapper called <b><a href="inchlib_clust">inchlib_clust</a></b>.</div>
 
 {% load staticfiles %}
 <img id="inchlib_described" src="{% static "img/inchlib_described.png" %}" alt="InCHlib described" />
