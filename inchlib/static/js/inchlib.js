@@ -700,6 +700,10 @@ InCHlib.prototype.draw_heatmap = function(){
     });
 
     this.heatmap_layer.on("mouseover", function(evt){
+        var row_id = evt.targetNode.parent.getAttr("id");
+        var row_values = self.data.nodes[row_id].data;
+        console.log(row_values)
+
         var target_class = evt.targetNode.className;
         if(target_class == "Text"){
             return;
@@ -712,14 +716,14 @@ InCHlib.prototype.draw_heatmap = function(){
             if(row_id != self.last_highlighted_row){
                 self.row_mouseout();
                 self.row_mouseover(evt.targetNode.parent, col_number);
-                self.draw_col_label(evt.targetNode.parent, col_number);
+                self.draw_col_label(evt.targetNode.parent, row_values, col_number);
                 self.last_highlighted_row = row_id;
                 self.last_col_number = col_number;
             }
             else if(col_number != self.last_col_number){
                 col_label = self.stage.get('#col_label');
                 col_label.destroy();
-                self.draw_col_label(evt.targetNode.parent, col_number);
+                self.draw_col_label(evt.targetNode.parent, row_values, col_number);
                 self.last_col_number = col_number;
             }
         }
@@ -1768,7 +1772,7 @@ InCHlib.prototype.row_mouseover = function(row_group, col_number){
     this.heatmap_overlay.add(line_ref.clone({points:[x, y, x+this.visible_features*this.pixels_for_dimension, y]}));
 }
 
-InCHlib.prototype.draw_col_label = function(row_group, col_number){
+InCHlib.prototype.draw_col_label = function(row_group, row_values, col_number){
     var i, line;
     this.highlighted_row = row_group.attrs.id;
 
@@ -1799,7 +1803,7 @@ InCHlib.prototype.draw_col_label = function(row_group, col_number){
         }));
         
         tooltip.add(new Kinetic.Text({
-            text: this.header[col_number],
+            text: [this.header[col_number], row_values[col_number]].join(" "),
             fontFamily: this.settings.font,
             fontSize: 12,
             padding: 8,
