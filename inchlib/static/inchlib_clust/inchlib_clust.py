@@ -461,7 +461,7 @@ def _process_(arguments):
     c.read_csv(arguments.data_file, arguments.data_delimiter, arguments.data_header)
     c.cluster_data(data_type=arguments.datatype, distance_measure=arguments.distance, linkage=arguments.linkage, axis=arguments.axis)
 
-    d = Dendrogram(c, heatmap=True)
+    d = Dendrogram(c)
     d.create_dendrogram(contract_clusters=arguments.compress, cluster_count=arguments.compress, write_data= not arguments.dont_write_data)
     
     if arguments.metadata:
