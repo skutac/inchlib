@@ -34,6 +34,23 @@ body{
 	color: gray;
 }
 
+
+.contact{
+	margin-top: 30px;
+	margin-left: 40px;
+}
+
+.card{
+	margin-top: 30px;
+	margin-left: 20px;
+}
+
+.email{
+	color: gray;
+	font-style: italic;
+	font-size: 20px;
+}
+
 #example #dendrogram, #content > #dendrogram{
 	margin-top: 50px;
 	margin-left: auto;
@@ -101,7 +118,7 @@ body{
 
 .subtitle{
 	font-style: italic;
-	color: grey;
+	color: gray;
 	font-size: 14px;
 	font-weight: bold;
 }
@@ -127,7 +144,7 @@ body{
 
 #example_data_link{
 	float: right;
-	color: grey;
+	color: gray;
 }
 
 #example .example_settings, #example .example_data{

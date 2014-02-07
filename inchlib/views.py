@@ -12,7 +12,6 @@ from django.utils.safestring import mark_safe
 from examples.models import Examples, SettingsAttributes
 
 def index(req):
-    print req.get_host()
     return render_to_response("inchlib_index.html", {})
 
 def examples(req, exampleid):
