@@ -16,7 +16,7 @@ function InCHlib(settings){
         "metadata_colors" : "Oranges",
         "highlight_colors" : "Reds",
         "highlighted_rows" : [],
-        "label_color": "grey",
+        "label_color": "#9E9E9E",
         "draw_values" : true,
         "count_column": false,
         "count_column_colors": "Reds",

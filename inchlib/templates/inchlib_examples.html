@@ -18,12 +18,12 @@
 				else if(i == "current_row_ids_callback"){
 					val = settings[i];
 				}
-				settings_string = settings_string + "  " + i + ": " + val + ",\n";
+				settings_string = settings_string + "  <a href='../docs#" + i +"' target=blank>" + i + "</a>" + ": " + val + ",\n";
 			}
 			settings_string = settings_string + "}"
 		}
 		
-		$("#example .settings").text(settings_string);
+		$("#example .settings").html(settings_string);
 
 		var filepath = "{% static "data/iris.json" %}";
 		{% if example.exampleid == 9 or example.exampleid == 5 %}
@@ -75,9 +75,9 @@
 	{% if example.exampleid == 1 %}
 		<div class="example_settings">
 			<div class="small_title">Example code</div>
-			<div class="code">var inchlib = InCHlib({target:"dendrogram"});
-inchlib.read_data(json_data);
-inchlib.draw();</div>
+			<div class="code">var inchlib = InCHlib({target:"dendrogram"}); //instantiate InCHlib with given settings
+inchlib.read_data(json_data); //read data
+inchlib.draw(); //draw visualization</div>
 		</div>
 	{% endif %}
 
