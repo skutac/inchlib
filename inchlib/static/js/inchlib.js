@@ -709,7 +709,10 @@ InCHlib.prototype.draw_heatmap = function(){
         if(target_class == "Line"){
             col_number = self.hack_round((self.stage.getPointerPosition().x-self.distance-self.dendrogram_heatmap_distance-0.5*self.pixels_for_dimension)/self.pixels_for_dimension);
             row_id = evt.targetNode.parent.getAttr("id");
-            var row_values = self.data.nodes[row_id].data;
+            var row_values = [];
+            for(i = 0; i < self.data.nodes[row_id].data.length; i++){
+                row_values.push(self.data.nodes[row_id].data[i]);
+            }
 
             if(self.settings.metadata && col_number >= row_values.length){
                 row_values = row_values.concat(self.data.metadata.nodes[row_id]);
