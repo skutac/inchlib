@@ -136,7 +136,7 @@ InCHlib.prototype.get_dimensions = function(nodes){
 
     for(i in nodes){
         if(nodes[i].count == 1){
-            dimensions = nodes[i].data.length;
+            dimensions = nodes[i].values.length;
             break;
         }
         else if(Object.prototype.toString.call(nodes[i]) == "[object Array]"){
@@ -247,7 +247,7 @@ InCHlib.prototype.get_max_value_length = function(){
 
     for(i in nodes){
         if(nodes[i].count == 1){
-            node_data = nodes[i].data;
+            node_data = nodes[i].values;
             for(j = 0; j < node_data.length; j++){
                 if((""+node_data[j]).length > max_length){
                     max_length = (""+node_data[j]).length;
@@ -277,7 +277,7 @@ InCHlib.prototype.preprocess_heatmap_data = function(){
     for(i in this.data.nodes){
         node = this.data.nodes[i];
         if(node.count == 1){
-            data = node.data;
+            data = node.values;
             heatmap_array.push([i]);
             heatmap_array[j].push.apply(heatmap_array[j], data);
             if(this.settings.metadata){
@@ -499,7 +499,7 @@ InCHlib.prototype.draw_row_dendrogram_node = function(node_id, node, current_lef
     else{
         this.leaves_y_coordinates[node_id] = y;
 
-        var count = node["items"].length;
+        var count = node.ids.length;
         if(count<this.min_item_count){
             this.min_item_count = count;
         }
@@ -572,7 +572,7 @@ InCHlib.prototype.set_heatmap_settings = function(){
     for(i in this.data.nodes){
         node = this.data.nodes[i];
         if(node.count == 1){
-            data.push(node.data);
+            data.push(node.values);
         };
     }
         
@@ -689,7 +689,7 @@ InCHlib.prototype.draw_heatmap = function(){
     var self = this;
 
     this.heatmap_layer.on("click", function(evt){
-        var items = self.data.nodes[self.highlighted_row].items;
+        var items = self.data.nodes[self.highlighted_row].ids;
         var item_ids = [];
         
         for(i = 0; i < items.length; i++){
@@ -710,8 +710,8 @@ InCHlib.prototype.draw_heatmap = function(){
             col_number = self.hack_round((self.stage.getPointerPosition().x-self.distance-self.dendrogram_heatmap_distance-0.5*self.pixels_for_dimension)/self.pixels_for_dimension);
             row_id = evt.targetNode.parent.getAttr("id");
             var row_values = [];
-            for(i = 0; i < self.data.nodes[row_id].data.length; i++){
-                row_values.push(self.data.nodes[row_id].data[i]);
+            for(i = 0; i < self.data.nodes[row_id].values.length; i++){
+                row_values.push(self.data.nodes[row_id].values[i]);
             }
 
             if(self.settings.metadata && col_number >= row_values.length){
@@ -719,7 +719,7 @@ InCHlib.prototype.draw_heatmap = function(){
             }
 
             if(self.settings.count_column){
-                row_values.push(self.data.nodes[row_id].items.length);
+                row_values.push(self.data.nodes[row_id].ids.length);
             }
             
             if(row_id != self.last_highlighted_row){
@@ -749,12 +749,12 @@ InCHlib.prototype.draw_heatmap_row = function(node_id, x1, y1){
     var row = new Kinetic.Group({id:node_id});
     var x, y, x2, y2, color, line, i, min_value, max_value, value, text, text_value, width;
     x1 = this.hack_round(x1);
-    var data_count = node.data.length;
+    var data_count = node.values.length;
     
     for (i = 0; i < data_count; i++){
 
         if(this.features[i] == 1){
-            value = node.data[i];
+            value = node.values[i];
 
             if(this.settings.independent_columns){
                 this.min_value = this.columns_min_max[i][0];
@@ -825,7 +825,7 @@ InCHlib.prototype.draw_heatmap_row = function(node_id, x1, y1){
 
     if(this.settings.count_column && this.features[this.dimensions-1] == 1){
         x2 = x1 + this.pixels_for_dimension;
-        var count = node.items.length;
+        var count = node.ids.length;
         color = this.get_color_for_value(count, this.min_item_count, this.max_item_count, this.middle_item_count, this.settings.count_column_colors);
         
         line = this.line_ref.clone({
@@ -1909,8 +1909,8 @@ InCHlib.prototype.collect_row_ids = function(y1,y2){
 
     for(i = 0; i<current_node_ids.length; i++){
         current_node = this.data.nodes[current_node_ids[i]];
-        for(j = 0; j<current_node.items.length; j++){
-            this.current_row_ids.push(current_node.items[j]);
+        for(j = 0; j<current_node.ids.length; j++){
+            this.current_row_ids.push(current_node.ids[j]);
         }
     }
     

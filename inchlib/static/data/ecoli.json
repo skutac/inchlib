@@ -1019,7 +1019,7 @@
             "NMPC_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.84, 
                     0.67, 
                     0.5, 
@@ -1029,14 +1029,14 @@
                     0.54
                 ], 
                 "parent": "node@483", 
-                "items": [
+                "ids": [
                     "NMPC_ECOLI"
                 ]
             }, 
             "YTFQ_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.74, 
                     0.74, 
                     0.5, 
@@ -1046,14 +1046,14 @@
                     0.53
                 ], 
                 "parent": "node@532", 
-                "items": [
+                "ids": [
                     "YTFQ_ECOLI"
                 ]
             }, 
             "SYA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.35, 
                     0.34, 
                     0.5, 
@@ -1063,14 +1063,14 @@
                     0.49
                 ], 
                 "parent": "node@389", 
-                "items": [
+                "ids": [
                     "SYA_ECOLI"
                 ]
             }, 
             "UBIC_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.37, 
                     0.3, 
                     0.5, 
@@ -1080,14 +1080,14 @@
                     0.18
                 ], 
                 "parent": "node@436", 
-                "items": [
+                "ids": [
                     "UBIC_ECOLI"
                 ]
             }, 
             "PROP_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.51, 
                     0.41, 
                     0.5, 
@@ -1097,14 +1097,14 @@
                     0.75
                 ], 
                 "parent": "node@435", 
-                "items": [
+                "ids": [
                     "PROP_ECOLI"
                 ]
             }, 
             "FEPB_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.64, 
                     0.7, 
                     0.5, 
@@ -1114,7 +1114,7 @@
                     0.51
                 ], 
                 "parent": "node@457", 
-                "items": [
+                "ids": [
                     "FEPB_ECOLI"
                 ]
             }, 
@@ -1163,7 +1163,7 @@
             "PTHA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.43, 
                     0.41, 
                     0.5, 
@@ -1173,7 +1173,7 @@
                     0.24
                 ], 
                 "parent": "node@385", 
-                "items": [
+                "ids": [
                     "PTHA_ECOLI"
                 ]
             }, 
@@ -1194,7 +1194,7 @@
             "EFTS_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.35, 
                     0.24, 
                     0.5, 
@@ -1204,7 +1204,7 @@
                     0.19
                 ], 
                 "parent": "node@546", 
-                "items": [
+                "ids": [
                     "EFTS_ECOLI"
                 ]
             }, 
@@ -1225,7 +1225,7 @@
             "CHEA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.4, 
                     0.25, 
                     0.5, 
@@ -1235,7 +1235,7 @@
                     0.44
                 ], 
                 "parent": "node@357", 
-                "items": [
+                "ids": [
                     "CHEA_ECOLI"
                 ]
             }, 
@@ -1270,7 +1270,7 @@
             "CADB_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.48, 
                     0.83, 
                     0.5, 
@@ -1280,7 +1280,7 @@
                     0.76
                 ], 
                 "parent": "node@365", 
-                "items": [
+                "ids": [
                     "CADB_ECOLI"
                 ]
             }, 
@@ -1294,7 +1294,7 @@
             "EFTU_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.54, 
                     0.36, 
                     0.5, 
@@ -1304,14 +1304,14 @@
                     0.38
                 ], 
                 "parent": "node@351", 
-                "items": [
+                "ids": [
                     "EFTU_ECOLI"
                 ]
             }, 
             "CHEY_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.4, 
                     0.23, 
                     0.5, 
@@ -1321,7 +1321,7 @@
                     0.28
                 ], 
                 "parent": "node@338", 
-                "items": [
+                "ids": [
                     "CHEY_ECOLI"
                 ]
             }, 
@@ -1363,7 +1363,7 @@
             "G3P2_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.45, 
                     0.33, 
                     0.5, 
@@ -1373,14 +1373,14 @@
                     0.32
                 ], 
                 "parent": "node@341", 
-                "items": [
+                "ids": [
                     "G3P2_ECOLI"
                 ]
             }, 
             "MOTB_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.51, 
                     0.3, 
                     0.5, 
@@ -1390,14 +1390,14 @@
                     0.61
                 ], 
                 "parent": "node@575", 
-                "items": [
+                "ids": [
                     "MOTB_ECOLI"
                 ]
             }, 
             "TREA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.56, 
                     0.74, 
                     0.5, 
@@ -1407,14 +1407,14 @@
                     0.68
                 ], 
                 "parent": "node@507", 
-                "items": [
+                "ids": [
                     "TREA_ECOLI"
                 ]
             }, 
             "DLDH_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.51, 
                     0.56, 
                     0.5, 
@@ -1424,14 +1424,14 @@
                     0.37
                 ], 
                 "parent": "node@425", 
-                "items": [
+                "ids": [
                     "DLDH_ECOLI"
                 ]
             }, 
             "POTD_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.8, 
                     0.63, 
                     0.5, 
@@ -1441,14 +1441,14 @@
                     0.31
                 ], 
                 "parent": "node@407", 
-                "items": [
+                "ids": [
                     "POTD_ECOLI"
                 ]
             }, 
             "NHAA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.55, 
                     0.89, 
                     0.5, 
@@ -1458,14 +1458,14 @@
                     0.72
                 ], 
                 "parent": "node@489", 
-                "items": [
+                "ids": [
                     "NHAA_ECOLI"
                 ]
             }, 
             "OMPA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.9, 
                     0.74, 
                     0.5, 
@@ -1475,14 +1475,14 @@
                     0.53
                 ], 
                 "parent": "node@488", 
-                "items": [
+                "ids": [
                     "OMPA_ECOLI"
                 ]
             }, 
             "NRFF_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.71, 
                     0.7, 
                     0.5, 
@@ -1492,14 +1492,14 @@
                     0.84
                 ], 
                 "parent": "node@467", 
-                "items": [
+                "ids": [
                     "NRFF_ECOLI"
                 ]
             }, 
             "NFRC_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.51, 
                     0.44, 
                     0.5, 
@@ -1509,14 +1509,14 @@
                     0.26
                 ], 
                 "parent": "node@423", 
-                "items": [
+                "ids": [
                     "NFRC_ECOLI"
                 ]
             }, 
             "DHSD_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.49, 
                     0.54, 
                     0.5, 
@@ -1526,14 +1526,14 @@
                     0.87
                 ], 
                 "parent": "node@508", 
-                "items": [
+                "ids": [
                     "DHSD_ECOLI"
                 ]
             }, 
             "CYOE_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.37, 
                     0.67, 
                     0.5, 
@@ -1543,14 +1543,14 @@
                     0.64
                 ], 
                 "parent": "node@481", 
-                "items": [
+                "ids": [
                     "CYOE_ECOLI"
                 ]
             }, 
             "ECOT_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.81, 
                     0.67, 
                     0.5, 
@@ -1560,14 +1560,14 @@
                     0.42
                 ], 
                 "parent": "node@513", 
-                "items": [
+                "ids": [
                     "ECOT_ECOLI"
                 ]
             }, 
             "CIRA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.51, 
                     0.65, 
                     0.5, 
@@ -1577,7 +1577,7 @@
                     0.54
                 ], 
                 "parent": "node@527", 
-                "items": [
+                "ids": [
                     "CIRA_ECOLI"
                 ]
             }, 
@@ -1591,7 +1591,7 @@
             "CYPH_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.81, 
                     0.67, 
                     0.5, 
@@ -1601,14 +1601,14 @@
                     0.49
                 ], 
                 "parent": "node@458", 
-                "items": [
+                "ids": [
                     "CYPH_ECOLI"
                 ]
             }, 
             "FADL_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.68, 
                     0.78, 
                     0.5, 
@@ -1618,14 +1618,14 @@
                     0.4
                 ], 
                 "parent": "node@492", 
-                "items": [
+                "ids": [
                     "FADL_ECOLI"
                 ]
             }, 
             "AMY2_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.34, 
                     0.21, 
                     0.5, 
@@ -1635,14 +1635,14 @@
                     0.28
                 ], 
                 "parent": "node@380", 
-                "items": [
+                "ids": [
                     "AMY2_ECOLI"
                 ]
             }, 
             "CYOB_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.29, 
                     0.59, 
                     0.5, 
@@ -1652,14 +1652,14 @@
                     0.75
                 ], 
                 "parent": "node@517", 
-                "items": [
+                "ids": [
                     "CYOB_ECOLI"
                 ]
             }, 
             "GLNA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.38, 
                     0.28, 
                     0.5, 
@@ -1669,14 +1669,14 @@
                     0.33
                 ], 
                 "parent": "node@346", 
-                "items": [
+                "ids": [
                     "GLNA_ECOLI"
                 ]
             }, 
             "SYFB_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.42, 
                     0.34, 
                     0.5, 
@@ -1686,14 +1686,14 @@
                     0.34
                 ], 
                 "parent": "node@392", 
-                "items": [
+                "ids": [
                     "SYFB_ECOLI"
                 ]
             }, 
             "SYGB_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.51, 
                     0.25, 
                     0.5, 
@@ -1703,14 +1703,14 @@
                     0.42
                 ], 
                 "parent": "node@440", 
-                "items": [
+                "ids": [
                     "SYGB_ECOLI"
                 ]
             }, 
             "LAMB_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.88, 
                     0.67, 
                     0.5, 
@@ -1720,14 +1720,14 @@
                     0.5
                 ], 
                 "parent": "node@483", 
-                "items": [
+                "ids": [
                     "LAMB_ECOLI"
                 ]
             }, 
             "IPYR_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.47, 
                     0.47, 
                     0.5, 
@@ -1737,7 +1737,7 @@
                     0.16
                 ], 
                 "parent": "node@477", 
-                "items": [
+                "ids": [
                     "IPYR_ECOLI"
                 ]
             }, 
@@ -1765,7 +1765,7 @@
             "PTOA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.51, 
                     0.35, 
                     0.5, 
@@ -1775,7 +1775,7 @@
                     0.71
                 ], 
                 "parent": "node@494", 
-                "items": [
+                "ids": [
                     "PTOA_ECOLI"
                 ]
             }, 
@@ -1789,7 +1789,7 @@
             "DCTA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.36, 
                     0.73, 
                     0.5, 
@@ -1799,7 +1799,7 @@
                     0.91
                 ], 
                 "parent": "node@456", 
-                "items": [
+                "ids": [
                     "DCTA_ECOLI"
                 ]
             }, 
@@ -1834,7 +1834,7 @@
             "CHEW_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.27, 
                     0.44, 
                     0.5, 
@@ -1844,14 +1844,14 @@
                     0.52
                 ], 
                 "parent": "node@412", 
-                "items": [
+                "ids": [
                     "CHEW_ECOLI"
                 ]
             }, 
             "GCVA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.5, 
                     0.4, 
                     0.5, 
@@ -1861,14 +1861,14 @@
                     0.39
                 ], 
                 "parent": "node@383", 
-                "items": [
+                "ids": [
                     "GCVA_ECOLI"
                 ]
             }, 
             "EFG_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.29, 
                     0.4, 
                     0.5, 
@@ -1878,14 +1878,14 @@
                     0.35
                 ], 
                 "parent": "node@347", 
-                "items": [
+                "ids": [
                     "EFG_ECOLI"
                 ]
             }, 
             "YCEE_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.54, 
                     0.52, 
                     0.5, 
@@ -1895,14 +1895,14 @@
                     0.76
                 ], 
                 "parent": "node@417", 
-                "items": [
+                "ids": [
                     "YCEE_ECOLI"
                 ]
             }, 
             "THIK_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.52, 
                     0.17, 
                     0.5, 
@@ -1912,14 +1912,14 @@
                     0.37
                 ], 
                 "parent": "node@400", 
-                "items": [
+                "ids": [
                     "THIK_ECOLI"
                 ]
             }, 
             "FIMC_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.57, 
                     0.63, 
                     0.5, 
@@ -1929,7 +1929,7 @@
                     0.7
                 ], 
                 "parent": "node@507", 
-                "items": [
+                "ids": [
                     "FIMC_ECOLI"
                 ]
             }, 
@@ -1950,7 +1950,7 @@
             "NLPB_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.49, 
                     0.66, 
                     0.5, 
@@ -1960,14 +1960,14 @@
                     0.56
                 ], 
                 "parent": "node@414", 
-                "items": [
+                "ids": [
                     "NLPB_ECOLI"
                 ]
             }, 
             "MCP3_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.5, 
                     0.6, 
                     0.5, 
@@ -1977,14 +1977,14 @@
                     0.77
                 ], 
                 "parent": "node@523", 
-                "items": [
+                "ids": [
                     "MCP3_ECOLI"
                 ]
             }, 
             "METC_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.43, 
                     0.24, 
                     0.5, 
@@ -1994,14 +1994,14 @@
                     0.52
                 ], 
                 "parent": "node@421", 
-                "items": [
+                "ids": [
                     "METC_ECOLI"
                 ]
             }, 
             "GLYA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.38, 
                     0.17, 
                     0.5, 
@@ -2011,14 +2011,14 @@
                     0.42
                 ], 
                 "parent": "node@512", 
-                "items": [
+                "ids": [
                     "GLYA_ECOLI"
                 ]
             }, 
             "PNP_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.56, 
                     0.36, 
                     0.5, 
@@ -2028,7 +2028,7 @@
                     0.45
                 ], 
                 "parent": "node@482", 
-                "items": [
+                "ids": [
                     "PNP_ECOLI"
                 ]
             }, 
@@ -2042,7 +2042,7 @@
             "OMPP_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.59, 
                     0.69, 
                     0.5, 
@@ -2052,7 +2052,7 @@
                     0.39
                 ], 
                 "parent": "node@450", 
-                "items": [
+                "ids": [
                     "OMPP_ECOLI"
                 ]
             }, 
@@ -2122,7 +2122,7 @@
             "FTSQ_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.49, 
                     0.1, 
                     0.5, 
@@ -2132,7 +2132,7 @@
                     0.67
                 ], 
                 "parent": "node@575", 
-                "items": [
+                "ids": [
                     "FTSQ_ECOLI"
                 ]
             }, 
@@ -2209,7 +2209,7 @@
             "OMPR_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.43, 
                     0.24, 
                     0.5, 
@@ -2219,7 +2219,7 @@
                     0.28
                 ], 
                 "parent": "node@338", 
-                "items": [
+                "ids": [
                     "OMPR_ECOLI"
                 ]
             }, 
@@ -2240,7 +2240,7 @@
             "KAD_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.47, 
                     0.54, 
                     0.5, 
@@ -2250,7 +2250,7 @@
                     0.33
                 ], 
                 "parent": "node@425", 
-                "items": [
+                "ids": [
                     "KAD_ECOLI"
                 ]
             }, 
@@ -2278,7 +2278,7 @@
             "PNTA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.37, 
                     0.33, 
                     0.5, 
@@ -2288,7 +2288,7 @@
                     0.65
                 ], 
                 "parent": "node@542", 
-                "items": [
+                "ids": [
                     "PNTA_ECOLI"
                 ]
             }, 
@@ -2302,7 +2302,7 @@
             "PGK_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.28, 
                     0.34, 
                     0.5, 
@@ -2312,7 +2312,7 @@
                     0.35
                 ], 
                 "parent": "node@366", 
-                "items": [
+                "ids": [
                     "PGK_ECOLI"
                 ]
             }, 
@@ -2347,7 +2347,7 @@
             "GGT_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.82, 
                     0.74, 
                     0.5, 
@@ -2357,14 +2357,14 @@
                     0.49
                 ], 
                 "parent": "node@539", 
-                "items": [
+                "ids": [
                     "GGT_ECOLI"
                 ]
             }, 
             "GLPQ_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.83, 
                     0.63, 
                     0.5, 
@@ -2374,14 +2374,14 @@
                     0.39
                 ], 
                 "parent": "node@551", 
-                "items": [
+                "ids": [
                     "GLPQ_ECOLI"
                 ]
             }, 
             "PTWB_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.54, 
                     0.57, 
                     0.5, 
@@ -2391,14 +2391,14 @@
                     0.28
                 ], 
                 "parent": "node@454", 
-                "items": [
+                "ids": [
                     "PTWB_ECOLI"
                 ]
             }, 
             "PPA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.59, 
                     0.69, 
                     0.5, 
@@ -2408,14 +2408,14 @@
                     0.44
                 ], 
                 "parent": "node@360", 
-                "items": [
+                "ids": [
                     "PPA_ECOLI"
                 ]
             }, 
             "PTNA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.37, 
                     0.35, 
                     0.5, 
@@ -2425,7 +2425,7 @@
                     0.34
                 ], 
                 "parent": "node@427", 
-                "items": [
+                "ids": [
                     "PTNA_ECOLI"
                 ]
             }, 
@@ -2453,7 +2453,7 @@
             "SYC_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.34, 
                     0.35, 
                     0.5, 
@@ -2463,14 +2463,14 @@
                     0.3
                 ], 
                 "parent": "node@504", 
-                "items": [
+                "ids": [
                     "SYC_ECOLI"
                 ]
             }, 
             "RHAR_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.46, 
                     0.51, 
                     0.5, 
@@ -2480,7 +2480,7 @@
                     0.31
                 ], 
                 "parent": "node@497", 
-                "items": [
+                "ids": [
                     "RHAR_ECOLI"
                 ]
             }, 
@@ -2501,7 +2501,7 @@
             "RNE_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.32, 
                     0.43, 
                     0.5, 
@@ -2511,7 +2511,7 @@
                     0.45
                 ], 
                 "parent": "node@537", 
-                "items": [
+                "ids": [
                     "RNE_ECOLI"
                 ]
             }, 
@@ -2539,7 +2539,7 @@
             "AROP_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.4, 
                     0.43, 
                     0.5, 
@@ -2549,7 +2549,7 @@
                     0.75
                 ], 
                 "parent": "node@339", 
-                "items": [
+                "ids": [
                     "AROP_ECOLI"
                 ]
             }, 
@@ -2584,7 +2584,7 @@
             "UHPB_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.54, 
                     0.79, 
                     0.5, 
@@ -2594,14 +2594,14 @@
                     0.66
                 ], 
                 "parent": "node@452", 
-                "items": [
+                "ids": [
                     "UHPB_ECOLI"
                 ]
             }, 
             "PAL_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.55, 
                     0.67, 
                     0.5, 
@@ -2611,7 +2611,7 @@
                     0.58
                 ], 
                 "parent": "node@574", 
-                "items": [
+                "ids": [
                     "PAL_ECOLI"
                 ]
             }, 
@@ -2639,7 +2639,7 @@
             "UGPB_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.57, 
                     0.71, 
                     0.5, 
@@ -2649,14 +2649,14 @@
                     0.35
                 ], 
                 "parent": "node@411", 
-                "items": [
+                "ids": [
                     "UGPB_ECOLI"
                 ]
             }, 
             "PTCA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.51, 
                     0.5, 
                     0.5, 
@@ -2666,14 +2666,14 @@
                     0.23
                 ], 
                 "parent": "node@477", 
-                "items": [
+                "ids": [
                     "PTCA_ECOLI"
                 ]
             }, 
             "MCP1_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.39, 
                     0.86, 
                     0.5, 
@@ -2683,14 +2683,14 @@
                     0.89
                 ], 
                 "parent": "node@511", 
-                "items": [
+                "ids": [
                     "MCP1_ECOLI"
                 ]
             }, 
             "PTKC_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.26, 
                     0.73, 
                     0.5, 
@@ -2700,14 +2700,14 @@
                     0.75
                 ], 
                 "parent": "node@410", 
-                "items": [
+                "ids": [
                     "PTKC_ECOLI"
                 ]
             }, 
             "LIVJ_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.86, 
                     0.71, 
                     0.5, 
@@ -2717,14 +2717,14 @@
                     0.54
                 ], 
                 "parent": "node@382", 
-                "items": [
+                "ids": [
                     "LIVJ_ECOLI"
                 ]
             }, 
             "EMRA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.61, 
                     0.06, 
                     0.5, 
@@ -2734,14 +2734,14 @@
                     0.92
                 ], 
                 "parent": "node@620", 
-                "items": [
+                "ids": [
                     "EMRA_ECOLI"
                 ]
             }, 
             "ASG1_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.24, 
                     0.42, 
                     0.5, 
@@ -2751,14 +2751,14 @@
                     0.27
                 ], 
                 "parent": "node@424", 
-                "items": [
+                "ids": [
                     "ASG1_ECOLI"
                 ]
             }, 
             "SUBI_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.83, 
                     0.62, 
                     0.5, 
@@ -2768,14 +2768,14 @@
                     0.36
                 ], 
                 "parent": "node@394", 
-                "items": [
+                "ids": [
                     "SUBI_ECOLI"
                 ]
             }, 
             "CRL_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.45, 
                     0.4, 
                     0.5, 
@@ -2785,14 +2785,14 @@
                     0.22
                 ], 
                 "parent": "node@624", 
-                "items": [
+                "ids": [
                     "CRL_ECOLI"
                 ]
             }, 
             "ARAF_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.86, 
                     0.66, 
                     0.5, 
@@ -2802,7 +2802,7 @@
                     0.41
                 ], 
                 "parent": "node@399", 
-                "items": [
+                "ids": [
                     "ARAF_ECOLI"
                 ]
             }, 
@@ -2823,7 +2823,7 @@
             "ATP6_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.35, 
                     0.27, 
                     0.5, 
@@ -2833,14 +2833,14 @@
                     0.77
                 ], 
                 "parent": "node@442", 
-                "items": [
+                "ids": [
                     "ATP6_ECOLI"
                 ]
             }, 
             "FTSN_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.51, 
                     0.0, 
                     0.5, 
@@ -2850,14 +2850,14 @@
                     0.67
                 ], 
                 "parent": "node@600", 
-                "items": [
+                "ids": [
                     "FTSN_ECOLI"
                 ]
             }, 
             "PPB_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.67, 
                     0.68, 
                     0.5, 
@@ -2867,14 +2867,14 @@
                     0.4
                 ], 
                 "parent": "node@374", 
-                "items": [
+                "ids": [
                     "PPB_ECOLI"
                 ]
             }, 
             "NUPC_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.53, 
                     0.7, 
                     0.5, 
@@ -2884,14 +2884,14 @@
                     0.86
                 ], 
                 "parent": "node@541", 
-                "items": [
+                "ids": [
                     "NUPC_ECOLI"
                 ]
             }, 
             "PHOR_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.52, 
                     0.61, 
                     0.5, 
@@ -2901,7 +2901,7 @@
                     0.67
                 ], 
                 "parent": "node@557", 
-                "items": [
+                "ids": [
                     "PHOR_ECOLI"
                 ]
             }, 
@@ -2915,7 +2915,7 @@
             "EXBD_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.59, 
                     0.46, 
                     0.5, 
@@ -2925,14 +2925,14 @@
                     0.76
                 ], 
                 "parent": "node@543", 
-                "items": [
+                "ids": [
                     "EXBD_ECOLI"
                 ]
             }, 
             "TESA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.66, 
                     0.69, 
                     0.5, 
@@ -2942,14 +2942,14 @@
                     0.5
                 ], 
                 "parent": "node@505", 
-                "items": [
+                "ids": [
                     "TESA_ECOLI"
                 ]
             }, 
             "XYLA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.43, 
                     0.16, 
                     0.5, 
@@ -2959,14 +2959,14 @@
                     0.27
                 ], 
                 "parent": "node@361", 
-                "items": [
+                "ids": [
                     "XYLA_ECOLI"
                 ]
             }, 
             "PT1_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.44, 
                     0.52, 
                     0.5, 
@@ -2976,14 +2976,14 @@
                     0.36
                 ], 
                 "parent": "node@397", 
-                "items": [
+                "ids": [
                     "PT1_ECOLI"
                 ]
             }, 
             "SERC_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.43, 
                     0.49, 
                     0.5, 
@@ -2993,7 +2993,7 @@
                     0.3
                 ], 
                 "parent": "node@401", 
-                "items": [
+                "ids": [
                     "SERC_ECOLI"
                 ]
             }, 
@@ -3007,7 +3007,7 @@
             "NHAB_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.46, 
                     0.7, 
                     0.5, 
@@ -3017,7 +3017,7 @@
                     0.78
                 ], 
                 "parent": "node@420", 
-                "items": [
+                "ids": [
                     "NHAB_ECOLI"
                 ]
             }, 
@@ -3031,7 +3031,7 @@
             "SLP_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.49, 
                     0.68, 
                     0.5, 
@@ -3041,14 +3041,14 @@
                     0.55
                 ], 
                 "parent": "node@473", 
-                "items": [
+                "ids": [
                     "SLP_ECOLI"
                 ]
             }, 
             "SYS_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.34, 
                     0.23, 
                     0.5, 
@@ -3058,14 +3058,14 @@
                     0.26
                 ], 
                 "parent": "node@337", 
-                "items": [
+                "ids": [
                     "SYS_ECOLI"
                 ]
             }, 
             "G6PI_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.37, 
                     0.3, 
                     0.5, 
@@ -3075,14 +3075,14 @@
                     0.41
                 ], 
                 "parent": "node@475", 
-                "items": [
+                "ids": [
                     "G6PI_ECOLI"
                 ]
             }, 
             "PSTA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.67, 
                     0.34, 
                     0.5, 
@@ -3092,14 +3092,14 @@
                     0.76
                 ], 
                 "parent": "node@576", 
-                "items": [
+                "ids": [
                     "PSTA_ECOLI"
                 ]
             }, 
             "CYOD_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.5, 
                     0.4, 
                     0.5, 
@@ -3109,14 +3109,14 @@
                     0.82
                 ], 
                 "parent": "node@468", 
-                "items": [
+                "ids": [
                     "CYOD_ECOLI"
                 ]
             }, 
             "RNC_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.5, 
                     0.26, 
                     0.5, 
@@ -3126,14 +3126,14 @@
                     0.32
                 ], 
                 "parent": "node@358", 
-                "items": [
+                "ids": [
                     "RNC_ECOLI"
                 ]
             }, 
             "POTF_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.71, 
                     0.66, 
                     0.5, 
@@ -3143,7 +3143,7 @@
                     0.5
                 ], 
                 "parent": "node@390", 
-                "items": [
+                "ids": [
                     "POTF_ECOLI"
                 ]
             }, 
@@ -3178,7 +3178,7 @@
             "MALG_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.4, 
                     0.7, 
                     0.5, 
@@ -3188,7 +3188,7 @@
                     0.86
                 ], 
                 "parent": "node@404", 
-                "items": [
+                "ids": [
                     "MALG_ECOLI"
                 ]
             }, 
@@ -3223,7 +3223,7 @@
             "ENO_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.52, 
                     0.29, 
                     0.5, 
@@ -3233,7 +3233,7 @@
                     0.29
                 ], 
                 "parent": "node@358", 
-                "items": [
+                "ids": [
                     "ENO_ECOLI"
                 ]
             }, 
@@ -3247,7 +3247,7 @@
             "SECE_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.49, 
                     0.48, 
                     0.5, 
@@ -3257,14 +3257,14 @@
                     0.77
                 ], 
                 "parent": "node@471", 
-                "items": [
+                "ids": [
                     "SECE_ECOLI"
                 ]
             }, 
             "OMPC_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.84, 
                     0.73, 
                     0.5, 
@@ -3274,14 +3274,14 @@
                     0.58
                 ], 
                 "parent": "node@409", 
-                "items": [
+                "ids": [
                     "OMPC_ECOLI"
                 ]
             }, 
             "LLDP_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.53, 
                     0.66, 
                     0.5, 
@@ -3291,14 +3291,14 @@
                     0.66
                 ], 
                 "parent": "node@476", 
-                "items": [
+                "ids": [
                     "LLDP_ECOLI"
                 ]
             }, 
             "PT1A_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.49, 
                     0.5, 
                     0.5, 
@@ -3308,14 +3308,14 @@
                     0.46
                 ], 
                 "parent": "node@415", 
-                "items": [
+                "ids": [
                     "PT1A_ECOLI"
                 ]
             }, 
             "TOLC_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.71, 
                     0.71, 
                     0.5, 
@@ -3325,7 +3325,7 @@
                     0.43
                 ], 
                 "parent": "node@470", 
-                "items": [
+                "ids": [
                     "TOLC_ECOLI"
                 ]
             }, 
@@ -3339,7 +3339,7 @@
             "GLTP_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.44, 
                     0.74, 
                     0.5, 
@@ -3349,14 +3349,14 @@
                     0.88
                 ], 
                 "parent": "node@404", 
-                "items": [
+                "ids": [
                     "GLTP_ECOLI"
                 ]
             }, 
             "DSBC_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.74, 
                     0.66, 
                     0.5, 
@@ -3366,14 +3366,14 @@
                     0.38
                 ], 
                 "parent": "node@479", 
-                "items": [
+                "ids": [
                     "DSBC_ECOLI"
                 ]
             }, 
             "MOTA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.41, 
                     0.76, 
                     0.5, 
@@ -3383,7 +3383,7 @@
                     0.59
                 ], 
                 "parent": "node@481", 
-                "items": [
+                "ids": [
                     "MOTA_ECOLI"
                 ]
             }, 
@@ -3418,7 +3418,7 @@
             "XGPT_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.42, 
                     0.27, 
                     0.5, 
@@ -3428,7 +3428,7 @@
                     0.38
                 ], 
                 "parent": "node@413", 
-                "items": [
+                "ids": [
                     "XGPT_ECOLI"
                 ]
             }, 
@@ -3484,7 +3484,7 @@
             "TOLA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.47, 
                     0.61, 
                     0.5, 
@@ -3494,7 +3494,7 @@
                     0.8
                 ], 
                 "parent": "node@606", 
-                "items": [
+                "ids": [
                     "TOLA_ECOLI"
                 ]
             }, 
@@ -3564,7 +3564,7 @@
             "CPXA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.36, 
                     0.79, 
                     0.5, 
@@ -3574,7 +3574,7 @@
                     0.82
                 ], 
                 "parent": "node@533", 
-                "items": [
+                "ids": [
                     "CPXA_ECOLI"
                 ]
             }, 
@@ -3623,7 +3623,7 @@
             "CYDB_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.37, 
                     0.75, 
                     0.5, 
@@ -3633,7 +3633,7 @@
                     0.7
                 ], 
                 "parent": "node@405", 
-                "items": [
+                "ids": [
                     "CYDB_ECOLI"
                 ]
             }, 
@@ -3654,7 +3654,7 @@
             "SOXS_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.33, 
                     0.32, 
                     0.5, 
@@ -3664,14 +3664,14 @@
                     0.06
                 ], 
                 "parent": "node@521", 
-                "items": [
+                "ids": [
                     "SOXS_ECOLI"
                 ]
             }, 
             "LGT_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.37, 
                     0.5, 
                     0.5, 
@@ -3681,7 +3681,7 @@
                     0.64
                 ], 
                 "parent": "node@406", 
-                "items": [
+                "ids": [
                     "LGT_ECOLI"
                 ]
             }, 
@@ -3695,7 +3695,7 @@
             "MEPA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.84, 
                     0.75, 
                     0.5, 
@@ -3705,14 +3705,14 @@
                     0.52
                 ], 
                 "parent": "node@382", 
-                "items": [
+                "ids": [
                     "MEPA_ECOLI"
                 ]
             }, 
             "ILVY_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.58, 
                     0.23, 
                     0.5, 
@@ -3722,14 +3722,14 @@
                     0.53
                 ], 
                 "parent": "node@559", 
-                "items": [
+                "ids": [
                     "ILVY_ECOLI"
                 ]
             }, 
             "MULI_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.57, 
                     0.77, 
                     0.5, 
@@ -3739,7 +3739,7 @@
                     0.54
                 ], 
                 "parent": "node@629", 
-                "items": [
+                "ids": [
                     "MULI_ECOLI"
                 ]
             }, 
@@ -3753,7 +3753,7 @@
             "FECB_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.82, 
                     0.68, 
                     0.5, 
@@ -3763,14 +3763,14 @@
                     0.65
                 ], 
                 "parent": "node@532", 
-                "items": [
+                "ids": [
                     "FECB_ECOLI"
                 ]
             }, 
             "PHOB_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.43, 
                     0.41, 
                     0.5, 
@@ -3780,14 +3780,14 @@
                     0.31
                 ], 
                 "parent": "node@349", 
-                "items": [
+                "ids": [
                     "PHOB_ECOLI"
                 ]
             }, 
             "SPEA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.39, 
                     0.29, 
                     0.5, 
@@ -3797,14 +3797,14 @@
                     0.4
                 ], 
                 "parent": "node@353", 
-                "items": [
+                "ids": [
                     "SPEA_ECOLI"
                 ]
             }, 
             "DPPA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.59, 
                     0.57, 
                     0.5, 
@@ -3814,14 +3814,14 @@
                     0.47
                 ], 
                 "parent": "node@441", 
-                "items": [
+                "ids": [
                     "DPPA_ECOLI"
                 ]
             }, 
             "RND_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.49, 
                     0.44, 
                     0.5, 
@@ -3831,14 +3831,14 @@
                     0.38
                 ], 
                 "parent": "node@433", 
-                "items": [
+                "ids": [
                     "RND_ECOLI"
                 ]
             }, 
             "PMBA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.55, 
                     0.34, 
                     0.5, 
@@ -3848,14 +3848,14 @@
                     0.31
                 ], 
                 "parent": "node@469", 
-                "items": [
+                "ids": [
                     "PMBA_ECOLI"
                 ]
             }, 
             "SYK2_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.39, 
                     0.17, 
                     0.5, 
@@ -3865,7 +3865,7 @@
                     0.3
                 ], 
                 "parent": "node@361", 
-                "items": [
+                "ids": [
                     "SYK2_ECOLI"
                 ]
             }, 
@@ -3879,7 +3879,7 @@
             "APT_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.44, 
                     0.2, 
                     0.5, 
@@ -3889,14 +3889,14 @@
                     0.51
                 ], 
                 "parent": "node@421", 
-                "items": [
+                "ids": [
                     "APT_ECOLI"
                 ]
             }, 
             "METR_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.57, 
                     0.52, 
                     0.5, 
@@ -3906,14 +3906,14 @@
                     0.47
                 ], 
                 "parent": "node@443", 
-                "items": [
+                "ids": [
                     "METR_ECOLI"
                 ]
             }, 
             "TSX_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.76, 
                     0.68, 
                     0.5, 
@@ -3923,14 +3923,14 @@
                     0.45
                 ], 
                 "parent": "node@492", 
-                "items": [
+                "ids": [
                     "TSX_ECOLI"
                 ]
             }, 
             "FTSL_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.45, 
                     0.36, 
                     0.5, 
@@ -3940,14 +3940,14 @@
                     0.79
                 ], 
                 "parent": "node@543", 
-                "items": [
+                "ids": [
                     "FTSL_ECOLI"
                 ]
             }, 
             "UVRB_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.34, 
                     0.22, 
                     0.5, 
@@ -3957,14 +3957,14 @@
                     0.29
                 ], 
                 "parent": "node@343", 
-                "items": [
+                "ids": [
                     "UVRB_ECOLI"
                 ]
             }, 
             "GLPT_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.5, 
                     0.31, 
                     0.5, 
@@ -3974,14 +3974,14 @@
                     0.84
                 ], 
                 "parent": "node@367", 
-                "items": [
+                "ids": [
                     "GLPT_ECOLI"
                 ]
             }, 
             "NHAR_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.5, 
                     0.37, 
                     0.5, 
@@ -3991,14 +3991,14 @@
                     0.36
                 ], 
                 "parent": "node@340", 
-                "items": [
+                "ids": [
                     "NHAR_ECOLI"
                 ]
             }, 
             "ARAC_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.4, 
                     0.42, 
                     0.5, 
@@ -4008,14 +4008,14 @@
                     0.18
                 ], 
                 "parent": "node@362", 
-                "items": [
+                "ids": [
                     "ARAC_ECOLI"
                 ]
             }, 
             "NLPE_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.46, 
                     0.71, 
                     0.5, 
@@ -4025,14 +4025,14 @@
                     0.59
                 ], 
                 "parent": "node@414", 
-                "items": [
+                "ids": [
                     "NLPE_ECOLI"
                 ]
             }, 
             "SYD_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.3, 
                     0.38, 
                     0.5, 
@@ -4042,14 +4042,14 @@
                     0.29
                 ], 
                 "parent": "node@376", 
-                "items": [
+                "ids": [
                     "SYD_ECOLI"
                 ]
             }, 
             "PFLA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.28, 
                     0.44, 
                     0.5, 
@@ -4059,14 +4059,14 @@
                     0.27
                 ], 
                 "parent": "node@376", 
-                "items": [
+                "ids": [
                     "PFLA_ECOLI"
                 ]
             }, 
             "MALF_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.54, 
                     0.63, 
                     0.5, 
@@ -4076,14 +4076,14 @@
                     0.79
                 ], 
                 "parent": "node@418", 
-                "items": [
+                "ids": [
                     "MALF_ECOLI"
                 ]
             }, 
             "TOLQ_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.75, 
                     0.63, 
                     0.5, 
@@ -4093,14 +4093,14 @@
                     0.73
                 ], 
                 "parent": "node@500", 
-                "items": [
+                "ids": [
                     "TOLQ_ECOLI"
                 ]
             }, 
             "LNT_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.61, 
                     0.6, 
                     0.5, 
@@ -4110,14 +4110,14 @@
                     0.67
                 ], 
                 "parent": "node@428", 
-                "items": [
+                "ids": [
                     "LNT_ECOLI"
                 ]
             }, 
             "DHSC_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.45, 
                     0.48, 
                     0.5, 
@@ -4127,7 +4127,7 @@
                     0.78
                 ], 
                 "parent": "node@363", 
-                "items": [
+                "ids": [
                     "DHSC_ECOLI"
                 ]
             }, 
@@ -4141,7 +4141,7 @@
             "TOLB_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.65, 
                     0.69, 
                     0.5, 
@@ -4151,7 +4151,7 @@
                     0.48
                 ], 
                 "parent": "node@422", 
-                "items": [
+                "ids": [
                     "TOLB_ECOLI"
                 ]
             }, 
@@ -4200,7 +4200,7 @@
             "ASG2_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.78, 
                     0.73, 
                     0.5, 
@@ -4210,7 +4210,7 @@
                     0.51
                 ], 
                 "parent": "node@458", 
-                "items": [
+                "ids": [
                     "ASG2_ECOLI"
                 ]
             }, 
@@ -4238,7 +4238,7 @@
             "CHEZ_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.57, 
                     0.41, 
                     0.5, 
@@ -4248,7 +4248,7 @@
                     0.21
                 ], 
                 "parent": "node@548", 
-                "items": [
+                "ids": [
                     "CHEZ_ECOLI"
                 ]
             }, 
@@ -4262,7 +4262,7 @@
             "MURF_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.48, 
                     0.35, 
                     0.5, 
@@ -4272,7 +4272,7 @@
                     0.4
                 ], 
                 "parent": "node@475", 
-                "items": [
+                "ids": [
                     "MURF_ECOLI"
                 ]
             }, 
@@ -4300,7 +4300,7 @@
             "PTHP_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.45, 
                     0.3, 
                     0.5, 
@@ -4310,7 +4310,7 @@
                     0.21
                 ], 
                 "parent": "node@369", 
-                "items": [
+                "ids": [
                     "PTHP_ECOLI"
                 ]
             }, 
@@ -4387,7 +4387,7 @@
             "MELB_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.46, 
                     0.47, 
                     0.5, 
@@ -4397,14 +4397,14 @@
                     0.74
                 ], 
                 "parent": "node@363", 
-                "items": [
+                "ids": [
                     "MELB_ECOLI"
                 ]
             }, 
             "GLNP_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.42, 
                     0.49, 
                     0.5, 
@@ -4414,14 +4414,14 @@
                     0.79
                 ], 
                 "parent": "node@466", 
-                "items": [
+                "ids": [
                     "GLNP_ECOLI"
                 ]
             }, 
             "PTKB_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.76, 
                     0.64, 
                     0.5, 
@@ -4431,14 +4431,14 @@
                     0.35
                 ], 
                 "parent": "node@359", 
-                "items": [
+                "ids": [
                     "PTKB_ECOLI"
                 ]
             }, 
             "METB_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.29, 
                     0.47, 
                     0.5, 
@@ -4448,14 +4448,14 @@
                     0.33
                 ], 
                 "parent": "node@461", 
-                "items": [
+                "ids": [
                     "METB_ECOLI"
                 ]
             }, 
             "PA1_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.63, 
                     0.68, 
                     0.5, 
@@ -4465,14 +4465,14 @@
                     0.4
                 ], 
                 "parent": "node@450", 
-                "items": [
+                "ids": [
                     "PA1_ECOLI"
                 ]
             }, 
             "PTGA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.42, 
                     0.4, 
                     0.5, 
@@ -4482,14 +4482,14 @@
                     0.27
                 ], 
                 "parent": "node@430", 
-                "items": [
+                "ids": [
                     "PTGA_ECOLI"
                 ]
             }, 
             "DMSC_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.48, 
                     0.66, 
                     0.5, 
@@ -4499,14 +4499,14 @@
                     0.7
                 ], 
                 "parent": "node@403", 
-                "items": [
+                "ids": [
                     "DMSC_ECOLI"
                 ]
             }, 
             "RHAS_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.4, 
                     0.38, 
                     0.5, 
@@ -4516,14 +4516,14 @@
                     0.25
                 ], 
                 "parent": "node@462", 
-                "items": [
+                "ids": [
                     "RHAS_ECOLI"
                 ]
             }, 
             "LYSR_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.56, 
                     0.44, 
                     0.5, 
@@ -4533,7 +4533,7 @@
                     0.46
                 ], 
                 "parent": "node@352", 
-                "items": [
+                "ids": [
                     "LYSR_ECOLI"
                 ]
             }, 
@@ -4554,7 +4554,7 @@
             "BGLX_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.57, 
                     0.65, 
                     0.5, 
@@ -4564,14 +4564,14 @@
                     0.47
                 ], 
                 "parent": "node@360", 
-                "items": [
+                "ids": [
                     "BGLX_ECOLI"
                 ]
             }, 
             "OPPA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.8, 
                     0.69, 
                     0.5, 
@@ -4581,7 +4581,7 @@
                     0.57
                 ], 
                 "parent": "node@506", 
-                "items": [
+                "ids": [
                     "OPPA_ECOLI"
                 ]
             }, 
@@ -4693,7 +4693,7 @@
             "METK_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.37, 
                     0.25, 
                     0.5, 
@@ -4703,7 +4703,7 @@
                     0.33
                 ], 
                 "parent": "node@350", 
-                "items": [
+                "ids": [
                     "METK_ECOLI"
                 ]
             }, 
@@ -4731,7 +4731,7 @@
             "CHEB_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.45, 
                     0.34, 
                     0.5, 
@@ -4741,14 +4741,14 @@
                     0.24
                 ], 
                 "parent": "node@371", 
-                "items": [
+                "ids": [
                     "CHEB_ECOLI"
                 ]
             }, 
             "FTSW_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.57, 
                     0.54, 
                     0.5, 
@@ -4758,14 +4758,14 @@
                     0.81
                 ], 
                 "parent": "node@355", 
-                "items": [
+                "ids": [
                     "FTSW_ECOLI"
                 ]
             }, 
             "PTAA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.56, 
                     0.59, 
                     0.5, 
@@ -4775,14 +4775,14 @@
                     0.8
                 ], 
                 "parent": "node@355", 
-                "items": [
+                "ids": [
                     "PTAA_ECOLI"
                 ]
             }, 
             "FEPD_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.49, 
                     0.84, 
                     0.5, 
@@ -4792,7 +4792,7 @@
                     0.78
                 ], 
                 "parent": "node@391", 
-                "items": [
+                "ids": [
                     "FEPD_ECOLI"
                 ]
             }, 
@@ -4820,7 +4820,7 @@
             "LSPA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.37, 
                     0.83, 
                     0.5, 
@@ -4830,14 +4830,14 @@
                     0.71
                 ], 
                 "parent": "node@405", 
-                "items": [
+                "ids": [
                     "LSPA_ECOLI"
                 ]
             }, 
             "PROX_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.78, 
                     0.64, 
                     0.5, 
@@ -4847,14 +4847,14 @@
                     0.36
                 ], 
                 "parent": "node@359", 
-                "items": [
+                "ids": [
                     "PROX_ECOLI"
                 ]
             }, 
             "CAFA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.32, 
                     0.39, 
                     0.5, 
@@ -4864,14 +4864,14 @@
                     0.24
                 ], 
                 "parent": "node@344", 
-                "items": [
+                "ids": [
                     "CAFA_ECOLI"
                 ]
             }, 
             "DHG_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.44, 
                     0.84, 
                     0.5, 
@@ -4881,14 +4881,14 @@
                     0.71
                 ], 
                 "parent": "node@372", 
-                "items": [
+                "ids": [
                     "DHG_ECOLI"
                 ]
             }, 
             "PTBA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.4, 
                     0.51, 
                     0.5, 
@@ -4898,14 +4898,14 @@
                     0.62
                 ], 
                 "parent": "node@478", 
-                "items": [
+                "ids": [
                     "PTBA_ECOLI"
                 ]
             }, 
             "LPLA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.38, 
                     0.42, 
                     0.5, 
@@ -4915,14 +4915,14 @@
                     0.34
                 ], 
                 "parent": "node@336", 
-                "items": [
+                "ids": [
                     "LPLA_ECOLI"
                 ]
             }, 
             "RNB_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.34, 
                     0.24, 
                     0.5, 
@@ -4932,14 +4932,14 @@
                     0.3
                 ], 
                 "parent": "node@343", 
-                "items": [
+                "ids": [
                     "RNB_ECOLI"
                 ]
             }, 
             "GABP_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.59, 
                     0.47, 
                     0.5, 
@@ -4949,14 +4949,14 @@
                     0.76
                 ], 
                 "parent": "node@435", 
-                "items": [
+                "ids": [
                     "GABP_ECOLI"
                 ]
             }, 
             "DPPC_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.41, 
                     0.48, 
                     0.5, 
@@ -4966,14 +4966,14 @@
                     0.9
                 ], 
                 "parent": "node@508", 
-                "items": [
+                "ids": [
                     "DPPC_ECOLI"
                 ]
             }, 
             "AMPE_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.47, 
                     0.63, 
                     0.5, 
@@ -4983,14 +4983,14 @@
                     0.82
                 ], 
                 "parent": "node@377", 
-                "items": [
+                "ids": [
                     "AMPE_ECOLI"
                 ]
             }, 
             "PTCC_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.57, 
                     0.5, 
                     0.5, 
@@ -5000,7 +5000,7 @@
                     0.61
                 ], 
                 "parent": "node@571", 
-                "items": [
+                "ids": [
                     "PTCC_ECOLI"
                 ]
             }, 
@@ -5014,7 +5014,7 @@
             "SECF_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.5, 
                     0.11, 
                     0.5, 
@@ -5024,14 +5024,14 @@
                     0.72
                 ], 
                 "parent": "node@449", 
-                "items": [
+                "ids": [
                     "SECF_ECOLI"
                 ]
             }, 
             "EXBB_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.55, 
                     0.47, 
                     0.5, 
@@ -5041,7 +5041,7 @@
                     0.71
                 ], 
                 "parent": "node@417", 
-                "items": [
+                "ids": [
                     "EXBB_ECOLI"
                 ]
             }, 
@@ -5062,7 +5062,7 @@
             "RIMI_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.57, 
                     0.24, 
                     0.5, 
@@ -5072,7 +5072,7 @@
                     0.34
                 ], 
                 "parent": "node@469", 
-                "items": [
+                "ids": [
                     "RIMI_ECOLI"
                 ]
             }, 
@@ -5086,7 +5086,7 @@
             "PTHB_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.47, 
                     0.36, 
                     0.5, 
@@ -5096,14 +5096,14 @@
                     0.69
                 ], 
                 "parent": "node@398", 
-                "items": [
+                "ids": [
                     "PTHB_ECOLI"
                 ]
             }, 
             "SYR_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.46, 
                     0.4, 
                     0.5, 
@@ -5113,14 +5113,14 @@
                     0.35
                 ], 
                 "parent": "node@370", 
-                "items": [
+                "ids": [
                     "SYR_ECOLI"
                 ]
             }, 
             "BETT_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.39, 
                     0.52, 
                     0.5, 
@@ -5130,7 +5130,7 @@
                     0.71
                 ], 
                 "parent": "node@406", 
-                "items": [
+                "ids": [
                     "BETT_ECOLI"
                 ]
             }, 
@@ -5151,7 +5151,7 @@
             "ARAH_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.49, 
                     0.34, 
                     0.5, 
@@ -5161,14 +5161,14 @@
                     0.85
                 ], 
                 "parent": "node@367", 
-                "items": [
+                "ids": [
                     "ARAH_ECOLI"
                 ]
             }, 
             "MALM_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.47, 
                     0.74, 
                     0.5, 
@@ -5178,7 +5178,7 @@
                     0.57
                 ], 
                 "parent": "node@448", 
-                "items": [
+                "ids": [
                     "MALM_ECOLI"
                 ]
             }, 
@@ -5206,7 +5206,7 @@
             "BTUB_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.68, 
                     0.56, 
                     0.5, 
@@ -5216,14 +5216,14 @@
                     0.36
                 ], 
                 "parent": "node@522", 
-                "items": [
+                "ids": [
                     "BTUB_ECOLI"
                 ]
             }, 
             "PHOH_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.47, 
                     0.29, 
                     0.5, 
@@ -5233,7 +5233,7 @@
                     0.23
                 ], 
                 "parent": "node@369", 
-                "items": [
+                "ids": [
                     "PHOH_ECOLI"
                 ]
             }, 
@@ -5275,7 +5275,7 @@
             "NIRD_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.42, 
                     0.44, 
                     0.5, 
@@ -5285,14 +5285,14 @@
                     0.25
                 ], 
                 "parent": "node@430", 
-                "items": [
+                "ids": [
                     "NIRD_ECOLI"
                 ]
             }, 
             "PTKA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.47, 
                     0.31, 
                     0.5, 
@@ -5302,7 +5302,7 @@
                     0.28
                 ], 
                 "parent": "node@396", 
-                "items": [
+                "ids": [
                     "PTKA_ECOLI"
                 ]
             }, 
@@ -5330,7 +5330,7 @@
             "PNTB_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.52, 
                     0.81, 
                     0.5, 
@@ -5340,7 +5340,7 @@
                     0.78
                 ], 
                 "parent": "node@391", 
-                "items": [
+                "ids": [
                     "PNTB_ECOLI"
                 ]
             }, 
@@ -5375,7 +5375,7 @@
             "KUP_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.42, 
                     0.62, 
                     0.5, 
@@ -5385,7 +5385,7 @@
                     0.79
                 ], 
                 "parent": "node@408", 
-                "items": [
+                "ids": [
                     "KUP_ECOLI"
                 ]
             }, 
@@ -5399,7 +5399,7 @@
             "GT_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.4, 
                     0.43, 
                     0.5, 
@@ -5409,7 +5409,7 @@
                     0.28
                 ], 
                 "parent": "node@434", 
-                "items": [
+                "ids": [
                     "GT_ECOLI"
                 ]
             }, 
@@ -5430,7 +5430,7 @@
             "FHUA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.69, 
                     0.63, 
                     0.5, 
@@ -5440,7 +5440,7 @@
                     0.41
                 ], 
                 "parent": "node@470", 
-                "items": [
+                "ids": [
                     "FHUA_ECOLI"
                 ]
             }, 
@@ -5461,7 +5461,7 @@
             "SYFA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.51, 
                     0.41, 
                     0.5, 
@@ -5471,14 +5471,14 @@
                     0.2
                 ], 
                 "parent": "node@447", 
-                "items": [
+                "ids": [
                     "SYFA_ECOLI"
                 ]
             }, 
             "KGTP_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.4, 
                     0.45, 
                     0.5, 
@@ -5488,7 +5488,7 @@
                     0.74
                 ], 
                 "parent": "node@339", 
-                "items": [
+                "ids": [
                     "KGTP_ECOLI"
                 ]
             }, 
@@ -5509,7 +5509,7 @@
             "MALE_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.84, 
                     0.64, 
                     0.5, 
@@ -5519,7 +5519,7 @@
                     0.45
                 ], 
                 "parent": "node@379", 
-                "items": [
+                "ids": [
                     "MALE_ECOLI"
                 ]
             }, 
@@ -5631,7 +5631,7 @@
             "ENVZ_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.46, 
                     0.72, 
                     0.5, 
@@ -5641,7 +5641,7 @@
                     0.66
                 ], 
                 "parent": "node@452", 
-                "items": [
+                "ids": [
                     "ENVZ_ECOLI"
                 ]
             }, 
@@ -5662,7 +5662,7 @@
             "AMY1_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.61, 
                     0.7, 
                     0.5, 
@@ -5672,7 +5672,7 @@
                     0.52
                 ], 
                 "parent": "node@422", 
-                "items": [
+                "ids": [
                     "AMY1_ECOLI"
                 ]
             }, 
@@ -5714,7 +5714,7 @@
             "PTFB_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.47, 
                     0.37, 
                     0.5, 
@@ -5724,7 +5724,7 @@
                     0.76
                 ], 
                 "parent": "node@464", 
-                "items": [
+                "ids": [
                     "PTFB_ECOLI"
                 ]
             }, 
@@ -5752,7 +5752,7 @@
             "FHUE_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.76, 
                     0.6, 
                     0.5, 
@@ -5762,14 +5762,14 @@
                     0.59
                 ], 
                 "parent": "node@641", 
-                "items": [
+                "ids": [
                     "FHUE_ECOLI"
                 ]
             }, 
             "CYNR_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.54, 
                     0.51, 
                     0.5, 
@@ -5779,14 +5779,14 @@
                     0.34
                 ], 
                 "parent": "node@485", 
-                "items": [
+                "ids": [
                     "CYNR_ECOLI"
                 ]
             }, 
             "FRDC_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.56, 
                     0.33, 
                     0.5, 
@@ -5796,14 +5796,14 @@
                     0.78
                 ], 
                 "parent": "node@464", 
-                "items": [
+                "ids": [
                     "FRDC_ECOLI"
                 ]
             }, 
             "SECD_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.42, 
                     0.88, 
                     0.5, 
@@ -5813,7 +5813,7 @@
                     0.73
                 ], 
                 "parent": "node@372", 
-                "items": [
+                "ids": [
                     "SECD_ECOLI"
                 ]
             }, 
@@ -5834,7 +5834,7 @@
             "RIML_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.47, 
                     0.33, 
                     0.5, 
@@ -5844,14 +5844,14 @@
                     0.18
                 ], 
                 "parent": "node@447", 
-                "items": [
+                "ids": [
                     "RIML_ECOLI"
                 ]
             }, 
             "GLTS_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.6, 
                     0.58, 
                     0.5, 
@@ -5861,14 +5861,14 @@
                     0.73
                 ], 
                 "parent": "node@373", 
-                "items": [
+                "ids": [
                     "GLTS_ECOLI"
                 ]
             }, 
             "SYK1_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.41, 
                     0.24, 
                     0.5, 
@@ -5878,7 +5878,7 @@
                     0.23
                 ], 
                 "parent": "node@375", 
-                "items": [
+                "ids": [
                     "SYK1_ECOLI"
                 ]
             }, 
@@ -5892,7 +5892,7 @@
             "KDSA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.37, 
                     0.51, 
                     0.5, 
@@ -5902,14 +5902,14 @@
                     0.36
                 ], 
                 "parent": "node@397", 
-                "items": [
+                "ids": [
                     "KDSA_ECOLI"
                 ]
             }, 
             "PSTC_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.34, 
                     0.58, 
                     0.5, 
@@ -5919,14 +5919,14 @@
                     0.87
                 ], 
                 "parent": "node@517", 
-                "items": [
+                "ids": [
                     "PSTC_ECOLI"
                 ]
             }, 
             "SYM_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.36, 
                     0.61, 
                     0.5, 
@@ -5936,7 +5936,7 @@
                     0.35
                 ], 
                 "parent": "node@378", 
-                "items": [
+                "ids": [
                     "SYM_ECOLI"
                 ]
             }, 
@@ -5950,7 +5950,7 @@
             "FTSH_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.44, 
                     0.81, 
                     0.5, 
@@ -5960,7 +5960,7 @@
                     0.67
                 ], 
                 "parent": "node@386", 
-                "items": [
+                "ids": [
                     "FTSH_ECOLI"
                 ]
             }, 
@@ -5974,7 +5974,7 @@
             "LEP_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.44, 
                     0.78, 
                     0.5, 
@@ -5984,7 +5984,7 @@
                     0.73
                 ], 
                 "parent": "node@386", 
-                "items": [
+                "ids": [
                     "LEP_ECOLI"
                 ]
             }, 
@@ -5998,7 +5998,7 @@
             "NANT_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.46, 
                     0.2, 
                     0.5, 
@@ -6008,14 +6008,14 @@
                     0.78
                 ], 
                 "parent": "node@484", 
-                "items": [
+                "ids": [
                     "NANT_ECOLI"
                 ]
             }, 
             "ECPD_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.72, 
                     0.64, 
                     0.5, 
@@ -6025,14 +6025,14 @@
                     0.42
                 ], 
                 "parent": "node@439", 
-                "items": [
+                "ids": [
                     "ECPD_ECOLI"
                 ]
             }, 
             "METX_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.37, 
                     0.25, 
                     0.5, 
@@ -6042,14 +6042,14 @@
                     0.26
                 ], 
                 "parent": "node@337", 
-                "items": [
+                "ids": [
                     "METX_ECOLI"
                 ]
             }, 
             "LEU3_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.35, 
                     0.4, 
                     0.5, 
@@ -6059,14 +6059,14 @@
                     0.33
                 ], 
                 "parent": "node@393", 
-                "items": [
+                "ids": [
                     "LEU3_ECOLI"
                 ]
             }, 
             "HTRA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.71, 
                     0.63, 
                     0.5, 
@@ -6076,14 +6076,14 @@
                     0.4
                 ], 
                 "parent": "node@472", 
-                "items": [
+                "ids": [
                     "HTRA_ECOLI"
                 ]
             }, 
             "TORA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.59, 
                     0.43, 
                     0.5, 
@@ -6093,7 +6093,7 @@
                     0.49
                 ], 
                 "parent": "node@352", 
-                "items": [
+                "ids": [
                     "TORA_ECOLI"
                 ]
             }, 
@@ -6107,7 +6107,7 @@
             "FEPA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.57, 
                     0.64, 
                     0.5, 
@@ -6117,14 +6117,14 @@
                     0.33
                 ], 
                 "parent": "node@465", 
-                "items": [
+                "ids": [
                     "FEPA_ECOLI"
                 ]
             }, 
             "RHAT_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.61, 
                     0.49, 
                     0.5, 
@@ -6134,14 +6134,14 @@
                     0.71
                 ], 
                 "parent": "node@598", 
-                "items": [
+                "ids": [
                     "RHAT_ECOLI"
                 ]
             }, 
             "SYE_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.44, 
                     0.38, 
                     0.5, 
@@ -6151,14 +6151,14 @@
                     0.2
                 ], 
                 "parent": "node@368", 
-                "items": [
+                "ids": [
                     "SYE_ECOLI"
                 ]
             }, 
             "FEPG_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.55, 
                     0.77, 
                     0.5, 
@@ -6168,14 +6168,14 @@
                     0.78
                 ], 
                 "parent": "node@445", 
-                "items": [
+                "ids": [
                     "FEPG_ECOLI"
                 ]
             }, 
             "LACY_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.4, 
                     0.71, 
                     0.5, 
@@ -6185,14 +6185,14 @@
                     0.7
                 ], 
                 "parent": "node@493", 
-                "items": [
+                "ids": [
                     "LACY_ECOLI"
                 ]
             }, 
             "THGA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.3, 
                     0.27, 
                     0.5, 
@@ -6202,14 +6202,14 @@
                     0.28
                 ], 
                 "parent": "node@586", 
-                "items": [
+                "ids": [
                     "THGA_ECOLI"
                 ]
             }, 
             "NFRA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.75, 
                     0.61, 
                     0.5, 
@@ -6219,7 +6219,7 @@
                     0.33
                 ], 
                 "parent": "node@407", 
-                "items": [
+                "ids": [
                     "NFRA_ECOLI"
                 ]
             }, 
@@ -6233,7 +6233,7 @@
             "NFRB_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.49, 
                     0.63, 
                     0.5, 
@@ -6243,14 +6243,14 @@
                     0.76
                 ], 
                 "parent": "node@403", 
-                "items": [
+                "ids": [
                     "NFRB_ECOLI"
                 ]
             }, 
             "SECG_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.54, 
                     0.84, 
                     0.5, 
@@ -6260,14 +6260,14 @@
                     0.92
                 ], 
                 "parent": "node@602", 
-                "items": [
+                "ids": [
                     "SECG_ECOLI"
                 ]
             }, 
             "OMPT_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.49, 
                     0.63, 
                     0.5, 
@@ -6277,14 +6277,14 @@
                     0.45
                 ], 
                 "parent": "node@527", 
-                "items": [
+                "ids": [
                     "OMPT_ECOLI"
                 ]
             }, 
             "NLPA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.55, 
                     0.75, 
                     1.0, 
@@ -6294,14 +6294,14 @@
                     0.47
                 ], 
                 "parent": "node@652", 
-                "items": [
+                "ids": [
                     "NLPA_ECOLI"
                 ]
             }, 
             "CYSP_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.61, 
                     0.67, 
                     0.5, 
@@ -6311,14 +6311,14 @@
                     0.37
                 ], 
                 "parent": "node@411", 
-                "items": [
+                "ids": [
                     "CYSP_ECOLI"
                 ]
             }, 
             "MSBB_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.51, 
                     0.16, 
                     0.5, 
@@ -6328,14 +6328,14 @@
                     0.39
                 ], 
                 "parent": "node@440", 
-                "items": [
+                "ids": [
                     "MSBB_ECOLI"
                 ]
             }, 
             "CN16_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.7, 
                     0.67, 
                     0.5, 
@@ -6345,14 +6345,14 @@
                     0.45
                 ], 
                 "parent": "node@374", 
-                "items": [
+                "ids": [
                     "CN16_ECOLI"
                 ]
             }, 
             "DPPB_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.46, 
                     0.64, 
                     0.5, 
@@ -6362,14 +6362,14 @@
                     0.73
                 ], 
                 "parent": "node@381", 
-                "items": [
+                "ids": [
                     "DPPB_ECOLI"
                 ]
             }, 
             "SYT_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.44, 
                     0.37, 
                     0.5, 
@@ -6379,14 +6379,14 @@
                     0.39
                 ], 
                 "parent": "node@370", 
-                "items": [
+                "ids": [
                     "SYT_ECOLI"
                 ]
             }, 
             "OMPX_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.57, 
                     0.77, 
                     0.5, 
@@ -6396,14 +6396,14 @@
                     0.53
                 ], 
                 "parent": "node@573", 
-                "items": [
+                "ids": [
                     "OMPX_ECOLI"
                 ]
             }, 
             "PTR_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.73, 
                     0.76, 
                     0.5, 
@@ -6413,14 +6413,14 @@
                     0.39
                 ], 
                 "parent": "node@495", 
-                "items": [
+                "ids": [
                     "PTR_ECOLI"
                 ]
             }, 
             "ALKH_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.39, 
                     0.67, 
                     0.5, 
@@ -6430,14 +6430,14 @@
                     0.38
                 ], 
                 "parent": "node@544", 
-                "items": [
+                "ids": [
                     "ALKH_ECOLI"
                 ]
             }, 
             "DSBB_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.66, 
                     0.5, 
                     0.5, 
@@ -6447,14 +6447,14 @@
                     0.92
                 ], 
                 "parent": "node@581", 
-                "items": [
+                "ids": [
                     "DSBB_ECOLI"
                 ]
             }, 
             "PTGB_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.55, 
                     0.58, 
                     0.5, 
@@ -6464,14 +6464,14 @@
                     0.7
                 ], 
                 "parent": "node@373", 
-                "items": [
+                "ids": [
                     "PTGB_ECOLI"
                 ]
             }, 
             "SYW_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.31, 
                     0.39, 
                     0.5, 
@@ -6481,14 +6481,14 @@
                     0.34
                 ], 
                 "parent": "node@347", 
-                "items": [
+                "ids": [
                     "SYW_ECOLI"
                 ]
             }, 
             "MCP2_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.53, 
                     0.81, 
                     0.5, 
@@ -6498,14 +6498,14 @@
                     0.87
                 ], 
                 "parent": "node@511", 
-                "items": [
+                "ids": [
                     "MCP2_ECOLI"
                 ]
             }, 
             "BTUR_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.48, 
                     0.25, 
                     0.5, 
@@ -6515,14 +6515,14 @@
                     0.17
                 ], 
                 "parent": "node@384", 
-                "items": [
+                "ids": [
                     "BTUR_ECOLI"
                 ]
             }, 
             "PTTB_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.44, 
                     0.31, 
                     0.5, 
@@ -6532,14 +6532,14 @@
                     0.79
                 ], 
                 "parent": "node@442", 
-                "items": [
+                "ids": [
                     "PTTB_ECOLI"
                 ]
             }, 
             "NUPG_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.45, 
                     0.64, 
                     0.5, 
@@ -6549,14 +6549,14 @@
                     0.61
                 ], 
                 "parent": "node@476", 
-                "items": [
+                "ids": [
                     "NUPG_ECOLI"
                 ]
             }, 
             "PTMA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.41, 
                     0.39, 
                     0.5, 
@@ -6566,14 +6566,14 @@
                     0.72
                 ], 
                 "parent": "node@398", 
-                "items": [
+                "ids": [
                     "PTMA_ECOLI"
                 ]
             }, 
             "CYPC_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.39, 
                     0.36, 
                     0.5, 
@@ -6583,7 +6583,7 @@
                     0.22
                 ], 
                 "parent": "node@385", 
-                "items": [
+                "ids": [
                     "CYPC_ECOLI"
                 ]
             }, 
@@ -6597,7 +6597,7 @@
             "C562_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.86, 
                     0.72, 
                     0.5, 
@@ -6607,7 +6607,7 @@
                     0.55
                 ], 
                 "parent": "node@617", 
-                "items": [
+                "ids": [
                     "C562_ECOLI"
                 ]
             }, 
@@ -6635,7 +6635,7 @@
             "OTC2_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.42, 
                     0.48, 
                     0.5, 
@@ -6645,7 +6645,7 @@
                     0.25
                 ], 
                 "parent": "node@401", 
-                "items": [
+                "ids": [
                     "OTC2_ECOLI"
                 ]
             }, 
@@ -6687,7 +6687,7 @@
             "MALZ_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.41, 
                     0.36, 
                     0.5, 
@@ -6697,7 +6697,7 @@
                     0.47
                 ], 
                 "parent": "node@389", 
-                "items": [
+                "ids": [
                     "MALZ_ECOLI"
                 ]
             }, 
@@ -6753,7 +6753,7 @@
             "LYSP_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.51, 
                     0.34, 
                     0.5, 
@@ -6763,7 +6763,7 @@
                     0.9
                 ], 
                 "parent": "node@468", 
-                "items": [
+                "ids": [
                     "LYSP_ECOLI"
                 ]
             }, 
@@ -6777,7 +6777,7 @@
             "XYLF_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.61, 
                     0.59, 
                     0.5, 
@@ -6787,14 +6787,14 @@
                     0.42
                 ], 
                 "parent": "node@342", 
-                "items": [
+                "ids": [
                     "XYLF_ECOLI"
                 ]
             }, 
             "UGPQ_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.4, 
                     0.26, 
                     0.5, 
@@ -6804,14 +6804,14 @@
                     0.26
                 ], 
                 "parent": "node@348", 
-                "items": [
+                "ids": [
                     "UGPQ_ECOLI"
                 ]
             }, 
             "MODA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.65, 
                     0.63, 
                     0.5, 
@@ -6821,14 +6821,14 @@
                     0.44
                 ], 
                 "parent": "node@419", 
-                "items": [
+                "ids": [
                     "MODA_ECOLI"
                 ]
             }, 
             "MALQ_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.36, 
                     0.52, 
                     0.5, 
@@ -6838,14 +6838,14 @@
                     0.28
                 ], 
                 "parent": "node@345", 
-                "items": [
+                "ids": [
                     "MALQ_ECOLI"
                 ]
             }, 
             "DEOC_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.33, 
                     0.34, 
                     0.5, 
@@ -6855,7 +6855,7 @@
                     0.35
                 ], 
                 "parent": "node@366", 
-                "items": [
+                "ids": [
                     "DEOC_ECOLI"
                 ]
             }, 
@@ -6876,7 +6876,7 @@
             "G3P1_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.46, 
                     0.38, 
                     0.5, 
@@ -6886,7 +6886,7 @@
                     0.22
                 ], 
                 "parent": "node@368", 
-                "items": [
+                "ids": [
                     "G3P1_ECOLI"
                 ]
             }, 
@@ -6900,7 +6900,7 @@
             "FRDD_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.58, 
                     0.64, 
                     0.5, 
@@ -6910,7 +6910,7 @@
                     0.78
                 ], 
                 "parent": "node@520", 
-                "items": [
+                "ids": [
                     "FRDD_ECOLI"
                 ]
             }, 
@@ -6952,7 +6952,7 @@
             "DDLB_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.38, 
                     0.53, 
                     0.5, 
@@ -6962,7 +6962,7 @@
                     0.26
                 ], 
                 "parent": "node@345", 
-                "items": [
+                "ids": [
                     "DDLB_ECOLI"
                 ]
             }, 
@@ -7032,7 +7032,7 @@
             "MTR_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.7, 
                     0.74, 
                     0.5, 
@@ -7042,7 +7042,7 @@
                     0.65
                 ], 
                 "parent": "node@474", 
-                "items": [
+                "ids": [
                     "MTR_ECOLI"
                 ]
             }, 
@@ -7091,7 +7091,7 @@
             "CAIB_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.5, 
                     0.51, 
                     0.5, 
@@ -7101,14 +7101,14 @@
                     0.32
                 ], 
                 "parent": "node@423", 
-                "items": [
+                "ids": [
                     "CAIB_ECOLI"
                 ]
             }, 
             "AAS_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.52, 
                     0.44, 
                     0.5, 
@@ -7118,14 +7118,14 @@
                     0.47
                 ], 
                 "parent": "node@415", 
-                "items": [
+                "ids": [
                     "AAS_ECOLI"
                 ]
             }, 
             "AMPD_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.28, 
                     0.29, 
                     0.5, 
@@ -7135,14 +7135,14 @@
                     0.23
                 ], 
                 "parent": "node@356", 
-                "items": [
+                "ids": [
                     "AMPD_ECOLI"
                 ]
             }, 
             "DGAL_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     1.0, 
                     0.63, 
                     0.5, 
@@ -7152,14 +7152,14 @@
                     0.51
                 ], 
                 "parent": "node@596", 
-                "items": [
+                "ids": [
                     "DGAL_ECOLI"
                 ]
             }, 
             "FECR_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.39, 
                     0.32, 
                     0.5, 
@@ -7169,14 +7169,14 @@
                     0.28
                 ], 
                 "parent": "node@446", 
-                "items": [
+                "ids": [
                     "FECR_ECOLI"
                 ]
             }, 
             "SYV_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.38, 
                     0.0, 
                     0.5, 
@@ -7186,14 +7186,14 @@
                     0.48
                 ], 
                 "parent": "node@584", 
-                "items": [
+                "ids": [
                     "SYV_ECOLI"
                 ]
             }, 
             "ATKA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.42, 
                     0.72, 
                     0.5, 
@@ -7203,14 +7203,14 @@
                     0.77
                 ], 
                 "parent": "node@416", 
-                "items": [
+                "ids": [
                     "ATKA_ECOLI"
                 ]
             }, 
             "PTFA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.46, 
                     0.34, 
                     0.5, 
@@ -7220,14 +7220,14 @@
                     0.35
                 ], 
                 "parent": "node@364", 
-                "items": [
+                "ids": [
                     "PTFA_ECOLI"
                 ]
             }, 
             "SYP_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.51, 
                     0.34, 
                     0.5, 
@@ -7237,14 +7237,14 @@
                     0.37
                 ], 
                 "parent": "node@340", 
-                "items": [
+                "ids": [
                     "SYP_ECOLI"
                 ]
             }, 
             "IF1_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.3, 
                     0.29, 
                     0.5, 
@@ -7254,14 +7254,14 @@
                     0.03
                 ], 
                 "parent": "node@521", 
-                "items": [
+                "ids": [
                     "IF1_ECOLI"
                 ]
             }, 
             "SYGA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.49, 
                     0.51, 
                     0.5, 
@@ -7271,7 +7271,7 @@
                     0.14
                 ], 
                 "parent": "node@563", 
-                "items": [
+                "ids": [
                     "SYGA_ECOLI"
                 ]
             }, 
@@ -7285,7 +7285,7 @@
             "RBSB_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.81, 
                     0.64, 
                     0.5, 
@@ -7295,14 +7295,14 @@
                     0.39
                 ], 
                 "parent": "node@426", 
-                "items": [
+                "ids": [
                     "RBSB_ECOLI"
                 ]
             }, 
             "ARAE_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.48, 
                     0.23, 
                     0.5, 
@@ -7312,14 +7312,14 @@
                     0.88
                 ], 
                 "parent": "node@484", 
-                "items": [
+                "ids": [
                     "ARAE_ECOLI"
                 ]
             }, 
             "TNAB_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.51, 
                     0.68, 
                     0.5, 
@@ -7329,14 +7329,14 @@
                     0.75
                 ], 
                 "parent": "node@429", 
-                "items": [
+                "ids": [
                     "TNAB_ECOLI"
                 ]
             }, 
             "UVRC_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.35, 
                     0.44, 
                     0.5, 
@@ -7346,14 +7346,14 @@
                     0.52
                 ], 
                 "parent": "node@487", 
-                "items": [
+                "ids": [
                     "UVRC_ECOLI"
                 ]
             }, 
             "OSMY_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.66, 
                     0.64, 
                     0.5, 
@@ -7363,14 +7363,14 @@
                     0.39
                 ], 
                 "parent": "node@439", 
-                "items": [
+                "ids": [
                     "OSMY_ECOLI"
                 ]
             }, 
             "BCR_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.41, 
                     0.79, 
                     0.5, 
@@ -7380,14 +7380,14 @@
                     0.81
                 ], 
                 "parent": "node@416", 
-                "items": [
+                "ids": [
                     "BCR_ECOLI"
                 ]
             }, 
             "TEHA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.51, 
                     0.63, 
                     0.5, 
@@ -7397,14 +7397,14 @@
                     0.72
                 ], 
                 "parent": "node@418", 
-                "items": [
+                "ids": [
                     "TEHA_ECOLI"
                 ]
             }, 
             "SYH_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.28, 
                     0.29, 
                     0.5, 
@@ -7414,14 +7414,14 @@
                     0.42
                 ], 
                 "parent": "node@501", 
-                "items": [
+                "ids": [
                     "SYH_ECOLI"
                 ]
             }, 
             "TBPA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.54, 
                     0.56, 
                     0.5, 
@@ -7431,7 +7431,7 @@
                     0.37
                 ], 
                 "parent": "node@454", 
-                "items": [
+                "ids": [
                     "TBPA_ECOLI"
                 ]
             }, 
@@ -7445,7 +7445,7 @@
             "SYL_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.31, 
                     0.04, 
                     0.5, 
@@ -7455,14 +7455,14 @@
                     0.29
                 ], 
                 "parent": "node@536", 
-                "items": [
+                "ids": [
                     "SYL_ECOLI"
                 ]
             }, 
             "DAPD_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.51, 
                     0.21, 
                     0.5, 
@@ -7472,14 +7472,14 @@
                     0.32
                 ], 
                 "parent": "node@400", 
-                "items": [
+                "ids": [
                     "DAPD_ECOLI"
                 ]
             }, 
             "GALP_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.5, 
                     0.63, 
                     0.5, 
@@ -7489,14 +7489,14 @@
                     0.85
                 ], 
                 "parent": "node@480", 
-                "items": [
+                "ids": [
                     "GALP_ECOLI"
                 ]
             }, 
             "FABB_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.47, 
                     0.65, 
                     0.5, 
@@ -7506,14 +7506,14 @@
                     0.3
                 ], 
                 "parent": "node@497", 
-                "items": [
+                "ids": [
                     "FABB_ECOLI"
                 ]
             }, 
             "PROB_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.46, 
                     0.4, 
                     0.5, 
@@ -7523,14 +7523,14 @@
                     0.49
                 ], 
                 "parent": "node@388", 
-                "items": [
+                "ids": [
                     "PROB_ECOLI"
                 ]
             }, 
             "RIMJ_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.26, 
                     0.38, 
                     0.5, 
@@ -7540,14 +7540,14 @@
                     0.16
                 ], 
                 "parent": "node@451", 
-                "items": [
+                "ids": [
                     "RIMJ_ECOLI"
                 ]
             }, 
             "PFLB_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.41, 
                     0.29, 
                     0.5, 
@@ -7557,14 +7557,14 @@
                     0.38
                 ], 
                 "parent": "node@353", 
-                "items": [
+                "ids": [
                     "PFLB_ECOLI"
                 ]
             }, 
             "SYI_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.26, 
                     0.25, 
                     0.5, 
@@ -7574,7 +7574,7 @@
                     0.32
                 ], 
                 "parent": "node@453", 
-                "items": [
+                "ids": [
                     "SYI_ECOLI"
                 ]
             }, 
@@ -7609,7 +7609,7 @@
             "PEPE_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.48, 
                     0.41, 
                     0.5, 
@@ -7619,7 +7619,7 @@
                     0.44
                 ], 
                 "parent": "node@388", 
-                "items": [
+                "ids": [
                     "PEPE_ECOLI"
                 ]
             }, 
@@ -7738,7 +7738,7 @@
             "KDGL_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.45, 
                     0.33, 
                     0.5, 
@@ -7748,14 +7748,14 @@
                     0.88
                 ], 
                 "parent": "node@534", 
-                "items": [
+                "ids": [
                     "KDGL_ECOLI"
                 ]
             }, 
             "EMRB_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.52, 
                     0.71, 
                     0.5, 
@@ -7765,14 +7765,14 @@
                     1.0
                 ], 
                 "parent": "node@591", 
-                "items": [
+                "ids": [
                     "EMRB_ECOLI"
                 ]
             }, 
             "ACKA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.49, 
                     0.59, 
                     0.5, 
@@ -7782,14 +7782,14 @@
                     0.45
                 ], 
                 "parent": "node@549", 
-                "items": [
+                "ids": [
                     "ACKA_ECOLI"
                 ]
             }, 
             "USHA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.6, 
                     0.61, 
                     0.5, 
@@ -7799,14 +7799,14 @@
                     0.39
                 ], 
                 "parent": "node@342", 
-                "items": [
+                "ids": [
                     "USHA_ECOLI"
                 ]
             }, 
             "OMPF_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.76, 
                     0.75, 
                     0.5, 
@@ -7816,14 +7816,14 @@
                     0.57
                 ], 
                 "parent": "node@409", 
-                "items": [
+                "ids": [
                     "OMPF_ECOLI"
                 ]
             }, 
             "CRED_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.33, 
                     0.78, 
                     0.5, 
@@ -7833,14 +7833,14 @@
                     0.77
                 ], 
                 "parent": "node@410", 
-                "items": [
+                "ids": [
                     "CRED_ECOLI"
                 ]
             }, 
             "MASY_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.3, 
                     0.18, 
                     0.5, 
@@ -7850,14 +7850,14 @@
                     0.24
                 ], 
                 "parent": "node@438", 
-                "items": [
+                "ids": [
                     "MASY_ECOLI"
                 ]
             }, 
             "SYQ_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.33, 
                     0.28, 
                     0.5, 
@@ -7867,7 +7867,7 @@
                     0.22
                 ], 
                 "parent": "node@356", 
-                "items": [
+                "ids": [
                     "SYQ_ECOLI"
                 ]
             }, 
@@ -7881,7 +7881,7 @@
             "ATKB_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.61, 
                     0.46, 
                     0.5, 
@@ -7891,7 +7891,7 @@
                     0.86
                 ], 
                 "parent": "node@535", 
-                "items": [
+                "ids": [
                     "ATKB_ECOLI"
                 ]
             }, 
@@ -7905,7 +7905,7 @@
             "CYSE_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.4, 
                     0.25, 
                     0.5, 
@@ -7915,14 +7915,14 @@
                     0.33
                 ], 
                 "parent": "node@346", 
-                "items": [
+                "ids": [
                     "CYSE_ECOLI"
                 ]
             }, 
             "CYPB_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.16, 
                     0.3, 
                     0.5, 
@@ -7932,14 +7932,14 @@
                     0.11
                 ], 
                 "parent": "node@558", 
-                "items": [
+                "ids": [
                     "CYPB_ECOLI"
                 ]
             }, 
             "PTCB_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.42, 
                     0.53, 
                     0.5, 
@@ -7949,14 +7949,14 @@
                     0.29
                 ], 
                 "parent": "node@556", 
-                "items": [
+                "ids": [
                     "PTCB_ECOLI"
                 ]
             }, 
             "HEM6_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.35, 
                     0.42, 
                     0.5, 
@@ -7966,14 +7966,14 @@
                     0.15
                 ], 
                 "parent": "node@437", 
-                "items": [
+                "ids": [
                     "HEM6_ECOLI"
                 ]
             }, 
             "DDLA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.39, 
                     0.43, 
                     0.5, 
@@ -7983,14 +7983,14 @@
                     0.31
                 ], 
                 "parent": "node@349", 
-                "items": [
+                "ids": [
                     "DDLA_ECOLI"
                 ]
             }, 
             "AAT_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.29, 
                     0.49, 
                     0.5, 
@@ -8000,14 +8000,14 @@
                     0.24
                 ], 
                 "parent": "node@424", 
-                "items": [
+                "ids": [
                     "AAT_ECOLI"
                 ]
             }, 
             "TYRB_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.42, 
                     0.36, 
                     0.5, 
@@ -8017,7 +8017,7 @@
                     0.32
                 ], 
                 "parent": "node@341", 
-                "items": [
+                "ids": [
                     "TYRB_ECOLI"
                 ]
             }, 
@@ -8031,7 +8031,7 @@
             "MCP4_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.49, 
                     0.87, 
                     0.5, 
@@ -8041,14 +8041,14 @@
                     0.76
                 ], 
                 "parent": "node@365", 
-                "items": [
+                "ids": [
                     "MCP4_ECOLI"
                 ]
             }, 
             "ATKC_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.53, 
                     0.85, 
                     0.5, 
@@ -8058,7 +8058,7 @@
                     0.52
                 ], 
                 "parent": "node@531", 
-                "items": [
+                "ids": [
                     "ATKC_ECOLI"
                 ]
             }, 
@@ -8093,7 +8093,7 @@
             "RODA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.66, 
                     0.61, 
                     0.5, 
@@ -8103,7 +8103,7 @@
                     0.87
                 ], 
                 "parent": "node@467", 
-                "items": [
+                "ids": [
                     "RODA_ECOLI"
                 ]
             }, 
@@ -8166,7 +8166,7 @@
             "TONB_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.38, 
                     0.57, 
                     0.5, 
@@ -8176,7 +8176,7 @@
                     0.49
                 ], 
                 "parent": "node@606", 
-                "items": [
+                "ids": [
                     "TONB_ECOLI"
                 ]
             }, 
@@ -8210,7 +8210,7 @@
             "OTC1_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.3, 
                     0.42, 
                     0.5, 
@@ -8220,7 +8220,7 @@
                     0.26
                 ], 
                 "parent": "node@344", 
-                "items": [
+                "ids": [
                     "OTC1_ECOLI"
                 ]
             }, 
@@ -8234,7 +8234,7 @@
             "TYRP_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.55, 
                     0.86, 
                     0.5, 
@@ -8244,14 +8244,14 @@
                     0.81
                 ], 
                 "parent": "node@444", 
-                "items": [
+                "ids": [
                     "TYRP_ECOLI"
                 ]
             }, 
             "PTDA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.46, 
                     0.6, 
                     0.5, 
@@ -8261,14 +8261,14 @@
                     0.81
                 ], 
                 "parent": "node@377", 
-                "items": [
+                "ids": [
                     "PTDA_ECOLI"
                 ]
             }, 
             "CYSB_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.37, 
                     0.29, 
                     0.5, 
@@ -8278,14 +8278,14 @@
                     0.44
                 ], 
                 "parent": "node@357", 
-                "items": [
+                "ids": [
                     "CYSB_ECOLI"
                 ]
             }, 
             "DSBA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.71, 
                     0.71, 
                     0.5, 
@@ -8295,14 +8295,14 @@
                     0.54
                 ], 
                 "parent": "node@390", 
-                "items": [
+                "ids": [
                     "DSBA_ECOLI"
                 ]
             }, 
             "AGP_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.49, 
                     0.74, 
                     0.5, 
@@ -8312,14 +8312,14 @@
                     0.54
                 ], 
                 "parent": "node@448", 
-                "items": [
+                "ids": [
                     "AGP_ECOLI"
                 ]
             }, 
             "SYY_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.44, 
                     0.3, 
                     0.5, 
@@ -8329,14 +8329,14 @@
                     0.22
                 ], 
                 "parent": "node@375", 
-                "items": [
+                "ids": [
                     "SYY_ECOLI"
                 ]
             }, 
             "CSPA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.23, 
                     0.31, 
                     0.5, 
@@ -8346,14 +8346,14 @@
                     0.05
                 ], 
                 "parent": "node@580", 
-                "items": [
+                "ids": [
                     "CSPA_ECOLI"
                 ]
             }, 
             "POTE_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.65, 
                     0.63, 
                     0.5, 
@@ -8363,7 +8363,7 @@
                     0.67
                 ], 
                 "parent": "node@474", 
-                "items": [
+                "ids": [
                     "POTE_ECOLI"
                 ]
             }, 
@@ -8384,7 +8384,7 @@
             "FECA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.81, 
                     0.52, 
                     0.5, 
@@ -8394,7 +8394,7 @@
                     0.38
                 ], 
                 "parent": "node@522", 
-                "items": [
+                "ids": [
                     "FECA_ECOLI"
                 ]
             }, 
@@ -8408,7 +8408,7 @@
             "PSTS_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.78, 
                     0.62, 
                     0.5, 
@@ -8418,7 +8418,7 @@
                     0.49
                 ], 
                 "parent": "node@564", 
-                "items": [
+                "ids": [
                     "PSTS_ECOLI"
                 ]
             }, 
@@ -8439,7 +8439,7 @@
             "XYLE_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.39, 
                     0.69, 
                     0.5, 
@@ -8449,14 +8449,14 @@
                     0.76
                 ], 
                 "parent": "node@354", 
-                "items": [
+                "ids": [
                     "XYLE_ECOLI"
                 ]
             }, 
             "NRFA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.67, 
                     0.69, 
                     0.5, 
@@ -8466,7 +8466,7 @@
                     0.39
                 ], 
                 "parent": "node@513", 
-                "items": [
+                "ids": [
                     "NRFA_ECOLI"
                 ]
             }, 
@@ -8487,7 +8487,7 @@
             "CYOA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.39, 
                     0.7, 
                     0.5, 
@@ -8497,7 +8497,7 @@
                     0.82
                 ], 
                 "parent": "node@523", 
-                "items": [
+                "ids": [
                     "CYOA_ECOLI"
                 ]
             }, 
@@ -8518,7 +8518,7 @@
             "GLNH_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.86, 
                     0.63, 
                     0.5, 
@@ -8528,14 +8528,14 @@
                     0.47
                 ], 
                 "parent": "node@379", 
-                "items": [
+                "ids": [
                     "GLNH_ECOLI"
                 ]
             }, 
             "SLYD_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.28, 
                     0.47, 
                     0.5, 
@@ -8545,14 +8545,14 @@
                     0.2
                 ], 
                 "parent": "node@437", 
-                "items": [
+                "ids": [
                     "SLYD_ECOLI"
                 ]
             }, 
             "ACEK_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.4, 
                     0.56, 
                     0.5, 
@@ -8562,7 +8562,7 @@
                     0.37
                 ], 
                 "parent": "node@378", 
-                "items": [
+                "ids": [
                     "ACEK_ECOLI"
                 ]
             }, 
@@ -8576,7 +8576,7 @@
             "ADI_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.32, 
                     0.23, 
                     0.5, 
@@ -8586,14 +8586,14 @@
                     0.25
                 ], 
                 "parent": "node@380", 
-                "items": [
+                "ids": [
                     "ADI_ECOLI"
                 ]
             }, 
             "PHOE_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.78, 
                     0.74, 
                     0.5, 
@@ -8603,14 +8603,14 @@
                     0.54
                 ], 
                 "parent": "node@560", 
-                "items": [
+                "ids": [
                     "PHOE_ECOLI"
                 ]
             }, 
             "PHEP_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.43, 
                     0.12, 
                     0.5, 
@@ -8620,7 +8620,7 @@
                     0.7
                 ], 
                 "parent": "node@449", 
-                "items": [
+                "ids": [
                     "PHEP_ECOLI"
                 ]
             }, 
@@ -8634,7 +8634,7 @@
             "CYOC_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.67, 
                     0.12, 
                     0.5, 
@@ -8644,7 +8644,7 @@
                     0.58
                 ], 
                 "parent": "node@608", 
-                "items": [
+                "ids": [
                     "CYOC_ECOLI"
                 ]
             }, 
@@ -8658,7 +8658,7 @@
             "DSBD_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.71, 
                     0.76, 
                     0.5, 
@@ -8668,7 +8668,7 @@
                     0.71
                 ], 
                 "parent": "node@570", 
-                "items": [
+                "ids": [
                     "DSBD_ECOLI"
                 ]
             }, 
@@ -8682,7 +8682,7 @@
             "CYDA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.47, 
                     0.55, 
                     0.5, 
@@ -8692,14 +8692,14 @@
                     0.78
                 ], 
                 "parent": "node@408", 
-                "items": [
+                "ids": [
                     "CYDA_ECOLI"
                 ]
             }, 
             "CODB_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.47, 
                     0.29, 
                     0.5, 
@@ -8709,14 +8709,14 @@
                     0.65
                 ], 
                 "parent": "node@571", 
-                "items": [
+                "ids": [
                     "CODB_ECOLI"
                 ]
             }, 
             "KEFC_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.42, 
                     0.63, 
                     0.5, 
@@ -8726,14 +8726,14 @@
                     0.77
                 ], 
                 "parent": "node@381", 
-                "items": [
+                "ids": [
                     "KEFC_ECOLI"
                 ]
             }, 
             "GSHR_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.35, 
                     0.44, 
                     0.5, 
@@ -8743,14 +8743,14 @@
                     0.55
                 ], 
                 "parent": "node@412", 
-                "items": [
+                "ids": [
                     "GSHR_ECOLI"
                 ]
             }, 
             "NADA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.26, 
                     0.26, 
                     0.5, 
@@ -8760,14 +8760,14 @@
                     0.25
                 ], 
                 "parent": "node@453", 
-                "items": [
+                "ids": [
                     "NADA_ECOLI"
                 ]
             }, 
             "PTWX_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.55, 
                     0.65, 
                     0.5, 
@@ -8777,14 +8777,14 @@
                     0.37
                 ], 
                 "parent": "node@491", 
-                "items": [
+                "ids": [
                     "PTWX_ECOLI"
                 ]
             }, 
             "USPA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.41, 
                     0.4, 
                     0.5, 
@@ -8794,14 +8794,14 @@
                     0.22
                 ], 
                 "parent": "node@362", 
-                "items": [
+                "ids": [
                     "USPA_ECOLI"
                 ]
             }, 
             "HPRT_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.52, 
                     0.37, 
                     0.5, 
@@ -8811,14 +8811,14 @@
                     0.42
                 ], 
                 "parent": "node@433", 
-                "items": [
+                "ids": [
                     "HPRT_ECOLI"
                 ]
             }, 
             "IF2_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.36, 
                     0.22, 
                     0.5, 
@@ -8828,7 +8828,7 @@
                     0.39
                 ], 
                 "parent": "node@413", 
-                "items": [
+                "ids": [
                     "IF2_ECOLI"
                 ]
             }, 
@@ -8842,7 +8842,7 @@
             "ACEA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.4, 
                     0.07, 
                     0.5, 
@@ -8852,14 +8852,14 @@
                     0.35
                 ], 
                 "parent": "node@536", 
-                "items": [
+                "ids": [
                     "ACEA_ECOLI"
                 ]
             }, 
             "SECY_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.36, 
                     0.31, 
                     0.5, 
@@ -8869,14 +8869,14 @@
                     0.94
                 ], 
                 "parent": "node@534", 
-                "items": [
+                "ids": [
                     "SECY_ECOLI"
                 ]
             }, 
             "GLPD_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.45, 
                     0.61, 
                     0.5, 
@@ -8886,14 +8886,14 @@
                     0.35
                 ], 
                 "parent": "node@432", 
-                "items": [
+                "ids": [
                     "GLPD_ECOLI"
                 ]
             }, 
             "LON_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.34, 
                     0.44, 
                     0.5, 
@@ -8903,14 +8903,14 @@
                     0.33
                 ], 
                 "parent": "node@427", 
-                "items": [
+                "ids": [
                     "LON_ECOLI"
                 ]
             }, 
             "CFA_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.43, 
                     0.22, 
                     0.5, 
@@ -8920,14 +8920,14 @@
                     0.16
                 ], 
                 "parent": "node@384", 
-                "items": [
+                "ids": [
                     "CFA_ECOLI"
                 ]
             }, 
             "HEMN_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.33, 
                     0.23, 
                     0.5, 
@@ -8937,14 +8937,14 @@
                     0.33
                 ], 
                 "parent": "node@350", 
-                "items": [
+                "ids": [
                     "HEMN_ECOLI"
                 ]
             }, 
             "CAIT_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.43, 
                     0.69, 
                     0.5, 
@@ -8954,14 +8954,14 @@
                     0.74
                 ], 
                 "parent": "node@354", 
-                "items": [
+                "ids": [
                     "CAIT_ECOLI"
                 ]
             }, 
             "DCP_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.37, 
                     0.43, 
                     0.5, 
@@ -8971,7 +8971,7 @@
                     0.35
                 ], 
                 "parent": "node@336", 
-                "items": [
+                "ids": [
                     "DCP_ECOLI"
                 ]
             }, 
@@ -9006,7 +9006,7 @@
             "FES_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.42, 
                     0.32, 
                     0.5, 
@@ -9016,7 +9016,7 @@
                     0.28
                 ], 
                 "parent": "node@396", 
-                "items": [
+                "ids": [
                     "FES_ECOLI"
                 ]
             }, 
@@ -9044,7 +9044,7 @@
             "LIVK_ECOLI": {
                 "count": 1, 
                 "distance": 0, 
-                "data": [
+                "values": [
                     0.78, 
                     0.68, 
                     0.5, 
@@ -9054,7 +9054,7 @@
                     0.44
                 ], 
                 "parent": "node@426", 
-                "items": [
+                "ids": [
                     "LIVK_ECOLI"
                 ]
             }, 

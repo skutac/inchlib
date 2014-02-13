@@ -50,7 +50,7 @@ class Dendrogram():
             original_id = int(n.split("@")[-1])
             if node["count"] == 1:
                 data = self.data[original_id]
-                node["items"] = [self.data_names[original_id]]
+                node["ids"] = [self.data_names[original_id]]
                 node_id = self.data_names[original_id]
 
                 while node_id in dendrogram["nodes"]:
@@ -64,7 +64,7 @@ class Dendrogram():
                 if not write_data:
                     data = []
 
-                node["data"] = data
+                node["values"] = data
                 dendrogram["nodes"][node_id] = node
 
         for n in node_id2node:
@@ -130,8 +130,8 @@ class Dendrogram():
             node = self.dendrogram["data"]["nodes"][n]
 
             if node["count"] == 1:
-                items = node["items"]
-                data = node["data"]
+                ids = node["ids"]
+                data = node["values"]
                 node_id = n
 
                 while self.dendrogram["data"]["nodes"][node["parent"]]["distance"] <= self.contract_cluster_treshold:
@@ -141,27 +141,27 @@ class Dendrogram():
 
                 if node["count"] != 1:
 
-                    if not "items" in self.dendrogram["data"]["nodes"][node_id]:
-                        self.dendrogram["data"]["nodes"][node_id]["items"] = []
-                        self.dendrogram["data"]["nodes"][node_id]["data"] = []
+                    if not "ids" in self.dendrogram["data"]["nodes"][node_id]:
+                        self.dendrogram["data"]["nodes"][node_id]["ids"] = []
+                        self.dendrogram["data"]["nodes"][node_id]["values"] = []
                     
-                    self.dendrogram["data"]["nodes"][node_id]["items"].extend(items)
+                    self.dendrogram["data"]["nodes"][node_id]["ids"].extend(ids)
 
                     if data:
-                        self.dendrogram["data"]["nodes"][node_id]["data"].append(data)
+                        self.dendrogram["data"]["nodes"][node_id]["values"].append(data)
 
         for node in to_remove:
             self.dendrogram["data"]["nodes"].pop(node)
 
         for k in self.dendrogram["data"]["nodes"]:
             node = self.dendrogram["data"]["nodes"][k]
-            if "items" in node and node["count"] != 1:
+            if "ids" in node and node["count"] != 1:
                 self.dendrogram["data"]["nodes"][k]["distance"] = 0
                 self.dendrogram["data"]["nodes"][k]["count"] = 1
                 self.dendrogram["data"]["nodes"][k].pop("left_id")
                 self.dendrogram["data"]["nodes"][k].pop("right_id")
-                rows = zip(*self.dendrogram["data"]["nodes"][k]["data"])
-                self.dendrogram["data"]["nodes"][k]["data"] = [round(numpy.median(row), 3) for row in rows]
+                rows = zip(*self.dendrogram["data"]["nodes"][k]["values"])
+                self.dendrogram["data"]["nodes"][k]["values"] = [round(numpy.median(row), 3) for row in rows]
 
         self.__adjust_node_counts__()
 
@@ -261,14 +261,14 @@ class Dendrogram():
         else:
 
             for leaf in leaves:
-                items = []
-                for item in leaves[leaf]["items"]:
+                ids = []
+                for item in leaves[leaf]["ids"]:
                     try:
-                        items.append(self.metadata[item])
+                        ids.append(self.metadata[item])
                     except Exception, e:
                         continue
 
-                cols = zip(*items)
+                cols = zip(*ids)
                 row = []
                 cols = [list(c) for c in cols]
 
@@ -340,7 +340,7 @@ class Cluster():
             data_start = 1
         
         self.data_names = [str(row[0]) for row in rows[data_start:]]
-        self.data = [[float(value) for value in row[1:]] for row in rows[data_start:]]
+        self.data = [[round(float(value), 3) for value in row[1:]] for row in rows[data_start:]]
         return
 
     def __binarize_nominal_data__(self):
