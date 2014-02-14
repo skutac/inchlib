@@ -1,7 +1,8 @@
 #coding: utf-8
 import csv, json, copy, re, argparse
 
-import numpy, scipy, hcluster, fastcluster
+import numpy, scipy, hcluster, fastcluster, sklearn
+from sklearn import preprocessing
 from scipy import spatial
 
 RAW_LNKAGES = ["ward", "centroid"]
@@ -385,6 +386,13 @@ class Cluster():
 
             
 
+    def normalize_data(self):
+        min_max_scaler = preprocessing.MinMaxScaler()
+        self.original_data = copy.deepcopy(self.data)
+        self.data = min_max_scaler.fit_transform(self.data)
+        self.data = [list(r) for r in self.data]
+        return
+
     def cluster_data(self, data_type="numeric", distance_measure="euclidean", linkage="single", axis="row"):
         print "Cluster analysis setup:", data_type, distance_measure, linkage, axis
         self.data_type = data_type
@@ -459,6 +467,10 @@ class Cluster():
 def _process_(arguments):
     c = Cluster()
     c.read_csv(arguments.data_file, arguments.data_delimiter, arguments.data_header)
+    
+    if arguments.normalize:
+        c.normalize_data()
+
     c.cluster_data(data_type=arguments.datatype, distance_measure=arguments.distance, linkage=arguments.linkage, axis=arguments.axis)
 
     d = Dendrogram(c)
@@ -489,6 +501,7 @@ if __name__ == '__main__':
     parser.add_argument("-mh", "--metadata_header", default=False, help="whether the first row of metadata file is a header", action="store_true")
     parser.add_argument("-c", "--compress", type=int, default=0, help="compress the data to contain maximum of specified count of rows")
     parser.add_argument("-dwd", "--dont_write_data", default=False, help="don't write clustered data to the inchlib data format", action="store_true")
+    parser.add_argument("-n", "--normalize", default=False, help="normalize data to [0, 1] range", action="store_true")
     
     args = parser.parse_args()
     _process_(args)

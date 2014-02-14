@@ -24,14 +24,13 @@ def examples(req, exampleid):
     settings = mark_safe(json.dumps(parse_settings({e.settingsattribute.name: e.value for e in settings})))
 
     example.description = re.sub('href="', '"'.join(['href=', config.BASE_URL]), example.description)
-    example.settings = highlight(settings, JavascriptLexer(), HtmlFormatter())
     return render_to_response("inchlib_examples.html", {"examples":examples, "example": example, "settings": settings, "next": next, "previous": previous})
 
 def use_cases(req, exampleid):
     examples = [e for e in Examples.objects.filter(exampletype=3)]
     examples.sort(key=lambda e: e.order)
     example = Examples.objects.get(exampleid=exampleid)
-
+    
     settings = example.examplesettings_set.all()
     settings = mark_safe(json.dumps(parse_settings({e.settingsattribute.name: e.value for e in settings})))
 
