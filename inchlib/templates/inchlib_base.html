@@ -1,14 +1,27 @@
+<!DOCTYPE html>
 <html>
 <head>
-<link href='http://fonts.googleapis.com/css?family=Inconsolata&subset=latin,latin-ext' rel='stylesheet' type='text/css'/>
+<!-- <link href='http://fonts.googleapis.com/css?family=Inconsolata&subset=latin,latin-ext' rel='stylesheet' type='text/css'/> -->
 <!-- <link rel="icon" href="{{ MEDIA_URL }}img/favicon.ico" type="image/x-icon" /> -->
 
 {% load staticfiles %}
 <link rel="stylesheet" href="{% static "css/pure-min.css" %}" type="text/css"/>
 <link rel="stylesheet" href="{% static "css/inch.css" %}" type="text/css"/>
+<link rel="stylesheet" href="{% static "css/highlight.css" %}" type="text/css"/>
 <script src="{% static "js/inchlib.js" %}"></script>
 <script src="{% static "js/jquery-2.0.3.min.js" %}"></script>
 <script src="{% static "js/kinetic-v5.0.0.min.js" %}"></script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-47862853-1', 'openscreen.cz');
+  ga('send', 'pageview');
+
+</script>
 
 <title>InCHlib - Interactive Cluster Heatmap library</title>
 </head>
@@ -20,15 +33,16 @@
 <hr />
 <div class="pure-menu pure-menu-open pure-menu-horizontal">
     <ul>
-        <li class="pure-menu-selected"><a href="{% url "index" %}">Home</a></li>
-        <li><a href="{% url "examples" 1 %}">Examples</a></li>
-        <li><a href="{% url "input_format" %}">Input format</a></li>
-        <li><a href="{% url "docs" %}">Docs</a></li>
-        <li><a href="{% url "download" %}">Download</a></li>
-        <li><a href="{% url "contact" %}">Contact</a></li>
-        <li><a href="http://www.github.com" target=blank>Github</a></li>
+        <li><a href="{% url index %}">Home</a></li>
+        <li><a href="{% url examples 1 %}">Tutorial</a></li>
+        <li><a href="{% url docs %}">Documentation</a></li>
+        <li><a href="{% url use_cases 12 %}">Use cases</a></li>
+        <li><a href="{% url download %}">Download</a></li>
+        <li><a href="{% url contact %}">Contact</a></li>
+        <!-- <li><a href="http://www.github.com" target=blank>Github</a></li> -->
     </ul>
 </div>
+<hr />
 <div id="content">
 {% block content%}{% endblock %}
 </div>

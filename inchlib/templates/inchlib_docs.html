@@ -7,7 +7,7 @@
 	$(document).ready(function(){
 		var attr, element, text, color_tr, current;
 		var colors_table = $("#colors_table")
-		var color_max = 10;
+		var color_max = 20;
 		var color_min = 0;
 		var color_middle = color_max/2;
 
@@ -43,46 +43,33 @@
 
 </script>
 
+<div class="pure-menu pure-menu-open pure-menu-horizontal">
+    <ul>
+    	<li class="pure-menu-selected"><a href="{% url docs %}">InCHlib.js</a></li>
+        <li><a href="{% url input_format %}">Input format</a></li>
+        <li><a href="{% url inchlib_clust %}">InCHlibClust.py</a></li>
+    </ul>
+</div>
+<hr/>
+
 <div id="docs_menu" class="pure-menu pure-menu-open">
-    <a class="pure-menu-heading"><b>Colors</b></a>
     
     <ul>
-    	<li><a href="#colors">Color scales</a></li>
     	<li class="pure-menu-heading"><b>Settings attributes</b></li>
         {% for a in attributes %}
         	<li><a href="#{{ a.name }}">{{ a.name }}</a></li>
         {% endfor %}
+        <a class="pure-menu-heading"><b>Colors</b></a>
+        <li><a href="#colors">Color scales</a></li>
     </ul>
+
 </div>
 
 <div id="docs">
-	<div class="doc">
-			<div class="small_title" id="colors">Color scales</div>
-			<div class="description">extendable set of color scales contained in InCHlib</div>
-			<table id="colors_table" class="pure-table pure-table-bordered">
-				<thead>
-					<tr>
-						<td>Name</td>
-						<td>1</td>
-						<td>2</td>
-						<td>3</td>
-						<td>4</td>
-						<td>5</td>
-						<td>6</td>
-						<td>7</td>
-						<td>8</td>
-						<td>9</td>
-						<td>10</td>
-					</tr>
-				</thead>
+	<div class="title">InCHlib.js</div>
 
-			</table>
-			<!-- <div class="default">
-				<div class="subtitle">Color scales:</div>
-				<div class="default_value"></div>
-			</div> -->
-		</div>
-		<hr />
+	<div class="description">Here you can find a list of customizable attributes and color scales that you can use in InCHlib. They serve as input settings when initializing the InCHlib library (<a href="{% url examples 1%}">see Basic usage</a>). The only obligatory attribute is the <a href="#target">target</a> which states the ID of the HTML target element. You can find the default values of other attributes in the list.  </div>
+
 	{% for a in attributes %}
 		<div class="doc">
 			<div class="small_title" id="{{ a.name }}">{{ a.name }}</div>
@@ -93,5 +80,18 @@
 			</div>
 		</div>
 	{% endfor %}
+	<hr />
+	<div class="doc">
+		<div class="small_title" id="colors">Color scales</div>
+		<div class="description">extendable set of color scales contained in InCHlib</div>
+		<table id="colors_table" class="pure-table pure-table-bordered">
+			<thead>
+				<tr>
+					<td>Name</td>
+				</tr>
+			</thead>
+
+		</table>
+	</div>
 </div>
 {% endblock %}

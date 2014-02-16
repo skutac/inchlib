@@ -11,7 +11,7 @@
 				metadata_type: "categoric", 
 				column_dendrogram:true, 
 				max_height: 800,
-				font: "Inconsolata",
+				font: "Ubuntu",
 				heatmap_colors: "Greens",
 				metadata_colors: "Reds",
 				independent_columns: true,
@@ -20,15 +20,15 @@
 				// count_column: true,
 			});
 		{% load staticfiles %}
-		dendrogram.read_data_from_file("{% static "js/ecoli.json" %}");
+		dendrogram.read_data_from_file("{% static "data/compounds.json" %}");
 		dendrogram.draw();
 	});
 </script>
 
 
-<div class="desc"><b>InCHlib</b> <i>(Interactive Cluster Heatmap library)</i> is an open source interactive Javascript library which provides an easy way to integrate, display and work with the hierarchically clustered data and with clustered heatmaps. It implements a raster-based HTML5 canvas visualization utilizing an open source Javascript framework <a href="http://kineticjs.com/">KineticJS</a>.</div>
+<div class="description"><b>InCHlib</b> <i>(Interactive Cluster Heatmap library)</i> is an open source interactive Javascript library which provides an easy way to integrate, display and work with hierarchically clustered data and cluster heatmaps. It implements a raster-based HTML5 canvas visualization utilizing an open source Javascript framework <a href="http://kineticjs.com/">KineticJS</a>.</div>
 
-<div class="desc"><b>InCHlib</b> is multiplatform and works on all common operating systems (Windows, Linux, iOS) in all major internet browsers (Internet Explorer, Mozzila Firefox, Google Chrome, Safari, Opera). Its speed is determined solely by the client’s hardware and internet browser.</div>
+<div class="description"><b>InCHlib</b> is multiplatform and works on all common operating systems (Windows, Linux, Mac OS) in all major internet browsers (Internet Explorer, Mozilla Firefox, Google Chrome, Safari, Opera). Its speed is determined by the client’s hardware and internet browser.</div>
 
 <div id="dendrogram"></div>
 {% endblock %}

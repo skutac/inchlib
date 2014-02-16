@@ -1,6 +1,7 @@
 {% extends "inchlib_base.html" %}
 
 {% block content %}
+{% load staticfiles %}
 <script>
 	var settings = {{ settings }};
 
@@ -17,16 +18,23 @@
 				else if(i == "current_row_ids_callback"){
 					val = settings[i];
 				}
-				settings_string = settings_string + "  " + i + ": " + val + ",\n";
+				settings_string = settings_string + "  <a href='../docs#" + i +"' target=blank>" + i + "</a>" + ": " + val + ",\n";
 			}
 			settings_string = settings_string + "}"
 		}
 		
-		$("#example .settings").text(settings_string);
+		$("#example .settings").html(settings_string);
+
+		var filepath = "{% static "data/iris.json" %}";
+		{% if example.exampleid == 9 or example.exampleid == 5 %}
+			filepath = "{% static "data/iris_compressed.json" %}";
+		{% endif %}
+
+		$("#example_data_link").attr("href", filepath);
 
 		window.dendrogram = new InCHlib({{ settings }});
-		dendrogram.settings.font = "Inconsolata";
-		dendrogram.read_data({{ example.data }});
+		dendrogram.settings.font = "Ubuntu";
+		dendrogram.read_data_from_file(filepath);
 		dendrogram.draw();
 
 		{% if example.exampleid == 9 %}
@@ -43,9 +51,9 @@
     <ul>
         {% for e in examples %}
         	{% if e.exampleid == example.exampleid %}
-        		<li class="pure-menu-selected"><a href="{% url "examples" e.exampleid %}">{{ e.title }}</a></li>
+        		<li class="pure-menu-selected"><a href="{% url examples e.exampleid %}">{{ e.title }}</a></li>
         	{% else %}
-        		<li><a href="{% url "examples" e.exampleid %}">{{ e.title }}</a></li>
+        		<li><a href="{% url examples e.exampleid %}">{{ e.title }}</a></li>
         	{% endif %}
         {% endfor %}
     </ul>
@@ -54,25 +62,35 @@
 <div id="example">
 	<div class="title">{{ example.title }}
 		{% if next %}
-			<a class="pure-button" href="{% url "examples" next %}" id="next_example_button">Next example ></a>
+			<a class="pure-button" href="{% url examples next %}" id="next_example_button">Next example ></a>
 		{% endif %}
 
 		{% if previous %}
-			<a class="pure-button" href="{% url "examples" previous %}" id="previous_example_button">< Previous example</a>
+			<a class="pure-button" href="{% url examples previous %}" id="previous_example_button">< Previous example</a>
 		{% endif %}
 	</div>
 
-	<div class="description">{% autoescape off %}{{ example.description }} {% endautoescape %}</div>
+	<div class="description">{% autoescape off %}{{ example.description }}{% endautoescape %}</div>
+
+	{% if example.exampleid == 1 %}
+		<div class="example_settings">
+			<div class="small_title">Example code</div>
+			<div class="code">var inchlib = InCHlib({target:"dendrogram"}); //instantiate InCHlib with given settings
+inchlib.read_data(json_data); //read data
+inchlib.draw(); //draw visualization</div>
+		</div>
+	{% endif %}
 
 	<div class="example_settings">
 		<div class="small_title">Example settings</div>
 		<div class="settings"></div>
 	</div>
 
-	<div class="example_data">
+	<div class="example_settings">
 		<div class="small_title">Example data</div>
-		<div class="data">{{ example.data }}</div>
+		<div class="code">... data set clustered using <i>euclidean</i> distance and <i>Ward's</i> linkage. <a href="" id="example_data_link" target=blank><b>Show data >></b></a></div>
 	</div>
+
 
 	{% if example.exampleid == 9 %}
 		<div id="row_ids_callback"><b>Row IDs:</b> <span id="row_ids"></span></div>

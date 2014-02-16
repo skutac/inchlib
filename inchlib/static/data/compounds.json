@@ -1,0 +1,6841 @@
+{"data":{
+  "nodes": {
+    "10796@10796": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        11.7,
+        3.63,
+        3.822
+      ],
+      "parent": "node@250",
+      "ids": [
+        "10796@10796"
+      ]
+    },
+    "13854@13854": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        9.265,
+        7.7,
+        3.663
+      ],
+      "parent": "node@287",
+      "ids": [
+        "13854@13854"
+      ]
+    },
+    "13839@13839": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        11.322,
+        8.063,
+        4.745
+      ],
+      "parent": "node@292",
+      "ids": [
+        "13839@13839"
+      ]
+    },
+    "10410@10410": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        0.839,
+        0.43,
+        9.497
+      ],
+      "parent": "node@304",
+      "ids": [
+        "10410@10410"
+      ]
+    },
+    "node@277": {
+      "count": 2,
+      "distance": 1.017,
+      "left_id": "13527@13527",
+      "parent": "node@304",
+      "right_id": "13554@13554"
+    },
+    "node@276": {
+      "count": 2,
+      "distance": 1.0,
+      "left_id": "13926@13926",
+      "parent": "node@360",
+      "right_id": "8567@8567"
+    },
+    "node@275": {
+      "count": 2,
+      "distance": 0.991,
+      "left_id": "13914@13914",
+      "parent": "node@344",
+      "right_id": "10313@10313"
+    },
+    "node@274": {
+      "count": 2,
+      "distance": 0.962,
+      "left_id": "10399@10399",
+      "parent": "node@326",
+      "right_id": "13783@13783"
+    },
+    "node@273": {
+      "count": 2,
+      "distance": 0.957,
+      "left_id": "11553@11553",
+      "parent": "node@297",
+      "right_id": "10598@10598"
+    },
+    "node@272": {
+      "count": 4,
+      "distance": 0.946,
+      "left_id": "11105@11105",
+      "parent": "node@339",
+      "right_id": "node@248"
+    },
+    "node@271": {
+      "count": 5,
+      "distance": 0.94,
+      "left_id": "node@236",
+      "parent": "node@278",
+      "right_id": "node@251"
+    },
+    "node@270": {
+      "count": 2,
+      "distance": 0.931,
+      "left_id": "10315@10315",
+      "parent": "node@336",
+      "right_id": "9895@9895"
+    },
+    "node@376": {
+      "count": 4,
+      "distance": 3.622,
+      "left_id": "11459@11459",
+      "parent": "node@417",
+      "right_id": "node@297"
+    },
+    "node@377": {
+      "count": 4,
+      "distance": 3.627,
+      "left_id": "node@291",
+      "parent": "node@405",
+      "right_id": "node@323"
+    },
+    "node@374": {
+      "count": 5,
+      "distance": 3.563,
+      "left_id": "node@314",
+      "parent": "node@405",
+      "right_id": "node@335"
+    },
+    "node@375": {
+      "count": 3,
+      "distance": 3.618,
+      "left_id": "8037@8037",
+      "parent": "node@416",
+      "right_id": "node@325"
+    },
+    "node@372": {
+      "count": 2,
+      "distance": 3.431,
+      "left_id": "10317@10317",
+      "parent": "node@422",
+      "right_id": "13841@13841"
+    },
+    "node@373": {
+      "count": 2,
+      "distance": 3.461,
+      "left_id": "10374@10374",
+      "parent": "node@404",
+      "right_id": "7890@7890"
+    },
+    "node@370": {
+      "count": 5,
+      "distance": 3.343,
+      "left_id": "node@312",
+      "parent": "node@395",
+      "right_id": "node@328"
+    },
+    "node@278": {
+      "count": 8,
+      "distance": 1.043,
+      "left_id": "node@232",
+      "parent": "node@339",
+      "right_id": "node@271"
+    },
+    "node@444": {
+      "count": 16,
+      "distance": 20.651,
+      "left_id": "node@436",
+      "parent": "node@449",
+      "right_id": "node@438"
+    },
+    "node@445": {
+      "count": 23,
+      "distance": 21.571,
+      "left_id": "node@421",
+      "parent": "node@451",
+      "right_id": "node@434"
+    },
+    "node@446": {
+      "count": 97,
+      "distance": 23.736,
+      "left_id": "node@435",
+      "parent": "node@456",
+      "right_id": "node@443"
+    },
+    "10452@10452": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        8.339,
+        0.087,
+        1.241
+      ],
+      "parent": "node@253",
+      "ids": [
+        "10452@10452"
+      ]
+    },
+    "node@440": {
+      "count": 4,
+      "distance": 16.281,
+      "left_id": "node@384",
+      "parent": "node@448",
+      "right_id": "node@386"
+    },
+    "node@441": {
+      "count": 10,
+      "distance": 17.645,
+      "left_id": "node@419",
+      "parent": "node@447",
+      "right_id": "node@422"
+    },
+    "node@442": {
+      "count": 9,
+      "distance": 18.576,
+      "left_id": "node@399",
+      "parent": "node@448",
+      "right_id": "node@417"
+    },
+    "10318@10318": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        9.485,
+        4.649,
+        7.081
+      ],
+      "parent": "node@328",
+      "ids": [
+        "10318@10318"
+      ]
+    },
+    "8026@8026": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        8.602,
+        18.96,
+        8.979
+      ],
+      "parent": "node@352",
+      "ids": [
+        "8026@8026"
+      ]
+    },
+    "node@448": {
+      "count": 13,
+      "distance": 27.14,
+      "left_id": "node@440",
+      "parent": "node@453",
+      "right_id": "node@442"
+    },
+    "node@449": {
+      "count": 17,
+      "distance": 28.751,
+      "left_id": "10299@10299",
+      "parent": "node@455",
+      "right_id": "node@444"
+    },
+    "14022@14022": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        5.531,
+        -0.961,
+        4.827
+      ],
+      "parent": "node@285",
+      "ids": [
+        "14022@14022"
+      ]
+    },
+    "10301@10301": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        10.752,
+        8.398,
+        -3.583
+      ],
+      "parent": "node@398",
+      "ids": [
+        "10301@10301"
+      ]
+    },
+    "8037@8037": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        13.885,
+        7.869,
+        23.029
+      ],
+      "parent": "node@375",
+      "ids": [
+        "8037@8037"
+      ]
+    },
+    "11459@11459": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        -1.809,
+        0.731,
+        16.829
+      ],
+      "parent": "node@376",
+      "ids": [
+        "11459@11459"
+      ]
+    },
+    "13845@13845": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        4.718,
+        -1.64,
+        5.185
+      ],
+      "parent": "node@285",
+      "ids": [
+        "13845@13845"
+      ]
+    },
+    "7943@7943": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        -1.237,
+        7.494,
+        -1.788
+      ],
+      "parent": "node@254",
+      "ids": [
+        "7943@7943"
+      ]
+    },
+    "11571@11571": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        1.891,
+        7.802,
+        11.016
+      ],
+      "parent": "node@401",
+      "ids": [
+        "11571@11571"
+      ]
+    },
+    "13581@13581": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        0.54,
+        5.808,
+        1.106
+      ],
+      "parent": "node@329",
+      "ids": [
+        "13581@13581"
+      ]
+    },
+    "10673@10673": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        -2.18,
+        -0.097,
+        7.03
+      ],
+      "parent": "node@286",
+      "ids": [
+        "10673@10673"
+      ]
+    },
+    "13459@13459": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        7.345,
+        -1.736,
+        7.724
+      ],
+      "parent": "node@319",
+      "ids": [
+        "13459@13459"
+      ]
+    },
+    "13848@13848": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        8.855,
+        2.884,
+        -0.211
+      ],
+      "parent": "node@385",
+      "ids": [
+        "13848@13848"
+      ]
+    },
+    "8547@8547": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        0.591,
+        -1.575,
+        6.305
+      ],
+      "parent": "node@239",
+      "ids": [
+        "8547@8547"
+      ]
+    },
+    "14031@14031": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        18.754,
+        13.146,
+        10.93
+      ],
+      "parent": "node@346",
+      "ids": [
+        "14031@14031"
+      ]
+    },
+    "13458@13458": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        3.588,
+        3.471,
+        12.266
+      ],
+      "parent": "node@381",
+      "ids": [
+        "13458@13458"
+      ]
+    },
+    "9957@9957": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        -1.286,
+        6.91,
+        -1.324
+      ],
+      "parent": "node@254",
+      "ids": [
+        "9957@9957"
+      ]
+    },
+    "13850@13850": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        4.013,
+        7.616,
+        1.27
+      ],
+      "parent": "node@408",
+      "ids": [
+        "13850@13850"
+      ]
+    },
+    "8048@8048": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        -2.226,
+        -0.899,
+        5.034
+      ],
+      "parent": "node@311",
+      "ids": [
+        "8048@8048"
+      ]
+    },
+    "13841@13841": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        8.506,
+        20.073,
+        1.964
+      ],
+      "parent": "node@372",
+      "ids": [
+        "13841@13841"
+      ]
+    },
+    "node@389": {
+      "count": 6,
+      "distance": 4.407,
+      "left_id": "node@319",
+      "parent": "node@425",
+      "right_id": "node@344"
+    },
+    "node@388": {
+      "count": 12,
+      "distance": 4.394,
+      "left_id": "node@326",
+      "parent": "node@425",
+      "right_id": "node@350"
+    },
+    "node@387": {
+      "count": 5,
+      "distance": 4.35,
+      "left_id": "node@357",
+      "parent": "node@423",
+      "right_id": "node@367"
+    },
+    "node@386": {
+      "count": 2,
+      "distance": 4.298,
+      "left_id": "9098@9098",
+      "parent": "node@440",
+      "right_id": "13481@13481"
+    },
+    "node@385": {
+      "count": 5,
+      "distance": 4.081,
+      "left_id": "13848@13848",
+      "parent": "node@393",
+      "right_id": "node@336"
+    },
+    "10368@10368": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        -0.376,
+        -0.626,
+        7.695
+      ],
+      "parent": "node@242",
+      "ids": [
+        "10368@10368"
+      ]
+    },
+    "node@383": {
+      "count": 4,
+      "distance": 3.983,
+      "left_id": "9808@9808",
+      "parent": "node@426",
+      "right_id": "node@332"
+    },
+    "node@382": {
+      "count": 13,
+      "distance": 3.883,
+      "left_id": "node@318",
+      "parent": "node@409",
+      "right_id": "node@358"
+    },
+    "node@381": {
+      "count": 3,
+      "distance": 3.88,
+      "left_id": "13458@13458",
+      "parent": "node@401",
+      "right_id": "node@264"
+    },
+    "node@380": {
+      "count": 6,
+      "distance": 3.825,
+      "left_id": "node@317",
+      "parent": "node@411",
+      "right_id": "node@320"
+    },
+    "13683@13683": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        -0.428,
+        0.978,
+        5.329
+      ],
+      "parent": "node@233",
+      "ids": [
+        "13683@13683"
+      ]
+    },
+    "node@378": {
+      "count": 7,
+      "distance": 3.762,
+      "left_id": "node@338",
+      "parent": "node@411",
+      "right_id": "node@359"
+    },
+    "7892@7892": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        15.791,
+        13.032,
+        19.753
+      ],
+      "parent": "node@416",
+      "ids": [
+        "7892@7892"
+      ]
+    },
+    "node@379": {
+      "count": 4,
+      "distance": 3.767,
+      "left_id": "13878@13878",
+      "parent": "node@407",
+      "right_id": "node@345"
+    },
+    "14036@14036": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        4.545,
+        5.276,
+        5.834
+      ],
+      "parent": "node@347",
+      "ids": [
+        "14036@14036"
+      ]
+    },
+    "9661@9661": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        7.262,
+        6.417,
+        6.483
+      ],
+      "parent": "node@331",
+      "ids": [
+        "9661@9661"
+      ]
+    },
+    "9312@9312": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        2.077,
+        1.724,
+        11.548
+      ],
+      "parent": "node@320",
+      "ids": [
+        "9312@9312"
+      ]
+    },
+    "8497@8497": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        16.195,
+        15.86,
+        27.987
+      ],
+      "parent": "node@433",
+      "ids": [
+        "8497@8497"
+      ]
+    },
+    "8023@8023": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        0.0,
+        2.96,
+        7.129
+      ],
+      "parent": "node@296",
+      "ids": [
+        "8023@8023"
+      ]
+    },
+    "node@338": {
+      "count": 3,
+      "distance": 2.174,
+      "left_id": "10756@10756",
+      "parent": "node@378",
+      "right_id": "node@303"
+    },
+    "node@339": {
+      "count": 12,
+      "distance": 2.229,
+      "left_id": "node@272",
+      "parent": "node@390",
+      "right_id": "node@278"
+    },
+    "node@279": {
+      "count": 2,
+      "distance": 1.053,
+      "left_id": "10929@10929",
+      "parent": "node@362",
+      "right_id": "10124@10124"
+    },
+    "node@332": {
+      "count": 3,
+      "distance": 1.955,
+      "left_id": "14039@14039",
+      "parent": "node@383",
+      "right_id": "node@293"
+    },
+    "node@333": {
+      "count": 2,
+      "distance": 2.001,
+      "left_id": "10295@10295",
+      "parent": "node@365",
+      "right_id": "14019@14019"
+    },
+    "node@330": {
+      "count": 4,
+      "distance": 1.9,
+      "left_id": "node@254",
+      "parent": "node@360",
+      "right_id": "node@256"
+    },
+    "node@331": {
+      "count": 2,
+      "distance": 1.932,
+      "left_id": "11558@11558",
+      "parent": "node@357",
+      "right_id": "9661@9661"
+    },
+    "node@336": {
+      "count": 4,
+      "distance": 2.098,
+      "left_id": "node@265",
+      "parent": "node@385",
+      "right_id": "node@270"
+    },
+    "node@337": {
+      "count": 2,
+      "distance": 2.161,
+      "left_id": "7905@7905",
+      "parent": "node@399",
+      "right_id": "11583@11583"
+    },
+    "node@334": {
+      "count": 3,
+      "distance": 2.083,
+      "left_id": "10385@10385",
+      "parent": "node@404",
+      "right_id": "node@282"
+    },
+    "node@335": {
+      "count": 2,
+      "distance": 2.086,
+      "left_id": "10369@10369",
+      "parent": "node@374",
+      "right_id": "13879@13879"
+    },
+    "11180@11180": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        1.51,
+        5.435,
+        -0.479
+      ],
+      "parent": "node@329",
+      "ids": [
+        "11180@11180"
+      ]
+    },
+    "10264@10264": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        3.089,
+        -0.226,
+        7.745
+      ],
+      "parent": "node@289",
+      "ids": [
+        "10264@10264"
+      ]
+    },
+    "10251@10251": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        0.863,
+        -0.806,
+        9.928
+      ],
+      "parent": "node@235",
+      "ids": [
+        "10251@10251"
+      ]
+    },
+    "10453@10453": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        14.051,
+        2.393,
+        6.42
+      ],
+      "parent": "node@310",
+      "ids": [
+        "10453@10453"
+      ]
+    },
+    "13878@13878": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        13.147,
+        9.828,
+        3.937
+      ],
+      "parent": "node@379",
+      "ids": [
+        "13878@13878"
+      ]
+    },
+    "10367@10367": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        -0.074,
+        -2.504,
+        6.106
+      ],
+      "parent": "node@281",
+      "ids": [
+        "10367@10367"
+      ]
+    },
+    "node@443": {
+      "count": 66,
+      "distance": 19.148,
+      "left_id": "node@427",
+      "parent": "node@446",
+      "right_id": "node@430"
+    },
+    "13635@13635": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        -0.004,
+        0.0,
+        5.295
+      ],
+      "parent": "node@230",
+      "ids": [
+        "13635@13635"
+      ]
+    },
+    "13879@13879": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        8.672,
+        -1.805,
+        2.33
+      ],
+      "parent": "node@335",
+      "ids": [
+        "13879@13879"
+      ]
+    },
+    "10299@10299": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        34.921,
+        22.885,
+        5.914
+      ],
+      "parent": "node@449",
+      "ids": [
+        "10299@10299"
+      ]
+    },
+    "10457@10457": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        6.569,
+        -0.702,
+        6.638
+      ],
+      "parent": "node@319",
+      "ids": [
+        "10457@10457"
+      ]
+    },
+    "node@419": {
+      "count": 6,
+      "distance": 8.115,
+      "left_id": "node@366",
+      "parent": "node@441",
+      "right_id": "node@415"
+    },
+    "node@418": {
+      "count": 4,
+      "distance": 7.991,
+      "left_id": "13711@13711",
+      "parent": "node@439",
+      "right_id": "node@396"
+    },
+    "node@413": {
+      "count": 38,
+      "distance": 7.259,
+      "left_id": "node@390",
+      "parent": "node@430",
+      "right_id": "node@402"
+    },
+    "node@412": {
+      "count": 6,
+      "distance": 7.025,
+      "left_id": "7833@7833",
+      "parent": "node@431",
+      "right_id": "node@371"
+    },
+    "node@411": {
+      "count": 13,
+      "distance": 6.518,
+      "left_id": "node@378",
+      "parent": "node@435",
+      "right_id": "node@380"
+    },
+    "node@410": {
+      "count": 6,
+      "distance": 6.159,
+      "left_id": "node@322",
+      "parent": "node@431",
+      "right_id": "node@340"
+    },
+    "node@417": {
+      "count": 5,
+      "distance": 7.767,
+      "left_id": "11544@11544",
+      "parent": "node@442",
+      "right_id": "node@376"
+    },
+    "node@416": {
+      "count": 4,
+      "distance": 7.759,
+      "left_id": "7892@7892",
+      "parent": "node@433",
+      "right_id": "node@375"
+    },
+    "node@415": {
+      "count": 3,
+      "distance": 7.433,
+      "left_id": "10314@10314",
+      "parent": "node@419",
+      "right_id": "node@369"
+    },
+    "node@414": {
+      "count": 7,
+      "distance": 7.425,
+      "left_id": "node@342",
+      "parent": "node@432",
+      "right_id": "node@401"
+    },
+    "11558@11558": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        7.101,
+        6.962,
+        8.33
+      ],
+      "parent": "node@331",
+      "ids": [
+        "11558@11558"
+      ]
+    },
+    "10369@10369": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        6.923,
+        -1.262,
+        3.328
+      ],
+      "parent": "node@335",
+      "ids": [
+        "10369@10369"
+      ]
+    },
+    "13740@13740": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        4.666,
+        1.175,
+        10.06
+      ],
+      "parent": "node@257",
+      "ids": [
+        "13740@13740"
+      ]
+    },
+    "7889@7889": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        10.993,
+        -0.028,
+        27.956
+      ],
+      "parent": "node@384",
+      "ids": [
+        "7889@7889"
+      ]
+    },
+    "8548@8548": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        5.214,
+        -0.6,
+        2.147
+      ],
+      "parent": "node@291",
+      "ids": [
+        "8548@8548"
+      ]
+    },
+    "8029@8029": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        2.162,
+        -1.575,
+        7.682
+      ],
+      "parent": "node@246",
+      "ids": [
+        "8029@8029"
+      ]
+    },
+    "10036@10036": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        0.001,
+        -0.058,
+        8.542
+      ],
+      "parent": "node@231",
+      "ids": [
+        "10036@10036"
+      ]
+    },
+    "10399@10399": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        1.72,
+        -1.531,
+        6.078
+      ],
+      "parent": "node@274",
+      "ids": [
+        "10399@10399"
+      ]
+    },
+    "9965@9965": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        3.5,
+        -0.052,
+        9.581
+      ],
+      "parent": "node@317",
+      "ids": [
+        "9965@9965"
+      ]
+    },
+    "13918@13918": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        3.813,
+        2.844,
+        8.961
+      ],
+      "parent": "node@303",
+      "ids": [
+        "13918@13918"
+      ]
+    },
+    "9895@9895": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        8.221,
+        -0.366,
+        -0.532
+      ],
+      "parent": "node@270",
+      "ids": [
+        "9895@9895"
+      ]
+    },
+    "node@447": {
+      "count": 11,
+      "distance": 24.914,
+      "left_id": "10310@10310",
+      "parent": "node@450",
+      "right_id": "node@441"
+    },
+    "11158@11158": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        5.817,
+        -1.784,
+        -0.52
+      ],
+      "parent": "node@323",
+      "ids": [
+        "11158@11158"
+      ]
+    },
+    "8221@8221": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        0.274,
+        0.018,
+        5.937
+      ],
+      "parent": "node@251",
+      "ids": [
+        "8221@8221"
+      ]
+    },
+    "9098@9098": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        1.246,
+        -0.676,
+        30.401
+      ],
+      "parent": "node@386",
+      "ids": [
+        "9098@9098"
+      ]
+    },
+    "10456@10456": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        16.538,
+        7.241,
+        9.538
+      ],
+      "parent": "node@293",
+      "ids": [
+        "10456@10456"
+      ]
+    },
+    "10313@10313": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        4.745,
+        -0.379,
+        6.229
+      ],
+      "parent": "node@275",
+      "ids": [
+        "10313@10313"
+      ]
+    },
+    "11552@11552": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        -0.809,
+        0.0,
+        8.953
+      ],
+      "parent": "node@280",
+      "ids": [
+        "11552@11552"
+      ]
+    },
+    "10532@10532": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        -1.265,
+        0.346,
+        19.367
+      ],
+      "parent": "node@297",
+      "ids": [
+        "10532@10532"
+      ]
+    },
+    "13665@13665": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        3.474,
+        14.399,
+        1.037
+      ],
+      "parent": "node@369",
+      "ids": [
+        "13665@13665"
+      ]
+    },
+    "14050@14050": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        8.678,
+        3.282,
+        3.838
+      ],
+      "parent": "node@340",
+      "ids": [
+        "14050@14050"
+      ]
+    },
+    "13551@13551": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        -0.616,
+        -0.955,
+        6.374
+      ],
+      "parent": "node@244",
+      "ids": [
+        "13551@13551"
+      ]
+    },
+    "9806@9806": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        0.136,
+        7.714,
+        -1.768
+      ],
+      "parent": "node@256",
+      "ids": [
+        "9806@9806"
+      ]
+    },
+    "13855@13855": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        10.676,
+        5.78,
+        5.33
+      ],
+      "parent": "node@290",
+      "ids": [
+        "13855@13855"
+      ]
+    },
+    "10929@10929": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        -1.365,
+        5.948,
+        -0.03
+      ],
+      "parent": "node@279",
+      "ids": [
+        "10929@10929"
+      ]
+    },
+    "10262@10262": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        -0.244,
+        0.1,
+        7.194
+      ],
+      "parent": "node@262",
+      "ids": [
+        "10262@10262"
+      ]
+    },
+    "14054@14054": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        8.503,
+        10.395,
+        5.317
+      ],
+      "parent": "node@353",
+      "ids": [
+        "14054@14054"
+      ]
+    },
+    "8156@8156": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        14.515,
+        0.899,
+        8.196
+      ],
+      "parent": "node@255",
+      "ids": [
+        "8156@8156"
+      ]
+    },
+    "10584@10584": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        0.952,
+        -1.639,
+        6.054
+      ],
+      "parent": "node@239",
+      "ids": [
+        "10584@10584"
+      ]
+    },
+    "node@248": {
+      "count": 3,
+      "distance": 0.676,
+      "left_id": "10293@10293",
+      "parent": "node@272",
+      "right_id": "node@233"
+    },
+    "node@249": {
+      "count": 2,
+      "distance": 0.676,
+      "left_id": "13847@13847",
+      "parent": "node@258",
+      "right_id": "10343@10343"
+    },
+    "10327@10327": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        10.227,
+        -0.046,
+        2.875
+      ],
+      "parent": "node@294",
+      "ids": [
+        "10327@10327"
+      ]
+    },
+    "node@242": {
+      "count": 2,
+      "distance": 0.54,
+      "left_id": "8782@8782",
+      "parent": "node@262",
+      "right_id": "10368@10368"
+    },
+    "node@243": {
+      "count": 2,
+      "distance": 0.544,
+      "left_id": "10377@10377",
+      "parent": "node@251",
+      "right_id": "14012@14012"
+    },
+    "node@240": {
+      "count": 2,
+      "distance": 0.48,
+      "left_id": "11542@11542",
+      "parent": "node@295",
+      "right_id": "10256@10256"
+    },
+    "node@241": {
+      "count": 2,
+      "distance": 0.528,
+      "left_id": "10383@10383",
+      "parent": "node@284",
+      "right_id": "10402@10402"
+    },
+    "node@246": {
+      "count": 2,
+      "distance": 0.621,
+      "left_id": "8029@8029",
+      "parent": "node@301",
+      "right_id": "8244@8244"
+    },
+    "node@247": {
+      "count": 2,
+      "distance": 0.636,
+      "left_id": "13920@13920",
+      "parent": "node@308",
+      "right_id": "9274@9274"
+    },
+    "node@244": {
+      "count": 2,
+      "distance": 0.565,
+      "left_id": "10396@10396",
+      "parent": "node@268",
+      "right_id": "13551@13551"
+    },
+    "13463@13463": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        3.988,
+        1.159,
+        9.592
+      ],
+      "parent": "node@257",
+      "ids": [
+        "13463@13463"
+      ]
+    },
+    "node@361": {
+      "count": 2,
+      "distance": 2.885,
+      "left_id": "10442@10442",
+      "parent": "node@397",
+      "right_id": "10549@10549"
+    },
+    "node@360": {
+      "count": 6,
+      "distance": 2.842,
+      "left_id": "node@276",
+      "parent": "node@400",
+      "right_id": "node@330"
+    },
+    "node@363": {
+      "count": 11,
+      "distance": 2.944,
+      "left_id": "node@309",
+      "parent": "node@402",
+      "right_id": "node@343"
+    },
+    "node@362": {
+      "count": 4,
+      "distance": 2.894,
+      "left_id": "node@279",
+      "parent": "node@400",
+      "right_id": "node@329"
+    },
+    "node@365": {
+      "count": 3,
+      "distance": 3.176,
+      "left_id": "10701@10701",
+      "parent": "node@427",
+      "right_id": "node@333"
+    },
+    "node@364": {
+      "count": 4,
+      "distance": 3.066,
+      "left_id": "node@255",
+      "parent": "node@392",
+      "right_id": "node@310"
+    },
+    "node@367": {
+      "count": 2,
+      "distance": 3.238,
+      "left_id": "8651@8651",
+      "parent": "node@387",
+      "right_id": "13877@13877"
+    },
+    "node@366": {
+      "count": 3,
+      "distance": 3.227,
+      "left_id": "13662@13662",
+      "parent": "node@419",
+      "right_id": "node@353"
+    },
+    "node@369": {
+      "count": 2,
+      "distance": 3.332,
+      "left_id": "13851@13851",
+      "parent": "node@415",
+      "right_id": "13665@13665"
+    },
+    "node@368": {
+      "count": 11,
+      "distance": 3.243,
+      "left_id": "node@261",
+      "parent": "node@402",
+      "right_id": "node@348"
+    },
+    "node@457": {
+      "count": 193,
+      "distance": 93.286,
+      "left_id": "node@453",
+      "parent": "node@458",
+      "right_id": "node@456"
+    },
+    "node@456": {
+      "count": 175,
+      "distance": 77.591,
+      "left_id": "node@446",
+      "parent": "node@457",
+      "right_id": "node@454"
+    },
+    "node@455": {
+      "count": 37,
+      "distance": 53.568,
+      "left_id": "node@449",
+      "parent": "node@458",
+      "right_id": "node@450"
+    },
+    "node@454": {
+      "count": 78,
+      "distance": 43.161,
+      "left_id": "node@400",
+      "parent": "node@456",
+      "right_id": "node@452"
+    },
+    "node@453": {
+      "count": 18,
+      "distance": 40.122,
+      "left_id": "node@433",
+      "parent": "node@457",
+      "right_id": "node@448"
+    },
+    "node@452": {
+      "count": 68,
+      "distance": 39.327,
+      "left_id": "node@437",
+      "parent": "node@454",
+      "right_id": "node@451"
+    },
+    "node@451": {
+      "count": 39,
+      "distance": 31.679,
+      "left_id": "node@432",
+      "parent": "node@452",
+      "right_id": "node@445"
+    },
+    "node@450": {
+      "count": 20,
+      "distance": 30.262,
+      "left_id": "node@439",
+      "parent": "node@455",
+      "right_id": "node@447"
+    },
+    "10315@10315": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        8.721,
+        0.401,
+        -0.701
+      ],
+      "parent": "node@270",
+      "ids": [
+        "10315@10315"
+      ]
+    },
+    "14053@14053": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        13.418,
+        4.974,
+        -0.936
+      ],
+      "parent": "node@398",
+      "ids": [
+        "14053@14053"
+      ]
+    },
+    "13851@13851": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        6.654,
+        13.451,
+        1.334
+      ],
+      "parent": "node@369",
+      "ids": [
+        "13851@13851"
+      ]
+    },
+    "10907@10907": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        7.611,
+        -0.002,
+        14.84
+      ],
+      "parent": "node@349",
+      "ids": [
+        "10907@10907"
+      ]
+    },
+    "9560@9560": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        1.125,
+        0.692,
+        6.453
+      ],
+      "parent": "node@309",
+      "ids": [
+        "9560@9560"
+      ]
+    },
+    "13505@13505": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        9.486,
+        -0.434,
+        24.199
+      ],
+      "parent": "node@384",
+      "ids": [
+        "13505@13505"
+      ]
+    },
+    "11393@11393": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        2.262,
+        0.782,
+        10.728
+      ],
+      "parent": "node@269",
+      "ids": [
+        "11393@11393"
+      ]
+    },
+    "9808@9808": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        17.062,
+        5.209,
+        6.899
+      ],
+      "parent": "node@383",
+      "ids": [
+        "9808@9808"
+      ]
+    },
+    "8934@8934": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        27.481,
+        7.409,
+        9.407
+      ],
+      "parent": "node@406",
+      "ids": [
+        "8934@8934"
+      ]
+    },
+    "11107@11107": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        8.339,
+        -0.81,
+        0.587
+      ],
+      "parent": "node@314",
+      "ids": [
+        "11107@11107"
+      ]
+    },
+    "14042@14042": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        4.502,
+        4.584,
+        9.711
+      ],
+      "parent": "node@264",
+      "ids": [
+        "14042@14042"
+      ]
+    },
+    "13662@13662": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        5.88,
+        10.938,
+        5.311
+      ],
+      "parent": "node@366",
+      "ids": [
+        "13662@13662"
+      ]
+    },
+    "node@238": {
+      "count": 2,
+      "distance": 0.433,
+      "left_id": "10266@10266",
+      "parent": "node@305",
+      "right_id": "13699@13699"
+    },
+    "10310@10310": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        9.421,
+        32.725,
+        -1.146
+      ],
+      "parent": "node@447",
+      "ids": [
+        "10310@10310"
+      ]
+    },
+    "11544@11544": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        3.489,
+        -0.345,
+        23.096
+      ],
+      "parent": "node@417",
+      "ids": [
+        "11544@11544"
+      ]
+    },
+    "11030@11030": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        2.727,
+        0.164,
+        7.049
+      ],
+      "parent": "node@237",
+      "ids": [
+        "11030@11030"
+      ]
+    },
+    "node@230": {
+      "count": 2,
+      "distance": 0.08,
+      "left_id": "10260@10260",
+      "parent": "node@232",
+      "right_id": "13635@13635"
+    },
+    "10461@10461": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        11.579,
+        6.23,
+        4.225
+      ],
+      "parent": "node@345",
+      "ids": [
+        "10461@10461"
+      ]
+    },
+    "node@306": {
+      "count": 5,
+      "distance": 1.496,
+      "left_id": "node@267",
+      "parent": "node@358",
+      "right_id": "node@280"
+    },
+    "14028@14028": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        21.476,
+        -0.515,
+        5.42
+      ],
+      "parent": "node@428",
+      "ids": [
+        "14028@14028"
+      ]
+    },
+    "11029@11029": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        0.0,
+        -0.605,
+        5.288
+      ],
+      "parent": "node@236",
+      "ids": [
+        "11029@11029"
+      ]
+    },
+    "8957@8957": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        8.224,
+        2.136,
+        13.714
+      ],
+      "parent": "node@349",
+      "ids": [
+        "8957@8957"
+      ]
+    },
+    "10133@10133": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        0.696,
+        5.476,
+        6.726
+      ],
+      "parent": "node@342",
+      "ids": [
+        "10133@10133"
+      ]
+    },
+    "7904@7904": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        14.404,
+        1.283,
+        8.885
+      ],
+      "parent": "node@255",
+      "ids": [
+        "7904@7904"
+      ]
+    },
+    "14019@14019": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        0.017,
+        1.557,
+        13.59
+      ],
+      "parent": "node@333",
+      "ids": [
+        "14019@14019"
+      ]
+    },
+    "10598@10598": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        0.157,
+        -0.01,
+        19.037
+      ],
+      "parent": "node@273",
+      "ids": [
+        "10598@10598"
+      ]
+    },
+    "10298@10298": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        5.056,
+        1.479,
+        4.052
+      ],
+      "parent": "node@322",
+      "ids": [
+        "10298@10298"
+      ]
+    },
+    "node@349": {
+      "count": 2,
+      "distance": 2.493,
+      "left_id": "10907@10907",
+      "parent": "node@399",
+      "right_id": "8957@8957"
+    },
+    "node@286": {
+      "count": 2,
+      "distance": 1.132,
+      "left_id": "13420@13420",
+      "parent": "node@354",
+      "right_id": "10673@10673"
+    },
+    "node@287": {
+      "count": 3,
+      "distance": 1.134,
+      "left_id": "13854@13854",
+      "parent": "node@407",
+      "right_id": "node@260"
+    },
+    "node@284": {
+      "count": 3,
+      "distance": 1.117,
+      "left_id": "11252@11252",
+      "parent": "node@311",
+      "right_id": "node@241"
+    },
+    "node@285": {
+      "count": 2,
+      "distance": 1.118,
+      "left_id": "13845@13845",
+      "parent": "node@344",
+      "right_id": "14022@14022"
+    },
+    "node@282": {
+      "count": 2,
+      "distance": 1.096,
+      "left_id": "10382@10382",
+      "parent": "node@334",
+      "right_id": "11555@11555"
+    },
+    "node@283": {
+      "count": 5,
+      "distance": 1.11,
+      "left_id": "node@239",
+      "parent": "node@348",
+      "right_id": "node@258"
+    },
+    "node@280": {
+      "count": 2,
+      "distance": 1.057,
+      "left_id": "10355@10355",
+      "parent": "node@306",
+      "right_id": "11552@11552"
+    },
+    "node@281": {
+      "count": 2,
+      "distance": 1.061,
+      "left_id": "10367@10367",
+      "parent": "node@308",
+      "right_id": "14013@14013"
+    },
+    "node@325": {
+      "count": 2,
+      "distance": 1.859,
+      "left_id": "10504@10504",
+      "parent": "node@375",
+      "right_id": "11599@11599"
+    },
+    "node@324": {
+      "count": 2,
+      "distance": 1.816,
+      "left_id": "11154@11154",
+      "parent": "node@355",
+      "right_id": "10739@10739"
+    },
+    "node@327": {
+      "count": 3,
+      "distance": 1.873,
+      "left_id": "8024@8024",
+      "parent": "node@371",
+      "right_id": "node@245"
+    },
+    "node@326": {
+      "count": 6,
+      "distance": 1.868,
+      "left_id": "node@274",
+      "parent": "node@388",
+      "right_id": "node@315"
+    },
+    "node@321": {
+      "count": 3,
+      "distance": 1.752,
+      "left_id": "11126@11126",
+      "parent": "node@355",
+      "right_id": "node@296"
+    },
+    "node@320": {
+      "count": 3,
+      "distance": 1.708,
+      "left_id": "9312@9312",
+      "parent": "node@380",
+      "right_id": "node@269"
+    },
+    "node@323": {
+      "count": 2,
+      "distance": 1.808,
+      "left_id": "11321@11321",
+      "parent": "node@377",
+      "right_id": "11158@11158"
+    },
+    "node@322": {
+      "count": 3,
+      "distance": 1.759,
+      "left_id": "10298@10298",
+      "parent": "node@410",
+      "right_id": "node@299"
+    },
+    "10248@10248": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        2.19,
+        -0.487,
+        6.341
+      ],
+      "parent": "node@263",
+      "ids": [
+        "10248@10248"
+      ]
+    },
+    "10373@10373": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        4.424,
+        0.258,
+        7.519
+      ],
+      "parent": "node@313",
+      "ids": [
+        "10373@10373"
+      ]
+    },
+    "10756@10756": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        2.968,
+        1.951,
+        7.061
+      ],
+      "parent": "node@338",
+      "ids": [
+        "10756@10756"
+      ]
+    },
+    "13847@13847": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        -0.157,
+        -1.491,
+        6.541
+      ],
+      "parent": "node@249",
+      "ids": [
+        "13847@13847"
+      ]
+    },
+    "node@268": {
+      "count": 3,
+      "distance": 0.917,
+      "left_id": "10280@10280",
+      "parent": "node@305",
+      "right_id": "node@244"
+    },
+    "7833@7833": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        12.945,
+        -1.404,
+        0.111
+      ],
+      "parent": "node@412",
+      "ids": [
+        "7833@7833"
+      ]
+    },
+    "node@269": {
+      "count": 2,
+      "distance": 0.928,
+      "left_id": "10354@10354",
+      "parent": "node@320",
+      "right_id": "11393@11393"
+    },
+    "10333@10333": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        0.67,
+        -0.522,
+        9.72
+      ],
+      "parent": "node@235",
+      "ids": [
+        "10333@10333"
+      ]
+    },
+    "node@344": {
+      "count": 4,
+      "distance": 2.357,
+      "left_id": "node@275",
+      "parent": "node@389",
+      "right_id": "node@285"
+    },
+    "8024@8024": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        9.071,
+        -1.274,
+        4.568
+      ],
+      "parent": "node@327",
+      "ids": [
+        "8024@8024"
+      ]
+    },
+    "node@358": {
+      "count": 8,
+      "distance": 2.819,
+      "left_id": "node@304",
+      "parent": "node@382",
+      "right_id": "node@306"
+    },
+    "node@359": {
+      "count": 4,
+      "distance": 2.819,
+      "left_id": "node@257",
+      "parent": "node@378",
+      "right_id": "node@313"
+    },
+    "10297@10297": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        0.172,
+        -0.068,
+        5.379
+      ],
+      "parent": "node@232",
+      "ids": [
+        "10297@10297"
+      ]
+    },
+    "node@350": {
+      "count": 6,
+      "distance": 2.525,
+      "left_id": "node@289",
+      "parent": "node@388",
+      "right_id": "node@301"
+    },
+    "node@351": {
+      "count": 2,
+      "distance": 2.531,
+      "left_id": "14048@14048",
+      "parent": "node@421",
+      "right_id": "13700@13700"
+    },
+    "node@352": {
+      "count": 2,
+      "distance": 2.534,
+      "left_id": "8475@8475",
+      "parent": "node@422",
+      "right_id": "8026@8026"
+    },
+    "node@353": {
+      "count": 2,
+      "distance": 2.624,
+      "left_id": "13852@13852",
+      "parent": "node@366",
+      "right_id": "14054@14054"
+    },
+    "node@354": {
+      "count": 5,
+      "distance": 2.697,
+      "left_id": "node@286",
+      "parent": "node@391",
+      "right_id": "node@295"
+    },
+    "node@355": {
+      "count": 5,
+      "distance": 2.779,
+      "left_id": "node@321",
+      "parent": "node@430",
+      "right_id": "node@324"
+    },
+    "node@356": {
+      "count": 3,
+      "distance": 2.799,
+      "left_id": "9980@9980",
+      "parent": "node@393",
+      "right_id": "node@316"
+    },
+    "node@357": {
+      "count": 3,
+      "distance": 2.808,
+      "left_id": "13856@13856",
+      "parent": "node@387",
+      "right_id": "node@331"
+    },
+    "11154@11154": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        0.643,
+        2.825,
+        5.767
+      ],
+      "parent": "node@324",
+      "ids": [
+        "11154@11154"
+      ]
+    },
+    "node@428": {
+      "count": 3,
+      "distance": 9.785,
+      "left_id": "14028@14028",
+      "parent": "node@438",
+      "right_id": "node@406"
+    },
+    "11563@11563": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        -2.075,
+        -0.008,
+        10.916
+      ],
+      "parent": "node@302",
+      "ids": [
+        "11563@11563"
+      ]
+    },
+    "node@426": {
+      "count": 7,
+      "distance": 9.197,
+      "left_id": "node@383",
+      "parent": "node@438",
+      "right_id": "node@397"
+    },
+    "node@427": {
+      "count": 23,
+      "distance": 9.323,
+      "left_id": "node@365",
+      "parent": "node@443",
+      "right_id": "node@409"
+    },
+    "node@424": {
+      "count": 5,
+      "distance": 8.988,
+      "left_id": "node@394",
+      "parent": "node@436",
+      "right_id": "node@403"
+    },
+    "node@425": {
+      "count": 18,
+      "distance": 8.996,
+      "left_id": "node@388",
+      "parent": "node@435",
+      "right_id": "node@389"
+    },
+    "node@422": {
+      "count": 4,
+      "distance": 8.405,
+      "left_id": "node@352",
+      "parent": "node@441",
+      "right_id": "node@372"
+    },
+    "node@423": {
+      "count": 9,
+      "distance": 8.439,
+      "left_id": "node@387",
+      "parent": "node@432",
+      "right_id": "node@408"
+    },
+    "node@420": {
+      "count": 17,
+      "distance": 8.32,
+      "left_id": "node@393",
+      "parent": "node@437",
+      "right_id": "node@405"
+    },
+    "11072@11072": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        0.766,
+        -1.275,
+        9.847
+      ],
+      "parent": "node@252",
+      "ids": [
+        "11072@11072"
+      ]
+    },
+    "11555@11555": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        11.306,
+        10.165,
+        9.78
+      ],
+      "parent": "node@282",
+      "ids": [
+        "11555@11555"
+      ]
+    },
+    "11542@11542": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        -1.355,
+        -0.581,
+        9.089
+      ],
+      "parent": "node@240",
+      "ids": [
+        "11542@11542"
+      ]
+    },
+    "10382@10382": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        12.159,
+        10.669,
+        10.249
+      ],
+      "parent": "node@282",
+      "ids": [
+        "10382@10382"
+      ]
+    },
+    "node@439": {
+      "count": 9,
+      "distance": 15.718,
+      "left_id": "node@404",
+      "parent": "node@450",
+      "right_id": "node@418"
+    },
+    "node@317": {
+      "count": 3,
+      "distance": 1.663,
+      "left_id": "9965@9965",
+      "parent": "node@380",
+      "right_id": "node@234"
+    },
+    "10256@10256": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        -1.679,
+        -0.878,
+        8.897
+      ],
+      "parent": "node@240",
+      "ids": [
+        "10256@10256"
+      ]
+    },
+    "10280@10280": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        -0.977,
+        -0.089,
+        6.644
+      ],
+      "parent": "node@268",
+      "ids": [
+        "10280@10280"
+      ]
+    },
+    "node@329": {
+      "count": 2,
+      "distance": 1.895,
+      "left_id": "13581@13581",
+      "parent": "node@362",
+      "right_id": "11180@11180"
+    },
+    "node@328": {
+      "count": 2,
+      "distance": 1.888,
+      "left_id": "10318@10318",
+      "parent": "node@370",
+      "right_id": "10420@10420"
+    },
+    "14048@14048": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        9.993,
+        -0.214,
+        7.462
+      ],
+      "parent": "node@351",
+      "ids": [
+        "14048@14048"
+      ]
+    },
+    "node@371": {
+      "count": 5,
+      "distance": 3.403,
+      "left_id": "node@294",
+      "parent": "node@412",
+      "right_id": "node@327"
+    },
+    "10314@10314": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        11.328,
+        13.097,
+        -0.043
+      ],
+      "parent": "node@415",
+      "ids": [
+        "10314@10314"
+      ]
+    },
+    "node@433": {
+      "count": 5,
+      "distance": 13.02,
+      "left_id": "8497@8497",
+      "parent": "node@453",
+      "right_id": "node@416"
+    },
+    "8782@8782": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        0.073,
+        -0.468,
+        7.441
+      ],
+      "parent": "node@242",
+      "ids": [
+        "8782@8782"
+      ]
+    },
+    "node@402": {
+      "count": 22,
+      "distance": 5.342,
+      "left_id": "node@363",
+      "parent": "node@413",
+      "right_id": "node@368"
+    },
+    "14012@14012": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        0.051,
+        -0.532,
+        5.88
+      ],
+      "parent": "node@243",
+      "ids": [
+        "14012@14012"
+      ]
+    },
+    "node@432": {
+      "count": 16,
+      "distance": 12.215,
+      "left_id": "node@414",
+      "parent": "node@451",
+      "right_id": "node@423"
+    },
+    "10332@10332": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        -0.109,
+        -0.029,
+        8.334
+      ],
+      "parent": "node@231",
+      "ids": [
+        "10332@10332"
+      ]
+    },
+    "node@288": {
+      "count": 4,
+      "distance": 1.159,
+      "left_id": "13659@13659",
+      "parent": "node@343",
+      "right_id": "node@262"
+    },
+    "node@289": {
+      "count": 3,
+      "distance": 1.164,
+      "left_id": "10264@10264",
+      "parent": "node@350",
+      "right_id": "node@237"
+    },
+    "13843@13843": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        4.949,
+        4.775,
+        8.977
+      ],
+      "parent": "node@264",
+      "ids": [
+        "13843@13843"
+      ]
+    },
+    "10377@10377": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        -0.376,
+        -0.23,
+        5.732
+      ],
+      "parent": "node@243",
+      "ids": [
+        "10377@10377"
+      ]
+    },
+    "9274@9274": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        -0.203,
+        -1.724,
+        5.189
+      ],
+      "parent": "node@247",
+      "ids": [
+        "9274@9274"
+      ]
+    },
+    "10913@10913": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        5.369,
+        0.521,
+        -0.478
+      ],
+      "parent": "node@316",
+      "ids": [
+        "10913@10913"
+      ]
+    },
+    "13853@13853": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        9.962,
+        0.002,
+        5.311
+      ],
+      "parent": "node@245",
+      "ids": [
+        "13853@13853"
+      ]
+    },
+    "11553@11553": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        -0.345,
+        0.167,
+        19.832
+      ],
+      "parent": "node@273",
+      "ids": [
+        "11553@11553"
+      ]
+    },
+    "node@266": {
+      "count": 2,
+      "distance": 0.893,
+      "left_id": "14037@14037",
+      "parent": "node@347",
+      "right_id": "13736@13736"
+    },
+    "10293@10293": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        -0.508,
+        0.273,
+        5.3
+      ],
+      "parent": "node@248",
+      "ids": [
+        "10293@10293"
+      ]
+    },
+    "7905@7905": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        8.272,
+        -1.562,
+        16.284
+      ],
+      "parent": "node@337",
+      "ids": [
+        "7905@7905"
+      ]
+    },
+    "10322@10322": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        18.142,
+        13.081,
+        3.067
+      ],
+      "parent": "node@403",
+      "ids": [
+        "10322@10322"
+      ]
+    },
+    "node@267": {
+      "count": 3,
+      "distance": 0.906,
+      "left_id": "10344@10344",
+      "parent": "node@306",
+      "right_id": "node@231"
+    },
+    "node@259": {
+      "count": 2,
+      "distance": 0.83,
+      "left_id": "10388@10388",
+      "parent": "node@318",
+      "right_id": "10320@10320"
+    },
+    "node@258": {
+      "count": 3,
+      "distance": 0.827,
+      "left_id": "13709@13709",
+      "parent": "node@283",
+      "right_id": "node@249"
+    },
+    "node@255": {
+      "count": 2,
+      "distance": 0.797,
+      "left_id": "7904@7904",
+      "parent": "node@364",
+      "right_id": "8156@8156"
+    },
+    "node@254": {
+      "count": 2,
+      "distance": 0.747,
+      "left_id": "7943@7943",
+      "parent": "node@330",
+      "right_id": "9957@9957"
+    },
+    "node@257": {
+      "count": 2,
+      "distance": 0.824,
+      "left_id": "13740@13740",
+      "parent": "node@359",
+      "right_id": "13463@13463"
+    },
+    "node@256": {
+      "count": 2,
+      "distance": 0.822,
+      "left_id": "9968@9968",
+      "parent": "node@330",
+      "right_id": "9806@9806"
+    },
+    "node@251": {
+      "count": 3,
+      "distance": 0.699,
+      "left_id": "8221@8221",
+      "parent": "node@271",
+      "right_id": "node@243"
+    },
+    "node@250": {
+      "count": 2,
+      "distance": 0.686,
+      "left_id": "10796@10796",
+      "parent": "node@395",
+      "right_id": "10339@10339"
+    },
+    "node@253": {
+      "count": 2,
+      "distance": 0.729,
+      "left_id": "10452@10452",
+      "parent": "node@314",
+      "right_id": "13555@13555"
+    },
+    "node@252": {
+      "count": 3,
+      "distance": 0.706,
+      "left_id": "11072@11072",
+      "parent": "node@318",
+      "right_id": "node@235"
+    },
+    "node@314": {
+      "count": 3,
+      "distance": 1.623,
+      "left_id": "11107@11107",
+      "parent": "node@374",
+      "right_id": "node@253"
+    },
+    "node@315": {
+      "count": 4,
+      "distance": 1.637,
+      "left_id": "13416@13416",
+      "parent": "node@326",
+      "right_id": "node@307"
+    },
+    "node@316": {
+      "count": 2,
+      "distance": 1.64,
+      "left_id": "10913@10913",
+      "parent": "node@356",
+      "right_id": "8549@8549"
+    },
+    "10402@10402": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        -1.355,
+        -0.022,
+        5.03
+      ],
+      "parent": "node@241",
+      "ids": [
+        "10402@10402"
+      ]
+    },
+    "node@310": {
+      "count": 2,
+      "distance": 1.53,
+      "left_id": "10453@10453",
+      "parent": "node@364",
+      "right_id": "8179@8179"
+    },
+    "node@311": {
+      "count": 4,
+      "distance": 1.548,
+      "left_id": "8048@8048",
+      "parent": "node@390",
+      "right_id": "node@284"
+    },
+    "node@312": {
+      "count": 3,
+      "distance": 1.586,
+      "left_id": "13738@13738",
+      "parent": "node@370",
+      "right_id": "node@290"
+    },
+    "node@313": {
+      "count": 2,
+      "distance": 1.622,
+      "left_id": "10373@10373",
+      "parent": "node@359",
+      "right_id": "8041@8041"
+    },
+    "node@318": {
+      "count": 5,
+      "distance": 1.678,
+      "left_id": "node@252",
+      "parent": "node@382",
+      "right_id": "node@259"
+    },
+    "node@319": {
+      "count": 2,
+      "distance": 1.688,
+      "left_id": "13459@13459",
+      "parent": "node@389",
+      "right_id": "10457@10457"
+    },
+    "10355@10355": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        -0.51,
+        0.881,
+        8.452
+      ],
+      "parent": "node@280",
+      "ids": [
+        "10355@10355"
+      ]
+    },
+    "10321@10321": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        -0.345,
+        0.693,
+        5.489
+      ],
+      "parent": "node@233",
+      "ids": [
+        "10321@10321"
+      ]
+    },
+    "9537@9537": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        21.874,
+        9.443,
+        11.436
+      ],
+      "parent": "node@397",
+      "ids": [
+        "9537@9537"
+      ]
+    },
+    "8041@8041": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        4.832,
+        1.666,
+        8.213
+      ],
+      "parent": "node@313",
+      "ids": [
+        "8041@8041"
+      ]
+    },
+    "node@384": {
+      "count": 2,
+      "distance": 4.068,
+      "left_id": "13505@13505",
+      "parent": "node@440",
+      "right_id": "7889@7889"
+    },
+    "8244@8244": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        2.768,
+        -1.499,
+        7.571
+      ],
+      "parent": "node@246",
+      "ids": [
+        "8244@8244"
+      ]
+    },
+    "13856@13856": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        8.037,
+        8.899,
+        7.954
+      ],
+      "parent": "node@357",
+      "ids": [
+        "13856@13856"
+      ]
+    },
+    "10739@10739": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        -0.971,
+        3.481,
+        5.254
+      ],
+      "parent": "node@324",
+      "ids": [
+        "10739@10739"
+      ]
+    },
+    "11328@11328": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        7.604,
+        -0.432,
+        -1.678
+      ],
+      "parent": "node@265",
+      "ids": [
+        "11328@11328"
+      ]
+    },
+    "13709@13709": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        0.589,
+        -1.545,
+        7.013
+      ],
+      "parent": "node@258",
+      "ids": [
+        "13709@13709"
+      ]
+    },
+    "10549@10549": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        19.708,
+        7.655,
+        12.99
+      ],
+      "parent": "node@361",
+      "ids": [
+        "10549@10549"
+      ]
+    },
+    "9968@9968": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        -0.02,
+        7.168,
+        -1.173
+      ],
+      "parent": "node@256",
+      "ids": [
+        "9968@9968"
+      ]
+    },
+    "13699@13699": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        0.206,
+        -0.03,
+        6.502
+      ],
+      "parent": "node@238",
+      "ids": [
+        "13699@13699"
+      ]
+    },
+    "13849@13849": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        3.309,
+        5.696,
+        6.804
+      ],
+      "parent": "node@298",
+      "ids": [
+        "13849@13849"
+      ]
+    },
+    "8651@8651": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        5.807,
+        8.59,
+        9.803
+      ],
+      "parent": "node@367",
+      "ids": [
+        "8651@8651"
+      ]
+    },
+    "node@348": {
+      "count": 9,
+      "distance": 2.491,
+      "left_id": "node@283",
+      "parent": "node@368",
+      "right_id": "node@308"
+    },
+    "9668@9668": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        16.998,
+        5.996,
+        9.433
+      ],
+      "parent": "node@293",
+      "ids": [
+        "9668@9668"
+      ]
+    },
+    "9707@9707": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        2.299,
+        -0.317,
+        8.958
+      ],
+      "parent": "node@234",
+      "ids": [
+        "9707@9707"
+      ]
+    },
+    "10319@10319": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        19.136,
+        8.112,
+        4.825
+      ],
+      "parent": "node@403",
+      "ids": [
+        "10319@10319"
+      ]
+    },
+    "8165@8165": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        19.095,
+        11.991,
+        8.844
+      ],
+      "parent": "node@346",
+      "ids": [
+        "8165@8165"
+      ]
+    },
+    "10326@10326": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        0.029,
+        -1.782,
+        7.683
+      ],
+      "parent": "node@261",
+      "ids": [
+        "10326@10326"
+      ]
+    },
+    "9057@9057": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        23.395,
+        3.794,
+        10.082
+      ],
+      "parent": "node@406",
+      "ids": [
+        "9057@9057"
+      ]
+    },
+    "8253@8253": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        5.083,
+        -1.707,
+        2.778
+      ],
+      "parent": "node@291",
+      "ids": [
+        "8253@8253"
+      ]
+    },
+    "13527@13527": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        -0.364,
+        0.001,
+        10.214
+      ],
+      "parent": "node@277",
+      "ids": [
+        "13527@13527"
+      ]
+    },
+    "13852@13852": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        8.232,
+        11.061,
+        2.793
+      ],
+      "parent": "node@353",
+      "ids": [
+        "13852@13852"
+      ]
+    },
+    "13695@13695": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        1.233,
+        -0.998,
+        5.008
+      ],
+      "parent": "node@307",
+      "ids": [
+        "13695@13695"
+      ]
+    },
+    "10544@10544": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        1.752,
+        -0.56,
+        5.586
+      ],
+      "parent": "node@263",
+      "ids": [
+        "10544@10544"
+      ]
+    },
+    "10409@10409": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        -0.491,
+        -2.456,
+        7.78
+      ],
+      "parent": "node@261",
+      "ids": [
+        "10409@10409"
+      ]
+    },
+    "8567@8567": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        -0.445,
+        7.633,
+        0.014
+      ],
+      "parent": "node@276",
+      "ids": [
+        "8567@8567"
+      ]
+    },
+    "13883@13883": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        7.406,
+        4.686,
+        3.549
+      ],
+      "parent": "node@300",
+      "ids": [
+        "13883@13883"
+      ]
+    },
+    "node@299": {
+      "count": 2,
+      "distance": 1.391,
+      "left_id": "11039@11039",
+      "parent": "node@322",
+      "right_id": "13846@13846"
+    },
+    "node@298": {
+      "count": 2,
+      "distance": 1.391,
+      "left_id": "13849@13849",
+      "parent": "node@342",
+      "right_id": "13876@13876"
+    },
+    "14039@14039": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        15.194,
+        7.05,
+        9.937
+      ],
+      "parent": "node@332",
+      "ids": [
+        "14039@14039"
+      ]
+    },
+    "10266@10266": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        -0.224,
+        0.009,
+        6.471
+      ],
+      "parent": "node@238",
+      "ids": [
+        "10266@10266"
+      ]
+    },
+    "node@291": {
+      "count": 2,
+      "distance": 1.281,
+      "left_id": "8548@8548",
+      "parent": "node@377",
+      "right_id": "8253@8253"
+    },
+    "node@290": {
+      "count": 2,
+      "distance": 1.193,
+      "left_id": "13855@13855",
+      "parent": "node@312",
+      "right_id": "13696@13696"
+    },
+    "node@293": {
+      "count": 2,
+      "distance": 1.331,
+      "left_id": "10456@10456",
+      "parent": "node@332",
+      "right_id": "9668@9668"
+    },
+    "node@292": {
+      "count": 2,
+      "distance": 1.297,
+      "left_id": "13839@13839",
+      "parent": "node@345",
+      "right_id": "13858@13858"
+    },
+    "node@295": {
+      "count": 3,
+      "distance": 1.374,
+      "left_id": "10309@10309",
+      "parent": "node@354",
+      "right_id": "node@240"
+    },
+    "node@294": {
+      "count": 2,
+      "distance": 1.358,
+      "left_id": "10327@10327",
+      "parent": "node@371",
+      "right_id": "10590@10590"
+    },
+    "node@297": {
+      "count": 3,
+      "distance": 1.389,
+      "left_id": "10532@10532",
+      "parent": "node@376",
+      "right_id": "node@273"
+    },
+    "node@296": {
+      "count": 2,
+      "distance": 1.385,
+      "left_id": "10431@10431",
+      "parent": "node@321",
+      "right_id": "8023@8023"
+    },
+    "9980@9980": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        5.67,
+        1.781,
+        -1.634
+      ],
+      "parent": "node@356",
+      "ids": [
+        "9980@9980"
+      ]
+    },
+    "10383@10383": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        -1.878,
+        0.049,
+        5.035
+      ],
+      "parent": "node@241",
+      "ids": [
+        "10383@10383"
+      ]
+    },
+    "11004@11004": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        1.079,
+        -0.37,
+        7.533
+      ],
+      "parent": "node@309",
+      "ids": [
+        "11004@11004"
+      ]
+    },
+    "10442@10442": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        18.36,
+        5.169,
+        12.42
+      ],
+      "parent": "node@361",
+      "ids": [
+        "10442@10442"
+      ]
+    },
+    "11321@11321": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        6.499,
+        -2.295,
+        1.075
+      ],
+      "parent": "node@323",
+      "ids": [
+        "11321@11321"
+      ]
+    },
+    "11039@11039": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        5.865,
+        1.134,
+        2.852
+      ],
+      "parent": "node@299",
+      "ids": [
+        "11039@11039"
+      ]
+    },
+    "10370@10370": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        14.213,
+        17.123,
+        8.407
+      ],
+      "parent": "node@341",
+      "ids": [
+        "10370@10370"
+      ]
+    },
+    "10354@10354": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        1.811,
+        0.029,
+        11.029
+      ],
+      "parent": "node@269",
+      "ids": [
+        "10354@10354"
+      ]
+    },
+    "13783@13783": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        1.49,
+        -1.315,
+        6.987
+      ],
+      "parent": "node@274",
+      "ids": [
+        "13783@13783"
+      ]
+    },
+    "13736@13736": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        5.932,
+        6.675,
+        4.799
+      ],
+      "parent": "node@266",
+      "ids": [
+        "13736@13736"
+      ]
+    },
+    "10344@10344": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        0.498,
+        0.292,
+        7.993
+      ],
+      "parent": "node@267",
+      "ids": [
+        "10344@10344"
+      ]
+    },
+    "13554@13554": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        -0.234,
+        0.954,
+        9.884
+      ],
+      "parent": "node@277",
+      "ids": [
+        "13554@13554"
+      ]
+    },
+    "node@264": {
+      "count": 2,
+      "distance": 0.88,
+      "left_id": "13843@13843",
+      "parent": "node@381",
+      "right_id": "14042@14042"
+    },
+    "node@265": {
+      "count": 2,
+      "distance": 0.89,
+      "left_id": "11328@11328",
+      "parent": "node@336",
+      "right_id": "10330@10330"
+    },
+    "13738@13738": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        10.458,
+        4.482,
+        5.682
+      ],
+      "parent": "node@312",
+      "ids": [
+        "13738@13738"
+      ]
+    },
+    "13914@13914": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        3.947,
+        -0.93,
+        6.432
+      ],
+      "parent": "node@275",
+      "ids": [
+        "13914@13914"
+      ]
+    },
+    "node@260": {
+      "count": 2,
+      "distance": 0.842,
+      "left_id": "13862@13862",
+      "parent": "node@287",
+      "right_id": "10305@10305"
+    },
+    "node@261": {
+      "count": 2,
+      "distance": 0.857,
+      "left_id": "10326@10326",
+      "parent": "node@368",
+      "right_id": "10409@10409"
+    },
+    "node@262": {
+      "count": 3,
+      "distance": 0.87,
+      "left_id": "10262@10262",
+      "parent": "node@288",
+      "right_id": "node@242"
+    },
+    "node@263": {
+      "count": 2,
+      "distance": 0.876,
+      "left_id": "10248@10248",
+      "parent": "node@307",
+      "right_id": "10544@10544"
+    },
+    "node@343": {
+      "count": 9,
+      "distance": 2.304,
+      "left_id": "node@288",
+      "parent": "node@363",
+      "right_id": "node@305"
+    },
+    "node@342": {
+      "count": 3,
+      "distance": 2.297,
+      "left_id": "10133@10133",
+      "parent": "node@414",
+      "right_id": "node@298"
+    },
+    "node@341": {
+      "count": 2,
+      "distance": 2.285,
+      "left_id": "10370@10370",
+      "parent": "node@396",
+      "right_id": "8640@8640"
+    },
+    "node@340": {
+      "count": 3,
+      "distance": 2.27,
+      "left_id": "14050@14050",
+      "parent": "node@410",
+      "right_id": "node@300"
+    },
+    "node@347": {
+      "count": 3,
+      "distance": 2.429,
+      "left_id": "14036@14036",
+      "parent": "node@408",
+      "right_id": "node@266"
+    },
+    "node@346": {
+      "count": 2,
+      "distance": 2.409,
+      "left_id": "14031@14031",
+      "parent": "node@394",
+      "right_id": "8165@8165"
+    },
+    "node@345": {
+      "count": 3,
+      "distance": 2.376,
+      "left_id": "10461@10461",
+      "parent": "node@379",
+      "right_id": "node@292"
+    },
+    "10339@10339": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        11.809,
+        3.901,
+        4.443
+      ],
+      "parent": "node@250",
+      "ids": [
+        "10339@10339"
+      ]
+    },
+    "node@431": {
+      "count": 12,
+      "distance": 12.179,
+      "left_id": "node@410",
+      "parent": "node@437",
+      "right_id": "node@412"
+    },
+    "node@430": {
+      "count": 43,
+      "distance": 10.148,
+      "left_id": "node@355",
+      "parent": "node@443",
+      "right_id": "node@413"
+    },
+    "11583@11583": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        7.68,
+        -0.565,
+        18.107
+      ],
+      "parent": "node@337",
+      "ids": [
+        "11583@11583"
+      ]
+    },
+    "13481@13481": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        0.074,
+        -0.26,
+        34.515
+      ],
+      "parent": "node@386",
+      "ids": [
+        "13481@13481"
+      ]
+    },
+    "node@435": {
+      "count": 31,
+      "distance": 13.512,
+      "left_id": "node@411",
+      "parent": "node@446",
+      "right_id": "node@425"
+    },
+    "node@434": {
+      "count": 16,
+      "distance": 13.327,
+      "left_id": "node@398",
+      "parent": "node@445",
+      "right_id": "node@429"
+    },
+    "node@437": {
+      "count": 29,
+      "distance": 13.725,
+      "left_id": "node@420",
+      "parent": "node@452",
+      "right_id": "node@431"
+    },
+    "node@436": {
+      "count": 6,
+      "distance": 13.533,
+      "left_id": "10316@10316",
+      "parent": "node@444",
+      "right_id": "node@424"
+    },
+    "13659@13659": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        -0.791,
+        -1.035,
+        7.615
+      ],
+      "parent": "node@288",
+      "ids": [
+        "13659@13659"
+      ]
+    },
+    "node@438": {
+      "count": 10,
+      "distance": 14.896,
+      "left_id": "node@426",
+      "parent": "node@444",
+      "right_id": "node@428"
+    },
+    "10260@10260": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        -0.045,
+        0.069,
+        5.297
+      ],
+      "parent": "node@230",
+      "ids": [
+        "10260@10260"
+      ]
+    },
+    "10388@10388": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        -0.027,
+        -1.403,
+        8.739
+      ],
+      "parent": "node@259",
+      "ids": [
+        "10388@10388"
+      ]
+    },
+    "10271@10271": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        0.317,
+        -0.675,
+        5.555
+      ],
+      "parent": "node@236",
+      "ids": [
+        "10271@10271"
+      ]
+    },
+    "13862@13862": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        8.273,
+        7.239,
+        3.093
+      ],
+      "parent": "node@260",
+      "ids": [
+        "13862@13862"
+      ]
+    },
+    "13696@13696": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        9.676,
+        5.871,
+        5.975
+      ],
+      "parent": "node@290",
+      "ids": [
+        "13696@13696"
+      ]
+    },
+    "9662@9662": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        15.295,
+        13.228,
+        7.472
+      ],
+      "parent": "node@396",
+      "ids": [
+        "9662@9662"
+      ]
+    },
+    "10124@10124": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        -0.626,
+        5.199,
+        0.019
+      ],
+      "parent": "node@279",
+      "ids": [
+        "10124@10124"
+      ]
+    },
+    "11418@11418": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        -2.067,
+        1.266,
+        10.303
+      ],
+      "parent": "node@302",
+      "ids": [
+        "11418@11418"
+      ]
+    },
+    "13846@13846": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        5.608,
+        2.479,
+        2.606
+      ],
+      "parent": "node@299",
+      "ids": [
+        "13846@13846"
+      ]
+    },
+    "10320@10320": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        0.139,
+        -1.168,
+        9.518
+      ],
+      "parent": "node@259",
+      "ids": [
+        "10320@10320"
+      ]
+    },
+    "10343@10343": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        0.435,
+        -1.176,
+        6.453
+      ],
+      "parent": "node@249",
+      "ids": [
+        "10343@10343"
+      ]
+    },
+    "13858@13858": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        10.491,
+        8.286,
+        3.775
+      ],
+      "parent": "node@292",
+      "ids": [
+        "13858@13858"
+      ]
+    },
+    "10431@10431": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        -0.725,
+        1.78,
+        7.123
+      ],
+      "parent": "node@296",
+      "ids": [
+        "10431@10431"
+      ]
+    },
+    "14037@14037": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        5.794,
+        6.919,
+        5.647
+      ],
+      "parent": "node@266",
+      "ids": [
+        "14037@14037"
+      ]
+    },
+    "node@421": {
+      "count": 7,
+      "distance": 8.385,
+      "left_id": "node@351",
+      "parent": "node@445",
+      "right_id": "node@392"
+    },
+    "node@398": {
+      "count": 2,
+      "distance": 5.083,
+      "left_id": "10301@10301",
+      "parent": "node@434",
+      "right_id": "14053@14053"
+    },
+    "node@399": {
+      "count": 4,
+      "distance": 5.111,
+      "left_id": "node@337",
+      "parent": "node@442",
+      "right_id": "node@349"
+    },
+    "14013@14013": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        0.463,
+        -2.384,
+        5.199
+      ],
+      "parent": "node@281",
+      "ids": [
+        "14013@14013"
+      ]
+    },
+    "node@394": {
+      "count": 3,
+      "distance": 4.844,
+      "left_id": "14045@14045",
+      "parent": "node@424",
+      "right_id": "node@346"
+    },
+    "8549@8549": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        5.897,
+        0.0,
+        0.985
+      ],
+      "parent": "node@316",
+      "ids": [
+        "8549@8549"
+      ]
+    },
+    "node@396": {
+      "count": 3,
+      "distance": 4.891,
+      "left_id": "9662@9662",
+      "parent": "node@418",
+      "right_id": "node@341"
+    },
+    "13873@13873": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        2.053,
+        -0.104,
+        9.114
+      ],
+      "parent": "node@234",
+      "ids": [
+        "13873@13873"
+      ]
+    },
+    "node@390": {
+      "count": 16,
+      "distance": 4.425,
+      "left_id": "node@311",
+      "parent": "node@413",
+      "right_id": "node@339"
+    },
+    "node@391": {
+      "count": 7,
+      "distance": 4.489,
+      "left_id": "node@302",
+      "parent": "node@409",
+      "right_id": "node@354"
+    },
+    "node@392": {
+      "count": 5,
+      "distance": 4.551,
+      "left_id": "8622@8622",
+      "parent": "node@421",
+      "right_id": "node@364"
+    },
+    "node@393": {
+      "count": 8,
+      "distance": 4.838,
+      "left_id": "node@356",
+      "parent": "node@420",
+      "right_id": "node@385"
+    },
+    "10305@10305": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        9.063,
+        7.418,
+        2.863
+      ],
+      "parent": "node@260",
+      "ids": [
+        "10305@10305"
+      ]
+    },
+    "8640@8640": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        16.057,
+        17.163,
+        9.755
+      ],
+      "parent": "node@341",
+      "ids": [
+        "8640@8640"
+      ]
+    },
+    "10396@10396": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        -0.854,
+        -0.51,
+        6.12
+      ],
+      "parent": "node@244",
+      "ids": [
+        "10396@10396"
+      ]
+    },
+    "node@307": {
+      "count": 3,
+      "distance": 1.498,
+      "left_id": "13695@13695",
+      "parent": "node@315",
+      "right_id": "node@263"
+    },
+    "8475@8475": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        6.476,
+        20.281,
+        9.374
+      ],
+      "parent": "node@352",
+      "ids": [
+        "8475@8475"
+      ]
+    },
+    "node@305": {
+      "count": 5,
+      "distance": 1.486,
+      "left_id": "node@238",
+      "parent": "node@343",
+      "right_id": "node@268"
+    },
+    "node@304": {
+      "count": 3,
+      "distance": 1.462,
+      "left_id": "10410@10410",
+      "parent": "node@358",
+      "right_id": "node@277"
+    },
+    "node@303": {
+      "count": 2,
+      "distance": 1.432,
+      "left_id": "13918@13918",
+      "parent": "node@338",
+      "right_id": "13548@13548"
+    },
+    "node@302": {
+      "count": 2,
+      "distance": 1.414,
+      "left_id": "11418@11418",
+      "parent": "node@391",
+      "right_id": "11563@11563"
+    },
+    "node@301": {
+      "count": 3,
+      "distance": 1.405,
+      "left_id": "8378@8378",
+      "parent": "node@350",
+      "right_id": "node@246"
+    },
+    "node@300": {
+      "count": 2,
+      "distance": 1.392,
+      "left_id": "13883@13883",
+      "parent": "node@340",
+      "right_id": "10329@10329"
+    },
+    "node@309": {
+      "count": 2,
+      "distance": 1.515,
+      "left_id": "9560@9560",
+      "parent": "node@363",
+      "right_id": "11004@11004"
+    },
+    "node@308": {
+      "count": 4,
+      "distance": 1.513,
+      "left_id": "node@247",
+      "parent": "node@348",
+      "right_id": "node@281"
+    },
+    "13548@13548": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        2.478,
+        2.43,
+        8.649
+      ],
+      "parent": "node@303",
+      "ids": [
+        "13548@13548"
+      ]
+    },
+    "node@458": {
+      "count": 230,
+      "distance": 122.483,
+      "left_id": "node@455",
+      "right_id": "node@457"
+    },
+    "10385@10385": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        10.289,
+        11.491,
+        9.88
+      ],
+      "parent": "node@334",
+      "ids": [
+        "10385@10385"
+      ]
+    },
+    "13711@13711": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        17.282,
+        19.993,
+        13.119
+      ],
+      "parent": "node@418",
+      "ids": [
+        "13711@13711"
+      ]
+    },
+    "13876@13876": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        1.983,
+        5.807,
+        7.209
+      ],
+      "parent": "node@298",
+      "ids": [
+        "13876@13876"
+      ]
+    },
+    "13555@13555": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        7.865,
+        0.57,
+        1.511
+      ],
+      "parent": "node@253",
+      "ids": [
+        "13555@13555"
+      ]
+    },
+    "node@429": {
+      "count": 14,
+      "distance": 10.09,
+      "left_id": "node@395",
+      "parent": "node@434",
+      "right_id": "node@407"
+    },
+    "node@239": {
+      "count": 2,
+      "distance": 0.444,
+      "left_id": "10584@10584",
+      "parent": "node@283",
+      "right_id": "8547@8547"
+    },
+    "10701@10701": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        -2.189,
+        -0.23,
+        13.679
+      ],
+      "parent": "node@365",
+      "ids": [
+        "10701@10701"
+      ]
+    },
+    "node@233": {
+      "count": 2,
+      "distance": 0.337,
+      "left_id": "10321@10321",
+      "parent": "node@248",
+      "right_id": "13683@13683"
+    },
+    "node@232": {
+      "count": 3,
+      "distance": 0.273,
+      "left_id": "10297@10297",
+      "parent": "node@278",
+      "right_id": "node@230"
+    },
+    "node@231": {
+      "count": 2,
+      "distance": 0.237,
+      "left_id": "10332@10332",
+      "parent": "node@267",
+      "right_id": "10036@10036"
+    },
+    "14045@14045": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        22.092,
+        13.788,
+        7.421
+      ],
+      "parent": "node@394",
+      "ids": [
+        "14045@14045"
+      ]
+    },
+    "node@237": {
+      "count": 2,
+      "distance": 0.424,
+      "left_id": "10372@10372",
+      "parent": "node@289",
+      "right_id": "11030@11030"
+    },
+    "node@236": {
+      "count": 2,
+      "distance": 0.42,
+      "left_id": "10271@10271",
+      "parent": "node@271",
+      "right_id": "11029@11029"
+    },
+    "node@235": {
+      "count": 2,
+      "distance": 0.401,
+      "left_id": "10251@10251",
+      "parent": "node@252",
+      "right_id": "10333@10333"
+    },
+    "node@234": {
+      "count": 2,
+      "distance": 0.361,
+      "left_id": "13873@13873",
+      "parent": "node@317",
+      "right_id": "9707@9707"
+    },
+    "node@408": {
+      "count": 4,
+      "distance": 5.616,
+      "left_id": "13850@13850",
+      "parent": "node@423",
+      "right_id": "node@347"
+    },
+    "node@409": {
+      "count": 20,
+      "distance": 5.911,
+      "left_id": "node@382",
+      "parent": "node@427",
+      "right_id": "node@391"
+    },
+    "10372@10372": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        2.564,
+        -0.049,
+        6.721
+      ],
+      "parent": "node@237",
+      "ids": [
+        "10372@10372"
+      ]
+    },
+    "node@395": {
+      "count": 7,
+      "distance": 4.847,
+      "left_id": "node@250",
+      "parent": "node@429",
+      "right_id": "node@370"
+    },
+    "node@400": {
+      "count": 10,
+      "distance": 5.113,
+      "left_id": "node@360",
+      "parent": "node@454",
+      "right_id": "node@362"
+    },
+    "node@401": {
+      "count": 4,
+      "distance": 5.331,
+      "left_id": "11571@11571",
+      "parent": "node@414",
+      "right_id": "node@381"
+    },
+    "node@245": {
+      "count": 2,
+      "distance": 0.593,
+      "left_id": "13853@13853",
+      "parent": "node@327",
+      "right_id": "10556@10556"
+    },
+    "node@403": {
+      "count": 2,
+      "distance": 5.364,
+      "left_id": "10319@10319",
+      "parent": "node@424",
+      "right_id": "10322@10322"
+    },
+    "node@404": {
+      "count": 5,
+      "distance": 5.432,
+      "left_id": "node@334",
+      "parent": "node@439",
+      "right_id": "node@373"
+    },
+    "node@405": {
+      "count": 9,
+      "distance": 5.469,
+      "left_id": "node@374",
+      "parent": "node@420",
+      "right_id": "node@377"
+    },
+    "node@406": {
+      "count": 2,
+      "distance": 5.497,
+      "left_id": "8934@8934",
+      "parent": "node@428",
+      "right_id": "9057@9057"
+    },
+    "node@407": {
+      "count": 7,
+      "distance": 5.559,
+      "left_id": "node@287",
+      "parent": "node@429",
+      "right_id": "node@379"
+    },
+    "10309@10309": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        -1.722,
+        -1.841,
+        8.621
+      ],
+      "parent": "node@295",
+      "ids": [
+        "10309@10309"
+      ]
+    },
+    "10329@10329": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        7.948,
+        4.706,
+        2.267
+      ],
+      "parent": "node@300",
+      "ids": [
+        "10329@10329"
+      ]
+    },
+    "10556@10556": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        9.852,
+        -0.463,
+        5.662
+      ],
+      "parent": "node@245",
+      "ids": [
+        "10556@10556"
+      ]
+    },
+    "10317@10317": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        6.969,
+        18.398,
+        4.534
+      ],
+      "parent": "node@372",
+      "ids": [
+        "10317@10317"
+      ]
+    },
+    "13926@13926": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        0.092,
+        8.476,
+        0.0
+      ],
+      "parent": "node@276",
+      "ids": [
+        "13926@13926"
+      ]
+    },
+    "13920@13920": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        -0.34,
+        -1.297,
+        5.64
+      ],
+      "parent": "node@247",
+      "ids": [
+        "13920@13920"
+      ]
+    },
+    "8622@8622": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        13.525,
+        4.029,
+        10.618
+      ],
+      "parent": "node@392",
+      "ids": [
+        "8622@8622"
+      ]
+    },
+    "10295@10295": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        0.352,
+        0.229,
+        12.131
+      ],
+      "parent": "node@333",
+      "ids": [
+        "10295@10295"
+      ]
+    },
+    "11599@11599": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        14.701,
+        6.072,
+        19.676
+      ],
+      "parent": "node@325",
+      "ids": [
+        "11599@11599"
+      ]
+    },
+    "node@397": {
+      "count": 3,
+      "distance": 5.015,
+      "left_id": "9537@9537",
+      "parent": "node@426",
+      "right_id": "node@361"
+    },
+    "7890@7890": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        12.819,
+        12.357,
+        12.489
+      ],
+      "parent": "node@373",
+      "ids": [
+        "7890@7890"
+      ]
+    },
+    "10374@10374": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        11.332,
+        9.77,
+        14.242
+      ],
+      "parent": "node@373",
+      "ids": [
+        "10374@10374"
+      ]
+    },
+    "13877@13877": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        4.277,
+        8.618,
+        6.949
+      ],
+      "parent": "node@367",
+      "ids": [
+        "13877@13877"
+      ]
+    },
+    "10420@10420": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        9.284,
+        2.87,
+        6.483
+      ],
+      "parent": "node@328",
+      "ids": [
+        "10420@10420"
+      ]
+    },
+    "10504@10504": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        15.297,
+        7.045,
+        21.144
+      ],
+      "parent": "node@325",
+      "ids": [
+        "10504@10504"
+      ]
+    },
+    "11105@11105": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        0.331,
+        0.691,
+        5.513
+      ],
+      "parent": "node@272",
+      "ids": [
+        "11105@11105"
+      ]
+    },
+    "13700@13700": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        9.572,
+        0.18,
+        9.926
+      ],
+      "parent": "node@351",
+      "ids": [
+        "13700@13700"
+      ]
+    },
+    "10590@10590": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        10.374,
+        0.913,
+        3.825
+      ],
+      "parent": "node@294",
+      "ids": [
+        "10590@10590"
+      ]
+    },
+    "10330@10330": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        6.986,
+        0.104,
+        -1.327
+      ],
+      "parent": "node@265",
+      "ids": [
+        "10330@10330"
+      ]
+    },
+    "10316@10316": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        26.79,
+        13.058,
+        -0.389
+      ],
+      "parent": "node@436",
+      "ids": [
+        "10316@10316"
+      ]
+    },
+    "13416@13416": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        2.655,
+        -1.597,
+        5.355
+      ],
+      "parent": "node@315",
+      "ids": [
+        "13416@13416"
+      ]
+    },
+    "8378@8378": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        3.621,
+        -1.267,
+        7.361
+      ],
+      "parent": "node@301",
+      "ids": [
+        "8378@8378"
+      ]
+    },
+    "8179@8179": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        14.24,
+        2.998,
+        7.813
+      ],
+      "parent": "node@310",
+      "ids": [
+        "8179@8179"
+      ]
+    },
+    "13420@13420": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        -1.606,
+        -0.002,
+        8.001
+      ],
+      "parent": "node@286",
+      "ids": [
+        "13420@13420"
+      ]
+    },
+    "11252@11252": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        -1.846,
+        0.643,
+        5.73
+      ],
+      "parent": "node@284",
+      "ids": [
+        "11252@11252"
+      ]
+    },
+    "11126@11126": {
+      "count": 1,
+      "distance": 0,
+      "values": [
+        -1.772,
+        2.896,
+        6.928
+      ],
+      "parent": "node@321",
+      "ids": [
+        "11126@11126"
+      ]
+    }
+  },
+  "header": [
+      "1e-04 mol/l",
+      "1e-05 mol/l",
+      "1e-03 mol/l"
+  ]
+  },
+
+  "metadata": {
+    "header": [
+      "Weight",
+      "TPSA",
+      "Aromatic Rings",
+      "H-Acceptors",
+      "H-Donors",
+      "Rotatable Bonds",
+      "Ring Count",
+      "LogP"
+    ],
+    "nodes": {
+      "10796@10796": [
+        374,
+        43,
+        2,
+        3,
+        0,
+        3,
+        5,
+        5
+      ],
+      "13854@13854": [
+        288,
+        60,
+        1,
+        3,
+        3,
+        0,
+        4,
+        2
+      ],
+      "13862@13862": [
+        354,
+        52,
+        1,
+        4,
+        0,
+        4,
+        4,
+        4
+      ],
+      "13665@13665": [
+        312,
+        43,
+        1,
+        3,
+        0,
+        2,
+        4,
+        4
+      ],
+      "14048@14048": [
+        370,
+        69,
+        1,
+        5,
+        0,
+        4,
+        4,
+        3
+      ],
+      "13696@13696": [
+        370,
+        69,
+        1,
+        5,
+        0,
+        4,
+        4,
+        4
+      ],
+      "10339@10339": [
+        288,
+        51,
+        0,
+        3,
+        0,
+        0,
+        4,
+        2
+      ],
+      "14012@14012": [
+        380,
+        43,
+        1,
+        3,
+        0,
+        3,
+        5,
+        5
+      ],
+      "10410@10410": [
+        276,
+        37,
+        0,
+        2,
+        1,
+        0,
+        4,
+        3
+      ],
+      "13918@13918": [
+        300,
+        40,
+        0,
+        2,
+        2,
+        0,
+        4,
+        3
+      ],
+      "14050@14050": [
+        370,
+        69,
+        1,
+        5,
+        0,
+        4,
+        4,
+        3
+      ],
+      "10271@10271": [
+        344,
+        54,
+        0,
+        3,
+        1,
+        2,
+        4,
+        4
+      ],
+      "13551@13551": [
+        304,
+        57,
+        0,
+        3,
+        2,
+        1,
+        4,
+        2
+      ],
+      "10452@10452": [
+        473,
+        43,
+        1,
+        3,
+        0,
+        3,
+        5,
+        6
+      ],
+      "14042@14042": [
+        304,
+        80,
+        1,
+        4,
+        4,
+        0,
+        4,
+        1
+      ],
+      "10318@10318": [
+        382,
+        17,
+        0,
+        1,
+        0,
+        5,
+        4,
+        7
+      ],
+      "8026@8026": [
+        272,
+        40,
+        1,
+        2,
+        2,
+        0,
+        4,
+        3
+      ],
+      "11418@11418": [
+        332,
+        46,
+        0,
+        3,
+        1,
+        2,
+        4,
+        4
+      ],
+      "13635@13635": [
+        304,
+        40,
+        0,
+        2,
+        2,
+        0,
+        4,
+        3
+      ],
+      "10929@10929": [
+        404,
+        54,
+        0,
+        4,
+        1,
+        3,
+        4,
+        5
+      ],
+      "11180@11180": [
+        370,
+        0,
+        0,
+        0,
+        0,
+        5,
+        5,
+        8
+      ],
+      "10301@10301": [
+        304,
+        57,
+        1,
+        3,
+        2,
+        0,
+        4,
+        3
+      ],
+      "8029@8029": [
+        490,
+        89,
+        0,
+        6,
+        1,
+        8,
+        4,
+        5
+      ],
+      "11321@11321": [
+        333,
+        21,
+        0,
+        2,
+        0,
+        0,
+        7,
+        4
+      ],
+      "14054@14054": [
+        372,
+        69,
+        1,
+        5,
+        0,
+        3,
+        4,
+        2
+      ],
+      "13849@13849": [
+        372,
+        72,
+        1,
+        5,
+        1,
+        4,
+        4,
+        3
+      ],
+      "8156@8156": [
+        314,
+        40,
+        0,
+        2,
+        2,
+        0,
+        4,
+        3
+      ],
+      "10343@10343": [
+        392,
+        77,
+        0,
+        3,
+        3,
+        4,
+        4,
+        4
+      ],
+      "8548@8548": [
+        482,
+        63,
+        0,
+        4,
+        1,
+        7,
+        4,
+        6
+      ],
+      "10332@10332": [],
+      "13858@13858": [
+        272,
+        40,
+        1,
+        2,
+        2,
+        0,
+        4,
+        3
+      ],
+      "13845@13845": [
+        359,
+        99,
+        1,
+        5,
+        3,
+        3,
+        4,
+        2
+      ],
+      "14037@14037": [
+        390,
+        93,
+        1,
+        6,
+        2,
+        3,
+        4,
+        1
+      ],
+      "10320@10320": [
+        432,
+        97,
+        0,
+        5,
+        1,
+        7,
+        4,
+        4
+      ],
+      "13853@13853": [
+        372,
+        72,
+        1,
+        5,
+        1,
+        4,
+        4,
+        3
+      ],
+      "10456@10456": [
+        290,
+        37,
+        0,
+        2,
+        1,
+        0,
+        4,
+        3
+      ],
+      "13463@13463": [
+        288,
+        37,
+        0,
+        2,
+        1,
+        0,
+        4,
+        3
+      ],
+      "7943@7943": [
+        316,
+        26,
+        0,
+        2,
+        0,
+        2,
+        5,
+        4
+      ],
+      "13740@13740": [
+        391,
+        43,
+        1,
+        3,
+        0,
+        2,
+        4,
+        4
+      ],
+      "10355@10355": [
+        558,
+        86,
+        1,
+        6,
+        0,
+        8,
+        5,
+        6
+      ],
+      "10315@10315": [
+        333,
+        52,
+        0,
+        3,
+        1,
+        2,
+        4,
+        4
+      ],
+      "7833@7833": [
+        388,
+        40,
+        0,
+        2,
+        2,
+        5,
+        4,
+        6
+      ],
+      "11571@11571": [],
+      "10739@10739": [
+        403,
+        46,
+        0,
+        3,
+        0,
+        4,
+        4,
+        5
+      ],
+      "8782@8782": [
+        418,
+        69,
+        0,
+        5,
+        0,
+        6,
+        4,
+        4
+      ],
+      "13459@13459": [
+        514,
+        35,
+        0,
+        3,
+        0,
+        16,
+        4,
+        9
+      ],
+      "10598@10598": [
+        381,
+        37,
+        0,
+        2,
+        1,
+        0,
+        5,
+        4
+      ],
+      "13581@13581": [
+        322,
+        37,
+        0,
+        2,
+        1,
+        0,
+        4,
+        4
+      ],
+      "14053@14053": [
+        478,
+        78,
+        2,
+        6,
+        0,
+        6,
+        5,
+        4
+      ],
+      "13851@13851": [
+        288,
+        60,
+        1,
+        3,
+        3,
+        0,
+        4,
+        2
+      ],
+      "10673@10673": [
+        418,
+        49,
+        0,
+        3,
+        2,
+        5,
+        5,
+        5
+      ],
+      "14013@14013": [
+        320,
+        46,
+        0,
+        3,
+        1,
+        2,
+        4,
+        3
+      ],
+      "8549@8549": [
+        402,
+        88,
+        0,
+        4,
+        1,
+        4,
+        4,
+        4
+      ],
+      "10322@10322": [
+        465,
+        17,
+        0,
+        1,
+        0,
+        5,
+        4,
+        8
+      ],
+      "10532@10532": [
+        290,
+        32,
+        0,
+        2,
+        1,
+        0,
+        5,
+        3
+      ],
+      "10907@10907": [
+        290,
+        40,
+        0,
+        2,
+        2,
+        0,
+        4,
+        3
+      ],
+      "9560@9560": [
+        374,
+        60,
+        0,
+        4,
+        0,
+        4,
+        4,
+        4
+      ],
+      "13505@13505": [
+        374,
+        52,
+        0,
+        4,
+        0,
+        4,
+        4,
+        4
+      ],
+      "13839@13839": [
+        270,
+        40,
+        1,
+        2,
+        2,
+        0,
+        4,
+        3
+      ],
+      "10256@10256": [
+        334,
+        72,
+        0,
+        3,
+        3,
+        2,
+        4,
+        3
+      ],
+      "10461@10461": [
+        288,
+        37,
+        0,
+        2,
+        1,
+        0,
+        4,
+        3
+      ],
+      "8048@8048": [
+        274,
+        37,
+        0,
+        2,
+        1,
+        0,
+        4,
+        3
+      ],
+      "11393@11393": [
+        304,
+        40,
+        0,
+        2,
+        2,
+        0,
+        5,
+        3
+      ],
+      "8547@8547": [
+        330,
+        46,
+        0,
+        3,
+        1,
+        2,
+        4,
+        4
+      ],
+      "9808@9808": [
+        418,
+        52,
+        2,
+        4,
+        0,
+        5,
+        5,
+        5
+      ],
+      "8934@8934": [
+        296,
+        40,
+        1,
+        2,
+        2,
+        0,
+        4,
+        3
+      ],
+      "14031@14031": [
+        352,
+        83,
+        1,
+        4,
+        2,
+        2,
+        4,
+        3
+      ],
+      "13458@13458": [
+        442,
+        69,
+        0,
+        5,
+        0,
+        5,
+        4,
+        4
+      ],
+      "9537@9537": [
+        290,
+        40,
+        0,
+        2,
+        2,
+        0,
+        4,
+        3
+      ],
+      "11107@11107": [
+        356,
+        43,
+        0,
+        3,
+        0,
+        3,
+        4,
+        5
+      ],
+      "9957@9957": [
+        318,
+        26,
+        0,
+        2,
+        0,
+        2,
+        4,
+        5
+      ],
+      "13850@13850": [
+        288,
+        60,
+        1,
+        3,
+        3,
+        0,
+        4,
+        2
+      ],
+      "8041@8041": [
+        312,
+        34,
+        0,
+        2,
+        0,
+        1,
+        4,
+        4
+      ],
+      "13841@13841": [
+        450,
+        147,
+        1,
+        8,
+        6,
+        7,
+        4,
+        0
+      ],
+      "8640@8640": [
+        354,
+        52,
+        1,
+        4,
+        0,
+        4,
+        4,
+        4
+      ],
+      "10368@10368": [
+        386,
+        43,
+        0,
+        3,
+        0,
+        5,
+        4,
+        5
+      ],
+      "9895@9895": [
+        458,
+        72,
+        0,
+        5,
+        1,
+        5,
+        5,
+        5
+      ],
+      "10297@10297": [
+        330,
+        54,
+        0,
+        3,
+        1,
+        2,
+        4,
+        3
+      ],
+      "13662@13662": [
+        314,
+        46,
+        1,
+        3,
+        1,
+        2,
+        4,
+        4
+      ],
+      "10260@10260": [
+        357,
+        73,
+        0,
+        4,
+        1,
+        2,
+        5,
+        3
+      ],
+      "11029@11029": [
+        334,
+        40,
+        0,
+        2,
+        2,
+        2,
+        4,
+        4
+      ],
+      "8244@8244": [
+        288,
+        37,
+        1,
+        2,
+        1,
+        0,
+        4,
+        3
+      ],
+      "10310@10310": [
+        288,
+        60,
+        1,
+        3,
+        3,
+        0,
+        4,
+        2
+      ],
+      "10396@10396": [
+        370,
+        17,
+        0,
+        1,
+        0,
+        5,
+        4,
+        7
+      ],
+      "11599@11599": [],
+      "10280@10280": [
+        272,
+        20,
+        0,
+        1,
+        1,
+        0,
+        4,
+        4
+      ],
+      "8475@8475": [
+        288,
+        60,
+        1,
+        3,
+        3,
+        0,
+        4,
+        2
+      ],
+      "10293@10293": [
+        320,
+        40,
+        0,
+        2,
+        2,
+        1,
+        4,
+        4
+      ],
+      "8221@8221": [
+        330,
+        43,
+        0,
+        3,
+        0,
+        2,
+        4,
+        4
+      ],
+      "7892@7892": [
+        352,
+        83,
+        1,
+        4,
+        2,
+        2,
+        4,
+        3
+      ],
+      "11328@11328": [
+        532,
+        26,
+        1,
+        2,
+        0,
+        8,
+        5,
+        10
+      ],
+      "7905@7905": [
+        416,
+        38,
+        0,
+        3,
+        1,
+        0,
+        6,
+        5
+      ],
+      "13709@13709": [
+        268,
+        37,
+        1,
+        2,
+        1,
+        0,
+        4,
+        3
+      ],
+      "9661@9661": [
+        296,
+        40,
+        1,
+        2,
+        2,
+        0,
+        4,
+        3
+      ],
+      "10913@10913": [
+        376,
+        52,
+        0,
+        4,
+        0,
+        4,
+        4,
+        4
+      ],
+      "13548@13548": [
+        330,
+        43,
+        0,
+        3,
+        0,
+        2,
+        4,
+        4
+      ],
+      "10330@10330": [
+        403,
+        46,
+        0,
+        2,
+        2,
+        5,
+        4,
+        6
+      ],
+      "11030@11030": [
+        330,
+        37,
+        0,
+        2,
+        1,
+        2,
+        4,
+        4
+      ],
+      "9968@9968": [
+        455,
+        52,
+        0,
+        4,
+        0,
+        4,
+        4,
+        5
+      ],
+      "14019@14019": [
+        318,
+        43,
+        0,
+        3,
+        0,
+        2,
+        4,
+        4
+      ],
+      "9312@9312": [
+        330,
+        43,
+        0,
+        3,
+        0,
+        2,
+        4,
+        4
+      ],
+      "10305@10305": [
+        315,
+        80,
+        1,
+        4,
+        1,
+        1,
+        4,
+        3
+      ],
+      "14028@14028": [
+        414,
+        78,
+        1,
+        6,
+        0,
+        6,
+        4,
+        3
+      ],
+      "10544@10544": [
+        290,
+        32,
+        0,
+        2,
+        1,
+        0,
+        5,
+        3
+      ],
+      "10385@10385": [
+        290,
+        37,
+        0,
+        2,
+        1,
+        0,
+        4,
+        3
+      ],
+      "13711@13711": [
+        388,
+        104,
+        1,
+        5,
+        3,
+        5,
+        4,
+        2
+      ],
+      "8651@8651": [
+        374,
+        43,
+        2,
+        3,
+        0,
+        3,
+        5,
+        5
+      ],
+      "13876@13876": [
+        448,
+        136,
+        1,
+        7,
+        5,
+        3,
+        5,
+        1
+      ],
+      "9806@9806": [
+        455,
+        52,
+        0,
+        4,
+        0,
+        4,
+        4,
+        5
+      ],
+      "13555@13555": [
+        346,
+        46,
+        0,
+        3,
+        1,
+        2,
+        4,
+        4
+      ],
+      "8023@8023": [
+        316,
+        40,
+        0,
+        2,
+        2,
+        0,
+        4,
+        3
+      ],
+      "11558@11558": [],
+      "13848@13848": [
+        391,
+        43,
+        1,
+        3,
+        0,
+        2,
+        4,
+        4
+      ],
+      "8037@8037": [
+        376,
+        46,
+        2,
+        3,
+        1,
+        3,
+        5,
+        5
+      ],
+      "10590@10590": [
+        332,
+        46,
+        0,
+        3,
+        1,
+        2,
+        4,
+        4
+      ],
+      "9668@9668": [
+        370,
+        69,
+        1,
+        5,
+        0,
+        4,
+        4,
+        3
+      ],
+      "13738@13738": [
+        314,
+        46,
+        1,
+        3,
+        1,
+        2,
+        4,
+        3
+      ],
+      "13856@13856": [
+        354,
+        52,
+        1,
+        4,
+        0,
+        4,
+        4,
+        4
+      ],
+      "9707@9707": [
+        344,
+        38,
+        0,
+        3,
+        1,
+        2,
+        4,
+        4
+      ],
+      "10367@10367": [
+        542,
+        69,
+        1,
+        5,
+        0,
+        8,
+        5,
+        7
+      ],
+      "10701@10701": [
+        472,
+        69,
+        1,
+        5,
+        0,
+        5,
+        6,
+        5
+      ],
+      "10319@10319": [
+        412,
+        54,
+        0,
+        2,
+        1,
+        6,
+        4,
+        6
+      ],
+      "8957@8957": [
+        372,
+        52,
+        0,
+        4,
+        0,
+        4,
+        4,
+        4
+      ],
+      "8165@8165": [
+        356,
+        52,
+        1,
+        4,
+        0,
+        4,
+        4,
+        4
+      ],
+      "10133@10133": [
+        258,
+        40,
+        1,
+        2,
+        2,
+        0,
+        4,
+        3
+      ],
+      "10431@10431": [
+        390,
+        46,
+        0,
+        3,
+        1,
+        5,
+        4,
+        5
+      ],
+      "10372@10372": [
+        528,
+        60,
+        2,
+        3,
+        3,
+        5,
+        6,
+        7
+      ],
+      "13847@13847": [
+        308,
+        21,
+        1,
+        2,
+        0,
+        1,
+        5,
+        3
+      ],
+      "10264@10264": [
+        435,
+        63,
+        1,
+        3,
+        1,
+        5,
+        5,
+        5
+      ],
+      "7904@7904": [
+        332,
+        43,
+        0,
+        3,
+        0,
+        2,
+        4,
+        4
+      ],
+      "10251@10251": [
+        348,
+        74,
+        0,
+        4,
+        2,
+        2,
+        4,
+        2
+      ],
+      "11039@11039": [
+        359,
+        55,
+        0,
+        3,
+        1,
+        4,
+        4,
+        3
+      ],
+      "10453@10453": [
+        354,
+        37,
+        0,
+        2,
+        1,
+        0,
+        4,
+        4
+      ],
+      "10309@10309": [
+        317,
+        43,
+        0,
+        2,
+        1,
+        1,
+        4,
+        4
+      ],
+      "10329@10329": [
+        403,
+        46,
+        0,
+        2,
+        2,
+        5,
+        4,
+        6
+      ],
+      "10399@10399": [
+        294,
+        60,
+        0,
+        3,
+        3,
+        0,
+        4,
+        2
+      ],
+      "8253@8253": [
+        408,
+        63,
+        1,
+        4,
+        1,
+        3,
+        5,
+        4
+      ],
+      "9057@9057": [
+        286,
+        57,
+        1,
+        3,
+        2,
+        0,
+        4,
+        3
+      ],
+      "10298@10298": [
+        334,
+        57,
+        0,
+        3,
+        2,
+        1,
+        4,
+        3
+      ],
+      "13852@13852": [
+        312,
+        46,
+        1,
+        3,
+        1,
+        2,
+        4,
+        3
+      ],
+      "10326@10326": [
+        524,
+        63,
+        0,
+        4,
+        1,
+        8,
+        4,
+        7
+      ],
+      "13695@13695": [
+        330,
+        43,
+        1,
+        3,
+        0,
+        2,
+        4,
+        4
+      ],
+      "10314@10314": [
+        340,
+        43,
+        0,
+        3,
+        0,
+        2,
+        4,
+        4
+      ],
+      "13846@13846": [
+        370,
+        65,
+        1,
+        5,
+        0,
+        4,
+        5,
+        3
+      ],
+      "10333@10333": [
+        380,
+        17,
+        0,
+        1,
+        0,
+        5,
+        4,
+        7
+      ],
+      "13879@13879": [
+        286,
+        57,
+        1,
+        3,
+        2,
+        0,
+        4,
+        2
+      ],
+      "10321@10321": [
+        479,
+        34,
+        0,
+        2,
+        0,
+        5,
+        4,
+        7
+      ],
+      "10584@10584": [
+        288,
+        37,
+        0,
+        2,
+        1,
+        0,
+        4,
+        3
+      ],
+      "13855@13855": [
+        370,
+        69,
+        1,
+        5,
+        0,
+        4,
+        4,
+        3
+      ],
+      "10299@10299": [
+        356,
+        100,
+        0,
+        4,
+        1,
+        1,
+        4,
+        -3
+      ],
+      "7889@7889": [
+        392,
+        43,
+        1,
+        3,
+        0,
+        3,
+        5,
+        5
+      ],
+      "14022@14022": [
+        300,
+        40,
+        0,
+        2,
+        2,
+        0,
+        4,
+        3
+      ],
+      "13878@13878": [
+        330,
+        66,
+        1,
+        4,
+        2,
+        2,
+        4,
+        2
+      ],
+      "10409@10409": [
+        431,
+        23,
+        0,
+        2,
+        1,
+        6,
+        4,
+        7
+      ],
+      "13683@13683": [
+        288,
+        37,
+        0,
+        2,
+        1,
+        0,
+        4,
+        3
+      ],
+      "11553@11553": [],
+      "10457@10457": [
+        288,
+        40,
+        0,
+        2,
+        2,
+        0,
+        4,
+        3
+      ],
+      "8567@8567": [
+        372,
+        6,
+        0,
+        2,
+        0,
+        3,
+        4,
+        5
+      ],
+      "11158@11158": [
+        444,
+        26,
+        0,
+        2,
+        0,
+        7,
+        4,
+        8
+      ],
+      "10383@10383": [
+        316,
+        54,
+        0,
+        3,
+        1,
+        2,
+        4,
+        3
+      ],
+      "10420@10420": [
+        248,
+        17,
+        0,
+        1,
+        0,
+        1,
+        3,
+        4
+      ],
+      "10373@10373": [
+        300,
+        34,
+        0,
+        2,
+        0,
+        0,
+        4,
+        4
+      ],
+      "13883@13883": [
+        288,
+        60,
+        1,
+        3,
+        3,
+        0,
+        4,
+        2
+      ],
+      "13843@13843": [
+        286,
+        57,
+        1,
+        3,
+        2,
+        0,
+        4,
+        3
+      ],
+      "8622@8622": [
+        370,
+        69,
+        1,
+        5,
+        0,
+        4,
+        4,
+        3
+      ],
+      "10262@10262": [
+        376,
+        75,
+        0,
+        3,
+        3,
+        4,
+        4,
+        3
+      ],
+      "10756@10756": [
+        304,
+        40,
+        0,
+        2,
+        2,
+        0,
+        4,
+        4
+      ],
+      "10369@10369": [
+        408,
+        97,
+        0,
+        4,
+        4,
+        4,
+        4,
+        3
+      ],
+      "7890@7890": [
+        314,
+        46,
+        1,
+        3,
+        1,
+        2,
+        4,
+        3
+      ],
+      "10374@10374": [
+        328,
+        34,
+        0,
+        2,
+        0,
+        0,
+        4,
+        5
+      ],
+      "10266@10266": [
+        286,
+        34,
+        0,
+        2,
+        0,
+        0,
+        4,
+        4
+      ],
+      "13877@13877": [
+        370,
+        69,
+        1,
+        5,
+        0,
+        4,
+        4,
+        3
+      ],
+      "14039@14039": [
+        354,
+        52,
+        1,
+        4,
+        0,
+        4,
+        4,
+        4
+      ],
+      "9980@9980": [
+        350,
+        80,
+        0,
+        5,
+        1,
+        4,
+        3,
+        2
+      ],
+      "10377@10377": [
+        394,
+        93,
+        0,
+        6,
+        2,
+        3,
+        4,
+        2
+      ],
+      "13699@13699": [
+        302,
+        77,
+        1,
+        4,
+        3,
+        0,
+        4,
+        2
+      ],
+      "11004@11004": [
+        346,
+        46,
+        0,
+        3,
+        1,
+        2,
+        4,
+        4
+      ],
+      "10248@10248": [
+        374,
+        6,
+        0,
+        2,
+        0,
+        3,
+        4,
+        5
+      ],
+      "10504@10504": [
+        372,
+        72,
+        1,
+        5,
+        1,
+        4,
+        4,
+        3
+      ],
+      "8497@8497": [
+        370,
+        69,
+        1,
+        5,
+        0,
+        4,
+        4,
+        4
+      ],
+      "8024@8024": [
+        358,
+        46,
+        0,
+        3,
+        1,
+        2,
+        4,
+        4
+      ],
+      "10036@10036": [
+        306,
+        46,
+        0,
+        3,
+        1,
+        2,
+        4,
+        3
+      ],
+      "10124@10124": [],
+      "10313@10313": [
+        288,
+        20,
+        0,
+        1,
+        1,
+        1,
+        4,
+        5
+      ],
+      "11105@11105": [
+        374,
+        52,
+        0,
+        4,
+        0,
+        4,
+        4,
+        5
+      ],
+      "10388@10388": [
+        256,
+        17,
+        0,
+        1,
+        0,
+        0,
+        4,
+        4
+      ],
+      "10382@10382": [
+        300,
+        34,
+        0,
+        2,
+        0,
+        1,
+        4,
+        4
+      ],
+      "13920@13920": [
+        320,
+        46,
+        0,
+        3,
+        1,
+        2,
+        4,
+        3
+      ],
+      "11154@11154": [
+        378,
+        43,
+        1,
+        3,
+        0,
+        3,
+        5,
+        5
+      ],
+      "11552@11552": [],
+      "9274@9274": [
+        402,
+        63,
+        0,
+        4,
+        1,
+        3,
+        5,
+        4
+      ],
+      "10370@10370": [
+        392,
+        77,
+        0,
+        3,
+        3,
+        4,
+        4,
+        4
+      ],
+      "11542@11542": [],
+      "14045@14045": [
+        354,
+        52,
+        1,
+        4,
+        0,
+        4,
+        4,
+        4
+      ],
+      "10295@10295": [
+        448,
+        136,
+        1,
+        7,
+        5,
+        3,
+        5,
+        1
+      ],
+      "11072@11072": [
+        436,
+        52,
+        1,
+        4,
+        0,
+        5,
+        5,
+        6
+      ],
+      "10556@10556": [
+        432,
+        89,
+        0,
+        6,
+        1,
+        6,
+        4,
+        3
+      ],
+      "11555@11555": [],
+      "13873@13873": [
+        314,
+        40,
+        1,
+        2,
+        2,
+        0,
+        4,
+        3
+      ],
+      "10402@10402": [
+        306,
+        70,
+        0,
+        4,
+        2,
+        0,
+        5,
+        1
+      ],
+      "10354@10354": [
+        390,
+        74,
+        0,
+        3,
+        2,
+        4,
+        4,
+        4
+      ],
+      "9098@9098": [
+        374,
+        93,
+        0,
+        5,
+        1,
+        3,
+        4,
+        4
+      ],
+      "10327@10327": [
+        418,
+        57,
+        0,
+        3,
+        2,
+        6,
+        4,
+        5
+      ],
+      "10316@10316": [
+        360,
+        76,
+        0,
+        4,
+        1,
+        3,
+        4,
+        4
+      ],
+      "13783@13783": [
+        388,
+        52,
+        0,
+        4,
+        0,
+        4,
+        4,
+        5
+      ],
+      "14036@14036": [
+        314,
+        38,
+        1,
+        3,
+        1,
+        0,
+        5,
+        3
+      ],
+      "13926@13926": [
+        276,
+        37,
+        0,
+        2,
+        1,
+        0,
+        4,
+        3
+      ],
+      "11459@11459": [
+        346,
+        46,
+        0,
+        3,
+        1,
+        0,
+        5,
+        4
+      ],
+      "13736@13736": [
+        286,
+        57,
+        1,
+        3,
+        2,
+        0,
+        4,
+        2
+      ],
+      "13527@13527": [
+        402,
+        61,
+        0,
+        5,
+        0,
+        6,
+        4,
+        4
+      ],
+      "11563@11563": [],
+      "13416@13416": [
+        464,
+        114,
+        0,
+        8,
+        2,
+        4,
+        6,
+        1
+      ],
+      "13481@13481": [
+        288,
+        40,
+        0,
+        2,
+        2,
+        0,
+        4,
+        3
+      ],
+      "10317@10317": [
+        382,
+        17,
+        0,
+        1,
+        0,
+        5,
+        4,
+        7
+      ],
+      "10344@10344": [
+        406,
+        66,
+        0,
+        4,
+        2,
+        5,
+        4,
+        4
+      ],
+      "13554@13554": [
+        306,
+        40,
+        0,
+        2,
+        2,
+        0,
+        4,
+        4
+      ],
+      "13700@13700": [
+        372,
+        72,
+        1,
+        5,
+        1,
+        4,
+        4,
+        3
+      ],
+      "13914@13914": [
+        318,
+        32,
+        0,
+        2,
+        1,
+        1,
+        5,
+        4
+      ],
+      "10549@10549": [
+        416,
+        52,
+        2,
+        4,
+        0,
+        5,
+        5,
+        5
+      ],
+      "8378@8378": [
+        304,
+        40,
+        0,
+        2,
+        2,
+        0,
+        4,
+        4
+      ],
+      "9965@9965": [
+        318,
+        54,
+        0,
+        2,
+        1,
+        1,
+        4,
+        4
+      ],
+      "10442@10442": [
+        402,
+        63,
+        0,
+        4,
+        1,
+        5,
+        4,
+        4
+      ],
+      "8179@8179": [
+        332,
+        46,
+        0,
+        3,
+        1,
+        2,
+        4,
+        4
+      ],
+      "9662@9662": [
+        286,
+        57,
+        1,
+        3,
+        2,
+        0,
+        4,
+        2
+      ],
+      "11583@11583": [],
+      "11544@11544": [],
+      "13420@13420": [
+        404,
+        52,
+        0,
+        4,
+        0,
+        5,
+        4,
+        5
+      ],
+      "13659@13659": [
+        504,
+        131,
+        1,
+        9,
+        3,
+        6,
+        5,
+        1
+      ],
+      "11252@11252": [
+        372,
+        0,
+        0,
+        0,
+        0,
+        5,
+        4,
+        8
+      ],
+      "11126@11126": [
+        400,
+        23,
+        0,
+        3,
+        0,
+        4,
+        4,
+        5
+      ]
+    }
+  },
+  "column_dendrogram": {
+    "nodes": {
+      "node@2": {
+        "count": 1,
+        "distance": 0,
+        "parent": "node@4"
+      },
+      "node@3": {
+        "count": 2,
+        "distance": 95.888,
+        "left_id": "node@0",
+        "parent": "node@4",
+        "right_id": "node@1"
+      },
+      "node@0": {
+        "count": 1,
+        "distance": 0,
+        "parent": "node@3"
+      },
+      "node@1": {
+        "count": 1,
+        "distance": 0,
+        "parent": "node@3"
+      },
+      "node@4": {
+        "count": 3,
+        "distance": 143.492,
+        "left_id": "node@2",
+        "right_id": "node@3"
+      }
+    }
+  }
+}

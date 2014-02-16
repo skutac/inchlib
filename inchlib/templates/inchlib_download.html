@@ -1,0 +1,55 @@
+{% extends "inchlib_base.html" %}
+
+{% block content %}
+
+{% load staticfiles %}
+<div class="description">
+	<div class="title">inchlib.js</div>
+	<div class="small_title">
+		Dependencies
+	</div>
+	<ul>
+		<li><a href="http://jquery.com/" target=blank>jQuery</a></li>
+	</ul>
+	<div class="pure-button download_button">
+		<a href="{% static "js/inchlib.js" %}" target=blank>Download inchlib.js</a>
+	</div>
+	<div class="small_title">Installation</div>
+	<div class="description">
+		There is no need to install inchlib.js. As all JS libraries you just need to import the file in your code.
+	</div>
+	<div class="code">
+  &lt;script src="/path/to/inchlib.js"&gt;&lt;/script&gt;
+	</div>
+</div>
+
+<div class="description">
+	<div class="title">inchlib_clust.py</div>
+	<div class="small_title">
+		Dependencies
+	</div>
+	<ul>
+		<li><a href="http://www.numpy.org/" target=blank>numpy</a></li>
+		<li><a href="http://scipy.org/" target=blank>scipy</a></li>
+		<li><a href="https://pypi.python.org/pypi/hcluster" target=blank>hcluster</a></li>
+		<li><a href="http://danifold.net/fastcluster.html" target=blank>fastcluster</a></li>
+	</ul>
+	<div class="pure-button download_button">
+		<a href="{% static "inchlib_clust/inchlib_clust.py" %}" target=blank>Download inchlib_clust.py</a>
+	</div>
+
+	<div class="small_title">Installation</div>
+	<div class="description"></div>
+		
+</div>
+
+	<!-- <div class="code">
+  sudo pip install numpy
+  sudo pip install scipy
+  sudo pip install hcluster
+  sudo pip install fastcluster
+  sudo pip install inchlib_clust
+	</div> -->
+</div>
+
+{% endblock %}

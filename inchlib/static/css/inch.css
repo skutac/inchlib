@@ -1,9 +1,19 @@
+@font-face
+{
+	font-family: Ubuntu;
+	src: url('../fonts/Ubuntu-R.ttf');
+}
+
 body{
 	width: 80%;
 	max-width: 1200px;
 	margin-left: auto;
 	margin-right: auto;
-	font-family: "Inconsolata";
+	font-family: 'Ubuntu', sans-serif;
+}
+
+#content{
+	min-height: 600px;
 }
 
 #footer{
@@ -24,6 +34,23 @@ body{
 	color: gray;
 }
 
+
+.contact{
+	margin-top: 30px;
+	margin-left: 40px;
+}
+
+.card{
+	margin-top: 30px;
+	margin-left: 20px;
+}
+
+.email{
+	color: gray;
+	font-style: italic;
+	font-size: 20px;
+}
+
 #example #dendrogram, #content > #dendrogram{
 	margin-top: 50px;
 	margin-left: auto;
@@ -31,13 +58,13 @@ body{
 	width: 80%;
 }
 
-.desc{
+.desc, .description{
 	margin-top: 20px;
 	margin-left: auto;
 	margin-right: auto;
 	width: 90%;
 	text-align: justify;
-	line-height: 1.2;
+	line-height: 1.5;
 }
 
 #examples_menu, #docs_menu{
@@ -68,13 +95,6 @@ body{
 	margin-top: 30px;
 }
 
-.doc .description{
-	margin-top: 15px;
-	width: 95%;
-	margin-left: auto;
-	margin-right: auto;
-}
-
 .doc #colors_table{
 	width: 90%;
 	margin-left: 20px;
@@ -87,6 +107,10 @@ body{
 	font-weight: bold;
 }
 
+.description .title{
+	margin-bottom: 15px;
+}
+
 .small_title{
 	font-size: 16px;
 	font-weight: bold;
@@ -94,7 +118,7 @@ body{
 
 .subtitle{
 	font-style: italic;
-	color: grey;
+	color: gray;
 	font-size: 14px;
 	font-weight: bold;
 }
@@ -104,21 +128,30 @@ body{
 	margin-left: 10px;
 }
 
-#example .description, .input_example{
+.description, .input_example{
 	margin-top: 20px;
 	text-align: justify;
-	line-height: 1.2;
+	line-height: 1.5;
+	width: 95%;
+	margin-right: auto;
+	margin-left: auto;
+	display: block;
 }
 
 #example .description a{
 	font-style: italic;
 }
 
+#example_data_link{
+	float: right;
+	color: gray;
+}
+
 #example .example_settings, #example .example_data{
 	margin-top: 20px;
 }
 
-#example .settings, #example .data, .doc .default_value, #row_ids_callback, .input_example .data{
+#example .settings, #example .data, .doc .default_value, #row_ids_callback, .input_example .data, .code{
 	margin-top: 10px;
 	background-color: #E6E6E6;
 	padding: 10px;
@@ -126,10 +159,14 @@ body{
 	width: 95%;
 	margin-left: auto;
 	margin-right: auto;
-	font-family: Courier, monospace;
+	font-family: Consolas, monospace;
 	font-size: 14px;
 	white-space:pre;
 	/*font-weight: bold;*/
+}
+
+.js_comment{
+	white-space: normal;
 }
 
 #row_ids_callback{
@@ -159,7 +196,6 @@ body{
 }
 
 .format_desc{
-	/*margin-top: 20px;*/
 	width: 90%;
 	margin-left: auto;
 	margin-right: auto;
@@ -175,4 +211,54 @@ body{
 	margin-right: auto;
 	margin-left: auto;
 	margin-top : 30px;
+}
+
+.input_example .example_data{
+	font-weight: bold;
+}
+
+#inchlib_described{
+	margin-top: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	height: 350px;
+}
+
+.input_example #data{
+	background-color: rgba(35,139,69,0.7);
+}
+
+.input_example #metadata{
+	background-color: rgba(203,24,29,0.7);
+}
+
+.input_example #column_dendrogram{
+	background-color: rgba(45,74,243,0.6);
+}
+
+.js_comment{
+	color: rgb(56,56,56);
+}
+
+.interface{
+	margin-top: 20px;
+	line-height: 120%;
+}
+
+.interface .small_title{
+	margin-left: 20px;
+}
+
+.download_button{
+	padding: 20px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.download_button a{
+	color: black;
+	font-weight: bold;
+	text-decoration: none;
+	font-size: 24px;
 }

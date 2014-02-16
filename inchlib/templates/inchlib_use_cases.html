@@ -1,0 +1,30 @@
+{% extends "inchlib_base.html" %}
+
+{% block content %}
+<script>
+	$(document).ready(function(){
+		window.dendrogram = new InCHlib({{ settings }});
+		{% load staticfiles %}
+		dendrogram.read_data_from_file("{% static "data/"|add:example.data %}");
+		dendrogram.draw();
+	});
+</script>
+
+<div class="pure-menu pure-menu-open pure-menu-horizontal">
+    <ul>
+        {% for e in examples %}
+        	{% if e.exampleid == example.exampleid %}
+        		<li class="pure-menu-selected"><a href="{% url use_cases e.exampleid %}">{{ e.title }}</a></li>
+        	{% else %}
+        		<li><a href="{% url use_cases e.exampleid %}">{{ e.title }}</a></li>
+        	{% endif %}
+        {% endfor %}
+    </ul>
+</div>
+<hr/>
+
+
+<div class="description"></div>
+
+<div id="dendrogram"></div>
+{% endblock %}
