@@ -10,31 +10,29 @@
 
 		if(!($.isEmptyObject(settings))){
 			settings_string = "{\n";
+			settings_string = settings_string + '  <a href="../docs#target" target=blank>target</a>: "dendrogram",\n';
+			
 			for(i in settings){
-				val = (typeof(settings[i]) == "string")? '"'+settings[i]+'"': settings[i];
-				if(i == "highlighted_rows"){
-					val = "[" + val + "]";
+				if(i != "target"){
+					val = (typeof(settings[i]) == "string")? '"'+settings[i]+'"': settings[i];
+					if(i == "highlighted_rows"){
+						val = "[" + val + "]";
+					}
+					else if(i == "current_row_ids_callback"){
+						val = settings[i];
+					}
+					settings_string = settings_string + "  <a href='../docs#" + i +"' target=blank>" + i + "</a>" + ": " + val + ",\n";
 				}
-				else if(i == "current_row_ids_callback"){
-					val = settings[i];
-				}
-				settings_string = settings_string + "  <a href='../docs#" + i +"' target=blank>" + i + "</a>" + ": " + val + ",\n";
 			}
 			settings_string = settings_string + "}"
 		}
 		
 		$("#example .settings").html(settings_string);
-
-		var filepath = "{% static "data/iris.json" %}";
-		{% if example.exampleid == 9 or example.exampleid == 5 %}
-			filepath = "{% static "data/iris_compressed.json" %}";
-		{% endif %}
-
-		$("#example_data_link").attr("href", filepath);
+		$("#example_data_link").attr("href", "{% static "data/"|add:example.data %}");
 
 		window.dendrogram = new InCHlib({{ settings }});
 		dendrogram.settings.font = "Ubuntu";
-		dendrogram.read_data_from_file(filepath);
+		dendrogram.read_data_from_file("{% static "data/"|add:example.data %}");
 		dendrogram.draw();
 
 		{% if example.exampleid == 9 %}
