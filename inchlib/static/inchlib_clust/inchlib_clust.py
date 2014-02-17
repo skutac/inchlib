@@ -390,7 +390,7 @@ class Cluster():
         min_max_scaler = preprocessing.MinMaxScaler()
         self.original_data = copy.deepcopy(self.data)
         self.data = min_max_scaler.fit_transform(self.data)
-        self.data = [list(r) for r in self.data]
+        self.data = [[round(v, 3) for v in row] for row in self.data]
         return
 
     def cluster_data(self, data_type="numeric", distance_measure="euclidean", linkage="single", axis="row"):
