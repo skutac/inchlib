@@ -10,31 +10,29 @@
 
 		if(!($.isEmptyObject(settings))){
 			settings_string = "{\n";
+			settings_string = settings_string + '  <a href="../docs#target" target=blank>target</a>: "dendrogram",\n';
+			
 			for(i in settings){
-				val = (typeof(settings[i]) == "string")? '"'+settings[i]+'"': settings[i];
-				if(i == "highlighted_rows"){
-					val = "[" + val + "]";
+				if(i != "target"){
+					val = (typeof(settings[i]) == "string")? '"'+settings[i]+'"': settings[i];
+					if(i == "highlighted_rows"){
+						val = "[" + val + "]";
+					}
+					else if(i == "current_row_ids_callback"){
+						val = settings[i];
+					}
+					settings_string = settings_string + "  <a href='../docs#" + i +"' target=blank>" + i + "</a>" + ": " + val + ",\n";
 				}
-				else if(i == "current_row_ids_callback"){
-					val = settings[i];
-				}
-				settings_string = settings_string + "  <a href='../docs#" + i +"' target=blank>" + i + "</a>" + ": " + val + ",\n";
 			}
 			settings_string = settings_string + "}"
 		}
 		
 		$("#example .settings").html(settings_string);
-
-		var filepath = "{% static "data/iris.json" %}";
-		{% if example.exampleid == 9 or example.exampleid == 5 %}
-			filepath = "{% static "data/iris_compressed.json" %}";
-		{% endif %}
-
-		$("#example_data_link").attr("href", filepath);
+		$("#example_data_link").attr("href", "{% static "data/"|add:example.data %}");
 
 		window.dendrogram = new InCHlib({{ settings }});
 		dendrogram.settings.font = "Ubuntu";
-		dendrogram.read_data_from_file(filepath);
+		dendrogram.read_data_from_file("{% static "data/"|add:example.data %}");
 		dendrogram.draw();
 
 		{% if example.exampleid == 9 %}
@@ -82,9 +80,13 @@ inchlib.draw(); //draw visualization</div>
 	{% endif %}
 
 	<div class="example_settings">
-		<a href="" id="example_data_link" target=blank>Show example data >></a>
 		<div class="small_title">Example settings</div>
 		<div class="settings"></div>
+	</div>
+
+	<div class="example_settings">
+		<div class="small_title">Example data</div>
+		<div class="code">... data set clustered using <i>euclidean</i> distance and <i>Ward's</i> linkage. <a href="" id="example_data_link" target=blank><b>Show data >></b></a></div>
 	</div>
 
 

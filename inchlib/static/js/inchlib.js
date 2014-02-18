@@ -12,7 +12,7 @@ function InCHlib(settings){
         "heatmap_font_color" : "black",
         "heatmap_part_width" : 0.7,
         "column_dendrogram" : false,
-        "independent_columns" : false,
+        "independent_columns" : true,
         "metadata_colors" : "Oranges",
         "highlight_colors" : "Reds",
         "highlighted_rows" : [],
@@ -147,25 +147,19 @@ InCHlib.prototype.get_dimensions = function(nodes){
     return dimensions;
 }
 
-InCHlib.prototype.get_min_max = function(data){
-    var min = data[0][0];
-    var max = data[0][0];
-    var current_min, current_max, i;
-    var min_max = [];
+InCHlib.prototype.get_min_max_middle = function(data){
+    var i;
+    var min_max_middle = [];
+    var all = [];
 
     for(i = 0; i<data.length; i++){
-        current_min = Math.min.apply(null, data[i]);
-        current_max = Math.max.apply(null, data[i]);
-        if(current_min<min){
-            min=current_min;
-        }
-        if(current_max>max){
-            max=current_max;
-        }
+        all = all.concat(data[i]);
     }
-    min_max.push(min);
-    min_max.push(max);
-    return min_max;
+
+    min_max_middle.push(Math.min.apply(null, all));
+    min_max_middle.push(Math.max.apply(null, all));
+    min_max_middle.push(this.middle2fnc(all));
+    return min_max_middle;
 
 }
 
@@ -174,16 +168,6 @@ InCHlib.prototype.get_columns_min_max_middle = function(data){
     var columns = [];
     var i, j, value;
     var data_length = data[0].length;
-    var middle2fnc = {"zero": function(values){return 0;},
-                      "median": function(values){
-                        values.sort();
-                        var median_pos = self.hack_round(values.length/2);
-                        return values[median_pos];
-                        }, 
-                      "mean": function(values){
-                        var sum = values.reduce(function(a, b){return a + b;});
-                        return sum/values.length;}
-                    };
 
     this.categories2numbers = {};
 
@@ -206,7 +190,7 @@ InCHlib.prototype.get_columns_min_max_middle = function(data){
         if(typeof(columns[i][0]) == "number"){
             min = Math.min.apply(null, columns[i]);
             max = Math.max.apply(null, columns[i]);
-            middle = middle2fnc[this.settings.values_center](columns[i]);
+            middle = this.middle2fnc(columns[i]);
         }
         else{
             var hash_object = this.get_hash_object(columns[i]);
@@ -580,9 +564,10 @@ InCHlib.prototype.set_heatmap_settings = function(){
         this.columns_min_max = this.get_columns_min_max_middle(data);
     }
     else{
-        var min_max = this.get_min_max(data);
-        this.max_value = min_max[1];
-        this.min_value = min_max[0];
+        var min_max_middle = this.get_min_max_middle(data);
+        this.max_value = min_max_middle[1];
+        this.min_value = min_max_middle[0];
+        this.middle_value = min_max_middle[2];
     }
 
     if(this.settings.metadata){
@@ -1874,7 +1859,7 @@ InCHlib.prototype.get_color_for_value = function(value, min, max, middle, color_
     }
 
     if("middle" in color){
-        
+
         if(value >= middle){
             min = middle;
             c1 = color["middle"];
@@ -1930,3 +1915,18 @@ InCHlib.prototype.hack_size = function(obj) {
 InCHlib.prototype.hack_round = function(value){
     return (0.5 + value) >> 0;
 }
+
+InCHlib.prototype.middle2fnc = function(values){
+    var self = this;
+    var fncs = {"zero": function(values){return 0;},
+      "median": function(values){
+        values.sort();
+        var median_pos = self.hack_round(values.length/2);
+        return values[median_pos];
+        }, 
+      "mean": function(values){
+        var sum = values.reduce(function(a, b){return a + b;});
+        return sum/values.length;}
+    };
+    return fncs[this.settings.values_center](values);
+};
