@@ -941,7 +941,7 @@ InCHlib.prototype.draw_distance_scale = function(distance){
     var marker_counter = 0;
 
     var distance_number = new Kinetic.Text({
-            x: 10,
+            x: 0,
             y: y1-20,
             text: distance,
             fontSize: 14,
