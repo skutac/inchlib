@@ -35,15 +35,15 @@ class Dendrogram():
                 node_id2node[node_id] = {"count":1, "distance":0}
 
             else:
-                node_left_id = "node@{0}".format(node.get_left().id)
-                node_right_id = "node@{0}".format(node.get_right().id)
-                node_id2node[node_id] = {"count":node.count, "distance":round(node.dist, 3), "left_id": node_left_id, "right_id": node_right_id}
+                node_left_child = "node@{0}".format(node.get_left().id)
+                node_right_child = "node@{0}".format(node.get_right().id)
+                node_id2node[node_id] = {"count":node.count, "distance":round(node.dist, 3), "left_child": node_left_child, "right_child": node_right_child}
 
         for n in node_id2node:
             node = node_id2node[n]
             if node["count"] != 1:
-                node_id2node[node["left_id"]]["parent"] = n
-                node_id2node[node["right_id"]]["parent"] = n
+                node_id2node[node["left_child"]]["parent"] = n
+                node_id2node[node["right_child"]]["parent"] = n
 
         for n in node_id2node:
             node = node_id2node[n]
@@ -51,21 +51,21 @@ class Dendrogram():
             original_id = int(n.split("@")[-1])
             if node["count"] == 1:
                 data = self.data[original_id]
-                node["ids"] = [self.data_names[original_id]]
+                node["objects"] = [self.data_names[original_id]]
                 node_id = self.data_names[original_id]
 
                 while node_id in dendrogram["nodes"]:
                     node_id = self.__create_unique_id__(node_id)
 
-                if node_id2node[node["parent"]]["left_id"] == n:
-                    node_id2node[node["parent"]]["left_id"] = node_id
+                if node_id2node[node["parent"]]["left_child"] == n:
+                    node_id2node[node["parent"]]["left_child"] = node_id
                 else:
-                    node_id2node[node["parent"]]["right_id"] = node_id
+                    node_id2node[node["parent"]]["right_child"] = node_id
 
                 if not write_data:
                     data = []
 
-                node["values"] = data
+                node["features"] = data
                 dendrogram["nodes"][node_id] = node
 
         for n in node_id2node:
@@ -85,15 +85,15 @@ class Dendrogram():
                 node_id2node[node_id] = {"count":1, "distance":0}
 
             else:
-                node_left_id = "node@{0}".format(node.get_left().id)
-                node_right_id = "node@{0}".format(node.get_right().id)
-                node_id2node[node_id] = {"count":node.count, "distance":round(node.dist, 3), "left_id": node_left_id, "right_id": node_right_id}
+                node_left_child = "node@{0}".format(node.get_left().id)
+                node_right_child = "node@{0}".format(node.get_right().id)
+                node_id2node[node_id] = {"count":node.count, "distance":round(node.dist, 3), "left_child": node_left_child, "right_child": node_right_child}
 
         for n in node_id2node:
             node = node_id2node[n]
             if node["count"] != 1:
-                node_id2node[node["left_id"]]["parent"] = n
-                node_id2node[node["right_id"]]["parent"] = n
+                node_id2node[node["left_child"]]["parent"] = n
+                node_id2node[node["right_child"]]["parent"] = n
 
         for n in node_id2node:
              if not n in dendrogram["nodes"]:
@@ -131,8 +131,8 @@ class Dendrogram():
             node = self.dendrogram["data"]["nodes"][n]
 
             if node["count"] == 1:
-                ids = node["ids"]
-                data = node["values"]
+                objects = node["objects"]
+                data = node["features"]
                 node_id = n
 
                 while self.dendrogram["data"]["nodes"][node["parent"]]["distance"] <= self.contract_cluster_treshold:
@@ -142,27 +142,27 @@ class Dendrogram():
 
                 if node["count"] != 1:
 
-                    if not "ids" in self.dendrogram["data"]["nodes"][node_id]:
-                        self.dendrogram["data"]["nodes"][node_id]["ids"] = []
-                        self.dendrogram["data"]["nodes"][node_id]["values"] = []
+                    if not "objects" in self.dendrogram["data"]["nodes"][node_id]:
+                        self.dendrogram["data"]["nodes"][node_id]["objects"] = []
+                        self.dendrogram["data"]["nodes"][node_id]["features"] = []
                     
-                    self.dendrogram["data"]["nodes"][node_id]["ids"].extend(ids)
+                    self.dendrogram["data"]["nodes"][node_id]["objects"].extend(objects)
 
                     if data:
-                        self.dendrogram["data"]["nodes"][node_id]["values"].append(data)
+                        self.dendrogram["data"]["nodes"][node_id]["features"].append(data)
 
         for node in to_remove:
             self.dendrogram["data"]["nodes"].pop(node)
 
         for k in self.dendrogram["data"]["nodes"]:
             node = self.dendrogram["data"]["nodes"][k]
-            if "ids" in node and node["count"] != 1:
+            if "objects" in node and node["count"] != 1:
                 self.dendrogram["data"]["nodes"][k]["distance"] = 0
                 self.dendrogram["data"]["nodes"][k]["count"] = 1
-                self.dendrogram["data"]["nodes"][k].pop("left_id")
-                self.dendrogram["data"]["nodes"][k].pop("right_id")
-                rows = zip(*self.dendrogram["data"]["nodes"][k]["values"])
-                self.dendrogram["data"]["nodes"][k]["values"] = [round(numpy.median(row), 3) for row in rows]
+                self.dendrogram["data"]["nodes"][k].pop("left_child")
+                self.dendrogram["data"]["nodes"][k].pop("right_child")
+                rows = zip(*self.dendrogram["data"]["nodes"][k]["features"])
+                self.dendrogram["data"]["nodes"][k]["features"] = [round(numpy.median(row), 3) for row in rows]
 
         self.__adjust_node_counts__()
 
@@ -240,7 +240,7 @@ class Dendrogram():
 
     def __connect_metadata_to_data__(self):
         if len(set(self.metadata.keys()) & set(self.data_names)) == 0:
-            raise Exception("Metadata IDs must correspond with original data IDs.")
+            raise Exception("Metadata objects must correspond with original data objects.")
 
         if not self.dendrogram:
             raise Exception("You must create dendrogram before adding metadata.")
@@ -262,14 +262,14 @@ class Dendrogram():
         else:
 
             for leaf in leaves:
-                ids = []
-                for item in leaves[leaf]["ids"]:
+                objects = []
+                for item in leaves[leaf]["objects"]:
                     try:
-                        ids.append(self.metadata[item])
+                        objects.append(self.metadata[item])
                     except Exception, e:
                         continue
 
-                cols = zip(*ids)
+                cols = zip(*objects)
                 row = []
                 cols = [list(c) for c in cols]
 

@@ -105,8 +105,8 @@ InCHlib.prototype.add_prefix = function(){
             this.data.nodes[id].parent = [this.settings.target, this.data.nodes[id].parent].join("#");
         }
         if(this.data.nodes[id]["count"] != 1){
-            this.data.nodes[id].left_id = [this.settings.target, this.data.nodes[id].left_id].join("#");
-            this.data.nodes[id].right_id = [this.settings.target, this.data.nodes[id].right_id].join("#");
+            this.data.nodes[id].left_child = [this.settings.target, this.data.nodes[id].left_child].join("#");
+            this.data.nodes[id].right_child = [this.settings.target, this.data.nodes[id].right_child].join("#");
         }
     }
 
@@ -136,7 +136,7 @@ InCHlib.prototype.get_dimensions = function(nodes){
 
     for(i in nodes){
         if(nodes[i].count == 1){
-            dimensions = nodes[i].values.length;
+            dimensions = nodes[i].features.length;
             break;
         }
         else if(Object.prototype.toString.call(nodes[i]) == "[object Array]"){
@@ -196,12 +196,11 @@ InCHlib.prototype.get_columns_min_max_middle = function(data){
             var hash_object = this.get_hash_object(columns[i]);
             min = 0;
             max = this.hack_size(hash_object)-1;
-            middle = this.hack_round(max/2);
+            middle = max/2;
             this.categories2numbers[i] = hash_object;
         }
         columns_min_max.push([min,max,middle]);
     }
-
     return columns_min_max;
 }
 
@@ -209,11 +208,12 @@ InCHlib.prototype.get_hash_object = function(array){
     var i, count=0, hash_object = {};
 
     for(i = 0; i<array.length; i++){
-        if(!hash_object[array[i]]){
+        if(typeof(hash_object[array[i]]) == "undefined"){
             hash_object[array[i]] = count;
             count++;
         }
     }
+    console.log(hash_object)
     return hash_object;
 
 }
@@ -231,7 +231,7 @@ InCHlib.prototype.get_max_value_length = function(){
 
     for(i in nodes){
         if(nodes[i].count == 1){
-            node_data = nodes[i].values;
+            node_data = nodes[i].features;
             for(j = 0; j < node_data.length; j++){
                 if((""+node_data[j]).length > max_length){
                     max_length = (""+node_data[j]).length;
@@ -261,7 +261,7 @@ InCHlib.prototype.preprocess_heatmap_data = function(){
     for(i in this.data.nodes){
         node = this.data.nodes[i];
         if(node.count == 1){
-            data = node.values;
+            data = node.features;
             heatmap_array.push([i]);
             heatmap_array[j].push.apply(heatmap_array[j], data);
             if(this.settings.metadata){
@@ -407,8 +407,8 @@ InCHlib.prototype.draw_row_dendrogram = function(node_id){
     var current_right_count = 0;
     var y = this.header_height + this.pixels_for_leaf/2;
     if(node.count > 1){
-        current_left_count = this.data.nodes[node.left_id].count;
-        current_right_count = this.data.nodes[node.right_id].count;
+        current_left_count = this.data.nodes[node.left_child].count;
+        current_right_count = this.data.nodes[node.right_child].count;
     }
     this.draw_row_dendrogram_node(node_id, node, current_left_count, current_right_count, 0, y);
     this.middle_item_count = (this.min_item_count+this.max_item_count)/2;
@@ -460,8 +460,8 @@ InCHlib.prototype.draw_row_dendrogram_node = function(node_id, node, current_lef
 
         this.nodes_y_coordinates[node_id] = y;
         var node_neighbourhood = this.get_node_neighbourhood(node, nodes);
-        var right_child = nodes[node.right_id];
-        var left_child = nodes[node.left_id];
+        var right_child = nodes[node.right_child];
+        var left_child = nodes[node.left_child];
 
         var y1 = this.get_y1(node_neighbourhood, current_left_count, current_right_count);
         var y2 = this.get_y2(node_neighbourhood, current_left_count, current_right_count);
@@ -469,21 +469,21 @@ InCHlib.prototype.draw_row_dendrogram_node = function(node_id, node, current_lef
         x1 = (x1 == 0)? 2: x1;
         
         var x2 = x1;
-        var left_distance = this.distance - this.distance_step*nodes[node.left_id].distance;
-        var right_distance = this.distance - this.distance_step*nodes[node.right_id].distance;
+        var left_distance = this.distance - this.distance_step*nodes[node.left_child].distance;
+        var right_distance = this.distance - this.distance_step*nodes[node.right_child].distance;
 
         if(right_child.count == 1){
             y2 = y2 + this.pixels_for_leaf/2;
         }
 
         this.dendrogram_layer.add(this.draw_horizontal_path(node_id, x1, y1, x2, y2, left_distance, right_distance));
-        this.draw_row_dendrogram_node(node.left_id, left_child, current_left_count - node_neighbourhood.left_node.right_count, current_right_count + node_neighbourhood.left_node.right_count, left_distance, y1);
-        this.draw_row_dendrogram_node(node.right_id, right_child, current_left_count + node_neighbourhood.right_node.left_count, current_right_count - node_neighbourhood.right_node.left_count, right_distance, y2);
+        this.draw_row_dendrogram_node(node.left_child, left_child, current_left_count - node_neighbourhood.left_node.right_count, current_right_count + node_neighbourhood.left_node.right_count, left_distance, y1);
+        this.draw_row_dendrogram_node(node.right_child, right_child, current_left_count + node_neighbourhood.right_node.left_count, current_right_count - node_neighbourhood.right_node.left_count, right_distance, y2);
     }
     else{
         this.leaves_y_coordinates[node_id] = y;
 
-        var count = node.ids.length;
+        var count = node.objects.length;
         if(count<this.min_item_count){
             this.min_item_count = count;
         }
@@ -523,8 +523,8 @@ InCHlib.prototype.draw_column_dendrogram = function(node_id){
     this.vertical_distance = this.header_height-5;
     this.vertical_distance_step = this.vertical_distance/node.distance;
 
-    var current_left_count = this.data.column_dendrogram.nodes[node.left_id].count;
-    var current_right_count = this.data.column_dendrogram.nodes[node.right_id].count;
+    var current_left_count = this.data.column_dendrogram.nodes[node.left_child].count;
+    var current_right_count = this.data.column_dendrogram.nodes[node.right_child].count;
     this.draw_column_dendrogram_node(node_id, node, current_left_count, current_right_count, 0, 0);
     this.stage.add(this.column_dendrogram_layer);
 }
@@ -556,7 +556,7 @@ InCHlib.prototype.set_heatmap_settings = function(){
     for(i in this.data.nodes){
         node = this.data.nodes[i];
         if(node.count == 1){
-            data.push(node.values);
+            data.push(node.features);
         };
     }
         
@@ -674,7 +674,7 @@ InCHlib.prototype.draw_heatmap = function(){
     var self = this;
 
     this.heatmap_layer.on("click", function(evt){
-        var items = self.data.nodes[self.highlighted_row].ids;
+        var items = self.data.nodes[self.highlighted_row].objects;
         var item_ids = [];
         
         for(i = 0; i < items.length; i++){
@@ -695,8 +695,8 @@ InCHlib.prototype.draw_heatmap = function(){
             col_number = self.hack_round((self.stage.getPointerPosition().x-self.distance-self.dendrogram_heatmap_distance-0.5*self.pixels_for_dimension)/self.pixels_for_dimension);
             row_id = evt.targetNode.parent.getAttr("id");
             var row_values = [];
-            for(i = 0; i < self.data.nodes[row_id].values.length; i++){
-                row_values.push(self.data.nodes[row_id].values[i]);
+            for(i = 0; i < self.data.nodes[row_id].features.length; i++){
+                row_values.push(self.data.nodes[row_id].features[i]);
             }
 
             if(self.settings.metadata && col_number >= row_values.length){
@@ -704,7 +704,7 @@ InCHlib.prototype.draw_heatmap = function(){
             }
 
             if(self.settings.count_column){
-                row_values.push(self.data.nodes[row_id].ids.length);
+                row_values.push(self.data.nodes[row_id].objects.length);
             }
             
             if(row_id != self.last_highlighted_row){
@@ -734,12 +734,12 @@ InCHlib.prototype.draw_heatmap_row = function(node_id, x1, y1){
     var row = new Kinetic.Group({id:node_id});
     var x, y, x2, y2, color, line, i, min_value, max_value, value, text, text_value, width;
     x1 = this.hack_round(x1);
-    var data_count = node.values.length;
+    var data_count = node.features.length;
     
     for (i = 0; i < data_count; i++){
 
         if(this.features[i] == 1){
-            value = node.values[i];
+            value = node.features[i];
 
             if(this.settings.independent_columns){
                 this.min_value = this.columns_min_max[i][0];
@@ -810,7 +810,7 @@ InCHlib.prototype.draw_heatmap_row = function(node_id, x1, y1){
 
     if(this.settings.count_column && this.features[this.dimensions-1] == 1){
         x2 = x1 + this.pixels_for_dimension;
-        var count = node.ids.length;
+        var count = node.objects.length;
         color = this.get_color_for_value(count, this.min_item_count, this.max_item_count, this.middle_item_count, this.settings.count_column_colors);
         
         line = this.line_ref.clone({
@@ -1087,8 +1087,8 @@ InCHlib.prototype.highlight_path = function(path_id){
             
             this.dendrogram_overlay_layer.add(path);
             this.dendrogram_overlay_layer.add(rect);
-            this.highlight_path(node.left_id);
-            this.highlight_path(node.right_id);
+            this.highlight_path(node.left_child);
+            this.highlight_path(node.right_child);
         }
     }
     else{
@@ -1181,8 +1181,8 @@ InCHlib.prototype.neutralize_path = function(path_id){
         var path = this.dendrogram_layer.get("#"+path_id)[0];
         if(path){
             path.setStroke("grey");
-            this.neutralize_path(node.right_id);
-            this.neutralize_path(node.left_id);
+            this.neutralize_path(node.right_child);
+            this.neutralize_path(node.left_child);
         }
     }
 }
@@ -1343,25 +1343,25 @@ InCHlib.prototype.get_node_neighbourhood = function(node, nodes){
     node_neighbourhood.right_node.left_node.left_count = 0;
     node_neighbourhood.right_node.left_node.right_count = 0;
 
-    node_neighbourhood.left_count = nodes[node.left_id].count;
-    node_neighbourhood.right_count = nodes[node.right_id].count;
+    node_neighbourhood.left_count = nodes[node.left_child].count;
+    node_neighbourhood.right_count = nodes[node.right_child].count;
 
-    var left_child = nodes[node.left_id];
-    var right_child = nodes[node.right_id];
+    var left_child = nodes[node.left_child];
+    var right_child = nodes[node.right_child];
 
-    var left_child_left_child = nodes[left_child.left_id];
-    var left_child_right_child = nodes[left_child.right_id];
+    var left_child_left_child = nodes[left_child.left_child];
+    var left_child_right_child = nodes[left_child.right_child];
 
-    var right_child_left_child = nodes[right_child.left_id];
-    var right_child_right_child = nodes[right_child.right_id];
+    var right_child_left_child = nodes[right_child.left_child];
+    var right_child_right_child = nodes[right_child.right_child];
 
     if(left_child.count != 1){
-            node_neighbourhood.left_node.left_count = nodes[left_child.left_id].count;
-            node_neighbourhood.left_node.right_count = nodes[left_child.right_id].count;
+            node_neighbourhood.left_node.left_count = nodes[left_child.left_child].count;
+            node_neighbourhood.left_node.right_count = nodes[left_child.right_child].count;
 
         if(left_child_left_child.count != 1){
-            node_neighbourhood.left_node.left_node.left_count = nodes[left_child_left_child.left_id].count;
-            node_neighbourhood.left_node.left_node.right_count = nodes[left_child_left_child.right_id].count;
+            node_neighbourhood.left_node.left_node.left_count = nodes[left_child_left_child.left_child].count;
+            node_neighbourhood.left_node.left_node.right_count = nodes[left_child_left_child.right_child].count;
         }
         else{
             node_neighbourhood.left_node.left_node.left_count = 0.5;
@@ -1369,8 +1369,8 @@ InCHlib.prototype.get_node_neighbourhood = function(node, nodes){
         }
 
         if(left_child_right_child.count != 1){
-            node_neighbourhood.left_node.right_node.left_count = nodes[left_child_right_child.left_id].count;
-            node_neighbourhood.left_node.right_node.right_count = nodes[left_child_right_child.right_id].count;
+            node_neighbourhood.left_node.right_node.left_count = nodes[left_child_right_child.left_child].count;
+            node_neighbourhood.left_node.right_node.right_count = nodes[left_child_right_child.right_child].count;
         }
         else{
             node_neighbourhood.left_node.right_node.left_count = 0.5;
@@ -1379,12 +1379,12 @@ InCHlib.prototype.get_node_neighbourhood = function(node, nodes){
     }
 
     if(right_child.count != 1){
-        node_neighbourhood.right_node.left_count = nodes[right_child.left_id].count;
-        node_neighbourhood.right_node.right_count = nodes[right_child.right_id].count;
+        node_neighbourhood.right_node.left_count = nodes[right_child.left_child].count;
+        node_neighbourhood.right_node.right_count = nodes[right_child.right_child].count;
 
         if(right_child_left_child.count != 1){
-            node_neighbourhood.right_node.left_node.left_count = nodes[right_child_left_child.left_id].count;
-            node_neighbourhood.right_node.left_node.right_count = nodes[right_child_left_child.right_id].count;
+            node_neighbourhood.right_node.left_node.left_count = nodes[right_child_left_child.left_child].count;
+            node_neighbourhood.right_node.left_node.right_count = nodes[right_child_left_child.right_child].count;
         }
         else{
             node_neighbourhood.right_node.left_node.left_count = 0.5;
@@ -1392,8 +1392,8 @@ InCHlib.prototype.get_node_neighbourhood = function(node, nodes){
         }
 
         if(right_child_right_child.count != 1){
-            node_neighbourhood.right_node.right_node.left_count = nodes[right_child_right_child.left_id].count;
-            node_neighbourhood.right_node.right_node.right_count = nodes[right_child_right_child.right_id].count;
+            node_neighbourhood.right_node.right_node.left_count = nodes[right_child_right_child.left_child].count;
+            node_neighbourhood.right_node.right_node.right_count = nodes[right_child_right_child.right_child].count;
         }
         else{
             node_neighbourhood.right_node.right_node.left_count = 0.5;
@@ -1408,8 +1408,8 @@ InCHlib.prototype.draw_column_dendrogram_node = function(node_id, node, current_
     if(node.count != 1){
         var nodes = this.data.column_dendrogram.nodes;
         var node_neighbourhood = this.get_node_neighbourhood(node, nodes);
-        var right_child = nodes[node.right_id];
-        var left_child = nodes[node.left_id];
+        var right_child = nodes[node.right_child];
+        var left_child = nodes[node.left_child];
         var x1 = this.get_x1(node_neighbourhood, current_left_count, current_right_count);
         var x2 = this.get_x2(node_neighbourhood, current_left_count, current_right_count);
         var y1 = this.hack_round(this.vertical_distance - this.vertical_distance_step*node.distance);
@@ -1420,12 +1420,12 @@ InCHlib.prototype.draw_column_dendrogram_node = function(node_id, node, current_
             x2 = x2 - this.pixels_for_dimension/2;
         }
 
-        var left_distance = this.vertical_distance - this.vertical_distance_step*nodes[node.left_id].distance;
-        var right_distance = this.vertical_distance - this.vertical_distance_step*nodes[node.right_id].distance;
+        var left_distance = this.vertical_distance - this.vertical_distance_step*nodes[node.left_child].distance;
+        var right_distance = this.vertical_distance - this.vertical_distance_step*nodes[node.right_child].distance;
 
         this.column_dendrogram_layer.add(this.draw_vertical_path(node_id, x1, y1, x2, y2, left_distance, right_distance));
-        this.draw_column_dendrogram_node(node.left_id, left_child, current_left_count - node_neighbourhood.left_node.right_count, current_right_count + node_neighbourhood.left_node.right_count, left_distance, y1);
-        this.draw_column_dendrogram_node(node.right_id, right_child, current_left_count + node_neighbourhood.right_node.left_count, current_right_count - node_neighbourhood.right_node.left_count, right_distance, y2);
+        this.draw_column_dendrogram_node(node.left_child, left_child, current_left_count - node_neighbourhood.left_node.right_count, current_right_count + node_neighbourhood.left_node.right_count, left_distance, y1);
+        this.draw_column_dendrogram_node(node.right_child, right_child, current_left_count + node_neighbourhood.right_node.left_count, current_right_count - node_neighbourhood.right_node.left_count, right_distance, y2);
     }
 
 }
@@ -1859,7 +1859,6 @@ InCHlib.prototype.get_color_for_value = function(value, min, max, middle, color_
     }
 
     if("middle" in color){
-
         if(value >= middle){
             min = middle;
             c1 = color["middle"];
@@ -1894,8 +1893,8 @@ InCHlib.prototype.collect_row_ids = function(y1,y2){
 
     for(i = 0; i<current_node_ids.length; i++){
         current_node = this.data.nodes[current_node_ids[i]];
-        for(j = 0; j<current_node.ids.length; j++){
-            this.current_row_ids.push(current_node.ids[j]);
+        for(j = 0; j<current_node.objects.length; j++){
+            this.current_row_ids.push(current_node.objects[j]);
         }
     }
     
