@@ -85,6 +85,12 @@ def download(req):
 def contact(req):
     return render_to_response("inchlib_contact.html", {})
 
+def performance(req):
+    return render_to_response("inchlib_performance.html", {})
+
+def test(req):
+    return render_to_response("inchlib_test.html", {})
+
 def inchlib_clust(req):
     code = """
 import inchlib_clust

@@ -17,6 +17,8 @@ urlpatterns = patterns('',
     url(r'^inchlib_clust$', 'inchlib.views.inchlib_clust', name='inchlib_clust'),
     url(r'^download$', 'inchlib.views.download', name='download'),
     url(r'^contact$', 'inchlib.views.contact', name='contact'),
+    url(r'^performance$', 'inchlib.views.performance', name='performance'),
+    url(r'^test$', 'inchlib.views.test', name='test'),
     # url(r'^inch/', include('inchlib.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:

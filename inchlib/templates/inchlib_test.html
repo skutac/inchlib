@@ -1,0 +1,17 @@
+{% extends "inchlib_base.html" %}
+
+{% block content %}
+<script>
+	$(document).ready(function(){
+		window.dendrogram = new InCHlib({
+            "target": "dendrogram",
+            "max_height": 5000,
+        });
+		{% load staticfiles %}
+		dendrogram.read_data_from_file("{% static "data/test_10000" %}");
+		dendrogram.draw();
+	});
+</script>
+
+<div id="dendrogram"></div>
+{% endblock %}

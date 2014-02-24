@@ -1,0 +1,129 @@
+{% extends "inchlib_base.html" %}
+
+{% block content %}
+{% load staticfiles %}
+<script src="{% static "js/highcharts.js" %}"></script>
+
+<script>
+$(document).ready(function() {
+  $('#performance_rows').highcharts({
+            title: {
+                text:'Clustering Time X Count of rows (50 features)',
+                x: -20 //center
+            },
+            xAxis: {
+                categories: [10, 100, 500, 1000, 2000, 5000, 10000, 20000, 30000],
+                title: {
+                    text: 'Rows'
+                },
+            },
+            yAxis: {
+                title: {
+                    text: 'Time (seconds)'
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            tooltip: {
+                valueSuffix: 'seconds'
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle',
+                borderWidth: 0
+            },
+            series: [{
+                name: 'Time',
+                data: [0.002, 0.012, 0.048, 0.117, 0.365, 1.672, 6.123, 30.138, 93.745],
+            },]
+    });
+
+    $('#performance_features').highcharts({
+            title: {
+                text: 'Clustering Time X Count of features (1000 rows)',
+                x: -20 //center
+            },
+            xAxis: {
+                categories: [10, 100, 200, 500, 1000, 2000, 3000, 4000, 5000, 8000, 10000, 20000],
+                title: {
+                    text: 'Features'
+                },
+            },
+            yAxis: {
+                title: {
+                    text: 'Time (seconds)'
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            tooltip: {
+                valueSuffix: 'seconds'
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle',
+                borderWidth: 0
+            },
+            series: [{
+                name: 'Time',
+                data: [0.062, 0.205, 0.355, 0.82, 1.681, 3.542, 5.363, 7.148, 8.93, 14.418, 17.865, 35.681],
+            },]
+    });
+
+    $('#performance_inchlib').highcharts({
+            title: {
+                text: 'Rendering Time X Count of rows (20 features)',
+                x: -20 //center
+            },
+            xAxis: {
+                categories: [10, 100, 500, 1000, 2000, 5000],
+                title: {
+                    text: 'Rows'
+                },
+            },
+            yAxis: {
+                title: {
+                    text: 'Time (seconds)'
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            tooltip: {
+                valueSuffix: 'seconds'
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle',
+                borderWidth: 0
+            },
+            series: [{
+                name: 'Time',
+                data: [0.21, 0.5, 1.94, 5.36, 9.5, 18.1],
+            },]
+    });
+});
+</script>
+
+<div class="description">
+  <div class="title"></div>
+</div>
+
+<div id="performance_rows" class="chart"></div>
+<div id="performance_features" class="chart"></div>
+<div id="performance_inchlib" class="chart"></div>
+
+
+
+{% endblock %}

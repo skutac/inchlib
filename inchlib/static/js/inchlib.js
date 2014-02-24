@@ -1,6 +1,7 @@
 function InCHlib(settings){
     var target_width = $("#" + settings.target).width();
-    
+    this.start = new Date().getTime();
+
     this.settings = {
         "target" : settings.target,
         "heatmap" : true,
@@ -213,7 +214,6 @@ InCHlib.prototype.get_hash_object = function(array){
             count++;
         }
     }
-    console.log(hash_object)
     return hash_object;
 
 }
@@ -378,6 +378,8 @@ InCHlib.prototype.draw = function(){
     }
 
     this.highlight_rows(this.settings.highlighted_rows);
+    this.end = new Date().getTime();
+    console.log(this.end - this.start);
 }
 
 InCHlib.prototype.draw_row_dendrogram = function(node_id){

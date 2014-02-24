@@ -16,6 +16,13 @@ body{
 	font-style: italic;
 }
 
+.chart{
+	max-width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
 #content{
 	min-height: 600px;
 }
