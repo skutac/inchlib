@@ -21,6 +21,7 @@ body{
 	margin-left: auto;
 	margin-right: auto;
 	display: block;
+	margin-top: 40px;
 }
 
 #content{
@@ -155,11 +156,10 @@ body{
 }
 
 #example_data_link{
-	float: right;
 	color: gray;
 }
 
-#example .example_settings, #example .example_data{
+#example .example_settings, #example{
 	margin-top: 20px;
 }
 
@@ -177,8 +177,25 @@ body{
 	/*font-weight: bold;*/
 }
 
+.example_data{
+	margin-top: 10px;
+	background-color: #E6E6E6;
+	padding: 10px;
+	border-radius: 5px;
+	width: 95%;
+	margin-left: auto;
+	margin-right: auto;
+	font-family: Consolas, monospace;
+	font-size: 14px;
+	/*font-weight: bold;*/
+}
+
 .js_comment{
 	white-space: normal;
+}
+
+.citation{
+	font-size: small;
 }
 
 #row_ids_callback{

@@ -12,7 +12,7 @@
 		<li><a href="http://jquery.com/" target=blank>jQuery</a></li>
 	</ul>
 	<div class="pure-button download_button">
-		<a href="{% static "js/inchlib.js" %}" target=blank>Download inchlib.js</a>
+		<a href="{% static "js/inchlib.js" %}" target=blank>Download inchlib</a>
 	</div>
 	<div class="small_title">Installation</div>
 	<div class="description">
@@ -35,21 +35,23 @@
 		<li><a href="http://danifold.net/fastcluster.html" target=blank>fastcluster</a></li>
 	</ul>
 	<div class="pure-button download_button">
-		<a href="{% static "inchlib_clust/inchlib_clust.py" %}" target=blank>Download inchlib_clust.py</a>
+		<a href="{% static "inchlib_clust/inchlib_clust_0.1.0.zip" %}" target=blank>Download inchlib_clust</a>
 	</div>
 
 	<div class="small_title">Installation</div>
-	<div class="description"></div>
+	<div class="description">
+		First you need to install all dependencies 
+	</div>
+	<div class="code">
+  sudo unzip inchlib_clust_0.1.0.zip
+  cd inchlib_clust_0.1.0/
+  sudo python setup.py install
+
+  python
+  >>>import inchlib_clust
+	</div>
 		
 </div>
-
-	<!-- <div class="code">
-  sudo pip install numpy
-  sudo pip install scipy
-  sudo pip install hcluster
-  sudo pip install fastcluster
-  sudo pip install inchlib_clust
-	</div> -->
 </div>
 
 {% endblock %}
