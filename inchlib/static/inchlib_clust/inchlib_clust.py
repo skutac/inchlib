@@ -12,6 +12,8 @@ DATA_TYPES = {"numeric": NUMERIC_DISTANCES,
               "binary":BINARY_DISTANCES}
 
 class Dendrogram():
+    """Class which handles the generation of cluster heatmap format of clustered data. 
+    As an input it takes a Cluster instance with clustered data."""
 
     def __init__(self, clustering):
         self.cluster_object = clustering
@@ -102,7 +104,9 @@ class Dendrogram():
         return dendrogram
 
     def create_dendrogram(self, contract_clusters=False, cluster_count=1000, write_data=True):
-        print "Building dendrogram..."
+        """Creates cluster heatmap representation in inchlib format. By setting contract_clusters to True you can
+        cut the dendrogram in a distance to decrease the row size of the heatmap to count specified by cluster count paramter.
+        By setting write_data to False the data features won't be present in the resulting format."""
         self.dendrogram = {"data": self.__get_dendrogram__(write_data)}
 
         self.contract_clusters = contract_clusters
@@ -222,6 +226,7 @@ class Dendrogram():
         return i+test_step*2
 
     def export_dendrogram_as_json(self, filename=None):
+        """Returns cluster heatmap in a JSON format or exports it to the file specified by the filename parameter."""
         dendrogram_json = json.dumps(self.dendrogram, indent=4)
         if filename:
             output = open(filename, "w")
@@ -229,11 +234,13 @@ class Dendrogram():
         return dendrogram_json
 
     def add_metadata_from_file(self, metadata_file, delimiter, header=True):
+        """Adds metadata from csv file."""
         self.metadata, self.metadata_header = self.__read_metadata_file__(metadata_file, delimiter, header)
         self.__connect_metadata_to_data__()
         return
 
     def add_metadata(self, metadata, header=True):
+        """Adds metadata in a form of list of lists (tuples)"""
         self.metadata, self.metadata_header = self.__read_metadata__(metadata, header)
         self.__connect_metadata_to_data__()
         return
@@ -320,11 +327,13 @@ class Dendrogram():
 
 
 class Cluster():
+    """Class for clustering"""
 
     def __init__(self):
         pass
 
     def read_csv(self, filename, delimiter=",", header=False):
+        """Reads data from the CSV file"""
         self.filename = filename
         self.delimiter = delimiter
         self.header = header
@@ -333,6 +342,7 @@ class Cluster():
         self.read_data(rows, header)
 
     def read_data(self, rows, header=False):
+        """Reads data in a form of list of lists (tuples)"""
         self.header = header
         data_start = 0
 
@@ -387,6 +397,7 @@ class Cluster():
             
 
     def normalize_data(self):
+        """Normalizes data to a scale from 0 to 1"""
         min_max_scaler = preprocessing.MinMaxScaler()
         self.original_data = copy.deepcopy(self.data)
         self.data = min_max_scaler.fit_transform(self.data)
@@ -394,6 +405,7 @@ class Cluster():
         return
 
     def cluster_data(self, data_type="numeric", distance_measure="euclidean", linkage="single", axis="row"):
+        """Performs clustering according to the given parameters."""
         print "Cluster analysis setup:", data_type, distance_measure, linkage, axis
         self.data_type = data_type
         self.clustering_axis = axis
@@ -424,20 +436,6 @@ class Cluster():
         if data_type == "nominal":
             self.__integerize_nominal_data__()
 
-        return
-
-    def remove_null_rows_from_data(self):
-        print "Number of rows:", len(self.data)
-        self.data = [row for row in self.data if sum(row) > 0]
-        print "After removal of null rows:", len(self.data)
-        return
-
-    def remove_zero_variance_columns(self):
-        columns = zip(*self.data)
-        print "Number of columns:", len(columns)
-        columns = [c for c in columns if len(set(c)) > 1]
-        print "After removal of zero variance:", len(columns)
-        self.data = zip(*columns)
         return
 
     def __cluster_columns__(self):

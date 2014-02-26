@@ -33,9 +33,21 @@
     </div>
 </div>
 
+<div class="description">You can cluster the csv file using inchlib_clust for example by following command in command line.</div>
 
 <div class="interface">
-    <div class="small_title">Command-line interface</div>
+   <div class="small_title">Command-line example</div>
+      <div class="highlighted">
+    {{ bash|safe }}
+      </div>
+</div>
+
+<div class="description">The input data file called <i>input_file.csv</i> is clustered by both axis (row and column) using euclidean distance and Ward's linkage. The file contains data header and is delimited by comma (,). There is also a metadata file called <i>metadata.csv</i> which also contains the header row and is delimited by comma.</div>
+
+<div class="description">Below you can see a list of possible input parameters of inchlib_clust:</div>
+
+<div class="interface">
+    <div class="small_title">Command-line parameters</div>
     <div class="code">
     positional arguments:
       <b>data_file             csv(text) data file with delimited values</b>
@@ -72,13 +84,6 @@
                             don't write clustered data to the inchlib data format
                             (default: False)
     </div>
-</div>
-
-<div class="interface">
-   <div class="small_title">Command-line example</div>
-      <div class="highlighted">
-    {{ bash|safe }}
-      </div>
 </div>
 
 <div class="interface">

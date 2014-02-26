@@ -9,7 +9,8 @@
 		Dependencies
 	</div>
 	<ul>
-		<li><a href="http://jquery.com/" target=blank>jQuery</a></li>
+		<li><a href="http://jquery.com/" target=blank>jQuery</a>  (tested with version 2.0.3)</li>
+		<li><a href="http://kineticjs.com/" target=blank>KineticJS</a>  (tested with version 5.0.0)</li>
 	</ul>
 	<div class="pure-button download_button">
 		<a href="{% static "js/inchlib.js" %}" target=blank>Download inchlib</a>
@@ -29,18 +30,18 @@
 		Dependencies
 	</div>
 	<ul>
-		<li><a href="http://www.numpy.org/" target=blank>numpy</a></li>
-		<li><a href="http://scipy.org/" target=blank>scipy</a></li>
-		<li><a href="https://pypi.python.org/pypi/hcluster" target=blank>hcluster</a></li>
-		<li><a href="http://danifold.net/fastcluster.html" target=blank>fastcluster</a></li>
+		<li><a href="http://www.numpy.org/" target=blank>numpy</a> (tested with version 1.7.1)</li>
+		<li><a href="http://scipy.org/" target=blank>scipy</a> (tested with version 0.12.0)</li>
+		<li><a href="https://pypi.python.org/pypi/hcluster" target=blank>hcluster</a> (tested with version 0.2.0)</li>
+		<li><a href="http://danifold.net/fastcluster.html" target=blank>fastcluster</a> (tested with version 1.1.8)</li>
 	</ul>
 	<div class="pure-button download_button">
 		<a href="{% static "inchlib_clust/inchlib_clust_0.1.0.zip" %}" target=blank>Download inchlib_clust</a>
 	</div>
 
-	<div class="small_title">Installation</div>
+	<div class="small_title">Installation on Linux</div>
 	<div class="description">
-		First you need to install all dependencies 
+		First you should install all python dependencies. Then you can proceed to install inchlib_clust using following commands: 
 	</div>
 	<div class="code">
   sudo unzip inchlib_clust_0.1.0.zip
@@ -49,6 +50,11 @@
 
   python
   >>>import inchlib_clust
+	</div>
+
+	<div class="small_title">Installation on Windows</div>
+	<div class="description">
+		First you should install all python dependencies. Then you can proceed to inchlib_clust installation by running <i>setup.py install</i>.
 	</div>
 		
 </div>

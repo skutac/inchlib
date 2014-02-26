@@ -177,6 +177,10 @@ body{
 	/*font-weight: bold;*/
 }
 
+.code{
+	margin-bottom: 20px;
+}
+
 .example_data{
 	margin-top: 10px;
 	background-color: #E6E6E6;
