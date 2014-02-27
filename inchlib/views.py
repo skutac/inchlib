@@ -91,18 +91,33 @@ def performance(req):
 def test(req):
     return render_to_response("inchlib_test.html", {})
 
+def inchlib_clust_doc(req):
+    return render_to_response("inchlib_clust_doc.html", {})
+
 def inchlib_clust(req):
     code = """
 import inchlib_clust
 
+#instatitate the Cluster object
 c = inchlib_clust.Cluster()
+
+# read csv data file with specified delimiter, also specify whether there is a header row
 c.read_csv(filename="filename", delimiter=",", header=bool)
 # c.read_data(data, header=bool) use read_data() for list of lists instead of a data file
+
+# cluster data according to the parameters
 c.cluster_data(data_type="numeric", distance_measure="euclidean", linkage="ward", axis="both")
 
+# instantiate the Dendrogram class with the Cluster instance as an input
 d = inchlib_clust.Dendrogram(c)
+
+# create the cluster heatmap representation and define whether you want to contract the data, how much and if you want to write the features
 d.create_dendrogram(contract_clusters=bool, cluster_count=1000, write_data=bool)
+
+# read metadata file with specified delimiter, also specify whether there is a header row
 d.add_metadata_from_file(metadata_file="filename", delimiter=",", header=bool)
+
+# export the dendrogram ont he output or to the file if filename specified
 d.export_dendrogram_as_json("filename")"""
 
     bash = "python inchlib_clust.py input_file.csv -m metadata.csv -dh -mh -d euclidean -l ward -a both -dd , -md ,"

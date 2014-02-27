@@ -18,6 +18,7 @@ urlpatterns = patterns('',
     url(r'^download$', 'inchlib.views.download', name='download'),
     url(r'^contact$', 'inchlib.views.contact', name='contact'),
     url(r'^performance$', 'inchlib.views.performance', name='performance'),
+    url(r'^inchlib_clust_doc$', 'inchlib.views.inchlib_clust_doc', name='inchlib_clust_doc'),
     url(r'^test$', 'inchlib.views.test', name='test'),
     # url(r'^inch/', include('inchlib.foo.urls')),
 

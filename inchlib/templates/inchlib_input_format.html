@@ -45,74 +45,74 @@ Each <b>node</b> has two child-nodes given by their left child (<i>left_child</i
 <div class="description">For the generation of <b>InCHlib</b> data format you can use our python wrapper called <b><a href="inchlib_clust">inchlib_clust</a></b>.</div>
 
 <div class="input_example">
-	<div class="example_data">
+	<div >
 		<div class="data" id="data">{
-    "<span id="format_data"><a href="#data">data</a></span>": {    <span class="js_comment">//contains nodes and feature names section of clustered data</span>
+    "<span id="format_data">data</span>": {    <span class="js_comment">//contains nodes and feature names section of clustered data</span>
 
-        "<span id="format_nodes"><a href="#nodes">nodes</a></span>": {    <span class="js_comment">//contains nodes and leafs of row dendrogram</span>
+        "<span id="format_nodes">nodes</span>": {    <span class="js_comment">//contains nodes and leafs of row dendrogram</span>
             "leaf_1": {
-                "<span id="format_count"><a href="#count">count</a></span>": 1,    <span class="js_comment">//the count of underlying heatmap rows</span>
-                "<span id="format_distance"><a href="#distance">distance</a></span>": 0,    <span class="js_comment">//the distance from dendrogram base (heatmap)</span>
-                "<span id="format_features"><a href="#features">features</a></span>": [1.4, 3.5, 5.1],    <span class="js_comment">//the array of values in heatmap row</span>
-                "<span id="format_parent"><a href="#parent">parent</a></span>": "node_1",    <span class="js_comment">//the ID of a parent node</span>
-                "<span id="format_objects"><a href="#objects">objects</a></span>": ["item_id"]    <span class="js_comment">//the array of objects represented by the heatmap row</span>
+                "<span id="format_count">count</span>": 1,    <span class="js_comment">//the count of underlying heatmap rows</span>
+                "<span id="format_distance">distance</span>": 0,    <span class="js_comment">//the distance from dendrogram base (heatmap)</span>
+                "<span id="format_features">features</span>": [1.4, 3.5, 5.1],    <span class="js_comment">//the array of values in heatmap row</span>
+                "<span id="format_parent">parent</span>": "node_1",    <span class="js_comment">//the ID of a parent node</span>
+                "<span id="format_objects">objects</span>": ["item_id"]    <span class="js_comment">//the array of objects represented by the heatmap row</span>
             }, 
             "node_1": {
-                "<a href="#count">count</a>": 2, 
-                "<a href="#distance">distance</a>": 3.32, 
-                "<span id="format_left_child"><a href="left_child">left_child</a></span>": "leaf_1",   <span class="js_comment">//the ID of the left child of the node</span>
-                "<span id="format_right_child"><a href="right_child">right_child</a></span>": "leaf_2"   <span class="js_comment">//the ID of the right child of the node</span>
+                "count": 2, 
+                "distance": 3.32, 
+                "<span id="format_left_child">left_child</span>": "leaf_1",   <span class="js_comment">//the ID of the left child of the node</span>
+                "<span id="format_right_child">right_child</span>": "leaf_2"   <span class="js_comment">//the ID of the right child of the node</span>
             }, 
             "leaf_2": {
-                "<a href="#count">count</a>": 1, 
-                "<a href="#distance">distance</a>": 0, 
-                "<a href="#features">features</a>": [2.0, 1.0, 3.0], 
-                "<a href="#parent">parent</a>": "node_1", 
-                "<a href="#objects">objects</a>": ["item_id"]
+                "count": 1, 
+                "distance": 0, 
+                "features": [2.0, 1.0, 3.0], 
+                "parent": "node_1", 
+                "objects": ["item_id"]
             }
         },
 
-        "<span id="format_feature names"><a href="#feature names">feature names</a></span>": ["First", "Second", "Third"],    <span class="js_comment">//the list of the column feature names</span>
+        "<span id="format_feature names">feature names</span>": ["First", "Second", "Third"],    <span class="js_comment">//the list of the column feature names</span>
     },
     </div>
 
-<div class="data" id="metadata">    "<a href="#metadata">metadata</a>": {    <span class="js_comment">//contains nodes and feature names section of metadata</span>
-        "<span id="format_metadata_feature names"><a href="#metadata_feature names">feature names</a></span>": ["Numeric", "Categoric"],    <span class="js_comment">//the array of the column feature names</span>
-        "<span id="format_metadata_nodes"><a href="#metadata_nodes">nodes</a></span>": {    <span class="js_comment">//contains row IDs with metadata values</span>
+<div class="data" id="metadata">    "metadata": {    <span class="js_comment">//contains nodes and feature names section of metadata</span>
+        "<span id="format_metadata_feature names">">feature names</span>": ["Numeric", "Categoric"],    <span class="js_comment">//the array of the column feature names</span>
+        "<span id="format_metadata_nodes">nodes</span>": {    <span class="js_comment">//contains row IDs with metadata values</span>
             "1": [0.03, "positive"],    <span class="js_comment">//the array of metadata values</span>
             "2": [0.02, "negative"]
         }
     }, 
 </div>
-<div class="data" id="column_dendrogram">    "<a href="#column_dendrogram">column_dendrogram</a>": {    <span class="js_comment">//contains nodes section of column dendrogram</span>
+<div class="data" id="column_dendrogram">    "column_dendrogram": {    <span class="js_comment">//contains nodes section of column dendrogram</span>
         "nodes": {    <span class="js_comment">//contains nodes of column dendrogram</span>
             "leaf_3": {
-                "<a href="#count">count</a>": 1, 
-                "<a href="#distance">distance</a>": 0, 
-                "<a href="#parent">parent</a>": "node_2"
+                "count": 1, 
+                "distance": 0, 
+                "parent": "node_2"
             }, 
             "node_2": {
-                "<a href="#count">count</a>": 2,
-                "<a href="#distance">distance</a>": 2.326, 
-                "<a href="left_child">left_child</a>": "leaf_2", 
-                "<a href="#parent">parent</a>": "node_1", 
-                "<a href="right_child">right_child</a>": "leaf_3"
+                "count": 2,
+                "distance": 2.326, 
+                "left_child": "leaf_2", 
+                "parent": "node_1", 
+                "right_child": "leaf_3"
             }, 
             "leaf_1": {
-                "<a href="#count">count</a>": 1, 
-                "<a href="#distance">distance</a>": 0, 
-                "<a href="#parent">parent</a>": "node_1"
+                "count": 1, 
+                "distance": 0, 
+                "parent": "node_1"
             }, 
             "leaf_2": {
-                "<a href="#count">count</a>": 1, 
-                "<a href="#distance">distance</a>": 0, 
-                "<a href="#parent">parent</a>": "node_2"
+                "count": 1, 
+                "distance": 0, 
+                "parent": "node_2"
             }, 
             "node_1": {
-                "<a href="#count">count</a>": 3, 
-                "<a href="#distance">distance</a>": 3.516, 
-                "<a href="left_child">left_child</a>": "leaf_1", 
-                "<a href="right_child">right_child</a>": "node_2"
+                "count": 3, 
+                "distance": 3.516, 
+                "left_child": "leaf_1", 
+                "right_child": "node_2"
             }
         }
     }
