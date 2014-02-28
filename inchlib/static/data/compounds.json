@@ -4593,7 +4593,7 @@
       ]
     }
   },
-  "header": [
+  "feature_names": [
       "1e-04 mol/l",
       "1e-05 mol/l",
       "1e-03 mol/l"
@@ -4601,7 +4601,7 @@
   },
 
   "metadata": {
-    "header": [
+    "feature_names": [
       "Weight",
       "TPSA",
       "Aromatic Rings",

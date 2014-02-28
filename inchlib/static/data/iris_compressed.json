@@ -1,6 +1,6 @@
 {
     "data": {
-        "header": [
+        "feature_names": [
             "Sepal length", 
             "Sepal width", 
             "Petal length", 
@@ -552,7 +552,7 @@
         }
     }, 
     "metadata": {
-        "header": [
+        "feature_names": [
             "Class"
         ], 
         "nodes": {

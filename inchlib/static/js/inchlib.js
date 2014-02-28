@@ -89,7 +89,7 @@ InCHlib.prototype.read_data_from_file = function(json){
         dataType: 'json',
         success: function(data){
             self.data = data;
-            self.data.header = self.data.data.header;
+            self.data.header = self.data.data.feature_names;
             self.data.nodes = self.data.data.nodes;
         },
         async: false
@@ -188,7 +188,7 @@ InCHlib.prototype.get_columns_min_max_middle = function(data){
     var columns_min_max = [], min, max, middle;
 
     for(i = 0; i<columns.length; i++){
-        if(typeof(columns[i][0]) == "number"){
+        if(this.is_number(columns[i][0])){
             min = Math.min.apply(null, columns[i]);
             max = Math.max.apply(null, columns[i]);
             middle = this.middle2fnc(columns[i]);
@@ -573,8 +573,8 @@ InCHlib.prototype.set_heatmap_settings = function(){
     }
 
     if(this.settings.metadata){
-        if(this.data.metadata.header){
-            this.metadata_header = this.data.metadata.header;
+        if(this.data.metadata.feature_names){
+            this.metadata_header = this.data.metadata.feature_names;
 
             for(i=0; i<this.metadata_dimensions; i++){
                 this.header[this.data_dimensions+i] = this.metadata_header[i];
@@ -781,7 +781,7 @@ InCHlib.prototype.draw_heatmap_row = function(node_id, x1, y1){
                 this.metadata_max_value = this.metadata_columns_min_max[i][1];
                 this.metadata_middle_value = this.metadata_columns_min_max[i][2];
 
-                if(typeof(text_value) != "number"){
+                if(!this.is_number(text_value)){
                     value = this.categories2numbers[i][value];
                 }
     
@@ -1931,3 +1931,7 @@ InCHlib.prototype.middle2fnc = function(values){
     };
     return fncs[this.settings.values_center](values);
 };
+
+InCHlib.prototype.is_number = function(n){
+    return !isNaN(parseFloat(n)) && isFinite(n);
+}

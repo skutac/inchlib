@@ -1,6 +1,6 @@
 {
     "data": {
-        "header": [
+        "feature_names": [
             "Alcohol", 
             "Malic acid", 
             "Ash", 
@@ -5351,7 +5351,7 @@
         }
     }, 
     "metadata": {
-        "header": [
+        "feature_names": [
             "Class"
         ], 
         "nodes": {
