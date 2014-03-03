@@ -98,12 +98,15 @@ def inchlib_clust(req):
     code = """
 import inchlib_clust
 
-#instatitate the Cluster object
+#instantiate the Cluster object
 c = inchlib_clust.Cluster()
 
 # read csv data file with specified delimiter, also specify whether there is a header row
 c.read_csv(filename="filename", delimiter=",", header=bool)
 # c.read_data(data, header=bool) use read_data() for list of lists instead of a data file
+
+# normalize data to (0,1) scale, but after clustering write the original data to the heatmap
+c.normalize_data(feature_range=(0,1), write_original=True)
 
 # cluster data according to the parameters
 c.cluster_data(data_type="numeric", distance_measure="euclidean", linkage="ward", axis="both")

@@ -60,7 +60,8 @@ scipy.spatial<br>
 
 <dl><dt><a name="Cluster-cluster_data"><strong>cluster_data</strong></a>(self, data_type<font color="#909090">='numeric'</font>, distance_measure<font color="#909090">='euclidean'</font>, linkage<font color="#909090">='single'</font>, axis<font color="#909090">='row'</font>)</dt><dd><tt>Performs&nbsp;clustering&nbsp;according&nbsp;to&nbsp;the&nbsp;given&nbsp;parameters.</tt></dd></dl>
 
-<dl><dt><a name="Cluster-normalize_data"><strong>normalize_data</strong></a>(self)</dt><dd><tt>Normalizes&nbsp;data&nbsp;to&nbsp;a&nbsp;scale&nbsp;from&nbsp;0&nbsp;to&nbsp;1</tt></dd></dl>
+<dl><dt><a name="Cluster-normalize_data"><strong>normalize_data</strong></a>(self, feature_range<font color="#909090">=(0, 1)</font>, write_original<font color="#909090">=False</font>)</dt><dd><tt>Normalizes&nbsp;data&nbsp;to&nbsp;a&nbsp;scale&nbsp;from&nbsp;0&nbsp;to&nbsp;1.&nbsp;When&nbsp;write_original&nbsp;is&nbsp;set&nbsp;to&nbsp;True,&nbsp;<br>
+the&nbsp;normalized&nbsp;data&nbsp;will&nbsp;be&nbsp;clustered,&nbsp;but&nbsp;original&nbsp;data&nbsp;will&nbsp;be&nbsp;written&nbsp;to&nbsp;the&nbsp;heatmap.</tt></dd></dl>
 
 <dl><dt><a name="Cluster-read_csv"><strong>read_csv</strong></a>(self, filename, delimiter<font color="#909090">=','</font>, header<font color="#909090">=False</font>)</dt><dd><tt>Reads&nbsp;data&nbsp;from&nbsp;the&nbsp;CSV&nbsp;file</tt></dd></dl>
 
@@ -102,7 +103,7 @@ As&nbsp;an&nbsp;input&nbsp;it&nbsp;takes&nbsp;a&nbsp;<a href="#Cluster">Cluster<
 <dl><dt><a name="Dendrogram-add_metadata_from_file"><strong>add_metadata_from_file</strong></a>(self, metadata_file, delimiter, header<font color="#909090">=True</font>)</dt><dd><tt>Adds&nbsp;metadata&nbsp;from&nbsp;csv&nbsp;file.</tt></dd></dl>
 
 <dl><dt><a name="Dendrogram-create_dendrogram"><strong>create_dendrogram</strong></a>(self, contract_clusters<font color="#909090">=False</font>, cluster_count<font color="#909090">=1000</font>, write_data<font color="#909090">=True</font>)</dt><dd><tt>Creates&nbsp;cluster&nbsp;heatmap&nbsp;representation&nbsp;in&nbsp;inchlib&nbsp;format.&nbsp;By&nbsp;setting&nbsp;contract_clusters&nbsp;to&nbsp;True&nbsp;you&nbsp;can<br>
-cut&nbsp;the&nbsp;dendrogram&nbsp;in&nbsp;a&nbsp;distance&nbsp;to&nbsp;decrease&nbsp;the&nbsp;row&nbsp;size&nbsp;of&nbsp;the&nbsp;heatmap&nbsp;to&nbsp;count&nbsp;specified&nbsp;by&nbsp;cluster&nbsp;count&nbsp;paramter.<br>
+cut&nbsp;the&nbsp;dendrogram&nbsp;in&nbsp;a&nbsp;distance&nbsp;to&nbsp;decrease&nbsp;the&nbsp;row&nbsp;size&nbsp;of&nbsp;the&nbsp;heatmap&nbsp;to&nbsp;count&nbsp;specified&nbsp;by&nbsp;cluster&nbsp;count&nbsp;parameter.<br>
 By&nbsp;setting&nbsp;write_data&nbsp;to&nbsp;False&nbsp;the&nbsp;data&nbsp;features&nbsp;won't&nbsp;be&nbsp;present&nbsp;in&nbsp;the&nbsp;resulting&nbsp;format.</tt></dd></dl>
 
 <dl><dt><a name="Dendrogram-export_dendrogram_as_json"><strong>export_dendrogram_as_json</strong></a>(self, filename<font color="#909090">=None</font>)</dt><dd><tt>Returns&nbsp;cluster&nbsp;heatmap&nbsp;in&nbsp;a&nbsp;JSON&nbsp;format&nbsp;or&nbsp;exports&nbsp;it&nbsp;to&nbsp;the&nbsp;file&nbsp;specified&nbsp;by&nbsp;the&nbsp;filename&nbsp;parameter.</tt></dd></dl>

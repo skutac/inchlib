@@ -13,13 +13,13 @@
 
 <div class="description">
   <div class="title">inchlib_clust.py</div>
-    <b>Inchlib_clust</b> is a python wrapper for clustering and generation of <b>InCHlib</b> input data format. It can be used from command-line or directly from your python code (see the examples below). The only obligatory input are the data for clustering in a form of csv(text) file or python list of lists. The input data can contain optional header as a first row. The metadata are also read as a csv file with corresponding IDs to the data in the first column.
+    <b>Inchlib_clust</b> is a python wrapper for clustering and generation of <b>InCHlib</b> input data format. It can be used from command-line or directly from your python code (<i>see the examples below</i>). The data in a form of csv(text) file or python list of lists with ID in the first column are the only obligatory input for clustering. The input data can contain optional header as a first row. The metadata have the same structure as the clustered data with corresponding IDs in the first column.
 </div>
 
 <div class="interface">
   <div class="small_title">Input data example (file containing comma-separated values)</div>
     <div class="code">
-  id,Sepal length,Sepal width,Petal length,Petal width
+  id,feature 1,feature 2,feature 3,feature 4
   1,5.1,3.5,1.4,0.2
   2,4.9,3,1.4,0.2
   3,4.7,3.2,1.3,0.2
@@ -31,16 +31,16 @@
 <div class="interface">
   <div class="small_title">Metadata example (file containing comma-separated values)</div>
     <div class="code">
-  id,Class
-  1,setosa
-  2,setosa
-  3,virginica
-  4,virginica
-  5,versicolor
+  id,class
+  1,class 1
+  2,class 1
+  3,class 2
+  4,class 2
+  5,class 3
     </div>
 </div>
 
-<div class="description">You can cluster the csv file using inchlib_clust for example by following command in command line.</div>
+<div class="description">You can cluster the csv file using <i>inchlib_clust</i> for example by following command in the command line.</div>
 
 <div class="interface">
    <div class="small_title">Command-line example</div>
@@ -49,7 +49,7 @@
       </div>
 </div>
 
-<div class="description">The input data file called <i>input_file.csv</i> is clustered by both axis (row and column) using euclidean distance and Ward's linkage. The file contains data header and is delimited by comma (,). There is also a metadata file called <i>metadata.csv</i> which also contains the header row and is delimited by comma.</div>
+<div class="description">The input data file called <i>input_file.csv</i> is clustered by <b>both axis</b> (row and column) using <b>euclidean distance</b> and <b>Ward's linkage</b>. The file contains <b>data header</b> and is <b>delimited by comma</b> (,). There is also a metadata file called <i>metadata.csv</i> which also contains <b>the header row</b> and is <b>delimited by comma</b>.</div>
 
 <div class="description">Below you can see a list of possible input parameters of inchlib_clust:</div>
 
@@ -90,14 +90,19 @@
       <b>-dwd, --dont_write_data</b>
                             don't write clustered data to the inchlib data format
                             (default: False)
+      <b>-n, --normalize</b>
+                            normalize data to (0,1) scale
+      <b>-wo, --write_original</b>
+                            only when normalize is set to True
+                            cluster normalized data, but write original data to the heatmap
     </div>
 </div>
 
 <hr />
 
-<div class="description">You can also use the python programming interface to cluster your data with inchlib_clust. You just need to import inchlib_clust library in your code.</div>
+<div class="description">You can also use the python programming interface to cluster your data with <i>inchlib_clust</i>. You just need to <b>import inchlib_clust</b> library in your code.</div>
 
-<div class="description">There are two main classes in the inchlib_clust: <i>Cluster</i> and <i>Dendrogram</i>. <i>Cluster</i> reads and clusters the data. Then the <i>Dendrogram</i> object takes the <i>Cluster</i> instance as an input and generates the proper cluster heatmap format for <i>InCHlib</i>.</div>
+<div class="description">There are two main classes in the <i>inchlib_clust</i>: <i>Cluster</i> and <i>Dendrogram</i>. <i>Cluster</i> reads and clusters the data. Then the <i>Dendrogram</i> object takes the <i>Cluster</i> instance as an input and generates the proper cluster heatmap format for <i>InCHlib</i>.</div>
 
 <div class="description"><a href="{% url inchlib_clust_doc %}" target=blank>See the documentation of inchlib_clust.</a></div>
 
