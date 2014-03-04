@@ -105,7 +105,7 @@ class Dendrogram():
 
     def create_dendrogram(self, contract_clusters=False, cluster_count=1000, write_data=True):
         """Creates cluster heatmap representation in inchlib format. By setting contract_clusters to True you can
-        cut the dendrogram in a distance to decrease the row size of the heatmap to count specified by cluster count paramter.
+        cut the dendrogram in a distance to decrease the row size of the heatmap to count specified by cluster count parameter.
         By setting write_data to False the data features won't be present in the resulting format."""
         self.dendrogram = {"data": self.__get_dendrogram__(write_data)}
 
@@ -118,9 +118,9 @@ class Dendrogram():
                 self.__contract_data__()
 
         if self.header and write_data:
-            self.dendrogram["data"]["header"] = [h for h in self.header]
+            self.dendrogram["data"]["feature_names"] = [h for h in self.header]
         elif self.header and not write_data:
-            self.dendrogram["data"]["header"] = []
+            self.dendrogram["data"]["feature_names"] = []
         
         if self.axis == "both" and len(self.cluster_object.column_clustering):
             column_dendrogram = hcluster.to_tree(self.cluster_object.column_clustering)            
@@ -255,7 +255,7 @@ class Dendrogram():
         self.dendrogram["metadata"] = {"nodes":{}}
 
         if self.metadata_header:
-            self.dendrogram["metadata"]["header"] = self.metadata_header
+            self.dendrogram["metadata"]["feature_names"] = self.metadata_header
 
         leaves = {n:self.dendrogram["data"]["nodes"][n] for n in self.dendrogram["data"]["nodes"] if self.dendrogram["data"]["nodes"][n]["count"] == 1}
 
@@ -392,13 +392,13 @@ class Cluster():
                 integerized_row.append(pos2categories[pos].index(row[pos]))
             self.integerized_data.append(integerized_row)
         self.data = self.integerized_data
-        return
+        return            
 
-            
-
-    def normalize_data(self):
-        """Normalizes data to a scale from 0 to 1"""
-        min_max_scaler = preprocessing.MinMaxScaler()
+    def normalize_data(self, feature_range=(0,1), write_original=False):
+        """Normalizes data to a scale from 0 to 1. When write_original is set to True, 
+        the normalized data will be clustered, but original data will be written to the heatmap."""
+        self.write_original = write_original
+        min_max_scaler = preprocessing.MinMaxScaler(feature_range)
         self.original_data = copy.deepcopy(self.data)
         self.data = min_max_scaler.fit_transform(self.data)
         self.data = [[round(v, 3) for v in row] for row in self.data]
@@ -436,6 +436,9 @@ class Cluster():
         if data_type == "nominal":
             self.__integerize_nominal_data__()
 
+        if self.write_original:
+            self.data = self.original_data
+
         return
 
     def __cluster_columns__(self):
@@ -467,7 +470,7 @@ def _process_(arguments):
     c.read_csv(arguments.data_file, arguments.data_delimiter, arguments.data_header)
     
     if arguments.normalize:
-        c.normalize_data()
+        c.normalize_data(feature_range=(0,1), write_original=arguments.write_original)
 
     c.cluster_data(data_type=arguments.datatype, distance_measure=arguments.distance, linkage=arguments.linkage, axis=arguments.axis)
 
@@ -500,6 +503,7 @@ if __name__ == '__main__':
     parser.add_argument("-c", "--compress", type=int, default=0, help="compress the data to contain maximum of specified count of rows")
     parser.add_argument("-dwd", "--dont_write_data", default=False, help="don't write clustered data to the inchlib data format", action="store_true")
     parser.add_argument("-n", "--normalize", default=False, help="normalize data to [0, 1] range", action="store_true")
+    parser.add_argument("-wo", "--write_original", default=False, help="cluster normalized data but write the original ones to the heatmap", action="store_true")
     
     args = parser.parse_args()
     _process_(args)
