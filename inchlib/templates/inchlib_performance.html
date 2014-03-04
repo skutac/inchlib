@@ -8,7 +8,7 @@
 $(document).ready(function() {
   $('#performance_rows').highcharts({
             title: {
-                text:'Clustering Time X Count of rows (50 features)',
+                text:'Clustering Time X Number of data points (50 features)',
                 x: -20 //center
             },
             xAxis: {
@@ -44,7 +44,7 @@ $(document).ready(function() {
 
     $('#performance_features').highcharts({
             title: {
-                text: 'Clustering Time X Count of features (1000 rows)',
+                text: 'Clustering Time X Number of features (1000 rows)',
                 x: -20 //center
             },
             xAxis: {
@@ -80,7 +80,7 @@ $(document).ready(function() {
 
     $('#performance_inchlib').highcharts({
             title: {
-                text: 'Rendering Time X Count of rows (20 features)',
+                text: 'Rendering Time X Size of the data (20 features)',
                 x: -20 //center
             },
             xAxis: {
@@ -118,24 +118,24 @@ $(document).ready(function() {
 
 <div class="description">
   <div class="title"></div>
-  <p>On the following charts you can see how <i>inchlib_clust</i> (clustering) and <i>InCHlib</i> (rendering) perform depending on the size of the data.</p>
+  <p>Following charts demonstrate dependence of clustering speed (<i>inchlib_clust</i>) and rendering (<i>InCHlib</i>) on the data size. The testing data were randomly generated integers in interval from 0 to 1000. The Euclidean distance and Ward’s linkage were used for clustering only by row axis. </p>
   <div class="pc_conf">PC configuration: Kubuntu 13.04 with Chrome 33.0.1750.117 running on Intel Core 2 Duo E6600 2.4GHz, 8GB RAM, classic hard-drive</div>
 </div>
 
 <div class="description">
-  <div class="small_title">Clustering time vs. the count of rows</div>
-  <p>With the increasing count of the data rows the time needed for clustering is growing more or less exponentially. It is not surprising given the nature of clustering and processing all possible row pairs in the data. Be also aware of the PC memory consumption when clustering larger data sets (> 10000).</p>
+  <div class="small_title">Clustering time vs. the count of data points</div>
+  <p>With the increasing number of data points clustering time increases more or less exponentially. This corresponds with the complexity of Ward’s linkage implementation in fastcluster library used for clustering. You should be also aware of the PC memory consumption when clustering larger data sets. For the largest set with 30 000 data points the memory consumption was over 4 GB RAM.</p>
 </div>
 <div id="performance_rows" class="chart"></div>
 <div class="description">
-  <div class="small_title">Clustering time vs. the count of features</div>
-  <p>The increasing count of the data features doesn't affect the clustering duration as much as the increase of the data rows. The reason is that the complexity of the problem is constant, larger are only the data themselves. Also the consumption of the PC memory is not a problem in that case.</p>
+  <div class="small_title">Clustering time vs. the number of features</div>
+  <p>The increasing number of data features doesn't affect the clustering duration as much as the increase of the data rows. The reason is that the complexity of the problem (distance matrix) is constant, larger are only the data themselves. Also the consumption of the PC memory is not a problem in that case but only when you cluster by row axis. If you would cluster by both axis the increase of the number of features would also mean the increase of the number of data points.</p>
 </div>
 <div id="performance_features" class="chart"></div>
 
 <div class="description">
   <div class="small_title">Rendering time vs. the size of the data</div>
-  <p>Rendering time depends mainly on the count of the data values (e.g., 100 rows * 100 features = 10 000 data values). The rendering time also greatly depends on the PC hardware configuration and used web browser (especially the speed of the JavaScript). We recommend to use the Google Chrome web browser, which is by far the fastest. From the point of the JavaScript speed we would not recommend to use Mozilla Firefox for larger data sets. Be also aware that for longer rendering times (> 30 seconds) the web page can stuck as unresponsive.</p>
+  <p>Rendering time depends on the number of data values (100 data points, each described by 100 features, give 10,000 data values). Rendering time is also influenced by the PC configuration and used web browser. For smooth running, we recommend <i>Google Chrome</i>. <i>Mozilla Firefox</i> is, due to the speed of its JavaScript engine, unsuitable for large data sets.</p>
 </div>
 <div id="performance_inchlib" class="chart"></div>
 
