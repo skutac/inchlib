@@ -26,6 +26,7 @@ function InCHlib(settings){
         "max_column_width": 100,
         "font": "Arial",
         "values_center": "median",
+        "draw_row_ids": true
         "current_row_ids_callback": function(row_ids){
             return;
         },
@@ -1782,34 +1783,31 @@ InCHlib.prototype.draw_col_label = function(row_group, row_values, col_number){
     var y = line.attrs.points[1]-0.5*this.pixels_for_leaf;
     var x = this.distance+this.dendrogram_heatmap_distance;
 
-    // if(this.heatmap_header && this.header[col_number] != ""){
-        var tooltip = new Kinetic.Label({
-            x: x+(col_number+0.5)*this.pixels_for_dimension,
-            y: y,
-            opacity: 1,
-            id: "col_label",
-        });
+    var tooltip = new Kinetic.Label({
+        x: x+(col_number+0.5)*this.pixels_for_dimension,
+        y: y,
+        opacity: 1,
+        id: "col_label",
+    });
 
-        tooltip.add(new Kinetic.Tag({
-            fill: this.settings.label_color,
-            pointerDirection: 'down',
-            pointerWidth: 10,
-            pointerHeight: 10,
-            lineJoin: 'round',
-        }));
-        
-        tooltip.add(new Kinetic.Text({
-            text: [this.header[col_number], row_values[col_number]].join(" "),
-            fontFamily: this.settings.font,
-            fontSize: 12,
-            padding: 8,
-            fill: 'white',
-            fontStyle: "bold",
-        }));
+    tooltip.add(new Kinetic.Tag({
+        fill: this.settings.label_color,
+        pointerDirection: 'down',
+        pointerWidth: 10,
+        pointerHeight: 10,
+        lineJoin: 'round',
+    }));
+    
+    tooltip.add(new Kinetic.Text({
+        text: [this.header[col_number], row_values[col_number]].join(" "),
+        fontFamily: this.settings.font,
+        fontSize: 12,
+        padding: 8,
+        fill: 'white',
+        fontStyle: "bold",
+    }));
 
-        this.heatmap_overlay.add(tooltip);
-    // }
-
+    this.heatmap_overlay.add(tooltip);
     this.heatmap_overlay.moveToTop();
     this.heatmap_overlay.draw();
     return;
