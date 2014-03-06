@@ -330,7 +330,7 @@ class Cluster():
     """Class for clustering"""
 
     def __init__(self):
-        pass
+        self.write_original = False
 
     def read_csv(self, filename, delimiter=",", header=False):
         """Reads data from the CSV file"""

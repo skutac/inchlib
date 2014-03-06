@@ -5,30 +5,36 @@
 {% load staticfiles %}
 <div class="description">
 	<div class="title">inchlib.js</div>
+
+	<div class="pure-button download_button">
+		<a href="{% static "js/inchlib.js" %}" target=blank>Download InCHlib</a>
+	</div>
+
 	<div class="small_title">
-		Dependencies
+		InCHlib requires the following dependencies to be installed:
 	</div>
 	<ul>
 		<li><a href="http://jquery.com/" target=blank>jQuery</a>  (tested with version 2.0.3)</li>
 		<li><a href="http://kineticjs.com/" target=blank>KineticJS</a>  (tested with version 5.0.0)</li>
 	</ul>
-	<div class="pure-button download_button">
-		<a href="{% static "js/inchlib.js" %}" target=blank>Download inchlib</a>
-	</div>
+
 	<div class="small_title">Installation</div>
 	<div class="description">
-		There is no need to install inchlib.js. As all JS libraries you just need to import the file in your code.
+		To use <b>InCHlib</b>, copy <i>inchlib.js</i> into the selected folder, and import it from your code:
 	</div>
-	<div class="code">
-  &lt;script src="/path/to/inchlib.js"&gt;&lt;/script&gt;
-	</div>
+	<div class="code"> &lt;script src="/path/to/inchlib.js"&gt;&lt;/script&gt;</div>
 </div>
 
 <hr/>
 <div class="description">
 	<div class="title">inchlib_clust.py</div>
+
+	<div class="pure-button download_button">
+		<a href="{% static "inchlib_clust/inchlib_clust-0.1.0.zip" %}" target=blank>Download inchlib_clust</a>
+	</div>
+
 	<div class="small_title">
-		Dependencies
+		inchlib_clust requires the following dependencies to be installed:
 	</div>
 	<ul>
 		<li><a href="http://www.numpy.org/" target=blank>numpy</a> (tested with version 1.7.1)</li>
@@ -37,31 +43,20 @@
 		<li><a href="https://pypi.python.org/pypi/hcluster" target=blank>hcluster</a> (tested with version 0.2.0)</li>
 		<li><a href="http://danifold.net/fastcluster.html" target=blank>fastcluster</a> (tested with version 1.1.8)</li>
 	</ul>
-	<div class="pure-button download_button">
-		<a href="{% static "inchlib_clust/inchlib_clust-0.1.0.zip" %}" target=blank>Download inchlib_clust</a>
-	</div>
 
-	<div class="small_title">Installation on Linux</div>
+	<div class="small_title">Installation</div>
 	<div class="description">
-		First you should install all python dependencies. Then you can proceed to install inchlib_clust using following commands: 
+		On <b>Linux</b>, install <b>inchlib_clust</b> using following commands:
 	</div>
-	<div class="code">
-  sudo unzip inchlib_clust-0.1.0.zip
-  cd inchlib_clust-0.1.0/
-  sudo python setup.py install
+	<div class="code"> sudo unzip inchlib_clust-0.1.0.zip
+ cd inchlib_clust-0.1.0/
+ sudo python setup.py install</div>
 
-  python
-  >>>import inchlib_clust
-	</div>
-
-	<div class="small_title">Installation on Windows</div>
 	<div class="description">
-		First you should install all python dependencies (and of course <a href="https://pypi.python.org/pypi/setuptools" target=blank>setuptools</a>). Then you can proceed to inchlib_clust installation by running:
+		On <b>Windows</b>, install <b>inchlib_clust</b> using following command:
 	</div>
 
-	<div class="code">
-  python setup.py install
-	</div>
+	<div class="code"> python setup.py install</div>
 		
 </div>
 </div>

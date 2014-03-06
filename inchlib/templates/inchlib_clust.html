@@ -4,43 +4,41 @@
 
 <div class="pure-menu pure-menu-open pure-menu-horizontal">
     <ul>
-        <li><a href="{% url docs %}">InCHlib.js</a></li>
+        <li><a href="{% url docs %}">InCHlib</a></li>
         <li><a href="{% url input_format %}">Input format</a></li>
-        <li  class="pure-menu-selected"><a href="{% url inchlib_clust %}">inchlib_clust.py</a></li>
+        <li  class="pure-menu-selected"><a href="{% url inchlib_clust %}">inchlib_clust</a></li>
     </ul>
 </div>
 <hr/>
 
 <div class="description">
-  <div class="title">inchlib_clust.py</div>
-    <b>Inchlib_clust</b> is a python wrapper for clustering and generation of <b>InCHlib</b> input data format. It can be used from command-line or directly from your python code (<i>see the examples below</i>). The data in a form of csv(text) file or python list of lists with ID in the first column are the only obligatory input for clustering. The input data can contain optional header as a first row. The metadata have the same structure as the clustered data with corresponding IDs in the first column.
+  <div class="title">inchlib_clust</div>
+    <b>inchlib_clust</b> is a python script that performs data clustering and prepares <a href="{% url input_format %}">input data for InCHlib</a>. <b>inchlib_clust</b> can be used both from command line or from Python code. Data for clustering are supplied to <b>inchlib_clust</b> as a csv file. The first row with attribute headers is optional. If command line option <i>-m</i> is specified, metadata are also supplied in a csv format.
+
 </div>
 
 <div class="interface">
   <div class="small_title">Input data example (file containing comma-separated values)</div>
-    <div class="code">
-  id,feature 1,feature 2,feature 3,feature 4
-  1,5.1,3.5,1.4,0.2
-  2,4.9,3,1.4,0.2
-  3,4.7,3.2,1.3,0.2
-  4,4.6,3.1,1.5,0.2
-  5,5,3.6,1.4,0.2
-    </div>
+    <div class="code"> id,feature 1,feature 2,feature 3,feature 4
+ 1,5.1,3.5,1.4,0.2
+ 2,4.9,3,1.4,0.2
+ 3,4.7,3.2,1.3,0.2
+ 4,4.6,3.1,1.5,0.2
+ 5,5,3.6,1.4,0.2</div>
 </div>
 
 <div class="interface">
   <div class="small_title">Metadata example (file containing comma-separated values)</div>
-    <div class="code">
-  id,class
-  1,class 1
-  2,class 1
-  3,class 2
-  4,class 2
-  5,class 3
-    </div>
+    <div class="code"> id,class
+ 1,class 1
+ 2,class 1
+ 3,class 2
+ 4,class 2
+ 5,class 3</div>
 </div>
 
-<div class="description">You can cluster the csv file using <i>inchlib_clust</i> for example by following command in the command line.</div>
+<div class="description">In the example below <b>inchlib_clust</b> is invoked from the command line. Input data for clustering are given in input_file.csv [ODKAZ] which contains attribute names in the first row (<i>-dh</i> parameter), individual values are separated by a comma (<i>-dd ,</i> parameter). Metadata are supplied (<i>-m</i> parameter) in metadata.csv [ODKAZ] file. It also contains medatadata names (<i>-mh</i> parameter), individual values are separated by a comma (<i>-md ,</i> parameter). Both rows and columns are clustered (<i>-a both</i> parameter) using <i>Ward’s</i> clustering (<i>-l ward</i> parameter) with <i>Euclidean</i> distance (<i>-d euclidean</i> parameter).
+</div>
 
 <div class="interface">
    <div class="small_title">Command-line example</div>
@@ -49,9 +47,7 @@
       </div>
 </div>
 
-<div class="description">The input data file called <i>input_file.csv</i> is clustered by <b>both axis</b> (row and column) using <b>euclidean distance</b> and <b>Ward's linkage</b>. The file contains <b>data header</b> and is <b>delimited by comma</b> (,). There is also a metadata file called <i>metadata.csv</i> which also contains <b>the header row</b> and is <b>delimited by comma</b>.</div>
-
-<div class="description">Below you can see a list of possible input parameters of inchlib_clust:</div>
+<div class="description">The whole list of paramaters is given below.</div>
 
 <div class="interface">
     <div class="small_title">Command-line parameters</div>
@@ -62,34 +58,45 @@
     optional arguments:
       <b>-h, --help</b>            show this help message and exit
       <b>-o OUTPUT_FILE, --output_file OUTPUT_FILE</b>
-                            the name of output file (default: None)
+                            the name of output file (<i>default:</i> None)
       <b>-d DISTANCE, --distance DISTANCE</b>
-                            set the distance to use for clustering (default:
-                            euclidean)
+                            set the distance to use for clustering (<i>default:</i> euclidean)
+                            
+                            <b>possible values</b>: dice, hamming, jaccard, 
+                            kulsinski, matching, rogerstanimoto, 
+                            russellrao, sokalmichener, sokalsneath, 
+                            yule, braycurtis, canberra, chebyshev, 
+                            cityblock, correlation, cosine, euclidean, 
+                            mahalanobis, minkowski, seuclidean, sqeuclidean
+
       <b>-l LINKAGE, --linkage LINKAGE</b>
-                            set the linkage to use for clustering (default: ward)
-      <b>-a AXIS, --axis AXIS</b>  define clustering axis (row/both) (default: row)
+                            set the linkage to use for clustering (<i>default:</i> ward)
+
+                             <b>possible values</b>: single, complete, 
+                             average, weighted, centroid, median, ward
+
+      <b>-a AXIS, --axis AXIS</b>  define clustering axis (row/both) (<i>default:</i> row)
       <b>-dt DATATYPE, --datatype DATATYPE</b>
                             specify the type of the data (numeric/binary)
-                            (default: numeric)
+                            (<i>default:</i> numeric)
       <b>-dd DATA_DELIMITER, --data_delimiter DATA_DELIMITER</b>
-                            delimiter of values in data file (default: ,)
+                            delimiter of values in data file (<i>default:</i> ,)
       <b>-m METADATA, --metadata METADATA</b>
                             csv(text) metadata file with delimited values
-                            (default: None)
+                            (<i>default:</i> None)
       <b>-md METADATA_DELIMITER, --metadata_delimiter METADATA_DELIMITER</b>
-                            delimiter of values in metadata file (default: ,)
+                            delimiter of values in metadata file (<i>default:</i> ,)
       <b>-dh, --data_header</b>    whether the first row of data file is a header
-                            (default: False)
+                            (<i>default:</i> False)
       <b>-mh, --metadata_header</b>
                             whether the first row of metadata file is a header
-                            (default: False)
+                            (<i>default:</i> False)
       <b>-c COMPRESS, --compress COMPRESS</b>
                             compress the data to contain maximum of specified
-                            count of rows (default: 0)
+                            count of rows (<i>default:</i> 0)
       <b>-dwd, --dont_write_data</b>
                             don't write clustered data to the inchlib data format
-                            (default: False)
+                            (<i>default:</i> False)
       <b>-n, --normalize</b>
                             normalize data to (0,1) scale
       <b>-wo, --write_original</b>
@@ -100,11 +107,8 @@
 
 <hr />
 
-<div class="description">You can also use the python programming interface to cluster your data with <i>inchlib_clust</i>. You just need to <b>import inchlib_clust</b> library in your code.</div>
-
-<div class="description">There are two main classes in the <i>inchlib_clust</i>: <i>Cluster</i> and <i>Dendrogram</i>. <i>Cluster</i> reads and clusters the data. Then the <i>Dendrogram</i> object takes the <i>Cluster</i> instance as an input and generates the proper cluster heatmap format for <i>InCHlib</i>.</div>
-
-<div class="description"><a href="{% url inchlib_clust_doc %}" target=blank>See the documentation of inchlib_clust.</a></div>
+<div class="description"><b>inchlib_clust</b> can also be invoked programatically from your Python code. Its API is <a href="{% url inchlib_clust_doc %}" target=blank>fully documented</a>. There are two main classes in inchlib_clust: <i>Cluster</i> and <i>Dendrogram</i>. <i>Cluster</i> reads in and clusters the data. The <i>Dendrogram</i> object takes the <i>Cluster</i> instance as an input, and generates the cluster heatmap in the InCHlib <a href="{% url input_format%}">input format</a>. The example use is given below.
+</div>
 
 <div class="interface">
     <div class="small_title">Programming interface example</div>

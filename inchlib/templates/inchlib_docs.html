@@ -45,9 +45,9 @@
 
 <div class="pure-menu pure-menu-open pure-menu-horizontal">
     <ul>
-    	<li class="pure-menu-selected"><a href="{% url docs %}">InCHlib.js</a></li>
+    	<li class="pure-menu-selected"><a href="{% url docs %}">InCHlib</a></li>
         <li><a href="{% url input_format %}">Input format</a></li>
-        <li><a href="{% url inchlib_clust %}">inchlib_clust.py</a></li>
+        <li><a href="{% url inchlib_clust %}">inchlib_clust</a></li>
     </ul>
 </div>
 <hr/>
@@ -60,7 +60,7 @@
         <li><a href="#read_data_from_file">read_data_from_file</a></li>
         <li><a href="#draw">draw</a></li>
         <li><a href="#highlight_rows">highlight_rows</a></li>
-    	<li class="pure-menu-heading"><b>Settings attributes</b></li>
+    	<li class="pure-menu-heading"><b>Attributes</b></li>
         {% for a in attributes %}
         	<li><a href="#{{ a.name }}">{{ a.name }}</a></li>
         {% endfor %}
@@ -71,9 +71,9 @@
 </div>
 
 <div id="docs">
-	<div class="title">InCHlib.js</div>
+	<div class="title">InCHlib</div>
 
-	<div class="description">Here you can find a list of functions, customizable attributes and color scales that you can use in InCHlib. Attributes serve as input settings when initializing the InCHlib library (<a href="{% url examples 1%}">see Basic usage</a>). The only obligatory attribute is the <a href="#target">target</a> which states the ID of the HTML target element. You can find the default values of optional attributes in the list.  </div>
+	<div class="description">In this section InCHlib’s functions, attributes and color schemes are documented. Attributes influence various parameters of the visualization.  The only obligatory attribute is the target attribute which defines the ID of the HTML <a href="#target">target</a> element.</div>
 
 	<hr />
 	<div class="title">Functions</div>
@@ -111,11 +111,11 @@
 		</div>
 
 	<hr />
-	<div class="title">Settings attributes</div>
+	<div class="title">Attributes</div>
 	{% for a in attributes %}
 		<div class="doc">
 			<div class="small_title" id="{{ a.name }}">{{ a.name }}</div>
-			<div class="description">{{ a.description }}</div>
+			<div class="description">{{ a.description|safe }}</div>
 			<div class="default">
 				<div class="subtitle">Default:</div>
 				<div class="default_value"></div>
@@ -125,7 +125,7 @@
 	<hr />
 	<div class="doc">
 		<div class="small_title" id="colors">Color scales</div>
-		<div class="description">extendable set of color scales contained in InCHlib</div>
+		<div class="description">set of color scales contained in InCHlib</div>
 		<table id="colors_table" class="pure-table pure-table-bordered">
 			<thead>
 				<tr>

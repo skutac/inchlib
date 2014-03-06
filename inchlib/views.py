@@ -120,7 +120,7 @@ d.create_dendrogram(contract_clusters=bool, cluster_count=1000, write_data=bool)
 # read metadata file with specified delimiter, also specify whether there is a header row
 d.add_metadata_from_file(metadata_file="filename", delimiter=",", header=bool)
 
-# export the dendrogram ont he output or to the file if filename specified
+# export the dendrogram on the standard output or to the file if filename specified
 d.export_dendrogram_as_json("filename")"""
 
     bash = "python inchlib_clust.py input_file.csv -m metadata.csv -dh -mh -d euclidean -l ward -a both -dd , -md ,"

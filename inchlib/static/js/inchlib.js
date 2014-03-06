@@ -26,7 +26,8 @@ function InCHlib(settings){
         "max_column_width": 100,
         "font": "Arial",
         "values_center": "median",
-        "draw_row_ids": true
+        "draw_row_ids": true,
+        "header_as_metadata": false,
         "current_row_ids_callback": function(row_ids){
             return;
         },
