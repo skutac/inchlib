@@ -4,6 +4,8 @@ import numpy
 
 import inchlib_clust
 
+counts = [1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000, 11000, 12000,13000,14000,15000,16000,17000,18000,19000,20000]
+
 def generate_data(rows, features):
     data = []
     for i in xrange(rows):
@@ -14,10 +16,9 @@ def generate_data(rows, features):
     return data
 
 def test_rows():
-    counts = [10, 100, 500, 1000, 2000, 5000, 10000, 20000, 30000]
     times = []
 
-    for c in counts:
+    for c in counts[:10]:
         data = generate_data(c, 20)
         cluster_time = get_cluster_time(data, "_".join(["test", str(c)]))
         times.append(round(cluster_time, 3))
@@ -26,17 +27,16 @@ def test_rows():
 
 
 def test_features():
-    counts = [10, 100, 200, 500, 1000, 2000, 3000, 4000, 5000, 8000, 10000, 20000]
     times = []
 
     for c in counts:
-        data = generate_data(1000, c)
+        data = generate_data(50, c)
         cluster_time = get_cluster_time(data)
         times.append(round(cluster_time, 3))
 
     return times
 
-def get_cluster_time(data, filename):
+def get_cluster_time(data, filename=False):
     start = time.time()
     c = inchlib_clust.Cluster()
     c.read_data(data, header=False)
@@ -52,4 +52,5 @@ def get_cluster_time(data, filename):
 if __name__ == '__main__':
     times = test_rows()
     # times = test_features()
+    print counts
     print times

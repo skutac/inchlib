@@ -12,9 +12,9 @@ $(document).ready(function() {
                 x: -20 //center
             },
             xAxis: {
-                categories: [10, 100, 500, 1000, 2000, 5000, 10000, 20000, 30000],
+                categories: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
                 title: {
-                    text: 'Rows'
+                    text: 'Rows (thousands)'
                 },
             },
             yAxis: {
@@ -38,19 +38,19 @@ $(document).ready(function() {
             },
             series: [{
                 name: 'Time',
-                data: [0.002, 0.012, 0.048, 0.117, 0.365, 1.672, 6.123, 30.138, 93.745],
+                data:[0.098, 0.281, 0.519, 0.872, 1.299, 1.83, 2.416, 3.101, 3.901, 4.764, 5.751, 6.847, 8.054, 9.365, 10.768, 12.325, 14.132, 16.016, 18.184, 20.363],
             },]
     });
 
     $('#performance_features').highcharts({
             title: {
-                text: 'Clustering Time X Number of features (1000 rows)',
+                text: 'Clustering Time X Number of features (50 rows)',
                 x: -20 //center
             },
             xAxis: {
-                categories: [10, 100, 200, 500, 1000, 2000, 3000, 4000, 5000, 8000, 10000, 20000],
+                categories: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
                 title: {
-                    text: 'Features'
+                    text: 'Features (thousands)'
                 },
             },
             yAxis: {
@@ -74,7 +74,7 @@ $(document).ready(function() {
             },
             series: [{
                 name: 'Time',
-                data: [0.062, 0.205, 0.355, 0.82, 1.681, 3.542, 5.363, 7.148, 8.93, 14.418, 17.865, 35.681],
+                data: [0.041, 0.079, 0.118, 0.157, 0.193, 0.232, 0.27, 0.309, 0.346, 0.385, 0.421, 0.46, 0.501, 0.539, 0.575, 0.616, 0.663, 0.708, 0.746, 0.789],
             },]
     });
 
@@ -84,9 +84,9 @@ $(document).ready(function() {
                 x: -20 //center
             },
             xAxis: {
-                categories: [10, 100, 500, 1000, 2000, 5000],
+                categories: [1, 2, 3, 4, 5, 6, 7],
                 title: {
-                    text: 'Rows'
+                    text: 'Rows (thousands)'
                 },
             },
             yAxis: {
@@ -110,7 +110,7 @@ $(document).ready(function() {
             },
             series: [{
                 name: 'Time',
-                data: [0.21, 0.5, 1.94, 5.36, 9.5, 18.1],
+                data: [2.8, 5.2, 7.7, 10.7, 12.6, 14.8, 18.2],
             },]
     });
 });
