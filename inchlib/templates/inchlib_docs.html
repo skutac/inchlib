@@ -16,7 +16,7 @@
 		for(var color in dendrogram.colors){
 			color_tr = $("<tr><td>" + color + "</td></tr>");
 			for(var i = 0; i<color_max; i++){
-				current = dendrogram.get_color_for_value(i, color_min, color_max-1, color_middle, color);
+				current = dendrogram._get_color_for_value(i, color_min, color_max-1, color_middle, color);
 				color_tr.append("<td style='background-color:" + current + "'></td>");
 			}
 			colors_table.append(color_tr);
