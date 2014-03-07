@@ -890,9 +890,9 @@
     }, 
     "data": {
         "feature_names": [
-            "1e-04 mol/l", 
-            "1e-05 mol/l", 
-            "1e-03 mol/l"
+            "1x10-4 mol.dm-3",
+            "1x10-5 mol.dm-3",
+            "1x10-3 mol.dm-3"
         ], 
         "nodes": {
             "10295": {

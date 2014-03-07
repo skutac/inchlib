@@ -1,6 +1,7 @@
 function InCHlib(settings){
     var target_width = $("#" + settings.target).width();
-    this.start = new Date().getTime();
+    // When measuring the rendering duration
+    // this.start = new Date().getTime();
 
     this.settings = {
         "target" : settings.target,
@@ -378,8 +379,9 @@ InCHlib.prototype.draw = function(){
     }
 
     this.highlight_rows(this.settings.highlighted_rows);
-    this.end = new Date().getTime();
-    console.log(this.end - this.start);
+    // When measuring the rendering duration
+    // this.end = new Date().getTime();
+    // console.log(this.end - this.start);
 }
 
 InCHlib.prototype._draw_row_dendrogram = function(node_id){
