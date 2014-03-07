@@ -548,7 +548,7 @@ InCHlib.prototype._set_heatmap_settings = function(){
     this.current_label = null;
     this.categories2numbers = {};
 
-    if(this.data.header){
+    if(this.data.header && this.data.header.length > 0){
         this.heatmap_header = this.data.header;
         for(i=0; i<this.data_dimensions; i++){
             this.header[i] = this.heatmap_header[i];
@@ -569,7 +569,9 @@ InCHlib.prototype._set_heatmap_settings = function(){
             }
             this.data.nodes["header_row"] = {"features": empty_arr};
         }
-
+    }
+    else{
+        this.settings.header_as_heatmap_row = false;
     }
 
     var data = [];
