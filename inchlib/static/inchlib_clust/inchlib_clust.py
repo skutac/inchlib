@@ -404,34 +404,34 @@ class Cluster():
         self.data = [[round(v, 3) for v in row] for row in self.data]
         return
 
-    def cluster_data(self, data_type="numeric", distance_measure="euclidean", linkage="single", axis="row"):
+    def cluster_data(self, data_type="numeric", row_distance="euclidean", row_linkage="single", axis="row", column_distance="euclidean", column_linkage="ward"):
         """Performs clustering according to the given parameters."""
-        print "Cluster analysis setup:", data_type, distance_measure, linkage, axis
+        print "Cluster analysis setup:", data_type, row_distance, row_linkage, axis
         self.data_type = data_type
         self.clustering_axis = axis
-        linkage = str(linkage)
+        row_linkage = str(row_linkage)
 
         if data_type == "nominal":
             self.__binarize_nominal_data__()
         
-        if linkage in RAW_LNKAGES:
-            self.clustering = fastcluster.linkage(self.data, method=linkage, metric=distance_measure)
+        if row_linkage in RAW_LNKAGES:
+            self.clustering = fastcluster.linkage(self.data, method=row_linkage, metric=row_distance)
 
         else:
-            self.distance_vector = fastcluster.pdist(self.data, distance_measure)
+            self.distance_vector = fastcluster.pdist(self.data, row_distance)
 
-            if data_type == "numeric" and not distance_measure in DATA_TYPES[data_type]:
+            if data_type == "numeric" and not row_distance in DATA_TYPES[data_type]:
                 raise Exception("".join(["When clustering numeric data you must choose from these distance measures: ", ", ".join(DATA_TYPES[data_type])]))
-            elif (data_type == "binary" or data_type == "nominal") and not distance_measure in DATA_TYPES[data_type]:
+            elif (data_type == "binary" or data_type == "nominal") and not row_distance in DATA_TYPES[data_type]:
                 raise Exception("".join(["When clustering binary or nominal data you must choose from these distance measures: ", ", ".join(DATA_TYPES[data_type])]))
             elif not data_type in DATA_TYPES.keys():
                 raise Exception("".join(["You can choose only from data types: ", ", ".join(DATA_TYPES.keys())]))
 
-            self.clustering = fastcluster.linkage(self.distance_vector, method=str(linkage))
+            self.clustering = fastcluster.linkage(self.distance_vector, method=str(row_linkage))
 
         self.column_clustering = []
         if axis == "both" and len(self.data[0]) > 2:
-            self.__cluster_columns__()
+            self.__cluster_columns__(column_distance, column_linkage)
 
         if data_type == "nominal":
             self.__integerize_nominal_data__()
@@ -441,9 +441,9 @@ class Cluster():
 
         return
 
-    def __cluster_columns__(self):
+    def __cluster_columns__(self, column_distance, column_linkage):
         columns = zip(*self.data)
-        self.column_clustering = fastcluster.linkage(columns, method="ward", metric="euclidean")
+        self.column_clustering = fastcluster.linkage(columns, method=column_linkage, metric=column_distance)
         self.data_order = hcluster.leaves_list(self.column_clustering)
         self.__reorder_data__()
         return
@@ -472,7 +472,7 @@ def _process_(arguments):
     if arguments.normalize:
         c.normalize_data(feature_range=(0,1), write_original=arguments.write_original)
 
-    c.cluster_data(data_type=arguments.datatype, distance_measure=arguments.distance, linkage=arguments.linkage, axis=arguments.axis)
+    c.cluster_data(data_type=arguments.datatype, row_distance=arguments.row_distance, row_linkage=arguments.row_linkage, axis=arguments.axis, column_distance=arguments.column_distance, column_linkage=arguments.column_linkage)
 
     d = Dendrogram(c)
     d.create_dendrogram(contract_clusters=arguments.compress, cluster_count=arguments.compress, write_data= not arguments.dont_write_data)
@@ -491,8 +491,10 @@ if __name__ == '__main__':
 
     parser.add_argument("data_file", type=str, help="csv(text) data file with delimited values")
     parser.add_argument("-o", "--output_file", type=str, help="the name of output file")
-    parser.add_argument("-d", "--distance", type=str, default="euclidean", help="set the distance to use for clustering")
-    parser.add_argument("-l", "--linkage", type=str, default="ward", help="set the linkage to use for clustering")
+    parser.add_argument("-rd", "--row_distance", type=str, default="euclidean", help="set the distance to use for clustering rows")
+    parser.add_argument("-rl", "--row_linkage", type=str, default="ward", help="set the linkage to use for clustering rows")
+    parser.add_argument("-cd", "--column_distance", type=str, default="euclidean", help="set the distance to use for clustering columns (only when clustering by both axis -a parameter)")
+    parser.add_argument("-cl", "--column_linkage", type=str, default="ward", help="set the linkage to use for clustering columns (only when clustering by both axis -a parameter)")
     parser.add_argument("-a", "--axis", type=str, default="row", help="define clustering axis (row/both)")
     parser.add_argument("-dt", "--datatype", type=str, default="numeric", help="specify the type of the data (numeric/binary)")
     parser.add_argument("-dd", "--data_delimiter", type=str, default=",", help="delimiter of values in data file")
