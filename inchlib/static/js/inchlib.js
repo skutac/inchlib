@@ -26,6 +26,7 @@ function InCHlib(settings){
         "max_column_width": 100,
         "font": "Arial",
         "values_center": "median",
+        "draw_row_ids": false,
         "header_as_heatmap_row": false,
         "header_row_colors": "YlOrB",
         "current_row_ids_callback": function(row_ids){
@@ -61,6 +62,7 @@ function InCHlib(settings){
             "RdYlGn": {"start": {"r":215, "g": 25, "b": 28}, "end": {"r": 26, "g": 150, "b": 65}, "middle": {"r":255, "g": 255, "b": 178}},
             "BuWhRd": {"start": {"r": 33, "g": 113, "b": 181}, "middle": {"r": 255, "g": 255, "b": 255}, "end": {"r":215, "g": 25, "b": 28}},
             "RdBkGr": {"start": {"r":215, "g": 25, "b": 28}, "middle": {"r": 0, "g": 0, "b": 0}, "end": {"r": 35, "g": 139, "b": 69}},
+            "RdGyBu": {"start": {"r":215, "g": 25, "b": 28}, "middle": {"r": 240, "g": 240, "b": 240}, "end": {"r": 44, "g": 123, "b": 182}},
     };
     
     $.extend(this.settings, settings);
@@ -189,6 +191,7 @@ InCHlib.prototype._get_columns_min_max_middle = function(data){
 
     for(i = 0; i<columns.length; i++){
         if(this._is_number(columns[i][0])){
+            columns[i] = columns[i].map(parseFloat)
             min = Math.min.apply(null, columns[i]);
             max = Math.max.apply(null, columns[i]);
             middle = this._middle2fnc(columns[i]);
@@ -712,7 +715,9 @@ InCHlib.prototype._draw_heatmap = function(){
         this.heatmap_layer.add(heatmap_row);
     }
 
-    this._draw_row_ids(current_leaves_y);
+    if(this.settings.draw_row_ids){
+        this._draw_row_ids(current_leaves_y);
+    }
 
     this.stage.add(this.heatmap_layer)
     this.stage.add(this.heatmap_overlay);
@@ -1663,6 +1668,9 @@ InCHlib.prototype._filter_icon_click = function(filter_button){
 
     if(filter_list.length > 0){
         $("#dendrogram_filter_features").fadeIn("slow");
+        var target_element = $("#" + self.settings.target);
+        $("#dendrogram_overlay").css({"width": target_element.outerWidth(true), "height": target_element.outerHeight(true)});
+        $("#dendrogram_overlay").fadeIn("slow");
     }
     else{
         filter_list = "";
@@ -1696,7 +1704,9 @@ InCHlib.prototype._filter_icon_click = function(filter_button){
             "padding-left":"15px",
             "padding-bottom":"10px",
             "padding-right":"15px",
-            "font-weight":"bold"});
+            "font-weight":"bold",
+            "z-index": 1000
+        });
 
         filter_features_element.find("ul").css({
             "list-style-type":"none",
@@ -1715,7 +1725,29 @@ InCHlib.prototype._filter_icon_click = function(filter_button){
             "opacity":"0.7",
         });
 
+        draw_element_overlay();
+        filter_features_element.toTo
         filter_features_element.fadeIn("slow");
+
+        function draw_element_overlay(){
+            var target_element = $("#" + self.settings.target);
+            var outer_width = target_element.outerWidth(true);
+            var width = target_element.outerWidth();
+            var outer_height = target_element.outerHeight(true);
+            var height = target_element.outerHeight();
+            var position = $(target_element).offset();
+            var overlay = $("<div id='dendrogram_overlay'></div>");
+
+            overlay.css({"background-color": "white", 
+                        "width": width, 
+                        "height":height,
+                        "position": "absolute",
+                        "top": position.top-((outer_height-height)/2),
+                        "left": position.left-((outer_width-width)/2),
+                        "opacity": 0.5});
+            
+            target_element.append(overlay);
+        }
 
         $(".feature_switch").click(function(){
             var num = parseInt($(this).attr("data-num"));
@@ -1753,10 +1785,17 @@ InCHlib.prototype._filter_icon_click = function(filter_button){
 
         $("#cancel_filter_list").click(function(){
             $("#dendrogram_filter_features").fadeOut("slow");
+            $("#dendrogram_overlay").fadeOut("slow");
+        });
+
+        $("#dendrogram_overlay").click(function(){
+            $("#dendrogram_filter_features").fadeOut("slow");
+            $("#dendrogram_overlay").fadeOut("slow");
         });
 
         $("#update_filter_list").click(function(){
             $("#dendrogram_filter_features").fadeOut("slow");
+            $("#dendrogram_overlay").fadeOut("slow");
 
             var node_id = (self.zoomed_clusters.length > 0)?self.zoomed_clusters[self.zoomed_clusters.length-1]:self.root_id;
 
@@ -2088,12 +2127,12 @@ InCHlib.prototype._middle2fnc = function(values){
     var self = this;
     var fncs = {"zero": function(values){return 0;},
       "median": function(values){
-        values.sort();
+        values.sort(function(a,b){return a - b});
         var median_pos = self._hack_round(values.length/2);
         return values[median_pos];
         }, 
       "mean": function(values){
-        var sum = values.reduce(function(a, b){return a + b;});
+        var sum = values.reduce(function(a, b){return parseFloat(a) + b;});
         return sum/values.length;}
     };
     return fncs[this.settings.values_center](values);

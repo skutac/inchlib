@@ -19,6 +19,15 @@
   ga('create', 'UA-47862853-1', 'openscreen.cz');
   ga('send', 'pageview');
 
+  $(document).ready(function() {
+    $(document).keyup(function(e) {
+      if (e.keyCode == 27){
+        $("#dendrogram_filter_features").fadeOut("slow");
+        $("#dendrogram_overlay").fadeOut("slow");
+      }
+    });
+  });
+
 </script>
 
 <title>InCHlib - Interactive Cluster Heatmap library</title>

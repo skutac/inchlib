@@ -8,18 +8,18 @@
 				target: "dendrogram",
 				metadata: true, 
 				dendrogram: true,
-				column_dendrogram:true, 
+				// column_dendrogram:true, 
 				max_height: 800,
 				font: "Ubuntu",
 				heatmap_colors: "Greens",
-				metadata_colors: "Reds",
+				metadata_colors: "RdGyBu",
 				independent_columns: true,
 				// heatmap_font_color: "white",
 				// values_center: "zero",
 				// count_column: true,
 			});
 		{% load staticfiles %}
-		dendrogram.read_data_from_file("{% static "data/steroids.json" %}");
+		dendrogram.read_data_from_file("{% static "data/chembl_gr.json" %}");
 		dendrogram.draw();
 	});
 </script>
