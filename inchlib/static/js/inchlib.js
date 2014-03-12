@@ -62,7 +62,7 @@ function InCHlib(settings){
             "RdYlGn": {"start": {"r":215, "g": 25, "b": 28}, "end": {"r": 26, "g": 150, "b": 65}, "middle": {"r":255, "g": 255, "b": 178}},
             "BuWhRd": {"start": {"r": 33, "g": 113, "b": 181}, "middle": {"r": 255, "g": 255, "b": 255}, "end": {"r":215, "g": 25, "b": 28}},
             "RdBkGr": {"start": {"r":215, "g": 25, "b": 28}, "middle": {"r": 0, "g": 0, "b": 0}, "end": {"r": 35, "g": 139, "b": 69}},
-            "RdGyBu": {"start": {"r":215, "g": 25, "b": 28}, "middle": {"r": 240, "g": 240, "b": 240}, "end": {"r": 44, "g": 123, "b": 182}},
+            "RdGyBu": {"start": {"r":215, "g": 25, "b": 28}, "middle": {"r":254, "g": 229, "b": 217}, "end": {"r": 44, "g": 123, "b": 182}},
     };
     
     $.extend(this.settings, settings);
