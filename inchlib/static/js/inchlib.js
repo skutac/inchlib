@@ -29,7 +29,13 @@ function InCHlib(settings){
         "draw_row_ids": false,
         "header_as_heatmap_row": false,
         "header_row_colors": "YlOrB",
-        "current_row_ids_callback": function(row_ids){
+        "onclick_callback": function(row_ids, evt){
+            return;
+        },
+        "row_onmouseover": function(row_id, evt){
+            return;
+        },
+        "row_onmouseout": function(evt){
             return;
         },
     };
@@ -61,8 +67,9 @@ function InCHlib(settings){
             "RdYlBu": {"start": {"r":215, "g": 25, "b": 28}, "end": {"r": 44, "g": 123, "b": 182}, "middle": {"r":255, "g": 255, "b": 178}},
             "RdYlGn": {"start": {"r":215, "g": 25, "b": 28}, "end": {"r": 26, "g": 150, "b": 65}, "middle": {"r":255, "g": 255, "b": 178}},
             "BuWhRd": {"start": {"r": 33, "g": 113, "b": 181}, "middle": {"r": 255, "g": 255, "b": 255}, "end": {"r":215, "g": 25, "b": 28}},
+            "RdLrBu": {"start": {"r":215, "g": 25, "b": 28}, "middle": {"r":254, "g": 229, "b": 217}, "end": {"r": 44, "g": 123, "b": 182}},
             "RdBkGr": {"start": {"r":215, "g": 25, "b": 28}, "middle": {"r": 0, "g": 0, "b": 0}, "end": {"r": 35, "g": 139, "b": 69}},
-            "RdGyBu": {"start": {"r":215, "g": 25, "b": 28}, "middle": {"r":254, "g": 229, "b": 217}, "end": {"r": 44, "g": 123, "b": 182}},
+            "RdLrGr": {"start": {"r":215, "g": 25, "b": 28}, "middle": {"r":254, "g": 229, "b": 217}, "end": {"r": 35, "g": 139, "b": 69}},
     };
     
     $.extend(this.settings, settings);
@@ -739,57 +746,64 @@ InCHlib.prototype._draw_heatmap = function(){
                 item_ids.push(items[i]);
             }
 
-            self.settings.current_row_ids_callback(item_ids);
+            self.settings.onclick_callback(item_ids, evt);
 
         }
     });
 
     this.heatmap_layer.on("mouseover", function(evt){
         var row_id = evt.targetNode.parent.getAttr("id");
-        var target_class = evt.targetNode.className;
-        if(target_class == "Text"){
-            return;
+        // var target_class = evt.targetNode.className;
+
+        // if(target_class == "Line"){
+        col_number = self._hack_round((self.stage.getPointerPosition().x-self.distance-self.dendrogram_heatmap_distance-0.5*self.pixels_for_dimension)/self.pixels_for_dimension);
+        row_id = evt.targetNode.parent.getAttr("id");
+        var row_values = [];
+
+        for(i = 0; i < self.data.nodes[row_id].features.length; i++){
+            row_values.push(self.data.nodes[row_id].features[i]);
         }
 
-        if(target_class == "Line"){
-            col_number = self._hack_round((self.stage.getPointerPosition().x-self.distance-self.dendrogram_heatmap_distance-0.5*self.pixels_for_dimension)/self.pixels_for_dimension);
-            row_id = evt.targetNode.parent.getAttr("id");
-            var row_values = [];
-            for(i = 0; i < self.data.nodes[row_id].features.length; i++){
-                row_values.push(self.data.nodes[row_id].features[i]);
-            }
-
-            if(self.settings.metadata && col_number >= row_values.length){
-                row_values = row_values.concat(self.data.metadata.nodes[row_id]);
-            }
-
-            if(self.settings.count_column){
-                row_values.push(self.data.nodes[row_id].objects.length);
-            }
-            
-            if(row_id != self.last_highlighted_row){
-                self._row_mouseout();
-                if(row_id != "header_row"){
-                    self._row_mouseover(evt.targetNode.parent, col_number);
-                }
-                self._draw_col_label(evt.targetNode.parent, row_values, col_number);
-                self.last_highlighted_row = row_id;
-                self.last_col_number = col_number;
-            }
-            else if(col_number != self.last_col_number){
-                col_label = self.stage.get('#col_label');
-                col_label.destroy();
-                self._draw_col_label(evt.targetNode.parent, row_values, col_number);
-                self.last_col_number = col_number;
-            }
+        if(self.settings.metadata && col_number >= row_values.length){
+            row_values = row_values.concat(self.data.metadata.nodes[row_id]);
         }
+
+        if(self.settings.count_column){
+            row_values.push(self.data.nodes[row_id].objects.length);
+        }
+        
+        if(row_id != self.last_highlighted_row){
+            self._row_mouseout();
+            if(row_id != "header_row"){
+                self._row_mouseover(evt.targetNode.parent, col_number);
+            }
+            self._draw_col_label(evt.targetNode.parent, row_values, col_number);
+            self.last_highlighted_row = row_id;
+            self.last_col_number = col_number;
+
+            self.settings.row_onmouseover(self.data.nodes[row_id].objects, evt);
+        }
+        else if(col_number != self.last_col_number){
+            col_label = self.stage.get('#col_label');
+            col_label.destroy();
+            self._draw_col_label(evt.targetNode.parent, row_values, col_number);
+            self.last_col_number = col_number;
+        }
+
+        // }
     });
 
-    this.heatmap_overlay.on("mouseenter", function(){
+    this.heatmap_layer.on("mouseleave", function(evt){
         self._row_mouseout();
+        self.settings.row_onmouseout(evt);
     });
 
 }
+
+InCHlib.prototype._draw_heatmap_row = function(node_id, x1, y1){
+
+}
+
 
 InCHlib.prototype._draw_heatmap_row = function(node_id, x1, y1){
     var node = this.data.nodes[node_id];
@@ -1294,7 +1308,7 @@ InCHlib.prototype._highlight_path = function(path_id){
     });
 
     this.highlighted_rows_layer.on("click", function(evt){
-        self.settings.current_row_ids_callback([self.highlighted_row.split("#")[1]]);
+        self.settings.onclick_callback([self.highlighted_row.split("#")[1]], evt);
     });
     
  }
@@ -2106,7 +2120,7 @@ InCHlib.prototype._collect_row_ids = function(y1,y2){
         }
     }
     
-    this.settings.current_row_ids_callback(this.current_row_ids);
+    this.settings.onclick_callback(this.current_row_ids);
 }
 
 InCHlib.prototype._hack_size = function(obj) {

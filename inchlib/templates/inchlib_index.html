@@ -3,6 +3,19 @@
 {% block content %}
 <script>
 	$(document).ready(function(){
+		var target_element = $("#dendrogram");
+		var offset = target_element.offset();
+		var y_pos = offset.top;
+		var x_pos = offset.left;
+		var img_element = $("#molecule_img");
+		img_element.css({"position": "absolute",
+						 "width": 300,
+						 "fill": "white",
+						 "left": x_pos + target_element.width()-80,
+						 "z-index": 100,
+						 "border": "solid #D2D2D2 1px",
+						 "border-radius": "10px"});
+
 		window.dendrogram = new InCHlib(
 			{
 				target: "dendrogram",
@@ -12,8 +25,14 @@
 				max_height: 800,
 				font: "Ubuntu",
 				heatmap_colors: "Greens",
-				metadata_colors: "RdGyBu",
+				metadata_colors: "RdLrBu",
 				independent_columns: true,
+				row_onmouseover: function(ids, evt){
+					show_molecule(ids, evt);
+				},
+				row_onmouseout: function(evt){
+					hide_molecule(evt);
+				},
 				// heatmap_font_color: "white",
 				// values_center: "zero",
 				// count_column: true,
@@ -21,6 +40,19 @@
 		{% load staticfiles %}
 		dendrogram.read_data_from_file("{% static "data/chembl_gr.json" %}");
 		dendrogram.draw();
+
+		function show_molecule(ids, evt){
+			var mol_id = ids[0];
+			var filepath = "/static/img/gr_molecules/" + mol_id + ".svg";
+			img_element.css({"top": evt.pageY-100});
+			img_element.attr("src", filepath);
+			img_element.show();
+
+		}
+
+		function hide_molecule(ids, evt){
+			img_element.hide();
+		}
 	});
 </script>
 
@@ -30,6 +62,8 @@
 <div class="description"><b>InCHlib</b> is multiplatform and works on all common operating systems (Windows, Linux, Mac OS) in all major internet browsers (Internet Explorer, Mozilla Firefox, Google Chrome, Safari, Opera). Its speed is determined by the client’s hardware and internet browser.</div>
 
 <div class="description">On the example below are the activity data of a small set of steroid compounds measured in three concentrations on one of the cell nuclear receptors. In the red color are visualized three molecular descriptors: <i>LogP coefficient, molecular weight and the count of aromatic rings in the molecular structure</i>.</div>
+
+<img src="" id="molecule_img"></img>
 
 <div id="dendrogram"></div>
 {% endblock %}
