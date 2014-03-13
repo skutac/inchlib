@@ -524,10 +524,6 @@ InCHlib.prototype._draw_stage_layer = function(){
     this.stage_layer.on("click", function(){
         self._neutralize_cluster();
     });
-
-    this.stage_layer.on("mouseenter", function(evt){
-        self._row_mouseout();
-    });
 }
 
 InCHlib.prototype._draw_column_dendrogram = function(node_id){
@@ -870,8 +866,13 @@ InCHlib.prototype._draw_heatmap_row = function(node_id, x1, y1){
 
     var self = this;
     for(i = 0; i<lines.length; i++){
+        
         lines[i].on("mouseenter", function(evt){
             self._draw_col_label(evt);
+        });
+
+        lines[i].on("mouseleave", function(evt){
+            self.heatmap_overlay.find("#col_label")[0].destroy();
         });
     }
 
@@ -1217,12 +1218,10 @@ InCHlib.prototype._highlight_path = function(path_id){
     var node = this.data.nodes[path_id];
     if(node.count != 1){
         var path = this._clone_path(this.dendrogram_layer.get("#"+path_id)[0]);
-        // var path = this.dendrogram_layer.get("#"+path_id)[0].clone();
         
         if(path){
             path.setStroke("#F5273C");
             var rect = this._clone_rect(this.dendrogram_layer.get("#"+path_id+"_rect")[0], path);
-            // var rect = this.dendrogram_layer.get("#"+path_id+"_rect")[0].clone();
             rect.setAttrs({path: path, path_id: path_id});
             
             this.dendrogram_overlay_layer.add(path);
@@ -1419,10 +1418,6 @@ InCHlib.prototype._draw_cluster_layer = function(){
     this.stage.add(this.cluster_layer);
 
     var self = this;
-
-    this.cluster_layer.on("mouseenter", function(evt){
-        self._row_mouseout();
-    });
 
     zoom_overlay.on("mouseover", function(){
         self._icon_mouseover(zoom_icon, zoom_overlay, self.cluster_layer);
@@ -1904,97 +1899,12 @@ InCHlib.prototype._dendrogram_layers_mouseover = function(evt){
     if(shape_type == "Rect"){
         var path = evt.targetNode.attrs.path;
         var path_overlay = this._clone_path(path);
-        // var path_overlay = path.clone();
         path_overlay.setStrokeWidth(4);
         path_overlay.setId([this.settings.target, "path_hover"].join("_"))
         this.dendrogram_hover_layer.add(path_overlay);
         this.dendrogram_hover_layer.draw();
     }
 }
-
-InCHlib.prototype._row_mouseout = function(){
-    this.heatmap_overlay.destroyChildren();
-    this.heatmap_overlay.draw();
-    this.highlighted_row = null;
-    this.last_highlighted_row = null;
-    this.last_col_number = null;
-}
-
-// InCHlib.prototype._row_mouseover = function(row_group, col_number){
-//     var i, line;
-//     this.highlighted_row = row_group.attrs.id;
-
-//     for(i = 0; i < row_group.children.length; i++){
-//         if(row_group.children[i].className == "Line"){
-//             line = row_group.children[i];
-//             break;
-//         }
-//     }
-
-//     var y = line.attrs.points[1]-0.5*this.pixels_for_leaf;
-//     var x = this.distance+this.dendrogram_heatmap_distance;
-    
-//     var line_ref = new Kinetic.Line({
-//                  points: [x, y, x+this.visible_features*this.pixels_for_dimension, y],
-//                  stroke: "black",
-//                  strokeWidth: 0.5,
-//                  lineCap: "round",
-//                  shadowOffset: 1,
-//                  dash: [4, 2],
-//                  listening: false,
-//              });
-//     this.heatmap_overlay.add(line_ref);
-
-//     y = y+this.pixels_for_leaf;
-//     this.heatmap_overlay.add(line_ref.clone({points:[x, y, x+this.visible_features*this.pixels_for_dimension, y]}));
-// }
-
-// InCHlib.prototype._draw_col_label = function(row_group, row_values, col_number){
-//     var i, line;
-//     this.highlighted_row = row_group.attrs.id;
-
-//     for(i = 0; i < row_group.children.length; i++){
-//         if(row_group.children[i].className == "Line"){
-//             line = row_group.children[i];
-//             break;
-//         }
-//     }
-
-//     var y = line.attrs.points[1]-0.5*this.pixels_for_leaf;
-//     var x = this.distance+this.dendrogram_heatmap_distance;
-
-//     var tooltip = new Kinetic.Label({
-//         x: x+(col_number+0.5)*this.pixels_for_dimension,
-//         y: y,
-//         opacity: 1,
-//         id: "col_label",
-//         listening: false,
-//     });
-
-//     tooltip.add(new Kinetic.Tag({
-//         fill: this.settings.label_color,
-//         pointerDirection: 'down',
-//         pointerWidth: 10,
-//         pointerHeight: 10,
-//         lineJoin: 'round',
-//         listening: false,
-//     }));
-    
-//     tooltip.add(new Kinetic.Text({
-//         text: [this.header[col_number], row_values[col_number]].join(" "),
-//         fontFamily: this.settings.font,
-//         fontSize: 12,
-//         padding: 8,
-//         fill: 'white',
-//         fontStyle: "bold",
-//         listening: false,
-//     }));
-
-//     this.heatmap_overlay.add(tooltip);
-//     this.heatmap_overlay.moveToTop();
-//     this.heatmap_overlay.draw();
-//     return;
-// }
 
 InCHlib.prototype._visible_features_equal_column_dendrogram_count = function(){
     var i;
@@ -2132,6 +2042,7 @@ InCHlib.prototype._row_mouseover = function(row_id){
     this.highlighted_row = row_id;
     var y = this.leaves_y_coordinates[row_id] - 0.5*this.pixels_for_leaf;
     var x = this.distance+this.dendrogram_heatmap_distance;
+    this.row_borders = new Kinetic.Group();
     
     var line_ref = new Kinetic.Line({
                  points: [x, y, x+this.visible_features*this.pixels_for_dimension, y],
@@ -2142,57 +2053,50 @@ InCHlib.prototype._row_mouseover = function(row_id){
                  dash: [4, 2],
                  listening: false,
              });
-    this.heatmap_overlay.add(line_ref);
-
+    this.row_borders.add(line_ref);
     y = y+this.pixels_for_leaf;
-    this.heatmap_overlay.add(line_ref.clone({points:[x, y, x+this.visible_features*this.pixels_for_dimension, y]}));
+    this.row_borders.add(line_ref.clone({points:[x, y, x+this.visible_features*this.pixels_for_dimension, y]}));
+    this.heatmap_overlay.add(this.row_borders);
 }
 
 InCHlib.prototype._row_group_mouseover = function(evt){
-    console.log(evt)
     var self = this;
     row_id = evt.targetNode.parent.getAttr("id");
         
     if(row_id != self.last_highlighted_row){
-        self._row_mouseout();
 
         if(row_id != "header_row"){
             self._row_mouseover(row_id);
             self.heatmap_overlay.draw();
         }
-        // self._draw_col_label(evt.targetNode.parent, row_values, col_number);
-        self.last_highlighted_row = row_id;
-        // self.last_col_number = col_number;
 
+        self.last_highlighted_row = row_id;
         self.settings.row_onmouseover(self.data.nodes[row_id].objects, evt);
     }
 };
 
 InCHlib.prototype._row_group_mouseleave = function(evt){
-    this._row_mouseout();
+    this.row_borders.destroy();
     this.settings.row_onmouseout(evt);
 };
 
 InCHlib.prototype._draw_col_label = function(evt){
-    // console.log(evt)
     var i, line;
     var attrs = evt.targetNode.attrs;
     var points = attrs.points;
     var x = this._hack_round((points[0] + points[2])/2);
-    var y = points[1]+0.5*this.pixels_for_leaf;
+    var y = points[1]-0.5*this.pixels_for_leaf;
     var column = attrs.column.split("_");
     var header;
 
     if(column[0] == "d"){
         header = this.heatmap_header[column[1]];
-        console.log(header);
     }
     else if(column[0] == "m"){
         header = this.metadata_header[column[1]];
     }
 
     var value = [header, attrs.value].join(" ");
-    // this.highlighted_row = row_group.attrs.id;
 
     var tooltip = new Kinetic.Label({
         x: x,
