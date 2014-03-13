@@ -18,7 +18,7 @@
 					if(i == "highlighted_rows"){
 						val = "[" + val + "]";
 					}
-					else if(i == "current_row_ids_callback"){
+					else if(i == "onclick_callback"){
 						val = settings[i];
 					}
 					settings_string = settings_string + "  <a href='../docs#" + i +"' target=blank>" + i + "</a>" + ": " + val + ",\n";
@@ -36,7 +36,7 @@
 		dendrogram.draw();
 
 		{% if example.exampleid == 9 %}
-			dendrogram.settings.current_row_ids_callback = function(row_ids){$("#row_ids").text(row_ids);};
+			dendrogram.settings.onclick_callback = function(row_ids){$("#row_ids").text(row_ids);};
 		{% endif %}
 	});
 
