@@ -9298,11 +9298,11 @@
             "SlogP", 
             "SMR", 
             "TPSA", 
-            "ExactMW", 
-            "NumRotatableBonds", 
-            "NumHBD", 
-            "NumHBA", 
-            "NumAromaticRings"
+            "Molecular Weight", 
+            "Rotatable Bonds", 
+            "H-Bond Donors", 
+            "H-Bond Acceptors", 
+            "Aromatic Rings"
         ]
     }, 
     "metadata": {
