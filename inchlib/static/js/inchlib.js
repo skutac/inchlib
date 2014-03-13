@@ -677,7 +677,7 @@ InCHlib.prototype._draw_heatmap = function(){
         return;
     }
 
-    var leaf_id, heatmap_row, row_id, col_number, col_label, i;
+    var leaf_id, heatmap_row, row_id, col_number, col_label, i, row_values;
     this.heatmap_layer = new Kinetic.Layer();
     this.heatmap_overlay = new Kinetic.Layer();
     this.current_draw_values = true;
@@ -752,13 +752,10 @@ InCHlib.prototype._draw_heatmap = function(){
     });
 
     this.heatmap_layer.on("mouseover", function(evt){
-        var row_id = evt.targetNode.parent.getAttr("id");
-        // var target_class = evt.targetNode.className;
-
-        // if(target_class == "Line"){
+        row_id = evt.targetNode.parent.getAttr("id");
         col_number = self._hack_round((self.stage.getPointerPosition().x-self.distance-self.dendrogram_heatmap_distance-0.5*self.pixels_for_dimension)/self.pixels_for_dimension);
         row_id = evt.targetNode.parent.getAttr("id");
-        var row_values = [];
+        row_values = [];
 
         for(i = 0; i < self.data.nodes[row_id].features.length; i++){
             row_values.push(self.data.nodes[row_id].features[i]);
@@ -789,8 +786,6 @@ InCHlib.prototype._draw_heatmap = function(){
             self._draw_col_label(evt.targetNode.parent, row_values, col_number);
             self.last_col_number = col_number;
         }
-
-        // }
     });
 
     this.heatmap_layer.on("mouseleave", function(evt){
@@ -798,10 +793,11 @@ InCHlib.prototype._draw_heatmap = function(){
         self.settings.row_onmouseout(evt);
     });
 
-}
-
-InCHlib.prototype._draw_heatmap_row = function(node_id, x1, y1){
-
+    // this.heatmap_overlay.on("mouseenter", function(evt){
+    //     console.log("ok")
+    //     self._row_mouseout();
+    //     self.settings.row_onmouseout(evt);
+    // });
 }
 
 
