@@ -1,8 +1,10 @@
 {% extends "inchlib_base.html" %}
 
 {% block content %}
+{% load staticfiles %}
 <script>
 	$(document).ready(function(){
+		var static_url = "{% static "img/gr_molecules/" %}";
 		var target_element = $("#dendrogram");
 		var offset = target_element.offset();
 		var y_pos = offset.top;
@@ -14,7 +16,8 @@
 						 "left": x_pos + target_element.width()-80,
 						 "z-index": 100,
 						 "border": "solid #D2D2D2 1px",
-						 "border-radius": "10px"});
+						 "border-radius": "10px",
+						 "display": "none"});
 
 		window.dendrogram = new InCHlib(
 			{
@@ -37,13 +40,12 @@
 				// values_center: "zero",
 				// count_column: true,
 			});
-		{% load staticfiles %}
 		dendrogram.read_data_from_file("{% static "data/chembl_gr.json" %}");
 		dendrogram.draw();
 
 		function show_molecule(ids, evt){
 			var mol_id = ids[0];
-			var filepath = "/static/img/gr_molecules/" + mol_id + ".svg";
+			var filepath = static_url + mol_id + ".svg";
 			img_element.css({"top": evt.pageY-100});
 			img_element.attr("src", filepath);
 			img_element.show();
