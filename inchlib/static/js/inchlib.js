@@ -1,3 +1,5 @@
+// Fix functionality of highlight_rows!!!!
+
 function InCHlib(settings){
     var target_width = $("#" + settings.target).width();
     // When measuring the rendering duration
@@ -147,6 +149,7 @@ function InCHlib(settings){
 
         "heatmap_line": new Kinetic.Line({
                            lineCap: 'butt',
+                           value: false,
                         }),
 
         "column_header": new Kinetic.Text({
@@ -822,8 +825,7 @@ InCHlib.prototype._draw_heatmap = function(){
     this.highlighted_rows_layer = new Kinetic.Layer();
     this.stage.add(this.highlighted_rows_layer);
     this.highlighted_rows_layer.moveToTop();
-    this.last_highlighted_row = null;
-    this.last_col_number = null;
+    this.row_borders = this.objects_ref.row_borders.clone();
 
     var self = this;
 
@@ -916,6 +918,7 @@ InCHlib.prototype._draw_heatmap_row = function(node_id, x1, y1){
             if(this.current_draw_values){
                 text = this.objects_ref.heatmap_value.clone({
                     text: text_value,
+                    fontSize: this.value_font_size,
                 });
 
                 width = text.getWidth();
@@ -961,11 +964,11 @@ InCHlib.prototype._draw_heatmap_row = function(node_id, x1, y1){
 InCHlib.prototype._bind_row_events = function(row){
     var self = this;
     row.on("mouseenter", function(evt){
-        self._row_group_mouseover(evt);
+        self._row_mouseenter(evt);
     });
 
     row.on("mouseleave", function(evt){
-        self._row_group_mouseleave(evt);
+        self._row_mouseleave(evt);
     });
 
     row.on("mouseover", function(evt){
@@ -1332,6 +1335,7 @@ InCHlib.prototype._highlight_path = function(path_id){
 
     this.highlighted_rows_layer.on("mouseover", function(evt){
         var rows = self.stage.getIntersection({x:evt.layerX, y:evt.layerY});
+        rows.fire("mouseenter", evt);
         self.heatmap_layer.fire("mouseover", evt);
     });
 
@@ -2027,36 +2031,25 @@ InCHlib.prototype._is_number = function(n){
     return !isNaN(parseFloat(n)) && isFinite(n);
 }
 
-InCHlib.prototype._row_mouseover = function(row_id){
-    this.highlighted_row = row_id;
-    var y = this.leaves_y_coordinates[row_id] - 0.5*this.pixels_for_leaf;
-    var x = this.distance+this.dendrogram_heatmap_distance;
-    this.row_borders = this.objects_ref.row_borders.clone();
-    
-    var border = this.objects_ref.row_border.clone({points: [x, y, x+this.visible_features*this.pixels_for_dimension, y]})
-    this.row_borders.add(border);
-    y = y+this.pixels_for_leaf;
-    this.row_borders.add(this.objects_ref.row_border.clone({points:[x, y, x+this.visible_features*this.pixels_for_dimension, y]}));
-    this.heatmap_overlay.add(this.row_borders);
+InCHlib.prototype._row_mouseenter = function(evt){
+    var row_id = evt.targetNode.parent.getAttr("id");
+    if(row_id != "header_row"){
+        this.highlighted_row = row_id;
+        var y = this.leaves_y_coordinates[row_id] - 0.5*this.pixels_for_leaf;
+        var x = this.distance+this.dendrogram_heatmap_distance;
+        this.row_borders = this.objects_ref.row_borders.clone();
+        
+        var border = this.objects_ref.row_border.clone({points: [x, y, x+this.visible_features*this.pixels_for_dimension, y]})
+        this.row_borders.add(border);
+        y = y+this.pixels_for_leaf;
+        this.row_borders.add(this.objects_ref.row_border.clone({points:[x, y, x+this.visible_features*this.pixels_for_dimension, y]}));
+        this.heatmap_overlay.add(this.row_borders);
+        this.heatmap_overlay.draw();
+        this.settings.row_onmouseover(this.data.nodes[row_id].objects, evt);
+    }
 }
 
-InCHlib.prototype._row_group_mouseover = function(evt){
-    var self = this;
-    row_id = evt.targetNode.parent.getAttr("id");
-        
-    if(row_id != self.last_highlighted_row){
-
-        if(row_id != "header_row"){
-            self._row_mouseover(row_id);
-            self.heatmap_overlay.draw();
-        }
-
-        self.last_highlighted_row = row_id;
-        self.settings.row_onmouseover(self.data.nodes[row_id].objects, evt);
-    }
-};
-
-InCHlib.prototype._row_group_mouseleave = function(evt){
+InCHlib.prototype._row_mouseleave = function(evt){
     this.row_borders.destroy();
     this.settings.row_onmouseout(evt);
 };
@@ -2071,9 +2064,14 @@ InCHlib.prototype._draw_col_label = function(evt){
     var header_type2value = {"d": this.heatmap_header[column[1]],
                              "m": this.metadata_header[column[1]],
                              "Count": "Count"};
-
+    var value = attrs.value;
     var header = header_type2value[column[0]];
-    var value = [header, attrs.value].join("\n");
+    if(value){
+        value = [header, value].join("\n");
+    }
+    else{
+        value = header;
+    }
 
     var tooltip = this.objects_ref.tooltip_label.clone({x: x, y:y, id: "col_label",});
     tooltip.add(this.objects_ref.tooltip_tag.clone({pointerDirection: 'down'}));
