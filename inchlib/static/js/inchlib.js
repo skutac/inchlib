@@ -1,90 +1,3 @@
-function InCHlib(settings){
-    var target_width = $("#" + settings.target).width();
-    // When measuring the rendering duration
-    // this.start = new Date().getTime();
-
-    this.settings = {
-        "target" : settings.target,
-        "heatmap" : true,
-        "dendrogram": true,
-        "metadata": false,
-        "max_height" : 800,
-        "width" : target_width,
-        "heatmap_colors" : "Greens",
-        "heatmap_font_color" : "black",
-        "heatmap_part_width" : 0.7,
-        "column_dendrogram" : false,
-        "independent_columns" : true,
-        "metadata_colors" : "Oranges",
-        "highlight_colors" : "Reds",
-        "highlighted_rows" : [],
-        "label_color": "#9E9E9E",
-        "count_column": false,
-        "count_column_colors": "Reds",
-        "min_row_height": false,
-        "max_row_height": 25,
-        "max_column_width": 100,
-        "font": "Arial",
-        "values_center": "median",
-        "draw_row_ids": false,
-        "header_as_heatmap_row": false,
-        "header_row_colors": "YlOrB",
-        "onclick_callback": function(row_ids, evt){
-            return;
-        },
-        "row_onmouseover": function(row_id, evt){
-            return;
-        },
-        "row_onmouseout": function(evt){
-            return;
-        },
-    };
-
-    this.colors = {
-            "YlGn": {"start": {"r":255, "g": 255, "b": 204}, "end": {"r": 35, "g": 132, "b": 67}},
-            "GnBu": {"start": {"r":240, "g": 249, "b": 232}, "end": {"r": 43, "g": 140, "b": 190}},
-            "BuGn": {"start": {"r":237, "g": 248, "b": 251}, "end": {"r": 35, "g": 139, "b": 69}},
-            "PuBu": {"start": {"r":241, "g": 238, "b": 246}, "end": {"r": 5, "g": 112, "b": 176}},
-            "BuPu": {"start": {"r":237, "g": 248, "b": 251}, "end": {"r": 136, "g": 65, "b": 157}},
-            "RdPu": {"start": {"r":254, "g": 235, "b": 226}, "end": {"r": 174, "g": 1, "b": 126}},
-            "PuRd": {"start": {"r":241, "g": 238, "b": 246}, "end": {"r": 206, "g": 18, "b": 86}},
-            "OrRd": {"start": {"r":254, "g": 240, "b": 217}, "end": {"r": 215, "g": 48, "b": 31}},
-            "Purples2": {"start": {"r":242, "g": 240, "b": 247}, "end": {"r": 106, "g": 81, "b": 163}},
-            "Blues": {"start": {"r":239, "g": 243, "b": 255}, "end": {"r": 33, "g": 113, "b": 181}},
-            "Greens": {"start": {"r":237, "g": 248, "b": 233}, "end": {"r": 35, "g": 139, "b": 69}},
-            "Oranges": {"start": {"r":254, "g": 237, "b": 222}, "end": {"r": 217, "g": 71, "b": 1}},
-            "Reds": {"start": {"r":254, "g": 229, "b": 217}, "end": {"r": 203, "g": 24, "b": 29}},
-            "Greys": {"start": {"r":247, "g": 247, "b": 247}, "end": {"r": 82, "g": 82, "b": 82}},
-            "PuOr": {"start": {"r":230, "g": 97, "b": 1}, "end": {"r": 94, "g": 60, "b": 153}},
-            "BrBG": {"start": {"r":166, "g": 97, "b": 26}, "end": {"r": 1, "g": 133, "b": 113}},
-            "RdBu": {"start": {"r":202, "g": 0, "b": 32}, "end": {"r": 5, "g": 113, "b": 176}},
-            "RdGy": {"start": {"r":202, "g": 0, "b": 32}, "end": {"r": 64, "g": 64, "b": 64}},
-            "YlOrR": {"start": {"r":255, "g": 255, "b": 178}, "end": {"r": 227, "g": 26, "b": 28}, "middle": {"r": 204, "g": 76, "b": 2}},
-            "YlOrB": {"start": {"r":255, "g": 255, "b": 212}, "end": {"r": 5, "g": 112, "b": 176}, "middle": {"r": 204, "g": 76, "b": 2}},
-            "PRGn2": {"start": {"r":123, "g": 50, "b": 148}, "end": {"r": 0, "g": 136, "b": 55}, "middle": {"r":202, "g": 0, "b": 32}},
-            "PiYG2": {"start": {"r":208, "g": 28, "b": 139}, "end": {"r": 77, "g": 172, "b": 38}, "middle": {"r":255, "g": 255, "b": 178},},
-            "YlGnBu": {"start": {"r":255, "g": 255, "b": 204}, "end": {"r": 34, "g": 94, "b": 168}, "middle": {"r": 35, "g": 132, "b": 67}},
-            "RdYlBu": {"start": {"r":215, "g": 25, "b": 28}, "end": {"r": 44, "g": 123, "b": 182}, "middle": {"r":255, "g": 255, "b": 178}},
-            "RdYlGn": {"start": {"r":215, "g": 25, "b": 28}, "end": {"r": 26, "g": 150, "b": 65}, "middle": {"r":255, "g": 255, "b": 178}},
-            "BuWhRd": {"start": {"r": 33, "g": 113, "b": 181}, "middle": {"r": 255, "g": 255, "b": 255}, "end": {"r":215, "g": 25, "b": 28}},
-            "RdLrBu": {"start": {"r":215, "g": 25, "b": 28}, "middle": {"r":254, "g": 229, "b": 217}, "end": {"r": 44, "g": 123, "b": 182}},
-            "RdBkGr": {"start": {"r":215, "g": 25, "b": 28}, "middle": {"r": 0, "g": 0, "b": 0}, "end": {"r": 35, "g": 139, "b": 69}},
-            "RdLrGr": {"start": {"r":215, "g": 25, "b": 28}, "middle": {"r":254, "g": 229, "b": 217}, "end": {"r": 35, "g": 139, "b": 69}},
-    };
-    
-    $.extend(this.settings, settings);
-    this.settings.width = (settings.max_width && settings.max_width < target_width)?settings.max_width:this.settings.width;
-    this.settings.heatmap_part_width = (this.settings.heatmap_part_width>0.9)?0.9:this.settings.heatmap_part_width;
-
-    this.header_height = 150;
-    this.footer_height = 70;
-    this.dendrogram_heatmap_distance = 5;
-    this.heatmap_width = 0;
-    this.highlighted_row = null;
-    this.leaves_y_coordinates = {};
-    this.rows = {};
-}
-
 InCHlib.prototype.read_data = function(json){
     this.data = json;
     this.data.header = this.data.data.header;
@@ -172,7 +85,6 @@ InCHlib.prototype._get_min_max_middle = function(data){
     min_max_middle.push(Math.max.apply(null, all));
     min_max_middle.push(this._middle2fnc(all));
     return min_max_middle;
-
 }
 
 InCHlib.prototype._get_columns_min_max_middle = function(data){
@@ -225,7 +137,6 @@ InCHlib.prototype._get_hash_object = function(array){
         }
     }
     return hash_object;
-
 }
 
 InCHlib.prototype._get_max_length = function(items){
@@ -261,7 +172,6 @@ InCHlib.prototype._get_max_value_length = function(){
             }
         }
     }
-
     return max_length;
 }
 
@@ -677,28 +587,12 @@ InCHlib.prototype._draw_heatmap = function(){
     this.heatmap_layer = new Kinetic.Layer();
     this.heatmap_overlay = new Kinetic.Layer();
     this.current_draw_values = true;
-
     this.max_value_length = this._get_max_value_length();
     this.value_font_size = this._get_font_size(this.max_value_length, this.pixels_for_dimension, this.pixels_for_leaf, 12);
 
     if(this.value_font_size < 4){
         this.current_draw_values = false;
     }
-    
-
-    this.value_text_ref = new Kinetic.Text({
-        fontSize: this.value_font_size,
-        fontFamily: this.settings.font,
-        fill: this.settings.heatmap_font_color,
-        listening: false,
-    });
-
-
-    this.line_ref = new Kinetic.Line({
-            strokeWidth: this.pixels_for_leaf,
-            lineCap: 'butt',
-    });
-
     this._set_on_features();
 
     var x1 = this._hack_round(this.distance+this.dendrogram_heatmap_distance);
@@ -775,17 +669,18 @@ InCHlib.prototype._draw_heatmap_row = function(node_id, x1, y1){
         x2 = x1 + this.pixels_for_dimension;
         y2 = y1;
 
-        line = this.line_ref.clone({
+        line = this.objects_ref.heatmap_line.clone({
             stroke: color,
             points: [x1, y1, x2, y2],
             value: value,
             column: ["d", col_index].join("_"),
+            strokeWidth: this.pixels_for_leaf,
         });
         row.add(line);
         lines.push(line);
 
         if(this.current_draw_values){
-            text = this.value_text_ref.clone({
+            text = this.objects_ref.heatmap_value.clone({
                 x: this._hack_round((x1 + x2)/2-(""+value).length*(this.value_font_size/4)),
                 y: this._hack_round(y1-this.value_font_size/2),
                 fontSize: this.value_font_size,
@@ -814,19 +709,21 @@ InCHlib.prototype._draw_heatmap_row = function(node_id, x1, y1){
             x2 = x1 + this.pixels_for_dimension;
             y2 = y1;
                 
-            line = this.line_ref.clone({
+            line = this.objects_ref.heatmap_line.clone({
                     stroke: color,
                     points: [x1, y1, x2, y2],
                     value: value,
                     column: ["m", col_index].join("_"),
+                    strokeWidth: this.pixels_for_leaf,
                 });
             row.add(line);
             lines.push(line);
 
             if(this.current_draw_values){
-                text = this.value_text_ref.clone({
+                text = this.objects_ref.heatmap_value.clone({
                     text: text_value,
-                })
+                });
+
                 width = text.getWidth();
                 x = this._hack_round((x1+x2)/2-width/2);
                 y = this._hack_round(y1-this.value_font_size/2);
@@ -842,19 +739,21 @@ InCHlib.prototype._draw_heatmap_row = function(node_id, x1, y1){
         var count = node.objects.length;
         color = this._get_color_for_value(count, this.min_item_count, this.max_item_count, this.middle_item_count, this.settings.count_column_colors);
         
-        line = this.line_ref.clone({
+        line = this.objects_ref.heatmap_line.clone({
                 stroke: color,
                 points: [x1, y1, x2, y2],
-                value: value,
+                value: count,
                 column: "Count",
+                strokeWidth: this.pixels_for_leaf,
         });
         row.add(line);
         lines.push(line);
 
         if(this.current_draw_values){
-            text = this.value_text_ref.clone({
+            text = this.objects_ref.heatmap_value.clone({
                 text: count,
-            })
+            });
+
             width = text.getWidth();
             x = this._hack_round((x1+x2)/2-width/2);
             y = this._hack_round(y1-this.value_font_size/2);
@@ -900,7 +799,7 @@ InCHlib.prototype._draw_row_ids = function(leaves_y){
     
     if(font_size > 4){
         for(i = 0; i < object_y.length; i++){
-            text = this.value_text_ref.clone({
+            text = this.objects_ref.heatmap_value.clone({
                 x: x,
                 y: this._hack_round(object_y[i][1] - font_size/2),
                 fontSize: font_size,
@@ -944,7 +843,7 @@ InCHlib.prototype._draw_header_row = function(x1){
         x2 = x1 + this.pixels_for_dimension;
         y2 = y1;
             
-        line = this.line_ref.clone({
+        line = this.objects_ref.heatmap_line.clone({
                 strokeWidth: row_height,
                 stroke: color,
                 points: [x1, y1, x2, y2]
@@ -976,24 +875,17 @@ InCHlib.prototype._draw_heatmap_header = function(){
     y = (rotation == -45 && this.settings.header_as_heatmap_row)? y - 10: y;
     var distance = 0;
     var x, i, column_header;
-
     var items = [];
+
     for(i = 0; i<this.header.length; i++){
         items[i] = this.header[i];
     }
+
     var max_text_length = this._get_max_length(items);
     var font_size = this._hack_round(this.header_height*1.5/max_text_length);
     font_size = (font_size > 16)?16:font_size;
     font_size = (font_size > this.pixels_for_dimension)? this.pixels_for_dimension - 3: font_size;
-
-    var column_header_ref = new Kinetic.Text({
-                                fontSize: font_size,
-                                fontFamily: this.settings.font,
-                                fontStyle: "bold",
-                                rotationDeg: rotation,
-                                fill: 'black',
-                            });
-
+    
     if(font_size < 8){
         return;
     }
@@ -1001,11 +893,13 @@ InCHlib.prototype._draw_heatmap_header = function(){
     for(i = 0; i<this.header.length; i++){
         if(this.features[i] == 1 || i>this.dimensions-1){
             x = this.distance+distance*this.pixels_for_dimension+this.pixels_for_dimension/2;
-            column_header = column_header_ref.clone({
+            column_header = this.objects_ref.column_header.clone({
                     x: x,
                     y: y,
                     text: this.header[i],
                     position_index: i+1,
+                    fontSize: font_size,
+                    rotationDeg: rotation,
             });
             this.header_layer.add(column_header);
             distance++;
@@ -1015,6 +909,7 @@ InCHlib.prototype._draw_heatmap_header = function(){
 
     if(!(this.settings.dendrogram)){
         var self = this;
+
         this.header_layer.on("click", function(evt){
             var column = evt.targetNode;
             var order = column.attrs.order;
@@ -1121,23 +1016,19 @@ InCHlib.prototype._draw_navigation = function(){
     var self = this;
 
     if(self.zoomed_clusters.length>0){
-        var refresh_icon = new Kinetic.Path({
+        var refresh_icon = this.objects_ref.icon.clone({
             data: "M24.083,15.5c-0.009,4.739-3.844,8.574-8.583,8.583c-4.741-0.009-8.577-3.844-8.585-8.583c0.008-4.741,3.844-8.577,8.585-8.585c1.913,0,3.665,0.629,5.09,1.686l-1.782,1.783l8.429,2.256l-2.26-8.427l-1.89,1.89c-2.072-1.677-4.717-2.688-7.587-2.688C8.826,3.418,3.418,8.826,3.416,15.5C3.418,22.175,8.826,27.583,15.5,27.583S27.583,22.175,27.583,15.5H24.083z",
             x: 50,
             y: 10,
-            fill: "grey",
-            scale: 1,
             id: "refresh_icon",
             label: "Refresh"
         });
         self.navigation_layer.add(refresh_icon);
 
-        var back_icon = new Kinetic.Path({
+        var back_icon = this.objects_ref.icon.clone({
             data: "M22.646,19.307c0.96-1.583,1.523-3.435,1.524-5.421C24.169,8.093,19.478,3.401,13.688,3.399C7.897,3.401,3.204,8.093,3.204,13.885c0,5.789,4.693,10.481,10.484,10.481c1.987,0,3.839-0.563,5.422-1.523l7.128,7.127l3.535-3.537L22.646,19.307zM13.688,20.369c-3.582-0.008-6.478-2.904-6.484-6.484c0.006-3.582,2.903-6.478,6.484-6.486c3.579,0.008,6.478,2.904,6.484,6.486C20.165,17.465,17.267,20.361,13.688,20.369zM8.854,11.884v4.001l9.665-0.001v-3.999L8.854,11.884z",
             x: 90,
             y: 10,
-            fill: "grey",
-            scale: 1,
             label: "Zoom out"
         });
 
@@ -1174,12 +1065,10 @@ InCHlib.prototype._draw_navigation = function(){
     }
 
     if(self.header){
-        var filter_icon = new Kinetic.Path({
+        var filter_icon = this.objects_ref.icon.clone({
                 data: "M26.834,6.958c0-2.094-4.852-3.791-10.834-3.791c-5.983,0-10.833,1.697-10.833,3.791c0,0.429,0.213,0.84,0.588,1.224l8.662,15.002v4.899c0,0.414,0.709,0.75,1.583,0.75c0.875,0,1.584-0.336,1.584-0.75v-4.816l8.715-15.093h-0.045C26.625,7.792,26.834,7.384,26.834,6.958zM16,9.75c-6.363,0-9.833-1.845-9.833-2.792S9.637,4.167,16,4.167c6.363,0,9.834,1.844,9.834,2.791S22.363,9.75,16,9.75z",
                 x: 10,
                 y: 10,
-                fill: "grey",
-                scale: 1,
                 label: "Filter\ncolumns"
         });
         self.navigation_layer.add(filter_icon);
@@ -1204,13 +1093,7 @@ InCHlib.prototype._draw_navigation = function(){
 }
 
 InCHlib.prototype._draw_icon_overlay = function(x, y){
-    var icon_overlay = new Kinetic.Rect({
-            x: x,
-            y: y,
-            width: 32,
-            height: 32,
-            opacity: 0,
-        });
+    var icon_overlay = this.objects_ref.icon_overlay.clone({x: x, y: y});
     return icon_overlay;
 }
 
@@ -1340,43 +1223,23 @@ InCHlib.prototype._draw_cluster_layer = function(){
         var y = this._hack_round(this.nodes_y_coordinates[this.last_highlighted_cluster]-this.pixels_for_leaf/2-20);
     }
     
-    var rows_desc = new Kinetic.Text({
-                    x: x,
-                    y: y1-20,
-                    text: row_count + " rows",
-                    fontSize: 14,
-                    fontFamily: this.settings.font,
-                    fontStyle: 'bold',
-                    fill: 'grey',
-                    listening: false,
-                });
+    var rows_desc = this.objects_ref.row_count.clone({x: x,
+                                                      y: y1-20,
+                                                      text: row_count + " rows",
+                                                  });
+    this.cluster_layer.add(rows_desc);
 
-    var zoom_icon = new Kinetic.Path({
+    var zoom_icon = this.objects_ref.icon.clone({
                     data: "M22.646,19.307c0.96-1.583,1.523-3.435,1.524-5.421C24.169,8.093,19.478,3.401,13.688,3.399C7.897,3.401,3.204,8.093,3.204,13.885c0,5.789,4.693,10.481,10.484,10.481c1.987,0,3.839-0.563,5.422-1.523l7.128,7.127l3.535-3.537L22.646,19.307zM13.688,20.369c-3.582-0.008-6.478-2.904-6.484-6.484c0.006-3.582,2.903-6.478,6.484-6.486c3.579,0.008,6.478,2.904,6.484,6.486C20.165,17.465,17.267,20.361,13.688,20.369zM15.687,9.051h-4v2.833H8.854v4.001h2.833v2.833h4v-2.834h2.832v-3.999h-2.833V9.051z",
                     x: x-5,
                     y: y2 + 8,
-                    fill: "grey",
-                    scale: 1,
                     label: "Zoom in",
                 });
 
-    var upper_border = new Kinetic.Line({
-        points: [0, y1, width, y1],
-        stroke: 'black',
-        strokeWidth: 2,
-        lineJoin: 'round',
-        dash: [10, 5],
-        listening: false,
-    });
-
-    var lower_border = new Kinetic.Line({
-        points: [0, y2, width, y2],
-        stroke: 'black',
-        strokeWidth: 2,
-        lineJoin: 'round',
-        dash: [10, 5],
-        listening: false,
-    });
+    var cluster_border = this.objects_ref.cluster_border.clone({points: [0, y1, width, y1]});
+    this.cluster_layer.add(cluster_border);
+    cluster_border = this.objects_ref.cluster_border.clone({points: [0, y2, width, y2]});
+    this.cluster_layer.add(cluster_border);
 
     this._collect_row_ids(y1, y2);
     
@@ -1387,32 +1250,24 @@ InCHlib.prototype._draw_cluster_layer = function(){
     var upper_y = this.row_y_coordinates[0]-this.pixels_for_leaf/2;
     var lower_y = this.row_y_coordinates[this.row_y_coordinates.length-1]+this.pixels_for_leaf/2;
     
-    var upper_overlay = new Kinetic.Rect({
-                                x: x1,
-                                y: y1,
-                                width: width,
-                                height: upper_y-y1-1,
-                                fill: "white",
-                                opacity: 0.6,
-                            });
+    var cluster_overlay = this.objects_ref.cluster_overlay.clone({
+        x: x1,
+        y: y1,
+        width: width,
+        height: upper_y-y1-1,
+    });
+    this.cluster_layer.add(cluster_overlay);
 
-    var lower_overlay = new Kinetic.Rect({
-                                x: x1,
-                                y: lower_y+1,
-                                width: width,
-                                height: this.settings.height-lower_y-this.footer_height,
-                                fill: "white",
-                                opacity: 0.6,
-                            });
-
-    this.cluster_layer.add(upper_overlay);
-    this.cluster_layer.add(lower_overlay);
-    this.cluster_layer.add(upper_border);
-    this.cluster_layer.add(lower_border);
+    cluster_overlay = this.objects_ref.cluster_overlay.clone({
+        x: x1,
+        y: lower_y+1,
+        width: width,
+        height: this.settings.height-lower_y-this.footer_height,
+    });
+    this.cluster_layer.add(cluster_overlay);
 
     var zoom_overlay = this._draw_icon_overlay(x-5, y2);
 
-    this.cluster_layer.add(rows_desc);
     this.cluster_layer.add(zoom_icon);
     this.cluster_layer.add(zoom_overlay);
     this.stage.add(this.cluster_layer);
@@ -1565,7 +1420,6 @@ InCHlib.prototype._draw_column_dendrogram_node = function(node_id, node, current
         this._draw_column_dendrogram_node(node.left_child, left_child, current_left_count - node_neighbourhood.left_node.right_count, current_right_count + node_neighbourhood.left_node.right_count, left_distance, y1);
         this._draw_column_dendrogram_node(node.right_child, right_child, current_left_count + node_neighbourhood.right_node.left_count, current_right_count - node_neighbourhood.right_node.left_count, right_distance, y2);
     }
-
 }
 
 InCHlib.prototype._get_y1 = function(node_neighbourhood, current_left_count, current_right_count){
@@ -1595,48 +1449,26 @@ InCHlib.prototype._get_x2 = function(node_neighbourhood, current_left_count, cur
 }
 
 InCHlib.prototype._draw_vertical_path = function(path_id, x1, y1, x2, y2, left_distance, right_distance){
-    var path = new Kinetic.Line({
-                points: [x1, left_distance, x1, y1, x2, y2, x2, right_distance],
-                stroke: "grey",
-                strokeWidth: "2",
-                lineCap: 'sqare',
-                lineJoin: 'round',
-                listening: false
-            });
-
+    var path = this.objects_ref.column_node.clone({points: [x1, left_distance, x1, y1, x2, y2, x2, right_distance]})
     return path;
 }
 
 InCHlib.prototype._draw_horizontal_path = function(path_id, x1, y1, x2, y2, left_distance, right_distance){
     var path_group = new Kinetic.Group({});
+    var path = this.objects_ref.row_node.clone({points: [left_distance, y1, x1, y1, x2, y2, right_distance, y2],
+                                                id: path_id});
 
-    var path = new Kinetic.Line({
-                points: [left_distance, y1, x1, y1, x2, y2, right_distance, y2],
-                stroke: "grey",
-                strokeWidth: "2",
-                lineCap: 'sqare',
-                lineJoin: 'round',
-                id: path_id,
-                listening: false
-            });
-
-    var path_rect = new Kinetic.Rect({
-        x: x1-1,
-        y: y1-1,
-        width: this.distance - x1,
-        height: y2 - y1,
-        fill: "white",
-        opacity: 0,
-        id: [path_id, "rect"].join("_"),
-        path: path,
-        path_id: path_id,
-    })
-
+    var path_rect = this.objects_ref.row_node_rect.clone({x: x1-1,
+                                                          y: y1-1,
+                                                          width: this.distance - x1,
+                                                          height: y2 - y1,
+                                                          id: [path_id, "rect"].join("_"),
+                                                          path: path,
+                                                          path_id: path_id,
+                                                        });
     path_group.add(path);
     path_group.add(path_rect);
-
     return path_group;
-
 }
 
 InCHlib.prototype._filter_icon_click = function(filter_button){
@@ -1840,31 +1672,14 @@ InCHlib.prototype._icon_mouseover = function(icon, icon_overlay, layer){
     var width = icon_overlay.getWidth();
     var height = icon_overlay.getHeight();
 
-    this.icon_tooltip = new Kinetic.Label({
-        x: x,
-        y: y+1.2*height,
-        listening: false,
+    this.icon_tooltip = this.objects_ref.tooltip_label.clone({x: x,
+        y: y+1.2*height
     });
 
-    this.icon_tooltip.add(new Kinetic.Tag({
-        fill: 'black',
-        pointerWidth: 10,
-        pointerHeight: 10,
-        lineJoin: 'round',
-        listening: false,
-    }));
+    this.icon_tooltip.add(this.objects_ref.tooltip_tag.clone());
+    this.icon_tooltip.add(this.objects_ref.tooltip_text.clone({text: label}));
 
-    this.icon_tooltip.add(new Kinetic.Text({
-        text: label,
-        fontFamily: this.settings.font,
-        fontSize: 14,
-        padding: 5,
-        fill: 'white',
-        listening: false,
-    }));
-
-    layer.add(this.icon_tooltip);
-    
+    layer.add(this.icon_tooltip);    
     icon.setFill("black");
     layer.draw();
 }
@@ -2042,20 +1857,12 @@ InCHlib.prototype._row_mouseover = function(row_id){
     this.highlighted_row = row_id;
     var y = this.leaves_y_coordinates[row_id] - 0.5*this.pixels_for_leaf;
     var x = this.distance+this.dendrogram_heatmap_distance;
-    this.row_borders = new Kinetic.Group();
+    this.row_borders = this.objects_ref.row_borders.clone();
     
-    var line_ref = new Kinetic.Line({
-                 points: [x, y, x+this.visible_features*this.pixels_for_dimension, y],
-                 stroke: "black",
-                 strokeWidth: 0.5,
-                 lineCap: "round",
-                 shadowOffset: 1,
-                 dash: [4, 2],
-                 listening: false,
-             });
-    this.row_borders.add(line_ref);
+    var border = this.objects_ref.row_border.clone({points: [x, y, x+this.visible_features*this.pixels_for_dimension, y]})
+    this.row_borders.add(border);
     y = y+this.pixels_for_leaf;
-    this.row_borders.add(line_ref.clone({points:[x, y, x+this.visible_features*this.pixels_for_dimension, y]}));
+    this.row_borders.add(this.objects_ref.row_border.clone({points:[x, y, x+this.visible_features*this.pixels_for_dimension, y]}));
     this.heatmap_overlay.add(this.row_borders);
 }
 
@@ -2087,46 +1894,213 @@ InCHlib.prototype._draw_col_label = function(evt){
     var x = this._hack_round((points[0] + points[2])/2);
     var y = points[1]-0.5*this.pixels_for_leaf;
     var column = attrs.column.split("_");
-    var header;
+    var header_type2value = {"d": this.heatmap_header[column[1]],
+                             "m": this.metadata_header[column[1]],
+                             "Count": "Count"};
 
-    if(column[0] == "d"){
-        header = this.heatmap_header[column[1]];
-    }
-    else if(column[0] == "m"){
-        header = this.metadata_header[column[1]];
-    }
+    var header = header_type2value[column[0]];
+    var value = [header, attrs.value].join("\n");
 
-    var value = [header, attrs.value].join(" ");
-
-    var tooltip = new Kinetic.Label({
-        x: x,
-        y: y,
-        opacity: 1,
-        id: "col_label",
-        listening: false,
-    });
-
-    tooltip.add(new Kinetic.Tag({
-        fill: this.settings.label_color,
-        pointerDirection: 'down',
-        pointerWidth: 10,
-        pointerHeight: 10,
-        lineJoin: 'round',
-        listening: false,
-    }));
+    var tooltip = this.objects_ref.tooltip_label.clone({x: x, y:y, id: "col_label",});
+    tooltip.add(this.objects_ref.tooltip_tag.clone({pointerDirection: 'down'}));
+    tooltip.add(this.objects_ref.tooltip_text.clone({text: value}));
     
-    tooltip.add(new Kinetic.Text({
-        text: value,
-        fontFamily: this.settings.font,
-        fontSize: 12,
-        padding: 8,
-        fill: 'white',
-        fontStyle: "bold",
-        listening: false,
-    }));
-
     this.heatmap_overlay.add(tooltip);
     this.heatmap_overlay.moveToTop();
     this.heatmap_overlay.draw();
     return;
+}
+
+function InCHlib(settings){
+    var target_width = $("#" + settings.target).width();
+    // When measuring the rendering duration
+    // this.start = new Date().getTime();
+
+    this.settings = {
+        "target" : settings.target,
+        "heatmap" : true,
+        "dendrogram": true,
+        "metadata": false,
+        "max_height" : 800,
+        "width" : target_width,
+        "heatmap_colors" : "Greens",
+        "heatmap_font_color" : "black",
+        "heatmap_part_width" : 0.7,
+        "column_dendrogram" : false,
+        "independent_columns" : true,
+        "metadata_colors" : "Oranges",
+        "highlight_colors" : "Reds",
+        "highlighted_rows" : [],
+        "label_color": "#9E9E9E",
+        "count_column": false,
+        "count_column_colors": "Reds",
+        "min_row_height": false,
+        "max_row_height": 25,
+        "max_column_width": 100,
+        "font": "Arial",
+        "values_center": "median",
+        "draw_row_ids": false,
+        "header_as_heatmap_row": false,
+        "header_row_colors": "YlOrB",
+        "onclick_callback": function(row_ids, evt){
+            return;
+        },
+        "row_onmouseover": function(row_id, evt){
+            return;
+        },
+        "row_onmouseout": function(evt){
+            return;
+        },
+    };
+
+    this.colors = {
+            "YlGn": {"start": {"r":255, "g": 255, "b": 204}, "end": {"r": 35, "g": 132, "b": 67}},
+            "GnBu": {"start": {"r":240, "g": 249, "b": 232}, "end": {"r": 43, "g": 140, "b": 190}},
+            "BuGn": {"start": {"r":237, "g": 248, "b": 251}, "end": {"r": 35, "g": 139, "b": 69}},
+            "PuBu": {"start": {"r":241, "g": 238, "b": 246}, "end": {"r": 5, "g": 112, "b": 176}},
+            "BuPu": {"start": {"r":237, "g": 248, "b": 251}, "end": {"r": 136, "g": 65, "b": 157}},
+            "RdPu": {"start": {"r":254, "g": 235, "b": 226}, "end": {"r": 174, "g": 1, "b": 126}},
+            "PuRd": {"start": {"r":241, "g": 238, "b": 246}, "end": {"r": 206, "g": 18, "b": 86}},
+            "OrRd": {"start": {"r":254, "g": 240, "b": 217}, "end": {"r": 215, "g": 48, "b": 31}},
+            "Purples2": {"start": {"r":242, "g": 240, "b": 247}, "end": {"r": 106, "g": 81, "b": 163}},
+            "Blues": {"start": {"r":239, "g": 243, "b": 255}, "end": {"r": 33, "g": 113, "b": 181}},
+            "Greens": {"start": {"r":237, "g": 248, "b": 233}, "end": {"r": 35, "g": 139, "b": 69}},
+            "Oranges": {"start": {"r":254, "g": 237, "b": 222}, "end": {"r": 217, "g": 71, "b": 1}},
+            "Reds": {"start": {"r":254, "g": 229, "b": 217}, "end": {"r": 203, "g": 24, "b": 29}},
+            "Greys": {"start": {"r":247, "g": 247, "b": 247}, "end": {"r": 82, "g": 82, "b": 82}},
+            "PuOr": {"start": {"r":230, "g": 97, "b": 1}, "end": {"r": 94, "g": 60, "b": 153}},
+            "BrBG": {"start": {"r":166, "g": 97, "b": 26}, "end": {"r": 1, "g": 133, "b": 113}},
+            "RdBu": {"start": {"r":202, "g": 0, "b": 32}, "end": {"r": 5, "g": 113, "b": 176}},
+            "RdGy": {"start": {"r":202, "g": 0, "b": 32}, "end": {"r": 64, "g": 64, "b": 64}},
+            "YlOrR": {"start": {"r":255, "g": 255, "b": 178}, "end": {"r": 227, "g": 26, "b": 28}, "middle": {"r": 204, "g": 76, "b": 2}},
+            "YlOrB": {"start": {"r":255, "g": 255, "b": 212}, "end": {"r": 5, "g": 112, "b": 176}, "middle": {"r": 204, "g": 76, "b": 2}},
+            "PRGn2": {"start": {"r":123, "g": 50, "b": 148}, "end": {"r": 0, "g": 136, "b": 55}, "middle": {"r":202, "g": 0, "b": 32}},
+            "PiYG2": {"start": {"r":208, "g": 28, "b": 139}, "end": {"r": 77, "g": 172, "b": 38}, "middle": {"r":255, "g": 255, "b": 178},},
+            "YlGnBu": {"start": {"r":255, "g": 255, "b": 204}, "end": {"r": 34, "g": 94, "b": 168}, "middle": {"r": 35, "g": 132, "b": 67}},
+            "RdYlBu": {"start": {"r":215, "g": 25, "b": 28}, "end": {"r": 44, "g": 123, "b": 182}, "middle": {"r":255, "g": 255, "b": 178}},
+            "RdYlGn": {"start": {"r":215, "g": 25, "b": 28}, "end": {"r": 26, "g": 150, "b": 65}, "middle": {"r":255, "g": 255, "b": 178}},
+            "BuWhRd": {"start": {"r": 33, "g": 113, "b": 181}, "middle": {"r": 255, "g": 255, "b": 255}, "end": {"r":215, "g": 25, "b": 28}},
+            "RdLrBu": {"start": {"r":215, "g": 25, "b": 28}, "middle": {"r":254, "g": 229, "b": 217}, "end": {"r": 44, "g": 123, "b": 182}},
+            "RdBkGr": {"start": {"r":215, "g": 25, "b": 28}, "middle": {"r": 0, "g": 0, "b": 0}, "end": {"r": 35, "g": 139, "b": 69}},
+            "RdLrGr": {"start": {"r":215, "g": 25, "b": 28}, "middle": {"r":254, "g": 229, "b": 217}, "end": {"r": 35, "g": 139, "b": 69}},
+    };
+
+    this.objects_ref = {
+        "tooltip_label": new Kinetic.Label({
+                            opacity: 1,
+                            listening: false,
+                         }),
+
+        "tooltip_tag": new Kinetic.Tag({
+                            fill: this.settings.label_color,
+                            pointerWidth: 10,
+                            pointerHeight: 10,
+                            lineJoin: 'round',
+                            listening: false,
+                        }),
+    
+        "tooltip_text": new Kinetic.Text({
+                            fontFamily: this.settings.font,
+                            fontSize: 12,
+                            padding: 8,
+                            fill: 'white',
+                            fontStyle: "bold",
+                            listening: false,
+                            align: "center",
+                            lineHeight: 1.2,
+                        }),
+
+        "row_border": new Kinetic.Line({
+                          stroke: "black",
+                          strokeWidth: 0.5,
+                          lineCap: "round",
+                          shadowOffset: 1,
+                          dash: [4, 2],
+                          listening: false,
+                      }),
+
+        "row_borders": new Kinetic.Group(),
+
+        "row_node": new Kinetic.Line({
+                            stroke: "grey",
+                            strokeWidth: "2",
+                            lineCap: 'sqare',
+                            lineJoin: 'round',
+                            listening: false
+                        }),
+
+        "column_node": new Kinetic.Line({
+                            stroke: "grey",
+                            strokeWidth: "2",
+                            lineCap: 'sqare',
+                            lineJoin: 'round',
+                            listening: false
+                        }),
+
+        "row_node_rect" : new Kinetic.Rect({
+                            fill: "white",
+                            opacity: 0,
+                        }),
+
+        "icon_overlay": new Kinetic.Rect({
+                            width: 32,
+                            height: 32,
+                            opacity: 0,
+                        }),
+
+        "heatmap_value": new Kinetic.Text({
+                            fontFamily: this.settings.font,
+                            fill: this.settings.heatmap_font_color,
+                            listening: false,
+                        }),
+
+
+        "heatmap_line": new Kinetic.Line({
+                           lineCap: 'butt',
+                        }),
+
+        "column_header": new Kinetic.Text({
+                            fontFamily: this.settings.font,
+                            fontStyle: "bold",
+                            fill: 'black',
+                         }),
+
+        "row_count": new Kinetic.Text({
+                        fontSize: 14,
+                        fontFamily: this.settings.font,
+                        fontStyle: 'bold',
+                        fill: 'grey',
+                        listening: false,
+                     }),
+
+        "cluster_border": new Kinetic.Line({
+                             stroke: 'black',
+                             strokeWidth: 2,
+                             lineJoin: 'round',
+                             dash: [10, 5],
+                             listening: false,
+                          }),
+
+        "cluster_overlay": new Kinetic.Rect({
+                                fill: "white",
+                                opacity: 0.6,
+                            }),
+
+        "icon": new Kinetic.Path({
+                    fill: "grey",
+                    scale: 1
+                }),
+    };
+    
+    $.extend(this.settings, settings);
+    this.settings.width = (settings.max_width && settings.max_width < target_width)?settings.max_width:this.settings.width;
+    this.settings.heatmap_part_width = (this.settings.heatmap_part_width>0.9)?0.9:this.settings.heatmap_part_width;
+
+    this.header_height = 150;
+    this.footer_height = 70;
+    this.dendrogram_heatmap_distance = 5;
+    this.heatmap_width = 0;
+    this.highlighted_row = null;
+    this.leaves_y_coordinates = {};
+    this.rows = {};
 }
