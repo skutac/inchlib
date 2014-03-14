@@ -449,7 +449,6 @@ InCHlib.prototype.draw = function(){
     }
     else{
         this.dimensions = 0;
-        this.visible_features = 0;
     }
 
     if(this.settings.column_dendrogram && this.heatmap_header){
@@ -750,13 +749,6 @@ InCHlib.prototype._set_heatmap_settings = function(){
     this.features = {};
     for(i=0; i<this.dimensions; i++){
         this.features[i] = 1;
-    }
-
-    this.visible_features = 0
-    for(i in this.features){
-        if(this.features[i] == 1){
-            this.visible_features++;
-        }
     }
 }
 
@@ -1389,9 +1381,15 @@ InCHlib.prototype._neutralize_path = function(path_id){
 
 InCHlib.prototype._draw_cluster_layer = function(){
     this.cluster_layer = new Kinetic.Layer();
+    var visible = this.on_features.length + this.on_metadata_features.length;
+
+    if(this.settings.count_column){
+        visible++;
+    }
+
     var row_count = this.data.nodes[this.last_highlighted_cluster].count;
-    var width = this.distance+this.visible_features*this.pixels_for_dimension+100;
-    var x = this._hack_round(this.distance+this.visible_features*this.pixels_for_dimension+20);
+    var width = this.distance+visible*this.pixels_for_dimension+100;
+    var x = this._hack_round(this.distance+visible*this.pixels_for_dimension+20);
     
     if(this.settings.heatmap){
         var y1 = this._hack_round(this.row_y_coordinates[0]-this.pixels_for_leaf/2);
@@ -1423,7 +1421,7 @@ InCHlib.prototype._draw_cluster_layer = function(){
     
     var x1 = this.distance+this.dendrogram_heatmap_distance;
     var y1 = this.header_height;
-    var width = this.visible_features*this.pixels_for_dimension+90;
+    var width = visible*this.pixels_for_dimension+90;
     var height = this.settings.height-this.header_height;    
     var upper_y = this.row_y_coordinates[0]-this.pixels_for_leaf/2;
     var lower_y = this.row_y_coordinates[this.row_y_coordinates.length-1]+this.pixels_for_leaf/2;
@@ -1748,13 +1746,13 @@ InCHlib.prototype._filter_icon_click = function(filter_button){
             if(self.features[num] == 1){
                 symbol_element.text("✔");
                 $(this).css("color", "green");
-                self.visible_features++;
             }
             else{
                 symbol_element.text("✖");
                 $(this).css("color", "red");
-                self.visible_features--;
             }
+
+            self._set_on_features();
         });
 
         $(function(){
@@ -1901,12 +1899,10 @@ InCHlib.prototype._dendrogram_layers_mouseover = function(evt){
 
 InCHlib.prototype._visible_features_equal_column_dendrogram_count = function(){
     var i;
-    for(i = 0; i<this.data_dimensions; i++){
-        if(this.features[i] == -1){
-            return false;
-        }
+    if((this.on_features.length + this.on_metadata_features.length) == (this.data_dimensions + this.metadata_dimensions)){
+        return true;
     }
-    return true;
+    return false;
 }
 
 InCHlib.prototype._clone_path = function(path){
@@ -2033,16 +2029,22 @@ InCHlib.prototype._is_number = function(n){
 
 InCHlib.prototype._row_mouseenter = function(evt){
     var row_id = evt.targetNode.parent.getAttr("id");
+    var visible = this.on_features.length + this.on_metadata_features.length;
+    
+    if(this.settings.count_column){
+        visible++;
+    }
+
     if(row_id != "header_row"){
         this.highlighted_row = row_id;
         var y = this.leaves_y_coordinates[row_id] - 0.5*this.pixels_for_leaf;
         var x = this.distance+this.dendrogram_heatmap_distance;
         this.row_borders = this.objects_ref.row_borders.clone();
         
-        var border = this.objects_ref.row_border.clone({points: [x, y, x+this.visible_features*this.pixels_for_dimension, y]})
+        var border = this.objects_ref.row_border.clone({points: [x, y, x+visible*this.pixels_for_dimension, y]})
         this.row_borders.add(border);
         y = y+this.pixels_for_leaf;
-        this.row_borders.add(this.objects_ref.row_border.clone({points:[x, y, x+this.visible_features*this.pixels_for_dimension, y]}));
+        this.row_borders.add(this.objects_ref.row_border.clone({points:[x, y, x+visible*this.pixels_for_dimension, y]}));
         this.heatmap_overlay.add(this.row_borders);
         this.heatmap_overlay.draw();
         this.settings.row_onmouseover(this.data.nodes[row_id].objects, evt);
