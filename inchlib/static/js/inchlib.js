@@ -511,6 +511,7 @@ InCHlib.prototype._draw_row_dendrogram = function(node_id){
     this.last_highlighted_cluster = null;
     this.nodes_y_coordinates = {};
     this.leaves_y_coordinates = {};
+    this.objects2leaves = {};
 
     this.pixels_for_leaf = (this.settings.max_height-this.header_height-this.footer_height)/count;
     if(this.pixels_for_leaf > this.settings.max_row_height){
@@ -578,12 +579,10 @@ InCHlib.prototype._draw_row_dendrogram = function(node_id){
 
 InCHlib.prototype._draw_row_dendrogram_node = function(node_id, node, current_left_count, current_right_count, x, y){
     if(node.count != 1){
-        var nodes = this.data.nodes;
-
         this.nodes_y_coordinates[node_id] = y;
-        var node_neighbourhood = this._get_node_neighbourhood(node, nodes);
-        var right_child = nodes[node.right_child];
-        var left_child = nodes[node.left_child];
+        var node_neighbourhood = this._get_node_neighbourhood(node);
+        var right_child = this.data.nodes[node.right_child];
+        var left_child = this.data.nodes[node.left_child];
 
         var y1 = this._get_y1(node_neighbourhood, current_left_count, current_right_count);
         var y2 = this._get_y2(node_neighbourhood, current_left_count, current_right_count);
@@ -591,8 +590,8 @@ InCHlib.prototype._draw_row_dendrogram_node = function(node_id, node, current_le
         x1 = (x1 == 0)? 2: x1;
         
         var x2 = x1;
-        var left_distance = this.distance - this.distance_step*nodes[node.left_child].distance;
-        var right_distance = this.distance - this.distance_step*nodes[node.right_child].distance;
+        var left_distance = this.distance - this.distance_step*this.data.nodes[node.left_child].distance;
+        var right_distance = this.distance - this.distance_step*this.data.nodes[node.right_child].distance;
 
         if(right_child.count == 1){
             y2 = y2 + this.pixels_for_leaf/2;
@@ -603,7 +602,13 @@ InCHlib.prototype._draw_row_dendrogram_node = function(node_id, node, current_le
         this._draw_row_dendrogram_node(node.right_child, right_child, current_left_count + node_neighbourhood.right_node.left_count, current_right_count - node_neighbourhood.right_node.left_count, right_distance, y2);
     }
     else{
+        var i;
+        var objects = node.objects;
         this.leaves_y_coordinates[node_id] = y;
+
+        for(i = 0; i<objects.length; i++){
+            this.objects2leaves[objects[i]] = node_id;
+        }
 
         var count = node.objects.length;
         if(count<this.min_item_count){
@@ -1291,19 +1296,14 @@ InCHlib.prototype._highlight_path = function(path_id){
  }
 
  InCHlib.prototype.highlight_rows = function(row_ids, action){
-    var i, row;
+    var i, row, row_id;
 
     if(action == "append"){
         this.settings.highlighted_rows.push.apply(this.settings.highlighted_rows, row_ids);
     }
     else{
         this.settings.highlighted_rows = row_ids;
-        this.highlighted_rows_layer.removeChildren();
-    }
-    
-    var prefixed_row_ids = [];
-    for(i = 0; i<row_ids.length; i++){
-        prefixed_row_ids.push([this.settings.target, row_ids[i]].join("#"));
+        this.highlighted_rows_layer.destroyChildren();
     }
 
     var original_colors = this.settings.heatmap_colors;
@@ -1311,12 +1311,15 @@ InCHlib.prototype._highlight_path = function(path_id){
     this.settings.heatmap_colors = this.settings.highlight_colors;
     this.settings.metadata_colors = this.settings.highlight_colors;
 
-    for(i = 0; i<prefixed_row_ids.length; i++){
-        if(prefixed_row_ids[i] in this.leaves_y_coordinates){
-            row = this._draw_heatmap_row(prefixed_row_ids[i], this.distance+this.dendrogram_heatmap_distance, this.leaves_y_coordinates[prefixed_row_ids[i]]);
+    for(i = 0; i<row_ids.length; i++){
+        if(row_ids[i] in this.objects2leaves){
+            row_id = this.objects2leaves[row_ids[i]];
+            row = this._draw_heatmap_row(row_id, this.distance+this.dendrogram_heatmap_distance, this.leaves_y_coordinates[row_id]);
             this.highlighted_rows_layer.add(row);
+            this._bind_row_events(row)
         }
     }
+    
     this.highlighted_rows_layer.draw();
     this.heatmap_overlay.moveToTop();
 
@@ -1325,14 +1328,8 @@ InCHlib.prototype._highlight_path = function(path_id){
 
     var self = this;
 
-    this.highlighted_rows_layer.on("mouseover", function(evt){
-        var rows = self.stage.getIntersection({x:evt.layerX, y:evt.layerY});
-        rows.fire("mouseenter", evt);
-        self.heatmap_layer.fire("mouseover", evt);
-    });
-
     this.highlighted_rows_layer.on("click", function(evt){
-        self.settings.onclick_callback([self.highlighted_row.split("#")[1]], evt);
+        self.heatmap_layer.fire("click");
     });
     
  }
@@ -1447,6 +1444,8 @@ InCHlib.prototype._draw_cluster_layer = function(){
     this.cluster_layer.add(zoom_icon);
     this.cluster_layer.add(zoom_overlay);
     this.stage.add(this.cluster_layer);
+    rows_desc.moveToTop();
+    this.cluster_layer.draw();
 
     var self = this;
 
@@ -1489,48 +1488,41 @@ InCHlib.prototype._zoom_cluster = function(node_id){
     }
 }
 
-InCHlib.prototype._get_node_neighbourhood = function(node, nodes){
-    var node_neighbourhood = {};
-    node_neighbourhood.left_node = {};
-    node_neighbourhood.right_node = {}
-    node_neighbourhood.left_node.left_node = {};
-    node_neighbourhood.left_node.right_node = {};
-    node_neighbourhood.right_node.left_node = {};
-    node_neighbourhood.right_node.right_node = {};
+InCHlib.prototype._get_node_neighbourhood = function(node){
+    var node_neighbourhood = {"left_node": {"left_node": {"left_count" : 0,
+                                                          "right_count": 0}, 
+                                            "right_node": {"left_count" : 0,
+                                                           "right_count": 0},
+                                            "left_count" : 0.5,
+                                            "right_count": 0.5
+                                           },
+                              "right_node": {"left_node": {"left_count" : 0,
+                                                          "right_count": 0}, 
+                                            "right_node": {"left_count" : 0,
+                                                           "right_count": 0},
+                                            "left_count" : 0.5,
+                                            "right_count": 0.5
+                                           },
+                              "left_count": this.data.nodes[node.left_child].count,
+                              "right_count": this.data.nodes[node.right_child].count,
+    };
 
-    node_neighbourhood.left_node.left_count = 0.5;
-    node_neighbourhood.left_node.right_count = 0.5;
-    node_neighbourhood.left_node.right_node.left_count = 0;
-    node_neighbourhood.left_node.right_node.right_count = 0;
-    node_neighbourhood.left_node.left_node.left_count = 0;
-    node_neighbourhood.left_node.left_node.right_count = 0;
+    var left_child = this.data.nodes[node.left_child];
+    var right_child = this.data.nodes[node.right_child];
 
-    node_neighbourhood.right_node.left_count = 0.5;
-    node_neighbourhood.right_node.right_count = 0.5;
-    node_neighbourhood.right_node.right_node.left_count = 0;
-    node_neighbourhood.right_node.right_node.right_count = 0;
-    node_neighbourhood.right_node.left_node.left_count = 0;
-    node_neighbourhood.right_node.left_node.right_count = 0;
+    var left_child_left_child = this.data.nodes[left_child.left_child];
+    var left_child_right_child = this.data.nodes[left_child.right_child];
 
-    node_neighbourhood.left_count = nodes[node.left_child].count;
-    node_neighbourhood.right_count = nodes[node.right_child].count;
-
-    var left_child = nodes[node.left_child];
-    var right_child = nodes[node.right_child];
-
-    var left_child_left_child = nodes[left_child.left_child];
-    var left_child_right_child = nodes[left_child.right_child];
-
-    var right_child_left_child = nodes[right_child.left_child];
-    var right_child_right_child = nodes[right_child.right_child];
+    var right_child_left_child = this.data.nodes[right_child.left_child];
+    var right_child_right_child = this.data.nodes[right_child.right_child];
 
     if(left_child.count != 1){
-            node_neighbourhood.left_node.left_count = nodes[left_child.left_child].count;
-            node_neighbourhood.left_node.right_count = nodes[left_child.right_child].count;
+            node_neighbourhood.left_node.left_count = this.data.nodes[left_child.left_child].count;
+            node_neighbourhood.left_node.right_count = this.data.nodes[left_child.right_child].count;
 
         if(left_child_left_child.count != 1){
-            node_neighbourhood.left_node.left_node.left_count = nodes[left_child_left_child.left_child].count;
-            node_neighbourhood.left_node.left_node.right_count = nodes[left_child_left_child.right_child].count;
+            node_neighbourhood.left_node.left_node.left_count = this.data.nodes[left_child_left_child.left_child].count;
+            node_neighbourhood.left_node.left_node.right_count = this.data.nodes[left_child_left_child.right_child].count;
         }
         else{
             node_neighbourhood.left_node.left_node.left_count = 0.5;
@@ -1538,8 +1530,8 @@ InCHlib.prototype._get_node_neighbourhood = function(node, nodes){
         }
 
         if(left_child_right_child.count != 1){
-            node_neighbourhood.left_node.right_node.left_count = nodes[left_child_right_child.left_child].count;
-            node_neighbourhood.left_node.right_node.right_count = nodes[left_child_right_child.right_child].count;
+            node_neighbourhood.left_node.right_node.left_count = this.data.nodes[left_child_right_child.left_child].count;
+            node_neighbourhood.left_node.right_node.right_count = this.data.nodes[left_child_right_child.right_child].count;
         }
         else{
             node_neighbourhood.left_node.right_node.left_count = 0.5;
@@ -1548,12 +1540,12 @@ InCHlib.prototype._get_node_neighbourhood = function(node, nodes){
     }
 
     if(right_child.count != 1){
-        node_neighbourhood.right_node.left_count = nodes[right_child.left_child].count;
-        node_neighbourhood.right_node.right_count = nodes[right_child.right_child].count;
+        node_neighbourhood.right_node.left_count = this.data.nodes[right_child.left_child].count;
+        node_neighbourhood.right_node.right_count = this.data.nodes[right_child.right_child].count;
 
         if(right_child_left_child.count != 1){
-            node_neighbourhood.right_node.left_node.left_count = nodes[right_child_left_child.left_child].count;
-            node_neighbourhood.right_node.left_node.right_count = nodes[right_child_left_child.right_child].count;
+            node_neighbourhood.right_node.left_node.left_count = this.data.nodes[right_child_left_child.left_child].count;
+            node_neighbourhood.right_node.left_node.right_count = this.data.nodes[right_child_left_child.right_child].count;
         }
         else{
             node_neighbourhood.right_node.left_node.left_count = 0.5;
@@ -1561,8 +1553,8 @@ InCHlib.prototype._get_node_neighbourhood = function(node, nodes){
         }
 
         if(right_child_right_child.count != 1){
-            node_neighbourhood.right_node.right_node.left_count = nodes[right_child_right_child.left_child].count;
-            node_neighbourhood.right_node.right_node.right_count = nodes[right_child_right_child.right_child].count;
+            node_neighbourhood.right_node.right_node.left_count = this.data.nodes[right_child_right_child.left_child].count;
+            node_neighbourhood.right_node.right_node.right_count = this.data.nodes[right_child_right_child.right_child].count;
         }
         else{
             node_neighbourhood.right_node.right_node.left_count = 0.5;
