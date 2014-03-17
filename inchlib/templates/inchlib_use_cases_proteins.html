@@ -1,0 +1,82 @@
+{% extends "inchlib_base.html" %}
+
+{% block content %}
+{% load staticfiles %}
+<script src="{% static "js/glmol/Three49custom.js" %}"></script>
+<script src="{% static "js/glmol/GLmol.js" %}"></script>
+<script>
+	$(document).ready(function(){
+        var glmol = new GLmol('protein', true);
+        var loading = $('#loading');
+        
+        // glmol.defineRepresentation = function() {
+        //    var all = this.getAllAtoms();
+        //    var hetatm = this.removeSolvents(this.getHetatms(all));
+        //    this.colorByAtom(all, {});
+        //    this.colorByChain(all);
+        //    var asu = new THREE.Object3D();
+           
+        //    this.drawBondsAsStick(asu, hetatm, this.cylinderRadius, this.cylinderRadius);
+        //    this.drawBondsAsStick(asu, this.getResiduesById(this.getSidechains(this.getChain(all, ['A'])), [58, 87]), this.cylinderRadius, this.cylinderRadius);
+        //    this.drawBondsAsStick(asu, this.getResiduesById(this.getSidechains(this.getChain(all, ['B'])), [63, 92]), this.cylinderRadius, this.cylinderRadius);
+        //    this.drawCartoon(asu, all, this.curveWidth, this.thickness);
+
+        //    this.drawSymmetryMates2(this.modelGroup, asu, this.protein.biomtMatrices);
+        //    this.modelGroup.add(asu);
+        // };
+
+
+		window.dendrogram = new InCHlib({{ settings }});
+        dendrogram.settings.onclick_callback = function(ids){
+            if(ids.length == 1){
+                get_protein_from_pdb(ids[0]);
+            }
+        };
+		dendrogram.read_data_from_file("{% static "data/"|add:example.data %}");
+		dendrogram.draw();
+
+        function get_protein_from_pdb(id){
+            loading.fadeIn();
+            $("#protein > canvas").hide();
+            $.ajax({
+                type: 'GET',
+                url: "{% url get_pdb_file %}",
+                // dataType: 'json',
+                data:{pdb_id: id},
+                success: function(pdb){
+                    $("#protein_src").val(pdb);
+                    glmol.loadMolecule();
+                    loading.hide();
+                    $("#protein > canvas").fadeIn();
+                },
+            });
+        }
+
+	});
+</script>
+
+<div class="pure-menu pure-menu-open pure-menu-horizontal">
+    <ul>
+        {% for e in examples %}
+        	{% if e.exampleid == example.exampleid %}
+        		<li class="pure-menu-selected"><a href="{% url use_cases e.exampleid %}">{{ e.title }}</a></li>
+        	{% else %}
+        		<li><a href="{% url use_cases e.exampleid %}">{{ e.title }}</a></li>
+        	{% endif %}
+        {% endfor %}
+    </ul>
+</div>
+<hr/>
+
+
+<div class="description">{{ example.description|safe }}</div>
+<div id="protein">
+    <div id="protein_src"></div>
+    <div id="loading">
+        <img src="{% static "img/loading.gif" %}"/>
+    </div>
+</div>
+
+<div id="protein_dendrogram"></div>
+
+{% endblock %}

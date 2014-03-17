@@ -300,3 +300,35 @@ body{
 	color: gray;
 	font-size: 14px;
 }
+
+#protein_dendrogram{
+	width: 65%;
+	margin-top: 50px;
+	margin-left: 30px;
+}
+
+#protein{
+	width: 30%;
+	height: 300px;
+	margin-top: 50px;
+	float:right;
+	/*border-radius: 5px;
+	border: solid #D2D2D2 1px;*/
+}
+
+#protein_src{
+	display: none;
+}
+
+#loading{
+	display: none;
+}
+
+#loading > img{
+	height: 200px;
+	margin-top: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+

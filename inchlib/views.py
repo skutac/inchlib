@@ -1,4 +1,4 @@
-import json, re
+import json, re, urllib
 
 from pygments import highlight
 from pygments.lexers import PythonLexer, JavascriptLexer, BashLexer
@@ -8,6 +8,7 @@ import config
 
 from django.shortcuts import render_to_response, redirect
 from django.utils.safestring import mark_safe
+from django.http import HttpResponse
 
 from examples.models import Examples, SettingsAttributes
 
@@ -35,7 +36,12 @@ def use_cases(req, exampleid):
     settings = mark_safe(json.dumps(parse_settings({e.settingsattribute.name: e.value for e in settings})))
 
     example.description = re.sub('href="', '"'.join(['href=', config.BASE_URL]), example.description)
-    return render_to_response("inchlib_use_cases.html", {"examples":examples, "example": example, "settings": settings})
+    template = "inchlib_use_cases.html"
+    print exampleid
+    if exampleid == "16":
+        template = "inchlib_use_cases_proteins.html"
+    print template
+    return render_to_response(template, {"examples":examples, "example": example, "settings": settings})
 
 def docs(req):
     attributes = list(SettingsAttributes.objects.all())
@@ -129,3 +135,11 @@ d.export_dendrogram_as_json("filename")"""
     bash = highlight(bash, BashLexer(), HtmlFormatter())
 
     return render_to_response("inchlib_clust.html", {"code": code, "bash": bash})
+
+def get_pdb_file(req):
+    pdb_file = fetch_pdb(req.GET["pdb_id"])
+    return HttpResponse(pdb_file)
+
+def fetch_pdb(id):
+  url = 'http://www.rcsb.org/pdb/files/%s.pdb' % id
+  return urllib.urlopen(url).read()

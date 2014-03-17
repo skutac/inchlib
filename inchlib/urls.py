@@ -20,6 +20,7 @@ urlpatterns = patterns('',
     url(r'^performance$', 'inchlib.views.performance', name='performance'),
     url(r'^inchlib_clust_doc$', 'inchlib.views.inchlib_clust_doc', name='inchlib_clust_doc'),
     url(r'^test$', 'inchlib.views.test', name='test'),
+    url(r'^get_pdb_file$', 'inchlib.views.get_pdb_file', name='get_pdb_file'),
     # url(r'^inch/', include('inchlib.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:

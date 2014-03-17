@@ -206,7 +206,7 @@ InCHlib.prototype.read_data = function(json){
 
 InCHlib.prototype.read_data_from_file = function(json){
     var self = this;
-
+    
     $.ajax({
         type: 'GET',
         url: json,
@@ -1003,6 +1003,8 @@ InCHlib.prototype._draw_row_ids = function(leaves_y){
                 y: this._hack_round(object_y[i][1] - font_size/2),
                 fontSize: font_size,
                 text: object_y[i][0],
+                fontStyle: 'italic',
+                fill: "gray"
             });
             this.heatmap_layer.add(text);
         }
