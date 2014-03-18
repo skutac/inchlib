@@ -1,0 +1,68 @@
+{
+    "data": {
+        "nodes": {
+            "leaf_1": {
+                "count": 1,
+                "distance": 0,
+                "features": [1.4, 3.5, 5.1],
+                "parent": "node_1",
+                "objects": ["item_id"]
+            }, 
+            "node_1": {
+                "count": 2, 
+                "distance": 3.32, 
+                "left_child": "leaf_1",
+                "right_child": "leaf_2"
+            }, 
+            "leaf_2": {
+                "count": 1, 
+                "distance": 0, 
+                "features": [2.0, 1.0, 3.0], 
+                "parent": "node_1", 
+                "objects": ["item_id"]
+            }
+        },
+
+        "feature_names": ["First", "Second", "Third"]
+    },
+    
+    "metadata": {
+        "feature_names": ["Numeric", "Categoric"],
+        "nodes": {
+            "leaf_1": [0.03, "positive"],
+            "leaf_2": [0.02, "negative"]
+        }
+    }, 
+    "column_dendrogram": {
+        "nodes": {
+            "leaf_3": {
+                "count": 1, 
+                "distance": 0, 
+                "parent": "node_2"
+            }, 
+            "node_2": {
+                "count": 2,
+                "distance": 2.326, 
+                "left_child": "leaf_2", 
+                "parent": "node_1", 
+                "right_child": "leaf_3"
+            }, 
+            "leaf_1": {
+                "count": 1, 
+                "distance": 0, 
+                "parent": "node_1"
+            }, 
+            "leaf_2": {
+                "count": 1, 
+                "distance": 0, 
+                "parent": "node_2"
+            }, 
+            "node_1": {
+                "count": 3, 
+                "distance": 3.516, 
+                "left_child": "leaf_1", 
+                "right_child": "node_2"
+            }
+        }
+    }
+}

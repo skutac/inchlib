@@ -333,17 +333,28 @@ body{
 }
 
 #map_dendrogram{
-	width: 45%;
+	width: 55%;
 	margin-top: 50px;
 	margin-left: 30px;
 }
 
+#float_right{
+	float: right;
+	width: 40%;
+}
+
 #map{
 	margin-top: 100px;
-	width: 50%;
 	height: 700px;
-	float: right;
 	border-radius: 10px;
 	border: solid #D2D2D2 1px;
 }
 
+#video{
+	margin-top: 30px;
+	width: ;
+}
+
+#overflow{
+	overflow: auto;
+}

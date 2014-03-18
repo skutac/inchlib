@@ -48,7 +48,7 @@
             "node@129": {
                 "count": 3, 
                 "distance": 2.646, 
-                "left_child": "GlenSpey", 
+                "left_child": "Glen Spey", 
                 "parent": "node@150", 
                 "right_child": "node@115"
             }, 
@@ -84,7 +84,7 @@
             "node@126": {
                 "count": 3, 
                 "distance": 2.582, 
-                "left_child": "OldPulteney", 
+                "left_child": "Old Pulteney", 
                 "parent": "node@137", 
                 "right_child": "node@108"
             }, 
@@ -114,7 +114,7 @@
                 "distance": 2.449, 
                 "left_child": "Linkwood", 
                 "parent": "node@146", 
-                "right_child": "RoyalBrackla"
+                "right_child": "Royal Brackla"
             }, 
             "node@121": {
                 "count": 2, 
@@ -211,28 +211,6 @@
                 ], 
                 "parent": "node@133"
             }, 
-            "Knochando": {
-                "count": 1, 
-                "distance": 0, 
-                "objects": [
-                    "Knochando"
-                ], 
-                "features": [
-                    2.0, 
-                    3.0, 
-                    1.0, 
-                    0.0, 
-                    0.0, 
-                    2.0, 
-                    2.0, 
-                    1.0, 
-                    2.0, 
-                    1.0, 
-                    2.0, 
-                    2.0
-                ], 
-                "parent": "node@91"
-            }, 
             "Glendullan": {
                 "count": 1, 
                 "distance": 0, 
@@ -254,6 +232,50 @@
                     2.0
                 ], 
                 "parent": "node@104"
+            }, 
+            "Knockando": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "Knockando"
+                ], 
+                "features": [
+                    2.0, 
+                    3.0, 
+                    1.0, 
+                    0.0, 
+                    0.0, 
+                    2.0, 
+                    2.0, 
+                    1.0, 
+                    2.0, 
+                    1.0, 
+                    2.0, 
+                    2.0
+                ], 
+                "parent": "node@91"
+            }, 
+            "Jura": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "Jura"
+                ], 
+                "features": [
+                    2.0, 
+                    1.0, 
+                    2.0, 
+                    2.0, 
+                    0.0, 
+                    1.0, 
+                    1.0, 
+                    0.0, 
+                    2.0, 
+                    1.0, 
+                    1.0, 
+                    1.0
+                ], 
+                "parent": "node@108"
             }, 
             "AnCnoc": {
                 "count": 1, 
@@ -299,49 +321,27 @@
                 ], 
                 "parent": "node@88"
             }, 
-            "RoyalBrackla": {
+            "Caol Ila": {
                 "count": 1, 
                 "distance": 0, 
                 "objects": [
-                    "RoyalBrackla"
+                    "Caol Ila"
                 ], 
                 "features": [
-                    2.0, 
                     3.0, 
-                    2.0, 
                     1.0, 
-                    1.0, 
-                    1.0, 
+                    4.0, 
                     2.0, 
                     1.0, 
                     0.0, 
                     2.0, 
-                    3.0, 
-                    2.0
-                ], 
-                "parent": "node@122"
-            }, 
-            "GlenGrant": {
-                "count": 1, 
-                "distance": 0, 
-                "objects": [
-                    "GlenGrant"
-                ], 
-                "features": [
-                    1.0, 
-                    2.0, 
                     0.0, 
-                    0.0, 
-                    0.0, 
-                    1.0, 
-                    0.0, 
-                    1.0, 
                     2.0, 
                     1.0, 
-                    2.0, 
+                    1.0, 
                     1.0
                 ], 
-                "parent": "node@132"
+                "parent": "node@142"
             }, 
             "node@112": {
                 "count": 3, 
@@ -386,27 +386,27 @@
                 ], 
                 "parent": "node@106"
             }, 
-            "Benriach": {
+            "Glenmorangie": {
                 "count": 1, 
                 "distance": 0, 
                 "objects": [
-                    "Benriach"
+                    "Glenmorangie"
                 ], 
                 "features": [
                     2.0, 
                     2.0, 
                     1.0, 
+                    1.0, 
                     0.0, 
+                    1.0, 
+                    2.0, 
                     0.0, 
                     2.0, 
+                    1.0, 
                     2.0, 
-                    0.0, 
-                    0.0, 
-                    2.0, 
-                    3.0, 
                     2.0
                 ], 
-                "parent": "node@103"
+                "parent": "node@107"
             }, 
             "Benrinnes": {
                 "count": 1, 
@@ -433,16 +433,16 @@
             "node@114": {
                 "count": 2, 
                 "distance": 2.236, 
-                "left_child": "BenNevis", 
+                "left_child": "Ben Nevis", 
                 "parent": "node@148", 
                 "right_child": "Benrinnes"
             }, 
             "node@115": {
                 "count": 2, 
                 "distance": 2.236, 
-                "left_child": "ArranIsleOf", 
+                "left_child": "Arran Malt", 
                 "parent": "node@129", 
-                "right_child": "GlenDeveronMacduff"
+                "right_child": "Glen Deveron Macduff"
             }, 
             "Glenlossie": {
                 "count": 1, 
@@ -469,7 +469,7 @@
             "node@118": {
                 "count": 3, 
                 "distance": 2.309, 
-                "left_child": "OldFettercairn", 
+                "left_child": "Old Fettercairn", 
                 "parent": "node@155", 
                 "right_child": "node@105"
             }, 
@@ -538,19 +538,27 @@
                 "parent": "node@130", 
                 "right_child": "Glenlossie"
             }, 
-            "node@145": {
-                "count": 7, 
-                "distance": 3.359, 
-                "left_child": "node@133", 
-                "parent": "node@161", 
-                "right_child": "node@144"
-            }, 
-            "node@89": {
-                "count": 2, 
-                "distance": 1.414, 
-                "left_child": "Aberfeldy", 
-                "parent": "node@90", 
-                "right_child": "Benromach"
+            "Glen Scotia": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "Glen Scotia"
+                ], 
+                "features": [
+                    2.0, 
+                    2.0, 
+                    2.0, 
+                    2.0, 
+                    0.0, 
+                    1.0, 
+                    0.0, 
+                    1.0, 
+                    2.0, 
+                    2.0, 
+                    1.0, 
+                    1.0
+                ], 
+                "parent": "node@108"
             }, 
             "node@88": {
                 "count": 2, 
@@ -558,6 +566,28 @@
                 "left_child": "Cardhu", 
                 "parent": "node@120", 
                 "right_child": "Glenallachie"
+            }, 
+            "Glen Moray": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "Glen Moray"
+                ], 
+                "features": [
+                    1.0, 
+                    2.0, 
+                    1.0, 
+                    0.0, 
+                    0.0, 
+                    1.0, 
+                    2.0, 
+                    1.0, 
+                    2.0, 
+                    2.0, 
+                    2.0, 
+                    4.0
+                ], 
+                "parent": "node@116"
             }, 
             "Craigallechie": {
                 "count": 1, 
@@ -581,27 +611,12 @@
                 ], 
                 "parent": "node@116"
             }, 
-            "Laphroig": {
-                "count": 1, 
-                "distance": 0, 
-                "objects": [
-                    "Laphroig"
-                ], 
-                "features": [
-                    4.0, 
-                    2.0, 
-                    4.0, 
-                    4.0, 
-                    1.0, 
-                    0.0, 
-                    0.0, 
-                    1.0, 
-                    1.0, 
-                    1.0, 
-                    0.0, 
-                    0.0
-                ], 
-                "parent": "node@111"
+            "node@89": {
+                "count": 2, 
+                "distance": 1.414, 
+                "left_child": "Abefeldy", 
+                "parent": "node@90", 
+                "right_child": "Benromach"
             }, 
             "Speyside": {
                 "count": 1, 
@@ -691,13 +706,6 @@
                 ], 
                 "parent": "node@121"
             }, 
-            "node@135": {
-                "count": 4, 
-                "distance": 2.799, 
-                "left_child": "Mortlach", 
-                "parent": "node@156", 
-                "right_child": "node@102"
-            }, 
             "node@105": {
                 "count": 2, 
                 "distance": 2.0, 
@@ -760,7 +768,7 @@
                 "distance": 2.0, 
                 "left_child": "Belvenie", 
                 "parent": "node@128", 
-                "right_child": "Benriach"
+                "right_child": "BenRiach"
             }, 
             "node@102": {
                 "count": 3, 
@@ -790,13 +798,6 @@
                     3.0
                 ], 
                 "parent": "node@109"
-            }, 
-            "node@101": {
-                "count": 2, 
-                "distance": 1.732, 
-                "left_child": "Dufftown", 
-                "parent": "node@144", 
-                "right_child": "Glenfiddich"
             }, 
             "node@109": {
                 "count": 2, 
@@ -837,16 +838,16 @@
             "node@91": {
                 "count": 2, 
                 "distance": 1.414, 
-                "left_child": "GlenKeith", 
+                "left_child": "Glen Keith", 
                 "parent": "node@112", 
-                "right_child": "Knochando"
+                "right_child": "Knockando"
             }, 
             "node@92": {
                 "count": 2, 
                 "distance": 1.732, 
                 "left_child": "Dailuaine", 
                 "parent": "node@102", 
-                "right_child": "RoyalLochnagar"
+                "right_child": "Royal Lochnagar"
             }, 
             "node@93": {
                 "count": 2, 
@@ -855,27 +856,27 @@
                 "parent": "node@138", 
                 "right_child": "Glenrothes"
             }, 
-            "Loch Lomond": {
+            "Glen Grant": {
                 "count": 1, 
                 "distance": 0, 
                 "objects": [
-                    "Loch Lomond"
+                    "Glen Grant"
                 ], 
                 "features": [
                     1.0, 
-                    1.0, 
-                    1.0, 
-                    1.0, 
+                    2.0, 
                     0.0, 
-                    1.0, 
+                    0.0, 
+                    0.0, 
                     1.0, 
                     0.0, 
                     1.0, 
                     2.0, 
                     1.0, 
-                    2.0
+                    2.0, 
+                    1.0
                 ], 
-                "parent": "node@113"
+                "parent": "node@132"
             }, 
             "node@95": {
                 "count": 2, 
@@ -903,7 +904,7 @@
                 "distance": 1.732, 
                 "left_child": "Balblair", 
                 "parent": "node@125", 
-                "right_child": "Craigganmore"
+                "right_child": "Cragganmore"
             }, 
             "node@99": {
                 "count": 2, 
@@ -918,28 +919,6 @@
                 "left_child": "AnCnoc", 
                 "parent": "node@144", 
                 "right_child": "node@88"
-            }, 
-            "BenNevis": {
-                "count": 1, 
-                "distance": 0, 
-                "objects": [
-                    "BenNevis"
-                ], 
-                "features": [
-                    4.0, 
-                    2.0, 
-                    2.0, 
-                    0.0, 
-                    0.0, 
-                    2.0, 
-                    2.0, 
-                    0.0, 
-                    2.0, 
-                    2.0, 
-                    2.0, 
-                    2.0
-                ], 
-                "parent": "node@114"
             }, 
             "Highland Park": {
                 "count": 1, 
@@ -1043,11 +1022,40 @@
                 "parent": "node@154", 
                 "right_child": "node@114"
             }, 
-            "OldPulteney": {
+            "node@160": {
+                "count": 17, 
+                "distance": 4.97, 
+                "left_child": "node@149", 
+                "parent": "node@164", 
+                "right_child": "node@153"
+            }, 
+            "Glen Keith": {
                 "count": 1, 
                 "distance": 0, 
                 "objects": [
-                    "OldPulteney"
+                    "Glen Keith"
+                ], 
+                "features": [
+                    2.0, 
+                    3.0, 
+                    1.0, 
+                    0.0, 
+                    0.0, 
+                    1.0, 
+                    2.0, 
+                    1.0, 
+                    2.0, 
+                    1.0, 
+                    2.0, 
+                    1.0
+                ], 
+                "parent": "node@91"
+            }, 
+            "Old Pulteney": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "Old Pulteney"
                 ], 
                 "features": [
                     2.0, 
@@ -1065,18 +1073,33 @@
                 ], 
                 "parent": "node@126"
             }, 
-            "node@160": {
-                "count": 17, 
-                "distance": 4.97, 
-                "left_child": "node@149", 
-                "parent": "node@164", 
-                "right_child": "node@153"
-            }, 
             "node@170": {
                 "count": 86, 
                 "distance": 16.188, 
                 "left_child": "node@158", 
                 "right_child": "node@169"
+            }, 
+            "Ben Nevis": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "Ben Nevis"
+                ], 
+                "features": [
+                    4.0, 
+                    2.0, 
+                    2.0, 
+                    0.0, 
+                    0.0, 
+                    2.0, 
+                    2.0, 
+                    0.0, 
+                    2.0, 
+                    2.0, 
+                    2.0, 
+                    2.0
+                ], 
+                "parent": "node@114"
             }, 
             "Miltonduff": {
                 "count": 1, 
@@ -1122,6 +1145,28 @@
                 ], 
                 "parent": "node@95"
             }, 
+            "Glenturret": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "Glenturret"
+                ], 
+                "features": [
+                    2.0, 
+                    3.0, 
+                    1.0, 
+                    0.0, 
+                    0.0, 
+                    2.0, 
+                    2.0, 
+                    2.0, 
+                    2.0, 
+                    2.0, 
+                    1.0, 
+                    2.0
+                ], 
+                "parent": "node@112"
+            }, 
             "Inchgower": {
                 "count": 1, 
                 "distance": 0, 
@@ -1143,28 +1188,6 @@
                     2.0
                 ], 
                 "parent": "node@99"
-            }, 
-            "GlenDeveronMacduff": {
-                "count": 1, 
-                "distance": 0, 
-                "objects": [
-                    "GlenDeveronMacduff"
-                ], 
-                "features": [
-                    2.0, 
-                    3.0, 
-                    1.0, 
-                    1.0, 
-                    1.0, 
-                    1.0, 
-                    1.0, 
-                    2.0, 
-                    0.0, 
-                    2.0, 
-                    0.0, 
-                    1.0
-                ], 
-                "parent": "node@115"
             }, 
             "Dalmore": {
                 "count": 1, 
@@ -1188,49 +1211,27 @@
                 ], 
                 "parent": "node@102"
             }, 
-            "GlenKeith": {
+            "Ardberg": {
                 "count": 1, 
                 "distance": 0, 
                 "objects": [
-                    "GlenKeith"
+                    "Ardberg"
                 ], 
                 "features": [
-                    2.0, 
-                    3.0, 
+                    4.0, 
                     1.0, 
+                    4.0, 
+                    4.0, 
                     0.0, 
                     0.0, 
+                    2.0, 
+                    0.0, 
                     1.0, 
                     2.0, 
                     1.0, 
-                    2.0, 
-                    1.0, 
-                    2.0, 
-                    1.0
+                    0.0
                 ], 
-                "parent": "node@91"
-            }, 
-            "Aberfeldy": {
-                "count": 1, 
-                "distance": 0, 
-                "objects": [
-                    "Aberfeldy"
-                ], 
-                "features": [
-                    2.0, 
-                    2.0, 
-                    2.0, 
-                    0.0, 
-                    0.0, 
-                    2.0, 
-                    1.0, 
-                    2.0, 
-                    2.0, 
-                    2.0, 
-                    2.0, 
-                    2.0
-                ], 
-                "parent": "node@89"
+                "parent": "node@131"
             }, 
             "Oban": {
                 "count": 1, 
@@ -1254,71 +1255,19 @@
                 ], 
                 "parent": "node@125"
             }, 
-            "GlenSpey": {
-                "count": 1, 
-                "distance": 0, 
-                "objects": [
-                    "GlenSpey"
-                ], 
-                "features": [
-                    1.0, 
-                    3.0, 
-                    1.0, 
-                    0.0, 
-                    0.0, 
-                    0.0, 
-                    1.0, 
-                    1.0, 
-                    1.0, 
-                    2.0, 
-                    0.0, 
-                    2.0
-                ], 
-                "parent": "node@129"
+            "node@135": {
+                "count": 4, 
+                "distance": 2.799, 
+                "left_child": "Mortlach", 
+                "parent": "node@156", 
+                "right_child": "node@102"
             }, 
-            "Isle of Jura": {
-                "count": 1, 
-                "distance": 0, 
-                "objects": [
-                    "Isle of Jura"
-                ], 
-                "features": [
-                    2.0, 
-                    1.0, 
-                    2.0, 
-                    2.0, 
-                    0.0, 
-                    1.0, 
-                    1.0, 
-                    0.0, 
-                    2.0, 
-                    1.0, 
-                    1.0, 
-                    1.0
-                ], 
-                "parent": "node@108"
-            }, 
-            "OldFettercairn": {
-                "count": 1, 
-                "distance": 0, 
-                "objects": [
-                    "OldFettercairn"
-                ], 
-                "features": [
-                    1.0, 
-                    2.0, 
-                    2.0, 
-                    0.0, 
-                    1.0, 
-                    2.0, 
-                    2.0, 
-                    1.0, 
-                    2.0, 
-                    3.0, 
-                    1.0, 
-                    1.0
-                ], 
-                "parent": "node@118"
+            "node@104": {
+                "count": 2, 
+                "distance": 2.0, 
+                "left_child": "Glen Ord", 
+                "parent": "node@128", 
+                "right_child": "Glendullan"
             }, 
             "node@163": {
                 "count": 13, 
@@ -1406,27 +1355,27 @@
                 "parent": "node@168", 
                 "right_child": "node@161"
             }, 
-            "Glenturret": {
+            "Laphroaig": {
                 "count": 1, 
                 "distance": 0, 
                 "objects": [
-                    "Glenturret"
+                    "Laphroaig"
                 ], 
                 "features": [
+                    4.0, 
                     2.0, 
-                    3.0, 
+                    4.0, 
+                    4.0, 
                     1.0, 
                     0.0, 
                     0.0, 
-                    2.0, 
-                    2.0, 
-                    2.0, 
-                    2.0, 
-                    2.0, 
                     1.0, 
-                    2.0
+                    1.0, 
+                    1.0, 
+                    0.0, 
+                    0.0
                 ], 
-                "parent": "node@112"
+                "parent": "node@111"
             }, 
             "node@130": {
                 "count": 4, 
@@ -1449,27 +1398,49 @@
                 "parent": "node@169", 
                 "right_child": "node@166"
             }, 
-            "GlenScotia": {
+            "Royal Brackla": {
                 "count": 1, 
                 "distance": 0, 
                 "objects": [
-                    "GlenScotia"
+                    "Royal Brackla"
+                ], 
+                "features": [
+                    2.0, 
+                    3.0, 
+                    2.0, 
+                    1.0, 
+                    1.0, 
+                    1.0, 
+                    2.0, 
+                    1.0, 
+                    0.0, 
+                    2.0, 
+                    3.0, 
+                    2.0
+                ], 
+                "parent": "node@122"
+            }, 
+            "BenRiach": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "BenRiach"
                 ], 
                 "features": [
                     2.0, 
                     2.0, 
+                    1.0, 
+                    0.0, 
+                    0.0, 
                     2.0, 
                     2.0, 
                     0.0, 
-                    1.0, 
                     0.0, 
-                    1.0, 
                     2.0, 
-                    2.0, 
-                    1.0, 
-                    1.0
+                    3.0, 
+                    2.0
                 ], 
-                "parent": "node@108"
+                "parent": "node@103"
             }, 
             "Balblair": {
                 "count": 1, 
@@ -1559,11 +1530,40 @@
                 ], 
                 "parent": "node@148"
             }, 
-            "GlenOrd": {
+            "Arran Malt": {
                 "count": 1, 
                 "distance": 0, 
                 "objects": [
-                    "GlenOrd"
+                    "Arran Malt"
+                ], 
+                "features": [
+                    2.0, 
+                    3.0, 
+                    1.0, 
+                    1.0, 
+                    0.0, 
+                    1.0, 
+                    1.0, 
+                    1.0, 
+                    0.0, 
+                    1.0, 
+                    1.0, 
+                    2.0
+                ], 
+                "parent": "node@115"
+            }, 
+            "node@94": {
+                "count": 2, 
+                "distance": 1.732, 
+                "left_child": "GlenElgin", 
+                "parent": "node@136", 
+                "right_child": "Glenlivet"
+            }, 
+            "Glen Ord": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "Glen Ord"
                 ], 
                 "features": [
                     3.0, 
@@ -1580,6 +1580,28 @@
                     2.0
                 ], 
                 "parent": "node@104"
+            }, 
+            "Glen Spey": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "Glen Spey"
+                ], 
+                "features": [
+                    1.0, 
+                    3.0, 
+                    1.0, 
+                    0.0, 
+                    0.0, 
+                    0.0, 
+                    1.0, 
+                    1.0, 
+                    1.0, 
+                    2.0, 
+                    0.0, 
+                    2.0
+                ], 
+                "parent": "node@129"
             }, 
             "node@156": {
                 "count": 7, 
@@ -1630,12 +1652,27 @@
                 "parent": "node@161", 
                 "right_child": "node@129"
             }, 
-            "node@104": {
-                "count": 2, 
-                "distance": 2.0, 
-                "left_child": "GlenOrd", 
-                "parent": "node@128", 
-                "right_child": "Glendullan"
+            "Cragganmore": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "Cragganmore"
+                ], 
+                "features": [
+                    2.0, 
+                    3.0, 
+                    2.0, 
+                    1.0, 
+                    0.0, 
+                    0.0, 
+                    1.0, 
+                    0.0, 
+                    2.0, 
+                    2.0, 
+                    2.0, 
+                    2.0
+                ], 
+                "parent": "node@98"
             }, 
             "Balmenach": {
                 "count": 1, 
@@ -1658,6 +1695,13 @@
                     2.0
                 ], 
                 "parent": "node@151"
+            }, 
+            "node@151": {
+                "count": 3, 
+                "distance": 3.83, 
+                "left_child": "Balmenach", 
+                "parent": "node@156", 
+                "right_child": "node@110"
             }, 
             "node@158": {
                 "count": 6, 
@@ -1717,27 +1761,34 @@
                 ], 
                 "parent": "node@99"
             }, 
-            "GlenMoray": {
+            "node@101": {
+                "count": 2, 
+                "distance": 1.732, 
+                "left_child": "Dufftown", 
+                "parent": "node@144", 
+                "right_child": "Glenfiddich"
+            }, 
+            "Royal Lochnagar": {
                 "count": 1, 
                 "distance": 0, 
                 "objects": [
-                    "GlenMoray"
+                    "Royal Lochnagar"
                 ], 
                 "features": [
-                    1.0, 
+                    3.0, 
                     2.0, 
-                    1.0, 
+                    2.0, 
                     0.0, 
                     0.0, 
-                    1.0, 
-                    2.0, 
-                    1.0, 
                     2.0, 
                     2.0, 
                     2.0, 
-                    4.0
+                    2.0, 
+                    2.0, 
+                    3.0, 
+                    1.0
                 ], 
-                "parent": "node@116"
+                "parent": "node@92"
             }, 
             "Bunnahabhain": {
                 "count": 1, 
@@ -1767,6 +1818,28 @@
                 "left_child": "Bruichladdich", 
                 "parent": "node@159", 
                 "right_child": "node@126"
+            }, 
+            "Old Fettercairn": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "Old Fettercairn"
+                ], 
+                "features": [
+                    1.0, 
+                    2.0, 
+                    2.0, 
+                    0.0, 
+                    1.0, 
+                    2.0, 
+                    2.0, 
+                    1.0, 
+                    2.0, 
+                    3.0, 
+                    1.0, 
+                    1.0
+                ], 
+                "parent": "node@118"
             }, 
             "node@149": {
                 "count": 9, 
@@ -1847,27 +1920,12 @@
                 "parent": "node@158", 
                 "right_child": "node@131"
             }, 
-            "GlenGarioch": {
-                "count": 1, 
-                "distance": 0, 
-                "objects": [
-                    "GlenGarioch"
-                ], 
-                "features": [
-                    2.0, 
-                    1.0, 
-                    3.0, 
-                    0.0, 
-                    0.0, 
-                    0.0, 
-                    3.0, 
-                    1.0, 
-                    0.0, 
-                    2.0, 
-                    2.0, 
-                    2.0
-                ], 
-                "parent": "node@139"
+            "node@145": {
+                "count": 7, 
+                "distance": 3.359, 
+                "left_child": "node@133", 
+                "parent": "node@161", 
+                "right_child": "node@144"
             }, 
             "node@144": {
                 "count": 5, 
@@ -1883,27 +1941,27 @@
                 "parent": "node@157", 
                 "right_child": "node@125"
             }, 
-            "Caol Ila": {
+            "Glen Deveron Macduff": {
                 "count": 1, 
                 "distance": 0, 
                 "objects": [
-                    "Caol Ila"
+                    "Glen Deveron Macduff"
                 ], 
                 "features": [
+                    2.0, 
                     3.0, 
                     1.0, 
-                    4.0, 
-                    2.0, 
                     1.0, 
+                    1.0, 
+                    1.0, 
+                    1.0, 
+                    2.0, 
                     0.0, 
                     2.0, 
                     0.0, 
-                    2.0, 
-                    1.0, 
-                    1.0, 
                     1.0
                 ], 
-                "parent": "node@142"
+                "parent": "node@115"
             }, 
             "Auchentoshan": {
                 "count": 1, 
@@ -1926,6 +1984,28 @@
                     3.0
                 ], 
                 "parent": "node@100"
+            }, 
+            "Abefeldy": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "Abefeldy"
+                ], 
+                "features": [
+                    2.0, 
+                    2.0, 
+                    2.0, 
+                    0.0, 
+                    0.0, 
+                    2.0, 
+                    1.0, 
+                    2.0, 
+                    2.0, 
+                    2.0, 
+                    2.0, 
+                    2.0
+                ], 
+                "parent": "node@89"
             }, 
             "Bruichladdich": {
                 "count": 1, 
@@ -2018,31 +2098,9 @@
             "node@108": {
                 "count": 2, 
                 "distance": 2.0, 
-                "left_child": "GlenScotia", 
+                "left_child": "Glen Scotia", 
                 "parent": "node@126", 
-                "right_child": "Isle of Jura"
-            }, 
-            "Ardbeg": {
-                "count": 1, 
-                "distance": 0, 
-                "objects": [
-                    "Ardbeg"
-                ], 
-                "features": [
-                    4.0, 
-                    1.0, 
-                    4.0, 
-                    4.0, 
-                    0.0, 
-                    0.0, 
-                    2.0, 
-                    0.0, 
-                    1.0, 
-                    2.0, 
-                    1.0, 
-                    0.0
-                ], 
-                "parent": "node@131"
+                "right_child": "Jura"
             }, 
             "node@146": {
                 "count": 6, 
@@ -2117,34 +2175,27 @@
                 ], 
                 "parent": "node@96"
             }, 
-            "ArranIsleOf": {
+            "Glen Garioch": {
                 "count": 1, 
                 "distance": 0, 
                 "objects": [
-                    "ArranIsleOf"
+                    "Glen Garioch"
                 ], 
                 "features": [
                     2.0, 
+                    1.0, 
+                    3.0, 
+                    0.0, 
+                    0.0, 
+                    0.0, 
                     3.0, 
                     1.0, 
-                    1.0, 
                     0.0, 
-                    1.0, 
-                    1.0, 
-                    1.0, 
-                    0.0, 
-                    1.0, 
-                    1.0, 
+                    2.0, 
+                    2.0, 
                     2.0
                 ], 
-                "parent": "node@115"
-            }, 
-            "node@151": {
-                "count": 3, 
-                "distance": 3.83, 
-                "left_child": "Balmenach", 
-                "parent": "node@156", 
-                "right_child": "node@110"
+                "parent": "node@139"
             }, 
             "node@138": {
                 "count": 3, 
@@ -2156,7 +2207,7 @@
             "node@139": {
                 "count": 2, 
                 "distance": 3.0, 
-                "left_child": "GlenGarioch", 
+                "left_child": "Glen Garioch", 
                 "parent": "node@157", 
                 "right_child": "Teaninich"
             }, 
@@ -2189,12 +2240,27 @@
                 "parent": "node@153", 
                 "right_child": "node@119"
             }, 
-            "node@94": {
-                "count": 2, 
-                "distance": 1.732, 
-                "left_child": "GlenElgin", 
-                "parent": "node@136", 
-                "right_child": "Glenlivet"
+            "Loch Lomond": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "Loch Lomond"
+                ], 
+                "features": [
+                    1.0, 
+                    1.0, 
+                    1.0, 
+                    1.0, 
+                    0.0, 
+                    1.0, 
+                    1.0, 
+                    0.0, 
+                    1.0, 
+                    2.0, 
+                    1.0, 
+                    2.0
+                ], 
+                "parent": "node@113"
             }, 
             "node@136": {
                 "count": 5, 
@@ -2250,14 +2316,14 @@
             "node@131": {
                 "count": 3, 
                 "distance": 2.646, 
-                "left_child": "Ardbeg", 
+                "left_child": "Ardberg", 
                 "parent": "node@142", 
                 "right_child": "node@117"
             }, 
             "node@132": {
                 "count": 2, 
                 "distance": 2.646, 
-                "left_child": "GlenGrant", 
+                "left_child": "Glen Grant", 
                 "parent": "node@153", 
                 "right_child": "Tormore"
             }, 
@@ -2267,13 +2333,6 @@
                 "left_child": "Miltonduff", 
                 "parent": "node@145", 
                 "right_child": "Speyburn"
-            }, 
-            "node@116": {
-                "count": 2, 
-                "distance": 2.236, 
-                "left_child": "Craigallechie", 
-                "parent": "node@152", 
-                "right_child": "GlenMoray"
             }, 
             "Glenfiddich": {
                 "count": 1, 
@@ -2390,73 +2449,14 @@
                 "distance": 2.0, 
                 "left_child": "Lagavulin", 
                 "parent": "node@158", 
-                "right_child": "Laphroig"
+                "right_child": "Laphroaig"
             }, 
-            "Craigganmore": {
-                "count": 1, 
-                "distance": 0, 
-                "objects": [
-                    "Craigganmore"
-                ], 
-                "features": [
-                    2.0, 
-                    3.0, 
-                    2.0, 
-                    1.0, 
-                    0.0, 
-                    0.0, 
-                    1.0, 
-                    0.0, 
-                    2.0, 
-                    2.0, 
-                    2.0, 
-                    2.0
-                ], 
-                "parent": "node@98"
-            }, 
-            "RoyalLochnagar": {
-                "count": 1, 
-                "distance": 0, 
-                "objects": [
-                    "RoyalLochnagar"
-                ], 
-                "features": [
-                    3.0, 
-                    2.0, 
-                    2.0, 
-                    0.0, 
-                    0.0, 
-                    2.0, 
-                    2.0, 
-                    2.0, 
-                    2.0, 
-                    2.0, 
-                    3.0, 
-                    1.0
-                ], 
-                "parent": "node@92"
-            }, 
-            "Glenmorangie": {
-                "count": 1, 
-                "distance": 0, 
-                "objects": [
-                    "Glenmorangie"
-                ], 
-                "features": [
-                    2.0, 
-                    2.0, 
-                    1.0, 
-                    1.0, 
-                    0.0, 
-                    1.0, 
-                    2.0, 
-                    0.0, 
-                    2.0, 
-                    1.0, 
-                    2.0, 
-                    2.0
-                ], 
-                "parent": "node@107"
+            "node@116": {
+                "count": 2, 
+                "distance": 2.236, 
+                "left_child": "Craigallechie", 
+                "parent": "node@152", 
+                "right_child": "Glen Moray"
             }, 
             "Talisker": {
                 "count": 1, 
