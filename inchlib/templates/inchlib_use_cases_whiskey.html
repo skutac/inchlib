@@ -1,0 +1,59 @@
+{% extends "inchlib_base.html" %}
+
+{% block content %}
+{% load staticfiles %}
+<script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7c-andnzkallTdcWxCY1VvR4sFhrk5kw&sensor=false">
+    </script>
+<script src="{% static "js/gmaps.js" %}"></script>
+<script src="{% static "source_data/whiskey2latlong.js" %}"></script>
+<script>
+    $(document).ready(function(){
+        var gmap = new GMaps({
+                      div: '#map',
+                      lat: 57.192933,
+                      lng: -4.236722,
+                      zoom: 7
+                    });
+
+        window.dendrogram = new InCHlib({{ settings }});
+        dendrogram.settings.onclick_callback = function(ids){
+            set_markers(ids);
+        };
+        dendrogram.read_data_from_file("{% static "data/"|add:example.data %}");
+        dendrogram.draw();
+
+        function set_markers(ids){
+            var i;  
+            gmap.removeMarkers();
+            for(i = 0; i<ids.length; i++){
+                gmap.addMarker({
+                    lat: whiskey2latlong[ids[i]][0],
+                    lng: whiskey2latlong[ids[i]][1],
+                    title: ids[i],
+                });
+            }
+
+        }
+});
+</script>
+
+<div class="pure-menu pure-menu-open pure-menu-horizontal">
+    <ul>
+        {% for e in examples %}
+            {% if e.exampleid == example.exampleid %}
+                <li class="pure-menu-selected"><a href="{% url use_cases e.exampleid %}">{{ e.title }}</a></li>
+            {% else %}
+                <li><a href="{% url use_cases e.exampleid %}">{{ e.title }}</a></li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</div>
+<hr/>
+
+
+<div class="description">{{ example.description|safe }}</div>
+<div id="map"></div>
+<div id="map_dendrogram"></div>
+
+{% endblock %}

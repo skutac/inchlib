@@ -5,7 +5,7 @@
 <script src="{% static "js/glmol/Three49custom.js" %}"></script>
 <script src="{% static "js/glmol/GLmol.js" %}"></script>
 <script>
-	$(document).ready(function(){
+    $(document).ready(function(){
         var glmol = new GLmol('protein', true);
         var loading = $('#loading');
         
@@ -26,14 +26,14 @@
         // };
 
 
-		window.dendrogram = new InCHlib({{ settings }});
+        window.dendrogram = new InCHlib({{ settings }});
         dendrogram.settings.onclick_callback = function(ids){
             if(ids.length == 1){
                 get_protein_from_pdb(ids[0]);
             }
         };
-		dendrogram.read_data_from_file("{% static "data/"|add:example.data %}");
-		dendrogram.draw();
+        dendrogram.read_data_from_file("{% static "data/"|add:example.data %}");
+        dendrogram.draw();
 
         function get_protein_from_pdb(id){
             loading.fadeIn();
@@ -52,17 +52,17 @@
             });
         }
 
-	});
+    });
 </script>
 
 <div class="pure-menu pure-menu-open pure-menu-horizontal">
     <ul>
         {% for e in examples %}
-        	{% if e.exampleid == example.exampleid %}
-        		<li class="pure-menu-selected"><a href="{% url use_cases e.exampleid %}">{{ e.title }}</a></li>
-        	{% else %}
-        		<li><a href="{% url use_cases e.exampleid %}">{{ e.title }}</a></li>
-        	{% endif %}
+            {% if e.exampleid == example.exampleid %}
+                <li class="pure-menu-selected"><a href="{% url use_cases e.exampleid %}">{{ e.title }}</a></li>
+            {% else %}
+                <li><a href="{% url use_cases e.exampleid %}">{{ e.title }}</a></li>
+            {% endif %}
         {% endfor %}
     </ul>
 </div>

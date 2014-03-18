@@ -332,3 +332,18 @@ body{
 	display: block;
 }
 
+#map_dendrogram{
+	width: 45%;
+	margin-top: 50px;
+	margin-left: 30px;
+}
+
+#map{
+	margin-top: 100px;
+	width: 50%;
+	height: 700px;
+	float: right;
+	border-radius: 10px;
+	border: solid #D2D2D2 1px;
+}
+

@@ -37,10 +37,12 @@ def use_cases(req, exampleid):
 
     example.description = re.sub('href="', '"'.join(['href=', config.BASE_URL]), example.description)
     template = "inchlib_use_cases.html"
-    print exampleid
+    
     if exampleid == "16":
         template = "inchlib_use_cases_proteins.html"
-    print template
+    elif exampleid == "17":
+        template = "inchlib_use_cases_whiskey.html"
+    
     return render_to_response(template, {"examples":examples, "example": example, "settings": settings})
 
 def docs(req):
