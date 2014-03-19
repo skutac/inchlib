@@ -1,0 +1,100 @@
+{% extends "inchlib_base.html" %}
+
+{% block content %}
+{% load staticfiles %}
+{% load staticfiles %}
+<script>
+    $(document).ready(function(){
+        var static_url = "{% static "img/gr_molecules/" %}";
+        var target_element = $("#dendrogram");
+        var offset = target_element.offset();
+        var max_y = offset.top + 150;
+        var x_pos = offset.left;
+        var mol_element = $("#molecule");
+        var img_element = $("#molecule_img");
+        var mol_id_element = $("#mol_id");
+        mol_element.css({"left": x_pos + target_element.width()-80});
+
+        window.dendrogram = new InCHlib(
+            {
+                target: "dendrogram",
+                metadata: true, 
+                dendrogram: true,
+                max_height: 900,
+                font: "Trebuchet MS",
+                heatmap_colors: "Greens",
+                metadata_colors: "RdLrBu",
+            });
+
+        dendrogram.read_data_from_file("{% static "data/chembl_gr.json" %}");
+        dendrogram.draw();
+        bind_dendrogram_events();
+
+        function show_molecule(mol_id, evt){
+            var filepath = static_url + mol_id + ".svg";
+            var y = evt.pageY-300;
+            if(y < max_y){
+                y = max_y;
+            }
+            mol_element.css({"top": y, "border-width": "1px"});
+            img_element.attr("src", filepath);
+            mol_id_element.text(mol_id);
+            mol_element.show();
+
+        }
+
+        function hide_molecule(ids, evt){
+            mol_element.hide();
+        }
+
+        function fix_molecule(){
+            dendrogram.settings.row_onmouseover = function(){};
+            dendrogram.settings.heatmap_onmouseout = function(){};
+            dendrogram.settings.row_onclick = function(){
+                bind_dendrogram_events();
+            };
+            mol_element.css({"border-width": "2px"});
+        }
+
+        function bind_dendrogram_events(){
+            dendrogram.settings.row_onmouseover = function(ids, evt){
+                show_molecule(ids, evt);
+            };
+            dendrogram.settings.heatmap_onmouseout = function(evt){
+                hide_molecule(evt);
+            };
+            dendrogram.settings.row_onclick = function(ids, evt){
+                fix_molecule(ids[0]);
+            };
+        }
+
+    });
+</script>
+
+<div class="pure-menu pure-menu-open pure-menu-horizontal">
+    <ul>
+        {% for e in examples %}
+            {% if e.exampleid == example.exampleid %}
+                <li class="pure-menu-selected"><a href="{% url use_cases e.exampleid %}">{{ e.title }}</a></li>
+            {% else %}
+                <li><a href="{% url use_cases e.exampleid %}">{{ e.title }}</a></li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</div>
+<hr/>
+
+
+<div class="description">{{ example.description|safe }}</div>
+
+
+<div id="molecule">
+    <a href="" target=blank>
+        <img src="" id="molecule_img"></img>
+        <div id="mol_id"></div>
+    </a>
+</div>
+
+<div id="dendrogram"></div>
+
+{% endblock %}

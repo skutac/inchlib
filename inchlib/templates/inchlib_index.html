@@ -10,14 +10,7 @@
 		var max_y = offset.top + 130;
 		var x_pos = offset.left;
 		var img_element = $("#molecule_img");
-		img_element.css({"position": "absolute",
-						 "height": 250,
-						 "fill": "white",
-						 "left": x_pos + target_element.width()-80,
-						 "z-index": 100,
-						 "border": "solid #D2D2D2 1px",
-						 "border-radius": "10px",
-						 "display": "none"});
+		img_element.css({"left": x_pos + target_element.width()-80});
 
 		window.dendrogram = new InCHlib(
 			{
@@ -28,7 +21,6 @@
 				font: "Trebuchet MS",
 				heatmap_colors: "Greens",
 				metadata_colors: "RdLrBu",
-				independent_columns: true,
 				row_onmouseover: function(ids, evt){
 					show_molecule(ids, evt);
 				},

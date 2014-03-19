@@ -31,10 +31,13 @@ function InCHlib(settings){
         "draw_row_ids": false,
         "header_as_heatmap_row": false,
         "header_row_colors": "YlOrB",
-        "onclick_callback": function(row_ids, evt){
+        "row_onclick": function(object_ids, evt){
             return;
         },
-        "row_onmouseover": function(row_id, evt){
+        "dendrogram_node_onclick": function(object_ids, evt){
+            return;
+        },
+        "row_onmouseover": function(object_id, evt){
             return;
         },
         "row_onmouseout": function(evt){
@@ -826,18 +829,6 @@ InCHlib.prototype._draw_heatmap = function(){
 
     var self = this;
 
-    this.heatmap_layer.on("click", function(evt){
-        if(self.highlighted_row != "header_row"){
-            var items = self.data.nodes[self.highlighted_row].objects;
-            var item_ids = [];
-            
-            for(i = 0; i < items.length; i++){
-                item_ids.push(items[i]);
-            }
-            self.settings.onclick_callback(item_ids, evt);
-        }
-    });
-
     this.heatmap_layer.on("mouseleave", function(evt){
         self.heatmap_overlay.destroyChildren();
         self.heatmap_overlay.draw();
@@ -974,6 +965,18 @@ InCHlib.prototype._bind_row_events = function(row){
 
     row.on("mouseout", function(evt){
         self.heatmap_overlay.find("#col_label")[0].destroy();
+    });
+
+    row.on("click", function(evt){
+        if(self.highlighted_row != "header_row"){
+            var items = self.data.nodes[self.highlighted_row].objects;
+            var item_ids = [];
+            
+            for(i = 0; i < items.length; i++){
+                item_ids.push(items[i]);
+            }
+            self.settings.row_onclick(item_ids, evt);
+        }
     });
 }
 
@@ -1985,7 +1988,7 @@ InCHlib.prototype._collect_row_ids = function(y1,y2){
         }
     }
     
-    this.settings.onclick_callback(this.current_row_ids);
+    this.settings.dendrogram_node_onclick(this.current_row_ids);
 }
 
 InCHlib.prototype._hack_size = function(obj) {

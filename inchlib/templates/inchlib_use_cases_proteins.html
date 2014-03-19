@@ -6,17 +6,31 @@
 <script src="{% static "js/glmol/GLmol.js" %}"></script>
 <script>
     $(document).ready(function(){
+        var target_element = $("#protein_dendrogram");
+        var offset = target_element.offset();
+        var max_y = offset.top + 150;
+        var x_pos = offset.left;
+        var protein_element = $("#protein");
+        protein_element.css({"left": x_pos + target_element.width()-80, "top": max_y});
+
         var glmol = new GLmol('protein', true);
         var loading = $('#loading');
+        var initial_pdb = "4BBB";
 
         window.dendrogram = new InCHlib({{ settings }});
-        dendrogram.settings.onclick_callback = function(ids){
-            if(ids.length == 1){
-                get_protein_from_pdb(ids[0]);
-            }
-        };
         dendrogram.read_data_from_file("{% static "data/"|add:example.data %}");
         dendrogram.draw();
+
+        dendrogram.highlight_rows([initial_pdb]);
+        get_protein_from_pdb(initial_pdb)
+
+        dendrogram.settings.highlight_
+        dendrogram.settings.row_onclick = function(ids){
+            if(ids.length == 1){
+                get_protein_from_pdb(ids[0]);
+                dendrogram.highlight_rows(ids);
+            }
+        };
 
         function get_protein_from_pdb(id){
             loading.fadeIn();
@@ -24,7 +38,6 @@
             $.ajax({
                 type: 'GET',
                 url: "{% url get_pdb_file %}",
-                // dataType: 'json',
                 data:{pdb_id: id},
                 success: function(pdb){
                     $("#protein_src").val(pdb);

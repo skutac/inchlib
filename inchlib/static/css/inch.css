@@ -302,16 +302,15 @@ body{
 }
 
 #protein_dendrogram{
-	width: 65%;
+	width: 70%;
 	margin-top: 50px;
 	margin-left: 30px;
 }
 
 #protein{
-	width: 30%;
+	width: 300px;
 	height: 300px;
-	margin-top: 50px;
-	float:right;
+	position: absolute;
 	/*border-radius: 5px;
 	border: solid #D2D2D2 1px;*/
 }
@@ -344,8 +343,8 @@ body{
 }
 
 #map{
-	margin-top: 100px;
-	height: 700px;
+	margin-top: 150px;
+	height: 650px;
 	border-radius: 10px;
 	border: solid #D2D2D2 1px;
 }
@@ -357,4 +356,27 @@ body{
 
 #overflow{
 	overflow: auto;
+}
+
+#molecule{
+	position: absolute;
+	 height: 300px;
+	 width: 250px;
+	 z-index: 100;
+	 border: solid #D2D2D2 1px;
+	 border-radius: 10px;
+	 display: none;
+}
+
+#molecule_img{
+	height: 270px;
+	width: 250px;
+	background-color: white;
+	border-radius: 10px;
+}
+
+#mol_id{
+	font-size: small;
+	position: absolute;
+	right: 10px;
 }

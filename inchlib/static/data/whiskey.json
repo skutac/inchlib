@@ -614,7 +614,7 @@
             "node@89": {
                 "count": 2, 
                 "distance": 1.414, 
-                "left_child": "Abefeldy", 
+                "left_child": "Aberfeldy", 
                 "parent": "node@90", 
                 "right_child": "Benromach"
             }, 
@@ -1232,6 +1232,28 @@
                     0.0
                 ], 
                 "parent": "node@131"
+            }, 
+            "Aberfeldy": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "Aberfeldy"
+                ], 
+                "features": [
+                    2.0, 
+                    2.0, 
+                    2.0, 
+                    0.0, 
+                    0.0, 
+                    2.0, 
+                    1.0, 
+                    2.0, 
+                    2.0, 
+                    2.0, 
+                    2.0, 
+                    2.0
+                ], 
+                "parent": "node@89"
             }, 
             "Oban": {
                 "count": 1, 
@@ -1984,28 +2006,6 @@
                     3.0
                 ], 
                 "parent": "node@100"
-            }, 
-            "Abefeldy": {
-                "count": 1, 
-                "distance": 0, 
-                "objects": [
-                    "Abefeldy"
-                ], 
-                "features": [
-                    2.0, 
-                    2.0, 
-                    2.0, 
-                    0.0, 
-                    0.0, 
-                    2.0, 
-                    1.0, 
-                    2.0, 
-                    2.0, 
-                    2.0, 
-                    2.0, 
-                    2.0
-                ], 
-                "parent": "node@89"
             }, 
             "Bruichladdich": {
                 "count": 1, 
