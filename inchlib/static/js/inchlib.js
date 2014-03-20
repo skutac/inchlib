@@ -2065,7 +2065,7 @@ InCHlib.prototype._draw_col_label = function(evt){
                              "Count": "Count"};
     var value = attrs.value;
     var header = header_type2value[column[0]];
-    if(value == 0 || value){
+    if(value !== false && value !== ""){
         value = [header, value].join("\n");
     }
     else{
