@@ -6,6 +6,7 @@
 <script>
     $(document).ready(function(){
         var static_url = "{% static "img/gr_molecules/" %}";
+        var chembl_url = "https://www.ebi.ac.uk/chembl/compound/inspect/"
         var target_element = $("#dendrogram");
         var offset = target_element.offset();
         var max_y = offset.top + 150;
@@ -13,6 +14,7 @@
         var mol_element = $("#molecule");
         var img_element = $("#molecule_img");
         var mol_id_element = $("#mol_id");
+        var mol_link = $("#molecule a");
         mol_element.css({"left": x_pos + target_element.width()-80});
 
         window.dendrogram = new InCHlib(
@@ -39,6 +41,7 @@
             mol_element.css({"top": y, "border-width": "1px"});
             img_element.attr("src", filepath);
             mol_id_element.text(mol_id);
+            mol_link.attr("href", chembl_url+mol_id);
             mol_element.show();
 
         }
