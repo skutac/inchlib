@@ -53,6 +53,7 @@
             dendrogram.settings.row_onmouseover = function(){};
             dendrogram.settings.heatmap_onmouseout = function(){};
             dendrogram.settings.row_onclick = function(){
+                dendrogram.highlight_rows([]);
                 bind_dendrogram_events();
             };
             mol_element.css({"border-width": "2px"});
@@ -67,6 +68,7 @@
             };
             dendrogram.settings.row_onclick = function(ids, evt){
                 fix_molecule(ids[0]);
+                dendrogram.highlight_rows(ids);
             };
         }
 
