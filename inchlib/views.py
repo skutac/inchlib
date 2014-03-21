@@ -151,7 +151,10 @@ d.export_dendrogram_as_json("filename")"""
 def get_pdb_file(req):
     keys = ["PDB ID","Chain ID","Structure Title","Resolution","Classification","Source","Biological Process","Cellular Component","Molecular Function","PubMed ID","Mesh Terms","DOI","Sequence","Chain Length"]
     pdb_id = req.GET["pdb_id"]
-    pdb_data = PDB2DATA[pdb_id]
+    pdb_data = {}
+    if pdb_id in PDB2DATA:
+        pdb_data = PDB2DATA[pdb_id]
+        
     pdb_data["pdb_file"] = fetch_pdb(pdb_id)
     return HttpResponse(json.dumps(pdb_data))
 
