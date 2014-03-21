@@ -10,12 +10,17 @@
         var offset = target_element.offset();
         var max_y = offset.top + 150;
         var x_pos = offset.left;
-        var protein_element = $("#protein");
-        protein_element.css({"left": x_pos + target_element.width()-80, "top": max_y});
+        //PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Process,Cellular Component,Molecular Function,PubMed ID,Mesh Terms,DOI,Sequence,Chain Length
+        var pdb_keys = ["PDB ID", "Structure Title", "Chain Length", "Resolution", "Classification", "Biological Process", "Cellular Component", "Molecular Function", "PubMed ID", "DOI"];
+
+        var protein_card = $("#protein_card");
+        var protein_div = $("#protein_div");
+        protein_div.css({"left": x_pos + target_element.width()-60, "top": max_y});
+        var overflow_div = $("#overflow_div");
 
         var glmol = new GLmol('protein', true);
         var loading = $('#loading');
-        var initial_pdb = "4BBB";
+        var initial_pdb = "1PO5";
 
         window.dendrogram = new InCHlib({{ settings }});
         dendrogram.read_data_from_file("{% static "data/"|add:example.data %}");
@@ -33,19 +38,61 @@
         };
 
         function get_protein_from_pdb(id){
+            var protein_canvas = $("#protein > canvas");
             loading.fadeIn();
-            $("#protein > canvas").hide();
+            protein_canvas.hide();
+            protein_card.hide();
             $.ajax({
                 type: 'GET',
+                dataType: "json",
                 url: "{% url get_pdb_file %}",
                 data:{pdb_id: id},
                 success: function(pdb){
-                    $("#protein_src").val(pdb);
+                    $("#protein_src").val(pdb.pdb_file);
                     glmol.loadMolecule();
                     loading.hide();
-                    $("#protein > canvas").fadeIn();
+                    create_pdb_card(pdb);
+                    protein_canvas.fadeIn();
+                    protein_card.fadeIn();
                 },
             });
+        }
+
+        function create_pdb_card(pdb){
+            var table = $("<table class='pure-table pure-table-bordered'></table>");
+            var i, row;
+            var key2url = {"PDB ID": "http://www.pdb.org/pdb/explore/explore.do?structureId=",
+                            "PubMed ID": "http://www.ncbi.nlm.nih.gov/pubmed/",
+                            "DOI": "http://dx.doi.org/",
+                            "Biological Process": "http://amigo.geneontology.org/amigo/term/",
+                            "Cellular Component": "http://amigo.geneontology.org/amigo/term/",
+                            "Molecular Function": "http://amigo.geneontology.org/amigo/term/"
+                        };
+
+            
+            for(i = 0; i < pdb_keys.length; i++){
+                var key = pdb_keys[i];
+                var value = pdb[pdb_keys[i]];
+                
+                if(key == "Biological Process" || key == "Cellular Component" || key == "Molecular Function"){
+                    value = value.split("*");
+                    if(value.length > 1){
+                        value = value[1].replace(" ", "");
+                    }
+                }
+
+                if(value == ""){
+                    value = "-";
+                }
+                else if(key in key2url){
+                    value = "<a href='" + key2url[key] + value + "' target=blank>" + value+ "</a>";
+                }
+
+                row = "<tr>" + "<td><b>" + pdb_keys[i] + "</b></td>" + "<td>" + value + "</td>" + "</tr>";
+                table.append(row);
+            }
+
+            protein_card.html(table);
         }
 
     });
@@ -66,11 +113,18 @@
 
 
 <div class="description">{{ example.description|safe }}</div>
-<div id="protein">
-    <div id="protein_src"></div>
-    <div id="loading">
-        <img src="{% static "img/loading.gif" %}"/>
+
+
+<div id="protein_div">
+    <div id="protein">
+        <div id="protein_src"></div>
+        <div id="loading">
+            <img src="{% static "img/loading.gif" %}"/>
+        </div>
     </div>
+
+    <div id="protein_card"></div>
+    <div id="overflow_div"></div>
 </div>
 
 <div id="protein_dendrogram"></div>

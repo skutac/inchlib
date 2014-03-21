@@ -1,4 +1,4 @@
-import json, re, urllib
+import json, re, urllib, csv
 
 from pygments import highlight
 from pygments.lexers import PythonLexer, JavascriptLexer, BashLexer
@@ -11,6 +11,14 @@ from django.utils.safestring import mark_safe
 from django.http import HttpResponse
 
 from examples.models import Examples, SettingsAttributes
+
+try:
+    with open("inchlib/static/source_data/proteins_report.csv", "r") as pdb_input:
+        reader = csv.DictReader(pdb_input, delimiter=",")
+        PDB2DATA = {p["PDB ID"]:p for p in reader}
+except Exception, e:
+    PDB2DATA = {}
+
 
 def index(req):
     return render_to_response("inchlib_index.html", {})
@@ -141,9 +149,28 @@ d.export_dendrogram_as_json("filename")"""
     return render_to_response("inchlib_clust.html", {"code": code, "bash": bash})
 
 def get_pdb_file(req):
-    pdb_file = fetch_pdb(req.GET["pdb_id"])
-    return HttpResponse(pdb_file)
+    keys = ["PDB ID","Chain ID","Structure Title","Resolution","Classification","Source","Biological Process","Cellular Component","Molecular Function","PubMed ID","Mesh Terms","DOI","Sequence","Chain Length"]
+    pdb_id = req.GET["pdb_id"]
+    pdb_data = PDB2DATA[pdb_id]
+    pdb_data["pdb_file"] = fetch_pdb(pdb_id)
+    return HttpResponse(json.dumps(pdb_data))
 
 def fetch_pdb(id):
   url = 'http://www.rcsb.org/pdb/files/%s.pdb' % id
   return urllib.urlopen(url).read()
+
+# def parse_pdb(pdb_file):
+#     """
+#     HEADER    TRANSFERASE/TRANSFERASE INHIBITOR       14-SEP-11   3TTJ              
+#     TITLE     CRYSTAL STRUCTURE OF JNK3 COMPLEXED WITH CC-359"," A JNK INHIBITOR FOR  
+#     TITLE    2 THE PREVENTION OF ISCHEMIA-REPERFUSION INJURY 
+#     REMARK   2 RESOLUTION.    2.10 ANGSTROMS.
+#     SOURCE   2 ORGANISM_SCIENTIFIC: HOMO SAPIENS;
+#     JRNL        PMID   22226655 
+#     JRNL        DOI    10.1016/J.BMCL.2011.12.028
+#     """
+#     data = {}
+#     classification = re.search("HEADER\s+(.*?)\d+", pdb_file)
+#     name = re.findall("TITLE\s+(\d+\s+)?(.*)", pdb_file)
+#     name = " ".join([n[1].strip(" ") for n in name])
+#     return data

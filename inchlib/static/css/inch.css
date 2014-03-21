@@ -307,16 +307,37 @@ body{
 	margin-left: 30px;
 }
 
-#protein{
-	width: 300px;
-	height: 300px;
+#protein_div{
 	position: absolute;
+	width: 300px;
+}
+
+#protein{
+	width: 95%;
+	height: 300px;
 	/*border-radius: 5px;
 	border: solid #D2D2D2 1px;*/
 }
 
+#protein_card{
+	width: 95%;
+	margin-top: 40px;
+	font-size: small;
+	margin-bottom: 50px;
+}
+
+
+#protein, #protein_card{
+	margin-left: auto;
+	margin-right: auto;
+}
+
 #protein_src{
 	display: none;
+}
+
+#overflow_div{
+	height: 50px;
 }
 
 #loading{
@@ -337,7 +358,7 @@ body{
 	margin-left: 30px;
 }
 
-#float_right{
+.float_right{
 	float: right;
 	width: 40%;
 }
@@ -354,7 +375,7 @@ body{
 	width: ;
 }
 
-#overflow{
+.overflow{
 	overflow: auto;
 }
 
