@@ -55,7 +55,27 @@
 </div>
 <hr/>
 
-<div class="description">{{ example.description|safe }}</div>
+<div class="description">
+<p>This data consist of scores for 86 single malt scotch whiskies in 12 different taste categories. The categories are scored on the scale between 0-4. The evaluated taste categories are: <i>Body, Sweetness, Smoky, Medicinal, Tobacco, Honey, Spicy, Winey, Nutty, Malty, Fruity, Floral.</i></p>
+
+<p>The data were clustered using <i>Euclidean</i> distance and <i>Ward's</i> linkage.</p>
+
+<div class="small_title">Data set information</div>
+<ul>
+<li>instances: 86 single malt scotch whiskies</li>
+<li>features: scores of 12 taste categories</li>
+</ul>
+
+
+<div class="small_title">Source: <a href='https://www.mathstat.strath.ac.uk/outreach/nessie/nessie_whisky.html' target=blank>Classification of whiskies</a></div>
+
+<!-- <div class="citation">Forina, M. et al, PARVUS - An Extendible Package for Data Exploration, Classification and Correlation. Institute of Pharmaceutical and Food Analysis and Technologies, Via Brigata Salerno, 16147 Genoa, Italy.</div> -->
+
+<p>On click on the heatmap row or the dendrogram node the whisky distilleries are marked in the map according to their latitude and longitude coordinates.</p>
+</div>
+
+
+
 <div class="overflow">
     <div class="float_right">
         <div id="map"></div>

@@ -52,6 +52,8 @@ def use_cases(req, exampleid):
         template = "inchlib_use_cases_whiskey.html"
     elif exampleid == "13":
         template = "inchlib_use_cases_chemical_biology.html"
+    elif exampleid == "12":
+        template = "inchlib_use_cases_microarrays.html"
     
     return render_to_response(template, {"examples":examples, "example": example, "settings": settings})
 

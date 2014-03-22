@@ -90,7 +90,26 @@
 <hr/>
 
 
-<div class="description">{{ example.description|safe }}</div>
+<div class="description">
+<p>The glucocorticoid receptor (GR) is the nuclear receptor to which cortisol and other glucocorticoids bind. The GR is expressed in almost every cell in the body and regulates genes controlling the development, metabolism, and immune response.</p>
+
+<p>The data set consist of 7 different physico-chemical and structural properties of 372 ligands - agonists of GR downloaded from the <a href="https://www.ebi.ac.uk/chembl/">ChEMBL database</a>. The EC50 (50% Effective concentration) values of ligands are also displayed in a special metadata column. The properties of ligands are: <i>SlogP, SMR, TPSA, Molecular Weight, Rotatable Bonds, H-Bond Donors, H-Bond Acceptors, Aromatic Rings</i>.</p>
+
+<p>The data were normalized to (0,1) scale and then clustered using <i>Euclidean</i> distance and <i>Ward's</i> linkage. Original data (before normalization) are shown in the heatmap.</p>
+
+<div class="small_title">Data set information</div>
+<ul>
+<li>instances: 372 GR ligands</li>
+<li>features: 7 physico-chemical and structural properties</li>
+<li>metadata: EC50 values of ligands</li>
+</ul>
+
+
+<div class="small_title">Source: <a href='https://www.ebi.ac.uk/chembl/target/inspect/CHEMBL2034' target=blank>ChEMBL - Glucocorticoid receptor</a></div>
+
+<p>When the cursor is over the heatmap row the structure of the represented ligand is shown next to the heatmap with its ChEMBL ID. After the click on the heatmap row the picture of the ligand is fixed and can be clicked to get to the ligand page on ChEMBL web pages.</p>
+
+</div>
 
 
 <div id="molecule">

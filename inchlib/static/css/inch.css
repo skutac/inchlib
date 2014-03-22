@@ -5,8 +5,8 @@
 }
 
 body{
-	width: 80%;
-	max-width: 1200px;
+	width: 90%;
+	max-width: 1400px;
 	margin-left: auto;
 	margin-right: auto;
 	font-family: 'Ubuntu', sans-serif;
@@ -352,7 +352,8 @@ body{
 	display: block;
 }
 
-#map_dendrogram{
+
+#map_dendrogram, #microarrays_dendrogram{
 	width: 55%;
 	margin-top: 50px;
 	margin-left: 30px;
@@ -379,7 +380,7 @@ body{
 	overflow: auto;
 }
 
-#molecule{
+#molecule, #microarrays{
 	position: absolute;
 	 height: 300px;
 	 width: 250px;
