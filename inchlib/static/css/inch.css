@@ -380,7 +380,7 @@ body{
 	overflow: auto;
 }
 
-#molecule, #microarrays{
+#molecule{
 	position: absolute;
 	 height: 300px;
 	 width: 250px;
@@ -401,4 +401,15 @@ body{
 	font-size: small;
 	position: absolute;
 	right: 10px;
+}
+
+#microarrays{
+	position: absolute;
+	width: 40%;
+	height: 500px;
+}
+
+#box_plot{
+	width: 80%;
+	margin-top: 100px;
 }
