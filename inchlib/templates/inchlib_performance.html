@@ -118,24 +118,25 @@ $(document).ready(function() {
 
 <div class="description">
   <div class="title"></div>
-  <p>Following charts demonstrate dependence of clustering speed (<i>inchlib_clust</i>) and rendering (<i>InCHlib</i>) on the data size. The testing data were randomly generated integers in interval from 0 to 1000. The Euclidean distance and Ward’s linkage were used for clustering only by row axis. </p>
-  <div class="pc_conf">PC configuration: Kubuntu 13.04 with Chrome 33.0.1750.117 running on Intel Core 2 Duo E6600 2.4GHz, 8GB RAM, classic hard-drive</div>
+  <p>Following charts demonstrate dependence of clustering speed (<i>inchlib_clust</i>) and rendering (<i>InCHlib</i>) on the data size. The test data are randomly generated integers between 0 and  1000. We used the Euclidean distance and Ward’s linkage for clustering.</p>
+
+  <div class="pc_conf">Testing PC configuration: Kubuntu 13.10 system with Chrome 33.0.1750.146 browser, Intel Core i5-2400 CPU 3.10 GHz, 8 GB RAM, 500 GB solid-state drive (SSD)</div>
 </div>
 
 <div class="description">
-  <div class="small_title">Clustering time vs. the count of data points</div>
-  <p>With the increasing number of data points clustering time increases more or less exponentially. This corresponds with the complexity of Ward’s linkage implementation in fastcluster library used for clustering. You should be also aware of the PC memory consumption when clustering larger data sets. For the largest set with 30 000 data points the memory consumption was over 4 GB RAM.</p>
+  <div class="small_title">Clustering time vs. the number of data points</div>
+  <p>Clustering time increases quadratically with the increasing number of data points. This corresponds to the O(N²) complexity of the Ward’s linkage implementation in the fastcluster library. Apart from the time increase, memory needs also grow significantly with the number of data points. Clustering of 20,000 data points requires around 2 GB RAM.</p>
 </div>
 <div id="performance_rows" class="chart"></div>
 <div class="description">
   <div class="small_title">Clustering time vs. the number of features</div>
-  <p>The increasing number of data features doesn't affect the clustering duration as much as the increase of the data rows. The reason is that the complexity of the problem (distance matrix) is constant, larger are only the data themselves. Also the consumption of the PC memory is not a problem in that case but only when you cluster by row axis. If you would cluster by both axis the increase of the number of features would also mean the increase of the number of data points.</p>
+  <p>Clustering time increases with the increasing number of features only modestly. The dependence between the number of features and the clustering time is linear. If the total number of data is constant and data are clustered by rows, sets with less rows (e.g., 50 x 1000) are processed much faster than sets with higher number of rows (e.g., 1000 x 50). In the clustering, the time limited step is the formation of the distance matrix. Dimension of the distance matrix is given by the number of rows, and its size is constant with the increasing number of data features.</p>
 </div>
 <div id="performance_features" class="chart"></div>
 
 <div class="description">
   <div class="small_title">Rendering time vs. the size of the data</div>
-  <p>Rendering time depends on the number of data values (100 data points, each described by 100 features, give 10,000 data values). Rendering time is also influenced by the PC configuration and used web browser. For smooth running, we recommend <i>Google Chrome</i>. <i>Mozilla Firefox</i> is, due to the speed of its JavaScript engine, unsuitable for large data sets.</p>
+  <p>Rendering time depends linearly on the number of data values. It is also influenced by the PC configuration and used web browser. For smooth displaying, we recommend Google Chrome. Mozilla Firefox in Linux is, due to the lower speed of its JavaScript engine, unsuitable for large data sets.</p>
 </div>
 <div id="performance_inchlib" class="chart"></div>
 

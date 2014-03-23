@@ -353,7 +353,7 @@ body{
 }
 
 
-#map_dendrogram, #microarrays_dendrogram{
+#map_dendrogram{
 	width: 55%;
 	margin-top: 50px;
 	margin-left: 30px;
@@ -403,13 +403,19 @@ body{
 	right: 10px;
 }
 
+#microarrays_dendrogram{
+	width: 65%;
+	margin-top: 50px;
+	margin-left: 30px;
+}
+
 #microarrays{
 	position: absolute;
-	width: 40%;
-	height: 500px;
+	width: 30%;
+	height: 400px;
 }
 
 #box_plot{
-	width: 80%;
+	width: 90%;
 	margin-top: 100px;
 }
