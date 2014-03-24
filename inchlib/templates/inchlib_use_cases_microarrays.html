@@ -107,18 +107,22 @@
                     title: {
                         text: 'Average Signal'
                     },
-                    // plotLines: [{
-                    //     value: 932,
-                    //     color: 'red',
-                    //     width: 1,
-                    //     label: {
-                    //         text: 'Theoretical mean: 932',
-                    //         align: 'center',
-                    //         style: {
-                    //             color: 'gray'
-                    //         }
-                    //     }
-                    // }]  
+                },
+
+                plotOptions: {
+                    boxplot: {
+                        color: "#000000",
+                        fillColor: '#F0F0E0',
+                        lineWidth: 2,
+                        medianColor: '#0C5DA5',
+                        medianWidth: 3,
+                        stemColor: '#A63400',
+                        stemDashStyle: 'dot',
+                        stemWidth: 1,
+                        whiskerColor: '#3D9200',
+                        whiskerLength: '20%',
+                        whiskerWidth: 3 
+                    }
                 },
             
                 series: [{
