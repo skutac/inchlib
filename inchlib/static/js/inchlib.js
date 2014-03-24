@@ -24,7 +24,7 @@ function InCHlib(settings){
         "count_column": false,
         "count_column_colors": "Reds",
         "min_row_height": false,
-        "max_row_height": 20,
+        "max_row_height": 25,
         "max_column_width": 100,
         "font": "Arial",
         "values_center": "median",
@@ -2065,7 +2065,7 @@ InCHlib.prototype._draw_col_label = function(evt){
                              "Count": "Count"};
     var value = attrs.value;
     var header = header_type2value[column[0]];
-    if(value !== false && value !== ""){
+    if(value){
         value = [header, value].join("\n");
     }
     else{
