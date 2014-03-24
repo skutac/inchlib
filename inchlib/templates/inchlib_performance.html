@@ -6,7 +6,10 @@
 
 <script>
 $(document).ready(function() {
-  $('#performance_rows').highcharts({
+  var performance_rows = new Highcharts.Chart({
+            chart: {
+                renderTo: "performance_rows",
+            },
             title: {
                 text:'Clustering Time X Number of data points (50 features)',
                 x: -20 //center
@@ -42,7 +45,10 @@ $(document).ready(function() {
             },]
     });
 
-    $('#performance_features').highcharts({
+    var performance_features = new Highcharts.Chart({
+            chart: {
+                renderTo: "performance_features",
+            },
             title: {
                 text: 'Clustering Time X Number of features (50 data points)',
                 x: -20 //center
@@ -78,7 +84,10 @@ $(document).ready(function() {
             },]
     });
 
-    $('#performance_inchlib').highcharts({
+    var performance_inchlib = new Highcharts.Chart({
+            chart: {
+                renderTo: "performance_inchlib",
+            },
             title: {
                 text: 'Rendering Time X Size of the data (20 features)',
                 x: -20 //center
@@ -120,7 +129,7 @@ $(document).ready(function() {
   <div class="title"></div>
   <p>Following charts demonstrate dependence of clustering speed (<i>inchlib_clust</i>) and rendering (<i>InCHlib</i>) on the data size. The test data are randomly generated integers between 0 and  1000. We used the Euclidean distance and Ward’s linkage for clustering.</p>
 
-  <div class="pc_conf">Testing PC configuration: Kubuntu 13.10 system with Chrome 33.0.1750.146 browser, Intel Core i5-2400 CPU 3.10 GHz, 8 GB RAM, 500 GB solid-state drive (SSD)</div>
+  <div class="pc_conf">Testing PC configuration: Kubuntu 13.10 system with Chrome 33.0.1750.146 browser, Intel Core i5-2400 CPU 3.10 GHz, 8 GB RAM, 120 GB solid-state drive (SSD)</div>
 </div>
 
 <div class="description">
@@ -139,7 +148,7 @@ $(document).ready(function() {
   <p>Rendering time depends linearly on the number of data values. It is also influenced by the PC configuration and used web browser. For smooth displaying, we recommend Google Chrome. Mozilla Firefox in Linux is, due to the lower speed of its JavaScript engine, unsuitable for large data sets.</p>
 </div>
 <div id="performance_inchlib" class="chart"></div>
-
+<hr/>
 
 
 {% endblock %}
