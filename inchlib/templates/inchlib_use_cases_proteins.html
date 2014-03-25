@@ -112,7 +112,25 @@
 <hr/>
 
 
-<div class="description">{{ example.description|safe }}</div>
+<div class="description">
+<p>Protein sequence and structure similarity is a key tool in the determination ...</p>
+
+<p>The data consist of the amino acid percentage composition of a set of 139 proteins exported from the <a href="http://www.rcsb.org/pdb/home/home.do" target="blank">Protein Data Bank (PDB)</a>. The set is composed from the representatives of eukaryotic membrane proteins with maximum similarity of 70% and exactly one chain at least 100 residuals long.</p>
+
+<p>The data were clustered using <i>Euclidean</i> distance and <i>Ward's</i> linkage.</p>
+
+<div class="small_title">Data set information</div>
+<ul>
+<li>instances: 139 eukaryotic membrane proteins</li>
+<li>features: the percentage of 20 amino acids from which the proteins are composed</li>
+</ul>
+
+
+<div class="small_title">Source: <a href="http://www.rcsb.org/pdb/home/home.do" target="blank">Protein Data Bank (PDB)</a></div>
+
+<p>After the click on the heatmap row the pdb file is dynamically fetched from PDB and the 3D model of protein is displayed next to the heatmap. Under the protein model there are also information about the protein: <i>PDB ID, Structure Title, Chain Length, Resolution, Classification, Biological Process, Cellular Component, Molecular Function, PubMed ID, DOI</i>.</p>
+
+</div>
 
 
 <div id="protein_div">

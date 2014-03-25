@@ -5,8 +5,8 @@
 }
 
 body{
-	width: 80%;
-	max-width: 1200px;
+	width: 90%;
+	max-width: 1400px;
 	margin-left: auto;
 	margin-right: auto;
 	font-family: 'Ubuntu', sans-serif;
@@ -352,6 +352,7 @@ body{
 	display: block;
 }
 
+
 #map_dendrogram{
 	width: 55%;
 	margin-top: 50px;
@@ -400,4 +401,25 @@ body{
 	font-size: small;
 	position: absolute;
 	right: 10px;
+}
+
+#microarrays_dendrogram{
+	width: 65%;
+	margin-top: 50px;
+	margin-left: 30px;
+}
+
+#microarrays{
+	position: absolute;
+	width: 400px;
+	height: 300px;
+	margin-top: 100px;
+}
+
+#boxplot{
+	width: 90%;
+	border: solid #D2D2D2 1px;
+	padding: 10px;
+	z-index: 100;
+	background-color: white;
 }
