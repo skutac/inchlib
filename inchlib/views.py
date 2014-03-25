@@ -1,4 +1,4 @@
-import json, re, urllib, csv
+import json, re, urllib, csv, os
 
 from pygments import highlight
 from pygments.lexers import PythonLexer, JavascriptLexer, BashLexer
@@ -9,14 +9,16 @@ import config
 from django.shortcuts import render_to_response, redirect
 from django.utils.safestring import mark_safe
 from django.http import HttpResponse
+from django.conf import settings
 
 from examples.models import Examples, SettingsAttributes
 
 try:
-    with open("inchlib/static/source_data/proteins_report.csv", "r") as pdb_input:
+    with open(os.path.join(settings.ROOT, "static/source_data/proteins_report.csv"), "r") as pdb_input:
         reader = csv.DictReader(pdb_input, delimiter=",")
         PDB2DATA = {p["PDB ID"]:p for p in reader}
 except Exception, e:
+    print str(e)
     PDB2DATA = {}
 
 
