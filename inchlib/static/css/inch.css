@@ -200,6 +200,9 @@ body{
 
 .citation{
 	font-size: small;
+	color: gray;
+	font-style: italic;
+	margin-top: 5px;
 }
 
 #row_ids_callback{

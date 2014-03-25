@@ -5,11 +5,10 @@ import numpy, scipy, hcluster, fastcluster, sklearn
 from sklearn import preprocessing
 from scipy import spatial
 
-RAW_LNKAGES = ["ward", "centroid"]
-NUMERIC_DISTANCES =  ["braycurtis", "canberra", "chebyshev", "cityblock", "correlation", "cosine", "euclidean", "mahalanobis", "minkowski", "seuclidean", "sqeuclidean"]
-BINARY_DISTANCES = ["dice","hamming","jaccard","kulsinski","matching","rogerstanimoto","russellrao","sokalmichener","sokalsneath","yule"]
-DATA_TYPES = {"numeric": NUMERIC_DISTANCES,
-              "binary":BINARY_DISTANCES}
+LINKAGES = ["single", "complete", "average", "centroid", "ward", "median", "weighted"]
+RAW_LINKAGES = ["ward", "centroid"]
+DATA_TYPES = {"numeric": ["braycurtis", "canberra", "chebyshev", "cityblock", "correlation", "cosine", "euclidean", "mahalanobis", "minkowski", "seuclidean", "sqeuclidean"],
+              "binary": ["dice","hamming","jaccard","kulsinski","matching","rogerstanimoto","russellrao","sokalmichener","sokalsneath","yule"]}
 
 class Dendrogram():
     """Class which handles the generation of cluster heatmap format of clustered data. 
@@ -26,7 +25,7 @@ class Dendrogram():
         self.header = clustering.header
         self.dendrogram = False
 
-    def __get_dendrogram__(self, write_data=True):
+    def __get_cluster_heatmap__(self, write_data=True):
         root, nodes = hcluster.to_tree(self.clustering, rd=True)
         node_id2node = {}
         dendrogram = {"nodes":{}}
@@ -103,16 +102,16 @@ class Dendrogram():
 
         return dendrogram
 
-    def create_dendrogram(self, contract_clusters=False, cluster_count=1000, write_data=True):
+    def create_cluster_heatmap(self, contract_clusters=False, write_data=True):
         """Creates cluster heatmap representation in inchlib format. By setting contract_clusters to True you can
         cut the dendrogram in a distance to decrease the row size of the heatmap to count specified by cluster count parameter.
         By setting write_data to False the data features won't be present in the resulting format."""
-        self.dendrogram = {"data": self.__get_dendrogram__(write_data)}
+        self.dendrogram = {"data": self.__get_cluster_heatmap__(write_data)}
 
         self.contract_clusters = contract_clusters
         self.contract_cluster_treshold = 0
         if self.contract_clusters:
-            self.contract_cluster_treshold = self.__get_distance_treshold__(cluster_count)
+            self.contract_cluster_treshold = self.__get_distance_treshold__(contract_clusters)
             print "Distance treshold for contraction:", self.contract_cluster_treshold
             if self.contract_cluster_treshold >= 0:
                 self.__contract_data__()
@@ -202,7 +201,7 @@ class Dendrogram():
             node_id = "#".join([node_id, "2"])
         return node_id
 
-    def __get_distance_treshold__(self, cluster_count=100):
+    def __get_distance_treshold__(self, cluster_count):
         print "Calculating distance treshold for cluster contraction..."
         if cluster_count >= self.tree.count:
             return -1
@@ -406,7 +405,7 @@ class Cluster():
 
     def cluster_data(self, data_type="numeric", row_distance="euclidean", row_linkage="single", axis="row", column_distance="euclidean", column_linkage="ward"):
         """Performs clustering according to the given parameters."""
-        print "Cluster analysis setup:", data_type, row_distance, row_linkage, axis
+        print "Clustering rows:", row_distance, row_linkage
         self.data_type = data_type
         self.clustering_axis = axis
         row_linkage = str(row_linkage)
@@ -414,7 +413,7 @@ class Cluster():
         if data_type == "nominal":
             self.__binarize_nominal_data__()
         
-        if row_linkage in RAW_LNKAGES:
+        if row_linkage in RAW_LINKAGES:
             self.clustering = fastcluster.linkage(self.data, method=row_linkage, metric=row_distance)
 
         else:
@@ -431,6 +430,7 @@ class Cluster():
 
         self.column_clustering = []
         if axis == "both" and len(self.data[0]) > 2:
+            print "Clustering columns:", column_distance, column_linkage
             self.__cluster_columns__(column_distance, column_linkage)
 
         if data_type == "nominal":
@@ -475,7 +475,7 @@ def _process_(arguments):
     c.cluster_data(data_type=arguments.datatype, row_distance=arguments.row_distance, row_linkage=arguments.row_linkage, axis=arguments.axis, column_distance=arguments.column_distance, column_linkage=arguments.column_linkage)
 
     d = Dendrogram(c)
-    d.create_dendrogram(contract_clusters=arguments.compress, cluster_count=arguments.compress, write_data= not arguments.dont_write_data)
+    d.create_cluster_heatmap(contract_clusters=arguments.compress, write_data= not arguments.dont_write_data)
     
     if arguments.metadata:
         d.add_metadata_from_file(metadata_file=arguments.metadata, delimiter=arguments.metadata_delimiter, header=arguments.metadata_header)
