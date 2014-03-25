@@ -1316,14 +1316,25 @@ InCHlib.prototype._highlight_path = function(path_id){
     this.settings.heatmap_colors = this.settings.highlight_colors;
     this.settings.metadata_colors = this.settings.highlight_colors;
 
+    var done_rows = {};
+    var unique_row_ids = [];
+
     for(i = 0; i<row_ids.length; i++){
         if(row_ids[i] in this.objects2leaves){
             row_id = this.objects2leaves[row_ids[i]];
-            row = this._draw_heatmap_row(row_id, this.distance+this.dendrogram_heatmap_distance, this.leaves_y_coordinates[row_id]);
-            this.highlighted_rows_layer.add(row);
-            this._bind_row_events(row)
+            if(!(row_id in done_rows)){
+                unique_row_ids.push(row_id);
+                done_rows[row_id] = null;
+            }
         }
     }
+
+    for(i = 0; i<unique_row_ids.length; i++){
+        row = this._draw_heatmap_row(unique_row_ids[i], this.distance+this.dendrogram_heatmap_distance, this.leaves_y_coordinates[unique_row_ids[i]]);
+        this.highlighted_rows_layer.add(row);
+        this._bind_row_events(row)
+    }
+
 
     this.highlighted_rows_layer.draw();
     this.heatmap_overlay.moveToTop();

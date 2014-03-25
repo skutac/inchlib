@@ -7,6 +7,83 @@
 
 <script>
     $(document).ready(function(){
+
+        window.boxplot = new Highcharts.Chart({
+
+            chart: {
+                renderTo: "boxplot",
+                type: 'boxplot',
+                height: 300
+            },
+            
+            title: {
+                text: null
+            },
+            
+            legend: {
+                enabled: false
+            },
+            exporting:{
+                enabled: false,
+            },
+            xAxis: {
+                categories: ["normal", "tumour"],
+                title: {
+                    text: 'Class'
+                }
+            },
+            
+            yAxis: {
+                title: {
+                    text: 'Average Signal'
+                },
+            },
+
+            plotOptions: {
+                boxplot: {
+                    color: "#000000",
+                    fillColor: '#F0F0E0',
+                    lineWidth: 2,
+                    medianColor: '#0C5DA5',
+                    medianWidth: 3,
+                    stemColor: '#A63400',
+                    stemDashStyle: 'dot',
+                    stemWidth: 1,
+                    whiskerColor: '#3D9200',
+                    whiskerLength: '20%',
+                    whiskerWidth: 3 
+                }
+            },
+        
+            series: [{
+                name: 'Average Signal',
+                data: [
+                ],
+            }, 
+
+            // {
+            //     name: 'Outlier',
+            //     color: Highcharts.getOptions().colors[0],
+            //     type: 'scatter',
+            //     data: [ // x, y positions where 0 is the first category
+            //         [0, 644],
+            //         [4, 718],
+            //         [4, 951],
+            //         [4, 969]
+            //     ],
+            //     marker: {
+            //         fillColor: 'white',
+            //         lineWidth: 1,
+            //         lineColor: Highcharts.getOptions().colors[0]
+            //     },
+            //     tooltip: {
+            //         pointFormat: 'Observation: {point.y}'
+            //     }
+            // }
+            ]
+            
+        });
+
         var target_element = $("#microarrays_dendrogram");
         var offset = target_element.offset();
         var max_y = offset.top + 150;
@@ -23,17 +100,25 @@
                 heatmap_colors: "RdBkGr",
                 column_dendrogram: true,
                 header_as_heatmap_row: true,
-                header_row_colors: "RdBu",
-                row_onclick: function(row_ids, evt){
-                    draw_boxplot(row_ids, evt);
-                },
-                dendrogram_node_onclick: function(row_ids, evt){
-                    draw_boxplot(row_ids, evt);
-                },
+                header_row_colors: "PiYG2",
+                highlight_colors: "RdLrBu",
             });
+
+        dendrogram.settings.row_onclick = function(row_ids, evt){
+                    draw_boxplot(row_ids, evt);
+                    dendrogram.highlight_rows(row_ids);
+                };
+
+        dendrogram.settings.dendrogram_node_onclick = function(row_ids, evt){
+                    draw_boxplot(row_ids, evt);
+                    dendrogram.highlight_rows([]);
+                };
 
         dendrogram.read_data_from_file("{% static "data/microarrays.json" %}");
         dendrogram.draw();
+
+        draw_boxplot(["ILMN_1737074"]);
+        dendrogram.highlight_rows(["ILMN_1737074"]);
 
         function draw_boxplot(row_ids, evt){
             var class2values = {"tumour":[], "normal":[]};
@@ -77,85 +162,7 @@
             return parameters;
         }
 
-        window.boxplot = new Highcharts.Chart({
-
-                chart: {
-                    renderTo: "boxplot",
-                    type: 'boxplot',
-                    height: 300
-                },
-                
-                title: {
-                    text: null
-                },
-                
-                legend: {
-                    enabled: false
-                },
-                exporting:{
-                    enabled: false,
-                },
-                xAxis: {
-                    categories: ["normal", "tumour"],
-                    title: {
-                        text: 'Class'
-                    }
-                },
-                
-                yAxis: {
-                    title: {
-                        text: 'Average Signal'
-                    },
-                },
-
-                plotOptions: {
-                    boxplot: {
-                        color: "#000000",
-                        fillColor: '#F0F0E0',
-                        lineWidth: 2,
-                        medianColor: '#0C5DA5',
-                        medianWidth: 3,
-                        stemColor: '#A63400',
-                        stemDashStyle: 'dot',
-                        stemWidth: 1,
-                        whiskerColor: '#3D9200',
-                        whiskerLength: '20%',
-                        whiskerWidth: 3 
-                    }
-                },
-            
-                series: [{
-                    name: 'Average Signal',
-                    data: [
-                    ],
-                }, 
-
-                // {
-                //     name: 'Outlier',
-                //     color: Highcharts.getOptions().colors[0],
-                //     type: 'scatter',
-                //     data: [ // x, y positions where 0 is the first category
-                //         [0, 644],
-                //         [4, 718],
-                //         [4, 951],
-                //         [4, 969]
-                //     ],
-                //     marker: {
-                //         fillColor: 'white',
-                //         lineWidth: 1,
-                //         lineColor: Highcharts.getOptions().colors[0]
-                //     },
-                //     tooltip: {
-                //         pointFormat: 'Observation: {point.y}'
-                //     }
-                // }
-                ]
-            
-            });
-
-        
-
-    });
+});
 </script>
 
 <div class="pure-menu pure-menu-open pure-menu-horizontal">
@@ -173,17 +180,16 @@
 
 
 <div class="description">
-<p>The glucocorticoid receptor (GR) is the nuclear receptor to which cortisol and other glucocorticoids bind. The GR is expressed in almost every cell in the body and regulates genes controlling the development, metabolism, and immune response.</p>
+<p>...</p>
 
-<p>The data set consist of 
-    7 different physico-chemical and structural properties of 372 ligands - agonists of GR downloaded from the <a href="https://www.ebi.ac.uk/chembl/">ChEMBL database</a>. The EC50 (50% Effective concentration) values of ligands are also displayed in a special metadata column. The properties of ligands are: <i>SlogP, SMR, TPSA, Molecular Weight, Rotatable Bonds, H-Bond Donors, H-Bond Acceptors, Aromatic Rings</i>.</p>
+<p>The data set consist of 48 803 genes (compressed to 500) found on a microarray chip where expressions for 52 tumour/normal samples were measured.</p>
 
-<p>The data were clustered using <i>Euclidean</i> distance and <i>complete</i> linkage. After the clustering the data were compressed from original 48 803 to 1000 resulted data points.</p>
+<p>The data were clustered using <i>Euclidean</i> distance and <i>complete</i> linkage. After the clustering the data were compressed from original 48 803 to 500 resulted data points.</p>
 
 <div class="small_title">Data set information</div>
 <ul>
-<li>instances: 1000 genes (compressed from original 48 803)</li>
-<li>features: 52 samples of tumour/normal ...</li>
+<li>instances: 500 genes (compressed from original 48 803)</li>
+<li>features: 52 samples of carcinoma tissue (26) and normal mucosae (26)</li>
 </ul>
 
 
@@ -191,7 +197,7 @@
 
 <div class="citation"><a href="http://dx.doi.org/10.1111/boc.201200018" target="blank">Upregulation of IL-6, IL-8 and CXCL-1 production in dermal fibroblasts by normal/malignant epithelial cells in vitro: Immunohistochemical and transcriptomic analyses.</a> Kolář M, Szabo P, Dvořánková B, Lacina L, Gabius HJ, Strnad H, Sáchová J, Vlček C, Plzák J, Chovanec M, Cada Z, Betka J, Fík Z, Pačes J, Kovářová H, Motlík J, Jarkovská K, Smetana K Jr . Biology of the Cell 104(12):738-751 (2012), <a href="http://europepmc.org/abstract/MED/23043537" target="blank">Europe PMC 23043537</a></div>
 
-<p>On click on the heatmap row or the dendrogram node the boxplot of values for normal/tumour classes is displayed next to the heatmap.</p>
+<p>On click on the heatmap row or the dendrogram node the boxplot of values for individual classes (tumour/normal) is displayed next to the heatmap.</p>
 
 </div>
 
