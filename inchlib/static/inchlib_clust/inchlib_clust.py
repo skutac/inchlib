@@ -25,7 +25,7 @@ class Dendrogram():
         self.header = clustering.header
         self.dendrogram = False
 
-    def __get_cluster_heatmap__(self, write_data=True):
+    def __get_cluster_heatmap__(self, write_data):
         root, nodes = hcluster.to_tree(self.clustering, rd=True)
         node_id2node = {}
         dendrogram = {"nodes":{}}
@@ -102,19 +102,19 @@ class Dendrogram():
 
         return dendrogram
 
-    def create_cluster_heatmap(self, contract_clusters=False, write_data=True):
-        """Creates cluster heatmap representation in inchlib format. By setting contract_clusters to True you can
+    def create_cluster_heatmap(self, compress=False, compressed_value="median", write_data=True):
+        """Creates cluster heatmap representation in inchlib format. By setting compress to True you can
         cut the dendrogram in a distance to decrease the row size of the heatmap to count specified by cluster count parameter.
         By setting write_data to False the data features won't be present in the resulting format."""
         self.dendrogram = {"data": self.__get_cluster_heatmap__(write_data)}
 
-        self.contract_clusters = contract_clusters
-        self.contract_cluster_treshold = 0
-        if self.contract_clusters:
-            self.contract_cluster_treshold = self.__get_distance_treshold__(contract_clusters)
-            print "Distance treshold for contraction:", self.contract_cluster_treshold
-            if self.contract_cluster_treshold >= 0:
-                self.__contract_data__()
+        self.compress = compress
+        self.compress_cluster_treshold = 0
+        if self.compress and self.compress >= 0:
+            self.compress_cluster_treshold = self.__get_distance_treshold__(compress)
+            print "Distance treshold for compression:", self.compress_cluster_treshold
+            if self.compress_cluster_treshold >= 0:
+                self.__compress_data__(compressed_value)
 
         if self.header and write_data:
             self.dendrogram["data"]["feature_names"] = [h for h in self.header]
@@ -126,7 +126,7 @@ class Dendrogram():
             self.dendrogram["column_dendrogram"] = self.__get_column_dendrogram__()
         return
 
-    def __contract_data__(self):
+    def __compress_data__(self, compressed_value):
         nodes = {}
         to_remove = set()
         
@@ -138,7 +138,7 @@ class Dendrogram():
                 data = node["features"]
                 node_id = n
 
-                while self.dendrogram["data"]["nodes"][node["parent"]]["distance"] <= self.contract_cluster_treshold:
+                while self.dendrogram["data"]["nodes"][node["parent"]]["distance"] <= self.compress_cluster_treshold:
                     to_remove.add(node_id)
                     node_id = node["parent"]
                     node = self.dendrogram["data"]["nodes"][node_id]
@@ -202,7 +202,7 @@ class Dendrogram():
         return node_id
 
     def __get_distance_treshold__(self, cluster_count):
-        print "Calculating distance treshold for cluster contraction..."
+        print "Calculating distance treshold for cluster compression..."
         if cluster_count >= self.tree.count:
             return -1
         
@@ -258,7 +258,7 @@ class Dendrogram():
 
         leaves = {n:self.dendrogram["data"]["nodes"][n] for n in self.dendrogram["data"]["nodes"] if self.dendrogram["data"]["nodes"][n]["count"] == 1}
 
-        if not self.contract_clusters:
+        if not self.compress:
             
             for leaf in leaves:
                 try:
@@ -475,7 +475,7 @@ def _process_(arguments):
     c.cluster_data(data_type=arguments.datatype, row_distance=arguments.row_distance, row_linkage=arguments.row_linkage, axis=arguments.axis, column_distance=arguments.column_distance, column_linkage=arguments.column_linkage)
 
     d = Dendrogram(c)
-    d.create_cluster_heatmap(contract_clusters=arguments.compress, write_data= not arguments.dont_write_data)
+    d.create_cluster_heatmap(compress=arguments.compress, compressed_value=arguments.compressed_value, write_data=not arguments.dont_write_data)
     
     if arguments.metadata:
         d.add_metadata_from_file(metadata_file=arguments.metadata, delimiter=arguments.metadata_delimiter, header=arguments.metadata_header)
@@ -503,6 +503,7 @@ if __name__ == '__main__':
     parser.add_argument("-dh", "--data_header", default=False, help="whether the first row of data file is a header", action="store_true")
     parser.add_argument("-mh", "--metadata_header", default=False, help="whether the first row of metadata file is a header", action="store_true")
     parser.add_argument("-c", "--compress", type=int, default=0, help="compress the data to contain maximum of specified count of rows")
+    parser.add_argument("-cv", "--compressed_value", type=str, default="median", help="the resulted value from merged rows (data points)")
     parser.add_argument("-dwd", "--dont_write_data", default=False, help="don't write clustered data to the inchlib data format", action="store_true")
     parser.add_argument("-n", "--normalize", default=False, help="normalize data to [0, 1] range", action="store_true")
     parser.add_argument("-wo", "--write_original", default=False, help="cluster normalized data but write the original ones to the heatmap", action="store_true")
