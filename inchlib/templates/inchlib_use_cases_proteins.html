@@ -80,16 +80,18 @@
                         value = value[1].replace(" ", "");
                     }
                 }
-
-                if(value == ""){
-                    value = "-";
-                }
-                else if(key in key2url){
-                    value = "<a href='" + key2url[key] + value + "' target=blank>" + value+ "</a>";
+                else if(key == "Classification"){
+                    value = value.toLowerCase();
                 }
 
-                row = "<tr>" + "<td><b>" + pdb_keys[i] + "</b></td>" + "<td>" + value + "</td>" + "</tr>";
-                table.append(row);
+                if(value != ""){
+                    if(key in key2url){
+                        value = "<a href='" + key2url[key] + value + "' target=blank>" + value+ "</a>";
+                    }
+
+                    row = "<tr>" + "<td><b>" + pdb_keys[i] + "</b></td>" + "<td>" + value + "</td>" + "</tr>";
+                    table.append(row);
+                }
             }
 
             protein_card.html(table);

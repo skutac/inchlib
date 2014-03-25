@@ -37,7 +37,7 @@ function InCHlib(settings){
         "dendrogram_node_onclick": function(object_ids, evt){
             return;
         },
-        "row_onmouseover": function(object_id, evt){
+        "row_onmouseover": function(object_ids, evt){
             return;
         },
         "row_onmouseout": function(evt){

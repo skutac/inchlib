@@ -18,7 +18,7 @@
 					if(i == "highlighted_rows"){
 						val = "[" + val + "]";
 					}
-					else if(i == "row_onclick"){
+					else if(i == "row_onclick"||i=="dendrogram_node_onclick"){
 						val = settings[i];
 					}
 					settings_string = settings_string + "  <a href='../docs#" + i +"' target=blank>" + i + "</a>" + ": " + val + ",\n";
@@ -36,7 +36,8 @@
 		dendrogram.draw();
 
 		{% if example.exampleid == 9 %}
-			dendrogram.settings.row_onclick = function(row_ids, evt){$("#row_ids").text(row_ids);};
+			dendrogram.settings.row_onclick = function(object_ids, evt){$("#object_ids").text(object_ids);};
+			dendrogram.settings.dendrogram_node_onclick = function(object_ids, evt){$("#object_ids").text(object_ids);};
 		{% endif %}
 	});
 
@@ -86,12 +87,16 @@ inchlib.draw(); //draw visualization</div>
 
 	<div class="example_settings">
 		<div class="small_title">Example data</div>
-		<div class="example_data">The activities for a small set of steroid compounds measured in three different concentrations clustered using <i>euclidean</i> distance and <i>Ward's</i> linkage. <a href="" id="example_data_link" target=blank><b>Show data >></b></a></div>
+		{% if example.exampleid == 10 or example.exampleid == 4 or example.exampleid == 7 or example.exampleid == 5 %}
+			<div class="example_data">The activities for a small set of chemical compounds on a biological receptor measured in three different concentrations clustered using <i>euclidean</i> distance and <i>Ward's</i> linkage. <i>LogP (octanol/water partition coefficent), molecular weight and the number of aromatic rings</i> descriptors are used as metadata. <a href="" id="example_data_link" target=blank><b>Show data >></b></a></div>
+		{% else %}
+			<div class="example_data">The activities for a small set of chemical compounds on a biological receptor measured in three different concentrations clustered using <i>euclidean</i> distance and <i>Ward's</i> linkage. <a href="" id="example_data_link" target=blank><b>Show data >></b></a></div>
+		{% endif %}
 	</div>
 
 
 	{% if example.exampleid == 9 %}
-		<div id="row_ids_callback"><b>Row IDs:</b> <span id="row_ids"></span></div>
+		<div id="row_ids_callback"><b>Object IDs:</b> <span id="object_ids"></span></div>
 	{% endif %}
 	
 	<div id="dendrogram"></div>

@@ -1,5 +1,5 @@
-PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Process,Cellular Component,Molecular Function,PubMed ID,Mesh Terms,DOI,Sequence,Chain Length
-1A6Q,A,Crystal structure of the protein serine/threonine phosphatase 2C at 2.0 A resolution,2.00,HYDROLASE,Homo sapiens, * GO:0006499," * GO:0005634
+"PDB ID","Chain ID","Structure Title","Resolution","Classification","Source","Biological Process","Cellular Component","Molecular Function","PubMed ID","Mesh Terms","DOI","Sequence","Chain Length"
+"1A6Q","A","Crystal structure of the protein serine/threonine phosphatase 2C at 2.0 A resolution",2,"HYDROLASE","Homo sapiens"," * GO:0006499"," * GO:0005634
  * GO:0005737
  * GO:0005829
  * GO:0016020"," * GO:0004721
@@ -33,7 +33,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 251    CDFVRSRLEV  TDDLEKVCNE  VVDTCLYKGS  RDNMSVILIC  FPNAPKVSPE
 301    AVKKEAELDK  YLECRVEEII  KKQGEGVPDL  VHVMRTLASE  NIPSLPPGGE
 351    LASKRNVIEA  VYNRLNPYKN  DDTDSTSTDD  MW",382
-1AK2,A,Adenylate kinase isoenzyme-2,1.92,PHOSPHOTRANSFERASE,Bos taurus, * GO:0016310," * GO:0005739
+"1AK2","A","Adenylate kinase isoenzyme-2",1.92,"PHOSPHOTRANSFERASE","Bos taurus"," * GO:0016310"," * GO:0005739
  * GO:0005743
  * GO:0005758"," * GO:0000166
  * GO:0005524
@@ -58,13 +58,13 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Protein Structure
  *  Tertiary
  *  Sequence Alignment
- *  Software",10.1002/pro.5560050304,"1      APNVPAAEPV  PESPKGVRAV  LLGPPGAGKG  TQAPKLAKNF  CVCHLATGDM
+ *  Software","10.1002/pro.5560050304","1      APNVPAAEPV  PESPKGVRAV  LLGPPGAGKG  TQAPKLAKNF  CVCHLATGDM
 51     LRAMVASGSE  LGKKLKATMD  AGKLVSDEMV  LELIEKNLET  PPCKNGFLLD
 101    GFPRTVRQAE  MLDDLMEKRK  EKLDSVIEFS  IPDSLLIRRI  TGRLIHPQSG
 151    RSYHEEFNPP  KEPMKDDITG  EPLIRRSDDN  KKALKIRLEA  YHTQTTPLVE
 201    YYSKRGIHSA  IDASQTPDVV  FASILAAFSK  ATS",233
-1BBC,A,Structure of recombinant human rheumatoid arthritic synovial fluid phospholipase A2 at 2.2-A resolution,2.20,HYDROLASE,Homo sapiens," * GO:0006629
- * GO:0016042", * GO:0016020," * GO:0016787
+"1BBC","A","Structure of recombinant human rheumatoid arthritic synovial fluid phospholipase A2 at 2.2-A resolution",2.2,"HYDROLASE","Homo sapiens"," * GO:0006629
+ * GO:0016042"," * GO:0016020"," * GO:0016787
  * GO:0046872",2062381," * Arthritis
  *  Rheumatoid
  *  Humans
@@ -72,10 +72,10 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Phospholipases A2
  *  Recombinant Proteins
  *  Synovial Fluid
- *  X-Ray Diffraction",10.1038/352079a0,"1      NLVNFHRMIK  LTTGKEAALS  YGFYGCHCGV  GGRGSPKDAT  DRCCVTHDCC
+ *  X-Ray Diffraction","10.1038/352079a0","1      NLVNFHRMIK  LTTGKEAALS  YGFYGCHCGV  GGRGSPKDAT  DRCCVTHDCC
 51     YKRLEKRGCG  TKFLSYKFSN  SGSRITCAKQ  DSCRSQLCEC  DKAAATCFAR
 101    NKTTYNKKYQ  YYSNKHCRGS  TPRC",124
-1BU8,A,Rat pancreatic lipase-related protein 2,1.80,HYDROLASE,Rattus norvegicus," * GO:0006629
+"1BU8","A","Rat pancreatic lipase-related protein 2",1.8,"HYDROLASE","Rattus norvegicus"," * GO:0006629
  * GO:0009395
  * GO:0016042"," * GO:0005576
  * GO:0016020"," * GO:0005509
@@ -110,9 +110,9 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 351    AKKLSGYILV  ALYGNNGNSK  QYEIFKGSLK  PEARHVRDID  VDINVGEIQK
 401    VKFLWNNKVI  NLFRPTLGAS  QITVQSGVDG  KEYNFCSSDT  VREDVLQSLY
 451    PC",452
-1CCR,A,Structure of Rice Ferricytochrome C at 2.0 Angstroms Resolution,1.50,ELECTRON TRANSPORT(CYTOCHROME),Oryza sativa, * GO:0055114," * GO:0005739
+"1CCR","A","Structure of Rice Ferricytochrome C at 2.0 Angstroms Resolution",1.5,"ELECTRON TRANSPORT(CYTOCHROME)","Oryza sativa"," * GO:0055114"," * GO:0005739
  * GO:0005758
- * GO:0070469", * GO:0046872,6304326," * Cytochrome c Group
+ * GO:0070469"," * GO:0046872",6304326," * Cytochrome c Group
  *  Hydrogen Bonding
  *  Models
  *  Molecular
@@ -121,7 +121,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  X-Ray Diffraction",,"1      XASFSEAPPG  NPKAGEKIFK  TKCAQCHTVD  KGAGHKQGPN  LNGLFGRQSG
 51     TTPGYSYSTA  DKNMAVIWEE  NTLYDYLLNP  KKYIPGTKMV  FPGLKKPQER
 101    ADLISYLKEA  TS",112
-1CK7,A,Gelatinase A (full-length),2.80,HYDROLASE,Homo sapiens," * GO:0001525
+"1CK7","A","Gelatinase A (full-length)",2.8,"HYDROLASE","Homo sapiens"," * GO:0001525
  * GO:0006508
  * GO:0030574"," * GO:0005576
  * GO:0005578
@@ -162,7 +162,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 501    EKAVFFAGNE  YWIYSASTLE  RGYPKPLTSL  GLPPDVQRVD  AAFNWSKNKK
 551    TYIFAGDKFW  RYNEVKKKMD  PGFPKLIADA  WNAIPDNLDA  VVDLQGGGHS
 601    YFFKGAYYLK  LENQSLKSVK  FGSIKSDWLG  C",631
-1CZA,N,"Mutant Monomer Of Recombinant Human Hexokinase Type I Complexed With Glucose, Glucose-6-Phosphate, And Adp",1.90,TRANSFERASE,Homo sapiens," * GO:0006096
+"1CZA","N","Mutant Monomer Of Recombinant Human Hexokinase Type I Complexed With Glucose, Glucose-6-Phosphate, And Adp",1.9,"TRANSFERASE","Homo sapiens"," * GO:0006096
  * GO:0008152
  * GO:0016310"," * GO:0005739
  * GO:0005741
@@ -181,7 +181,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Hexokinase
  *  Models
  *  Molecular
- *  Protein Conformation",10.1006/jmbi.1999.3494,"1      MIAAQLLAYY  FTELKDDQVK  KIDKYLYAMR  LSDETLIDIM  TRFRKEMKNG
+ *  Protein Conformation","10.1006/jmbi.1999.3494","1      MIAAQLLAYY  FTELKDDQVK  KIDKYLYAMR  LSDETLIDIM  TRFRKEMKNG
 51     LSRDFNPTAT  VKMLPTFVRS  IPDGSEKGDF  IALDLGGSSF  RILRVQVNHE
 101    KNQNVHMESE  VYDTPENIVH  GSGSQLFDHV  AECLGDFMEK  RKIKDKKLPV
 151    GFTFSFPCQQ  SKIDEAILIT  WTKRFKASGV  EGADVVKLLN  KAIKKRGDYD
@@ -200,7 +200,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 801    RAILQQLGLN  STCDDSILVK  TVCGVVSRRA  AQLCGAGMAA  VVDKIRENRG
 851    LDRLNVTVGV  DGTLYKLHPH  FSRIMHQTVK  ELSPKCNVSF  LLSEDGSGKG
 901    AALITAVGVR  LRTEASS",917
-1DL2,A,"Crystal Structure of Class I Alpha-1,2-mannosidase From Saccharomyces Cerevisiae at 1.54 Angstrom Resolution",1.54,HYDROLASE,Saccharomyces cerevisiae, * GO:0008152," * GO:0005783
+"1DL2","A","Crystal Structure of Class I Alpha-1,2-mannosidase From Saccharomyces Cerevisiae at 1.54 Angstrom Resolution",1.54,"HYDROLASE","Saccharomyces cerevisiae"," * GO:0008152"," * GO:0005783
  * GO:0005789
  * GO:0016020
  * GO:0016021"," * GO:0016787
@@ -218,7 +218,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Quality Control
  *  Recombinant Proteins
  *  Saccharomyces cerevisiae
- *  Substrate Specificity",10.1093/emboj/19.4.581,"1      GAGEMRDRIE  SMFLESWRDY  SKHGWGYDVY  GPIEHTSHNM  PRGNQPLGWI
+ *  Substrate Specificity","10.1093/emboj/19.4.581","1      GAGEMRDRIE  SMFLESWRDY  SKHGWGYDVY  GPIEHTSHNM  PRGNQPLGWI
 51     IVDSVDTLML  MYNSSTLYKS  EFEAEIQRSE  HWINDVLDFD  IDAEVNVFET
 101    TIRMLGGLLS  AYHLSDVLEV  GNKTVYLNKA  IDLGDRLALA  FLSTQTGIPY
 151    SSINLHSGQA  VKNHADGGAS  STAEFTTLQM  EFKYLAYLTG  NRTYWELVER
@@ -229,11 +229,11 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 401    SIMFMYHLSH  DHKYREWGAE  IATSFFENTC  VDCNDPKLRR  FTSLSDCITL
 451    PTKKSNNMES  FWLAETLKYL  YILFLDEFDL  TKVVFNTEAH  PFPVLDEEIL
 501    KSQSLTTGWS  L",511
-1DX4,A,"Ache From Drosophila Melanogaster Complex With Tacrine Derivative 9-(3-phenylmethylamino)-1,2,3,4-tetrahydroacridine",2.70,HYDROLASE,DROSOPHILA MELANOGASTER, * GO:0042135," * GO:0005886
+"1DX4","A","Ache From Drosophila Melanogaster Complex With Tacrine Derivative 9-(3-phenylmethylamino)-1,2,3,4-tetrahydroacridine",2.7,"HYDROLASE","DROSOPHILA MELANOGASTER"," * GO:0042135"," * GO:0005886
  * GO:0016020
  * GO:0030054
  * GO:0031225
- * GO:0045202", * GO:0016787,10892800," * Acetylcholinesterase
+ * GO:0045202"," * GO:0016787",10892800," * Acetylcholinesterase
  *  Amino Acid Sequence
  *  Aminoacridines
  *  Animals
@@ -246,7 +246,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Protein Conformation
  *  Sequence Homology
  *  Amino Acid
- *  Substrate Specificity",10.1110/ps.9.6.1063,"1      VIDRLVVQTS  SGPVRGRSVT  VQGREVHVYT  GIPYAKPPVE  DLRFRKPVPA
+ *  Substrate Specificity","10.1110/ps.9.6.1063","1      VIDRLVVQTS  SGPVRGRSVT  VQGREVHVYT  GIPYAKPPVE  DLRFRKPVPA
 51     EPWHGVLDAT  GLSATCVQER  YEYFPGFSGE  EIWNPNTNVS  EDCLYINVWA
 101    PAKARLRHGR  GANGGEHPNG  KQADTDHLIH  NGNPQNTTNG  LPILIWIYGG
 151    GFMTGSATLD  IYNADIMAAV  GNVIVASFQY  RVGAFGFLHL  APEMPSEFAE
@@ -258,7 +258,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 451    LAERGASVHY  YYFTHRTSTS  LWGEWMGVLH  GDEIEYFFGQ  PLNNSLQYRP
 501    VERELGKRML  SAVIEFAKTG  NPAQDGEEWP  NFSKEDPVYY  IFSTDDKIEK
 551    LARGPLAARC  SFWNDYLPKV  RSWAGTCDGD  SGSAS",585
-1E0S,A,Small G Protein Arf6-gdp,2.28,G PROTEIN,HOMO SAPIENS," * GO:0006810
+"1E0S","A","Small G Protein Arf6-gdp",2.28,"G PROTEIN","HOMO SAPIENS"," * GO:0006810
  * GO:0007399
  * GO:0015031
  * GO:0016192
@@ -294,11 +294,11 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Sequence Alignment
  *  Serine
  *  Structure-Activity Relationship
- *  Substrate Specificity",10.1038/75863,"1      GKVLSKIFGN  KEMRILMLGL  DAAGKTTILY  KLKLGQSVTT  IPTVGFNVET
+ *  Substrate Specificity","10.1038/75863","1      GKVLSKIFGN  KEMRILMLGL  DAAGKTTILY  KLKLGQSVTT  IPTVGFNVET
 51     VTYKNVKFNV  WDVGGQDKIR  PLWRHYYTGT  QGLIFVVDCA  DRDRIDEARQ
 101    ELHRIINDRE  MRDAIILIFA  NKQDLPDAMK  PHEIQEKLGL  TRIRDRNWYV
 151    QPSCATSGDG  LYEGLTWLTS  NYKS",174
-1EBV,A,Ovine pghs-1 complexed with salicyl hydroxamic acidD,3.20,OXIDOREDUCTASE,Ovis aries," * GO:0001516
+"1EBV","A","Ovine pghs-1 complexed with salicyl hydroxamic acidD",3.2,"OXIDOREDUCTASE","Ovis aries"," * GO:0001516
  * GO:0006629
  * GO:0006631
  * GO:0006633
@@ -347,7 +347,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 451    GEKEMAAELE  ELYGDIDALE  FYPGLLLEKC  HPNSIFGESM  IEMGAPFSLK
 501    GLLGNPICSP  EYWKASTFGG  EVGFNLVKTA  TLKKLVCLNT  KTCPYVSFHV
 551    P",551
-1EI9,A,Crystal structure of palmitoyl protein thioesterase 1,2.25,HYDROLASE,Bos taurus," * GO:0002084
+"1EI9","A","Crystal structure of palmitoyl protein thioesterase 1",2.25,"HYDROLASE","Bos taurus"," * GO:0002084
  * GO:0006309
  * GO:0006898
  * GO:0006907
@@ -384,13 +384,13 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Protein Folding
  *  Protein Structure
  *  Secondary
- *  Thiolester Hydrolases",10.1073/pnas.080508097,"1      DPPAPLPLVI  WHGMGDSCCN  PLSMGAIKKM  VEKKIPGIHV  LSLEIGKTLR
+ *  Thiolester Hydrolases","10.1073/pnas.080508097","1      DPPAPLPLVI  WHGMGDSCCN  PLSMGAIKKM  VEKKIPGIHV  LSLEIGKTLR
 51     EDVENSFFLN  VNSQVTTVCQ  ILAKDPKLQQ  GYNAMGFSQG  GQFLRAVAQR
 101    CPSPPMVNLI  SVGGQHQGVF  GLPRCPGESS  HICDFIRKTL  NAGAYNKAIQ
 151    ERLVQAEYWH  DPIREDIYRN  HSIFLADINQ  ERGVNESYKK  NLMALKKFVM
 201    VKFLNDTIVD  PVDSEWFGFY  RSGQAKETIP  LQESTLYTQD  RLGLKAMDKA
 251    GQLVFLALEG  DHLQLSEEWF  YAHIIPFLE",279
-1EWF,A,The 1.7 angstrom crystal structure of BPI,ANTIBIOTIC,Homo sapiens, * GO:0042742," * GO:0005576
+"1EWF","A","The 1.7 angstrom crystal structure of BPI","ANTIBIOTIC","Homo sapiens"," * GO:0042742"," * GO:0005576
  * GO:0016020",,10843855," * Amino Acid Sequence
  *  Antimicrobial Cationic Peptides
  *  Binding Sites
@@ -411,7 +411,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Tertiary
  *  Sequence Alignment
  *  Solvents
- *  Structure-Activity Relationship",10.1006/jmbi.2000.3805,"1      VNPGVVVRIS  QKGLDYASQQ  GTAALQKELK  RIKIPDYSDS  FKIKHLGKGH
+ *  Structure-Activity Relationship","10.1006/jmbi.2000.3805","1      VNPGVVVRIS  QKGLDYASQQ  GTAALQKELK  RIKIPDYSDS  FKIKHLGKGH
 51     YSFYSMDIRE  FQLPSSQISM  VPNVGLKFSI  SNANIKISGK  WKAQKRFLKM
 101    SGNFDLSIEG  MSISADLKLG  SNPTSGKPTI  TCSSCSSHIN  SVHVHISKSK
 151    VGWLIQLFHK  KIESALRNKM  NSQVCEKVTN  SVSSELQPYF  QTLPVMTKID
@@ -420,8 +420,8 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 301    FLPEVAKKFP  NMKIQIHVSA  STPPHLSVQP  TGLTFYPAVD  VQAFAVLPNS
 351    ALASLFLIGM  HTTGSMEVSA  ESNRLVGELK  LDRLLLELKH  SNIGPFPVEL
 401    LQDIMNYIVP  ILVLPRVNEK  LQKGFPLPTP  ARVQLYNVVL  QPHQNFLLFG
-451    ADVVYK",456
-1F5N,A,"Human Guanylate Binding Protein-1 in Complex With the GTP Analogue, Gmppnp.",1.70,SIGNALING PROTEIN,Homo sapiens, * GO:0051607," * GO:0000139
+451    ADVVYK",456,
+"1F5N","A","Human Guanylate Binding Protein-1 in Complex With the GTP Analogue, Gmppnp.",1.7,"SIGNALING PROTEIN","Homo sapiens"," * GO:0051607"," * GO:0000139
  * GO:0005576
  * GO:0005737
  * GO:0005794
@@ -437,7 +437,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Hydrolysis
  *  Models
  *  Molecular
- *  Protein Conformation",10.1093/emboj/19.17.4555,"1      MASEIHMTGP  MCLIENTNGR  LMANPEALKI  LSAITQPMVV  VAIVGLYRTG
+ *  Protein Conformation","10.1093/emboj/19.17.4555","1      MASEIHMTGP  MCLIENTNGR  LMANPEALKI  LSAITQPMVV  VAIVGLYRTG
 51     KSYLMNKLAG  KKKGFSLGST  VQSHTKGIWM  WCVPHPKKPG  HILVLLDTEG
 101    LGDVEKGDNQ  NDSWIFALAV  LLSSTFVYNS  IGTINQQAMD  QLYYVTELTH
 151    RIRSKSSPDE  NENEVEDSAD  FVSFFPDFVW  TLRDFSLDLE  ADGQPLTPDE
@@ -449,7 +449,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 451    PRKGIQAEEI  LQTYLKSKES  MTDAILQTDQ  TLTEKEKEIE  VERVKAESAQ
 501    ASAKMLHEMQ  RKNEQMMEQK  ERSYQEHLKQ  LTEKMENDRV  QLLKEQERTL
 551    ALKLQEQEQL  LKEGFQKESR  IMKNEIQDLQ  TKMRRRKACT  IS",592
-1FZQ,A,Crystal Structure Of Murine Arl3-Gdp,1.70,SIGNALING PROTEIN,Mus musculus," * GO:0000910
+"1FZQ","A","Crystal Structure Of Murine Arl3-Gdp",1.7,"SIGNALING PROTEIN","Mus musculus"," * GO:0000910
  * GO:0006810
  * GO:0007049
  * GO:0007264
@@ -495,7 +495,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 51     NIKSVQSQGF  KLNVWDIGGQ  RKIRPYWRSY  FENTDILIYV  IDSADRKRFE
 101    ETGQELTELL  EEEKLSCVPV  LIFANKQDLL  TAAPASEIAE  GLNLHTIRDR
 151    VWQIQSCSAL  TGEGVQDGMN  WVCKNVNAKK  K",181
-1G4R,A,Crystal Structure Of Bovine Beta-Arrestin 1,2.20,SIGNALING PROTEIN,Bos taurus," * GO:0006351
+"1G4R","A","Crystal Structure Of Bovine Beta-Arrestin 1",2.2,"SIGNALING PROTEIN","Bos taurus"," * GO:0006351
  * GO:0006355
  * GO:0006810
  * GO:0009968
@@ -540,7 +540,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 251    CPVAMEEADD  TVAPSSTFCK  VYTLTPFLAN  NREKRGLALD  GKLKHEDTNL
 301    ASSTLLREGA  NREILGIIVS  YKVKVKLVVS  RGGLLGDLAS  SDVAVELPFT
 351    LMHPKPKEEP  PHREVPEHET  PVDTNLIELD  TNDDDIVFED  FAR",393
-1GNU,A,GABA-A receptor-associated protein (GABARAP),1.75,TRANSPORT,HOMO SAPIENS," * GO:0006810
+"1GNU","A","GABA-A receptor-associated protein (GABARAP)",1.75,"TRANSPORT","HOMO SAPIENS"," * GO:0006810
  * GO:0006914
  * GO:0006915
  * GO:0015031"," * GO:0000139
@@ -571,10 +571,10 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Recombinant Proteins
  *  Sequence Homology
  *  Amino Acid
- *  Tubulin",10.1074/jbc.M109753200,"1      MKFVYKEEHP  FEKRRSEGEK  IRKKYPDRVP  VIVEKAPKAR  IGDLDKKKYL
+ *  Tubulin","10.1074/jbc.M109753200","1      MKFVYKEEHP  FEKRRSEGEK  IRKKYPDRVP  VIVEKAPKAR  IGDLDKKKYL
 51     VPSDLTVGQF  YFLIRKRIHL  RAEDALFFFV  NNVIPPTSAT  MGQLYQEHHE
 101    EDFFLYIAYS  DESVYGL",117
-1H8L,A,Duck carboxypeptidase d domain ii in complex with gemsa,2.60,CARBOXYPEPTIDASE,LOPHONETTA SPECULARIOIDES, * GO:0006508, * GO:0016021," * GO:0004180
+"1H8L","A","Duck carboxypeptidase d domain ii in complex with gemsa",2.6,"CARBOXYPEPTIDASE","LOPHONETTA SPECULARIOIDES"," * GO:0006508"," * GO:0016021"," * GO:0004180
  * GO:0004181
  * GO:0008233
  * GO:0008237
@@ -599,7 +599,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Sequence Alignment
  *  Sequence Homology
  *  Amino Acid
- *  Succinates",10.1074/jbc.M011457200,"1      QAVQPVDFRH  HHFSDMEIFL  RRYANEYPSI  TRLYSVGKSV  ELRELYVMEI
+ *  Succinates","10.1074/jbc.M011457200","1      QAVQPVDFRH  HHFSDMEIFL  RRYANEYPSI  TRLYSVGKSV  ELRELYVMEI
 51     SDNPGIHEAG  EPEFKYIGNM  HGNEVVGREL  LLNLIEYLCK  NFGTDPEVTD
 101    LVQSTRIHIM  PSMNPDGYEK  SQEGDRGGTV  GRNNSNNYDL  NRNFPDQFFQ
 151    VTDPPQPETL  AVMSWLKTYP  FVLSANLHGG  SLVVNYPFDD  DEQGIAIYSK
@@ -607,11 +607,11 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 251    GGMQDWNYLN  TNCFEVTIEL  GCVKYPKAEE  LPKYWEQNRR  SLLQFIKQVH
 301    RGIWGFVLDA  TDGRGILNAT  ISVADINHPV  TTYKDGDYWR  LLVQGTYKVT
 351    ASARGYDPVT  KTVEVDSKGG  VQVNFTLSRT",380
-1HO8,A,Crystal structure of the regulatory subunit H of the V-type ATPase of Saccharomyces cerevisiae,2.95,HYDROLASE,Saccharomyces cerevisiae," * GO:0006810
+"1HO8","A","Crystal structure of the regulatory subunit H of the V-type ATPase of Saccharomyces cerevisiae",2.95,"HYDROLASE","Saccharomyces cerevisiae"," * GO:0006810
  * GO:0006811
  * GO:0015992"," * GO:0005773
  * GO:0005774
- * GO:0016020", * GO:0005515,11416198," * Amino Acid Sequence
+ * GO:0016020"," * GO:0005515",11416198," * Amino Acid Sequence
  *  Animals
  *  Arabidopsis
  *  Caenorhabditis elegans
@@ -633,7 +633,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Sequence Alignment
  *  Sequence Homology
  *  Amino Acid
- *  Vacuolar Proton-Translocating ATPases",10.1073/pnas.131192798,"1      GSMGATKILM  DSTHFNEIRS  IIRSRSVAWD  ALARSEELSE  IDASTAKALE
+ *  Vacuolar Proton-Translocating ATPases","10.1073/pnas.131192798","1      GSMGATKILM  DSTHFNEIRS  IIRSRSVAWD  ALARSEELSE  IDASTAKALE
 51     SILVKKNIGD  GLSSSNNAHS  GFKVNGKTLI  PLIHLLSTSD  NEDCKKSVQN
 101    LIAELLSSDK  YGDDTVKFFQ  EDPKQLEQLF  DVSLKGDFQT  VLISGFNVVS
 151    LLVQNGLHNV  KLVEKLLKNN  NLINILQNIE  QMDTCYVCIR  LLQELAVIPE
@@ -643,7 +643,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 351    EYQELTSFDE  YVAELDSKLL  CWSPPHVDNG  FWSDNIDEFK  KDNYKIFRQL
 401    IELLQAKVRN  GDVNAKQEKI  IIQVALNDIT  HVVELLPESI  DVLDKTGGKA
 451    DIMELLNHSD  SRVKYEALKA  TQAIIGYTFK",480
-1KAO,A,Crystal structures of the small G protein Rap2A with GDP,1.70,GTP-BINDING PROTEIN,Homo sapiens, * GO:0032486," * GO:0005768
+"1KAO","A","Crystal structures of the small G protein Rap2A with GDP",1.7,"GTP-BINDING PROTEIN","Homo sapiens"," * GO:0032486"," * GO:0005768
  * GO:0016020
  * GO:0055038"," * GO:0000166
  * GO:0005515
@@ -669,11 +669,11 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Sequence Homology
  *  Amino Acid
  *  rap GTP-Binding Proteins
- *  ras Proteins",10.1093/emboj/16.18.5582,"1      MREYKVVVLG  SGGVGKSALT  VQFVTGTFIE  KYDPTIEDFY  RKEIEVDSSP
+ *  ras Proteins","10.1093/emboj/16.18.5582","1      MREYKVVVLG  SGGVGKSALT  VQFVTGTFIE  KYDPTIEDFY  RKEIEVDSSP
 51     SVLEILDTAG  TEQFASMRDL  YIKNGQGFIL  VYSLVNQQSF  QDIKPMRDQI
 101    IRVKRYEKVP  VILVGNKVDL  ESEREVSSSE  GRALAEEWGC  PFMETSAKSK
 151    TMVDELFAEI  VRQMNYA",167
-1KMQ,A,Crystal Structure of a Constitutively Activated RhoA Mutant (Q63L),1.55,SIGNALING PROTEIN,Homo sapiens," * GO:0007049
+"1KMQ","A","Crystal Structure of a Constitutively Activated RhoA Mutant (Q63L)",1.55,"SIGNALING PROTEIN","Homo sapiens"," * GO:0007049
  * GO:0019048
  * GO:0033688
  * GO:0043931
@@ -706,11 +706,11 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 51     VDGKQVELAL  WDTAGLEDYD  RLRPLSYPDT  DVILMCFSID  SPDSLENIPE
 101    KWTPEVKHFC  PNVPIILVGN  KKDLRNDEHT  RRELAKMKQE  PVKPEEGRDM
 151    ANRIGAFGYM  ECSAKTKDGV  REVFEMATRA  ALQA",184
-1LF7,A,Crystal Structure of Human Complement Protein C8gamma at 1.2 A Resolution,1.20,IMMUNE SYSTEM,Homo sapiens," * GO:0006957
+"1LF7","A","Crystal Structure of Human Complement Protein C8gamma at 1.2 A Resolution",1.2,"IMMUNE SYSTEM","Homo sapiens"," * GO:0006957
  * GO:0006958
  * GO:0019835
  * GO:0045087"," * GO:0005576
- * GO:0005579", * GO:0019841,12033936," * Acute-Phase Proteins
+ * GO:0005579"," * GO:0019841",12033936," * Acute-Phase Proteins
  *  Binding Sites
  *  Carrier Proteins
  *  Complement C8
@@ -728,7 +728,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 51     EATTLHVAPQ  GTAMAVSTFR  KLDGICWQVR  QLYGDTGVLG  RFLLQARGAR
 101    GAVHVVVAET  DYQSFAVLYL  ERAGQLSVKL  YARSLPVSDS  VLSGFEQRVQ
 151    EAHLTEDQIF  YFPKYGFCEA  ADQFHVLDEV  RR",182
-1LOX,A,Rabbit reticulocyte 15-lipoxygenase,2.40,OXIDOREDUCTASE,Oryctolagus cuniculus," * GO:0001503
+"1LOX","A","Rabbit reticulocyte 15-lipoxygenase",2.4,"OXIDOREDUCTASE","Oryctolagus cuniculus"," * GO:0001503
  * GO:0002820
  * GO:0006646
  * GO:0010811
@@ -784,7 +784,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 551    FTWVPNAPCT  MRLPPPTTKD  ATLETVMATL  PNLKQSSLQM  SIVWQLGRDQ
 601    PIMVPLGQHQ  EEYFSGPEPR  AVLEKFREEL  AIMDKEIEVR  NEKLDIPYEY
 651    LRPSIVENSV  AI",662
-1LW3,A,Crystal Structure of Myotubularin-related protein 2 complexed with phosphate,2.30,HYDROLASE,Homo sapiens," * GO:0002091
+"1LW3","A","Crystal Structure of Myotubularin-related protein 2 complexed with phosphate",2.3,"HYDROLASE","Homo sapiens"," * GO:0002091
  * GO:0045806
  * GO:0090394
  * GO:0097062
@@ -837,7 +837,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 551    LEDFTNPLYG  SYSNHVLYPV  ASMRHLELWV  GYYIRWNPRM  KPQEPIHNRY
 601    KELLAKRAEL  QKKVEELQRE  ISNRSTSSSE  RASSPAQCVT  PVQTVVAAAL
 651    EHHHHHH",657
-1MCX,A,Structure of full-length annexin a1 in the presence of calcium,Sus scrofa,," * GO:0005634
+"1MCX","A","Structure of full-length annexin a1 in the presence of calcium","Sus scrofa",," * GO:0005634
  * GO:0005737
  * GO:0005886
  * GO:0005929
@@ -867,8 +867,8 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 151    EINRVYKEEL  KRDLAKDITS  DTSGDYQKAL  LSLAKGDRSE  DLAINDDLAD
 201    TDARALYEAG  ERRKGTDLNV  FITILTTRSY  PHLRRVFQKY  SKYSKHDMNK
 251    VLDLELKGDI  ENCLTVVVKC  ATSKPMFFAE  KLHQAMKGIG  TRHKTLIRIM
-301    VSRSEIDMND  IKACYQKLYG  ISLCQAILDE  TKGDYEKILV  ALCGGD",346
-1MH1,A,Small G-protein,1.38,GTP-BINDING,Homo sapiens, * GO:0030036," * GO:0005737
+301    VSRSEIDMND  IKACYQKLYG  ISLCQAILDE  TKGDYEKILV  ALCGGD",346,,
+"1MH1","A","Small G-protein",1.38,"GTP-BINDING","Homo sapiens"," * GO:0030036"," * GO:0005737
  * GO:0005886
  * GO:0016020
  * GO:0042470"," * GO:0000166
@@ -897,9 +897,9 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 51     KPVNLGLWDT  AGQEDYDRLR  PLSYPQTDVS  LICFSLVSPA  SFENVRAKWY
 101    PEVRHHCPNT  PIILVGTKLD  LRDDKDTIEK  LKEKKLTPIT  YPQGLAMAKE
 151    IGAVKYLECS  ALTQRGLKTV  FDEAIRAVLC  PPPVKK",186
-1N05,A,Crystal Structure of Schizosaccharomyces pombe Riboflavin Kinase Reveals a Novel ATP and Riboflavin Binding Fold,2.10,TRANSFERASE,Schizosaccharomyces pombe," * GO:0009398
+"1N05","A","Crystal Structure of Schizosaccharomyces pombe Riboflavin Kinase Reveals a Novel ATP and Riboflavin Binding Fold",2.1,"TRANSFERASE","Schizosaccharomyces pombe"," * GO:0009398
  * GO:0016310
- * GO:0046443", * GO:0005743," * GO:0000166
+ * GO:0046443"," * GO:0005743"," * GO:0000166
  * GO:0005524
  * GO:0008531
  * GO:0016301
@@ -929,7 +929,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 51     DAIQELLRYR  DSGVYFGYAM  VQKRVFPMVM  SVGWNPYYKN  KLRSAEVHLI
 101    ERQGEDFYEE  IMRVIVLGYI  RPELNYAGLD  KLIEDIHTDI  RVALNSMDRP
 151    SYSSYKKDPF  FKV",163
-1NM8,A,Structure of Human Carnitine Acetyltransferase: Molecular Basis for Fatty Acyl Transfer,1.60,TRANSFERASE,Homo sapiens," * GO:0006629
+"1NM8","A","Structure of Human Carnitine Acetyltransferase: Molecular Basis for Fatty Acyl Transfer",1.6,"TRANSFERASE","Homo sapiens"," * GO:0006629
  * GO:0006631
  * GO:0006810"," * GO:0005739
  * GO:0005743
@@ -953,7 +953,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Sequence Alignment
  *  Sequence Homology
  *  Amino Acid
- *  Software",10.1074/jbc.M212356200,"1      MRGSHHHHHH  TDPLPRLPVP  PLQQSLDHYL  KALQPIVSEE  EWAHTKQLVD
+ *  Software","10.1074/jbc.M212356200","1      MRGSHHHHHH  TDPLPRLPVP  PLQQSLDHYL  KALQPIVSEE  EWAHTKQLVD
 51     EFQASGGVGE  RLQKGLERRA  RKTENWLSEW  WLKTAYLQYR  QPVVIYSSPG
 101    VMLPKQDFVD  LQGQLRFAAK  LIEGVLDFKV  MIDNETLPVE  YLGGKPLCMN
 151    QYYQILSSCR  VPGPKQDTVS  NFSKTKKPPT  HITVVHNYQF  FELDVYHSDG
@@ -966,12 +966,12 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 501    GLKLQAIEDL  VSTPDIFMDT  SYAIAMHFHL  STSQVPAKTD  CVMFFGPVVP
 551    DGYGVCYNPM  EAHINFSLSA  YNSCAETNAA  RLAHYLEKAL  LDMRALLQSH
 601    PRAKLISEED  LSLISG",616
-1OCS,A,Crystal Structure of the Yeast Px-doamin Protein Grd19p (Sorting Nexin3) Complexed to Phosphatidylinosytol-3-phosphate.,2.03,SORTING PROTEIN,SACCHAROMYCES CEREVISIAE," * GO:0006810
+"1OCS","A","Crystal Structure of the Yeast Px-doamin Protein Grd19p (Sorting Nexin3) Complexed to Phosphatidylinosytol-3-phosphate.",2.03,"SORTING PROTEIN","SACCHAROMYCES CEREVISIAE"," * GO:0006810
  * GO:0015031"," * GO:0000139
  * GO:0005737
  * GO:0005794
  * GO:0016020
- * GO:0031902", * GO:0008289,14514667," * Amino Acid Sequence
+ * GO:0031902"," * GO:0008289",14514667," * Amino Acid Sequence
  *  Carrier Proteins
  *  Cell Membrane
  *  Cloning
@@ -1000,11 +1000,11 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Saccharomyces cerevisiae Proteins
  *  Sequence Homology
  *  Amino Acid
- *  Vesicular Transport Proteins",10.1074/jbc.M304392200,"1      MPREFKSFGS  TEKSLLSKGH  GEPSYSEIYA  EPENFLEIEV  HNPKTHIPNG
+ *  Vesicular Transport Proteins","10.1074/jbc.M304392200","1      MPREFKSFGS  TEKSLLSKGH  GEPSYSEIYA  EPENFLEIEV  HNPKTHIPNG
 51     MDSKGMFTDY  EIICRTNLPS  FHKRVSKVRR  RYSDFEFFRK  CLIKEISMLN
 101    HPKVMVPHLP  GKILLSNRFS  NEVIEERRQG  LNTWMQSVAG  HPLLQSGSKV
 151    LVRFIEAEKF  VG",162
-1OGQ,A,"The crystal structure of PGIP (polygalacturonase inhibiting protein), a leucine rich repeat protein involved in plant defense",1.70,INHIBITOR,PHASEOLUS VULGARIS, * GO:0006952," * GO:0005576
+"1OGQ","A","The crystal structure of PGIP (polygalacturonase inhibiting protein), a leucine rich repeat protein involved in plant defense",1.7,"INHIBITOR","PHASEOLUS VULGARIS"," * GO:0006952"," * GO:0005576
  * GO:0005618
  * GO:0016020",,12904578," * Amino Acid Sequence
  *  Crystallography
@@ -1026,14 +1026,14 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Recombinant Proteins
  *  Sequence Homology
  *  Amino Acid
- *  Static Electricity",10.1073/pnas.1733690100,"1      ELCNPQDKQA  LLQIKKDLGN  PTTLSSWLPT  TDCCNRTWLG  VLCDTDTQTY
+ *  Static Electricity","10.1073/pnas.1733690100","1      ELCNPQDKQA  LLQIKKDLGN  PTTLSSWLPT  TDCCNRTWLG  VLCDTDTQTY
 51     RVNNLDLSGL  NLPKPYPIPS  SLANLPYLNF  LYIGGINNLV  GPIPPAIAKL
 101    TQLHYLYITH  TNVSGAIPDF  LSQIKTLVTL  DFSYNALSGT  LPPSISSLPN
 151    LVGITFDGNR  ISGAIPDSYG  SFSKLFTSMT  ISRNRLTGKI  PPTFANLNLA
 201    FVDLSRNMLE  GDASVLFGSD  KNTQKIHLAK  NSLAFDLGKV  GLSKNLNGLD
 251    LRNNRIYGTL  PQGLTQLKFL  HSLNVSFNNL  CGEIPQGGNL  QRFDVSAYAN
 301    NKCLCGSPLP  ACT",313
-1OKC,A,structure of mitochondrial ADP/ATP carrier in complex with carboxyatractyloside,2.20,TRANSPORT PROTEIN,BOS TAURUS, * GO:0006810," * GO:0005739
+"1OKC","A","structure of mitochondrial ADP/ATP carrier in complex with carboxyatractyloside",2.2,"TRANSPORT PROTEIN","BOS TAURUS"," * GO:0006810"," * GO:0005739
  * GO:0005743
  * GO:0016020
  * GO:0016021",,14603310," * Adenosine Diphosphate
@@ -1052,13 +1052,13 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Molecular
  *  Molecular Sequence Data
  *  Protein Conformation
- *  Static Electricity",10.1038/nature02056,"1      SDQALSFLKD  FLAGGVAAAI  SKTAVAPIER  VKLLLQVQHA  SKQISAEKQY
+ *  Static Electricity","10.1038/nature02056","1      SDQALSFLKD  FLAGGVAAAI  SKTAVAPIER  VKLLLQVQHA  SKQISAEKQY
 51     KGIIDCVVRI  PKEQGFLSFW  RGNLANVIRY  FPTQALNFAF  KDKYKQIFLG
 101    GVDRHKQFWR  YFAGNLASGG  AAGATSLCFV  YPLDFARTRL  AADVGKGAAQ
 151    REFTGLGNCI  TKIFKSDGLR  GLYQGFNVSV  QGIIIYRAAY  FGVYDTAKGM
 201    LPDPKNVHII  VSWMIAQTVT  AVAGLVSYPF  DTVRRRMMMQ  SGRKGADIMY
 251    TGTVDCWRKI  AKDEGPKAFF  KGAWSNVLRG  MGGAFVLVLY  DEIKKFV",297
-1P49,A,Structure of Human Placental Estrone/DHEA Sulfatase,2.60,HYDROLASE,Homo sapiens," * GO:0006629
+"1P49","A","Structure of Human Placental Estrone/DHEA Sulfatase",2.6,"HYDROLASE","Homo sapiens"," * GO:0006629
  * GO:0007565
  * GO:0008202"," * GO:0005783
  * GO:0005789
@@ -1087,7 +1087,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Sequence Alignment
  *  Sequence Homology
  *  Amino Acid
- *  Sulfatases",10.1074/jbc.M211497200,"1      HAASRPNIIL  VMADDLGIGD  PGCYGNKTIR  TPNIDRLASG  GVKLTQHLAA
+ *  Sulfatases","10.1074/jbc.M211497200","1      HAASRPNIIL  VMADDLGIGD  PGCYGNKTIR  TPNIDRLASG  GVKLTQHLAA
 51     SPLATPSRAA  FMTGRYPVRS  GMASWSRTGV  FLFTASSGGL  PTDEITFAKL
 101    LKDQGYSTAL  IGKWHLGMSC  HSKTDFCHHP  LHHGFNYFYG  ISLTNLRDCK
 151    PGEGSVFTTG  FKRLVFLPLQ  IVGVTLLTLA  ALNCLGLLHV  PLGVFFSLLF
@@ -1099,7 +1099,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 451    NFNPVGSNGC  FATHVCFCFG  SYVTHHDPPL  LFDISKDPRE  RNPLTPASEP
 501    RFYEILKVMQ  EAADRHTQTL  PEVPDQFSWN  NFLWKPWLQL  CCPSTGLSCQ
 551    CDREKQDKRL  SR",562
-1PO5,A,Structure of mammalian cytochrome P450 2B4,1.60,oxidoreductase,Oryctolagus cuniculus, * GO:0055114," * GO:0005783
+"1PO5","A","Structure of mammalian cytochrome P450 2B4",1.6,"oxidoreductase","Oryctolagus cuniculus"," * GO:0055114"," * GO:0005783
  * GO:0005789
  * GO:0016020
  * GO:0031090
@@ -1120,7 +1120,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Secondary
  *  Rabbits
  *  Ultracentrifugation
- *  Xenobiotics",10.1073/pnas.2133986100,"1      MAKKTSSKGK  LPPGPSPLPV  LGNLLQMDRK  GLLRSFLRLR  EKYGDVFTVY
+ *  Xenobiotics","10.1073/pnas.2133986100","1      MAKKTSSKGK  LPPGPSPLPV  LGNLLQMDRK  GLLRSFLRLR  EKYGDVFTVY
 51     LGSRPVVVLC  GTDAIREALV  DQAEAFSGRG  KIAVVDPIFQ  GYGVIFANGE
 101    RWRALRRFSL  ATMRDFGMGK  RSVEERIQEE  ARCLVEELRK  SKGALLDNTL
 151    LFHSITSNII  CSIVFGKRFD  YKDPVFLRLL  DLFFQSFSLI  SSFSSQVFEL
@@ -1130,9 +1130,9 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 351    TVTKDTQFRG  YVIPKNTEVF  PVLSSALHDP  RYFETPNTFN  PGHFLDANGA
 401    LKRNEGFMPF  SLGKRICLGE  GIARTELFLF  FTTILQNFSI  ASPVPPEDID
 451    LTPRESGVGN  VPPSYQIRFL  ARHHHH",476
-1QQE,A,Crystal structure of the vesicular transport protein Sec17,2.90,PROTEIN TRANSPORT,Saccharomyces cerevisiae," * GO:0006810
+"1QQE","A","Crystal structure of the vesicular transport protein Sec17",2.9,"PROTEIN TRANSPORT","Saccharomyces cerevisiae"," * GO:0006810
  * GO:0015031
- * GO:0016192", * GO:0016020,,10445030," * Amino Acid Sequence
+ * GO:0016192"," * GO:0016020",,10445030," * Amino Acid Sequence
  *  Carrier Proteins
  *  Crystallography
  *  X-Ray
@@ -1157,7 +1157,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 151    DQSVALSNKC  FIKCADLKAL  DGQYIEASDI  YSKLIKSSMG  NRLSQWSLKD
 201    YFLKKGLCQL  AATDAVAAAR  TLQEGQSEDP  NFADSRESNF  LKSLIDAVNE
 251    GDSEQLSEHC  KEFDNFMRLD  KWKITILNKI  KESIQQQEDD  LL",292
-1R1H,A,Structural analysis of neprilysin with various specific and potent inhibitors,1.95,hydrolase,Homo sapiens," * GO:0006508
+"1R1H","A","Structural analysis of neprilysin with various specific and potent inhibitors",1.95,"hydrolase","Homo sapiens"," * GO:0006508
  * GO:0006518
  * GO:0019233
  * GO:0050435"," * GO:0005886
@@ -1188,7 +1188,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Protein Binding
  *  Protein Structure
  *  Tertiary
- *  Zinc",10.1107/S0907444903027410,"1      GICKSSDCIK  SAARLIQNMD  ATTEPCTDFF  KYACGGWLKR  NVIPETSSRY
+ *  Zinc","10.1107/S0907444903027410","1      GICKSSDCIK  SAARLIQNMD  ATTEPCTDFF  KYACGGWLKR  NVIPETSSRY
 51     GNFDILRDEL  EVVLKDVLQE  PKTEDIVAVQ  KAKALYRSCI  NESAIDSRGG
 101    EPLLKLLPDI  YGWPVATENW  EQKYGASWTA  EKAIAQLNSK  YGKKVLINLF
 151    VGTDDKNSVN  HVIHIDQPRL  GLPSRDYYEC  TGIYKEACTA  YVDFMISVAR
@@ -1202,7 +1202,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 551    DWWTQQSASN  FKEQSQCMVY  QYGNFSWDLA  GGQHLNGINT  LGENIADNGG
 601    LGQAYRAYQN  YIKKNGEEKL  LPGLDLNHKQ  LFFLNFAQVW  CGTYRPEYAV
 651    NSIKTDVHSP  GNFRIIGTLQ  NSAEFSEAFH  CRKNSYMNPE  KKCRVW",696
-1R2D,A,Structure of Human Bcl-XL at 1.95 Angstroms,1.95,APOPTOSIS,Homo sapiens, * GO:0006915," * GO:0005634
+"1R2D","A","Structure of Human Bcl-XL at 1.95 Angstroms",1.95,"APOPTOSIS","Homo sapiens"," * GO:0006915"," * GO:0005634
  * GO:0005737
  * GO:0005739
  * GO:0005815
@@ -1221,12 +1221,12 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Point Mutation
  *  Protein Folding
  *  Proto-Oncogene Proteins c-bcl-2
- *  bcl-X Protein",10.1074/jbc.M306021200,"1      MSQSNRELVV  DFLSYKLSQK  GYSWSQFSDV  EENRTEAPEG  TESEMETPSA
+ *  bcl-X Protein","10.1074/jbc.M306021200","1      MSQSNRELVV  DFLSYKLSQK  GYSWSQFSDV  EENRTEAPEG  TESEMETPSA
 51     INGNPSWHLA  DSPAVNGATG  HSSSLDAREV  IPMAAVKQAL  REAGDEFELR
 101    YRRAFSDLTS  QLHITPGTAY  QSFEQVVNEL  FRDGVNWGRI  VAFFSFGGAL
 151    CVESVDKEMQ  VLVSRIAAWM  ATYLNDHLEP  WIQENGGWDT  FVELYGNNAA
 201    AESRKGQERF  NEHHHHHH",218
-1R9O,A,Crystal Structure of P4502C9 with Flurbiprofen bound,2.00,oxidoreductase,Homo sapiens, * GO:0055114," * GO:0005783
+"1R9O","A","Crystal Structure of P4502C9 with Flurbiprofen bound",2,"oxidoreductase","Homo sapiens"," * GO:0055114"," * GO:0005783
  * GO:0005789
  * GO:0016020
  * GO:0031090
@@ -1242,7 +1242,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Mutation
  *  Protein Binding
  *  Protein Conformation
- *  Substrate Specificity",10.1074/jbc.M405427200,"1      MAKKTSSGRG  KLPPGPTPLP  VIGNILQIGI  KDISKSLTNL  SKVYGPVFTL
+ *  Substrate Specificity","10.1074/jbc.M405427200","1      MAKKTSSGRG  KLPPGPTPLP  VIGNILQIGI  KDISKSLTNL  SKVYGPVFTL
 51     YFGLKPIVVL  HGYEAVKEAL  IDLGEEFSGR  GIFPLAERAN  RGFGIVFSNG
 101    KKWKEIRRFS  LMTLRNFGMG  KRSIEDRVQE  EARCLVEELR  KTKASPCDPT
 151    FILGCAPCNV  ICSIIFHKRF  DYKDQQFLNL  MEKLNENIKI  LSSPWIQICN
@@ -1252,7 +1252,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 351    HAVTCDIKFR  NYLIPKGTTI  LISLTSVLHD  NKEFPNPEMF  DPHHFLDEGG
 401    NFKKSKYFMP  FSAGKRICVG  EALAGMELFL  FLTSILQNFN  LKSLVDPKNL
 451    DTTPVVNGFA  SVPPFYQLCF  IPIHHHH",477
-1RE8,A,Crystal structure of cAMP-dependent protein kinase complexed with balanol analog 2,2.10,TRANSFERASE,Mus musculus, * GO:0016310," * GO:0005634
+"1RE8","A","Crystal structure of cAMP-dependent protein kinase complexed with balanol analog 2",2.1,"TRANSFERASE","Mus musculus"," * GO:0016310"," * GO:0005634
  * GO:0005737
  * GO:0005739
  * GO:0005886
@@ -1284,14 +1284,14 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Tertiary
  *  Protein Subunits
  *  Swine
- *  Thermodynamics",10.1021/bi035042p,"1      GNAAAAKKGS  EQESVKEFLA  KAKEDFLKKW  ETPSQNTAQL  DQFDRIKTLG
+ *  Thermodynamics","10.1021/bi035042p","1      GNAAAAKKGS  EQESVKEFLA  KAKEDFLKKW  ETPSQNTAQL  DQFDRIKTLG
 51     TGSFGRVMLV  KHKESGNHYA  MKILDKQKVV  KLKQIEHTLN  EKRILQAVNF
 101    PFLVKLEFSF  KDNSNLYMVM  EYVAGGEMFS  HLRRIGRFSE  PHARFYAAQI
 151    VLTFEYLHSL  DLIYRDLKPE  NLLIDQQGYI  QVTDFGFAKR  VKGRTWTLCG
 201    TPEYLAPEII  LSKGYNKAVD  WWALGVLIYE  MAAGYPPFFA  DQPIQIYEKI
 251    VSGKVRFPSH  FSSDLKDLLR  NLLQVDLTKR  FGNLKNGVND  IKNHKWFATT
 301    DWIAIYQRKV  EAPFIPKFKG  PGDTSNFDDY  EEEEIRVSIN  EKCGKEFTEF",350
-1S1E,A,Crystal Structure of Kv Channel-interacting protein 1 (KChIP-1),2.30,TRANSPORT PROTEIN,Homo sapiens," * GO:0006810
+"1S1E","A","Crystal Structure of Kv Channel-interacting protein 1 (KChIP-1)",2.3,"TRANSPORT PROTEIN","Homo sapiens"," * GO:0006810
  * GO:0006811
  * GO:0006813
  * GO:0034765
@@ -1328,7 +1328,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 101    TQTGSVKFED  FVTALSILLR  GTVHEKLRWT  FNLYDINKDG  YINKEEMMDI
 151    VKAIYDMMGK  YTYPVLKEDT  PRQHVDVFFQ  KMDKNKDGIV  TLDEFLESCQ
 201    EDDNIMRSLQ  LFQNVMVEHH  HHHH",224
-1ST6,A,Crystal structure of a cytoskeletal protein,3.10,CELL ADHESION,Gallus gallus," * GO:0007155
+"1ST6","A","Crystal structure of a cytoskeletal protein",3.1,"CELL ADHESION","Gallus gallus"," * GO:0007155
  * GO:0030032
  * GO:0030334"," * GO:0005737
  * GO:0005856
@@ -1356,7 +1356,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Protein Structure
  *  Tertiary
  *  Structure-Activity Relationship
- *  Vinculin",10.1038/nature02610,"1      VPRMPVFHTR  TIESILEPVA  QQISHLVIMH  EEGEVDGKAI  PDLTAPVSAV
+ *  Vinculin","10.1038/nature02610","1      VPRMPVFHTR  TIESILEPVA  QQISHLVIMH  EEGEVDGKAI  PDLTAPVSAV
 51     QAAVSNLVRV  GKETVQTTED  QILKRDMPPA  FIKVENACTK  LVRAAQMLQA
 101    DPYSVPARDY  LIDGSRGILS  GTSDLLLTFD  EAEVRKIIRV  CKGILEYLTV
 151    AEVVETMEDL  VTYTKNLGPG  MTKMAKMIDE  RQQELTHQEH  RVMLVNSMNT
@@ -1378,7 +1378,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 951    IQCAKDIAKA  SDEVTRLAKE  VAKQCTDKRI  RTNLLQVCER  IPTISTQLKI
 1001   LSTVKATMLG  RTNISDEESE  QATEMLVHNA  QNLMQSVKET  VREAEAASIK
 1051   IRTDAGFTLR  WVRKTPWYQ",1069
-1SVS,A,Structure of the K180P mutant of Gi alpha subunit bound to GppNHp.,1.50,"HYDROLASE, SIGNALING PROTEIN",Rattus norvegicus," * GO:0007049
+"1SVS","A","Structure of the K180P mutant of Gi alpha subunit bound to GppNHp.",1.5,"HYDROLASE, SIGNALING PROTEIN","Rattus norvegicus"," * GO:0007049
  * GO:0007165
  * GO:0051301"," * GO:0005634
  * GO:0005737
@@ -1396,7 +1396,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Guanosine Triphosphate
  *  Hydrolysis
  *  Mutation
- *  Protein Conformation",10.1073/pnas.0304091101,"1      GCTLSAEDKA  AVERSKMIDR  NLREDGEKAA  REVKLLLLGA  GESGKSTIVK
+ *  Protein Conformation","10.1073/pnas.0304091101","1      GCTLSAEDKA  AVERSKMIDR  NLREDGEKAA  REVKLLLLGA  GESGKSTIVK
 51     QMKIIHEAGY  SEEECKQYKA  VVYSNTIQSI  IAIIRAMGRL  KIDFGDAARA
 101    DDARQLFVLA  GAAEEGFMTA  ELAGVIKRLW  KDSGVQACFN  RSREYQLNDS
 151    AAYYLNDLDR  IAQPNYIPTQ  QDVLRTRVPT  TGIVETHFTF  KDLHFKMFDV
@@ -1404,7 +1404,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 251    SICNNKWFTD  TSIILFLNKK  DLFEEKIKKS  PLTICYPEYA  GSNTYEEAAA
 301    YIQCQFEDLN  KRKDTKEIYT  HFTCATDTKN  VQFVFDAVTD  VIIKNNLKDC
 351    GLF",353
-1T3Y,A,Three Crystal Structures of Human Coactosin-like Protein,1.15,PROTEIN BINDING,Homo sapiens,," * GO:0005634
+"1T3Y","A","Three Crystal Structures of Human Coactosin-like Protein",1.15,"PROTEIN BINDING","Homo sapiens",," * GO:0005634
  * GO:0005737
  * GO:0005856
  * GO:0016020
@@ -1413,7 +1413,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  * GO:0019899",,,,"1      ATKIDKEACR  AAYNLVRDDG  SAVIWVTFKY  DGSTIVPGEQ  GAEYQHFIQQ
 51     CTDDVRLFAF  VRFTTGDAMS  KRSKFALITW  IGENVSGLQR  AKTGTDKTLV
 101    KEVVQNFAKE  FVISDRKELE  EDFIKSELKK  AGGANYDAQT  E",141
-1TQ4,A,Crystal Structure of IIGP1: a paradigm for interferon inducible p47 resistance GTPases,1.95,SIGNALING PROTEIN,Mus musculus, * GO:0045087," * GO:0005634
+"1TQ4","A","Crystal Structure of IIGP1: a paradigm for interferon inducible p47 resistance GTPases",1.95,"SIGNALING PROTEIN","Mus musculus"," * GO:0045087"," * GO:0005634
  * GO:0005737
  * GO:0005783
  * GO:0005789
@@ -1440,7 +1440,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Molecular Structure
  *  Mutation
  *  Protein Structure
- *  Tertiary",10.1016/j.molcel.2004.07.017,"1      MGQLFSSPKS  DENNDLPSSF  TGYFKKFNTG  RKIISQEILN  LIELRMRAGN
+ *  Tertiary","10.1016/j.molcel.2004.07.017","1      MGQLFSSPKS  DENNDLPSSF  TGYFKKFNTG  RKIISQEILN  LIELRMRAGN
 51     IQLTNSAISD  ALKEIDSSVL  NVAVTGETGS  GKSSFINTLR  GIGNEEEGAA
 101    KTGVVEVTME  RHPYKHPNIP  NVVFWDLPGI  GSTNFPPDTY  LEKMKFYEYD
 151    FFIIISATRF  KKNDIDIAKA  ISMMKKEFYF  VRTKVDSDIT  NEADGEPQTF
@@ -1449,7 +1449,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 301    LLDSDLETLK  KSMKFYRTVF  GVDETSLQRL  ARDWEIEVDQ  VEAMIKSPAV
 351    FKPTDEETIQ  ERLSRYIQEF  CLANGYLLPK  NSFLKEIFYL  KYYFLDMVTE
 401    DAKTLLKEIC  LRN",413
-1TQN,A,Crystal Structure of Human Microsomal P450 3A4,2.05,oxidoreductase,Homo sapiens, * GO:0055114," * GO:0005783
+"1TQN","A","Crystal Structure of Human Microsomal P450 3A4",2.05,"oxidoreductase","Homo sapiens"," * GO:0055114"," * GO:0005783
  * GO:0005789
  * GO:0016020
  * GO:0016021
@@ -1474,7 +1474,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Secondary
  *  Protein Structure
  *  Tertiary
- *  Substrate Specificity",10.1074/jbc.C400293200,"1      MALYGTHSHG  LFKKLGIPGP  TPLPFLGNIL  SYHKGFCMFD  MECHKKYGKV
+ *  Substrate Specificity","10.1074/jbc.C400293200","1      MALYGTHSHG  LFKKLGIPGP  TPLPFLGNIL  SYHKGFCMFD  MECHKKYGKV
 51     WGFYDGQQPV  LAITDPDMIK  TVLVKECYSV  FTNRRPFGPV  GFMKSAISIA
 101    EDEEWKRLRS  LLSPTFTSGK  LKEMVPIIAQ  YGDVLVRNLR  REAETGKPVT
 151    LKDVFGAYSM  DVITSTSFGV  NIDSLNNPQD  PFVENTKKLL  RFDFLDPFFL
@@ -1484,7 +1484,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 351    RLERVCKKDV  EINGMFIPKG  VVVMIPSYAL  HRDPKYWTEP  EKFLPERFSK
 401    KNKDNIDPYI  YTPFGSGPRN  CIGMRFALMN  MKLALIRVLQ  NFSFKPCKET
 451    QIPLKLSLGG  LLQPEKPVVL  KVESRDGTVS  GAHHHH",486
-1TZQ,A,Crystal structure of the equinatoxin II 8-69 double cysteine mutant,2.30,TOXIN,Actinia equina," * GO:0006810
+"1TZQ","A","Crystal structure of the equinatoxin II 8-69 double cysteine mutant",2.3,"TOXIN","Actinia equina"," * GO:0006810
  * GO:0006811
  * GO:0019835
  * GO:0044179"," * GO:0005576
@@ -1525,11 +1525,11 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Sea Anemones
  *  Temperature
  *  Time Factors
- *  Tryptophan",10.1074/jbc.M406193200,"1      AGACIDGASL  SFDILKTVLE  ALGNVKRKIA  VGVDNESGKT  WTALNTYFRS
+ *  Tryptophan","10.1074/jbc.M406193200","1      AGACIDGASL  SFDILKTVLE  ALGNVKRKIA  VGVDNESGKT  WTALNTYFRS
 51     GTSDIVLPHK  VPHGCALLYN  GQKDRGPVAT  GAVGVLAYLM  SDGNTLAVLF
 101    SVPYDYNWYS  NWWNVRIYKG  KRRADQRMYE  ELYYNLSPFR  GDNGWHTRNL
 151    GYGLKSRGFM  NSSGHAILEI  HVSKA",175
-1U7L,A,Crystal Structure of subunit C (vma5p) of the yeast V-ATPase,1.75,STRUCTURAL PROTEIN,Saccharomyces cerevisiae," * GO:0006810
+"1U7L","A","Crystal Structure of subunit C (vma5p) of the yeast V-ATPase",1.75,"STRUCTURAL PROTEIN","Saccharomyces cerevisiae"," * GO:0006810
  * GO:0006811
  * GO:0015992"," * GO:0005773
  * GO:0005774
@@ -1545,7 +1545,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Electron
  *  Saccharomyces cerevisiae
  *  Saccharomyces cerevisiae Proteins
- *  Vacuolar Proton-Translocating ATPases",10.1038/sj.embor.7400294,"1      MATALYTAND  FILISLPQNA  QPVTAPGSKT  DSWFNETLIG  GRAFVSDFKI
+ *  Vacuolar Proton-Translocating ATPases","10.1038/sj.embor.7400294","1      MATALYTAND  FILISLPQNA  QPVTAPGSKT  DSWFNETLIG  GRAFVSDFKI
 51     PEFKIGSLDT  LIVESEELSK  VDNQIGASIG  KIIEILQGLN  ETSTNAYRTL
 101    PINNMPVPEY  LENFQWQTRK  FKLDKSIKDL  ITLISNESSQ  LDADVRATYA
 151    NYNSAKTNLA  AAERKKTGDL  SVRSLHDIVK  PEDFVLNSEH  LTTVLVAVPK
@@ -1553,7 +1553,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 251    REKKFIPREF  NYSEELIDQL  KKEHDSAASL  EQSLRVQLVR  LAKTAYVDVF
 301    INWFHIKALR  VYVESVLRYG  LPPHFNIKII  AVPPKNLSKC  KSELIDAFGF
 351    LGGNAFMKDK  KGKINKQDTS  LHQYASLVDT  EYEPFVMYII  NL",392
-1UWY,A,Crystal structure of human carboxypeptidase M,3.00,HYDROLASE,HOMO SAPIENS, * GO:0006508," * GO:0005886
+"1UWY","A","Crystal structure of human carboxypeptidase M",3,"HYDROLASE","HOMO SAPIENS"," * GO:0006508"," * GO:0005886
  * GO:0016020
  * GO:0031225"," * GO:0004180
  * GO:0008233
@@ -1577,7 +1577,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Secondary
  *  Protein Structure
  *  Tertiary
- *  Sequence Alignment",10.1016/j.jmb.2004.02.058,"1      LDFNYHRQEG  MEAFLKTVAQ  NYSSVTHLHS  IGKSVKGRNL  WVLVVGRFPK
+ *  Sequence Alignment","10.1016/j.jmb.2004.02.058","1      LDFNYHRQEG  MEAFLKTVAQ  NYSSVTHLHS  IGKSVKGRNL  WVLVVGRFPK
 51     EHRIGIPEFK  YVANMHGDET  VGRELLLHLI  DYLVTSDGKD  PEITNLINST
 101    RIHIMPSMNP  DGFEAVKKPD  CYYSIGRENY  NQYDLNRNFP  DAFEYNNVSR
 151    QPETVAVMKW  LKTETFVLSA  NLHGGALVAS  YPFDNGVQAT  GALYSRSLTP
@@ -1586,7 +1586,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 301    QVFDQNGNPL  PNVIVEVQDR  KHICPYRTNK  YGEYYLLLLP  GSYIINVTVP
 351    GHDPHITKVI  IPEKSQNFSA  LKKDILLPFQ  GQLDSIPVSN  PSCPMIPLYR
 401    NLPDHSAATK  PSLFLFLVSL  LHIFFK",426
-1VR3,A,Crystal structure of Acireductone dioxygenase (13543033) from Mus musculus at 2.06 A resolution,2.06,OXIDOREDUCTASE,Mus musculus," * GO:0008652
+"1VR3","A","Crystal structure of Acireductone dioxygenase (13543033) from Mus musculus at 2.06 A resolution",2.06,"OXIDOREDUCTASE","Mus musculus"," * GO:0008652
  * GO:0009086
  * GO:0019509
  * GO:0055114"," * GO:0005634
@@ -1611,11 +1611,11 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Protein Structure
  *  Secondary
  *  Protein Structure
- *  Tertiary",10.1002/prot.20947,"1      MGSDKIHHHH  HHMVQAWYMD  ESTADPRKPH  RAQPDRPVSL  EQLRTLGVLY
+ *  Tertiary","10.1002/prot.20947","1      MGSDKIHHHH  HHMVQAWYMD  ESTADPRKPH  RAQPDRPVSL  EQLRTLGVLY
 51     WKLDADKYEN  DPELEKIRKM  RNYSWMDIIT  ICKDTLPNYE  EKIKMFFEEH
 101    LHLDEEIRYI  LEGSGYFDVR  DKEDKWIRIS  MEKGDMITLP  AGIYHRFTLD
 151    EKNYVKAMRL  FVGEPVWTPY  NRPADHFDAR  VQYMSFLEGT  A",191
-1W24,A,Crystal structure of human VPS29,2.10,CYTOPLASMIC PROTEIN,HOMO SAPIENS," * GO:0006810
+"1W24","A","Crystal structure of human VPS29",2.1,"CYTOPLASMIC PROTEIN","HOMO SAPIENS"," * GO:0006810
  * GO:0015031"," * GO:0005737
  * GO:0005768
  * GO:0010008
@@ -1644,14 +1644,14 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Amino Acid
  *  Structure-Activity Relationship
  *  Vesicular Transport Proteins
- *  trans-Golgi Network",10.1074/jbc.M500464200,"1      MLVLVLGDLH  IPHRCNSLPA  KFKKLLVPGK  IQHILCTGNL  CTKESYDYLK
+ *  trans-Golgi Network","10.1074/jbc.M500464200","1      MLVLVLGDLH  IPHRCNSLPA  KFKKLLVPGK  IQHILCTGNL  CTKESYDYLK
 51     TLAGDVHIVR  GDFDENLNYP  EQKVVTVGQF  KIGLIHGHQV  IPWGDMASLA
 101    LLQRQFDVDI  LISGHTHKFE  AFEHENKFYI  NPGSATGAYN  ALETNIIPSF
 151    VLMDIQASTV  VTYVYQLIGD  DVKVERIEYK  KP",182
-1W6K,A,STRUCTURE OF HUMAN OSC IN COMPLEX WITH LANOSTEROL,2.10,ISOMERASE,HOMO SAPIENS," * GO:0006629
+"1W6K","A","STRUCTURE OF HUMAN OSC IN COMPLEX WITH LANOSTEROL",2.1,"ISOMERASE","HOMO SAPIENS"," * GO:0006629
  * GO:0006694"," * GO:0005783
  * GO:0005789
- * GO:0016020", * GO:0016853,15525992," * Anticholesteremic Agents
+ * GO:0016020"," * GO:0016853",15525992," * Anticholesteremic Agents
  *  Benzophenones
  *  Catalysis
  *  Crystallography
@@ -1664,7 +1664,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Models
  *  Molecular
  *  Squalene
- *  Structure-Activity Relationship",10.1038/nature02993,"1      MTEGTCLRRR  GGPYKTEPAT  DLGRWRLNCE  RGRQTWTYLQ  DERAGREQTG
+ *  Structure-Activity Relationship","10.1038/nature02993","1      MTEGTCLRRR  GGPYKTEPAT  DLGRWRLNCE  RGRQTWTYLQ  DERAGREQTG
 51     LEAYALGLDT  KNYFKDLPKA  HTAFEGALNG  MTFYVGLQAE  DGHWTGDYGG
 101    PLFLLPGLLI  TCHVARIPLP  AGYREEIVRY  LRSVQLPDGG  WGLHIEDKST
 151    VFGTALNYVS  LRILGVGPDD  PDLVRARNIL  HKKGGAVAIP  SWGKFWLAVL
@@ -1679,7 +1679,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 601    QTYRDGTACA  EVSRACDFLL  SRQMADGGWG  EDFESCEERR  YVQSAQSQIH
 651    NTCWAMMGLM  AVRHPDIEAQ  ERGVRCLLEK  QLPNGDWPQE  NIAGVFNKSC
 701    AISYTSYRNI  FPIWALGRFS  QLYPERALAG  HP",732
-1WY9,A,"Crystal structure of microglia-specific protein, Iba1",2.10,METAL BINDING PROTEIN,Mus musculus," * GO:0006954
+"1WY9","A","Crystal structure of microglia-specific protein, Iba1",2.1,"METAL BINDING PROTEIN","Mus musculus"," * GO:0006954
  * GO:0030041
  * GO:0042102
  * GO:0048661
@@ -1717,10 +1717,10 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Molecular Sequence Data
  *  Protein Conformation
  *  S100 Proteins
- *  Troponin C",10.1016/j.jmb.2006.09.027,"1      MSQSRDLQGG  KAFGLLKAQQ  EERLEGINKQ  FLDDPKYSND  EDLPSKLEAF
+ *  Troponin C","10.1016/j.jmb.2006.09.027","1      MSQSRDLQGG  KAFGLLKAQQ  EERLEGINKQ  FLDDPKYSND  EDLPSKLEAF
 51     KVKYMEFDLN  GNGDIDIMSL  KRMLEKLGVP  KTHLELKRLI  REVSSGSEET
 101    FSYSDFLRMM  LGKRSAILRM  ILMYEEKNKE  HKRPTGPPAK  KAISELP",147
-1XA6,A,Crystal Structure of the Human Beta2-Chimaerin,3.20,SIGNALING PROTEIN,Homo sapiens, * GO:0043547, * GO:0016020," * GO:0005096
+"1XA6","A","Crystal Structure of the Human Beta2-Chimaerin",3.2,"SIGNALING PROTEIN","Homo sapiens"," * GO:0043547"," * GO:0016020"," * GO:0005096
  * GO:0005515
  * GO:0046872",15507211," * Animals
  *  COS Cells
@@ -1736,7 +1736,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Tertiary
  *  Protein Transport
  *  Second Messenger Systems
- *  rac GTP-Binding Proteins",10.1016/j.cell.2004.10.012,"1      MRLLSSLSGS  SVSSDAEEYQ  PPIWKSYLYQ  LQQEAPRPKR  IICPREVENR
+ *  rac GTP-Binding Proteins","10.1016/j.cell.2004.10.012","1      MRLLSSLSGS  SVSSDAEEYQ  PPIWKSYLYQ  LQQEAPRPKR  IICPREVENR
 51     PKYYGREFHG  IISREQADEL  LGGVEGAYIL  RESQRQPGCY  TLALRFGNQT
 101    LNYRLFHDGK  HFVGEKRFES  IHDLVTDGLI  TLYIETKAAE  YISKMTTNPI
 151    YEHIGYATLL  REKVSRRLSR  SKNEPRKTNV  THEEHTAVEK  ISSLVRRAAL
@@ -1746,7 +1746,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 351    KLYFRDLPIP  VITYDTYSKF  IDAAKISNAD  ERLEAVHEVL  MLLPPAHYET
 401    LRYLMIHLKK  VTMNEKDNFM  NAENLGIVFG  PTLMRPPEDS  TLTTLHDMRY
 451    QKLIVQILIE  NEDVLF",466
-1XTQ,A,Structure of small GTPase human Rheb in complex with GDP,2.00,SIGNALING PROTEIN,Homo sapiens,," * GO:0005886
+"1XTQ","A","Structure of small GTPase human Rheb in complex with GDP",2,"SIGNALING PROTEIN","Homo sapiens",," * GO:0005886
  * GO:0016020"," * GO:0000166
  * GO:0005525
  * GO:0046872",15728574," * Amino Acid Sequence
@@ -1783,13 +1783,13 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Tuberous Sclerosis
  *  Tumor Suppressor Proteins
  *  X-Ray Diffraction
- *  ras Proteins",10.1074/jbc.M501253200,"1      MPQSKSRKIA  ILGYRSVGKS  SLTIQFVEGQ  FVDSYDPTIE  NTFTKLITVN
+ *  ras Proteins","10.1074/jbc.M501253200","1      MPQSKSRKIA  ILGYRSVGKS  SLTIQFVEGQ  FVDSYDPTIE  NTFTKLITVN
 51     GQEYHLQLVD  TAGQDEYSIF  PQTYSIDING  YILVYSVTSI  KSFEVIKVIH
 101    GKLLDMVGKV  QIPIMLVGNK  KDLHMERVIS  YEEGKALAES  WNAAFLESSA
 151    KENQTAVDVF  RRIILEAEKL  EHHHHHH",177
-1YTC,A,THERMODYNAMIC CYCLES AS PROBES OF STRUCTURE-FUNCTION RELATIONSHIPS IN UNFOLDED PROTEINS,1.80,ELECTRON TRANSPORT,Saccharomyces cerevisiae, * GO:0055114," * GO:0005739
+"1YTC","A","Thermodynamic cycles as probes of structure-function relationships in unfolded proteins",1.8,"ELECTRON TRANSPORT","Saccharomyces cerevisiae"," * GO:0055114"," * GO:0005739
  * GO:0005758
- * GO:0070469", * GO:0046872,8639684," * Cytochrome c Group
+ * GO:0070469"," * GO:0046872",8639684," * Cytochrome c Group
  *  Cytochromes c
  *  Drug Stability
  *  Electrochemistry
@@ -1804,10 +1804,10 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Protein Conformation
  *  Protein Folding
  *  Saccharomyces cerevisiae
- *  Thermodynamics",10.1021/bi951228f,"1      AKESTGFKPG  SAKKGATLFK  TRCQQCHTIE  EGGPNKVGPN  LHGIFGRHSG
+ *  Thermodynamics","10.1021/bi951228f","1      AKESTGFKPG  SAKKGATLFK  TRCQQCHTIE  EGGPNKVGPN  LHGIFGRHSG
 51     QVKGYSYTDA  IINKNVKWDE  DSMSEYLTNP  KKYIPGTKMA  FAGLKKEKDR
 101    NDLITYMTKA  AK",112
-1ZD9,A,Structure of human ADP-ribosylation factor-like 10B,1.70,TRANSPORT PROTEIN,Homo sapiens," * GO:0007049
+"1ZD9","A","Structure of human ADP-ribosylation factor-like 10B",1.7,"TRANSPORT PROTEIN","Homo sapiens"," * GO:0007049
  * GO:0007059
  * GO:0007067
  * GO:0051301"," * GO:0005764
@@ -1821,7 +1821,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 51     MIPTVGFNMR  KITKGNVTIK  LWDIGGQPRF  RSMWERYCRG  VSAIVYMVDA
 101    ADQEKIEASK  NELHNLLDKP  QLQGIPVLVL  GNKRDLPGAL  DEKELIEKMN
 151    LSAIQDREIC  CYSISCKEKD  NIDITLQWLI  QHSKSRRS",188
-2AHE,A,Crystal structure of a soluble form of CLIC4. intercellular chloride ion channel,1.80,METAL TRANSPORT,Homo sapiens," * GO:0006810
+"2AHE","A","Crystal structure of a soluble form of CLIC4. intercellular chloride ion channel",1.8,"METAL TRANSPORT","Homo sapiens"," * GO:0006810
  * GO:0006811
  * GO:0006821
  * GO:0034765"," * GO:0005634
@@ -1856,13 +1856,13 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Sequence Alignment
  *  Solubility
  *  Structural Homology
- *  Protein",10.1111/j.1742-4658.2005.04909.x,"1      MALSMPLNGL  KEEDKEPLIE  LFVKAGSDGE  SIGNCPFSQR  LFMILWLKGV
+ *  Protein","10.1111/j.1742-4658.2005.04909.x","1      MALSMPLNGL  KEEDKEPLIE  LFVKAGSDGE  SIGNCPFSQR  LFMILWLKGV
 51     VFSVTTVDLK  RKPADLQNLA  PGTHPPFITF  NSEVKTDVNK  IEEFLEEVLC
 101    PPKYLKLSPK  HPESNTAGMD  IFAKFSAYIK  NSRPEANEAL  ERGLLKTLQK
 151    LDEYLNSPLP  DEIDENSMED  IKFSTRKFLD  GNEMTLADCN  LLPKLHIVKV
 201    VAKKYRNFDI  PKEMTGIWRY  LTNAYSRDEF  TNTCPSDKEV  EIAYSDVAKR
 251    LPSKVPKGEF  QHTGGRY",267
-2BX6,A,CRYSTAL STRUCTURE OF THE HUMAN RETINITIS PIGMENTOSA PROTEIN 2 (RP2),2.10,TRANSDUCTION PROTEIN,HOMO SAPIENS," * GO:0006810
+"2BX6","A","The crystal structure of human retinitis pigmentosa 2 protein (RP2)",2.1,"TRANSDUCTION PROTEIN","HOMO SAPIENS"," * GO:0006810
  * GO:0015031
  * GO:0043547"," * GO:0005886
  * GO:0005929
@@ -1893,18 +1893,18 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Protein Structure
  *  Tertiary
  *  Retinitis Pigmentosa
- *  Sequence Alignment",10.1016/j.str.2005.11.008,"1      MGCFFSKRRK  ADKESRPENE  EERPKQYSWD  QREKVDPKDY  MFSGLKDETV
+ *  Sequence Alignment","10.1016/j.str.2005.11.008","1      MGCFFSKRRK  ADKESRPENE  EERPKQYSWD  QREKVDPKDY  MFSGLKDETV
 51     GRLPGTVAGQ  QFLIQDCENC  NIYIFDHSAT  VTIDDCTNCI  IFLGPVKGSV
 101    FFRNCRDCKC  TLACQQFRVR  DCRKLEVFLC  CATQPIIESS  SNIKFGCFQW
 151    YYPELAFQFK  DAGLSIFNNT  WSNIHDFTPV  SGELNWSLLP  EDAVVQDYVP
 201    IPTTEELKAV  RVSTEANRSI  VPISRGQRQK  SSDESCLVVL  FAGDYTIANA
 251    RKLIDEMVGK  GFFLVQTKEV  SMKAEDAQRV  FREKAPDFLP  LLNKGPVIAL
 301    EFNGDGAVEV  CQLIVNEIFN  GTKMFVSESK  ETASGDVDSF  YNFADIQMGI",350
-2BZ7,A,OXIDIZED AND REDUCED STRUCTURES OF A MUTANT PLASTOCYANIN OF FERN,1.76,ELECTRON TRANSPORT,DRYOPTERIS CRASSIRHIZOMA, * GO:0055114," * GO:0009507
+"2BZ7","A","Oxidized and reduced structures of a mutant plastocyanin of fern",1.76,"ELECTRON TRANSPORT","DRYOPTERIS CRASSIRHIZOMA"," * GO:0055114"," * GO:0009507
  * GO:0009535
  * GO:0009536
  * GO:0009579
- * GO:0016020", * GO:0046872,17367139," * Amides
+ * GO:0016020"," * GO:0046872",17367139," * Amides
  *  Crystallography
  *  X-Ray
  *  Dryopteris
@@ -1919,14 +1919,14 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Plant Proteins
  *  Plastocyanin
  *  Protons
- *  Recombinant Proteins",10.1021/ja0690464,"1      AKVEVGDEVG  NFKFYPDSIT  VSAGEAVEFT  LVGETPHNIV  FDIPAGAPGT
+ *  Recombinant Proteins","10.1021/ja0690464","1      AKVEVGDEVG  NFKFYPDSIT  VSAGEAVEFT  LVGETPHNIV  FDIPAGAPGT
 51     VASELKAASM  DENDLLSEDE  PSFKAKVSTP  GTYTFYCTPH  KSANMKGTLT
 101    VK",102
-2C5G,A,TORPEDO CALIFORNICA ACETYLCHOLINESTERASE IN COMPLEX WITH 20MM THIOCHOLINE,1.95,HYDROLASE,TORPEDO CALIFORNICA, * GO:0042135," * GO:0005886
+"2C5G","A","Torpedo californica acetylcholinesterase in complex with 20mm thiocholine",1.95,"HYDROLASE","TORPEDO CALIFORNICA"," * GO:0042135"," * GO:0005886
  * GO:0016020
  * GO:0030054
  * GO:0031225
- * GO:0045202", * GO:0016787,16763558," * Acetylcholine
+ * GO:0045202"," * GO:0016787",16763558," * Acetylcholine
  *  Acetylcholinesterase
  *  Acetylthiocholine
  *  Animals
@@ -1939,7 +1939,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Models
  *  Molecular
  *  Substrate Specificity
- *  Torpedo",10.1038/sj.emboj.7601175,"1      DDHSELLVNT  KSGKVMGTRV  PVLSSHISAF  LGIPFAEPPV  GNMRFRRPEP
+ *  Torpedo","10.1038/sj.emboj.7601175","1      DDHSELLVNT  KSGKVMGTRV  PVLSSHISAF  LGIPFAEPPV  GNMRFRRPEP
 51     KKPWSGVWNA  STYPNNCQQY  VDEQFPGFSG  SEMWNPNREM  SEDCLYLNIW
 101    VPSPRPKSTT  VMVWIYGGGF  YSGSSTLDVY  NGKYLAYTEE  VVLVSLSYRV
 151    GAFGFLALHG  SQEAPGNVGL  LDQRMALQWV  HDNIQFFGGD  PKTVTIFGES
@@ -1950,7 +1950,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 401    ICPLMHFVNK  YTKFGNGTYL  YFFNHRASNL  VWPEWMGVIH  GYEIEFVFGL
 451    PLVKELNYTA  EEEALSRRIM  HYWATFAKTG  NPNEPHSQES  KWPLFTTKEQ
 501    KFIDLNTEPM  KVHQRLRVQM  CVFWNQFLPK  LLNATAC",537
-2D7I,A,"Crsytal structure of pp-GalNAc-T10 with UDP, GalNAc and Mn2+",2.50,TRANSFERASE,Homo sapiens,," * GO:0000139
+"2D7I","A","Crsytal structure of pp-GalNAc-T10 with UDP, GalNAc and Mn2+",2.5,"TRANSFERASE","Homo sapiens",," * GO:0000139
  * GO:0005794
  * GO:0016020
  * GO:0016021"," * GO:0016740
@@ -1975,7 +1975,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Tertiary
  *  Recombinant Proteins
  *  Substrate Specificity
- *  Uridine Diphosphate",10.1016/j.jmb.2006.03.061,"1      HHHHHHPGGS  GAAVAPAAGQ  GSHSRQKKTF  FLGDGQKLKD  WHDKEAIRRD
+ *  Uridine Diphosphate","10.1016/j.jmb.2006.03.061","1      HHHHHHPGGS  GAAVAPAAGQ  GSHSRQKKTF  FLGDGQKLKD  WHDKEAIRRD
 51     AQRVGNGEQG  RPYPMTDAER  VDQAYRENGF  NIYVSDKISL  NRSLPDIRHP
 101    NCNSKRYLET  LPNTSIIIPF  HNEGWSSLLR  TVHSVLNRSP  PELVAEIVLV
 151    DDFSDREHLK  KPLEDYMALF  PSVRILRTKK  REGLIRTRML  GASVATGDVI
@@ -1987,7 +1987,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 451    RLEGCVRGRG  EAAWNNMQVF  TFTWREDIRP  GDPQHTKKFC  FDAISHTSPV
 501    TLYDCHSMKG  NQLWKYRKDK  TLYHPVSGSC  MDCSESDHRI  FMNTCNPSSL
 551    TQQWLFEHTN  STVLEKFNRN",570
-2EW1,A,Crystal Structure of Rab30 in complex with a GTP analogue,2.00,SIGNALING PROTEIN,Homo sapiens,," * GO:0005737
+"2EW1","A","Crystal Structure of Rab30 in complex with a GTP analogue",2,"SIGNALING PROTEIN","Homo sapiens",," * GO:0005737
  * GO:0005794
  * GO:0016020"," * GO:0000166
  * GO:0005525",,,,"1      MGSSHHHHHH  SSGLVPRGSM  EDYDFLFKIV  LIGNAGVGKT  CLVRRFTQGL
@@ -1995,7 +1995,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 101    ALILTYDITC  EESFRCLPEW  LREIEQYASN  KVITVLVGNK  IDLAERREVS
 151    QQRAEEFSEA  QDMYYLETSA  KESDNVEKLF  LDLACRLISE  ARQNTLVNNV
 201    S",201
-2F9L,A,3D structure of inactive human Rab11b GTPase,1.55,HYDROLASE,Homo sapiens," * GO:0001881
+"2F9L","A","3D structure of inactive human Rab11b GTPase",1.55,"HYDROLASE","Homo sapiens"," * GO:0001881
  * GO:0006810
  * GO:0007049
  * GO:0015031
@@ -2031,15 +2031,15 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Protein Isoforms
  *  Protein Structure
  *  Secondary
- *  rab GTP-Binding Proteins",10.1016/j.jsb.2006.01.007,"1      MYDYLFKVVL  IGDSGVGKSN  LLSRFTRNEF  NLESKSTIGV  EFATRSIQVD
+ *  rab GTP-Binding Proteins","10.1016/j.jsb.2006.01.007","1      MYDYLFKVVL  IGDSGVGKSN  LLSRFTRNEF  NLESKSTIGV  EFATRSIQVD
 51     GKTIKAQIWD  TAGQERYRRI  TSAYYRGAVG  ALLVYDIAKH  LTYENVERWL
 101    KELRDHADSN  IVIMLVGNKS  DLRHLRAVPT  DEARAFAEKN  NLSFIETSAL
 151    DSTNVEEAFK  NILTEIYRIV  SQKQIADRAA  HDESPGNNVV  DISVPPTTD",199
-2FAU,A,Crystal structure of human vps26,2.10,PROTEIN TRANSPORT,Homo sapiens," * GO:0006810
+"2FAU","A","Crystal structure of human vps26",2.1,"PROTEIN TRANSPORT","Homo sapiens"," * GO:0006810
  * GO:0015031"," * GO:0005737
  * GO:0005768
  * GO:0010008
- * GO:0016020", * GO:0005515,16732284," * Amino Acid Sequence
+ * GO:0016020"," * GO:0005515",16732284," * Amino Acid Sequence
  *  Arrestin
  *  Binding Sites
  *  Crystallography
@@ -2052,14 +2052,14 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Protein Conformation
  *  Sequence Homology
  *  Amino Acid
- *  Vesicular Transport Proteins",10.1038/nsmb1103,"1      MGMSFLGGFF  GPICEIDIVL  NDGETRKMAE  MKTEDGKVEK  HYLFYDGESV
+ *  Vesicular Transport Proteins","10.1038/nsmb1103","1      MGMSFLGGFF  GPICEIDIVL  NDGETRKMAE  MKTEDGKVEK  HYLFYDGESV
 51     SGKVNLAFKQ  PGKRLEHQGI  RIEFVGQIEL  FNDKSNTHEF  VNLVKELALP
 101    GELTQSRSYD  FEFMQVEKPY  ESYIGANVRL  RYFLKVTIVR  RLTDLVKEYD
 151    LIVHQLATYP  DVNNSIKMEV  GIEDCLHIEF  EYNKSKYHLK  DVIVGKIYFL
 201    LVRIKIQHME  LQLIKKEITG  IGPSTTTETE  TIAKYEIMDG  APVKGESIPI
 251    RLFLAGYDPT  PTMRDVNKKF  SVRYFLNLVL  VDEEDRRYFK  QQEIILWRKA
 301    PEKLRKQRTN  FHQRFESPES  QASAEQPEMG  LVPRGSHHHH  H",341
-2FYO,A,Crystal structure of rat carnitine palmitoyltransferase 2 in space group P43212,2.00,TRANSFERASE,Rattus norvegicus," * GO:0006629
+"2FYO","A","Crystal structure of rat carnitine palmitoyltransferase 2 in space group P43212",2,"TRANSFERASE","Rattus norvegicus"," * GO:0006629
  * GO:0006631
  * GO:0006810"," * GO:0005739
  * GO:0005743
@@ -2084,7 +2084,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Rats
  *  Recombinant Proteins
  *  Solubility
- *  Substrate Specificity",10.1016/j.str.2006.03.002,"1      MGSSHHHHHH  SSGLVPRGSH  MAVSGPDDYL  QHSIVPTMHY  QDSLPRLPIP
+ *  Substrate Specificity","10.1016/j.str.2006.03.002","1      MGSSHHHHHH  SSGLVPRGSH  MAVSGPDDYL  QHSIVPTMHY  QDSLPRLPIP
 51     KLEDTMKRYL  NAQKPLLDDS  QFRRTEALCK  NFETGVGKEL  HAHLLAQDKQ
 101    NKHTSYISGP  WFDMYLTARD  SIVLNFNPFM  AFNPDPKSEY  NDQLTRATNL
 151    TVSAVRFLKT  LQAGLLEPEV  FHLNPSKSDT  DAFKRLIRFV  PPSLSWYGAY
@@ -2098,7 +2098,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 551    LYALRYLATA  RGLNLPELYL  DPAYQQMNHN  ILSTSTLNSP  AVSLGGFAPV
 601    VPDGFGIAYA  VHDDWIGCNV  SSYSGRNARE  FLHCVQKCLE  DIFDALEGKA
 651    IKT",653
-2H8H,A,Src kinase in complex with a quinazoline inhibitor,2.20,TRANSFERASE,Homo sapiens," * GO:0007049
+"2H8H","A","Src kinase in complex with a quinazoline inhibitor",2.2,"TRANSFERASE","Homo sapiens"," * GO:0007049
  * GO:0007155
  * GO:0016310
  * GO:0019048
@@ -2152,7 +2152,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Thermodynamics
  *  Transplantation
  *  Heterologous
- *  src-Family Kinases",10.1021/jm060434q,"1      GSNKSKPKDA  SQRRRSLEPA  ENVHGAGGGA  FPASQTPSKP  ASADGHRGPS
+ *  src-Family Kinases","10.1021/jm060434q","1      GSNKSKPKDA  SQRRRSLEPA  ENVHGAGGGA  FPASQTPSKP  ASADGHRGPS
 51     AAFAPAAAEP  KLFGGFNSSD  TVTSPQRAGP  LAGGVTTFVA  LYDYESRTET
 101    DLSFKKGERL  QIVNNTEGDW  WLAHSLSTGQ  TGYIPSNYVA  PSDSIQAEEW
 151    YFGKITRRES  ERLLLNAENP  RGTFLVRESE  TTKGAYCLSV  SDFDNAKGLN
@@ -2163,7 +2163,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 401    VCKVADFGLA  RLIEDNEYTA  RQGAKFPIKW  TAPEAALYGR  FTIKSDVWSF
 451    GILLTELTTK  GRVPYPGMVN  REVLDQVERG  YRMPCPPECP  ESLHDLMCQC
 501    WRKEPEERPT  FEYLQAFLED  YFTSTEPQYQ  PGENL",535
-2HCZ,X,"Crystal structure of EXPB1 (Zea m 1), a beta-expansin and group-1 pollen allergen from maize",2.75,ALLERGEN,Zea mays,," * GO:0005576
+"2HCZ","X","Crystal structure of EXPB1 (Zea m 1), a beta-expansin and group-1 pollen allergen from maize",2.75,"ALLERGEN","Zea mays",," * GO:0005576
  * GO:0005618
  * GO:0016020",,16984999," * Allergens
  *  Amino Acid Sequence
@@ -2184,12 +2184,12 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Protein Structure
  *  Tertiary
  *  Sequence Alignment
- *  Zea mays",10.1073/pnas.0605979103,"1      GPPKVPPGPN  ITTNYNGKWL  TARATWYGQP  NGAGAPDNGG  ACGIKNVNLP
+ *  Zea mays","10.1073/pnas.0605979103","1      GPPKVPPGPN  ITTNYNGKWL  TARATWYGQP  NGAGAPDNGG  ACGIKNVNLP
 51     PYSGMTACGN  VPIFKDGKGC  GSCYEVRCKE  KPECSGNPVT  VYITDMNYEP
 101    IAPYHFDLSG  KAFGSLAKPG  LNDKIRHCGI  MDVEFRRVRC  KYPAGQKIVF
 151    HIEKGCNPNY  LAVLVKYVAD  DGDIVLMEIQ  DKLSAEWKPM  KLSWGAIWRM
 201    DTAKALKGPF  SIRLTSESGK  KVIAKDVIPA  NWRPDAVYTS  NVQFY",245
-2HI4,A,Crystal Structure of Human Microsomal P450 1A2 in complex with alpha-naphthoflavone,1.95,OXIDOREDUCTASE,Homo sapiens, * GO:0055114," * GO:0005783
+"2HI4","A","Crystal Structure of Human Microsomal P450 1A2 in complex with alpha-naphthoflavone",1.95,"OXIDOREDUCTASE","Homo sapiens"," * GO:0055114"," * GO:0005783
  * GO:0005789
  * GO:0016020
  * GO:0031090
@@ -2208,7 +2208,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Models
  *  Molecular
  *  Oxidation-Reduction
- *  Protein Conformation",10.1074/jbc.M611692200,"1      MAVLKGLRPR  VPKGLKSPPE  PWGWPLLGHV  LTLGKNPHLA  LSRMSQRYGD
+ *  Protein Conformation","10.1074/jbc.M611692200","1      MAVLKGLRPR  VPKGLKSPPE  PWGWPLLGHV  LTLGKNPHLA  LSRMSQRYGD
 51     VLQIRIGSTP  VLVLSRLDTI  RQALVRQGDD  FKGRPDLYTS  TLITDGQSLT
 101    FSTDSGPVWA  ARRRLAQNAL  NTFSIASDPA  SSSSCYLEEH  VSKEAKALIS
 151    RLQELMAGPG  HFDPYNQVVV  SVANVIGAMC  FGQHFPESSD  EMLSLVKNTH
@@ -2218,7 +2218,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 351    TFRHSSFLPF  TIPHSTTRDT  TLNGFYIPKK  CCVFVNQWQV  NHDPELWEDP
 401    SEFRPERFLT  ADGTAINKPL  SEKMMLFGMG  KRRCIGEVLA  KWEIFLFLAI
 451    LLQQLEFSVP  PGVKVDLTPI  YGLTMKHARC  EHVQARRFSI  NHHHH",495
-2IF4,A,Crystal structure of a multi-domain immunophilin from Arabidopsis thaliana,2.85,SIGNALING PROTEIN,Arabidopsis thaliana," * GO:0006457
+"2IF4","A","Crystal structure of a multi-domain immunophilin from Arabidopsis thaliana",2.85,"SIGNALING PROTEIN","Arabidopsis thaliana"," * GO:0006457
  * GO:0009734"," * GO:0005773
  * GO:0005774
  * GO:0005783
@@ -2236,14 +2236,14 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Molecular Structure
  *  Protein Binding
  *  Protein Conformation
- *  Tacrolimus Binding Proteins",10.1016/j.jmb.2006.09.052,"1      MDESLEHQTQ  THDQESEIVT  EGSAVVHSEP  SQEGNVPPKV  DSEAEVLDEK
+ *  Tacrolimus Binding Proteins","10.1016/j.jmb.2006.09.052","1      MDESLEHQTQ  THDQESEIVT  EGSAVVHSEP  SQEGNVPPKV  DSEAEVLDEK
 51     VSKQIIKEGH  GSKPSKYSTC  FLHYRAWTKN  SQHKFEDTWH  EQQPIELVLG
 101    KEKKELAGLA  IGVASMKSGE  RALVHVGWEL  AYGKEGNFSF  PNVPPMADLL
 151    YEVEVIGFDE  TKEGKARSDM  TVEERIGAAD  RRKMDGNSLF  KEEKLEEAMQ
 201    QYEMAIAYMG  DDFMFQLYGK  YQDMALAVKN  PCHLNIAACL  IKLKRYDEAI
 251    GHCNIVLTEE  EKNPKALFRR  GKAKAELGQM  DSARDDFRKA  QKYAPDDKAI
 301    RRELRALAEQ  EKALYQKQKE  MYKGIFKGKD  EGGAKSKS",338
-2IQY,A,Rat Phosphatidylethanolamine-Binding Protein,1.40,HYDROLASE INHIBITOR,Rattus norvegicus, * GO:0010466," * GO:0005737
+"2IQY","A","Rat Phosphatidylethanolamine-Binding Protein",1.4,"HYDROLASE INHIBITOR","Rattus norvegicus"," * GO:0010466"," * GO:0005737
  * GO:0016020"," * GO:0000166
  * GO:0004867
  * GO:0005524
@@ -2252,14 +2252,14 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 51     NRPSSISWDG  LDPGKLYTLV  LTDPDAPSRK  DPKFREWHHF  LVVNMKGNDI
 101    SSGTVLSEYV  GSGPPKDTGL  HRYVWLVYEQ  EQPLNCDEPI  LSNKSGDNRG
 151    KFKVESFRKK  YHLGAPVAGT  CFQAEWDDSV  PKLHDQLAGK",190
-2J1L,A,CRYSTAL STRUCTURE OF HUMAN RHO-RELATED GTP-BINDING PROTEIN RHOD,2.50,HYDROLASE,HOMO SAPIENS,," * GO:0005886
+"2J1L","A","Crystal Structure of Human Rho-Related GTP-Binding Protein Rhod",2.5,"HYDROLASE","HOMO SAPIENS",," * GO:0005886
  * GO:0016020"," * GO:0000166
  * GO:0005525",,,,"1      MHHHHHHSSG  VDLGTENLYF  QSMAGEEAPP  GVRSVKVVLV  GDGGCGKTSL
 51     LMVFADGAFP  ESYTPTVFER  YMVNLQVKGK  PVHLHIWDTA  GQDDYDRLRP
 101    LFYPDASVLL  LCFDVTSPNS  FDNIFNRWYP  EVNHFCKKVP  IIVVGCKTDL
 151    RKDKSLVNKL  RRNGLEPVTY  HRGQEMARSV  GAVAYLECSA  RLHDNVHAVF
 201    QEAAEVALSS  RGRN",214
-2OZO,A,Autoinhibited intact human ZAP-70,2.60,TRANSFERASE,Homo sapiens, * GO:0016310," * GO:0005737
+"2OZO","A","Autoinhibited intact human ZAP-70",2.6,"TRANSFERASE","Homo sapiens"," * GO:0016310"," * GO:0005737
  * GO:0005886
  * GO:0016020"," * GO:0000166
  * GO:0004713
@@ -2283,7 +2283,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Protein Conformation
  *  T-Lymphocytes
  *  ZAP-70 Protein-Tyrosine Kinase
- *  src Homology Domains",10.1016/j.cell.2007.03.039,"1      MPDPAAHLPF  FYGSISRAEA  EEHLKLAGMA  DGLFLLRQCL  RSLGGYVLSL
+ *  src Homology Domains","10.1016/j.cell.2007.03.039","1      MPDPAAHLPF  FYGSISRAEA  EEHLKLAGMA  DGLFLLRQCL  RSLGGYVLSL
 51     VHDVRFHHFP  IERQLNGTYA  IAGGKAHCGP  AELCEFYSRD  PDGLPCNLRK
 101    PCNRPSGLEP  QPGVFDCLRD  AMVRDYVRQT  WKLEGEALEQ  AIISQAPQVE
 151    KLIATTAHER  MPWYHSSLTR  EEAERKLYSG  AQTDGKFLLR  PRKEQGTYAL
@@ -2296,7 +2296,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 501    WPLKWYAPEC  INFRKFSSRS  DVWSYGVTMW  EALSYGQKPY  KKMKGPEVMA
 551    FIEQGKRMEC  PPECPPELYA  LMSDCWIYKW  EDRPDFLTVE  QRMRACYYSL
 601    ASKVEGGSAL  EVA",613
-2R51,A,Crystal Structure of mouse Vps26B,2.10,TRANSPORT PROTEIN,Mus musculus," * GO:0006810
+"2R51","A","Crystal Structure of mouse Vps26B",2.1,"TRANSPORT PROTEIN","Mus musculus"," * GO:0006810
  * GO:0015031"," * GO:0005737
  * GO:0016020",,18088321," * Amino Acid Sequence
  *  Animals
@@ -2315,14 +2315,14 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Protein Interaction Mapping
  *  Recombinant Proteins
  *  Two-Hybrid System Techniques
- *  Vesicular Transport Proteins",10.1111/j.1600-0854.2007.00688.x,"1      MGSHHHHHHM  GQSVEVEILL  NDAESRKRAE  HKTEDGKKEK  YFLFYDGETV
+ *  Vesicular Transport Proteins","10.1111/j.1600-0854.2007.00688.x","1      MGSHHHHHHM  GQSVEVEILL  NDAESRKRAE  HKTEDGKKEK  YFLFYDGETV
 51     SGKVSLSLKN  PNKRLEHQGI  KIEFIGQIEL  YYDRGNHHEF  VSLVKDLARP
 101    GEITQSQAFD  FEFTHVEKPY  ESYTGQNVKL  RYFLRATISR  RLNDVVKEMD
 151    IVVHTLSTYP  ELNSSIKMEV  GIEDCLHIEF  EYNKSKYHLK  DVIVGKIYFL
 201    LVRIKIKHME  IDIIKRETTG  TGPNVYHEND  TIAKYEIMDG  APVRGESIPI
 251    RLFLAGYELT  PTMRDINKKF  SVRYYLNLVL  IDEEERRYFK  QQEVVLWRKG
 301    DIVRKSMSHQ  AAIASQRFEG  TTSLGEVRTP  GQLSDNNSRQ",340
-2R5G,A,"Structure of human CLIC2, crystal form B",1.86,TRANSPORT PROTEIN,Homo sapiens," * GO:0006810
+"2R5G","A","Structure of human CLIC2, crystal form B",1.86,"TRANSPORT PROTEIN","Homo sapiens"," * GO:0006810
  * GO:0006811
  * GO:0006821
  * GO:0034765"," * GO:0005737
@@ -2349,12 +2349,12 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Oxidation-Reduction
  *  Protein Conformation
  *  Solubility
- *  Water",10.1016/j.jmb.2007.09.041,"1      MSGLRPGTQV  DPEIELFVKA  GSDGESIGNC  PFCQRLFMIL  WLKGVKFNVT
+ *  Water","10.1016/j.jmb.2007.09.041","1      MSGLRPGTQV  DPEIELFVKA  GSDGESIGNC  PFCQRLFMIL  WLKGVKFNVT
 51     TVDMTRKPEE  LKDLAPGTNP  PFLVYNKELK  TDFIKIEEFL  EQTLAPPRYP
 101    HLSPKYKESF  DVGCNLFAKF  SAYIKNTQKE  ANKNFEKSLL  KEFKRLDDYL
 151    NTPLLDEIDP  DSAEEPPVSR  RLFLDGDQLT  LADCSLLPKL  NIIKVAAKKY
 201    RDFDIPAEFS  GVWRYLHNAY  AREEFTHTCP  EDKEIENTYA  NVAKQKS",247
-2UCZ,A,UBIQUITIN CONJUGATING ENZYME (UBC7) FROM SACCHAROMYCES CEREVISIAE,2.93,UBIQUITIN CONJUGATION,Saccharomyces cerevisiae, * GO:0046686," * GO:0005783
+"2UCZ","A","Ubiquitin conjugating enzyme (Ubc7) from Saccharomyces cerevisiae",2.93,"UBIQUITIN CONJUGATION","Saccharomyces cerevisiae"," * GO:0046686"," * GO:0005783
  * GO:0005789
  * GO:0016020"," * GO:0000166
  * GO:0005524
@@ -2370,11 +2370,11 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Saccharomyces cerevisiae
  *  Substrate Specificity
  *  Ubiquitin-Conjugating Enzymes
- *  Ubiquitins",10.1021/bi962639e,"1      MSKTAQKRLL  KELQQLIKDS  PPGIVAGPKS  ENNIFIWDCL  IQGPPDTPYA
+ *  Ubiquitins","10.1021/bi962639e","1      MSKTAQKRLL  KELQQLIKDS  PPGIVAGPKS  ENNIFIWDCL  IQGPPDTPYA
 51     DGVFNAKLEF  PKDYPLSPPK  LTFTPSILHP  NIYPNGEVCI  SILHSPGDDP
 101    NMYELAEERW  SPVQSVEKIL  LSVMSMLSEP  NIESGANIDA  CILWRDNRPE
 151    FERQVKLSIL  KSLGF",165
-2VTG,A,"CRYSTAL STRUCTURE OF HUMAN IBA2, TRIGONAL CRYSTAL FORM",2.45,METAL-BINDING PROTEIN,HOMO SAPIENS,," * GO:0005737
+"2VTG","A","Crystal Structure of Human Iba2, Trigonal Crystal Form",2.45,"METAL-BINDING PROTEIN","HOMO SAPIENS",," * GO:0005737
  * GO:0005856
  * GO:0005886
  * GO:0016020
@@ -2395,10 +2395,10 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Molecular
  *  Molecular Sequence Data
  *  Sequence Alignment
- *  Shigella",10.1111/j.1742-4658.2008.06605.x,"1      MSGELSNRFQ  GGKAFGLLKA  RQERRLAEIN  REFLCDQKYS  DEENLPEKLT
+ *  Shigella","10.1111/j.1742-4658.2008.06605.x","1      MSGELSNRFQ  GGKAFGLLKA  RQERRLAEIN  REFLCDQKYS  DEENLPEKLT
 51     AFKEKYMEFD  LNNEGEIDLM  SLKRMMEKLG  VPKTHLEMKK  MISEVTGGVS
 101    DTISYRDFVN  MMLGKRSAVL  KLVMMFEGKA  NESSPKPVGP  PPERDIASLP",150
-2WKQ,A,STRUCTURE OF A PHOTOACTIVATABLE RAC1 CONTAINING THE LOV2 C450A MUTANT,1.60,"TRANSFERASE, CELL ADHESION","AVENA SATIVA, HOMO SAPIENS", * GO:0030036," * GO:0005737
+"2WKQ","A","Structure Of A Photoactivatable Rac1 Containing The Lov2 C450a Mutant[",1.6,"TRANSFERASE, CELL ADHESION","AVENA SATIVA, HOMO SAPIENS"," * GO:0030036"," * GO:0005737
  * GO:0005886
  * GO:0016020
  * GO:0042470"," * GO:0000166
@@ -2430,14 +2430,14 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Myosins
  *  Protein Conformation
  *  rac1 GTP-Binding Protein
- *  rho GTP-Binding Proteins",10.1038/nature08241,"1      MRGSHHHHHH  GSLATTLERI  EKNFVITDPR  LPDNPIIFAS  DSFLQLTEYS
+ *  rho GTP-Binding Proteins","10.1038/nature08241","1      MRGSHHHHHH  GSLATTLERI  EKNFVITDPR  LPDNPIIFAS  DSFLQLTEYS
 51     REEILGRNAR  FLQGPETDRA  TVRKIRDAID  NQTEVTVQLI  NYTKSGKKFW
 101    NLFHLQPMRD  QKGDVQYFIG  VQLDGTEHVR  DAAEREGVML  IKKTAENIDE
 151    AAKELIKCVV  VGDGAVGKTC  LLISYTTNAF  PGEYIPTVFD  NYSANVMVDG
 201    KPVNLGLWDT  AGLEDYDRLR  PLSYPQTDVF  LICFSLVSPA  SFHHVRAKWY
 251    PEVRHHCPNT  PIILVGTKLD  LRDDKDTIEK  LKEKKLTPIT  YPQGLAMAKE
 301    IGAVKYLECS  ALTQRGLKTV  FDEAIRAVLC  PP",332
-2YB6,A,NATIVE HUMAN RAD6,1.50,LIGASE,HOMO SAPIENS," * GO:0006281
+"2YB6","A","Native Human Rad6",1.5,"LIGASE","HOMO SAPIENS"," * GO:0006281
  * GO:0006974
  * GO:0009411
  * GO:0060070"," * GO:0000785
@@ -2465,11 +2465,11 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Ubiquitin
  *  Ubiquitin-Conjugating Enzymes
  *  Ubiquitin-Protein Ligases
- *  Ubiquitination",10.1073/pnas.1017516108,"1      MSTPARRRLM  RDFKRLQEDP  PVGVSGAPSE  NNIMQWNAVI  FGPEGTPFED
+ *  Ubiquitination","10.1073/pnas.1017516108","1      MSTPARRRLM  RDFKRLQEDP  PVGVSGAPSE  NNIMQWNAVI  FGPEGTPFED
 51     GTFKLVIEFS  EEYPNKPPTV  RFLSKMFHPN  VYADGSICLD  ILQNRWSPTY
 101    DVSSILTSIQ  SLLDEPNPNS  PANSQAAQLY  QENKREYEKR  VSAIVEQSWN
 151    DS",152
-2YD0,A,Crystal structure of the soluble domain of human endoplasmic reticulum aminopeptidase 1 ERAP1,2.70,HYDROLASE,HOMO SAPIENS, * GO:0006508," * GO:0005783
+"2YD0","A","Crystal structure of the soluble domain of human endoplasmic reticulum aminopeptidase 1 ERAP1",2.7,"HYDROLASE","HOMO SAPIENS"," * GO:0006508"," * GO:0005783
  * GO:0005789
  * GO:0016020
  * GO:0016021"," * GO:0004177
@@ -2500,7 +2500,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Tertiary
  *  Recombinant Proteins
  *  Spondylitis
- *  Ankylosing",10.1073/pnas.1101262108,"1      PFPWNKIRLP  EYVIPVHYDL  LIHANLTTLT  FWGTTKVEIT  ASQPTSTIIL
+ *  Ankylosing","10.1073/pnas.1101262108","1      PFPWNKIRLP  EYVIPVHYDL  LIHANLTTLT  FWGTTKVEIT  ASQPTSTIIL
 51     HSHHLQISRA  TLRKGAGERL  SEEPLQVLEH  PRQEQIALLA  PEPLLVGLPY
 101    TVVIHYAGNL  SETFHGFYKS  TYRTKEGELR  ILASTQFEPT  AARMAFPCFD
 151    EPAFKASFSI  KIRREPRHLA  ISNMPLVKSV  TVAEGLIEDH  FDVTVKMSTY
@@ -2518,7 +2518,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 751    TEKSQIEFAL  CRTQNKEKLQ  WLLDESFKGD  KIKTQEFPQI  LTLIGRNPVG
 801    YPLAWQFLRK  NWNKLVQKFE  LGSSSIAHMV  MGTTNQFSTR  TRLEEVKGFF
 851    SSLKENGSQL  RCVQQTIETI  EENIGWMDKN  FDKIRVWLQS  EKLERKK",897
-2YXF,A,The high resolution crystal structure of beta2-microglobulin under physiological conditions,1.13,IMMUNE SYSTEM,Homo sapiens, * GO:0002474," * GO:0005576
+"2YXF","A","The high resolution crystal structure of beta2-microglobulin under physiological conditions",1.13,"IMMUNE SYSTEM","Homo sapiens"," * GO:0002474"," * GO:0005576
  * GO:0042612"," * GO:0005515
  * GO:0042802",17646174," * Amino Acid Sequence
  *  Crystallography
@@ -2529,14 +2529,14 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Molecular
  *  Molecular Sequence Data
  *  Protein Conformation
- *  beta 2-Microglobulin",10.1093/jb/mvm148,"1      MIQRTPKIQV  YSRHPAENGK  SNFLNCYVSG  FHPSDIEVDL  LKNGERIEKV
+ *  beta 2-Microglobulin","10.1093/jb/mvm148","1      MIQRTPKIQV  YSRHPAENGK  SNFLNCYVSG  FHPSDIEVDL  LKNGERIEKV
 51     EHSDLSFSKD  WSFYLLYYTE  FTPTEKDEYA  CRVNHVTLSQ  PKIVKWDRDM",100
-2Z5Y,A,Crystal Structure of Human Monoamine Oxidase A (G110A) with Harmine,2.17,Oxidoreductase,Homo sapiens," * GO:0006584
+"2Z5Y","A","Crystal Structure of Human Monoamine Oxidase A (G110A) with Harmine",2.17,"Oxidoreductase","Homo sapiens"," * GO:0006584
  * GO:0042135
  * GO:0055114"," * GO:0005739
  * GO:0005741
  * GO:0016020
- * GO:0016021", * GO:0016491,18391214," * Binding Sites
+ * GO:0016021"," * GO:0016491",18391214," * Binding Sites
  *  Crystallography
  *  X-Ray
  *  Humans
@@ -2545,7 +2545,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Point Mutation
  *  Protein Binding
  *  Protein Conformation
- *  Substrate Specificity",10.1073/pnas.0710626105,"1      HMFDVVVIGG  GISGLSAAKL  LTEYGVSVLV  LEARDRVGGR  TYTIRNEHVD
+ *  Substrate Specificity","10.1073/pnas.0710626105","1      HMFDVVVIGG  GISGLSAAKL  LTEYGVSVLV  LEARDRVGGR  TYTIRNEHVD
 51     YVDVGGAYVG  PTQNRILRLS  KELGIETYKV  NVSERLVQYV  KGKTYPFRAA
 101    FPPVWNPIAY  LDYNNLWRTI  DNMGKEIPTD  APWEAQHADK  WDKMTMKELI
 151    DKICWTKTAR  RFAYLFVNIN  VTSEPHEVSA  LWFLWYVKQC  GGTTRIFSVT
@@ -2556,7 +2556,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 401    PPGIMTQYGR  VIRQPVGRIF  FAGTETATKW  SGYMEGAVEA  GERAAREVLN
 451    GLGKVTEKDI  WVQEPESKDV  PAVEITHTFW  ERNLPSVSGL  LKIIGFSTSV
 501    TALGFVLYKY  KLL",513
-2ZAN,A,Crystal structure of mouse SKD1/VPS4B ATP-form,3.00,PROTEIN TRANSPORT,Mus musculus," * GO:0006810
+"2ZAN","A","Crystal structure of mouse SKD1/VPS4B ATP-form",3,"PROTEIN TRANSPORT","Mus musculus"," * GO:0006810
  * GO:0007049
  * GO:0015031
  * GO:0016197
@@ -2591,7 +2591,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Repressor Proteins
  *  Saccharomyces cerevisiae
  *  Saccharomyces cerevisiae Proteins
- *  Vesicular Transport Proteins",10.1111/j.1600-0854.2008.00831.x,"1      MASTNTNLQK  AIDLASKAAQ  EDKAGNYEEA  LQLYQHAVQY  FLHVVKYEAQ
+ *  Vesicular Transport Proteins","10.1111/j.1600-0854.2008.00831.x","1      MASTNTNLQK  AIDLASKAAQ  EDKAGNYEEA  LQLYQHAVQY  FLHVVKYEAQ
 51     GDKAKQSIRA  KCTEYLDRAE  KLKEYLKKKE  KKPQKPVKEE  QSGPVDEKGN
 101    DSDGEAESDD  PEKKKLQNQL  QGAIVIERPN  VKWSDVAGLE  GAKEALKEAV
 151    ILPIKFPHLF  TGKRTPWRGI  LLFGPPGTGK  SYLAKAVATE  ANNSTFFSIS
@@ -2600,7 +2600,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 301    PEAHARAAMF  RLHLGSTQNS  LTEADFQELG  RKTDGYSGAD  ISIIVRDALM
 351    QPVRKVQSAT  HFKKVRGPSR  ADPNCIVNDL  LTPCSPGDPG  AIEMTWMDVP
 401    GDKLLEPVVS  MWDMLRSLSS  TKPTVNEQDL  LKLKKFTEDF  GQEG",444
-3AR4,A,Calcium pump crystal structure with bound ATP and TG in the absence of Ca2+,2.15,HYDROLASE/HYDROLASE INHIBITOR,Oryctolagus cuniculus," * GO:0006810
+"3AR4","A","Calcium pump crystal structure with bound ATP and TG in the absence of Ca2+",2.15,"HYDROLASE/HYDROLASE INHIBITOR","Oryctolagus cuniculus"," * GO:0006810
  * GO:0006811
  * GO:0006816
  * GO:0031448"," * GO:0005783
@@ -2621,7 +2621,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Molecular
  *  Molecular Sequence Data
  *  Protein Binding
- *  Trinitrobenzenes",10.1073/pnas.1017659108,"1      XMEAAHSKST  EECLAYFGVS  ETTGLTPDQV  KRHLEKYGHN  ELPAEEGKSL
+ *  Trinitrobenzenes","10.1073/pnas.1017659108","1      XMEAAHSKST  EECLAYFGVS  ETTGLTPDQV  KRHLEKYGHN  ELPAEEGKSL
 51     WELVIEQFED  LLVRILLLAA  CISFVLAWFE  EGEETITAFV  EPFVILLILI
 101    ANAIVGVWQE  RNAENAIEAL  KEYEPEMGKV  YRADRKSVQR  IKARDIVPGD
 151    IVEVAVGDKV  PADIRILSIK  STTLRVDQSI  LTGESVSVIK  HTEPVPDPRA
@@ -2641,7 +2641,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 851    GAAAWWFMYA  EDGPGVTYHQ  LTHFMQCTED  HPHFEGLDCE  IFEAPEPMTM
 901    ALSVLVTIEM  CNALNSLSEN  QSLMRMPPWV  NIWLLGSICL  SMSLHFLILY
 951    VDPLPMIFKL  KALDLTQWLM  VLKISLPVIG  LDEILKFIAR  NYLEG",995
-3BCY,A,Crystal structure of YER067W,1.70,UNKNOWN FUNCTION,Saccharomyces cerevisiae,," * GO:0005886
+"3BCY","A","Crystal structure of YER067W",1.7,"UNKNOWN FUNCTION","Saccharomyces cerevisiae",," * GO:0005886
  * GO:0016020",,20567505," * Amino Acid Sequence
  *  Amphotericin B
  *  Antifungal Agents
@@ -2659,11 +2659,11 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Saccharomyces cerevisiae
  *  Saccharomyces cerevisiae Proteins
  *  Sequence Homology
- *  Amino Acid",10.1371/journal.pone.0011163,"1      GSHMVQTVTT  EDGETVKVFE  DLQGFETFIA  NETEDDDFDH  LHCKLNYYPP
+ *  Amino Acid","10.1371/journal.pone.0011163","1      GSHMVQTVTT  EDGETVKVFE  DLQGFETFIA  NETEDDDFDH  LHCKLNYYPP
 51     FVLHESHEDP  EKISDAANSH  SKKFVRHLHQ  HIEKHLLKDI  KQAVRKPELK
 101    FHEKSKEETF  DKITWHYGEE  TEYHGRPFKI  DVQVVCTHED  AMVFVDYKTH
 151    PVGAN",155
-3BVU,A,GOLGI MANNOSIDASE II D204A catalytic nucleophile mutant complex with Methyl(alpha-D-mannopyranosyl)-(1->3)-S-[(alpha-D-mannopyranosyl)-(1->6)]-alpha-D-mannopyranoside,1.12,HYDROLASE,Drosophila melanogaster, * GO:0008152," * GO:0000139
+"3BVU","A","GOLGI MANNOSIDASE II D204A catalytic nucleophile mutant complex with Methyl(alpha-D-mannopyranosyl)-(1->3)-S-[(alpha-D-mannopyranosyl)-(1->6)]-alpha-D-mannopyranoside",1.12,"HYDROLASE","Drosophila melanogaster"," * GO:0008152"," * GO:0000139
  * GO:0005794
  * GO:0016020
  * GO:0016021"," * GO:0016787
@@ -2683,7 +2683,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Oligosaccharides
  *  Structure-Activity Relationship
  *  Substrate Specificity
- *  Thioglycosides",10.1021/ja711248y,"1      RSSHHHHHHG  EFDDPIRPPL  KVARSPRPGQ  CQDVVQDVPN  VDVQMLELYD
+ *  Thioglycosides","10.1021/ja711248y","1      RSSHHHHHHG  EFDDPIRPPL  KVARSPRPGQ  CQDVVQDVPN  VDVQMLELYD
 51     RMSFKDIDGG  VWKQGWNIKY  DPLKYNAHHK  LKVFVVPHSH  NDPGWIQTFE
 101    EYYQHDTKHI  LSNALRHLHD  NPEMKFIWAE  ISYFARFYHD  LGENKKLQMK
 151    SIVKNGQLEF  VTGGWVMPDE  ANSHWRNVLL  QLTEGQTWLK  QFMNVTPTAS
@@ -2704,13 +2704,13 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 901    NCVRPSKLHP  AGYLTSAAHK  ASQSLLDPLD  KFIFAENEWI  GAQGQFGGDH
 951    PSAREDLDVS  VMRRLTKSSA  KTQRVGYVLH  RTNLMQCGTP  EEHTQKLDVC
 1001   HLLPNVARCE  RTTLTFLQNL  EHLDGMVAPE  VCPMETAAYV  SSHSS",1045
-3BWD,D,Crystal structure of the plant Rho protein ROP5,1.53,PLANT PROTEIN,Arabidopsis thaliana,," * GO:0005737
+"3BWD","D","Crystal structure of the plant Rho protein ROP5",1.53,"PLANT PROTEIN","Arabidopsis thaliana",," * GO:0005737
  * GO:0016020"," * GO:0000166
  * GO:0005525",,,,"1      GSMSASRFIK  CVTVGDGAVG  KTCLLISYTS  NTFPTDYVPT  VFDNFSANVV
 51     VNGATVNLGL  WDTAGQEDYN  RLRPLSYRGA  DVFILAFSLI  SKASYENVSK
 101    KWIPELKHYA  PGVPIVLVGT  KLDLRDDKQF  FIDHPGAVPI  TTVQGEELKK
 151    LIGAPAYIEC  SSKSQENVKG  VFDAAIRVVL  QP",182
-3C9L,A,Structure of ground-state bovine rhodospin in a hexagonal crystal form,2.65,SIGNALING PROTEIN,Bos taurus," * GO:0007165
+"3C9L","A","Structure of ground-state bovine rhodospin in a hexagonal crystal form",2.65,"SIGNALING PROTEIN","Bos taurus"," * GO:0007165
  * GO:0007186
  * GO:0007601
  * GO:0007602
@@ -2730,14 +2730,14 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Models
  *  Molecular
  *  Mutation
- *  Rhodopsin",10.1107/S0907444908017162,"1      MNGTEGPNFY  VPFSNKTGVV  RSPFEAPQYY  LAEPWQFSML  AAYMFLLIML
+ *  Rhodopsin","10.1107/S0907444908017162","1      MNGTEGPNFY  VPFSNKTGVV  RSPFEAPQYY  LAEPWQFSML  AAYMFLLIML
 51     GFPINFLTLY  VTVQHKKLRT  PLNYILLNLA  VADLFMVFGG  FTTTLYTSLH
 101    GYFVFGPTGC  NLEGFFATLG  GEIALWSLVV  LAIERYVVVC  KPMSNFRFGE
 151    NHAIMGVAFT  WVMALACAAP  PLVGWSRYIP  EGMQCSCGID  YYTPHEETNN
 201    ESFVIYMFVV  HFIIPLIVIF  FCYGQLVFTV  KEAAAQQQES  ATTQKAEKEV
 251    TRMVIIMVIA  FLICWLPYAG  VAFYIFTHQG  SDFGPIFMTI  PAFFAKTSAV
 301    YNPVIYIMMN  KQFRNCMVTT  LCCGKNPLGD  DEASTTVSKT  ETSQVAPA",348
-3CON,A,Crystal structure of the human NRAS GTPase bound with GDP,1.65,HYDROLASE,Homo sapiens,," * GO:0000139
+"3CON","A","Crystal structure of the human NRAS GTPase bound with GDP",1.65,"HYDROLASE","Homo sapiens",," * GO:0000139
  * GO:0005794
  * GO:0005886
  * GO:0016020"," * GO:0000166
@@ -2745,7 +2745,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 51     DPTIEDSYRK  QVVIDGETCL  LDILDTAGQE  EYSAMRDQYM  RTGEGFLCVF
 101    AINNSKSFAD  INLYREQIKR  VKDSDDVPMV  LVGNKCDLPT  RTVDTKQAHE
 151    LAKSYGIPFI  ETSAKTRQGV  EDAFYTLVRE  IRQYRMKKLN",190
-3EHI,X,Crystal Structure of Human Thymidyalte Synthase M190K with Loop 181-197 stabilized in the inactive conformation,2.00,TRANSFERASE,Homo sapiens," * GO:0009165
+"3EHI","X","Crystal Structure of Human Thymidyalte Synthase M190K with Loop 181-197 stabilized in the inactive conformation",2,"TRANSFERASE","Homo sapiens"," * GO:0009165
  * GO:0032259"," * GO:0005634
  * GO:0005737
  * GO:0005739
@@ -2761,14 +2761,14 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Ligands
  *  Mutation
  *  Protein Conformation
- *  Thymidylate Synthase",10.1002/pro.171,"1      MPVAGSELPR  RPLPPAAQER  DAEPRPPHGE  LQYLGQIQHI  LRCGVRKDDR
+ *  Thymidylate Synthase","10.1002/pro.171","1      MPVAGSELPR  RPLPPAAQER  DAEPRPPHGE  LQYLGQIQHI  LRCGVRKDDR
 51     TGTGTLSVFG  MQARYSLRDE  FPLLTTKRVF  WKGVLEELLW  FIKGSTNAKE
 101    LSSKGVKIWD  ANGSRDFLDS  LGFSTREEGD  LGPVYGFQWR  HFGAEYRDME
 151    SDYSGQGVDQ  LQRVIDTIKT  NPDDRRIIMC  AWNPRDLPLK  ALPPCHALCQ
 201    FYVVNSELSC  QLYQRSGDMG  LGVPFNIASY  ALLTYMIAHI  TGLKPGDFIH
 251    TLGDAHIYLN  HIEPLKIQLQ  REPRPFPKLR  ILRKVEKIDD  FKAEDFQIEG
 301    YNPHPTIKME  MAV",313
-3EMN,X,The Crystal Structure of Mouse VDAC1 at 2.3 A resolution,2.30,MEMBRANE PROTEIN,Mus musculus," * GO:0006810
+"3EMN","X","The Crystal Structure of Mouse VDAC1 at 2.3 A resolution",2.3,"MEMBRANE PROTEIN","Mus musculus"," * GO:0006810
  * GO:0006811
  * GO:0006915"," * GO:0005739
  * GO:0005741
@@ -2790,13 +2790,13 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Tertiary
  *  Solubility
  *  Static Electricity
- *  Voltage-Dependent Anion Channel 1",10.1073/pnas.0809634105,"1      MRGSHHHHHH  GSMAVPPTYA  DLGKSARDVF  TKGYGFGLIK  LDLKTKSENG
+ *  Voltage-Dependent Anion Channel 1","10.1073/pnas.0809634105","1      MRGSHHHHHH  GSMAVPPTYA  DLGKSARDVF  TKGYGFGLIK  LDLKTKSENG
 51     LEFTSSGSAN  TETTKVNGSL  ETKYRWTEYG  LTFTEKWNTD  NTLGTEITVE
 101    DQLARGLKLT  FDSSFSPNTG  KKNAKIKTGY  KREHINLGCD  VDFDIAGPSI
 151    RGALVLGYEG  WLAGYQMNFE  TSKSRVTQSN  FAVGYKTDEF  QLHTNVNDGT
 201    EFGGSIYQKV  NKKLETAVNL  AWTAGNSNTR  FGIAAKYQVD  PDACFSAKVN
 251    NSSLIGLGYT  QTLKPGIKLT  LSALLDGKNV  NAGGHKLGLG  LEFQA",295
-3F3Q,A,Crystal structure of the oxidised form of thioredoxin 1 from saccharomyces cerevisiae,1.76,ELECTRON TRANSPORT,Saccharomyces cerevisiae," * GO:0009263
+"3F3Q","A","Crystal structure of the oxidised form of thioredoxin 1 from saccharomyces cerevisiae",1.76,"ELECTRON TRANSPORT","Saccharomyces cerevisiae"," * GO:0009263
  * GO:0015031
  * GO:0055114"," * GO:0000139
  * GO:0005634
@@ -2813,10 +2813,10 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Peroxiredoxins
  *  Saccharomyces cerevisiae
  *  Saccharomyces cerevisiae Proteins
- *  Sequence Alignment",10.1016/j.bbapap.2009.04.001,"1      HHHHHHMVTQ  FKTASEFDSA  IAQDKLVVVD  FYATWCGPCK  MIAPMIEKFS
+ *  Sequence Alignment","10.1016/j.bbapap.2009.04.001","1      HHHHHHMVTQ  FKTASEFDSA  IAQDKLVVVD  FYATWCGPCK  MIAPMIEKFS
 51     EQYPQADFYK  LDVDELGDVA  QKNEVSAMPT  LLLFKNGKEV  AKVVGANPAA
 101    IKQAIAANA",109
-3IAR,A,The crystal structure of human adenosine deaminase,1.52,Hydrolase,Homo sapiens," * GO:0006154
+"3IAR","A","The crystal structure of human adenosine deaminase",1.52,"Hydrolase","Homo sapiens"," * GO:0006154
  * GO:0007155
  * GO:0009117
  * GO:0046103"," * GO:0005737
@@ -2836,7 +2836,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 251    QENMHFEICP  WSSYLTGAWK  PDTEHAVIRL  KNDQANYSLN  TDDPLIFKST
 301    LDTDYQMTKR  DMGFTEEEFK  RLNINAAKSS  FLPEDEKREL  LDLLYKAYGM
 351    PPSASAGQNL  AENLYFQ",367
-3JRP,A,SEC13 with NUP145C (AA109-179) insertion blade,2.60,"TRANSPORT PROTEIN, STRUCTURAL PROTEIN",Saccharomyces cerevisiae," * GO:0006810
+"3JRP","A","SEC13 with NUP145C (AA109-179) insertion blade",2.6,"TRANSPORT PROTEIN, STRUCTURAL PROTEIN","Saccharomyces cerevisiae"," * GO:0006810
  * GO:0015031
  * GO:0016192
  * GO:0051028"," * GO:0005634
@@ -2859,7 +2859,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Nuclear Pore Complex Proteins
  *  Protein Binding
  *  Protein Multimerization
- *  Saccharomyces cerevisiae Proteins",10.1038/nsmb.1713,"1      GSMVVIANAH  NELIHDAVLD  YYGKRLATCS  SDKTIKIFEV  EGETHKLIDT
+ *  Saccharomyces cerevisiae Proteins","10.1038/nsmb.1713","1      GSMVVIANAH  NELIHDAVLD  YYGKRLATCS  SDKTIKIFEV  EGETHKLIDT
 51     LTGHEGPVWR  VDWAHPKFGT  ILASCSYDGK  VLIWKEENGR  WSQIAVHAVH
 101    SASVNSVQWA  PHEYGPLLLV  ASSDGKVSVV  EFKENGTTSP  IIIDAHAIGV
 151    NSASWAPATI  EEDGEHNGTK  ESRKFVTGGA  DNLVKIWKYN  SDAQTYVLES
@@ -2867,7 +2867,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 251    KEEKFPDVLW  RASWSLSGNV  LALSGGDNKV  TLWKENLEGK  WEPAGEVHQG
 301    GGGSGGGGAT  SKEFDGPCQN  EIDLLFSECN  DEIDNAKLIM  KERRFTASYT
 351    FAKFSTGSML  LTKDIVGKSG  VSIKRLPTE",379
-3KHM,A,Crystal structure of sterol 14alpha-demethylase (CYP51) from Trypanosoma cruzi in complex with inhibitor fluconazole,2.85,OXIDOREDUCTASE,Trypanosoma cruzi," * GO:0006629
+"3KHM","A","Crystal structure of sterol 14alpha-demethylase (CYP51) from Trypanosoma cruzi in complex with inhibitor fluconazole",2.85,"OXIDOREDUCTASE","Trypanosoma cruzi"," * GO:0006629
  * GO:0006694
  * GO:0008202
  * GO:0016126
@@ -2888,7 +2888,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Protein Structure
  *  Secondary
  *  Triazoles
- *  Trypanosoma cruzi",10.1074/jbc.M110.133215,"1      KTSGKGKLPP  VYPVTVPFLG  HIVQFGKNPL  EFMQRCKRDL  KSGVFTISIG
+ *  Trypanosoma cruzi","10.1074/jbc.M110.133215","1      KTSGKGKLPP  VYPVTVPFLG  HIVQFGKNPL  EFMQRCKRDL  KSGVFTISIG
 51     GQRVTIVGDP  HEHSRFFSPR  NEILSPREVY  TIMTPVFGEG  VAYAAPYPRM
 101    REQLNFLAEE  LTIAKFQNFV  PAIQHEVRKF  MAENWKEDEG  VINLLEDCGA
 151    MIINTACQCL  FGEDLRKRLN  ARHFAQLLSK  MESSLIPAAV  FMPWLLRLPL
@@ -2898,7 +2898,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 351    VPKGDIIACS  PLLSHHDEEA  FPNPRLWDPE  RDEKVDGAFI  GFGAGVHKCI
 401    GQKFALLQVK  TILATAFREY  DFQLLRDEVP  DPDYHTMVVG  PTLNQCLVKY
 451    TRKKKLPSHH  HHHH",464
-3KS3,A,High resolution structure of Human Carbonic Anhydrase II at 0.9 A,0.90,LYASE,Homo sapiens," * GO:0051453
+"3KS3","A","High resolution structure of Human Carbonic Anhydrase II at 0.9 A",0.9,"LYASE","Homo sapiens"," * GO:0051453
  * GO:2001150"," * GO:0005737
  * GO:0005886
  * GO:0016020"," * GO:0005515
@@ -2915,13 +2915,13 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Models
  *  Molecular
  *  Water
- *  Zinc",10.1021/bi902007b,"1      MSHHWGYGKH  NGPEHWHKDF  PIAKGERQSP  VDIDTHTAKY  DPSLKPLSVS
+ *  Zinc","10.1021/bi902007b","1      MSHHWGYGKH  NGPEHWHKDF  PIAKGERQSP  VDIDTHTAKY  DPSLKPLSVS
 51     YDQATSLRIL  NNGHAFNVEF  DDSQDKAVLK  GGPLDGTYRL  IQFHFHWGSL
 101    DGQGSEHTVD  KKKYAAELHL  VHWNTKYGDF  GKAVQQPDGL  AVLGIFLKVG
 151    SAKPGLQKVV  DVLDSIKTKG  KSADFTNFDP  RGLLPESLDY  WTYPGSLTTP
 201    PLLECVTWIV  LKEPISVSSE  QVLKFRKLNF  NGEGEPEELM  VDNWRPAQPL
 251    KNRQIKASFK",260
-3KYQ,A,Lipid-induced Conformational Switch Controls Fusion Activity of Longin Domain SNARE Ykt6,2.44,TRANSFERASE,Rattus norvegicus," * GO:0006810
+"3KYQ","A","Lipid-induced Conformational Switch Controls Fusion Activity of Longin Domain SNARE Ykt6",2.44,"TRANSFERASE","Rattus norvegicus"," * GO:0006810
  * GO:0006888
  * GO:0006903
  * GO:0006904
@@ -2951,11 +2951,11 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Tertiary
  *  R-SNARE Proteins
  *  Rats
- *  Sequence Alignment",10.1016/j.molcel.2010.01.024,"1      LMKLYSLSVF  YKGEPKAVLL  KAAYDVSSFS  FFQRSSVQEF  MTFTSQLIVE
+ *  Sequence Alignment","10.1016/j.molcel.2010.01.024","1      LMKLYSLSVF  YKGEPKAVLL  KAAYDVSSFS  FFQRSSVQEF  MTFTSQLIVE
 51     RSAKGSRASV  KEQEYLCHVY  VRSDSLAGVV  IADSEYPSRV  AFTLLEKVLD
 101    EFSKQVDRID  WPVGSPATIH  YTALDGHLSR  YQNPREADPM  SKVQAELDET
 151    KIILHNTMES  LLERGEKLDD  LVSKSEVLGT  QSKAFYKTAR  KQNSCCAIM",199
-3LQ0,A,Zymogen structure of crayfish astacin metallopeptidase,1.45,HYDROLASE,Astacus astacus," * GO:0006508
+"3LQ0","A","Zymogen structure of crayfish astacin metallopeptidase",1.45,"HYDROLASE","Astacus astacus"," * GO:0006508
  * GO:0007155
  * GO:0009566
  * GO:0010954
@@ -2977,12 +2977,12 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Protein Structure
  *  Tertiary
  *  Structure-Activity Relationship
- *  Zinc",10.1074/jbc.M109.097436,"1      SPIIPEAARA  LYYNDGMFEG  DIKLRAGRQP  ARVGAAILGD  EYLWSGGVIP
+ *  Zinc","10.1074/jbc.M109.097436","1      SPIIPEAARA  LYYNDGMFEG  DIKLRAGRQP  ARVGAAILGD  EYLWSGGVIP
 51     YTFAGVSGAD  QSAILSGMQE  LEEKTCIRFV  PRTTESDYVE  IFTSGSGCWS
 101    YVGRISGAQQ  VSLQANGCVY  HGTILHALMH  AIGFYHEHTR  MDRDNYVTIN
 151    YQNVDPSMTS  NFDIDTYSRY  VGEDYQYYSI  MHYGKYSFSI  QWGVLETIVP
 201    LQNGIDLTDP  YDKAHMLQTD  ANQINNLYTN  ECSLR",235
-3LVR,E,The crystal structure of ASAP3 in complex with Arf6 in transition state soaked with Calcium,3.38,Protein transport,Homo sapiens," * GO:0006810
+"3LVR","E","The crystal structure of ASAP3 in complex with Arf6 in transition state soaked with Calcium",3.38,"Protein transport","Homo sapiens"," * GO:0006810
  * GO:0007399
  * GO:0015031
  * GO:0016192
@@ -3010,7 +3010,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Molecular
  *  Molecular Sequence Data
  *  Protein Interaction Domains and Motifs
- *  Sequence Alignment",10.1016/j.cell.2010.03.051,"1      GHDGEPHDLT  KLLIAEVKSR  PGNSQCCDCG  AADPTWLSTN  LGVLTCIQCS
+ *  Sequence Alignment","10.1016/j.cell.2010.03.051","1      GHDGEPHDLT  KLLIAEVKSR  PGNSQCCDCG  AADPTWLSTN  LGVLTCIQCS
 51     GVHRELGVRF  SRMQSLTLDL  LGPSELLLAL  NMGNTSFNEV  MEAQLPSHGG
 101    PKPSAESDMG  TRRDYIMAKY  VEHRFARRCT  PEPQRLWTAI  CNRDLLSVLE
 151    AFANGQDFGQ  PLPGPDAQAP  EELVLHLAVK  VANQASLPLV  DFIIQNGGHL
@@ -3020,7 +3020,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 351    IPTVGFNVET  VTYKNVKFNV  WDVGGQDKIR  PLWRHYYTGT  QGLIFVVDCA
 401    DRDRIDEARQ  ELHRIINDRE  MRDAIILIFA  NKQDLPDAMK  PHEIQEKLGL
 451    TRIRDRNWYV  QPSCATSGDG  LYEGLTWLTS  NYKSKLAAAL  EHHHHHH",497
-3MDM,A,Thioperamide complex of Cytochrome P450 46A1,1.60,OXIDOREDUCTASE,Homo sapiens," * GO:0006629
+"3MDM","A","Thioperamide complex of Cytochrome P450 46A1",1.6,"OXIDOREDUCTASE","Homo sapiens"," * GO:0006629
  * GO:0008202
  * GO:0008203
  * GO:0055114"," * GO:0005783
@@ -3049,7 +3049,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Steroid Hydroxylases
  *  Structure-Activity Relationship
  *  Tranylcypromine
- *  Triazoles",10.1074/jbc.M110.143313,"1      MAKKDEVGGR  VLQDVFLDWA  KKYGPVVRVN  VFHKTSVIVT  SPESVKKFLM
+ *  Triazoles","10.1074/jbc.M110.143313","1      MAKKDEVGGR  VLQDVFLDWA  KKYGPVVRVN  VFHKTSVIVT  SPESVKKFLM
 51     STKYNKDSKM  YRALQTVFGE  RLFGQGLVSE  CNYERWHKQR  RVIDLAFSRS
 101    SLVSLMETFN  EKAEQLVEIL  EAKADGQTPV  SMQDMLTYTA  MDILAKAAFG
 151    METSMLLGAQ  KPLSQAVKLM  LEGITASRNT  LAKFLPGKRK  QLREVRESIR
@@ -3059,12 +3059,12 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 351    GRMDTYFEDP  LTFNPDRFGP  GAPKPRFTYF  PFSLGHRSCI  GQQFAQMEVK
 401    VVMAKLLQRL  EFRLVPGQRF  GLQEQATLKP  LDPVLCTLRP  RGWQPAPPPP
 451    PCHHHH",456
-3NKS,A,Structure of human protoporphyrinogen IX oxidase,1.90,OXIDOREDUCTASE/OXIDOREDUCTASE INHIBITOR,Homo sapiens," * GO:0006779
+"3NKS","A","Structure of human protoporphyrinogen IX oxidase",1.9,"OXIDOREDUCTASE/OXIDOREDUCTASE INHIBITOR","Homo sapiens"," * GO:0006779
  * GO:0006783
  * GO:0055114"," * GO:0005739
  * GO:0005743
  * GO:0016020
- * GO:0031304", * GO:0016491,21048046," * Amino Acid Sequence
+ * GO:0031304"," * GO:0016491",21048046," * Amino Acid Sequence
  *  Flavin-Adenine Dinucleotide
  *  Gene Expression Regulation
  *  Enzymologic
@@ -3077,7 +3077,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Variegate
  *  Protein Binding
  *  Protein Conformation
- *  Protoporphyrinogen Oxidase",10.1096/fj.10-170811,"1      MGRTVVVLGG  GISGLAASYH  LSRAPCPPKV  VLVESSERLG  GWIRSVRGPN
+ *  Protoporphyrinogen Oxidase","10.1096/fj.10-170811","1      MGRTVVVLGG  GISGLAASYH  LSRAPCPPKV  VLVESSERLG  GWIRSVRGPN
 51     GAIFELGPRG  IRPAGALGAR  TLLLVSELGL  DSEVLPVRGD  HPAAQNRFLY
 101    VGGALHALPT  GLRGLLRPSP  PFSKPLFWAG  LRELTKPRGK  EPDETVHSFA
 151    QRRLGPEVAS  LAMDSLCRGV  FAGNSRELSI  RSCFPSLFQA  EQTHRSILLG
@@ -3087,12 +3087,12 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 351    VAFPEQDGSP  PGLRVTVMLG  GSWLQTLEAS  GCVLSQELFQ  QRAQEAAATQ
 401    LGLKEMPSHC  LVHLHKNCIP  QYTLGHWQKL  ESARQFLTAH  RLPLTLAGAS
 451    YEGVAVNDCI  ESGRQAAVSV  LGTEPNS",477
-3NSJ,A,The X-ray crystal structure of lymphocyte perforin,2.75,Immune system,Mus musculus, * GO:0019835," * GO:0005576
+"3NSJ","A","The X-ray crystal structure of lymphocyte perforin",2.75,"Immune system","Mus musculus"," * GO:0019835"," * GO:0005576
  * GO:0005768
  * GO:0005886
  * GO:0016020
  * GO:0016021
- * GO:0031904", * GO:0046872,21037563," * Animals
+ * GO:0031904"," * GO:0046872",21037563," * Animals
  *  Cell Membrane
  *  Cholesterol
  *  Cryoelectron Microscopy
@@ -3107,7 +3107,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Molecular
  *  Pore Forming Cytotoxic Proteins
  *  Protein Structure
- *  Tertiary",10.1038/nature09518,"1      PCYTATRSEC  KQKHKFVPGV  WMAGEGMDVT  TLRRSGSFPV  NTQRFLRPDR
+ *  Tertiary","10.1038/nature09518","1      PCYTATRSEC  KQKHKFVPGV  WMAGEGMDVT  TLRRSGSFPV  NTQRFLRPDR
 51     TCTLCKNSLM  RDATQRLPVA  ITHWRPHSSH  CQRNVAAAKV  HSTEGVAREA
 101    AANINNDWRV  GLDVNPRPEA  NMRASVAGSH  SKVANFAAEK  TYQDQYNFNS
 151    DTVECRMYSF  RLVQKPPLHL  DFKKALRALP  RNFNSSTEHA  YHELISSYGT
@@ -3118,8 +3118,8 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 401    FRAEHLWGDY  TTATDAYLKV  FFGGQEFRTG  VVWNNNNPRW  TDKMDFENVL
 451    LSTGGPLRVQ  VWDADYGWDD  DLLGSCDRSP  HSGFHEVTCE  LNHGRVKFSY
 501    HAKCLPHLTG  GTCLEYAPQG  LLGDPPGNRS  GAVWHHHHHH",540
-3NWM,A,"Crystal structure of a single chain construct composed of MHC class I H-2Kd, beta-2microglobulin and a peptide which is an autoantigen for type 1 diabetes",2.70,IMMUNE SYSTEM,"synthetic, Mus musculus", * GO:0002474," * GO:0005576
- * GO:0042612", * GO:0005515,21825122," * Animals
+"3NWM","A","Crystal structure of a single chain construct composed of MHC class I H-2Kd, beta-2microglobulin and a peptide which is an autoantigen for type 1 diabetes",2.7,"IMMUNE SYSTEM","synthetic, Mus musculus"," * GO:0002474"," * GO:0005576
+ * GO:0042612"," * GO:0005515",21825122," * Animals
  *  Autoantigens
  *  Autoimmune Diseases
  *  CD8-Positive T-Lymphocytes
@@ -3135,7 +3135,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Mice
  *  Transgenic
  *  Peptide Fragments
- *  Protein Multimerization",10.1073/pnas.1110971108,"1      MVYLKTNVFL  GGGASGGGGS  GGGGSMIQKT  PQIQVYSRHP  PENGKPNILN
+ *  Protein Multimerization","10.1073/pnas.1110971108","1      MVYLKTNVFL  GGGASGGGGS  GGGGSMIQKT  PQIQVYSRHP  PENGKPNILN
 51     CYVTQFHPPH  IEIQMLKNGK  KIPKVEMSDM  SFSKDWSFYI  LAHTEFTPTE
 101    TDTYACRVKH  ASMAEPKTVY  WDRDMGGGGS  GGGGSGGGGS  GGGGSGPHSL
 151    RYFVTAVSRP  GLGEPRFIAV  GYVDDTQFVR  FDSDADNPRF  EPRAPWMEQE
@@ -3144,7 +3144,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 301    YRAYLEGECV  EWLRRYLELG  NETLLRTDSP  KAHVTYHPRS  QVDVTLRCWA
 351    LGFYPADITL  TWQLNGEDLT  QDMELVETRP  AGDGTFQKWA  AVVVPLGKEQ
 401    NYTCHVHHKG  LPEPLTLRWA  AAGGTGGLND  IFEAQKIEWH  EGL",443
-3O22,A,Structure-function analysis of human L-Prostaglandin D Synthase bound with fatty acid,1.40,ISOMERASE,Homo sapiens," * GO:0001516
+"3O22","A","Structure-function analysis of human L-Prostaglandin D Synthase bound with fatty acid",1.4,"ISOMERASE","Homo sapiens"," * GO:0001516
  * GO:0006629
  * GO:0006631
  * GO:0006633
@@ -3165,7 +3165,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 51     LTSTFLRKNQ  CETRTMLLQP  AGSLGSYSYR  SPHWGSTYSV  SVVETDYDQY
 101    ALLYSQGSKG  PGEDFRMATL  YSRTQTPRAE  LKEKFTAFCK  AQGFTEDTIV
 151    FLPQTDKCMT  EQ",162
-3OES,A,Crystal structure of the small GTPase RhebL1,2.30,HYDROLASE,Homo sapiens,," * GO:0005737
+"3OES","A","Crystal structure of the small GTPase RhebL1",2.3,"HYDROLASE","Homo sapiens",," * GO:0005737
  * GO:0005886
  * GO:0016020"," * GO:0000166
  * GO:0005525",,,,"1      MHHHHHHSSG  RENLYFQGMP  LVRYRKVVIL  GYRCVGKTSL  AHQFVEGEFS
@@ -3173,7 +3173,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 101    LVYSVTSLHS  FQVIESLYQK  LHEGHGKTRV  PVVLVGNKAD  LSPEREVQAV
 151    EGKKLAESWG  ATFMESSARE  NQLTQGIFTK  VIQEIARVEN  SYGQERRCHL
 201    M",201
-3OJX,A,Disulfide crosslinked cytochrome P450 reductase inactive,2.50,OXIDOREDUCTASE,Rattus norvegicus, * GO:0055114," * GO:0005783
+"3OJX","A","Disulfide crosslinked cytochrome P450 reductase inactive",2.5,"OXIDOREDUCTASE","Rattus norvegicus"," * GO:0055114"," * GO:0005783
  * GO:0005789
  * GO:0016020"," * GO:0016491
  * GO:0019899",21345800," * Amino Acid Substitution
@@ -3192,7 +3192,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Secondary
  *  Protein Structure
  *  Tertiary
- *  Rats",10.1074/jbc.M111.230532,"1      IQTTAPPVKE  SSFVEKMKKT  GRNIIVFYGS  QTGTAEEFAN  RLSKDAHRYG
+ *  Rats","10.1074/jbc.M111.230532","1      IQTTAPPVKE  SSFVEKMKKT  GRNIIVFYGS  QTGTAEEFAN  RLSKDAHRYG
 51     MRGMSADPEE  YDLADLSSLP  EIDKSLVVFA  MATYGEGDPT  CNAQDFYDWL
 101    QETDVDLTGV  KFAVFGLGNK  TYEHFNAMGK  YVDQRLEQLG  AQRIFELGLG
 151    DDDGNLEEDF  ITWREQFWPA  VAEFFGVEAT  GEESSIRQYE  LVVHEDMDVA
@@ -3205,10 +3205,10 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 501    VGETLLYYGA  RRSDEDYLYR  EELARFHKDG  ALTQLNVAFS  REQAHKVYVQ
 551    HLLKRDREHL  WKLIHEGGAH  IYVCGDARNM  AKDVQNTFYD  IVAEFGPMEH
 601    TQAVDYVKKL  MTKGRYSLDV  WS",622
-3OU5,A,HUMAN MITOCHONDRIAL SERINE HYDROXYMETHYLTRANSFERASe 2,2.04,TRANSFERASE,Homo sapiens, * GO:0006730," * GO:0005739
+"3OU5","A","Human mitochondrial serine hydroxymethyltransferase 2",2.04,"TRANSFERASE","Homo sapiens"," * GO:0006730"," * GO:0005739
  * GO:0005743
  * GO:0016020
- * GO:0042645", * GO:0016740,,,,"1      GSGQLVRMAI  RAQHSNAAQT  QTGEANRGWT  GQESLSDSDP  EMWELLQREK
+ * GO:0042645"," * GO:0016740",,,,"1      GSGQLVRMAI  RAQHSNAAQT  QTGEANRGWT  GQESLSDSDP  EMWELLQREK
 51     DRQCRGLELI  ASENFCSRAA  LEALGSCLNN  KYSEGYPGKR  YYGGAEVVDE
 101    IELLCQRRAL  EAFDLDPAQW  GVNVQPYSGS  PANLAVYTAL  LQPHDRIMGL
 151    DLPDGGHLTH  GYMSDVKRIS  ATSIFFESMP  YKLNPKTGLI  DYNQLALTAR
@@ -3218,7 +3218,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 351    LLERGYSLVS  GGTDNHLVLV  DLRPKGLDGA  RAERVLELVS  ITANKNTCPG
 401    DRSAITPGGL  RLGAPALTSR  QFREDDFRRV  VDFIDEGVNI  GLEVKSKTAK
 451    LQDFKSFLLK  DSETSQRLAN  LRQRVEQFAR  AFPMPGFDEH",490
-3OV6,A,CD1c in complex with MPM (mannosyl-beta1-phosphomycoketide),2.50,IMMUNE SYSTEM,Homo sapiens, * GO:0002474," * GO:0005576
+"3OV6","A","CD1c in complex with MPM (mannosyl-beta1-phosphomycoketide)",2.5,"IMMUNE SYSTEM","Homo sapiens"," * GO:0002474"," * GO:0005576
  * GO:0042612"," * GO:0005515
  * GO:0042802",21167756," * Antigen Presentation
  *  Antigenic Variation
@@ -3239,7 +3239,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Peptide Fragments
  *  Protein Binding
  *  Protein Conformation
- *  X-Rays",10.1016/j.immuni.2010.11.026,"1      ADPIQRTPKI  QVYSRHPAEN  GKSNFLNCYV  SGFHPSDIEV  DLLKNGERIE
+ *  X-Rays","10.1016/j.immuni.2010.11.026","1      ADPIQRTPKI  QVYSRHPAEN  GKSNFLNCYV  SGFHPSDIEV  DLLKNGERIE
 51     KVEHSDLSFS  KDWSFYLLYY  TEFTPTEKDE  YACRVNHVTL  SQPKIVKWDR
 101    DMGGGGSGGS  GSGGGSSADA  SQEHVSFHVI  QIFSFVNQSW  ARGQGSGWLD
 151    ELQTHGWDSE  SGTIIFLHQW  SKGQFSNEEL  SDLELLFRFY  LFGLTREIQD
@@ -3247,7 +3247,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 251    SPGCGSLAQS  VCHLLNHQYE  GVTETVYNLI  RSTCPRFLLG  LLDAGKMYVH
 301    RQVKPEAWLS  SGPSPGPGRL  QLVCHVSGFY  PKPVWVMWMR  GEQEQQGTQL
 351    GDILPNAQGT  WYLRATLDVA  DGEAAGLSCR  VKHSSLEGQD  IILYWHH",397
-3P7L,A,Rat Insulin Degrading Enzyme (Insulysin),2.08,HYDROLASE,Rattus norvegicus," * GO:0006508
+"3P7L","A","Rat Insulin Degrading Enzyme (Insulysin)",2.08,"HYDROLASE","Rattus norvegicus"," * GO:0006508
  * GO:0008152
  * GO:0010815
  * GO:0050435"," * GO:0005576
@@ -3281,7 +3281,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Secondary
  *  Rats
  *  Spectrometry
- *  Fluorescence",10.1371/journal.pone.0020864,"1      MNNPAIQRIE  DHIVKSPEDK  REYRGLELAN  GIKVLLISDP  TTDKSSAALD
+ *  Fluorescence","10.1371/journal.pone.0020864","1      MNNPAIQRIE  DHIVKSPEDK  REYRGLELAN  GIKVLLISDP  TTDKSSAALD
 51     VHIGSLSDPP  NIPGLSHFCE  HMLFLGTKKY  PKENEYSQFL  SEHAGSSNAF
 101    TSGEHTNYYF  DVSHEHLEGA  LDRFAQFFLC  PLFDASCKDR  EVNAVDSEHE
 151    KNVMNDAWRL  FQLEKATGNP  KHPFSKFGTG  NKYTLETRPN  QEGIDVREEL
@@ -3301,7 +3301,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 851    RRLDKPKKLS  AECAKYWGEI  ISQQYNYDRD  NIEVAYLKTL  SKDDIIKFYK
 901    EMLAVDAPRR  HKVSVHVLAR  EMDSCPVVGE  FPSQNDINLS  EAPPLPQPEV
 951    IHNMTEFKRG  LPLFPLVKPH  INFMAAKL",978
-3PFQ,A,Crystal Structure and Allosteric Activation of Protein Kinase C beta II,4.00,TRANSFERASE,Rattus norvegicus," * GO:0006351
+"3PFQ","A","Crystal Structure and Allosteric Activation of Protein Kinase C beta II",4,"TRANSFERASE","Rattus norvegicus"," * GO:0006351
  * GO:0006355
  * GO:0006357
  * GO:0006915
@@ -3343,7 +3343,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Scattering
  *  Small Angle
  *  Sequence Alignment
- *  X-Ray Diffraction",10.1016/j.cell.2010.12.013,"1      GMADPAAGPP  PSEGEESTVR  FARKGALRQK  NVHEVKNHKF  TARFFKQPTF
+ *  X-Ray Diffraction","10.1016/j.cell.2010.12.013","1      GMADPAAGPP  PSEGEESTVR  FARKGALRQK  NVHEVKNHKF  TARFFKQPTF
 51     CSHCTDFIWG  FGKQGFQCQV  CSFVVHKRCH  EFVTFSCPGA  DKGPASDDPR
 101    SKHKFKIHTY  SSPTFCDHCG  SLLYGLIHQG  MKCDTCMMNV  HKRCVMNVPS
 151    LCGTDHTERR  GRIYIQAHID  REVLIVVVRD  AKNLVPMDPN  GLSDPYVKLK
@@ -3357,7 +3357,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 551    FQSIMEHNVA  YPKSMSKEAV  AICKGLMTKH  PGKRLGCGPE  GERDIKEHAF
 601    FRYIDWEKLE  RKEIQPPYKP  KASGRNAENF  DRFFTRHPPV  LTPPDQEVIR
 651    NIDQSEFEGF  SFVNSEFLKP  EVKS",674
-3PM0,A,Structural Characterization of the Complex between Alpha-Naphthoflavone and Human Cytochrome P450 1B1 (CYP1B1),2.70,OXIDOREDUCTASE,Homo sapiens, * GO:0055114," * GO:0005783
+"3PM0","A","Structural Characterization of the Complex between Alpha-Naphthoflavone and Human Cytochrome P450 1B1 (CYP1B1)",2.7,"OXIDOREDUCTASE","Homo sapiens"," * GO:0055114"," * GO:0005783
  * GO:0005789
  * GO:0016020
  * GO:0031090
@@ -3372,7 +3372,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Humans
  *  Protein Binding
  *  Protein Structure
- *  Secondary",10.1074/jbc.M110.204420,"1      MAKKTSSKGK  PPGPFAWPLI  GNAAAVGQAA  HLSFARLARR  YGDVFQIRLG
+ *  Secondary","10.1074/jbc.M110.204420","1      MAKKTSSKGK  PPGPFAWPLI  GNAAAVGQAA  HLSFARLARR  YGDVFQIRLG
 51     SCPIVVLNGE  RAIHQALVQQ  GSAFADRPSF  ASFRVVSGGR  SMAFGHYSEH
 101    WKVQRRAAHS  MMRNFFTRQP  RSRQVLEGHV  LSEARELVAL  LVRGSADGAF
 151    LDPRPLTVVA  VANVMSAVCF  GCRYSHDDPE  FRELLSHNEE  FGRTVGAGSL
@@ -3383,7 +3383,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 401    DPARFLDKDG  LINKDLTSRV  MIFSVGKRRC  IGEELSKMQL  FLFISILAHQ
 451    CDFRANPNEP  AKMNFSYGLT  IKPKSFKVNV  TLRESMELLD  SAVQNLQAKE
 501    TCQHHHH",507
-3QR6,A,Crystal Structure Analysis of H185F Mutant of Human CLIC1,1.78,TRANSPORT PROTEIN,Homo sapiens," * GO:0006810
+"3QR6","A","Crystal Structure Analysis of H185F Mutant of Human CLIC1",1.78,"TRANSPORT PROTEIN","Homo sapiens"," * GO:0006810
  * GO:0006811
  * GO:0006821
  * GO:0034765"," * GO:0005634
@@ -3409,12 +3409,12 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Protein Stability
  *  Protein Structure
  *  Secondary
- *  Protons",10.1021/bi201541w,"1      MAEEQPQVEL  FVKAGSDGAK  IGNCPFSQRL  FMVLWLKGVT  FNVTTVDTKR
+ *  Protons","10.1021/bi201541w","1      MAEEQPQVEL  FVKAGSDGAK  IGNCPFSQRL  FMVLWLKGVT  FNVTTVDTKR
 51     RTETVQKLCP  GGQLPFLLYG  TEVHTDTNKI  EEFLEAVLCP  PRYPKLAALN
 101    PESNTAGLDI  FAKFSAYIKN  SNPALNDNLE  KGLLKALKVL  DNYLTSPLPE
 151    EVDETSAEDE  GVSQRKFLDG  NELTLADCNL  LPKLFIVQVV  CKKYRGFTIP
 201    EAFRGVHRYL  SNAYAREEFA  STCPDDEEIE  LAYEQVAKAL  K",241
-3R9M,A,Crystal structure of the Brox Bro1 domain,1.95,PROTEIN BINDING,Homo sapiens,, * GO:0016020,,21889351," * Calcium-Binding Proteins
+"3R9M","A","Crystal structure of the Brox Bro1 domain",1.95,"PROTEIN BINDING","Homo sapiens",," * GO:0016020",,21889351," * Calcium-Binding Proteins
  *  Cell Cycle Proteins
  *  Cloning
  *  Molecular
@@ -3436,7 +3436,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Non-Receptor
  *  Structure-Activity Relationship
  *  Transfection
- *  Virus Release",10.1016/j.str.2011.07.016,"1      GVDTHWFHRN  PLKATAPVSF  NYYGVVTGPS  ASKICNDLRS  SRARLLELFT
+ *  Virus Release","10.1016/j.str.2011.07.016","1      GVDTHWFHRN  PLKATAPVSF  NYYGVVTGPS  ASKICNDLRS  SRARLLELFT
 51     DLSCNPEMMK  NAADSYFSLL  QGFINSLDES  TQESKLRYIQ  NFKWTDTLQG
 101    QVPSAQQDAV  FELISMGFNV  ALWYTKYASR  LAGKENITED  EAKEVHRSLK
 151    IAAGIFKHLK  ESHLPKLITP  AEKGRDLESR  LIEAYVIQCQ  AEAQEVTIAR
@@ -3444,7 +3444,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 251    YTAYAYCYHG  ETLLASDKCG  EAIRSLQEAE  KLYAKAEALC  KEYGETKGPG
 301    PTVKPSGHLF  FRKLGNLVKN  TLEKCQRENG  FIYFQKIPTE  APQLELKANY
 351    GLVEPIPFEF  PPTSVQWTPE  TLAAFD",376
-3S6C,A,Structure of human CD1e,2.90,"IMMUNE SYSTEM, LIPID BINDING PROTEIN",Homo sapiens, * GO:0002474," * GO:0005576
+"3S6C","A","Structure of human CD1e",2.9,"IMMUNE SYSTEM, LIPID BINDING PROTEIN","Homo sapiens"," * GO:0002474"," * GO:0005576
  * GO:0042612"," * GO:0005515
  * GO:0042802",21788486," * Acylation
  *  Antigens
@@ -3461,7 +3461,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Protein Structure
  *  Secondary
  *  Protein Structure
- *  Tertiary",10.1073/pnas.1105627108,"1      IQRTPKIQVY  SRHPAENGKS  NFLNCYVSGF  HPSDIEVDLL  KNGERIEKVE
+ *  Tertiary","10.1073/pnas.1105627108","1      IQRTPKIQVY  SRHPAENGKS  NFLNCYVSGF  HPSDIEVDLL  KNGERIEKVE
 51     HSDLSFSKDW  SFYLLYYTEF  TPTEKDEYAC  RVNHVTLSQP  KIVKWDRDMD
 101    DDDKGSSSSD  DDDKEEQLSF  RMLQTSSFAN  HSWAHSEGSG  WLGDLQTHGW
 151    DTVLGTIRFL  KPWSHGNFSK  QELKNLQSLF  QLYFHSFIRI  VQASAGQFQL
@@ -3469,7 +3469,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 251    ICKVLNRYLD  IKEILQSLLG  HTCPRFLAGL  MEAGESELKR  KVKPEAWLSC
 301    GPSPGPGRLQ  LVCHVSGFYP  KPVWVMWMRG  EQEQRGTQRG  DVLPNADETW
 351    YLRATLDVAA  GEAAGLSCRV  KHSSLGGHDL  IIHWGGENLY  FQ",392
-3S79,A,Human placental aromatase cytochrome P450 (CYP19A1) refined at 2.75 angstrom,2.75,oxidoreductase,Homo sapiens, * GO:0055114, * GO:0016020," * GO:0004497
+"3S79","A","Human placental aromatase cytochrome P450 (CYP19A1) refined at 2.75 angstrom",2.75,"oxidoreductase","Homo sapiens"," * GO:0055114"," * GO:0016020"," * GO:0004497
  * GO:0016491
  * GO:0046872",22951074," * Androstadienes
  *  Antineoplastic Agents
@@ -3489,7 +3489,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Pregnancy
  *  Protein Binding
  *  Stereoisomerism
- *  Structure-Activity Relationship",10.1021/jm300930n,"1      MVLEMLNPIH  YNITSIVPEA  MPAATMPVLL  LTGLFLLVWN  YEGTSSIPGP
+ *  Structure-Activity Relationship","10.1021/jm300930n","1      MVLEMLNPIH  YNITSIVPEA  MPAATMPVLL  LTGLFLLVWN  YEGTSSIPGP
 51     GYCMGIGPLI  SHGRFLWMGI  GSACNYYNRV  YGEFMRVWIS  GEETLIISKS
 101    SSMFHIMKHN  HYSSRFGSKL  GLQCIGMHEK  GIIFNNNPEL  WKTTRPFFMK
 151    ALSGPGLVRM  VTVCAESLKT  HLDRLEEVTN  ESGYVDVLTL  LRRVMLDTSN
@@ -3500,10 +3500,10 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 401    MHRLEFFPKP  NEFTLENFAK  NVPYRYFQPF  GFGPRGCAGK  YIAMVMMKAI
 451    LVTLLRRFHV  KTLQGQCVES  IQKIHDLSLH  PDETKNMLEM  IFTPRNSDRC
 501    LEH",503
-3T5O,A,Crystal Structure of human Complement Component C6,2.87,IMMUNE SYSTEM,Homo sapiens," * GO:0006958
+"3T5O","A","Crystal Structure of human Complement Component C6",2.87,"IMMUNE SYSTEM","Homo sapiens"," * GO:0006958
  * GO:0019835
  * GO:0045087"," * GO:0005576
- * GO:0005579", * GO:0005515,22267737," * Complement C6
+ * GO:0005579"," * GO:0005515",22267737," * Complement C6
  *  Complement Membrane Attack Complex
  *  Complement System Proteins
  *  Crystallography
@@ -3517,7 +3517,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Secondary
  *  Protein Structure
  *  Tertiary
- *  Structure-Activity Relationship",10.1074/jbc.M111.327809,"1      CFCDHYAWTQ  WTSCSKTCNS  GTQSRHRQIV  VDKYYQENFC  EQICSKQETR
+ *  Structure-Activity Relationship","10.1074/jbc.M111.327809","1      CFCDHYAWTQ  WTSCSKTCNS  GTQSRHRQIV  VDKYYQENFC  EQICSKQETR
 51     ECNWQRCPIN  CLLGDFGPWS  DCDPCIEKQS  KVRSVLRPSQ  FGGQPCTAPL
 101    VAFQPCIPSK  LCKIEEADCK  NKFRCDSGRC  IARKLECNGE  NDCGDNSDER
 151    DCGRTKAVCT  RKYNPIPSVQ  LMGNGFHFLA  GEPRGEVLDN  SFTGGICKTV
@@ -3536,11 +3536,11 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 801    KCLNNQQLHF  LHIGSCQDGR  QLEWGLERTR  LSSNSTKKES  CGYDTCYDWE
 851    KCSASTSKCV  CLLPPQCFKG  GNQLYCVKMG  SSTSEKTLNI  CEVGTIRCAN
 901    RKMEILHPGK  CLA",913
-3T8O,A,Rhodopsin kinase (GRK1) L166K mutant at 2.5A resolution,2.50,TRANSFERASE,Bos taurus," * GO:0007601
+"3T8O","A","Rhodopsin kinase (GRK1) L166K mutant at 2.5A resolution",2.5,"TRANSFERASE","Bos taurus"," * GO:0007601
  * GO:0016310
  * GO:0022400
  * GO:0046777
- * GO:0050896", * GO:0016020," * GO:0000166
+ * GO:0050896"," * GO:0016020"," * GO:0000166
  * GO:0004674
  * GO:0005515
  * GO:0005524
@@ -3559,7 +3559,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Protein Structure
  *  Tertiary
  *  Structural Homology
- *  Protein",10.1107/S1744309112017435,"1      MDFGSLETVV  ANSAFIAARG  SFDASSGPAS  RDRKYLARLK  LPPLSKCEAL
+ *  Protein","10.1107/S1744309112017435","1      MDFGSLETVV  ANSAFIAARG  SFDASSGPAS  RDRKYLARLK  LPPLSKCEAL
 51     RESLDLGFEG  MCLEQPIGKR  LFQQFLRTHE  QHGPALQLWK  DIEDYDTADD
 101    ALRPQKAQAL  RAAYLEPQAQ  LFCSFLDAET  VARARAGAGD  GLFQPLLRAV
 151    LAHLGQAPFQ  EFLDSKYFLR  FLQWKWLEAQ  PMGEDWFLDF  RVLGRGGFGE
@@ -3570,7 +3570,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 401    LKQRVLEQAV  TYPDKFSPAS  KDFCEALLQK  DPEKRLGFRD  GSCDGLRTHP
 451    LFRDISWRQL  EAGMLTPPFV  PDSRTVYAKN  IQDVGAFSTV  KGVAFEKADT
 501    EFFQEFASGT  CPIPWQEEMI  ETGVFGDLNV  WRPDGVDHHH  HHH",543
-3TTJ,A,"Crystal Structure of JNK3 complexed with CC-359, a JNK inhibitor for the prevention of ischemia-reperfusion injury",2.10,TRANSFERASE/TRANSFERASE INHIBITOR,Homo sapiens," * GO:0007254
+"3TTJ","A","Crystal Structure of JNK3 complexed with CC-359, a JNK inhibitor for the prevention of ischemia-reperfusion injury",2.1,"TRANSFERASE/TRANSFERASE INHIBITOR","Homo sapiens"," * GO:0007254
  * GO:0007258
  * GO:0016310"," * GO:0005634
  * GO:0005737
@@ -3597,7 +3597,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Purines
  *  Rats
  *  Reperfusion Injury
- *  Structure-Activity Relationship",10.1016/j.bmcl.2011.12.028,"1      MSLHFLYYCS  EPTLDVKIAF  CQGFDKQVDV  SYIAKHYNMS  KSKVDNQFYS
+ *  Structure-Activity Relationship","10.1016/j.bmcl.2011.12.028","1      MSLHFLYYCS  EPTLDVKIAF  CQGFDKQVDV  SYIAKHYNMS  KSKVDNQFYS
 51     VEVGDSTFTV  LKRYQNLKPI  GSGAQGIVCA  AYDAVLDRNV  AIKKLSRPFQ
 101    NQTHAKRAYR  ELVLMKCVNH  KNIISLLNVF  TPQKTLEEFQ  DVYLVMELMD
 151    ANLCQVIQME  LDHERMSYLL  YQMLCGIKHL  HSAGIIHRDL  KPSNIVVKSD
@@ -3607,7 +3607,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 351    DDALQHPYIN  VWYDPAEVEA  PPPQIYDKQL  DEREHTIEEW  KELIYKEVMN
 401    SEEKTKNGVV  KGQPSPSGAA  VNSSESLPPS  SSVNDISSMS  TDQTLASDTD
 451    SSLEASAGPL  GCCR",464
-3U74,U,Crystal structure of stabilized human uPAR mutant,2.39,HYDROLASE RECEPTOR,Homo sapiens,," * GO:0005576
+"3U74","U","Crystal structure of stabilized human uPAR mutant",2.39,"HYDROLASE RECEPTOR","Homo sapiens",," * GO:0005576
  * GO:0005886
  * GO:0016020
  * GO:0031225"," * GO:0005515
@@ -3633,13 +3633,13 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Recombinant Proteins
  *  Structure-Activity Relationship
  *  Urokinase-Type Plasminogen Activator
- *  Vitronectin",10.1016/j.jmb.2011.12.058,"1      LRCMQCKTNG  DCRVEECALG  QDLCRTTIVR  LWEEGEELEL  VEKSCTCSEK
+ *  Vitronectin","10.1016/j.jmb.2011.12.058","1      LRCMQCKTNG  DCRVEECALG  QDLCRTTIVR  LWEEGEELEL  VEKSCTCSEK
 51     TNRTLSYRTG  LKITSLTEVV  CGLDLCNQGN  SGRAVTYSRS  RYLECISCGS
 101    SDMSCERGRH  QSLQCRSPEE  QCLDVVTHWI  QEGEEGRPKD  DRHLRGCGYL
 151    PGCPGSNGFH  NNDTFHFLKC  CNTTKCNEGP  ILELENLPQN  GRQCYSCKGN
 201    STHGCSSEET  FLIDCRGPMN  QCLVATGTHE  PKNQSYMVRG  CATASMCQHA
 251    HLGDAFSMCH  IDVSCCTKSG  CNHPDLDVQY  RSG",283
-3VTU,A,Crystal structure of human LC3B_2-119,1.60,PROTEIN BINDING,Homo sapiens, * GO:0006914," * GO:0000421
+"3VTU","A","Crystal structure of human LC3B_2-119",1.6,"PROTEIN BINDING","Homo sapiens"," * GO:0006914"," * GO:0000421
  * GO:0005737
  * GO:0005776
  * GO:0005856
@@ -3647,10 +3647,10 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  * GO:0012505
  * GO:0016020
  * GO:0031090
- * GO:0031410", * GO:0005515,23805866, * ,10.1042/BJ20121907,"1      GSPEFPSEKT  FKQRRTFEQR  VEDVRLIREQ  HPTKIPVIIE  RYKGEKQLPV
+ * GO:0031410"," * GO:0005515",23805866," * ","10.1042/BJ20121907","1      GSPEFPSEKT  FKQRRTFEQR  VEDVRLIREQ  HPTKIPVIIE  RYKGEKQLPV
 51     LDKTKFLVPD  HVNMSELIKI  IRRRLQLNAN  QAFFLLVNGH  SMVSVSTPIS
 101    EVYESEKDED  GFLYMVYASQ  ETF",123
-3VTV,A,Crystal structure of Optineurin LIR-fused human LC3B_2-119,1.70,PROTEIN BINDING,Homo sapiens, * GO:0006914," * GO:0000421
+"3VTV","A","Crystal structure of Optineurin LIR-fused human LC3B_2-119",1.7,"PROTEIN BINDING","Homo sapiens"," * GO:0006914"," * GO:0000421
  * GO:0005737
  * GO:0005776
  * GO:0005856
@@ -3658,10 +3658,10 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  * GO:0012505
  * GO:0016020
  * GO:0031090
- * GO:0031410", * GO:0005515,23805866, * ,10.1042/BJ20121907,"1      GSEEGEEEDE  FVEIGGPSEK  TFKQRRTFEQ  RVEDVRLIRE  QHPTKIPVII
+ * GO:0031410"," * GO:0005515",23805866," * ","10.1042/BJ20121907","1      GSEEGEEEDE  FVEIGGPSEK  TFKQRRTFEQ  RVEDVRLIRE  QHPTKIPVII
 51     ERYKGEKQLP  VLDKTKFLVP  DHVNMSELIK  IIRRRLQLNA  NQAFFLLVNG
 101    HSMVSVSTPI  SEVYESEKDE  DGFLYMVYAS  QETF",134
-3W5H,A,Ultra-high resolution structure of NADH-cytochrome b5 reductase,0.78,OXIDOREDUCTASE,Sus scrofa," * GO:0006629
+"3W5H","A","Ultra-high resolution structure of NADH-cytochrome b5 reductase",0.78,"OXIDOREDUCTASE","Sus scrofa"," * GO:0006629
  * GO:0006694
  * GO:0006695
  * GO:0008202
@@ -3672,13 +3672,13 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  * GO:0005741
  * GO:0005783
  * GO:0005789
- * GO:0016020", * GO:0016491,,,,"1      STPAITLENP  DIKYPLRLID  KEVVNHDTRR  FRFALPSPEH  ILGLPVGQHI
+ * GO:0016020"," * GO:0016491",,,,"1      STPAITLENP  DIKYPLRLID  KEVVNHDTRR  FRFALPSPEH  ILGLPVGQHI
 51     YLSARIDGNL  VIRPYTPVSS  DDDKGFVDLV  IKVYFKDTHP  KFPAGGKMSQ
 101    YLESMKIGDT  IEFRGPNGLL  VYQGKGKFAI  RPDKKSSPVI  KTVKSVGMIA
 151    GGTGITPMLQ  VIRAIMKDPD  DHTVCHLLFA  NQTEKDILLR  PELEELRNEH
 201    SARFKLWYTV  DRAPEAWDYS  QGFVNEEMIR  DHLPPPEEEP  LVLMCGPPPM
 251    IQYACLPNLE  RVGHPKERCF  AF",272
-3ZX7,A,Complex of lysenin with phosphocholine,2.84,TOXIN,EISENIA FETIDA," * GO:0006810
+"3ZX7","A","Complex of lysenin with phosphocholine",2.84,"TOXIN","EISENIA FETIDA"," * GO:0006810
  * GO:0006811
  * GO:0019835
  * GO:0042742
@@ -3711,14 +3711,14 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Secondary
  *  Sphingomyelins
  *  Toxins
- *  Biological",10.1016/j.str.2012.06.011,"1      SAKAAEGYEQ  IEVDVVAVWK  EGYVYENRGS  TSVDQKITIT  KGMKNVNSET
+ *  Biological","10.1016/j.str.2012.06.011","1      SAKAAEGYEQ  IEVDVVAVWK  EGYVYENRGS  TSVDQKITIT  KGMKNVNSET
 51     RTVTATHSIG  STISTGDAFE  IGSVEVSYSH  SHEESQVSMT  ETEVYESKVI
 101    EHTITIPPTS  KFTRWQLNAD  VGGADIEYMY  LIDEVTPIGG  TQSIPQVITS
 151    RAKIIVGRQI  ILGKTEIRIK  HAERKEYMTV  VSRKSWPAAT  LGHSKLFKFV
 201    LYEDWGGFRI  KTLNTMYSGY  EYAYSSDQGG  IYFDQGTDNP  KQRWAINKSL
 251    PLRHGDVVTF  MNKYFTRSGL  CYDDGPATNV  YCLDKREDKW  ILEVVGLVPR
 301    GSGHHHHHH",309
-4AIW,A,GAPR-1 with bound inositol hexakisphosphate,1.50,LIPID-BINDING PROTEIN,HOMO SAPIENS,," * GO:0000139
+"4AIW","A","GAPR-1 with bound inositol hexakisphosphate",1.5,"LIPID-BINDING PROTEIN","HOMO SAPIENS",," * GO:0000139
  * GO:0005794
  * GO:0016020",,22560898," * Cell Membrane
  *  Chromatography
@@ -3742,11 +3742,11 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Phosphatidylinositols
  *  Phytic Acid
  *  Plasmids
- *  Protein Conformation",10.1016/j.bbamem.2012.04.016,"1      MGKSASKQFH  NEVLKAHNEY  RQKHGVPPLK  LCKNLNREAQ  QYSEALASTR
+ *  Protein Conformation","10.1016/j.bbamem.2012.04.016","1      MGKSASKQFH  NEVLKAHNEY  RQKHGVPPLK  LCKNLNREAQ  QYSEALASTR
 51     ILKHSPESSR  GQCGENLAWA  SYDQTGKEVA  DRWYSEIKNY  NFQQPGFTSG
 101    TGHFTAMVWK  NTKKMGVGKA  SASDGSSFVV  ARYFPAGNVV  NEGFFEENVL
 151    PPKK",154
-4AV9,A,Kluyveromyces lactis Hsv2,3.00,LIPID BINDING PROTEIN,KLUYVEROMYCES LACTIS," * GO:0006810
+"4AV9","A","Kluyveromyces lactis Hsv2",3,"LIPID BINDING PROTEIN","KLUYVEROMYCES LACTIS"," * GO:0006810
  * GO:0015031"," * GO:0005773
  * GO:0005774
  * GO:0016020
@@ -3767,24 +3767,24 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Phosphatidylinositols
  *  Protein Binding
  *  Protein Conformation
- *  Saccharomyces cerevisiae Proteins",10.1073/pnas.1205128109,"1      MLTRNPIVPE  NHVSNPIVDY  EFNQDQSCLI  VSTPKSFDIY  NVHPLKRIMS
+ *  Saccharomyces cerevisiae Proteins","10.1073/pnas.1205128109","1      MLTRNPIVPE  NHVSNPIVDY  EFNQDQSCLI  VSTPKSFDIY  NVHPLKRIMS
 51     QEMPDAGTIR  MLHRTNYIAF  VSTKKELLHI  WDDVKKQDIT  RVKLDAAVKD
 101    LFLSREFIVV  SQGDVISIFK  FGNPWNKITE  DIKFGGVCEF  ANGLLVYSNE
 151    FNLGQIHVTR  LQTDAEQVVG  KGVLVKAHAN  PVKMVRLNRK  GDMVATCSQD
 201    GTLIRVFQTD  NGVLVREFRR  GLDRTSIIDM  RWSPDGSKLA  VVSDKWTLHV
 251    FEVFNDAENK  RHVLKDWINI  KYFQSEWSIC  NFKLKVSKGS  NDCKIAWISD
 301    TGLVIVWPNR  RLADTFKLNY  NDDEHVWWLQ  LNQRNEIPL",339
-4DY9,A,Leishmania major Peroxidase is a Cytochrome c Peroxidase,2.08,ELECTRON TRANSPORT,Leishmania major, * GO:0055114," * GO:0005739
- * GO:0070469", * GO:0046872,22372542," * Crystallography
+"4DY9","A","Leishmania major Peroxidase is a Cytochrome c Peroxidase",2.08,"ELECTRON TRANSPORT","Leishmania major"," * GO:0055114"," * GO:0005739
+ * GO:0070469"," * GO:0046872",22372542," * Crystallography
  *  X-Ray
  *  Cytochrome-c Peroxidase
  *  Leishmania major
  *  Models
  *  Molecular
- *  Protein Conformation",10.1021/bi300169x,"1      MPPKARAPLP  PGDVERGEKL  FKGRAAQCHT  ATKGGSNGVG  PNLFGIVNRP
+ *  Protein Conformation","10.1021/bi300169x","1      MPPKARAPLP  PGDVERGEKL  FKGRAAQCHT  ATKGGSNGVG  PNLFGIVNRP
 51     SGKVEGFTYS  KANAESGVIW  TPEVLDVYLE  NPKKFMPGTK  MSFAGIKKPQ
 101    ERADVIAYLE  TLK",113
-4EJI,A,Human Cytochrome P450 2A13 in complex with two molecules of 4-(methylnitrosamino)-1-(3-puridyl)-1-butanone,2.10,OXIDOREDUCTASE,Homo sapiens, * GO:0055114," * GO:0005783
+"4EJI","A","Human Cytochrome P450 2A13 in complex with two molecules of 4-(methylnitrosamino)-1-(3-puridyl)-1-butanone",2.1,"OXIDOREDUCTASE","Homo sapiens"," * GO:0055114"," * GO:0005783
  * GO:0005789
  * GO:0016020
  * GO:0031090
@@ -3799,7 +3799,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Site-Directed
  *  Nicotine
  *  Nitrosamines
- *  Protein Binding",10.1074/jbc.M112.372813,"1      MAKKTSSKGK  LPPGPTPLPF  IGNYLQLNTE  QMYNSLMKIS  ERYGPVFTIH
+ *  Protein Binding","10.1074/jbc.M112.372813","1      MAKKTSSKGK  LPPGPTPLPF  IGNYLQLNTE  QMYNSLMKIS  ERYGPVFTIH
 51     LGPRRVVVLC  GHDAVKEALV  DQAEEFSGRG  EQATFDWLFK  GYGVAFSNGE
 101    RAKQLRRFSI  ATLRGFGVGK  RGIEERIQEE  AGFLIDALRG  THGANIDPTF
 151    FLSRTVSNVI  SSIVFGDRFD  YEDKEFLSLL  RMMLGSFQFT  ATSTGQLYEM
@@ -3809,7 +3809,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 351    RVNKDTKFRD  FFLPKGTEVF  PMLGSVLRDP  RFFSNPRDFN  PQHFLDKKGQ
 401    FKKSDAFVPF  SIGKRYCFGE  GLARMELFLF  FTTIMQNFRF  KSPQSPKDID
 451    VSPKHVGFAT  IPRNYTMSFL  PRHHHH",476
-4EJN,A,"Crystal structure of autoinhibited form of AKT1 in complex with N-(4-(5-(3-acetamidophenyl)-2-(2-aminopyridin-3-yl)-3H-imidazo[4,5-b]pyridin-3-yl)benzyl)-3-fluorobenzamide",2.19,TRANSFERASE/TRANSFERASE INHIBITOR,Homo sapiens," * GO:0005975
+"4EJN","A","Crystal structure of autoinhibited form of AKT1 in complex with N-(4-(5-(3-acetamidophenyl)-2-(2-aminopyridin-3-yl)-3H-imidazo[4,5-b]pyridin-3-yl)benzyl)-3-fluorobenzamide",2.19,"TRANSFERASE/TRANSFERASE INHIBITOR","Homo sapiens"," * GO:0005975
  * GO:0005977
  * GO:0005978
  * GO:0006006
@@ -3864,7 +3864,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Pyridines
  *  Ribosomal Protein S6 Kinases
  *  70-kDa
- *  Structure-Activity Relationship",10.1021/jm300276x,"1      GSDVAIVKEG  WLHKRGEYIK  TWRPRYFLLK  NDGTFIGYKE  RPQDVDQREA
+ *  Structure-Activity Relationship","10.1021/jm300276x","1      GSDVAIVKEG  WLHKRGEYIK  TWRPRYFLLK  NDGTFIGYKE  RPQDVDQREA
 51     PLNNFSVAQC  QLMKTERPRP  NTFIIRCLQW  TTVIERTFHV  ETPEEREEWT
 101    TAIQTVADGL  KKQAAAEMDF  RSGSPSDNSG  AEEMEVSLAK  PKHRVTMNEF
 151    EYLKLLGKGT  FGKVILVKEK  ATGRYYAMKI  LKKEVIVAKD  EVAHTLTENR
@@ -3873,12 +3873,12 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 301    KDGATMKTFC  GTPEYLAPEV  LEDNDYGRAV  DWWGLGVVMY  EMMCGRLPFY
 351    NQDHEKLFEL  ILMEEIRFPR  TLGPEAKSLL  SGLLKKDPKQ  RLGGGSEDAK
 401    EIMQHRFFAG  IVWQHVYEKK  LSPPFKPQVT  SETDTRYFDE  EFTAQM",446
-4EKZ,A,Crystal structure of reduced hPDI (abb'xa'),2.51,CHAPERONE,Homo sapiens,," * GO:0005783
+"4EKZ","A","Crystal structure of reduced hPDI (abb'xa')",2.51,"CHAPERONE","Homo sapiens",," * GO:0005783
  * GO:0005788
  * GO:0005886
  * GO:0016020
  * GO:0042470"," * GO:0005515
- * GO:0016853",22657537, * ,10.1089/ars.2012.4630,"1      MHHHHHHSSG  LEVLFQGPGS  DAPEEEDHVL  VLRKSNFAEA  LAAHKYLLVE
+ * GO:0016853",22657537," * ","10.1089/ars.2012.4630","1      MHHHHHHSSG  LEVLFQGPGS  DAPEEEDHVL  VLRKSNFAEA  LAAHKYLLVE
 51     FYAPWCGHCK  ALAPEYAKAA  GKLKAEGSEI  RLAKVDATEE  SDLAQQYGVR
 101    GYPTIKFFRN  GDTASPKEYT  AGREADDIVN  WLKKRTGPAA  TTLPDGAAAE
 151    SLVESSEVAV  IGFFKDVESD  SAKQFLQAAE  AIDDIPFGIT  SNSDVFSKYQ
@@ -3888,7 +3888,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 351    EGKIKPHLMS  QELPEDWDKQ  PVKVLVGKNF  EDVAFDEKKN  VFVEFYAPWC
 401    GHCKQLAPIW  DKLGETYKDH  ENIVIAKMDS  TANEVEAVKV  HSFPTLKFFP
 451    ASADRTVIDY  NGERTLDGFK  KFLESGGQDG  AG",482
-4F4C,A,The Crystal Structure of the Multi-Drug Transporter,3.40,"HYDROLASE,PROTEIN TRANSPORT",Caenorhabditis elegans, * GO:0006810," * GO:0016020
+"4F4C","A","The Crystal Structure of the Multi-Drug Transporter",3.4,"HYDROLASE,PROTEIN TRANSPORT","Caenorhabditis elegans"," * GO:0006810"," * GO:0016020
  * GO:0016021"," * GO:0000166
  * GO:0005524
  * GO:0016787",23000902," * Adenosine Triphosphate
@@ -3911,7 +3911,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Tertiary
  *  Structural Homology
  *  Protein
- *  Structure-Activity Relationship",10.1038/nature11448,"1      MLRNGSLRQS  LRTLDSFSLA  PEDVLKTAIK  TVEDYEGDNI  DSNGEIKITR
+ *  Structure-Activity Relationship","10.1038/nature11448","1      MLRNGSLRQS  LRTLDSFSLA  PEDVLKTAIK  TVEDYEGDNI  DSNGEIKITR
 51     DAKEEVVNKV  SIPQLYRYTT  TLEKLLLFIG  TLVAVITGAG  LPLMSILQGK
 101    VSQAFINEQI  VINNNGSTFL  PTGQNYTKTD  FEHDVMNVVW  SYAAMTVGMW
 151    AAGQITVTCY  LYVAEQMNNR  LRREFVKSIL  RQEISWFDTN  HSGTLATKLF
@@ -3938,7 +3938,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 1201   AELPEGFETR  VGDRGTQLSG  GQKQRIAIAR  ALVRNPKILL  LDEATSALDT
 1251   ESEKVVQEAL  DRAREGRTCI  VIAHRLNTVM  NADCIAVVSN  GTIIEKGTHT
 1301   QLMSEKGAYY  KLTQKQMTEK  K",1321
-4F7Z,A,Conformational dynamics of exchange protein directly activated by cAMP,2.60,EXOCYTOSIS,Mus musculus, * GO:0006887," * GO:0005737
+"4F7Z","A","Conformational dynamics of exchange protein directly activated by cAMP",2.6,"EXOCYTOSIS","Mus musculus"," * GO:0006887"," * GO:0005737
  * GO:0016020"," * GO:0000166
  * GO:0005085
  * GO:0005515
@@ -3956,7 +3956,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Mutation
  *  Protein Binding
  *  Protein Conformation
- *  Protein Interaction Domains and Motifs",10.1371/journal.pone.0049932,"1      GSPGIPMVAA  HAAHSQSSAE  WIACLDKRPL  ERSSEDVDII  FTRLKGVKAF
+ *  Protein Interaction Domains and Motifs","10.1371/journal.pone.0049932","1      GSPGIPMVAA  HAAHSQSSAE  WIACLDKRPL  ERSSEDVDII  FTRLKGVKAF
 51     EKFHPNLLRQ  ICLCGYYENL  EKGITLFRQG  DIGTNWYAVL  AGSLDVKVSE
 101    TSSHQDAVTI  CTLGIGTAFG  ESILDNTPRH  ATIVTRESSE  LLRIEQEDFK
 151    ALWEKYRQYM  AGLLAPPYGV  METGSNNDRI  PDKENVPSEK  ILRAGKILRI
@@ -3976,7 +3976,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 851    FFAIVMGLSN  VAVSRLALTW  EKLPSKFKKF  YAEFESLMDP  SRNHRAYRLT
 901    AAKLEPPLIP  FMPLLIKDMT  FTHEGNKTFI  DNLVNFEKMR  MIANTARTVR
 951    YYRSQPFNPD  AAQANKNHQD  VRSYVRQLNV  IDNQRTLSQM  SHRLEPRRP",999
-4FKE,A,Crystal structure of porcine aminopeptidase-N,1.85,HYDROLASE,Sus scrofa," * GO:0001525
+"4FKE","A","Crystal structure of porcine aminopeptidase-N",1.85,"HYDROLASE","Sus scrofa"," * GO:0001525
  * GO:0006508
  * GO:0007275
  * GO:0009615
@@ -3994,7 +3994,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Dimerization
  *  Models
  *  Molecular
- *  Protein Conformation",10.1073/pnas.1210123109,"1      DQSKPWNRYR  LPTTLLPDSY  NVTLRPYLTP  NADGLYIFKG  KSIVRFLCQE
+ *  Protein Conformation","10.1073/pnas.1210123109","1      DQSKPWNRYR  LPTTLLPDSY  NVTLRPYLTP  NADGLYIFKG  KSIVRFLCQE
 51     PTDVIIIHSK  KLNYTTQGHM  VVLRGVGDSQ  VPEIDRTELV  ELTEYLVVHL
 101    KGSLQPGHMY  EMESEFQGEL  ADDLAGFYRS  EYMEGNVKKV  LATTQMQSTD
 151    ARKSFPCFDE  PAMKATFNIT  LIHPNNLTAL  SNMPPKGSST  PLAEDPNWSV
@@ -4013,7 +4013,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 801    SIASNVIGQP  LAWDFVQSNW  KKLFQDYGGG  SFSFSNLIQG  VTRRFSSEFE
 851    LQQLEQFKKN  NMDVGFGSGT  RALEQALEKT  KANIKWVKEN  KEVVLNWFIE
 901    HSSHHHHHH",909
-4FL3,A,Structural and Biophysical Characterization of the Syk Activation Switch,1.90,TRANSFERASE,Homo sapiens," * GO:0001525
+"4FL3","A","Structural and Biophysical Characterization of the Syk Activation Switch",1.9,"TRANSFERASE","Homo sapiens"," * GO:0001525
  * GO:0001945
  * GO:0002250
  * GO:0002281
@@ -4068,7 +4068,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Surface Plasmon Resonance
  *  Thermodynamics
  *  Tyrosine
- *  ZAP-70 Protein-Tyrosine Kinase",10.1016/j.jmb.2012.11.007,"1      MASSGMADSA  NHLPFFFGNI  TREEAEDYLV  QGGMSDGLYL  LRQSRNYLGG
+ *  ZAP-70 Protein-Tyrosine Kinase","10.1016/j.jmb.2012.11.007","1      MASSGMADSA  NHLPFFFGNI  TREEAEDYLV  QGGMSDGLYL  LRQSRNYLGG
 51     FALSVAHGRK  AHHYTIEREL  NGTYAIAGGR  THASPADLCH  YHSQESDGLV
 101    CLLKKPFNRP  QGVQPKTGPF  EDLKENLIRE  YVKQTWNLQG  QALEQAIISQ
 151    KPQLEKLIAT  TAHEKMPWFH  GKISREESEQ  IVLIGSKTNG  KFLIRARDNN
@@ -4081,7 +4081,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 501    LLVTQHYAKI  SDFGLSKALR  ADENYYKAQT  HGKWPVKWYA  PECINYYKFS
 551    SKSDVWSFGV  LMWEAFSYGQ  KPYRGMKGSE  VTAMLEKGER  MGCPAGCPRE
 601    MYDLMNLCWT  YDVENRPGFA  AVELRLRNYY  YDVVN",635
-4G7L,A,Crystal Structure of rat Heme oxygenase-1 in complex with Heme and O2,1.80,OXIDOREDUCTASE,Rattus norvegicus," * GO:0006915
+"4G7L","A","Crystal Structure of rat Heme oxygenase-1 in complex with Heme and O2",1.8,"OXIDOREDUCTASE","Rattus norvegicus"," * GO:0006915
  * GO:0055114"," * GO:0005783
  * GO:0005789
  * GO:0016020
@@ -4097,13 +4097,13 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Photolysis
  *  Protein Binding
  *  Protein Conformation
- *  Rats",10.1021/bi301175x,"1      MERPQLDSMS  QDLSEALKEA  TKEVHIRAEN  SEFMRNFQKG  QVSREGFKLV
+ *  Rats","10.1021/bi301175x","1      MERPQLDSMS  QDLSEALKEA  TKEVHIRAEN  SEFMRNFQKG  QVSREGFKLV
 51     MASLYHIYTA  LEEEIERNKQ  NPVYAPLYFP  EELHRRAALE  QDMAFWYGPH
 101    WQEAIPYTPA  TQHYVKRLHE  VGGTHPELLV  AHAYTRYLGD  LSGGQVLKKI
 151    AQKAMALPSS  GEGLAFFTFP  SIDNPTKFKQ  LYRARMNTLE  MTPEVKHRVT
 201    EEAKTAFLLN  IELFEELQAL  LTEEHKDQSP  SQTEFLRQRP  ASLVQDTTSA
 251    ETPRGKSQIS  TSSSQTP",267
-4GQ1,A,Nup37 of S. pombe,2.40,TRANSPORT PROTEIN,Schizosaccharomyces pombe,," * GO:0005634
+"4GQ1","A","Nup37 of S. pombe",2.4,"TRANSPORT PROTEIN","Schizosaccharomyces pombe",," * GO:0005634
  * GO:0005643
  * GO:0005737",,23019579," * Amino Acid Sequence
  *  Biological Evolution
@@ -4126,7 +4126,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Schizosaccharomyces
  *  Schizosaccharomyces pombe Proteins
  *  Sequence Homology
- *  Amino Acid",10.1073/pnas.1214557109,"1      GSMTLSSNQY  QLPLNVRPYT  TTWCSQSPSC  SNLLAIGHDT  GITIYCASEE
+ *  Amino Acid","10.1073/pnas.1214557109","1      GSMTLSSNQY  QLPLNVRPYT  TTWCSQSPSC  SNLLAIGHDT  GITIYCASEE
 51     QTPGSTGLTL  QELFTIQTGL  PTLHLSFSSS  CSYSENLHDG  DGNVNSSPVY
 101    SLFLACVCQD  NTVRLIITKN  ETIITQHVLG  GKSGHHNFVN  DIDIADVYSA
 151    DNRLAEQVIA  SVGDDCTLII  WRLTDEGPIL  AGYPLSSPGI  SVQFRPSNPN
@@ -4134,7 +4134,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 251    SGIASSLANV  RWIGSDGSGI  LAMCKSGAWL  RWNLFANNDY  NEISDSTMKL
 301    GPKNLLPNVQ  GISLFPSLLG  ACPHPRYMDY  FATAHSQHGL  IQLINTYEKD
 351    SNSIPIQLGM  PIVDFCWHQD  GSHLAIATEG  SVLLTRLMGF  TRL",393
-4HOQ,A,Crystal Structure of Full-Length Human IFIT5,2.07,RNA BINDING PROTEIN,Homo sapiens," * GO:0045087
+"4HOQ","A","Crystal Structure of Full-Length Human IFIT5",2.07,"RNA BINDING PROTEIN","Homo sapiens"," * GO:0045087
  * GO:0051607"," * GO:0005886
  * GO:0016020
  * GO:0032587
@@ -4153,7 +4153,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  RNA
  *  Viral
  *  Reproducibility of Results
- *  Substrate Specificity",10.1038/nature11783,"1      MSEIRKDTLK  AILLELECHF  TWNLLKEDID  LFEVEDTIGQ  QLEFLTTKSR
+ *  Substrate Specificity","10.1038/nature11783","1      MSEIRKDTLK  AILLELECHF  TWNLLKEDID  LFEVEDTIGQ  QLEFLTTKSR
 51     LALYNLLAYV  KHLKGQNKDA  LECLEQAEEI  IQQEHSDKEE  VRSLVTWGNY
 101    AWVYYHMDQL  EEAQKYTGKI  GNVCKKLSSP  SNYKLECPET  DCEKGWALLK
 151    FGGKYYQKAK  AAFEKALEVE  PDNPEFNIGY  AITVYRLDDS  DREGSVKSFS
@@ -4163,11 +4163,11 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 351    GGQYSNAEDI  FRKALRLENI  TDDHKHQIHY  HYGRFQEFHR  KSENTAIHHY
 401    LEALKVKDRS  PLRTKLTSAL  KKLSTKRLCH  NALDVQSLSA  LGFVYKLEGE
 451    KRQAAEYYEK  AQKIDPENAE  FLTALCELRL  SI",482
-4IGH,A,High resolution crystal structure of human dihydroorotate dehydrogenase bound with 4-quinoline carboxylic acid analog,1.30,OXIDOREDUCTASE/OXIDOREDUCTASE INHIBITOR,Homo sapiens," * GO:0006221
+"4IGH","A","High resolution crystal structure of human dihydroorotate dehydrogenase bound with 4-quinoline carboxylic acid analog",1.3,"OXIDOREDUCTASE/OXIDOREDUCTASE INHIBITOR","Homo sapiens"," * GO:0006221
  * GO:0055114"," * GO:0005739
  * GO:0005743
  * GO:0016020
- * GO:0016021", * GO:0016491,23930152, * ,10.1021/ml300464h,"1      GDERFYAEHL  MPTLQGLLDP  ESAHRLAVRF  TSLGLLPRAR  FQDSDMLEVR
+ * GO:0016021"," * GO:0016491",23930152," * ","10.1021/ml300464h","1      GDERFYAEHL  MPTLQGLLDP  ESAHRLAVRF  TSLGLLPRAR  FQDSDMLEVR
 51     VLGHKFRNPV  GIAAGFDKHG  EAVDGLYKMG  FGFVEIGSVT  PKPQEGNPRP
 101    RVFRLPEDQA  VINRYGFNSH  GLSVVEHRLR  ARQQKQAKLT  EDGLPLGVNL
 151    GKNKTSVDAA  EDYAEGVRVL  GPLADYLVVN  VSSPNTAGLR  SLQGKAELRR
@@ -4175,7 +4175,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 251    TNTTVSRPAG  LQGALRSETG  GLSGKPLRDL  STQTIREMYA  LTQGRVPIIG
 301    VGGVSSGQDA  LEKIRAGASL  VQLYTALTFW  GPPVVGKVKR  ELEALLKEQG
 351    FGGVTDAIGA  DHRRLEHHHH  HH",372
-4J5T,A,Crystal structure of Processing alpha-Glucosidase I,2.04,HYDROLASE,Saccharomyces cerevisiae, * GO:0008152," * GO:0005783
+"4J5T","A","Crystal structure of Processing alpha-Glucosidase I",2.04,"HYDROLASE","Saccharomyces cerevisiae"," * GO:0008152"," * GO:0005783
  * GO:0005789
  * GO:0016020
  * GO:0016021"," * GO:0016787
@@ -4200,7 +4200,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  *  Protein
  *  Substrate Specificity
  *  Trisaccharides
- *  alpha-Glucosidases",10.1074/jbc.M113.460436,"1      AEFMEEYQKF  TNESLLWAPY  RSNCYFGMRP  RYVHESPLIM  GIMWFNSLSQ
+ *  alpha-Glucosidases","10.1074/jbc.M113.460436","1      AEFMEEYQKF  TNESLLWAPY  RSNCYFGMRP  RYVHESPLIM  GIMWFNSLSQ
 51     DGLHSLRHFA  TPQDKLQKYG  WEVYDPRIGG  KEVFIDEKNN  LNLTVYFVKS
 101    KNGENWSVRV  QGEPLDPKRP  STASVVLYFS  QNGGEIDGKS  SLAMIGHDGP
 151    NDMKFFGYSK  ELGEYHLTVK  DNFGHYFKNP  EYETMEVAPG  SDCSKTSHLS
@@ -4217,11 +4217,11 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 701    RQDDYFGKDE  NYWRGPIWMN  INYLCLDAMR  YYYPEVILDV  AGEASNAKKL
 751    YQSLKINLSN  NIYKVWEEQG  YCYENYSPID  GHGTGAEHFT  GWTALVVNIL
 801    GRFRSHHHHH  H",811
-4KSB,A,Structures of P-glycoprotein reveal its conformational flexibility and an epitope on the nucleotide-binding domain,3.80,"MEMBRANE PROTEIN, TRANSPORT PROTEIN",Mus musculus, * GO:0006810," * GO:0005886
+"4KSB","A","Structures of P-glycoprotein reveal its conformational flexibility and an epitope on the nucleotide-binding domain",3.8,"MEMBRANE PROTEIN, TRANSPORT PROTEIN","Mus musculus"," * GO:0006810"," * GO:0005886
  * GO:0016020
  * GO:0016021"," * GO:0000166
  * GO:0005524
- * GO:0016787",23901103, * ,10.1073/pnas.1309275110,"1      MELEEDLKGR  ADKNFSKMGK  KSKKEKKEKK  PAVSVLTMFR  YAGWLDRLYM
+ * GO:0016787",23901103," * ","10.1073/pnas.1309275110","1      MELEEDLKGR  ADKNFSKMGK  KSKKEKKEKK  PAVSVLTMFR  YAGWLDRLYM
 51     LVGTLAAIIH  GVALPLMMLI  FGDMTDSFAS  VGNVSKNSTN  MSEADKRAMF
 101    AKLEEEMTTY  AYYYTGIGAG  VLIVAYIQVS  FWCLAAGRQI  HKIRQKFFHA
 151    IMNQEIGWFD  VHDVGELNTR  LTDDVSKINE  GIGDKIGMFF  QAMATFFGGF
@@ -4247,7 +4247,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 1151   HQFIDSLPDK  YNTRVGDKGT  QLSGGQKQRI  AIARALVRQP  HILLLDEATS
 1201   ALDTESEKVV  QEALDKAREG  RTCIVIAHRL  STIQNADLIV  VIQNGKVKEH
 1251   GTHQQLLAQK  GIYFSMVSVQ  AGAKRSLEHH  HHHH",1284
-4KX7,A,Crystal structure of human aminopeptidase A,2.15,HYDROLASE,Homo sapiens," * GO:0001525
+"4KX7","A","Crystal structure of human aminopeptidase A",2.15,"HYDROLASE","Homo sapiens"," * GO:0001525
  * GO:0006508
  * GO:0032835"," * GO:0005903
  * GO:0009897
@@ -4259,7 +4259,7 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
  * GO:0008233
  * GO:0008237
  * GO:0016787
- * GO:0046872",23888046, * ,10.1074/jbc.M113.494955,"1      DICPASEDES  GQWKNFRLPD  FVNPVHYDLH  VKPLLEEDTY  TGTVSISINL
+ * GO:0046872",23888046," * ","10.1074/jbc.M113.494955","1      DICPASEDES  GQWKNFRLPD  FVNPVHYDLH  VKPLLEEDTY  TGTVSISINL
 51     SAPTRYLWLH  LRETRITRLP  ELKRPSGDQV  QVRRCFEYKK  QEYVVVEAEE
 101    ELTPSSGDGL  YLLTMEFAGW  LNGSLVGFYR  TTYTENGRVK  SIAATDHEPT
 151    DARKSFPCFD  EPNKKATYTI  SITHPKEYGA  LSNMPVAKEE  SVDDKWTRTT
@@ -4277,8 +4277,8 @@ PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Proc
 751    VKNVTLLSRY  LDLLKDTNLI  KTQDVFTVIR  YISYNSYGKN  MAWNWIQLNW
 801    DYLVNRYTLN  NRNLGRIVTI  AEPFNTELQL  WQMESFFAKY  PQAGAGEKPR
 851    EQVLETVKNN  IEWLKQHRNT  IREWFFNLLE  SGHHHHHH",888
-5CYT,R,REFINEMENT OF MYOGLOBIN AND CYTOCHROME C,1.50,ELECTRON TRANSPORT (HEME PROTEIN),Thunnus alalunga, * GO:0055114," * GO:0005739
+"5CYT","R","Refinement Of Myoglobin And Cytochrome C",1.5,"ELECTRON TRANSPORT (HEME PROTEIN)","Thunnus alalunga"," * GO:0055114"," * GO:0005739
  * GO:0005758
- * GO:0070469", * GO:0046872,,,,"1      XGDVAKGKKT  FVQKCAQCHT  VENGGKHKVG  PNLWGLFGRK  TGQAEGYSYT
+ * GO:0070469"," * GO:0046872",,,,"1      XGDVAKGKKT  FVQKCAQCHT  VENGGKHKVG  PNLWGLFGRK  TGQAEGYSYT
 51     DANKSKGIVW  NNDTLMEYLE  NPKKYIPGTK  MIFAGIKKKG  ERQDLVAYLK
 101    SATS",104
