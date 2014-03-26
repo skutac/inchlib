@@ -22,10 +22,20 @@
   $(document).ready(function() {
     $(document).keyup(function(e) {
       if (e.keyCode == 27){
-        $("#dendrogram_filter_features").fadeOut("slow");
-        $("#dendrogram_overlay").fadeOut("slow");
+        hide_menu();
       }
     });
+
+    $(document).click(function(e) {
+      if($(e.target).closest("#dendrogram_filter_features").length == 0 && e.target.localName != "canvas" && $("#dendrogram_filter_features").is(":visible")){
+        hide_menu();
+      }
+    });
+
+    function hide_menu(){
+      $("#dendrogram_filter_features").fadeOut("slow");
+      $("#dendrogram_overlay").fadeOut("slow");
+    }
 
   });
 

@@ -995,7 +995,8 @@ InCHlib.prototype._draw_row_ids = function(leaves_y){
     }
     var max_length = this._get_max_length(values);
     var font_size = this._get_font_size(max_length, 85, this.pixels_for_leaf, 12);
-    var x = this.settings.width - 85;
+    var x = this.distance + (this.on_features.length + this.on_metadata_features.length)*this.pixels_for_dimension + 15;
+    x = (this.settings.count_column)?x+this.pixels_for_dimension: x;
     
     if(font_size > 4){
         for(i = 0; i < object_y.length; i++){
@@ -1015,8 +1016,8 @@ InCHlib.prototype._draw_row_ids = function(leaves_y){
 
 InCHlib.prototype._draw_header_row = function(x1){
     var row = new Kinetic.Group({id:"header_row"});
-    var row_height = 15;
-    var y1 = this.header_height - 0.5*row_height;
+    var row_height = 14;
+    var y1 = this.header_height - 0.5*row_height - 2;
     var x, y, x2, y2, color, line, i, value, text, text_value, width, col_index;
     
     for (i = 0; i < this.on_features.length; i++){
