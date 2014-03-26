@@ -1,5 +1,3 @@
-// Fix functionality of highlight_rows!!!!
-
 function InCHlib(settings){
     var target_width = $("#" + settings.target).width();
     // When measuring the rendering duration

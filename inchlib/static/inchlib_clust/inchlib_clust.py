@@ -109,12 +109,15 @@ class Dendrogram():
         self.dendrogram = {"data": self.__get_cluster_heatmap__(write_data)}
 
         self.compress = compress
+        self.compressed_value = compressed_value
         self.compress_cluster_treshold = 0
         if self.compress and self.compress >= 0:
             self.compress_cluster_treshold = self.__get_distance_treshold__(compress)
             print "Distance treshold for compression:", self.compress_cluster_treshold
             if self.compress_cluster_treshold >= 0:
-                self.__compress_data__(compressed_value)
+                self.__compress_data__()
+        else:
+            self.compress = False
 
         if self.header and write_data:
             self.dendrogram["data"]["feature_names"] = [h for h in self.header]
@@ -126,9 +129,14 @@ class Dendrogram():
             self.dendrogram["column_dendrogram"] = self.__get_column_dendrogram__()
         return
 
-    def __compress_data__(self, compressed_value):
+    def __compress_data__(self):
         nodes = {}
         to_remove = set()
+
+        compressed_value2fnc = {
+            "median": lambda values: [round(numpy.median(value), 3) for value in values],
+            "mean": lambda values: [round(numpy.average(value), 3) for value in values],
+        }
         
         for n in self.dendrogram["data"]["nodes"]:
             node = self.dendrogram["data"]["nodes"][n]
@@ -165,7 +173,7 @@ class Dendrogram():
                 self.dendrogram["data"]["nodes"][k].pop("left_child")
                 self.dendrogram["data"]["nodes"][k].pop("right_child")
                 rows = zip(*self.dendrogram["data"]["nodes"][k]["features"])
-                self.dendrogram["data"]["nodes"][k]["features"] = [round(numpy.median(row), 3) for row in rows]
+                self.dendrogram["data"]["nodes"][k]["features"] = compressed_value2fnc[self.compressed_value](rows)
 
         self.__adjust_node_counts__()
 
@@ -224,7 +232,7 @@ class Dendrogram():
 
         return i+test_step*2
 
-    def export_dendrogram_as_json(self, filename=None):
+    def export_cluster_heatmap_as_json(self, filename=None):
         """Returns cluster heatmap in a JSON format or exports it to the file specified by the filename parameter."""
         dendrogram_json = json.dumps(self.dendrogram, indent=4)
         if filename:
@@ -266,6 +274,10 @@ class Dendrogram():
                 except Exception, e:
                     continue
         else:
+            compressed_value2fnc = {
+                "median": lambda values: round(numpy.median(col), 3),
+                "mean": lambda values: round(numpy.average(col), 3)
+            }
 
             for leaf in leaves:
                 objects = []
@@ -280,12 +292,14 @@ class Dendrogram():
                 cols = [list(c) for c in cols]
 
                 for col in cols:
-                    col.sort()
                     
                     try:
-                        value = round(numpy.median(col), 3)
+                        col = [float(c) for c in col]
+                        value = compressed_value2fnc[self.compressed_value](col)
                     except Exception, e:
-                        value = col[int(len(col)/2)]
+                        freq2val = {col.count(v):v for v in set(col)}
+                        value = freq2val[max(freq2val.keys())]
+                    
                     row.append(value)
 
                 self.dendrogram["metadata"]["nodes"][leaf] = row
@@ -481,7 +495,7 @@ def _process_(arguments):
         d.add_metadata_from_file(metadata_file=arguments.metadata, delimiter=arguments.metadata_delimiter, header=arguments.metadata_header)
     
     if arguments.output_file:
-        d.export_dendrogram_as_json(arguments.output_file)
+        d.export_cluster_heatmap_as_json(arguments.output_file)
     else:
         print json.dumps(d.dendrogram, indent=4)
 
