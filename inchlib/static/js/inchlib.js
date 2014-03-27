@@ -65,6 +65,7 @@ function InCHlib(settings){
             "BrBG": {"start": {"r":166, "g": 97, "b": 26}, "end": {"r": 1, "g": 133, "b": 113}},
             "RdBu": {"start": {"r":202, "g": 0, "b": 32}, "end": {"r": 5, "g": 113, "b": 176}},
             "RdGy": {"start": {"r":202, "g": 0, "b": 32}, "end": {"r": 64, "g": 64, "b": 64}},
+            "BuYl": {"start": {"r": 5, "g": 113, "b": 176}, "end": {"r": 250, "g": 233, "b": 42}},
             "YlOrR": {"start": {"r":255, "g": 255, "b": 178}, "end": {"r": 227, "g": 26, "b": 28}, "middle": {"r": 204, "g": 76, "b": 2}},
             "YlOrB": {"start": {"r":255, "g": 255, "b": 212}, "end": {"r": 5, "g": 112, "b": 176}, "middle": {"r": 204, "g": 76, "b": 2}},
             "PRGn2": {"start": {"r":123, "g": 50, "b": 148}, "end": {"r": 0, "g": 136, "b": 55}, "middle": {"r":202, "g": 0, "b": 32}},
@@ -1331,7 +1332,7 @@ InCHlib.prototype._highlight_path = function(path_id){
     for(i = 0; i<unique_row_ids.length; i++){
         row = this._draw_heatmap_row(unique_row_ids[i], this.distance+this.dendrogram_heatmap_distance, this.leaves_y_coordinates[unique_row_ids[i]]);
         this.highlighted_rows_layer.add(row);
-        this._bind_row_events(row)
+        row.setAttr("listening", false);
     }
 
 
@@ -1763,6 +1764,10 @@ InCHlib.prototype._filter_icon_click = function(filter_button){
         });
 
         $(function(){
+            $("#dendrogram_filter_features").click(function(){
+                return false;
+            })
+
            $("#dendrogram_filter_features ul li, #dendrogram_filter_features div span").hover(
            function(){
               $(this).css({

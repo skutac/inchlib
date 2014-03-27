@@ -27,7 +27,7 @@
     });
 
     $(document).click(function(e) {
-      if($(e.target).closest("#dendrogram_filter_features").length == 0 && e.target.localName != "canvas" && $("#dendrogram_filter_features").is(":visible")){
+      if(e.target.localName != "canvas" && $("#dendrogram_filter_features").is(":visible")){
         hide_menu();
       }
     });
