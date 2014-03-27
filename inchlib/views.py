@@ -137,19 +137,19 @@ c.read_csv(filename="filename", delimiter=",", header=bool)
 c.normalize_data(feature_range=(0,1), write_original=True)
 
 # cluster data according to the parameters
-c.cluster_data(data_type="numeric", distance_measure="euclidean", linkage="ward", axis="both")
+c.cluster_data(data_type="numeric", row_distance="euclidean", row_linkage="single", axis="row", column_distance="euclidean", column_linkage="ward")
 
 # instantiate the Dendrogram class with the Cluster instance as an input
 d = inchlib_clust.Dendrogram(c)
 
-# create the cluster heatmap representation and define whether you want to contract the data, how much and if you want to write the features
-d.create_dendrogram(contract_clusters=bool, cluster_count=1000, write_data=bool)
+# create the cluster heatmap representation and define whether you want to compress the data by defining the maximum number of heatmap rows, the resulted value of compressed (merged) rows and whether you want to write the features
+d.create_cluster_heatmap(compress=int, compressed_value="median", write_data=bool)
 
 # read metadata file with specified delimiter, also specify whether there is a header row
 d.add_metadata_from_file(metadata_file="filename", delimiter=",", header=bool)
 
-# export the dendrogram on the standard output or to the file if filename specified
-d.export_dendrogram_as_json("filename")"""
+# export the cluster heatmap on the standard output or to the file if filename specified
+d.export_cluster_heatmap_as_json("filename")"""
 
     bash = "python inchlib_clust.py input_file.csv -m metadata.csv -dh -mh -d euclidean -l ward -a both -dd , -md ,"
 
@@ -182,19 +182,3 @@ def get_pdb_file(req):
 def fetch_pdb(id):
   url = 'http://www.rcsb.org/pdb/files/%s.pdb' % id
   return urllib.urlopen(url).read()
-
-# def parse_pdb(pdb_file):
-#     """
-#     HEADER    TRANSFERASE/TRANSFERASE INHIBITOR       14-SEP-11   3TTJ              
-#     TITLE     CRYSTAL STRUCTURE OF JNK3 COMPLEXED WITH CC-359"," A JNK INHIBITOR FOR  
-#     TITLE    2 THE PREVENTION OF ISCHEMIA-REPERFUSION INJURY 
-#     REMARK   2 RESOLUTION.    2.10 ANGSTROMS.
-#     SOURCE   2 ORGANISM_SCIENTIFIC: HOMO SAPIENS;
-#     JRNL        PMID   22226655 
-#     JRNL        DOI    10.1016/J.BMCL.2011.12.028
-#     """
-#     data = {}
-#     classification = re.search("HEADER\s+(.*?)\d+", pdb_file)
-#     name = re.findall("TITLE\s+(\d+\s+)?(.*)", pdb_file)
-#     name = " ".join([n[1].strip(" ") for n in name])
-#     return data

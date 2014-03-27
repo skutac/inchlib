@@ -7,8 +7,7 @@
 <tr bgcolor="#7799ee">
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>inchlib_clust</strong></big></big></font></td
-><td align=right valign=bottom
-></td></tr></table>
+></tr></table>
     <p><tt>#coding:&nbsp;utf-8</tt></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -44,21 +43,25 @@ scipy.spatial<br>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
 <td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="Cluster">class <strong>Cluster</strong></a></font></td></tr>
+<font color="#000000" face="helvetica, arial">class <strong>Cluster</strong></font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt>Class&nbsp;for&nbsp;clustering<br>&nbsp;</tt></td></tr>
+<td colspan=2><tt>Class&nbsp;for&nbsp;data&nbsp;clustering<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
 <dl><dt><a name="Cluster-__binarize_nominal_data__"><strong>__binarize_nominal_data__</strong></a>(self)</dt></dl>
 
-<dl><dt><a name="Cluster-__cluster_columns__"><strong>__cluster_columns__</strong></a>(self)</dt></dl>
+<dl><dt><a name="Cluster-__cluster_columns__"><strong>__cluster_columns__</strong></a>(self, column_distance, column_linkage)</dt></dl>
 
 <dl><dt><a name="Cluster-__init__"><strong>__init__</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="Cluster-__reorder_data__"><strong>__reorder_data__</strong></a>(self)</dt></dl>
 
-<dl><dt><a name="Cluster-cluster_data"><strong>cluster_data</strong></a>(self, data_type<font color="#909090">='numeric'</font>, distance_measure<font color="#909090">='euclidean'</font>, linkage<font color="#909090">='single'</font>, axis<font color="#909090">='row'</font>)</dt><dd><tt>Performs&nbsp;clustering&nbsp;according&nbsp;to&nbsp;the&nbsp;given&nbsp;parameters.</tt></dd></dl>
+<dl><dt><a name="Cluster-cluster_data"><strong>cluster_data</strong></a>(self, data_type<font color="#909090">='numeric'</font>, row_distance<font color="#909090">='euclidean'</font>, row_linkage<font color="#909090">='single'</font>, axis<font color="#909090">='row'</font>, column_distance<font color="#909090">='euclidean'</font>, column_linkage<font color="#909090">='ward'</font>)</dt><dd><tt>Performs&nbsp;clustering&nbsp;according&nbsp;to&nbsp;the&nbsp;given&nbsp;parameters.<br>
+@data_type&nbsp;-&nbsp;numeric/binary<br>
+@row_distance/column_distance&nbsp;-&nbsp;see.&nbsp;DISTANCES&nbsp;variable<br>
+@row_linkage/column_linkage&nbsp;-&nbsp;see.&nbsp;LINKAGES&nbsp;variable<br>
+@axis&nbsp;-&nbsp;row/both</tt></dd></dl>
 
 <dl><dt><a name="Cluster-normalize_data"><strong>normalize_data</strong></a>(self, feature_range<font color="#909090">=(0, 1)</font>, write_original<font color="#909090">=False</font>)</dt><dd><tt>Normalizes&nbsp;data&nbsp;to&nbsp;a&nbsp;scale&nbsp;from&nbsp;0&nbsp;to&nbsp;1.&nbsp;When&nbsp;write_original&nbsp;is&nbsp;set&nbsp;to&nbsp;True,&nbsp;<br>
 the&nbsp;normalized&nbsp;data&nbsp;will&nbsp;be&nbsp;clustered,&nbsp;but&nbsp;original&nbsp;data&nbsp;will&nbsp;be&nbsp;written&nbsp;to&nbsp;the&nbsp;heatmap.</tt></dd></dl>
@@ -80,17 +83,17 @@ As&nbsp;an&nbsp;input&nbsp;it&nbsp;takes&nbsp;a&nbsp;<a href="#Cluster">Cluster<
 <td width="100%">Methods defined here:<br>
 <dl><dt><a name="Dendrogram-__adjust_node_counts__"><strong>__adjust_node_counts__</strong></a>(self)</dt></dl>
 
-<dl><dt><a name="Dendrogram-__connect_metadata_to_data__"><strong>__connect_metadata_to_data__</strong></a>(self)</dt></dl>
+<dl><dt><a name="Dendrogram-__compress_data__"><strong>__compress_data__</strong></a>(self)</dt></dl>
 
-<dl><dt><a name="Dendrogram-__contract_data__"><strong>__contract_data__</strong></a>(self)</dt></dl>
+<dl><dt><a name="Dendrogram-__connect_metadata_to_data__"><strong>__connect_metadata_to_data__</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="Dendrogram-__create_unique_id__"><strong>__create_unique_id__</strong></a>(self, node_id)</dt></dl>
 
+<dl><dt><a name="Dendrogram-__get_cluster_heatmap__"><strong>__get_cluster_heatmap__</strong></a>(self, write_data)</dt></dl>
+
 <dl><dt><a name="Dendrogram-__get_column_dendrogram__"><strong>__get_column_dendrogram__</strong></a>(self)</dt></dl>
 
-<dl><dt><a name="Dendrogram-__get_dendrogram__"><strong>__get_dendrogram__</strong></a>(self, write_data<font color="#909090">=True</font>)</dt></dl>
-
-<dl><dt><a name="Dendrogram-__get_distance_treshold__"><strong>__get_distance_treshold__</strong></a>(self, cluster_count<font color="#909090">=100</font>)</dt></dl>
+<dl><dt><a name="Dendrogram-__get_distance_treshold__"><strong>__get_distance_treshold__</strong></a>(self, cluster_count)</dt></dl>
 
 <dl><dt><a name="Dendrogram-__init__"><strong>__init__</strong></a>(self, clustering)</dt></dl>
 
@@ -102,11 +105,13 @@ As&nbsp;an&nbsp;input&nbsp;it&nbsp;takes&nbsp;a&nbsp;<a href="#Cluster">Cluster<
 
 <dl><dt><a name="Dendrogram-add_metadata_from_file"><strong>add_metadata_from_file</strong></a>(self, metadata_file, delimiter, header<font color="#909090">=True</font>)</dt><dd><tt>Adds&nbsp;metadata&nbsp;from&nbsp;csv&nbsp;file.</tt></dd></dl>
 
-<dl><dt><a name="Dendrogram-create_dendrogram"><strong>create_dendrogram</strong></a>(self, contract_clusters<font color="#909090">=False</font>, cluster_count<font color="#909090">=1000</font>, write_data<font color="#909090">=True</font>)</dt><dd><tt>Creates&nbsp;cluster&nbsp;heatmap&nbsp;representation&nbsp;in&nbsp;inchlib&nbsp;format.&nbsp;By&nbsp;setting&nbsp;contract_clusters&nbsp;to&nbsp;True&nbsp;you&nbsp;can<br>
-cut&nbsp;the&nbsp;dendrogram&nbsp;in&nbsp;a&nbsp;distance&nbsp;to&nbsp;decrease&nbsp;the&nbsp;row&nbsp;size&nbsp;of&nbsp;the&nbsp;heatmap&nbsp;to&nbsp;count&nbsp;specified&nbsp;by&nbsp;cluster&nbsp;count&nbsp;parameter.<br>
+<dl><dt><a name="Dendrogram-create_cluster_heatmap"><strong>create_cluster_heatmap</strong></a>(self, compress<font color="#909090">=False</font>, compressed_value<font color="#909090">='median'</font>, write_data<font color="#909090">=True</font>)</dt><dd><tt>Creates&nbsp;cluster&nbsp;heatmap&nbsp;representation&nbsp;in&nbsp;inchlib&nbsp;format.&nbsp;By&nbsp;setting&nbsp;compress&nbsp;parameter&nbsp;to&nbsp;True&nbsp;you&nbsp;can<br>
+cut&nbsp;the&nbsp;dendrogram&nbsp;in&nbsp;a&nbsp;distance&nbsp;to&nbsp;decrease&nbsp;the&nbsp;row&nbsp;size&nbsp;of&nbsp;the&nbsp;heatmap&nbsp;to&nbsp;specified&nbsp;count.&nbsp;<br>
+When&nbsp;compressing&nbsp;the&nbsp;type&nbsp;of&nbsp;the&nbsp;resulted&nbsp;value&nbsp;of&nbsp;merged&nbsp;rows&nbsp;is&nbsp;given&nbsp;by&nbsp;the&nbsp;compressed_value&nbsp;parameter&nbsp;(median,&nbsp;mean).<br>
+When&nbsp;the&nbsp;metadata&nbsp;are&nbsp;nominal&nbsp;(text&nbsp;values)&nbsp;the&nbsp;most&nbsp;frequent&nbsp;is&nbsp;the&nbsp;result&nbsp;after&nbsp;compression.<br>
 By&nbsp;setting&nbsp;write_data&nbsp;to&nbsp;False&nbsp;the&nbsp;data&nbsp;features&nbsp;won't&nbsp;be&nbsp;present&nbsp;in&nbsp;the&nbsp;resulting&nbsp;format.</tt></dd></dl>
 
-<dl><dt><a name="Dendrogram-export_dendrogram_as_json"><strong>export_dendrogram_as_json</strong></a>(self, filename<font color="#909090">=None</font>)</dt><dd><tt>Returns&nbsp;cluster&nbsp;heatmap&nbsp;in&nbsp;a&nbsp;JSON&nbsp;format&nbsp;or&nbsp;exports&nbsp;it&nbsp;to&nbsp;the&nbsp;file&nbsp;specified&nbsp;by&nbsp;the&nbsp;filename&nbsp;parameter.</tt></dd></dl>
+<dl><dt><a name="Dendrogram-export_cluster_heatmap_as_json"><strong>export_cluster_heatmap_as_json</strong></a>(self, filename<font color="#909090">=None</font>)</dt><dd><tt>Returns&nbsp;cluster&nbsp;heatmap&nbsp;in&nbsp;a&nbsp;JSON&nbsp;format&nbsp;or&nbsp;exports&nbsp;it&nbsp;to&nbsp;the&nbsp;file&nbsp;specified&nbsp;by&nbsp;the&nbsp;filename&nbsp;parameter.</tt></dd></dl>
 
 </td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -115,8 +120,7 @@ By&nbsp;setting&nbsp;write_data&nbsp;to&nbsp;False&nbsp;the&nbsp;data&nbsp;featu
 <font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><strong>BINARY_DISTANCES</strong> = ['dice', 'hamming', 'jaccard', 'kulsinski', 'matching', 'rogerstanimoto', 'russellrao', 'sokalmichener', 'sokalsneath', 'yule']<br>
-<strong>DATA_TYPES</strong> = {'binary': ['dice', 'hamming', 'jaccard', 'kulsinski', 'matching', 'rogerstanimoto', 'russellrao', 'sokalmichener', 'sokalsneath', 'yule'], 'numeric': ['braycurtis', 'canberra', 'chebyshev', 'cityblock', 'correlation', 'cosine', 'euclidean', 'mahalanobis', 'minkowski', 'seuclidean', 'sqeuclidean']}<br>
-<strong>NUMERIC_DISTANCES</strong> = ['braycurtis', 'canberra', 'chebyshev', 'cityblock', 'correlation', 'cosine', 'euclidean', 'mahalanobis', 'minkowski', 'seuclidean', 'sqeuclidean']<br>
-<strong>RAW_LNKAGES</strong> = ['ward', 'centroid']</td></tr></table>
+<td width="100%"><strong>DISTANCES</strong> = {'binary': ['dice', 'hamming', 'jaccard', 'kulsinski', 'matching', 'rogerstanimoto', 'russellrao', 'sokalmichener', 'sokalsneath', 'yule'], 'numeric': ['braycurtis', 'canberra', 'chebyshev', 'cityblock', 'correlation', 'cosine', 'euclidean', 'mahalanobis', 'minkowski', 'seuclidean', 'sqeuclidean']}<br>
+<strong>LINKAGES</strong> = ['single', 'complete', 'average', 'centroid', 'ward', 'median', 'weighted']<br>
+<strong>RAW_LINKAGES</strong> = ['ward', 'centroid']</td></tr></table>
 </body></html>

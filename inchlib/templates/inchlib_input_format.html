@@ -34,11 +34,11 @@
 <div class="description">
     <div class="small_title">Node example</div>
     <div class="code">"node_id": {
-    "count": 2,    <span class="js_comment">//the count of underlying heatmap rows</span> 
-    "distance": 3.32,    <span class="js_comment">//the distance from dendrogram base (heatmap)</span> 
+    "count": 2,    <span class="js_comment">//number of items (leafs) which lie in the dendrogram hierarchy below the given node</span> 
+    "distance": 3.32,    <span class="js_comment">//distance from the zero base of the dendrogram, given by the distance measure used for clustering</span> 
     "<span id="format_parent">parent</span>": "node_1",    <span class="js_comment">//the ID of a parent node</span>
-    "<span id="format_left_child">left_child</span>": "leaf_1",   <span class="js_comment">//the ID of a left child of the node</span>
-    "<span id="format_right_child">right_child</span>": "leaf_2"   <span class="js_comment">//the ID of a right child of the node</span>
+    "<span id="format_left_child">left_child</span>": "leaf_1",   <span class="js_comment">//ID of a left child</span>
+    "<span id="format_right_child">right_child</span>": "leaf_2"   <span class="js_comment">//ID of a right child</span>
 }, 
 </div>
     
@@ -53,11 +53,11 @@
 <div class="description">
     <div class="small_title">Leaf example</div>
     <div class="code">"leaf_id": {
-    "<span id="format_count">count</span>": 1,    <span class="js_comment">//the count of underlying heatmap rows</span>
-    "<span id="format_distance">distance</span>": 0,    <span class="js_comment">//the distance from dendrogram base (heatmap)</span>
-    "<span id="format_features">features</span>": [1.4, 3.5, 5.1],    <span class="js_comment">//the array of values in heatmap row</span>
+    "<span id="format_count">count</span>": 1,    <span class="js_comment">//number of items (leafs) which lie in the dendrogram hierarchy below the given node</span>
+    "<span id="format_distance">distance</span>": 0,    <span class="js_comment">//distance from the zero base of the dendrogram, given by the distance measure used for clustering</span>
+    "<span id="format_features">features</span>": [1.4, 3.5, 5.1],    <span class="js_comment">//values of individual features defining a data item which is represented by the heatmap row</span>
     "<span id="format_parent">parent</span>": "node_1",    <span class="js_comment">//the ID of a parent node</span>
-    "<span id="format_objects">objects</span>": ["object_id"]    <span class="js_comment">//the array of objects represented by the heatmap row</span>
+    "<span id="format_objects">objects</span>": ["object_id"]    <span class="js_comment">//list of IDs of objects (data points) represented by a given row</span>
 },
 </div>
 </div>
@@ -98,17 +98,17 @@
 
         "<span id="format_nodes">nodes</span>": {    <span class="js_comment">//contains nodes and leafs of row dendrogram</span>
             "leaf_1": {
-                "<span id="format_count">count</span>": 1,    <span class="js_comment">//the count of underlying heatmap rows</span>
-                "<span id="format_distance">distance</span>": 0,    <span class="js_comment">//the distance from dendrogram base (heatmap)</span>
-                "<span id="format_features">features</span>": [1.4, 3.5, 5.1],    <span class="js_comment">//the array of values in heatmap row</span>
+                "<span id="format_count">count</span>": 1,    <span class="js_comment">//number of items (leafs) which lie in the dendrogram hierarchy below the given node</span>
+                "<span id="format_distance">distance</span>": 0,    <span class="js_comment">//distance from the zero base of the dendrogram, given by the distance measure used for clustering</span>
+                "<span id="format_features">features</span>": [1.4, 3.5, 5.1],    <span class="js_comment">//values of individual features defining a data item which is represented by the heatmap row</span>
                 "<span id="format_parent">parent</span>": "node_1",    <span class="js_comment">//the ID of a parent node</span>
-                "<span id="format_objects">objects</span>": ["object_id"]    <span class="js_comment">//the array of objects represented by the heatmap row</span>
+                "<span id="format_objects">objects</span>": ["object_id"]    <span class="js_comment">//list of IDs of objects (data points) represented by a given row</span>
             }, 
             "node_1": {
                 "count": 2, 
                 "distance": 3.32, 
-                "<span id="format_left_child">left_child</span>": "leaf_1",   <span class="js_comment">//the ID of the left child of the node</span>
-                "<span id="format_right_child">right_child</span>": "leaf_2"   <span class="js_comment">//the ID of the right child of the node</span>
+                "<span id="format_left_child">left_child</span>": "leaf_1",   <span class="js_comment">//ID of a left child</span>
+                "<span id="format_right_child">right_child</span>": "leaf_2"   <span class="js_comment">//ID of a right child</span>
             }, 
             "leaf_2": {
                 "count": 1, 

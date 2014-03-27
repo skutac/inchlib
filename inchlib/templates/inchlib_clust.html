@@ -1,6 +1,7 @@
 {% extends "inchlib_base.html" %}
 
 {% block content %}
+{% load staticfiles %}
 
 <div class="pure-menu pure-menu-open pure-menu-horizontal">
     <ul>
@@ -37,7 +38,7 @@
  5,class 3</div>
 </div>
 
-<div class="description">In the example below <b>inchlib_clust</b> is invoked from the command line. Input data for clustering are given in input_file.csv [ODKAZ] which contains attribute names in the first row (<i>-dh</i> parameter), individual values are separated by a comma (<i>-dd ,</i> parameter). Metadata are supplied (<i>-m</i> parameter) in metadata.csv [ODKAZ] file. It also contains medatadata names (<i>-mh</i> parameter), individual values are separated by a comma (<i>-md ,</i> parameter). Both rows and columns are clustered (<i>-a both</i> parameter) using <i>Ward’s</i> clustering (<i>-l ward</i> parameter) with <i>Euclidean</i> distance (<i>-d euclidean</i> parameter).
+<div class="description">In the example below <b>inchlib_clust</b> is invoked from the command line. Input data for clustering are given in <a href="{% static "data/input_file.csv" %}">input_file.csv</a> which contains attribute names in the first row (<i>-dh</i> parameter), individual values are separated by a comma (<i>-dd ,</i> parameter). Metadata are supplied (<i>-m</i> parameter) in <a href="{% static "data/metadata.csv" %}">metadata.csv</a> file. It also contains medatadata names (<i>-mh</i> parameter), individual values are separated by a comma (<i>-md ,</i> parameter). Both rows and columns are clustered (<i>-a both</i> parameter) using <i>Ward’s</i> clustering (<i>-l ward</i> parameter) with <i>Euclidean</i> distance (<i>-d euclidean</i> parameter).
 </div>
 
 <div class="interface">
@@ -93,7 +94,12 @@
                             (<i>default:</i> False)
       <b>-c COMPRESS, --compress COMPRESS</b>
                             compress the data to contain maximum of specified
-                            count of rows (<i>default:</i> 0)
+                            count of rows
+      <b>-c COMPRESSED_VALUE, --compressed_value COMPRESSED_VALUE</b>
+                            the resulted value of merged rows (data points) (<i>default:</i> median)
+                            
+                            <b>possible values</b>: median, mean
+
       <b>-dwd, --dont_write_data</b>
                             don't write clustered data to the inchlib data format
                             (<i>default:</i> False)

@@ -7,7 +7,7 @@ from scipy import spatial
 
 LINKAGES = ["single", "complete", "average", "centroid", "ward", "median", "weighted"]
 RAW_LINKAGES = ["ward", "centroid"]
-DATA_TYPES = {"numeric": ["braycurtis", "canberra", "chebyshev", "cityblock", "correlation", "cosine", "euclidean", "mahalanobis", "minkowski", "seuclidean", "sqeuclidean"],
+DISTANCES = {"numeric": ["braycurtis", "canberra", "chebyshev", "cityblock", "correlation", "cosine", "euclidean", "mahalanobis", "minkowski", "seuclidean", "sqeuclidean"],
               "binary": ["dice","hamming","jaccard","kulsinski","matching","rogerstanimoto","russellrao","sokalmichener","sokalsneath","yule"]}
 
 class Dendrogram():
@@ -103,8 +103,10 @@ class Dendrogram():
         return dendrogram
 
     def create_cluster_heatmap(self, compress=False, compressed_value="median", write_data=True):
-        """Creates cluster heatmap representation in inchlib format. By setting compress to True you can
-        cut the dendrogram in a distance to decrease the row size of the heatmap to count specified by cluster count parameter.
+        """Creates cluster heatmap representation in inchlib format. By setting compress parameter to True you can
+        cut the dendrogram in a distance to decrease the row size of the heatmap to specified count. 
+        When compressing the type of the resulted value of merged rows is given by the compressed_value parameter (median, mean).
+        When the metadata are nominal (text values) the most frequent is the result after compression.
         By setting write_data to False the data features won't be present in the resulting format."""
         self.dendrogram = {"data": self.__get_cluster_heatmap__(write_data)}
 
@@ -340,7 +342,7 @@ class Dendrogram():
 
 
 class Cluster():
-    """Class for clustering"""
+    """Class for data clustering"""
 
     def __init__(self):
         self.write_original = False
@@ -418,7 +420,13 @@ class Cluster():
         return
 
     def cluster_data(self, data_type="numeric", row_distance="euclidean", row_linkage="single", axis="row", column_distance="euclidean", column_linkage="ward"):
-        """Performs clustering according to the given parameters."""
+        """Performs clustering according to the given parameters.
+        @data_type - numeric/binary
+        @row_distance/column_distance - see. DISTANCES variable
+        @row_linkage/column_linkage - see. LINKAGES variable
+        @axis - row/both
+        """
+        
         print "Clustering rows:", row_distance, row_linkage
         self.data_type = data_type
         self.clustering_axis = axis
@@ -433,12 +441,12 @@ class Cluster():
         else:
             self.distance_vector = fastcluster.pdist(self.data, row_distance)
 
-            if data_type == "numeric" and not row_distance in DATA_TYPES[data_type]:
-                raise Exception("".join(["When clustering numeric data you must choose from these distance measures: ", ", ".join(DATA_TYPES[data_type])]))
-            elif (data_type == "binary" or data_type == "nominal") and not row_distance in DATA_TYPES[data_type]:
-                raise Exception("".join(["When clustering binary or nominal data you must choose from these distance measures: ", ", ".join(DATA_TYPES[data_type])]))
-            elif not data_type in DATA_TYPES.keys():
-                raise Exception("".join(["You can choose only from data types: ", ", ".join(DATA_TYPES.keys())]))
+            if data_type == "numeric" and not row_distance in DISTANCES[data_type]:
+                raise Exception("".join(["When clustering numeric data you must choose from these distance measures: ", ", ".join(DISTANCES[data_type])]))
+            elif (data_type == "binary" or data_type == "nominal") and not row_distance in DISTANCES[data_type]:
+                raise Exception("".join(["When clustering binary or nominal data you must choose from these distance measures: ", ", ".join(DISTANCES[data_type])]))
+            elif not data_type in DISTANCES.keys():
+                raise Exception("".join(["You can choose only from data types: ", ", ".join(DISTANCES.keys())]))
 
             self.clustering = fastcluster.linkage(self.distance_vector, method=str(row_linkage))
 
