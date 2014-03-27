@@ -20,7 +20,8 @@
 
         var glmol = new GLmol('protein', true);
         var loading = $('#loading');
-        var initial_pdb = "1PO5";
+        var current_protein = "1PO5";
+        var initial_pdb = current_protein;
 
         window.dendrogram = new InCHlib({{ settings }});
         dendrogram.read_data_from_file("{% static "data/"|add:example.data %}");
@@ -31,7 +32,8 @@
 
         dendrogram.settings.highlight_
         dendrogram.settings.row_onclick = function(ids){
-            if(ids.length == 1){
+            if(ids.length == 1 && ids[0] != current_protein){
+                current_protein = ids[0];
                 get_protein_from_pdb(ids[0]);
                 dendrogram.highlight_rows(ids);
             }
@@ -117,7 +119,7 @@
 
 
 <div class="description">
-<p>The sequence identity is often used in phylogenetics to classify the evolutionary relationships between homologous genes represented in the genomes of divergent species. The difference of sequences is qualitatively related to the evolutionary distance from one to another...
+<p>Proteins are large biomolecules playing key role in the structure and functioning of living organisms. They are composed of one or more chains consisting of amino acid residues. The amino acid sequence identity in a chain is often used in phylogenetics to classify the evolutionary relationships between homologous proteins (genes) represented in the genomes of divergent species. The difference of sequences is qualitatively related to the evolutionary distance from one to another.
 </p>
 
 <p>The data consist of the amino acid percentage composition of a set of 139 proteins exported from the <a href="http://www.rcsb.org/pdb/home/home.do" target="blank">Protein Data Bank (PDB)</a>. The set is composed from the representatives of eukaryotic membrane proteins with maximum identity 70% and exactly one chain at least 100 residuals long.</p>

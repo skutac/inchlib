@@ -1,4 +1,4 @@
-import json, re, urllib, csv, os
+import json, re, urllib, csv, os, copy
 
 from pygments import highlight
 from pygments.lexers import PythonLexer, JavascriptLexer, BashLexer
@@ -165,7 +165,7 @@ def get_pdb_file(req):
     pdb_data = {}
 
     if pdb_id in PDB2DATA:
-        pdb_data = PDB2DATA[pdb_id]
+        pdb_data = copy.deepcopy(PDB2DATA[pdb_id])
 
         for key in multiple:
             if pdb_data[key]:
