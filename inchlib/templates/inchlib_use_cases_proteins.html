@@ -15,7 +15,7 @@
 
         var protein_card = $("#protein_card");
         var protein_div = $("#protein_div");
-        protein_div.css({"left": x_pos + target_element.width()-60, "top": max_y});
+        protein_div.css({"left": x_pos + target_element.width()-40, "top": max_y});
         var overflow_div = $("#overflow_div");
 
         var glmol = new GLmol('protein', true);
@@ -72,21 +72,24 @@
             
             for(i = 0; i < pdb_keys.length; i++){
                 var key = pdb_keys[i];
-                var value = pdb[pdb_keys[i]];
+                var value = pdb[key];
+                var url_value = value;
                 
-                if(key == "Biological Process" || key == "Cellular Component" || key == "Molecular Function"){
-                    value = value.split("*");
-                    if(value.length > 1){
-                        value = value[1].replace(" ", "");
-                    }
-                }
-                else if(key == "Classification"){
+                if(key == "Classification"){
                     value = value.toLowerCase();
+                }  
+                else if(key == "Biological Process" || key ==  "Cellular Component" || key == "Molecular Function"){
+                    value = pdb[key][1];
+                    url_value = pdb[key][0];
+                    console.log(value)
                 }
 
                 if(value != ""){
+                    if(key == "PubMed ID"){
+                        table.append("<tr><td colspan='2' id='protein_citation'><b>Primary citation</b></td></tr>")
+                    }
                     if(key in key2url){
-                        value = "<a href='" + key2url[key] + value + "' target=blank>" + value+ "</a>";
+                        value = "<a href='" + key2url[key] + url_value + "' target=blank>" + value + "</a>";
                     }
 
                     row = "<tr>" + "<td><b>" + pdb_keys[i] + "</b></td>" + "<td>" + value + "</td>" + "</tr>";

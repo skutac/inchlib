@@ -17,9 +17,15 @@ try:
     with open(os.path.join(settings.ROOT, "static/source_data/proteins_report.csv"), "r") as pdb_input:
         reader = csv.DictReader(pdb_input, delimiter=",")
         PDB2DATA = {p["PDB ID"]:p for p in reader}
+
+    with open(os.path.join(settings.ROOT, "static/source_data/proteins_go_names.csv"), "r") as go_names_input:
+        reader = csv.DictReader(go_names_input, delimiter=",")
+        GO2NAME = {g["go"]:g["name"] for g  in reader}
+
 except Exception, e:
     print str(e)
     PDB2DATA = {}
+    GO2NAME = {}
 
 
 def index(req):
@@ -155,9 +161,20 @@ d.export_dendrogram_as_json("filename")"""
 def get_pdb_file(req):
     keys = ["PDB ID","Chain ID","Structure Title","Resolution","Classification","Source","Biological Process","Cellular Component","Molecular Function","PubMed ID","Mesh Terms","DOI","Sequence","Chain Length"]
     pdb_id = req.GET["pdb_id"]
+    multiple = ["Biological Process", "Cellular Component", "Molecular Function"]
     pdb_data = {}
+
     if pdb_id in PDB2DATA:
         pdb_data = PDB2DATA[pdb_id]
+
+        for key in multiple:
+            if pdb_data[key]:
+                values = pdb_data[key].split("*")
+                go = values[1].strip(" \n")
+                pdb_data[key] = [go, GO2NAME[go]] 
+            else:
+                pdb_data[key] = ["", ""]
+
         
     pdb_data["pdb_file"] = fetch_pdb(pdb_id)
     return HttpResponse(json.dumps(pdb_data))

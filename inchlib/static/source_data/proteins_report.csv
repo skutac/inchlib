@@ -390,7 +390,7 @@
 151    ERLVQAEYWH  DPIREDIYRN  HSIFLADINQ  ERGVNESYKK  NLMALKKFVM
 201    VKFLNDTIVD  PVDSEWFGFY  RSGQAKETIP  LQESTLYTQD  RLGLKAMDKA
 251    GQLVFLALEG  DHLQLSEEWF  YAHIIPFLE",279
-"1EWF","A","The 1.7 angstrom crystal structure of BPI","ANTIBIOTIC","Homo sapiens"," * GO:0042742"," * GO:0005576
+"1EWF","A","The 1.7 angstrom crystal structure of BPI",1.7,"ANTIBIOTIC","Homo sapiens"," * GO:0042742"," * GO:0005576
  * GO:0016020",,10843855," * Amino Acid Sequence
  *  Antimicrobial Cationic Peptides
  *  Binding Sites
@@ -837,7 +837,7 @@
 551    LEDFTNPLYG  SYSNHVLYPV  ASMRHLELWV  GYYIRWNPRM  KPQEPIHNRY
 601    KELLAKRAEL  QKKVEELQRE  ISNRSTSSSE  RASSPAQCVT  PVQTVVAAAL
 651    EHHHHHH",657
-"1MCX","A","Structure of full-length annexin a1 in the presence of calcium","Sus scrofa",," * GO:0005634
+"1MCX","A","Structure of full-length annexin a1 in the presence of calcium",2.03,"METAL BINDING PROTEIN","Sus scrofa",," * GO:0005634
  * GO:0005737
  * GO:0005886
  * GO:0005929

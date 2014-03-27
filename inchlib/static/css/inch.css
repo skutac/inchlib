@@ -329,6 +329,12 @@ body{
 	margin-bottom: 50px;
 }
 
+#protein_citation{
+	padding-top: 10px;
+	font-size: 14px;
+	color: gray;
+}
+
 
 #protein, #protein_card{
 	margin-left: auto;
