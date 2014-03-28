@@ -86,10 +86,10 @@
 
         var target_element = $("#microarrays_dendrogram");
         var offset = target_element.offset();
-        var max_y = offset.top + 150;
+        var max_y = offset.top + 50;
         var x_pos = offset.left;
         var microarrays_element = $("#microarrays");
-        microarrays_element.css({"left": x_pos + target_element.width()-50});
+        microarrays_element.css({"left": x_pos + target_element.width()-50, "top": max_y});
 
         window.dendrogram = new InCHlib(
             {
@@ -109,8 +109,8 @@
                     dendrogram.highlight_rows(row_ids);
                 };
 
-        dendrogram.settings.dendrogram_node_onclick = function(row_ids, evt){
-                    draw_boxplot(row_ids, evt);
+        dendrogram.settings.dendrogram_node_onclick = function(row_ids, node_id){
+                    draw_boxplot(row_ids);
                     dendrogram.highlight_rows([]);
                 };
 
@@ -120,7 +120,7 @@
         draw_boxplot(["ILMN_1737074"]);
         dendrogram.highlight_rows(["ILMN_1737074"]);
 
-        function draw_boxplot(row_ids, evt){
+        function draw_boxplot(row_ids){
             var class2values = {"tumour":[], "normal":[]};
             var i, j, values, row_id, done_rows = {};
             var header = dendrogram.data.header;

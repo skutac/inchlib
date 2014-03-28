@@ -9,7 +9,7 @@
 <script src="{% static "source_data/whiskey2latlong.js" %}"></script>
 <script>
     $(document).ready(function(){
-
+        var current;
         var gmap = new GMaps({
                       div: '#map',
                       lat: 57.192933,
@@ -18,12 +18,33 @@
                     });
 
         window.dendrogram = new InCHlib({{ settings }});
+        dendrogram.settings.highlight_colors = "Reds";
+
         dendrogram.settings.row_onclick = function(ids){
             set_markers(ids);
+            current = ids[0];
+            dendrogram.unhighlight_cluster();
+            dendrogram.highlight_rows(ids);
         };
-        dendrogram.settings.dendrogram_node_onclick = function(ids){
+
+        dendrogram.settings.dendrogram_node_highlight = function(ids, node_id){
             set_markers(ids);
         };
+        dendrogram.settings.dendrogram_node_unhighlight = function(node_id){
+            set_markers([]);
+        };
+        
+        dendrogram.settings.dendrogram_node_onclick = function(object_ids){
+            var i;
+
+            for(i = 0; i<object_ids.length; i++){
+                if(object_ids[i] == current){
+                    return;
+                }
+            }
+            dendrogram.highlight_rows([]);
+        }
+
         dendrogram.read_data_from_file("{% static "data/"|add:example.data %}");
         dendrogram.draw();
 
@@ -39,6 +60,15 @@
             }
 
         }
+
+        $(document).click(function(evt){
+            if(evt.target.localName != "canvas"){
+                console.log(evt)
+                set_markers([]);
+                dendrogram.highlight_rows([]);
+                dendrogram.unhighlight_cluster();
+            }
+        });
 });
 </script>
 

@@ -18,6 +18,8 @@
         var mol_link = $("#molecule a");
         mol_element.css({"left": x_pos + target_element.width()-80});
 
+        var current;
+
         window.dendrogram = new InCHlib(
             {
                 target: "dendrogram",
@@ -67,16 +69,38 @@
             dendrogram.settings.row_onclick = function(ids, evt){
                 show_molecule(ids[0], evt);
                 fix_molecule(ids[0]);
+                current = ids[0];
                 dendrogram.highlight_rows(ids);
                 mol_element.css({"border-width": "2px"});
+                dendrogram.unhighlight_cluster();
             };
+
+            dendrogram.settings.dendrogram_node_onclick = function(object_ids){
+                var i;
+                hide_molecule();
+                bind_dendrogram_events();
+                
+                for(i = 0; i<object_ids.length; i++){
+                    if(object_ids[i] == current){
+                        return;
+                    }
+                }
+                dendrogram.highlight_rows([]);
+            }
+
+            dendrogram.settings.empty_space_onclick = function(){
+                hide_molecule();
+                dendrogram.highlight_rows([]);
+                bind_dendrogram_events();
+            }
         }
 
         $(document).click(function(evt){
-            if(evt.target.localName != "img"){
+            if(evt.target.localName != "img" && evt.target.localName != "canvas"){
                 hide_molecule();
-                dendrogram.highlight_rows([]);
-                bind_dendrogram_events();             
+                dendrogram.unhighlight_cluster();
+                dendrogram.highlight_rows([])
+                bind_dendrogram_events();
             }
         });
 
