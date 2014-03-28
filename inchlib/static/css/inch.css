@@ -430,3 +430,12 @@ body{
 	padding: 10px;
 	background-color: white;
 }
+
+.distillery_label{
+	font-weight: bold;
+	font-size: 12px;
+	border-radius: 5px;
+	padding: 5px;
+	background-color: salmon;
+	opacity: 1;
+}

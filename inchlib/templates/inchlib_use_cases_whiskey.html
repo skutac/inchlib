@@ -5,17 +5,25 @@
 <script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7c-andnzkallTdcWxCY1VvR4sFhrk5kw&sensor=false">
     </script>
-<script src="{% static "js/gmaps.js" %}"></script>
+<!-- <script src="{% static "js/gmaps.js" %}"></script> -->
+<script src="{% static "js/gmaps_markerwithlabel.js" %}"></script>
 <script src="{% static "source_data/whiskey2latlong.js" %}"></script>
 <script>
     $(document).ready(function(){
         var current;
-        var gmap = new GMaps({
-                      div: '#map',
-                      lat: 57.192933,
-                      lng: -4.236722,
-                      zoom: 6
-                    });
+        var markers = [];
+        // var gmap = new GMaps({
+        //               div: '#map',
+        //               lat: 57.192933,
+        //               lng: -4.236722,
+        //               zoom: 6
+        //             });
+        var lat_lng = new google.maps.LatLng(57.192933, -4.236722);
+        var gmap = new google.maps.Map(document.getElementById('map'), {
+           zoom: 6,
+           center: lat_lng,
+           mapTypeId: google.maps.MapTypeId.ROADMAP
+         });
 
         window.dendrogram = new InCHlib({{ settings }});
         dendrogram.settings.highlight_colors = "Reds";
@@ -54,15 +62,32 @@
         dendrogram.draw();
 
         function set_markers(ids){
-            var i;  
-            gmap.removeMarkers();
+            var i, marker;
+            remove_markers();
+
             for(i = 0; i<ids.length; i++){
-                gmap.addMarker({
-                    lat: whiskey2latlong[ids[i]][0],
-                    lng: whiskey2latlong[ids[i]][1],
-                    title: ids[i],
-                });
+                marker = new MarkerWithLabel({
+                   position: new google.maps.LatLng(whiskey2latlong[ids[i]][0], whiskey2latlong[ids[i]][1]),
+                   map: gmap,
+                   animation: google.maps.Animation.DROP,
+                   labelContent: ids[i],
+                   labelAnchor: new google.maps.Point(22, 0),
+                   labelClass: "distillery_label",
+                 }); 
+
+                markers.push(marker);
+
+                // google.maps.event.addListener(marker, 'click', toggleBounce);
             }
+        }
+
+        
+
+        function remove_markers() {
+          for (var i = 0; i < markers.length; i++ ) {
+            markers[i].setMap(null);
+          }
+          markers.length = 0;
         }
 
         $(document).click(function(evt){
@@ -72,6 +97,13 @@
                 dendrogram.unhighlight_cluster();
             }
         });
+
+        $("#map").click(function(){
+            return false;
+        });
+
+
+
 });
 </script>
 
