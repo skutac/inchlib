@@ -3,7 +3,6 @@
 {% block content %}
 {% load staticfiles %}
 <script src="{% static "js/highcharts.js" %}"></script>
-<!-- <script src="{% static "js/highcharts-more.js" %}"></script> -->
 
 <script>
     $(document).ready(function(){
@@ -60,36 +59,17 @@
                 data: [
                 ],
             }, 
-
-            // {
-            //     name: 'Outlier',
-            //     color: Highcharts.getOptions().colors[0],
-            //     type: 'scatter',
-            //     data: [ // x, y positions where 0 is the first category
-            //         [0, 644],
-            //         [4, 718],
-            //         [4, 951],
-            //         [4, 969]
-            //     ],
-            //     marker: {
-            //         fillColor: 'white',
-            //         lineWidth: 1,
-            //         lineColor: Highcharts.getOptions().colors[0]
-            //     },
-            //     tooltip: {
-            //         pointFormat: 'Observation: {point.y}'
-            //     }
-            // }
             ]
             
         });
 
         var target_element = $("#microarrays_dendrogram");
         var offset = target_element.offset();
-        var max_y = offset.top + 50;
+        var min_y = offset.top + 100;
         var x_pos = offset.left;
         var microarrays_element = $("#microarrays");
-        microarrays_element.css({"left": x_pos + target_element.width()-50, "top": max_y});
+        var current = null;
+        microarrays_element.css({"left": x_pos + target_element.width()-50, "top": min_y, "z-index": 100});
 
         window.dendrogram = new InCHlib(
             {
@@ -104,29 +84,55 @@
                 highlight_colors: "RdLrBu",
             });
 
-        dendrogram.settings.row_onclick = function(row_ids, evt){
-                    draw_boxplot(row_ids, evt);
-                    dendrogram.highlight_rows(row_ids);
-                };
+        dendrogram.settings.row_onclick = function(object_ids, evt){
+            current = object_ids[0];
+            draw_boxplot(object_ids, evt.pageY);
+            dendrogram.highlight_rows(object_ids);
+        };
 
-        dendrogram.settings.dendrogram_node_onclick = function(row_ids, node_id){
-                    draw_boxplot(row_ids);
-                    dendrogram.highlight_rows([]);
-                };
+        dendrogram.settings.dendrogram_node_onclick = function(object_ids, node_id, evt){
+            draw_boxplot(object_ids, evt.pageY);
+            var i;
+
+            for(i = 0; i<object_ids.length; i++){
+                if(object_ids[i] == current){
+                    return;
+                }
+            }
+
+            dendrogram.highlight_rows([]);
+        };
+
+        dendrogram.settings.on_zoom = function(node_id){
+            microarrays_element.css({"top": min_y});
+        };
+
+        dendrogram.settings.empty_space_onclick = function(){
+            dendrogram.highlight_rows([]);
+            microarrays_element.hide();
+        }
 
         dendrogram.read_data_from_file("{% static "data/microarrays.json" %}");
         dendrogram.draw();
 
-        draw_boxplot(["ILMN_1737074"]);
+        draw_boxplot(["ILMN_1737074"], min_y);
         dendrogram.highlight_rows(["ILMN_1737074"]);
 
-        function draw_boxplot(row_ids){
+        function draw_boxplot(object_ids, y){
+            microarrays_element.hide();
             var class2values = {"tumour":[], "normal":[]};
+            var max_y = min_y + target_element.height() - dendrogram.footer_height;
             var i, j, values, row_id, done_rows = {};
             var header = dendrogram.data.header;
+            var boxplot_height = 400;
+            console.log(max_y, y + boxplot_height, boxplot_height)
+            y = (y + boxplot_height > max_y)?max_y - boxplot_height:y-100;
+            y = (y < min_y)?min_y: y;
 
-            for(i=0; i<row_ids.length; i++){
-                row_id = dendrogram.objects2leaves[row_ids[i]];
+            microarrays_element.css({"top": y});
+
+            for(i=0; i<object_ids.length; i++){
+                row_id = dendrogram.objects2leaves[object_ids[i]];
                 
                 if(!(row_id in done_rows)){
                     values = dendrogram.data.nodes[row_id].features;
@@ -145,6 +151,7 @@
             var tumour = get_boxplot_parameters(class2values.tumour)
 
             boxplot.addSeries({data:[normal, tumour], name: "Average Signal"}, true);
+            microarrays_element.show();
         }
 
         function get_boxplot_parameters(array){
@@ -161,6 +168,14 @@
             var parameters = [min, lower_q, median, upper_q, max]
             return parameters;
         }
+
+        $(document).click(function(evt){
+            if(evt.target.localName != "canvas"){
+                microarrays_element.hide();
+                dendrogram.unhighlight_cluster();
+                dendrogram.highlight_rows([])
+            }
+        });
 
 });
 </script>

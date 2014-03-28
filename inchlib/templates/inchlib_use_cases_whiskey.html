@@ -21,10 +21,10 @@
         dendrogram.settings.highlight_colors = "Reds";
 
         dendrogram.settings.row_onclick = function(ids){
-            set_markers(ids);
             current = ids[0];
             dendrogram.unhighlight_cluster();
             dendrogram.highlight_rows(ids);
+            set_markers(ids);
         };
 
         dendrogram.settings.dendrogram_node_highlight = function(ids, node_id){
@@ -45,6 +45,11 @@
             dendrogram.highlight_rows([]);
         }
 
+        dendrogram.settings.empty_space_onclick = function(){
+            set_markers([]);
+            dendrogram.highlight_rows([]);
+        };
+
         dendrogram.read_data_from_file("{% static "data/"|add:example.data %}");
         dendrogram.draw();
 
@@ -58,12 +63,10 @@
                     title: ids[i],
                 });
             }
-
         }
 
         $(document).click(function(evt){
             if(evt.target.localName != "canvas"){
-                console.log(evt)
                 set_markers([]);
                 dendrogram.highlight_rows([]);
                 dendrogram.unhighlight_cluster();

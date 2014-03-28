@@ -422,13 +422,11 @@ body{
 	position: absolute;
 	width: 400px;
 	height: 300px;
-	margin-top: 100px;
 }
 
 #boxplot{
 	width: 90%;
 	border: solid #D2D2D2 1px;
 	padding: 10px;
-	z-index: 100;
 	background-color: white;
 }

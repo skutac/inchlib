@@ -51,6 +51,15 @@ function InCHlib(settings){
         "heatmap_onmouseout": function(evt){
             return;
         },
+        "on_zoom": function(node_id){
+            return;
+        },
+        "on_unzoom": function(node_id){
+            return;
+        },
+        "on_refresh": function(){
+            return;
+        },
         "empty_space_onclick": function(evt){
             return;
         }
@@ -650,7 +659,6 @@ InCHlib.prototype._draw_stage_layer = function(){
 
     this.stage_layer.on("click", function(evt){
         self.unhighlight_cluster();
-        self.highlight_rows([]);
         self.settings.empty_space_onclick(evt);
     });
 }
@@ -1218,7 +1226,7 @@ InCHlib.prototype._draw_navigation = function(){
         });
         self.navigation_layer.add(refresh_icon);
 
-        var back_icon = this.objects_ref.icon.clone({
+        var unzoom_icon = this.objects_ref.icon.clone({
             data: "M22.646,19.307c0.96-1.583,1.523-3.435,1.524-5.421C24.169,8.093,19.478,3.401,13.688,3.399C7.897,3.401,3.204,8.093,3.204,13.885c0,5.789,4.693,10.481,10.484,10.481c1.987,0,3.839-0.563,5.422-1.523l7.128,7.127l3.535-3.537L22.646,19.307zM13.688,20.369c-3.582-0.008-6.478-2.904-6.484-6.484c0.006-3.582,2.903-6.478,6.484-6.486c3.579,0.008,6.478,2.904,6.484,6.486C20.165,17.465,17.267,20.361,13.688,20.369zM8.854,11.884v4.001l9.665-0.001v-3.999L8.854,11.884z",
             x: 90,
             y: 10,
@@ -1228,20 +1236,20 @@ InCHlib.prototype._draw_navigation = function(){
         var refresh_overlay = self._draw_icon_overlay(50, 10);
         var back_overlay = self._draw_icon_overlay(90, 10);
 
-        self.navigation_layer.add(back_icon);
+        self.navigation_layer.add(unzoom_icon);
         self.navigation_layer.add(refresh_overlay);
         self.navigation_layer.add(back_overlay);
 
         back_overlay.on("click", function(){
-            self._back_icon_click(this);
+            self._unzoom_icon_click(this);
         });
 
         back_overlay.on("mouseover", function(){
-            self._icon_mouseover(back_icon, back_overlay, self.navigation_layer);
+            self._icon_mouseover(unzoom_icon, back_overlay, self.navigation_layer);
         });
 
         back_overlay.on("mouseout", function(){
-            self._icon_mouseout(back_icon, back_overlay, self.navigation_layer);
+            self._icon_mouseout(unzoom_icon, back_overlay, self.navigation_layer);
         });
 
         refresh_overlay.on("click", function(){
@@ -1517,6 +1525,8 @@ InCHlib.prototype._zoom_cluster = function(node_id){
         this._draw_heatmap();
         this._draw_heatmap_header();
         this.highlight_rows(this.settings.highlighted_rows);
+
+        this.settings.on_zoom(node_id);
     }
     else{
         return false;
@@ -1855,9 +1865,10 @@ InCHlib.prototype._refresh_icon_click = function(){
     this._draw_heatmap();
     this._draw_heatmap_header();
     this.highlight_rows(this.settings.highlighted_rows);
+    this.settings.on_refresh();
 }
 
-InCHlib.prototype._back_icon_click = function(){
+InCHlib.prototype._unzoom_icon_click = function(){
     var current_node_id = this.zoomed_clusters[this.zoomed_clusters.length-1];
     this.zoomed_clusters.pop();
 
@@ -1870,6 +1881,7 @@ InCHlib.prototype._back_icon_click = function(){
         this._refresh_icon_click();
     }
     this.highlight_cluster(current_node_id);
+    this.settings.on_unzoom();
 };
 
 InCHlib.prototype._icon_mouseover = function(icon, icon_overlay, layer){

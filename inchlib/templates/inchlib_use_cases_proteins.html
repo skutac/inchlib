@@ -15,6 +15,7 @@
 
         var protein_card = $("#protein_card");
         var protein_div = $("#protein_div");
+        var protein_canvas;
         protein_div.css({"left": x_pos + target_element.width()-40, "top": max_y});
         var overflow_div = $("#overflow_div");
 
@@ -40,7 +41,7 @@
         };
 
         function get_protein_from_pdb(id){
-            var protein_canvas = $("#protein > canvas");
+            protein_canvas = $("#protein > canvas");
             loading.fadeIn();
             protein_canvas.hide();
             protein_card.hide();
@@ -100,6 +101,15 @@
 
             protein_card.html(table);
         }
+
+        $(document).click(function(evt){
+            if(evt.target.localName != "canvas"){
+                protein_canvas.hide();
+                protein_card.hide();
+                dendrogram.unhighlight_cluster();
+                dendrogram.highlight_rows([])
+            }
+        });
 
     });
 </script>
