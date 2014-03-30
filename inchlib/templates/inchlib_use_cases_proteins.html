@@ -2,10 +2,27 @@
 
 {% block content %}
 {% load staticfiles %}
-<script src="{% static "js/glmol/Three49custom.js" %}"></script>
-<script src="{% static "js/glmol/GLmol.js" %}"></script>
+<!-- <script src="{% static "js/glmol/Three49custom.js" %}"></script> -->
+<!-- <script src="{% static "js/glmol/GLmol.js" %}"></script> -->
 <script>
     $(document).ready(function(){
+        var canvas = !! window.CanvasRenderingContext2D;
+        var webgl = ( function () { try { return !! window.WebGLRenderingContext && !! document.createElement( 'canvas' ).getContext( 'experimental-webgl' ); } catch( e ) { return false; } } )();
+
+        if(webgl){
+            $.ajax({
+              url: "{% static "js/glmol/Three49custom.js" %}",
+              dataType: "script",
+              async: false,
+              success: function(data){
+                console.log("ok");
+              }
+            });
+        }
+        else{
+            console.log("not ok")
+        }
+
         var target_element = $("#protein_dendrogram");
         var offset = target_element.offset();
         var max_y = offset.top + 150;
