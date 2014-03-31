@@ -345,15 +345,29 @@ body{
 	display: none;
 }
 
+#protein_img{
+	background-image: url(../img/protein.png);
+	background-repeat: no-repeat;
+    height: 300px;
+    text-align: center;
+    padding-top: 40px;
+    font-weight: bold;  
+    line-height: 1.5  
+}
+
+#protein_img > div{
+	margin-top: 20px;
+}
+
 #overflow_div{
 	height: 50px;
 }
 
-#loading{
+#loading, #loading_2{
 	display: none;
 }
 
-#loading > img{
+#loading > img, #loading_2 > img{
 	height: 200px;
 	margin-top: 50px;
 	margin-left: auto;

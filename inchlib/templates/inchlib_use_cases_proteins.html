@@ -5,24 +5,12 @@
 
 <script>
     $(document).ready(function(){
-            var current_protein = "1PO5";
-            var initial_pdb = current_protein;
-
-            $.getScript( "{% static "js/glmol/GLmol.js" %}")
-                .done(function( data, textStatus, jqxhr ) {
-                  window.glmol = new GLmol('protein', true);
-                  get_protein_from_pdb(initial_pdb);
-                })
-                .fail(function(){
-                    console.log("not ok");
-                });
-
-        // var glmol = new GLmol('protein', true);
+        var current_protein = "1PO5";
+        var initial_pdb = current_protein;
         var target_element = $("#protein_dendrogram");
         var offset = target_element.offset();
         var max_y = offset.top + 150;
         var x_pos = offset.left;
-        //PDB ID,Chain ID,Structure Title,Resolution,Classification,Source,Biological Process,Cellular Component,Molecular Function,PubMed ID,Mesh Terms,DOI,Sequence,Chain Length
         var pdb_keys = ["PDB ID", "Structure Title", "Chain Length", "Resolution", "Classification", "Biological Process", "Cellular Component", "Molecular Function", "PubMed ID", "DOI"];
 
         var protein_card = $("#protein_card");
@@ -30,7 +18,20 @@
         var protein_canvas;
         protein_div.css({"left": x_pos + target_element.width()-40, "top": max_y});
         var overflow_div = $("#overflow_div");
+        var webgl = true;
         var loading = $('#loading');
+
+        $.getScript("{% static "js/glmol/Gmol.js" %}")
+            .done(function( data, textStatus, jqxhr ) {
+              window.glmol = new GLmol('protein', true);
+              get_protein_from_pdb(initial_pdb);
+            })
+            .fail(function(){
+                var protein_img = $("<div id='protein_img'>Your browser does not support <b>WebGL</b>.<div>To see a 3D model of a selected protein try to use different browser (we would recommend <i>Google Chrome</i>).</div></div><div id='loading_2'></div>");
+                $("#protein").html(protein_img);
+                webgl = false;
+                get_protein_from_pdb(initial_pdb);
+            });
 
         window.dendrogram = new InCHlib({{ settings }});
         dendrogram.read_data_from_file("{% static "data/"|add:example.data %}");
@@ -48,9 +49,11 @@
         };
 
         function get_protein_from_pdb(id){
-            protein_canvas = $("#protein > canvas");
-            loading.fadeIn();
-            protein_canvas.hide();
+            if(webgl){
+                protein_canvas = $("#protein > canvas");
+                protein_canvas.hide();
+                loading.fadeIn();
+            }
             protein_card.hide();
             $.ajax({
                 type: 'GET',
@@ -58,11 +61,13 @@
                 url: "{% url get_pdb_file %}",
                 data:{pdb_id: id},
                 success: function(pdb){
-                    $("#protein_src").val(pdb.pdb_file);
-                    glmol.loadMolecule();
-                    loading.hide();
+                    if(webgl){
+                        $("#protein_src").val(pdb.pdb_file);
+                        glmol.loadMolecule();
+                        loading.hide();
+                        protein_canvas.fadeIn();
+                    }
                     create_pdb_card(pdb);
-                    protein_canvas.fadeIn();
                     protein_card.fadeIn();
                 },
             });
@@ -164,7 +169,6 @@
             <img src="{% static "img/loading.gif" %}"/>
         </div>
     </div>
-
     <div id="protein_card"></div>
     <div id="overflow_div"></div>
 </div>
