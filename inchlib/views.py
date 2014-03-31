@@ -161,6 +161,7 @@ d.export_cluster_heatmap_as_json("filename")"""
 def get_pdb_file(req):
     keys = ["PDB ID","Chain ID","Structure Title","Resolution","Classification","Source","Biological Process","Cellular Component","Molecular Function","PubMed ID","Mesh Terms","DOI","Sequence","Chain Length"]
     pdb_id = req.GET["pdb_id"]
+    webgl = True if str(req.GET["webgl"]) == "true" else False
     multiple = ["Biological Process", "Cellular Component", "Molecular Function"]
     pdb_data = {}
 
@@ -175,8 +176,9 @@ def get_pdb_file(req):
             else:
                 pdb_data[key] = ["", ""]
 
+    if webgl:
+        pdb_data["pdb_file"] = fetch_pdb(pdb_id)
         
-    pdb_data["pdb_file"] = fetch_pdb(pdb_id)
     return HttpResponse(json.dumps(pdb_data))
 
 def fetch_pdb(id):

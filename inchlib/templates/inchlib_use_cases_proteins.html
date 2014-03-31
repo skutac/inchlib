@@ -21,17 +21,23 @@
         var webgl = true;
         var loading = $('#loading');
 
-        $.getScript("{% static "js/glmol/GLmol.js" %}")
-            .done(function( data, textStatus, jqxhr ) {
+        var canvas = !! window.CanvasRenderingContext2D;
+        var webgl_check = ( function () { try { return !! window.WebGLRenderingContext && !! document.createElement( 'canvas' ).getContext( 'experimental-webgl' ); } catch( e ) { return false; } } )();
+
+        if(webgl_check){
+            $.getScript("{% static "js/glmol/GLmol.js" %}")
+            .success(function( data, textStatus, jqxhr ) {
               window.glmol = new GLmol('protein', true);
               get_protein_from_pdb(initial_pdb);
             })
-            .fail(function(){
-                var protein_img = $("<div id='protein_img'>Your browser does not support <b>WebGL</b>.<div>To see a 3D model of a selected protein try to use different browser (we would recommend <i>Google Chrome</i>).</div></div><div id='loading_2'></div>");
-                $("#protein").html(protein_img);
-                webgl = false;
-                get_protein_from_pdb(initial_pdb);
-            });
+        }
+        else{
+            var protein_img = $("<div id='protein_img'>Your browser does not support <b>WebGL</b>.<div>To see a 3D model of a selected protein try to use different browser (we would recommend <i>Google Chrome</i>).</div></div><div id='loading_2'></div>");
+            $("#protein").html(protein_img);
+            webgl = false;
+            get_protein_from_pdb(initial_pdb);
+
+        }
 
         window.dendrogram = new InCHlib({{ settings }});
         dendrogram.read_data_from_file("{% static "data/"|add:example.data %}");
@@ -45,6 +51,7 @@
                 current_protein = ids[0];
                 get_protein_from_pdb(ids[0]);
                 dendrogram.highlight_rows(ids);
+                dendrogram.unhighlight_cluster();
             }
         };
 
@@ -59,7 +66,7 @@
                 type: 'GET',
                 dataType: "json",
                 url: "{% url get_pdb_file %}",
-                data:{pdb_id: id},
+                data:{pdb_id: id, webgl: webgl},
                 success: function(pdb){
                     if(webgl){
                         $("#protein_src").val(pdb.pdb_file);
@@ -97,16 +104,23 @@
                     value = pdb[key][1];
                     url_value = pdb[key][0];
                 }
+                else if(key == "Chain Length"){
+                    value = value + " residues";
+                }
 
                 if(value != ""){
                     if(key == "PubMed ID"){
                         table.append("<tr><td colspan='2' id='protein_citation'><b>Primary citation</b></td></tr>")
                     }
+                    else if(key == "Resolution"){
+                        key = "Resolution&nbsp;[Å]";
+                    }
+                    
                     if(key in key2url){
                         value = "<a href='" + key2url[key] + url_value + "' target=blank>" + value + "</a>";
                     }
 
-                    row = "<tr>" + "<td><b>" + pdb_keys[i] + "</b></td>" + "<td>" + value + "</td>" + "</tr>";
+                    row = "<tr>" + "<td><b>" + key + "</b></td>" + "<td>" + value + "</td>" + "</tr>";
                     table.append(row);
                 }
             }
@@ -141,12 +155,10 @@
 
 
 <div class="description">
-<p>Proteins are large biomolecules playing key role in the structure and functioning of living organisms. They are composed of one or more chains consisting of amino acid residues. The amino acid sequence identity in a chain is often used in phylogenetics to classify the evolutionary relationships between homologous proteins (genes) represented in the genomes of divergent species. The difference of sequences is qualitatively related to the evolutionary distance from one to another.
+<p>The displayed data set consists of of 139 proteins, each characterized by percentage of its 20 amino acid. Protein structures were obtained from the <a href="http://www.rcsb.org/pdb/home/home.do" target="blank">Protein Data Bank (PDB)</a>. We selected non-redundant (maximum sequence identity of 70%) eukaryotic membrane proteins resolved by X-ray crystallography. Each protein has one chain long at least 100 residues.
 </p>
 
-<p>The data consist of the amino acid percentage composition of a set of 139 proteins exported from the <a href="http://www.rcsb.org/pdb/home/home.do" target="blank">Protein Data Bank (PDB)</a>. The set is composed from the representatives of eukaryotic membrane proteins with maximum identity 70% and exactly one chain at least 100 residuals long.</p>
-
-<p>The data were clustered using <i>Euclidean</i> distance and <i>Ward's</i> linkage.</p>
+<p>The data were clustered using <i>Euclidean</i> distance and <i>Ward's</i> linkage. Protein 3D structure is rendered by the <a href="http://webglmol.sourceforge.jp/index-en.html" target="blank">GLmol</a> molecular viewer. PDB file of each structure is  downloaded directly from the PDB server, and it can take up to 20 seconds.</p>
 
 <div class="small_title">Data set information</div>
 <ul>
