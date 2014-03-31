@@ -9295,7 +9295,7 @@
             }
         }, 
         "feature_names": [
-            " LogP", 
+            " logP", 
             " SMR", 
             " TPSA", 
             " Molecular Weight", 

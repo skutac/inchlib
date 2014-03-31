@@ -1,4 +1,4 @@
-"chembl_id"," LogP"," SMR"," TPSA"," Molecular Weight"," Rotatable Bonds"," H-Bond Donors"," H-Bond Acceptors"," Aromatic Rings"
+"chembl_id"," logP"," SMR"," TPSA"," Molecular Weight"," Rotatable Bonds"," H-Bond Donors"," H-Bond Acceptors"," Aromatic Rings"
 "CHEMBL7781",7.0921,115.7885,41.49,445.044418692,2,2,3,2
 "CHEMBL273658",6.3296,108.0885,41.49,367.133906624,2,2,3,2
 "CHEMBL415309",6.6222,118.0567,30.49,373.204179104,4,1,3,2

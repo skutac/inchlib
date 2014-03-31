@@ -62,6 +62,8 @@ def use_cases(req, exampleid):
         template = "inchlib_use_cases_chemical_biology.html"
     elif exampleid == "12":
         template = "inchlib_use_cases_microarrays.html"
+    elif exampleid == "18":
+        template = "inchlib_examples_summary.html"
     
     return render_to_response(template, {"examples":examples, "example": example, "settings": settings})
 
@@ -178,7 +180,7 @@ def get_pdb_file(req):
 
     if webgl:
         pdb_data["pdb_file"] = fetch_pdb(pdb_id)
-        
+
     return HttpResponse(json.dumps(pdb_data))
 
 def fetch_pdb(id):

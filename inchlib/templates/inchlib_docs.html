@@ -60,6 +60,9 @@
         <li><a href="#read_data_from_file">read_data_from_file</a></li>
         <li><a href="#draw">draw</a></li>
         <li><a href="#highlight_rows">highlight_rows</a></li>
+        <li><a href="#unhighlight_rows">unhighlight_rows</a></li>
+        <li><a href="#highlight_cluster">highlight_cluster</a></li>
+        <li><a href="#highlight_cluster">unhighlight_cluster</a></li>
     	<li class="pure-menu-heading"><b>Attributes</b></li>
         {% for a in attributes %}
         	<li><a href="#{{ a.name }}">{{ a.name }}</a></li>
@@ -79,10 +82,10 @@
 	<div class="title">Functions</div>
 		<div class="doc">
 			<div class="small_title" id="read_data">read_data()</div>
-			<div class="description">read data</div>
+			<div class="description">read data in a JSON format</div>
 			<div class="default">
 				<div class="subtitle">Example:</div>
-				<div class="default_value">inchlib_instance.read_data_from_file(json_data)</div>
+				<div class="default_value">inchlib_instance.read_data(json_data)</div>
 			</div>
 		</div>
 		<div class="doc">
@@ -107,6 +110,32 @@
 			<div class="default">
 				<div class="subtitle">Example:</div>
 				<div class="default_value">inchlib_instance.highlight_rows(["row_id_1", "row_id_2", "row_id_3"])</div>
+			</div>
+		</div>
+		<div class="doc">
+			<div class="small_title" id="unhighlight_rows">unhighlight_rows()</div>
+			<div class="description">unhighlight highlighted rows</div>
+			<div class="default">
+				<div class="subtitle">Example:</div>
+				<div class="default_value">inchlib_instance.unhighlight_rows()</div>
+			</div>
+		</div>
+
+		<div class="doc">
+			<div class="small_title" id="highlight_cluster">highlight_cluster()</div>
+			<div class="description">highlight cluster (dendrogram node) specified by node ID</div>
+			<div class="default">
+				<div class="subtitle">Example:</div>
+				<div class="default_value">inchlib_instance.highlight_cluster("node_id_1")</div>
+			</div>
+		</div>
+
+		<div class="doc">
+			<div class="small_title" id="unhighlight_cluster">unhighlight_cluster()</div>
+			<div class="description">unhighlight current highlighted cluster (dendrogram node)</div>
+			<div class="default">
+				<div class="subtitle">Example:</div>
+				<div class="default_value">inchlib_instance.unhighlight_cluster()</div>
 			</div>
 		</div>
 

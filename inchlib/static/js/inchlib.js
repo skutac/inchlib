@@ -1322,6 +1322,11 @@ InCHlib.prototype._highlight_path = function(path_id){
      }
  }
 
+ InCHlib.prototype.unhighlight_rows = function(){
+    this.highlight_rows([]);
+    return;
+ }
+
  InCHlib.prototype.highlight_rows = function(row_ids, action){
     var i, row, row_id;
 

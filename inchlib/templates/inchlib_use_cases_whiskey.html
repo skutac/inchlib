@@ -5,19 +5,13 @@
 <script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7c-andnzkallTdcWxCY1VvR4sFhrk5kw&sensor=false">
     </script>
-<!-- <script src="{% static "js/gmaps.js" %}"></script> -->
+
 <script src="{% static "js/gmaps_markerwithlabel.js" %}"></script>
 <script src="{% static "source_data/whiskey2latlong.js" %}"></script>
 <script>
     $(document).ready(function(){
         var current;
         var markers = [];
-        // var gmap = new GMaps({
-        //               div: '#map',
-        //               lat: 57.192933,
-        //               lng: -4.236722,
-        //               zoom: 6
-        //             });
         var lat_lng = new google.maps.LatLng(57.192933, -4.236722);
         var gmap = new google.maps.Map(document.getElementById('map'), {
            zoom: 6,
@@ -76,8 +70,6 @@
                  }); 
 
                 markers.push(marker);
-
-                // google.maps.event.addListener(marker, 'click', toggleBounce);
             }
         }
 
@@ -121,9 +113,11 @@
 <hr/>
 
 <div class="description">
-<p>This data consist of scores for 86 single malt scotch whiskies in 12 different taste categories. The categories are scored on the scale between 0-4. The evaluated taste categories are: <i>Body, Sweetness, Smoky, Medicinal, Tobacco, Honey, Spicy, Winey, Nutty, Malty, Fruity, Floral.</i></p>
+<p>This example demonstrates the versatility of <b>InCHlib</b>. Data do not originate from a  biomedical domain, and <b>InCHlib</b> is integrated with the Google map service. Map services are commonly used for data visualization in disciplines, such as population geography or linguistics.</p>
 
-<p>The data were clustered using <i>Euclidean</i> distance and <i>Ward's</i> linkage.</p>
+<p>The displayed data set consists of 12 taste categories (scored between 0 and 4) for 86 single malt scotch whiskies. The whisky was judged by the following taste categories: <i>Body, Sweetness, Smoky, Medicinal, Tobacco, Honey, Spicy, Winey, Nutty, Malty, Fruity, Floral</i>.</p>
+
+<p>The data were clustered using Euclidean distance and Ward's linkage. The map is provided by Google Maps and manipulated using <a href="https://developers.google.com/maps/" target=blank>Google Maps API</a>.</p>
 
 <div class="small_title">Data set information</div>
 <ul>
@@ -134,12 +128,8 @@
 
 <div class="small_title">Source: <a href='https://www.mathstat.strath.ac.uk/outreach/nessie/nessie_whisky.html' target=blank>Classification of whiskies</a></div>
 
-<!-- <div class="citation">Forina, M. et al, PARVUS - An Extendible Package for Data Exploration, Classification and Correlation. Institute of Pharmaceutical and Food Analysis and Technologies, Via Brigata Salerno, 16147 Genoa, Italy.</div> -->
-
-<p>On click on the heatmap row or the dendrogram node the whisky distilleries are marked in the map according to their latitude and longitude coordinates.</p>
+<p>When the heatmap row is clicked, the position of the distillery is shown in the map. Similarly, when the cluster is selected, the positions of all distilleries are labeled.</p>
 </div>
-
-
 
 <div class="overflow">
     <div class="float_right">

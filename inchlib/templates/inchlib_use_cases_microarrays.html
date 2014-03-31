@@ -88,6 +88,7 @@
             current = object_ids[0];
             draw_boxplot(object_ids, evt.pageY);
             dendrogram.highlight_rows(object_ids);
+            dendrogram.unhighlight_cluster();
         };
 
         dendrogram.settings.dendrogram_node_onclick = function(object_ids, node_id, evt){
@@ -125,7 +126,7 @@
             var i, j, values, row_id, done_rows = {};
             var header = dendrogram.data.header;
             var boxplot_height = 400;
-            console.log(max_y, y + boxplot_height, boxplot_height)
+            
             y = (y + boxplot_height > max_y)?max_y - boxplot_height:y-100;
             y = (y < min_y)?min_y: y;
 
@@ -195,16 +196,16 @@
 
 
 <div class="description">
-<p>DNA microarrays (DNA chip) is a tool which enables to simultaneously measure the expression levels of large numbers of genes. The differences in gene expressions (regulatory motifs) helps to discover the unique features common for various types of tested samples (e.g., malignant, benign, normal tissues).</p>
+<p>DNA microarrays enable to simultaneously measure the expression level of large  number of genes. Differences in gene expression help, for example, to investigate unique features present in healthy and cancer cells.</p>
 
-<p>The data set consist of 48 803 genes (compressed to 500) found on a microarray chip where expressions for 52 tumour/normal samples were measured.</p>
+<p>TThe displayed data set consists of the expression levels of 48,803 genes measured for 52 tumour and normal samples.</p>
 
-<p>The data were clustered using <i>Euclidean</i> distance and <i>complete</i> linkage. After the clustering the data were compressed from original 48 803 to 500 resulted data points. Rows found under the compression threshold were merged to a single row with a median value of original rows. </p>
+<p>The data were clustered using <i>Euclidean</i> distance and <i>complete</i> linkage. After clustering, the data were compressed from original 48,803 to 500 data points characterized by the medians of original values. The boxplot was created using <a href="http://www.highcharts.com/" target=blank>Highcharts JS library</a>.</p>
 
 <div class="small_title">Data set information</div>
 <ul>
-<li>instances: 500 genes (compressed from original 48 803)</li>
-<li>features: 52 samples of carcinoma tissue (26) and normal mucosae (26)</li>
+<li>instances: 500 genes (compressed from original 48,803 genes)</li>
+<li>features: 52 samples of carcinoma (26) and normal (26) tissues</li>
 </ul>
 
 
@@ -212,7 +213,7 @@
 
 <div class="citation"><a href="http://dx.doi.org/10.1111/boc.201200018" target="blank">Upregulation of IL-6, IL-8 and CXCL-1 production in dermal fibroblasts by normal/malignant epithelial cells in vitro: Immunohistochemical and transcriptomic analyses.</a> Kolář M, Szabo P, Dvořánková B, Lacina L, Gabius HJ, Strnad H, Sáchová J, Vlček C, Plzák J, Chovanec M, Cada Z, Betka J, Fík Z, Pačes J, Kovářová H, Motlík J, Jarkovská K, Smetana K Jr . Biology of the Cell 104(12):738-751 (2012), <a href="http://europepmc.org/abstract/MED/23043537" target="blank">Europe PMC 23043537</a></div>
 
-<p>On click on the heatmap row or the dendrogram node the boxplot of values for individual classes (tumour/normal) is displayed next to the heatmap.</p>
+<p>When the heatmap row is clicked, a boxplot showing expression level distribution in tumour and normal classes is displayed. When the cluster is selected, the boxplot displays value distribution over all genes present in the cluster.</p>
 
 </div>
 

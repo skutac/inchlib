@@ -32,7 +32,7 @@
             })
         }
         else{
-            var protein_img = $("<div id='protein_img'>Your browser does not support <b>WebGL</b> or the WebGL technology is disabled in your browser settings.<div>To see a 3D model of a selected protein enable WebGL or try to use different browser (we would recommend <i>Google Chrome</i>).</div></div>");
+            var protein_img = $("<div id='protein_img'>Your browser does not support WebGL or WebGL is disabled in your browser settings.<div>To see the 3D model of the selected protein, enable WebGL or use browser with WebGL support. For best user experience, we recommend <a href='https://www.google.com/intl/cs/chrome/browser/' target=blank>Google Chrome</a>.</div></div>");
             $("#protein").html(protein_img);
             webgl = false;
             get_protein_from_pdb(initial_pdb);
@@ -40,6 +40,7 @@
         }
 
         window.dendrogram = new InCHlib({{ settings }});
+        dendrogram.settings.max_height = 1100;
         dendrogram.read_data_from_file("{% static "data/"|add:example.data %}");
         dendrogram.draw();
 
@@ -158,18 +159,18 @@
 <p>The displayed data set consists of of 139 proteins, each characterized by percentage of its 20 amino acid. Protein structures were obtained from the <a href="http://www.rcsb.org/pdb/home/home.do" target="blank">Protein Data Bank (PDB)</a>. We selected non-redundant (maximum sequence identity of 70%) eukaryotic membrane proteins resolved by X-ray crystallography. Each protein has one chain long at least 100 residues.
 </p>
 
-<p>The data were clustered using <i>Euclidean</i> distance and <i>Ward's</i> linkage. Protein 3D structure is rendered by the <a href="http://webglmol.sourceforge.jp/index-en.html" target="blank">GLmol</a> molecular viewer. PDB file of each structure is  downloaded directly from the PDB server, and it can take up to 20 seconds.</p>
+<p>The data were clustered using <i>Euclidean</i> distance and <i>Ward's</i> linkage. Protein 3D structure is rendered by the <a href="http://webglmol.sourceforge.jp/index-en.html" target="blank">GLmol</a> molecular viewer. PDB file of each structure is  downloaded directly from the <a href="http://www.rcsb.org/pdb/home/home.do" target="blank">PDB server</a>, and it can take up to 20 seconds.</p>
 
 <div class="small_title">Data set information</div>
 <ul>
 <li>instances: 139 eukaryotic membrane proteins</li>
-<li>features: the percentage of 20 amino acids from which the proteins are composed</li>
+<li>features: percentage of 20 amino acids</li>
 </ul>
 
 
 <div class="small_title">Source: <a href="http://www.rcsb.org/pdb/home/home.do" target="blank">Protein Data Bank (PDB)</a></div>
 
-<p>After the click on the heatmap row the pdb file is dynamically fetched from PDB and the 3D model of protein is displayed next to the heatmap. Under the protein model there are also information about the protein: <i>PDB ID, Structure Title, Chain Length, Resolution, Classification, Biological Process, Cellular Component, Molecular Function, PubMed ID, DOI</i>.</p>
+<p>When the heatmap row is clicked, a corresponding pdb file is dynamically fetched from the PDB database, and the protein 3D model is displayed. Various information linked to external databases are summarized below protein visualization.</p>
 
 </div>
 
