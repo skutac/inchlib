@@ -32,7 +32,7 @@
             })
         }
         else{
-            var protein_img = $("<div id='protein_img'>Your browser does not support <b>WebGL</b>.<div>To see a 3D model of a selected protein try to use different browser (we would recommend <i>Google Chrome</i>).</div></div><div id='loading_2'></div>");
+            var protein_img = $("<div id='protein_img'>Your browser does not support <b>WebGL</b> or the WebGL technology is disabled in your browser settings.<div>To see a 3D model of a selected protein enable WebGL or try to use different browser (we would recommend <i>Google Chrome</i>).</div></div>");
             $("#protein").html(protein_img);
             webgl = false;
             get_protein_from_pdb(initial_pdb);
