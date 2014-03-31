@@ -21,7 +21,7 @@
         var webgl = true;
         var loading = $('#loading');
 
-        $.getScript("{% static "js/glmol/Gmol.js" %}")
+        $.getScript("{% static "js/glmol/GLmol.js" %}")
             .done(function( data, textStatus, jqxhr ) {
               window.glmol = new GLmol('protein', true);
               get_protein_from_pdb(initial_pdb);
