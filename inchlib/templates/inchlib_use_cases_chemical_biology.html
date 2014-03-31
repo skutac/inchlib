@@ -32,7 +32,7 @@
                 highlight_colors: "PuOr"
             });
 
-        dendrogram.read_data_from_file("{% static "data/chembl_gr.json" %}");
+        dendrogram.read_data_from_file("{% static "data/chembl_gr_normalized.json" %}");
         dendrogram.draw();
         bind_dendrogram_events();
 
