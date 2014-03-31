@@ -2,27 +2,22 @@
 
 {% block content %}
 {% load staticfiles %}
-<!-- <script src="{% static "js/glmol/Three49custom.js" %}"></script> -->
-<!-- <script src="{% static "js/glmol/GLmol.js" %}"></script> -->
+
 <script>
     $(document).ready(function(){
-        var canvas = !! window.CanvasRenderingContext2D;
-        var webgl = ( function () { try { return !! window.WebGLRenderingContext && !! document.createElement( 'canvas' ).getContext( 'experimental-webgl' ); } catch( e ) { return false; } } )();
+            var current_protein = "1PO5";
+            var initial_pdb = current_protein;
 
-        if(webgl){
-            $.ajax({
-              url: "{% static "js/glmol/Three49custom.js" %}",
-              dataType: "script",
-              async: false,
-              success: function(data){
-                console.log("ok");
-              }
-            });
-        }
-        else{
-            console.log("not ok")
-        }
+            $.getScript( "{% static "js/glmol/GLmol.js" %}")
+                .done(function( data, textStatus, jqxhr ) {
+                  window.glmol = new GLmol('protein', true);
+                  get_protein_from_pdb(initial_pdb);
+                })
+                .fail(function(){
+                    console.log("not ok");
+                });
 
+        // var glmol = new GLmol('protein', true);
         var target_element = $("#protein_dendrogram");
         var offset = target_element.offset();
         var max_y = offset.top + 150;
@@ -35,18 +30,13 @@
         var protein_canvas;
         protein_div.css({"left": x_pos + target_element.width()-40, "top": max_y});
         var overflow_div = $("#overflow_div");
-
-        var glmol = new GLmol('protein', true);
         var loading = $('#loading');
-        var current_protein = "1PO5";
-        var initial_pdb = current_protein;
 
         window.dendrogram = new InCHlib({{ settings }});
         dendrogram.read_data_from_file("{% static "data/"|add:example.data %}");
         dendrogram.draw();
 
         dendrogram.highlight_rows([initial_pdb]);
-        get_protein_from_pdb(initial_pdb)
 
         dendrogram.settings.highlight_
         dendrogram.settings.row_onclick = function(ids){
