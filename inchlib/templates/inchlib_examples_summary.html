@@ -2,104 +2,102 @@
 
 {% block content %}
 {% load staticfiles %}
-<script>
-	var settings = {{ settings }};
-
-	$(document).ready(function(){
-		var settings_string = "{}", i, val;
-
-		if(!($.isEmptyObject(settings))){
-			settings_string = "{\n";
-			settings_string = settings_string + '  <a href="../docs#target" target=blank>target</a>: "dendrogram",\n';
-			
-			for(i in settings){
-				if(i != "target"){
-					val = (typeof(settings[i]) == "string")? '"'+settings[i]+'"': settings[i];
-					if(i == "highlighted_rows"){
-						val = "[" + val + "]";
-					}
-					else if(i == "row_onclick"||i=="dendrogram_node_onclick"){
-						val = settings[i];
-					}
-					settings_string = settings_string + "  <a href='../docs#" + i +"' target=blank>" + i + "</a>" + ": " + val + ",\n";
-				}
-			}
-			settings_string = settings_string + "}"
-		}
-		
-		$("#example .settings").html(settings_string);
-		$("#example_data_link").attr("href", "{% static "data/"|add:example.data %}");
-
-		window.dendrogram = new InCHlib({{ settings }});
-		dendrogram.settings.font = "Ubuntu";
-		dendrogram.read_data_from_file("{% static "data/"|add:example.data %}");
-		dendrogram.draw();
-
-		{% if example.exampleid == 9 %}
-			dendrogram.settings.row_onclick = function(object_ids, evt){$("#object_ids").text(object_ids);};
-			dendrogram.settings.dendrogram_node_onclick = function(object_ids, evt){$("#object_ids").text(object_ids);};
-		{% endif %}
-	});
-
-
-</script>
 
 <div id="examples_menu" class="pure-menu pure-menu-open">
     <a class="pure-menu-heading"><b>Examples</b></a>
     
     <ul>
         {% for e in examples %}
-        	{% if e.exampleid == example.exampleid %}
-        		<li class="pure-menu-selected"><a href="{% url examples e.exampleid %}">{{ e.title }}</a></li>
-        	{% else %}
-        		<li><a href="{% url examples e.exampleid %}">{{ e.title }}</a></li>
-        	{% endif %}
+            {% if e.exampleid == example.exampleid %}
+                <li class="pure-menu-selected"><a href="{% url examples e.exampleid %}">{{ e.title }}</a></li>
+            {% else %}
+                <li><a href="{% url examples e.exampleid %}">{{ e.title }}</a></li>
+            {% endif %}
         {% endfor %}
     </ul>
 </div>
 
 <div id="example">
-	<div class="title">{{ example.title }}
-		{% if next %}
-			<a class="pure-button" href="{% url examples next %}" id="next_example_button">Next example ></a>
-		{% endif %}
+    <div class="title">{{ example.title }}
+        {% if next %}
+            <a class="pure-button" href="{% url examples next %}" id="next_example_button">Next example ></a>
+        {% endif %}
 
-		{% if previous %}
-			<a class="pure-button" href="{% url examples previous %}" id="previous_example_button">< Previous example</a>
-		{% endif %}
-	</div>
+        {% if previous %}
+            <a class="pure-button" href="{% url examples previous %}" id="previous_example_button">< Previous example</a>
+        {% endif %}
+    </div>
 
-	<div class="description">{% autoescape off %}{{ example.description }}{% endautoescape %}</div>
+    <div class="description">
+        <p>This example demonstrates step by step how easy is to process and display data with InCHlib on your web page.</p>
 
-	{% if example.exampleid == 1 %}
-		<div class="example_settings">
-			<div class="small_title">Example code</div>
-			<div class="code">var inchlib = InCHlib({target:"dendrogram"}); //instantiate InCHlib with given settings
-inchlib.read_data(json_data); //read data
-inchlib.draw(); //draw visualization</div>
-		</div>
-	{% endif %}
+        <div class="medium_title">1. Data</div>
+        <p>Data for clustering are supplied to inchlib_clust as a delimited values file (e.g., csv file). The first row with attribute headers is optional. Metadata are supplied in a separate file with the same structure.</p>
 
-	<div class="example_settings">
-		<div class="small_title">Example settings</div>
-		<div class="settings"></div>
-	</div>
+        <p>Here is an example snippet of data file used in a <a href="{% url use_cases 13 %}" target=blank>Chemical biology use case</a> with corresponding metadata file:</p>
 
-	<div class="example_settings">
-		<div class="small_title">Example data</div>
-		{% if example.exampleid == 10 or example.exampleid == 4 or example.exampleid == 7 or example.exampleid == 5 %}
-			<div class="example_data">The activities of several ligands measured at three different concentrations. Data are clustered using <i>Euclidean</i> distance and <i>Ward's</i> linkage. <i>LogP (octanol/water partition coefficent), molecular weight and the number of aromatic rings</i> descriptors are used as metadata. <a href="" id="example_data_link" target=blank><b>Show data >></b></a></div>
-		{% else %}
-			<div class="example_data">The activities of several ligands measured at three different concentrations. Data are clustered using <i>Euclidean</i> distance and <i>Ward's</i> linkage. <a href="" id="example_data_link" target=blank><b>Show data >></b></a></div>
-		{% endif %}
-	</div>
+        <div class="small_title"><a href="{% static "source_data/chembl_gr.csv" %}" target=blank>Data file snippet</a></div>
+    <div class="code">chembl_id, SlogP, SMR, TPSA, Molecular Weight, Rotatable Bonds, H-Bond Donors, H-Bond Acceptors, Aromatic Rings
+CHEMBL7781,7.0921,115.7885,41.49,445.044418692,2,2,3,2
+CHEMBL273658,6.3296,108.0885,41.49,367.133906624,2,2,3,2
+CHEMBL415309,6.6222,118.0567,30.49,373.204179104,4,1,3,2
+CHEMBL267231,6.572,108.0457,30.49,383.169685416,4,1,3,2
+CHEMBL8007,6.624,106.4237,21.26,351.138992004,2,1,2,2
+</div>
 
+        <div class="small_title"><a href="{% static "source_data/chembl_gr_metadata.csv" %}" target=blank>Metadata file snippet</a></div>
+    <div class="code">chembl_id,EC50 [nM]
+CHEMBL7781,0.1
+CHEMBL273658,0.2
+CHEMBL415309,0.2
+CHEMBL267231,0.2
+CHEMBL8007,0.3
+</div>
 
-	{% if example.exampleid == 9 %}
-		<div id="row_ids_callback"><b>Object IDs:</b> <span id="object_ids"></span></div>
-	{% endif %}
-	
-	<div id="dendrogram"></div>
+<div class="medium_title">2. Clustering using inchlib_clust</div>
+<p>Data are clustered using <a href="{% url inchlib_clust %}" target=blank>inchlib_clust</a> command-line interface. The output of the clustering is cluster heatmap in a form of <a href="{% url input_format %}" target=blank>InCHlib input JSON file</a>.</p>
+
+<p>In the command-line we specify the main data file (<i>chembl_gr.csv</i>), the metadata file (<i>-m chembl_gr_metadata.csv</i>), that both files have header rows (<i>-dh, -mh</i>) and an output file (<i>-o chembl_gr.json</i>). Other parameters are set to default values.</p>
+
+<div class="small_title">Command-line</div>
+<div class="code">python inchlib_clust.py chembl_gr.csv -m chembl_gr_metadata.csv -dh -mh -o chembl_gr.json</div>
+
+<div class="medium_title">3. Web page with cluster heatmap</div>
+<p>The resulted file from clustering (<a href="{% static "data/chembl_gr.json" %}" target="blank">chembl_gr.json</a>) can be read by InCHlib and displayed in the web page. To use InCHlib the dependencies have to be imported.</p>
+
+<p>Below is an example of a simple HTML web page with InCHlib integration:</p>
+
+<xmp class="code"> <html>
+    <head>
+        <script src="path/to/jquery-2.0.3.min.js"></script>
+        <script src="path/to/kinetic-v5.0.0.min.js"></script>
+        <script src="path/to/inchlib.js"></script>
+        <script>
+        $(document).ready(function() { //run after the whole page is loaded
+            var inchlib = new InCHlib({ //instantiate InCHlib
+                target: "inchlib", //ID of a target HTML element
+                metadata: true, 
+                max_height: 1200,
+                width: 1000,
+                heatmap_colors: "Greens",
+                metadata_colors: "RdLrBu",
+            });
+
+            inchlib.read_data_from_file("path/to/chembl_gr.json"); //read input json file
+            inchlib.draw(); //draw cluster heatmap
+        });
+        </script>
+    </head>
+
+    <body>
+        <div id="inchlib"></div>
+    </body>
+ </html>    
+</xmp>
+
+<p><a href="{% url inchlib_examples_summary_html %}" target=blank>You can see the resulted web page here. >></a></p>
+
+</div>
 </div>
 <hr />
 {% endblock %}

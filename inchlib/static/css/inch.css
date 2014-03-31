@@ -129,6 +129,11 @@ body{
 	font-weight: bold;
 }
 
+.medium_title{
+	font-size: 22px;
+	font-weight: bold;
+}
+
 .subtitle{
 	font-style: italic;
 	color: gray;

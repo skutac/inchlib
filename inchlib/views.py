@@ -41,7 +41,12 @@ def examples(req, exampleid):
     settings = mark_safe(json.dumps(parse_settings({e.settingsattribute.name: e.value for e in settings})))
 
     example.description = re.sub('href="', '"'.join(['href=', config.BASE_URL]), example.description)
-    return render_to_response("inchlib_examples.html", {"examples":examples, "example": example, "settings": settings, "next": next, "previous": previous})
+
+    template = "inchlib_examples.html"
+    if exampleid == "18":
+        template = "inchlib_examples_summary.html"
+
+    return render_to_response(template, {"examples":examples, "example": example, "settings": settings, "next": next, "previous": previous})
 
 def use_cases(req, exampleid):
     examples = [e for e in Examples.objects.filter(exampletype=3)]
@@ -62,8 +67,6 @@ def use_cases(req, exampleid):
         template = "inchlib_use_cases_chemical_biology.html"
     elif exampleid == "12":
         template = "inchlib_use_cases_microarrays.html"
-    elif exampleid == "18":
-        template = "inchlib_examples_summary.html"
     
     return render_to_response(template, {"examples":examples, "example": example, "settings": settings})
 
@@ -123,6 +126,9 @@ def test(req):
 
 def inchlib_clust_doc(req):
     return render_to_response("inchlib_clust_doc.html", {})
+
+def inchlib_examples_summary_html(req):
+    return render_to_response("inchlib_examples_summary_html.html", {})
 
 def inchlib_clust(req):
     code = """
