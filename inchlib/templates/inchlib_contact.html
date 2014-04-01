@@ -1,15 +1,32 @@
 {% extends "inchlib_base.html" %}
 
 {% block content %}
+{% load staticfiles %}
 
-
+	<a href="http://openscreen.cz/" target=blank><img id="openscreen_logo" src="{% static "img/openscreen.png" %}"></a>
 	<div class="contact">
-		<div class="small_title">Don't hesitate to contact us:</div>
 
 		<div class="card">
-			<div class="title">Ctibor Škuta</div>
+			<div class="title">Ctibor Škuta<sup>1,2</sup></div>
 			<div class="email">ctibor.skuta@img.cas.cz</div>
 		</div>
+
+		<div class="card">
+			<div class="title">Daniel Svozil<sup>1,2</sup></div>
+			<div class="email">svozild@vscht.cz</div>
+		</div>
+
+		<div class="card">
+			<div class="title">Petr Bartůněk<sup>2</sup></div>
+			<div class="email">petr.bartunek@img.cas.cz</div>
+		</div>
 	</div>
+
+	<ol id="affiliations">
+		<li>Laboratory of Informatics and Chemistry, Faculty of Chemical Technology, Institute of Chemical Technology Prague, Technická 5, CZ-166 28 Prague, Czech Republic</li>
+		<li>CZ-OPENSCREEN, Institute of Molecular Genetics of the ASCR, v. v. i., Vídeňská 1083, CZ-142 20 Prague, Czech Republic</li>
+	</ol>
+
+	<hr />
 
 {% endblock %}
