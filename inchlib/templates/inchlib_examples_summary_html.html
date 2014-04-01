@@ -5,18 +5,18 @@
         <script src="{% static "js/kinetic-v5.0.0.min.js" %}"></script>
         <script src="{% static "js/inchlib.js" %}"></script>
         <script>
-        $(document).ready(function() { //run after the page is loaded
-            var inchlib = new InCHlib({ //instantiate inchlib
-                target: "inchlib", //ID of a target HTML element
+        $(document).ready(function() {
+            var inchlib = new InCHlib({
+                target: "inchlib",
                 metadata: true, 
                 max_height: 1200,
                 width: 1000,
                 heatmap_colors: "Greens",
-                metadata_colors: "RdLrBu",
+                metadata_colors: "Reds",
             });
 
-            inchlib.read_data_from_file("{% static "data/chembl_gr.json" %}"); //read input json file
-            inchlib.draw(); //draw cluster heatmap
+            inchlib.read_data_from_file("{% static "data/example.json" %}");
+            inchlib.draw();
         });
         </script>
     </head>

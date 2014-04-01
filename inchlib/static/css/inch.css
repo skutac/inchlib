@@ -46,6 +46,14 @@ body{
 	color: gray;
 }
 
+#workflow{
+	width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
 
 .contact{
 	margin-top: 30px;
