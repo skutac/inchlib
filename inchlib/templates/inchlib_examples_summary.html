@@ -29,10 +29,18 @@
     </div>
 
     <div class="description">
-        <p>This example demonstrates step by step how easy is to process and display data with InCHlib on your web page.</p>
+        <p>This example describes a typical pipeline consisting of data clustering, generating heatmap and its integration into the web page.</p>
 
-        <div class="medium_title">1. Data</div>
-        <p>Data for clustering are supplied to inchlib_clust as a delimited values file (e.g., csv file). The first row with attribute headers is optional. Metadata are supplied in a separate file with the same structure.</p>
+       <p>InCHlib does not perform hierarchical clustering by itself. It is a visualization library to which data must be supplied in the JSON compliant <a href="{% url input_format %}" target=blank>InCHlib format</a>. This format is readily produced by our Python clustering tool <a href="{% url inchlib_clust %}" target=blank>inchlib_clust</a>. However, the user can use an arbitrary clustering software provided that a valid InCHlib input file is generated.</p>
+
+       <p>Typical data processing and visualization pipeline is shown in the figure below. Individual steps (blue circles) are further described in a more detail.</p>
+
+
+
+
+
+        <div class="medium_title">Step 1 - Data preparation</div>
+        <p>Data for clustering are typically supplied to <a href="{% url inchlib_clust %}" target=blank>inchlib_clust</a> as a csv (comma separated values) file. If the user wants to have column headers displayed in the heatmap, the first row of a csv file must contain header names. Metadata are provided in a separate csv file. Below are given example snippets of data and metadata files used in all tutorial examples.</p>
 
         <p>Here is an example snippet of data file used in a <a href="{% url use_cases 13 %}" target=blank>Chemical biology use case</a> with corresponding metadata file:</p>
 
