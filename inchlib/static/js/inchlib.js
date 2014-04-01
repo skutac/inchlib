@@ -177,7 +177,7 @@ function InCHlib(settings){
                             fontFamily: this.settings.font,
                             fontStyle: "bold",
                             fill: 'black',
-                            listening: false,
+                            // listening: false,
                          }),
 
         "row_count": new Kinetic.Text({
