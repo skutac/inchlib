@@ -67,7 +67,7 @@
 <div class="medium_title">Step 3 - InCHlib deployment</div>
 <p>The file <a href="{% static "data/example.json" %}" target=blank>example.json</a> describes dendrogram structure and it contains all data necessary for cluster heatmap visualization. No ther file is needed to render the cluster heatmap. An example below demonstrates how easy it is to integrate InCHlib visualization into your web page.</p>
 
-<p>inchlib.js (and its dependencies <a href="{% static "js/jquery-2.0.3.min.js" %}" target=blank>jquery-2.0.3.min.js</a> and <a href="{% static "js/kinetic-v5.0.0.min.js" %}" target=blank>kinetic-v5.0.0.min.js</a>) must be first imported in the &lt;script&gt; tag. InCHlib is initialized immediately when the whole page is loaded (detected by the <i>$(document).ready</i> event), and it contains several attributes defining the appearance of the visualization (all attributes are documented here). Finally, <a href="{% static "data/example.json" %}" target=blank>example.json</a> is loaded, and the cluster heatmap is displayed.
+<p>inchlib.js (and its dependencies <a href="{% static "js/jquery-2.0.3.min.js" %}" target=blank>jquery-2.0.3.min.js</a> and <a href="{% static "js/kinetic-v5.0.0.min.js" %}" target=blank>kinetic-v5.0.0.min.js</a>) must be first imported in the <i>&lt;script&gt;</i> tag. InCHlib is initialized immediately when the whole page is loaded (detected by the <i>$(document).ready</i> event), and it contains several attributes defining the appearance of the visualization (all attributes are documented <a href="{% url docs %}" target=blank>here</a>). Finally, <a href="{% static "data/example.json" %}" target=blank>example.json</a> is loaded, and the cluster heatmap is displayed.
 
 </p>
 

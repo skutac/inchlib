@@ -1736,7 +1736,8 @@ InCHlib.prototype._filter_icon_click = function(filter_button){
             "padding-bottom":"10px",
             "padding-right":"15px",
             "font-weight":"bold",
-            "z-index": 1000
+            "z-index": 1000,
+            "font-family": self.settings.font
         });
 
         filter_features_element.find("ul").css({
