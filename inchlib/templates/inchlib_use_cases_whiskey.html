@@ -83,7 +83,7 @@
         }
 
         $(document).click(function(evt){
-            if(evt.target.localName != "canvas"){
+            if(evt.target.localName != "canvas" && evt.target.localName != "a"){
                 set_markers([]);
                 dendrogram.highlight_rows([]);
                 dendrogram.unhighlight_cluster();

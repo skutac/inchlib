@@ -129,7 +129,7 @@
         }
 
         $(document).click(function(evt){
-            if(evt.target.localName != "canvas"){
+            if(evt.target.localName != "canvas" && evt.target.localName != "a"){
                 protein_canvas.hide();
                 protein_card.hide();
                 dendrogram.unhighlight_cluster();
