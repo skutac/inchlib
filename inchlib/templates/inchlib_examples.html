@@ -28,10 +28,8 @@
 		}
 		
 		$("#example .settings").html(settings_string);
-		$("#example_data_link").attr("href", "{% static "data/"|add:example.data %}");
 
 		window.dendrogram = new InCHlib({{ settings }});
-		dendrogram.settings.font = "Ubuntu";
 		dendrogram.read_data_from_file("{% static "data/"|add:example.data %}");
 		dendrogram.draw();
 
@@ -61,24 +59,15 @@
 <div id="example">
 	<div class="title">{{ example.title }}
 		{% if next %}
-			<a class="pure-button" href="{% url examples next %}" id="next_example_button">Next example ></a>
+			<a class="pure-button" href="{% url examples next %}" id="next_example_button">Next example &gt;</a>
 		{% endif %}
 
 		{% if previous %}
-			<a class="pure-button" href="{% url examples previous %}" id="previous_example_button">< Previous example</a>
+			<a class="pure-button" href="{% url examples previous %}" id="previous_example_button">&lt; Previous example</a>
 		{% endif %}
 	</div>
 
 	<div class="description">{% autoescape off %}{{ example.description }}{% endautoescape %}</div>
-
-	<!-- {% if example.exampleid == 1 %}
-		<div class="example_settings">
-			<div class="small_title">Example code</div>
-			<div class="code">window.inchlib = InCHlib({target:"dendrogram"}); //instantiate InCHlib with given settings
-inchlib.read_data(json_data); //read data
-inchlib.draw(); //draw visualization</div>
-		</div>
-	{% endif %} -->
 
 	{% if example.exampleid == 9 %}
 		<div class="example_settings">
@@ -111,9 +100,9 @@ inchlib.draw(); //draw visualization</div>
 	<div class="example_settings">
 		<div class="small_title">Example data</div>
 		{% if example.exampleid == 10 or example.exampleid == 4 or example.exampleid == 7 or example.exampleid == 5 %}
-			<div class="example_data">The activities of several ligands measured at three different concentrations. Data are clustered using <i>Euclidean</i> distance and <i>Ward's</i> linkage. <i>LogP (octanol/water partition coefficent), molecular weight and the number of aromatic rings</i> descriptors are used as metadata. <a href="" id="example_data_link" target=blank><b>Show data >></b></a></div>
+			<div class="example_data">The activities of several ligands measured at three different concentrations. Data are clustered using <i>Euclidean</i> distance and <i>Ward's</i> linkage. <i>LogP (octanol/water partition coefficent), molecular weight and the number of aromatic rings</i> descriptors are used as metadata. <a href="{% static "data/"|add:example.data %}" id="example_data_link" target=blank><b>Show data >></b></a></div>
 		{% else %}
-			<div class="example_data">The activities of several ligands measured at three different concentrations. Data are clustered using <i>Euclidean</i> distance and <i>Ward's</i> linkage. <a href="" id="example_data_link" target=blank><b>Show data >></b></a></div>
+			<div class="example_data">The activities of several ligands measured at three different concentrations. Data are clustered using <i>Euclidean</i> distance and <i>Ward's</i> linkage. <a href="{% static "data/"|add:example.data %}" id="example_data_link" target=blank><b>Show data >></b></a></div>
 		{% endif %}
 	</div>
 
