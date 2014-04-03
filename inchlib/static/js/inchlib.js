@@ -15,6 +15,7 @@
 * @author <a href="mailto:ctibor.skuta@img.cas.cz">Ctibor Škuta</a>
 * @version 1.0.0
 * @category 1
+* @license InCHlib - Interactive Cluster Heatmap Library http://openscreen.cz/software/inchlib Copyright 2014, Ctibor Škuta Licensed under the MIT license.
 * 
 * @requires <a href='http://code.jquery.com/jquery-2.0.3.min.js'>jQuery Core 2.0.3</a>
 * @dependency <script language="JavaScript" type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
