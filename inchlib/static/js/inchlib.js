@@ -42,7 +42,7 @@ function InCHlib(settings){
         "dendrogram_node_onclick": function(object_ids, node_id, evt){
             return;
         },
-        "dendrogram_node_highlight": function(object_ids, node_id, evt){
+        "dendrogram_node_highlight": function(object_ids, node_id){
             return;
         },
         "dendrogram_node_unhighlight": function(node_id){
@@ -1377,7 +1377,7 @@ InCHlib.prototype._highlight_path = function(path_id){
     
  }
 
- InCHlib.prototype.highlight_cluster = function(path_id){
+InCHlib.prototype._highlight_cluster = function(path_id){
     var object_ids = [];
     
     if(this.last_highlighted_cluster){
@@ -1396,7 +1396,11 @@ InCHlib.prototype._highlight_path = function(path_id){
     return object_ids;
 }
 
-InCHlib.prototype.unhighlight_cluster = function(path_id){
+InCHlib.prototype.highlight_cluster = function(node_id){
+    return this._highlight_cluster(_prefix(node_id));
+}
+
+InCHlib.prototype.unhighlight_cluster = function(){
     if(this.last_highlighted_cluster){
         this.cluster_layer.removeChildren();
         this.cluster_layer.draw();
@@ -1531,7 +1535,7 @@ InCHlib.prototype._zoom_cluster = function(node_id){
         this._draw_heatmap_header();
         this.highlight_rows(this.settings.highlighted_rows);
 
-        this.settings.on_zoom(node_id);
+        this.settings.on_zoom(this._unprefix(node_id));
     }
     else{
         return false;
@@ -1881,7 +1885,7 @@ InCHlib.prototype._unzoom_icon_click = function(){
         this._refresh_icon_click();
     }
     this.highlight_cluster(current_node_id);
-    this.settings.on_unzoom();
+    this.settings.on_unzoom(this._unprefix(current_node_id));
 };
 
 InCHlib.prototype._icon_mouseover = function(icon, icon_overlay, layer){
@@ -2135,4 +2139,12 @@ InCHlib.prototype._draw_col_label = function(evt){
     this.heatmap_overlay.moveToTop();
     this.heatmap_overlay.draw();
     return;
+}
+
+InCHlib.prototype._unprefix = function(prefixed){
+    return prefixed.split(this.settings.target+"#")[1];
+}
+
+InCHlib.prototype._prefix = function(nonprefixed){
+    return this.settings.target + "#" + nonprefixed;
 }
