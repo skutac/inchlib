@@ -1691,9 +1691,6 @@ InCHlib.prototype._draw_horizontal_path = function(path_id, x1, y1, x2, y2, left
 
 InCHlib.prototype._filter_icon_click = function(filter_button){
     var filter_list = $("#dendrogram_filter_features").text();
-    var position = $("#" + this.settings.target).offset();
-    var position_top = position.top + 10;
-    var position_left = position.left + 50;
     var symbol = "✖";
     var self = this;
 
@@ -1724,8 +1721,8 @@ InCHlib.prototype._filter_icon_click = function(filter_button){
         var filter_features_element = $("#dendrogram_filter_features");
         
         filter_features_element.css({"display":"none",
-            "top":position_top+"px",
-            "left":position_left+"px",
+            "top": 20,
+            "left": 50,
             "border-radius":"5px",
             "text-align":"center",
             "position":"absolute",
@@ -1763,21 +1760,18 @@ InCHlib.prototype._filter_icon_click = function(filter_button){
 
         function draw_element_overlay(){
             var target_element = $("#" + self.settings.target);
-            var outer_width = target_element.outerWidth(true);
-            var width = target_element.outerWidth();
-            var outer_height = target_element.outerHeight(true);
-            var height = target_element.outerHeight();
-            var position = $(target_element).offset();
             var overlay = $("<div id='dendrogram_overlay'></div>");
 
             overlay.css({"background-color": "white", 
-                        "width": width, 
-                        "height":height,
-                        "position": "absolute",
-                        "top": position.top-((outer_height-height)/2),
-                        "left": position.left-((outer_width-width)/2),
-                        "opacity": 0.5});
-            
+                            "position": "absolute",
+                            "top": 0,
+                            "left": 0,
+                            "right": 0,
+                            "bottom": 0,
+                            "opacity": 0.5
+                });
+
+            target_element.css({"position": "relative"});
             target_element.append(overlay);
         }
 
