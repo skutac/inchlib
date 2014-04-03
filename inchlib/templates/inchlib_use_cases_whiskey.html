@@ -22,21 +22,21 @@
         window.dendrogram = new InCHlib({{ settings }});
         dendrogram.settings.highlight_colors = "Reds";
 
-        dendrogram.settings.row_onclick = function(ids){
+        dendrogram.events.row_onclick = function(ids){
             current = ids[0];
             dendrogram.unhighlight_cluster();
             dendrogram.highlight_rows(ids);
             set_markers(ids);
         };
 
-        dendrogram.settings.dendrogram_node_highlight = function(ids, node_id){
+        dendrogram.events.dendrogram_node_highlight = function(ids, node_id){
             set_markers(ids);
         };
-        dendrogram.settings.dendrogram_node_unhighlight = function(node_id){
+        dendrogram.events.dendrogram_node_unhighlight = function(node_id){
             set_markers([]);
         };
         
-        dendrogram.settings.dendrogram_node_onclick = function(object_ids){
+        dendrogram.events.dendrogram_node_onclick = function(object_ids){
             var i;
 
             for(i = 0; i<object_ids.length; i++){
@@ -47,7 +47,7 @@
             dendrogram.highlight_rows([]);
         }
 
-        dendrogram.settings.empty_space_onclick = function(){
+        dendrogram.events.empty_space_onclick = function(){
             set_markers([]);
             dendrogram.highlight_rows([]);
         };

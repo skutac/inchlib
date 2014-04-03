@@ -39,6 +39,12 @@
 			}
 			element.text(text);
 		}
+
+		for(attr in dendrogram.events){
+			var element = $("#docs").find("#" + attr).parent().find(".default_value");
+			text = attr + ": " + dendrogram.events[attr];
+			element.text(text);
+		}
 	});
 
 </script>
@@ -55,7 +61,7 @@
 <div id="docs_menu" class="pure-menu pure-menu-open">
     
     <ul>
-    	<li class="pure-menu-heading"><b>Functions</b></li>
+    	<li class="pure-menu-heading"><b>Methods</b></li>
         <li><a href="#read_data">read_data</a></li>
         <li><a href="#read_data_from_file">read_data_from_file</a></li>
         <li><a href="#draw">draw</a></li>
@@ -63,6 +69,10 @@
         <li><a href="#unhighlight_rows">unhighlight_rows</a></li>
         <li><a href="#highlight_cluster">highlight_cluster</a></li>
         <li><a href="#highlight_cluster">unhighlight_cluster</a></li>
+        <li class="pure-menu-heading"><b>Events</b></li>
+        {% for e in events %}
+        	<li><a href="#{{ e.name }}">{{ e.name }}</a></li>
+        {% endfor %}
     	<li class="pure-menu-heading"><b>Attributes</b></li>
         {% for a in attributes %}
         	<li><a href="#{{ a.name }}">{{ a.name }}</a></li>
@@ -76,10 +86,10 @@
 <div id="docs">
 	<div class="title">InCHlib</div>
 
-	<div class="description">In this section InCHlib’s functions, attributes and color schemes are documented. Attributes influence various parameters of the visualization.  The only obligatory attribute is the target attribute which defines the ID of the HTML <a href="#target">target</a> element.</div>
+	<div class="description">In this section InCHlib’s methods, events, attributes and color schemes are documented. Attributes influence various parameters of the visualization.  The only obligatory attribute is the target attribute which defines the ID of the HTML <a href="#target">target</a> element.</div>
 
 	<hr />
-	<div class="title">Functions</div>
+	<div class="title">Methods</div>
 		<div class="doc">
 			<div class="small_title" id="read_data">read_data()</div>
 			<div class="description">read data in a JSON format</div>
@@ -139,6 +149,18 @@
 			</div>
 		</div>
 
+	<hr />
+	<div class="title">Events</div>
+	{% for e in events %}
+		<div class="doc">
+			<div class="small_title" id="{{ e.name }}">{{ e.name }}</div>
+			<div class="description">{{ e.description|safe }}</div>
+			<div class="default">
+				<div class="subtitle">Default:</div>
+				<div class="default_value"></div>
+			</div>
+		</div>
+	{% endfor %}
 	<hr />
 	<div class="title">Attributes</div>
 	{% for a in attributes %}

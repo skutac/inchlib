@@ -21,7 +21,7 @@
                     });
 
         window.dendrogram = new InCHlib({{ settings }});
-        dendrogram.settings.onclick_callback = function(ids){
+        dendrogram.events.onclick_callback = function(ids){
             set_markers(ids);
             if(ids.length == 1){
                 play_video(ids[0]);

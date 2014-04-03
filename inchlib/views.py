@@ -37,7 +37,7 @@ def examples(req, exampleid):
     example = Examples.objects.get(exampleid=exampleid)
     next, previous = get_neighbours(int(exampleid), examples)
 
-    settings = example.examplesettings_set.all()
+    settings = example.examplesettings_set.filter()
     settings = mark_safe(json.dumps(parse_settings({e.settingsattribute.name: e.value for e in settings})))
 
     example.description = re.sub('href="', '"'.join(['href=', config.BASE_URL]), example.description)
@@ -71,9 +71,11 @@ def use_cases(req, exampleid):
     return render_to_response(template, {"examples":examples, "example": example, "settings": settings})
 
 def docs(req):
-    attributes = list(SettingsAttributes.objects.all())
+    attributes = list(SettingsAttributes.objects.filter(settingsattributetype = 1))
     attributes.sort(key = lambda x: x.name)
-    return render_to_response("inchlib_docs.html", {"attributes": attributes})
+    events = list(SettingsAttributes.objects.filter(settingsattributetype = 2))
+    events.sort(key = lambda x: x.name)
+    return render_to_response("inchlib_docs.html", {"attributes": attributes, "events":events})
 
 def input_format(req):
     example = Examples.objects.get(exampletype=2)

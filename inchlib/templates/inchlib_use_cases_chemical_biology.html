@@ -55,18 +55,18 @@
         }
 
         function fix_molecule(){
-            dendrogram.settings.row_onmouseover = function(){};
-            dendrogram.settings.heatmap_onmouseout = function(){};
+            dendrogram.events.row_onmouseover = function(){};
+            dendrogram.events.heatmap_onmouseout = function(){};
         }
 
         function bind_dendrogram_events(){
-            dendrogram.settings.row_onmouseover = function(ids, evt){
+            dendrogram.events.row_onmouseover = function(ids, evt){
                 show_molecule(ids, evt);
             };
-            dendrogram.settings.heatmap_onmouseout = function(evt){
+            dendrogram.events.heatmap_onmouseout = function(evt){
                 hide_molecule(evt);
             };
-            dendrogram.settings.row_onclick = function(ids, evt){
+            dendrogram.events.row_onclick = function(ids, evt){
                 show_molecule(ids[0], evt);
                 fix_molecule(ids[0]);
                 current = ids[0];
@@ -75,7 +75,7 @@
                 dendrogram.unhighlight_cluster();
             };
 
-            dendrogram.settings.dendrogram_node_onclick = function(object_ids){
+            dendrogram.events.dendrogram_node_onclick = function(object_ids){
                 var i;
                 hide_molecule();
                 bind_dendrogram_events();
@@ -88,7 +88,7 @@
                 dendrogram.highlight_rows([]);
             }
 
-            dendrogram.settings.empty_space_onclick = function(){
+            dendrogram.events.empty_space_onclick = function(){
                 hide_molecule();
                 dendrogram.highlight_rows([]);
                 bind_dendrogram_events();

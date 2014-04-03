@@ -15,6 +15,7 @@ class SettingsAttributes(models.Model):
     settingsattributeid = models.AutoField(primary_key=True)
     name = models.CharField(max_length=255)
     description = models.TextField()
+    settingsattributetype = models.IntegerField()
 
 class ExampleSettings(models.Model):
     examplesettingsid = models.AutoField(primary_key=True)

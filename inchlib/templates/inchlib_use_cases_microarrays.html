@@ -84,14 +84,14 @@
                 highlight_colors: "RdLrBu",
             });
 
-        dendrogram.settings.row_onclick = function(object_ids, evt){
+        dendrogram.events.row_onclick = function(object_ids, evt){
             current = object_ids[0];
             draw_boxplot(object_ids, evt.pageY);
             dendrogram.highlight_rows(object_ids);
             dendrogram.unhighlight_cluster();
         };
 
-        dendrogram.settings.dendrogram_node_onclick = function(object_ids, node_id, evt){
+        dendrogram.events.dendrogram_node_onclick = function(object_ids, node_id, evt){
             draw_boxplot(object_ids, evt.pageY);
             var i;
 
@@ -104,11 +104,11 @@
             dendrogram.highlight_rows([]);
         };
 
-        dendrogram.settings.on_zoom = function(node_id){
+        dendrogram.events.on_zoom = function(node_id){
             microarrays_element.css({"top": min_y});
         };
 
-        dendrogram.settings.empty_space_onclick = function(){
+        dendrogram.events.empty_space_onclick = function(){
             dendrogram.highlight_rows([]);
             microarrays_element.hide();
         }

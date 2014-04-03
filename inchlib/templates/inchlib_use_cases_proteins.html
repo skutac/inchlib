@@ -46,8 +46,7 @@
 
         dendrogram.highlight_rows([initial_pdb]);
 
-        dendrogram.settings.highlight_
-        dendrogram.settings.row_onclick = function(ids){
+        dendrogram.events.row_onclick = function(ids){
             if(ids.length == 1 && ids[0] != current_protein){
                 current_protein = ids[0];
                 get_protein_from_pdb(ids[0]);

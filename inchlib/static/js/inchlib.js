@@ -1,10 +1,127 @@
+/**
+* InCHlib is an interactive JavaScript library which facilitates data
+* visualization and exploration by means of a cluster heatmap. InCHlib
+* is a versatile tool, and its use is not limited only to chemical or
+* biological data. Source code, tutorial, documentation, and example
+* data are freely available from InCHlib website <a
+* href="http://openscreen.cz/software/inchlib"
+* target=blank>http://openscreen.cz/software/inchlib</a>. At the
+* website, you can also find a Python script <a
+* href="http://openscreen.cz/software/inchlib/inchlib_clust"
+* target=blank>inchlib_clust</a> which performs data clustering and
+* prepares <a href="http://openscreen.cz/software/inchlib/input_format"
+* target=blank>input data for InCHlib</a>.
+* 
+* @author <a href="mailto:ctibor.skuta@img.cas.cz">Ctibor Škuta</a>
+* @version 1.0.0
+* @category 1
+* 
+* @requires <a href='http://code.jquery.com/jquery-2.0.3.min.js'>jQuery Core 2.0.3</a>
+* @dependency <script language="JavaScript" type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+* 
+* @requires <a href='http://kineticjs.com/'>KineticJS 5.0.0</a>
+* @dependency <script language="JavaScript" type="text/javascript" src="http://openscreen.cz/software/inchlib/static/js/kinetic-v5.0.0.min.js"></script>
+*
+* @param {Object} options An object with the options for the InCHlib component.
+*
+* @option {string} target
+*   identifier of the DIV tag where the component should be displayed
+
+* @option {boolean} [column_dendrogram=false]
+*   turn on/off the column dendrogram
+
+* @option {boolean} [count_column=false]
+*   turn on/off the count column
+
+* @option {boolean} [dendrogram=true]
+*   turn on/off the row dendrogram
+
+* @option {string} [font="Trebuchet&nbsp;MS"]
+*   font family
+
+* @option {string} [heatmap_colors="Greens"]
+*   the heatmap color scale
+
+* @option {number} [heatmap_part_width=0.7]
+*   define the heatmap part width from the width of the whole graph
+
+* @option {string} [highlight_colors="Reds"]
+*   color scale for highlighted rows
+
+* @option {obejct} [highlighted_rows=[]]
+*   array of row IDs to highlight
+
+* @option {boolean} [independent_columns=false]
+*   determines whether the color scale is based on the values from all columns together or for each column separately
+
+* @option {string} [label_color=grey]
+*   color of column label
+
+* @option {number} [max_column_width=100]
+*   maximum column width in pixels
+
+* @option {number} [max_height=800]
+*   maximum graph height in pixels
+
+* @option {number} [max_row_height=25]
+*   maximum row height in pixels
+
+* @option {boolean} [metadata=false]
+*   turn on/off the metadata
+
+* @option {string} [metadata_colors="Oranges"]
+*   the metadata color scale
+
+* @option {number} [min_row_height=false]
+*   minimum row height in pixels
+
+* @option {number} [width="the width of target DIV"]
+*   width of the graph in pixels
+
+* @option {boolean} [heatmap=true]
+*   turn on/off the heatmap
+
+* @option {string} [heatmap_font_color="black"]
+*   the color of the text values in the heatmap
+
+* @option {string} [count_column_colors="Reds"]
+*   the color scale of count column
+
+* @option {string} [values_center="median"]
+*   the center point of color scale when using scale with three colors (possible values: median, mean, zero)
+
+* @option {boolean} [draw_row_ids=false]
+*   draws the row IDs next to the heatmap when there is enough space to visualize them
+
+* @option {boolean} [header_as_heatmap_row=false]
+*   use the heatmap header to draw one special heatmap row at the top (useful as column metadata active/inactive)
+
+* @option {string} [header_row_colors="YlOrB"]
+*   color scale when using header as a heatmap row
+* 
+* @example
+*       window.instance = new InCHlib({
+*                target : "YourOwnDivId",
+*                metadata: true, 
+*                max_height: 800,
+*                width: 700,
+*                metadata_colors: "RdLrBu"
+*            });
+*       instance.read_data_from_file("../biojs/data/chembl_gr.json");
+*       instance.draw();
+*/
+
 function InCHlib(settings){
     var target_width = $("#" + settings.target).width();
     // When measuring the rendering duration
     // this.start = new Date().getTime();
 
+    /**
+    * Default values for the settings
+    * @name InCHlib#settings
+    */
     this.settings = {
-        "target" : settings.target,
+        "target" : "YourOwnDivId",
         "heatmap" : true,
         "dendrogram": true,
         "metadata": false,
@@ -28,43 +145,223 @@ function InCHlib(settings){
         "values_center": "median",
         "draw_row_ids": false,
         "header_as_heatmap_row": false,
-        "header_row_colors": "YlOrB",
+        "header_row_colors": "YlOrB"
+    };
 
+    /**
+    * Default function definitions for the InCHlib events
+    * @name InCHlib#events
+    */
+    this.events = {
+        /**
+          * @name InCHlib#row_onclick
+          * @event
+          * @param {function} function() callback function for click on the heatmap row event
+          * @eventData {array} array array of object IDs represented by row
+          * @eventData {object} event event object
+
+          * @example 
+          * instance.events.row_onclick = (
+          *    function(object_ids, evt) {
+          *       alert(object_ids);
+          *    }
+          * ); 
+          * 
+          */
         "row_onclick": function(object_ids, evt){
             return;
         },
+
+        /**
+          * @name InCHlib#row_onmouseover
+          * @event
+          * @param {function} function() callback function for mouse cursor over the heatmap row event
+          * @eventData {array} array array of object IDs represented by row
+          * @eventData {object} event event object
+
+          * @example 
+          * instance.events.row_onmouseover = (
+          *    function(object_ids, evt) {
+          *       alert(object_ids);
+          *    }
+          * ); 
+          * 
+          */
         "row_onmouseover": function(object_ids, evt){
             return;
         },
+
+        /**
+          * @name InCHlib#row_onmouseout
+          * @event
+          * @param {function} function() callback function for mouse cursor out of the heatmap row event
+          * @eventData {object} event event object
+
+          * @example 
+          * instance.events.row_onmouseout = (
+          *    function(evt) {
+          *       alert("now");
+          *    }
+          * ); 
+          * 
+          */
         "row_onmouseout": function(evt){
             return;
         },
+
+        /**
+          * @name InCHlib#dendrogram_node_onclick
+          * @event
+          * @param {function} function() callback function for mouse cursor out of the heatmap row event
+          * @eventData {array} array array of object IDs represented by the node
+          * @eventData {string} node_id Id of the dendrogram node
+          * @eventData {object} event event object
+
+          * @example 
+          * instance.events.dendrogram_node_onclick = (
+          *    function(object_ids, node_id, evt) {
+          *    alert(node_id + ": " + object_ids.length+" rows");
+          *    }
+          * ); 
+          * 
+          */
         "dendrogram_node_onclick": function(object_ids, node_id, evt){
             return;
         },
+
+        /**
+          * @name InCHlib#dendrogram_node_highlight
+          * @event
+          * @param {function} function() callback function for the dendrogram node highlight event
+          * @eventData {array} array array of object IDs represented by row
+          * @eventData {string} node_id Id of the dendrogram node
+          * @eventData {object} event event object
+
+          * @example 
+          * instance.events.dendrogram_node_highlight = (
+          *    function(object_ids, node_id, evt) {
+          *       alert(node_id + ": " + object_ids.length+" rows");
+          *    }
+          * ); 
+          * 
+          */
         "dendrogram_node_highlight": function(object_ids, node_id){
             return;
         },
+
+        /**
+          * @name InCHlib#dendrogram_node_unhighlight
+          * @event
+          * @param {function} function() callback function for the dendrogram node unhighlight event
+          * @eventData {string} node_id Id of the dendrogram node
+
+          * @example 
+          * instance.events.dendrogram_node_unhighlight = (
+          *    function(node_id) {
+          *       alert(node_id);
+          *    }
+          * ); 
+          * 
+          */
         "dendrogram_node_unhighlight": function(node_id){
             return;
         },
+
+        /**
+          * @name InCHlib#heatmap_onmouseout
+          * @event
+          * @param {function} function() callback function for mouse cursor out of hte heatmap area
+          * @eventData {object} event event object
+
+          * @example 
+          * instance.events.heatmap_onmouseout = (
+          *    function(evt) {
+          *       alert("now");
+          *    }
+          * ); 
+          * 
+          */
         "heatmap_onmouseout": function(evt){
             return;
         },
+
+        /**
+          * @name InCHlib#on_zoom
+          * @event
+          * @param {function} function() callback function for zoom icon click event
+          * @eventData {string} node_id Id of the dendrogram node
+
+          * @example 
+          * instance.events.on_zoom = (
+          *    function(node_id) {
+          *       alert(node_id);
+          *    }
+          * ); 
+          * 
+          */
         "on_zoom": function(node_id){
             return;
         },
+
+        /**
+          * @name InCHlib#on_unzoom
+          * @event
+          * @param {function} function() callback function for unzoom icon click event
+          * @eventData {string} node_id Id of the dendrogram node
+
+          * @example 
+          * instance.events.on_unzoom = (
+          *    function(node_id) {
+          *       alert(node_id);
+          *    }
+          * ); 
+          * 
+          */
         "on_unzoom": function(node_id){
             return;
         },
+
+        /**
+          * @name InCHlib#on_refresh
+          * @event
+          * @param {function} function() callback function for refresh icon click event
+          * @eventData {object} event event object
+          * @example 
+          * instance.events.on_refresh = (
+          *    function() {
+          *       alert("now");
+          *    }
+          * ); 
+          * 
+          */
         "on_refresh": function(){
             return;
         },
+
+        /**
+          * @name InCHlib#empty_space_onclick
+          * @event
+          * @param {function} function() callback function for click on empty(inactive) space in the visualization (e.g., around the heatmap)
+          * @eventData {object} event event object
+
+          * @example 
+          * instance.events.empty_space_onclick = (
+          *    function(evt) {
+          *       alert("now");
+          *    }
+          * ); 
+          * 
+          */
         "empty_space_onclick": function(evt){
             return;
         }
-    };
 
+    }
+
+    /**
+    * Default color scales
+    * @name InCHlib#colors
+    */
     this.colors = {
             "YlGn": {"start": {"r":255, "g": 255, "b": 204}, "end": {"r": 35, "g": 132, "b": 67}},
             "GnBu": {"start": {"r":240, "g": 249, "b": 232}, "end": {"r": 43, "g": 140, "b": 190}},
@@ -98,6 +395,10 @@ function InCHlib(settings){
             "RdLrGr": {"start": {"r":215, "g": 25, "b": 28}, "middle": {"r":254, "g": 229, "b": 217}, "end": {"r": 35, "g": 139, "b": 69}},
     };
 
+    /**
+    * Default kineticjs objects references
+    * @name InCHlib#objects_ref
+    */
     this.objects_ref = {
         "tooltip_label": new Kinetic.Label({
                             opacity: 1,
@@ -220,12 +521,23 @@ function InCHlib(settings){
     this.rows = {};
 }
 
+/**
+  * Read data from JSON variable.
+  * 
+  * @param {object} [variable] Clustering in proper JSON format.
+  */
 InCHlib.prototype.read_data = function(json){
     this.data = json;
     this.data.header = this.data.data.header;
     this.data.nodes = this.data.data.nodes;
 }
 
+/**
+  * Read data from JSON file.
+  * 
+  * @param {string} [filename] Path to the JSON data file.
+  *
+  */
 InCHlib.prototype.read_data_from_file = function(json){
     var self = this;
     
@@ -443,14 +755,9 @@ InCHlib.prototype._reorder_heatmap = function(column_index){
     return;
 }
 
-/* *************************************************
-Draw functions
-************************************************* */
-
-InCHlib.prototype.redraw = function(){
-    return false;
-}
-
+/**
+  * Draw already read data (from file/JSON variable).
+  */
 InCHlib.prototype.draw = function(){
     this._add_prefix();
     this.dimensions = this._get_dimensions(this.data.nodes);
@@ -659,7 +966,7 @@ InCHlib.prototype._draw_stage_layer = function(){
 
     this.stage_layer.on("click", function(evt){
         self.unhighlight_cluster();
-        self.settings.empty_space_onclick(evt);
+        self.events.empty_space_onclick(evt);
     });
 }
 
@@ -852,7 +1159,7 @@ InCHlib.prototype._draw_heatmap = function(){
     this.heatmap_layer.on("mouseleave", function(evt){
         self.heatmap_overlay.destroyChildren();
         self.heatmap_overlay.draw();
-        self.settings.heatmap_onmouseout(evt);
+        self.events.heatmap_onmouseout(evt);
     });
 }
 
@@ -996,7 +1303,7 @@ InCHlib.prototype._bind_row_events = function(row){
             for(i = 0; i < items.length; i++){
                 item_ids.push(items[i]);
             }
-            self.settings.row_onclick(item_ids, evt);
+            self.events.row_onclick(item_ids, evt);
         }
     });
 }
@@ -1241,6 +1548,7 @@ InCHlib.prototype._draw_navigation = function(){
         self.navigation_layer.add(back_overlay);
 
         back_overlay.on("click", function(){
+            self.events.on_unzoom(self._unprefix(self.zoomed_clusters[self.zoomed_clusters.length-1]));
             self._unzoom_icon_click(this);
         });
 
@@ -1253,7 +1561,8 @@ InCHlib.prototype._draw_navigation = function(){
         });
 
         refresh_overlay.on("click", function(){
-            self._refresh_icon_click(this);
+            self._refresh_icon_click();
+            self.events.on_refresh();
         });
 
         refresh_overlay.on("mouseover", function(){
@@ -1322,21 +1631,38 @@ InCHlib.prototype._highlight_path = function(path_id){
      }
  }
 
+/**
+  * Unhighlight highlighted heatmap rows. 
+  *
+  * @example 
+  * instance.unhighlight_rows();
+  */
  InCHlib.prototype.unhighlight_rows = function(){
     this.highlight_rows([]);
     return;
  }
 
- InCHlib.prototype.highlight_rows = function(row_ids, action){
+/**
+  * Highlight heatmap rows with color defined in instance.settings.highlight_colors. 
+  * When the empty array is passed it unhighlights all highlighted rows.
+  * 
+  * @param {object} [row_ids] The array of heatmap row (object) IDs.
+  *
+  * @example 
+  * instance.highlight_rows(["CHEMBL7781", "CHEMBL273658", "CHEMBL415309", "CHEMBL267231", "CHEMBL8007", "CHEMBL7987", "CHEMBL7988", "CHEMBL266282", "CHEMBL7655", "CHEMBL7817", "CHEMBL8637", "CHEMBL8639", "CHEMBL8055", "CHEMBL7843", "CHEMBL266488", "CHEMBL8329"]);
+  */
+
+ InCHlib.prototype.highlight_rows = function(row_ids){
     var i, row, row_id;
 
-    if(action == "append"){
-        this.settings.highlighted_rows.push.apply(this.settings.highlighted_rows, row_ids);
-    }
-    else{
-        this.settings.highlighted_rows = row_ids;
-        this.highlighted_rows_layer.destroyChildren();
-    }
+    // if(action == "append"){
+    //     this.settings.highlighted_rows.push.apply(this.settings.highlighted_rows, row_ids);
+    // }
+    // else{
+    // }
+
+    this.settings.highlighted_rows = row_ids;
+    this.highlighted_rows_layer.destroyChildren();
 
     var original_colors = this.settings.heatmap_colors;
     var original_metadata_colors = this.settings.metadata_colors;
@@ -1391,22 +1717,37 @@ InCHlib.prototype._highlight_cluster = function(path_id){
     this._highlight_path(path_id);
     this.dendrogram_overlay_layer.draw();
     object_ids = this._draw_cluster_layer(path_id);
-    this.settings.dendrogram_node_highlight(object_ids, path_id);
+    this.events.dendrogram_node_highlight(object_ids, path_id);
 
     return object_ids;
 }
 
+/**
+  * Highlight cluster defined by the dendrogram node ID.
+  * 
+  * @param {string} node_id The ID of particular node in dendrogram.
+  *
+  * @example 
+  * instance.highlight_cluster("node@715");
+  */
+
 InCHlib.prototype.highlight_cluster = function(node_id){
-    return this._highlight_cluster(_prefix(node_id));
+    return this._highlight_cluster(this._prefix(node_id));
 }
 
+/**
+  * Unhighlight highlighted dendrogram node (cluster).
+  *
+  * @example 
+  * instance.unhighlight_cluster();
+  */
 InCHlib.prototype.unhighlight_cluster = function(){
     if(this.last_highlighted_cluster){
         this.cluster_layer.removeChildren();
         this.cluster_layer.draw();
         this.dendrogram_overlay_layer.removeChildren();
         this.dendrogram_overlay_layer.draw();
-        this.settings.dendrogram_node_unhighlight(this.last_highlighted_cluster);
+        this.events.dendrogram_node_unhighlight(this.last_highlighted_cluster);
         this.last_highlighted_cluster = null;
     }
     return [];
@@ -1513,7 +1854,7 @@ InCHlib.prototype._draw_cluster_layer = function(){
 
     this.cluster_layer.on("click", function(evt){
         self.unhighlight_cluster();
-        self.settings.empty_space_onclick(evt);
+        self.events.empty_space_onclick(evt);
     });
 
     return object_ids;
@@ -1535,7 +1876,7 @@ InCHlib.prototype._zoom_cluster = function(node_id){
         this._draw_heatmap_header();
         this.highlight_rows(this.settings.highlighted_rows);
 
-        this.settings.on_zoom(this._unprefix(node_id));
+        this.events.on_zoom(this._unprefix(node_id));
     }
     else{
         return false;
@@ -1850,7 +2191,7 @@ InCHlib.prototype._filter_icon_click = function(filter_button){
             self._draw_heatmap_header();
 
             if(highlighted_cluster != null){
-                self.highlight_cluster(highlighted_cluster);
+                self._highlight_cluster(highlighted_cluster);
             }
         });
     }
@@ -1869,7 +2210,6 @@ InCHlib.prototype._refresh_icon_click = function(){
     this._draw_heatmap();
     this._draw_heatmap_header();
     this.highlight_rows(this.settings.highlighted_rows);
-    this.settings.on_refresh();
 }
 
 InCHlib.prototype._unzoom_icon_click = function(){
@@ -1884,8 +2224,7 @@ InCHlib.prototype._unzoom_icon_click = function(){
     else{
         this._refresh_icon_click();
     }
-    this.highlight_cluster(current_node_id);
-    this.settings.on_unzoom(this._unprefix(current_node_id));
+    this._highlight_cluster(current_node_id);
 };
 
 InCHlib.prototype._icon_mouseover = function(icon, icon_overlay, layer){
@@ -1919,14 +2258,14 @@ InCHlib.prototype._dendrogram_layers_click=function(evt, layer){
     layer.fire("mouseout", evt);
     
     if(path_id != this.last_highlighted_cluster){
-        object_ids = this.highlight_cluster(path_id);
+        object_ids = this._highlight_cluster(path_id);
     }
     else{
         this.unhighlight_cluster();
     }
 
     layer.draw();
-    this.settings.dendrogram_node_onclick(object_ids, path_id, evt);
+    this.events.dendrogram_node_onclick(object_ids, path_id, evt);
 }
 
 InCHlib.prototype._dendrogram_layers_mouseout = function(evt){
@@ -2103,13 +2442,13 @@ InCHlib.prototype._row_mouseenter = function(evt){
         this.row_borders.add(this.objects_ref.row_border.clone({points:[x, y, x+visible*this.pixels_for_dimension, y]}));
         this.heatmap_overlay.add(this.row_borders);
         this.heatmap_overlay.draw();
-        this.settings.row_onmouseover(this.data.nodes[row_id].objects, evt);
+        this.events.row_onmouseover(this.data.nodes[row_id].objects, evt);
     }
 }
 
 InCHlib.prototype._row_mouseleave = function(evt){
     this.row_borders.destroy();
-    this.settings.row_onmouseout(evt);
+    this.events.row_onmouseout(evt);
 };
 
 InCHlib.prototype._draw_col_label = function(evt){

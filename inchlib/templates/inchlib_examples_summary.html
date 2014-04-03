@@ -80,7 +80,7 @@
         &lt;script src="path/to/inchlib.js"&gt;&lt;/script&gt;
         &lt;script&gt;
         $(document).ready(function() { <span class="js_comment">//run when the whole page is loaded</span>
-            var inchlib = new InCHlib({ <span class="js_comment">//instantiate InCHlib</span>
+            window.inchlib = new InCHlib({ <span class="js_comment">//instantiate InCHlib</span>
                 <a href="{% url docs %}#target" target=blank>target</a>: "inchlib", <span class="js_comment">//ID of a target HTML element</span>
                 <a href="{% url docs %}#metadata" target=blank>metadata</a>: true, <span class="js_comment">//turn on the metadata</span> 
                 <a href="{% url docs %}#max_height" target=blank>max_height</a>: 1200, <span class="js_comment">//set maximum height of visualization in pixels</span>
