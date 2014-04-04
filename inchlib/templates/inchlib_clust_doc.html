@@ -43,7 +43,7 @@ scipy.spatial<br>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
 <td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial">class <strong>Cluster</strong></font></td></tr>
+<font color="#000000" face="helvetica, arial"><a name="Cluster">class <strong>Cluster</strong></a></font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
 <td colspan=2><tt>Class&nbsp;for&nbsp;data&nbsp;clustering<br>&nbsp;</tt></td></tr>
@@ -101,9 +101,11 @@ As&nbsp;an&nbsp;input&nbsp;it&nbsp;takes&nbsp;a&nbsp;<a href="#Cluster">Cluster<
 
 <dl><dt><a name="Dendrogram-__read_metadata_file__"><strong>__read_metadata_file__</strong></a>(self, metadata_file, delimiter, header)</dt></dl>
 
-<dl><dt><a name="Dendrogram-add_metadata"><strong>add_metadata</strong></a>(self, metadata, header<font color="#909090">=True</font>)</dt><dd><tt>Adds&nbsp;metadata&nbsp;in&nbsp;a&nbsp;form&nbsp;of&nbsp;list&nbsp;of&nbsp;lists&nbsp;(tuples)</tt></dd></dl>
+<dl><dt><a name="Dendrogram-add_metadata"><strong>add_metadata</strong></a>(self, metadata, header<font color="#909090">=True</font>, metadata_compressed_value<font color="#909090">='median'</font>)</dt><dd><tt>Adds&nbsp;metadata&nbsp;in&nbsp;a&nbsp;form&nbsp;of&nbsp;list&nbsp;of&nbsp;lists&nbsp;(tuples).<br>
+Metadata_compressed_value&nbsp;specifies&nbsp;the&nbsp;resulted&nbsp;value&nbsp;when&nbsp;the&nbsp;data&nbsp;are&nbsp;compressed&nbsp;(median/mean/frequency)</tt></dd></dl>
 
-<dl><dt><a name="Dendrogram-add_metadata_from_file"><strong>add_metadata_from_file</strong></a>(self, metadata_file, delimiter, header<font color="#909090">=True</font>)</dt><dd><tt>Adds&nbsp;metadata&nbsp;from&nbsp;csv&nbsp;file.</tt></dd></dl>
+<dl><dt><a name="Dendrogram-add_metadata_from_file"><strong>add_metadata_from_file</strong></a>(self, metadata_file, delimiter, header<font color="#909090">=True</font>, metadata_compressed_value<font color="#909090">='median'</font>)</dt><dd><tt>Adds&nbsp;metadata&nbsp;from&nbsp;csv&nbsp;file.<br>
+Metadata_compressed_value&nbsp;specifies&nbsp;the&nbsp;resulted&nbsp;value&nbsp;when&nbsp;the&nbsp;data&nbsp;are&nbsp;compressed&nbsp;(median/mean/frequency)</tt></dd></dl>
 
 <dl><dt><a name="Dendrogram-create_cluster_heatmap"><strong>create_cluster_heatmap</strong></a>(self, compress<font color="#909090">=False</font>, compressed_value<font color="#909090">='median'</font>, write_data<font color="#909090">=True</font>)</dt><dd><tt>Creates&nbsp;cluster&nbsp;heatmap&nbsp;representation&nbsp;in&nbsp;inchlib&nbsp;format.&nbsp;By&nbsp;setting&nbsp;compress&nbsp;parameter&nbsp;to&nbsp;True&nbsp;you&nbsp;can<br>
 cut&nbsp;the&nbsp;dendrogram&nbsp;in&nbsp;a&nbsp;distance&nbsp;to&nbsp;decrease&nbsp;the&nbsp;row&nbsp;size&nbsp;of&nbsp;the&nbsp;heatmap&nbsp;to&nbsp;specified&nbsp;count.&nbsp;<br>

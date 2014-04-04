@@ -95,10 +95,14 @@
       <b>-c COMPRESS, --compress COMPRESS</b>
                             compress the data to contain maximum of specified
                             count of rows
-      <b>-c COMPRESSED_VALUE, --compressed_value COMPRESSED_VALUE</b>
+      <b>-cv COMPRESSED_VALUE, --compressed_value COMPRESSED_VALUE</b>
                             the resulted value of merged rows (data points) (<i>default:</i> median)
                             
                             <b>possible values</b>: median, mean
+      <b>-mcv METADATA_COMPRESSED_VALUE, --metadata_compressed_value METADATA_COMPRESSED_VALUE</b>
+                            the resulted value from merged rows when the data are compressed (<i>default:</i> median)
+                            
+                            <b>possible values</b>: median, mean, frequency
 
       <b>-dwd, --dont_write_data</b>
                             don't write clustered data to the inchlib data format

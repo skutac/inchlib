@@ -242,14 +242,18 @@ class Dendrogram():
             output.write(dendrogram_json)
         return dendrogram_json
 
-    def add_metadata_from_file(self, metadata_file, delimiter, header=True):
-        """Adds metadata from csv file."""
+    def add_metadata_from_file(self, metadata_file, delimiter, header=True, metadata_compressed_value="median"):
+        """Adds metadata from csv file.
+        Metadata_compressed_value specifies the resulted value when the data are compressed (median/mean/frequency)"""
+        self.metadata_compressed_value = metadata_compressed_value
         self.metadata, self.metadata_header = self.__read_metadata_file__(metadata_file, delimiter, header)
         self.__connect_metadata_to_data__()
         return
 
-    def add_metadata(self, metadata, header=True):
-        """Adds metadata in a form of list of lists (tuples)"""
+    def add_metadata(self, metadata, header=True, metadata_compressed_value="median"):
+        """Adds metadata in a form of list of lists (tuples).
+        Metadata_compressed_value specifies the resulted value when the data are compressed (median/mean/frequency)"""
+        self.metadata_compressed_value = metadata_compressed_value
         self.metadata, self.metadata_header = self.__read_metadata__(metadata, header)
         self.__connect_metadata_to_data__()
         return
@@ -295,12 +299,20 @@ class Dendrogram():
 
                 for col in cols:
                     
-                    try:
-                        col = [float(c) for c in col]
-                        value = compressed_value2fnc[self.compressed_value](col)
-                    except Exception, e:
+                    if self.metadata_compressed_value in compressed_value2fnc:
+                        try:
+                            col = [float(c) for c in col]
+                            value = compressed_value2fnc[self.metadata_compressed_value](col)
+                        except ValueError:
+                            freq2val = {col.count(v):v for v in set(col)}
+                            value = freq2val[max(freq2val.keys())]
+                    
+                    elif self.metadata_compressed_value == "frequency":
                         freq2val = {col.count(v):v for v in set(col)}
                         value = freq2val[max(freq2val.keys())]
+                    
+                    else:
+                        raise Exception("Unkown type of metadata_compressed_value: {}. Possible values are: median, mean, frequency.".format(self.metadata_compressed_value))
                     
                     row.append(value)
 
@@ -500,7 +512,7 @@ def _process_(arguments):
     d.create_cluster_heatmap(compress=arguments.compress, compressed_value=arguments.compressed_value, write_data=not arguments.dont_write_data)
     
     if arguments.metadata:
-        d.add_metadata_from_file(metadata_file=arguments.metadata, delimiter=arguments.metadata_delimiter, header=arguments.metadata_header)
+        d.add_metadata_from_file(metadata_file=arguments.metadata, delimiter=arguments.metadata_delimiter, header=arguments.metadata_header, metadata_compressed_value=arguments.metadata_compressed_value)
     
     if arguments.output_file:
         d.export_cluster_heatmap_as_json(arguments.output_file)
@@ -525,7 +537,8 @@ if __name__ == '__main__':
     parser.add_argument("-dh", "--data_header", default=False, help="whether the first row of data file is a header", action="store_true")
     parser.add_argument("-mh", "--metadata_header", default=False, help="whether the first row of metadata file is a header", action="store_true")
     parser.add_argument("-c", "--compress", type=int, default=0, help="compress the data to contain maximum of specified count of rows")
-    parser.add_argument("-cv", "--compressed_value", type=str, default="median", help="the resulted value from merged rows (data points)")
+    parser.add_argument("-cv", "--compressed_value", type=str, default="median", help="the resulted value from merged rows when the data are compressed (median/mean/frequency)")
+    parser.add_argument("-mcv", "--metadata_compressed_value", type=str, default="median", help="the resulted value from merged rows of metadata when the data are compressed (median/mean/count)")
     parser.add_argument("-dwd", "--dont_write_data", default=False, help="don't write clustered data to the inchlib data format", action="store_true")
     parser.add_argument("-n", "--normalize", default=False, help="normalize data to [0, 1] range", action="store_true")
     parser.add_argument("-wo", "--write_original", default=False, help="cluster normalized data but write the original ones to the heatmap", action="store_true")

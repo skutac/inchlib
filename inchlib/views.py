@@ -156,7 +156,8 @@ d = inchlib_clust.Dendrogram(c)
 d.create_cluster_heatmap(compress=int, compressed_value="median", write_data=bool)
 
 # read metadata file with specified delimiter, also specify whether there is a header row
-d.add_metadata_from_file(metadata_file="filename", delimiter=",", header=bool)
+d.add_metadata_from_file(metadata_file="filename", delimiter=",", header=bool, metadata_compressed_value="median")
+# d.add_metadata(metadata, header=bool, metadata_compressed_value="median") use add_metadata() for list of lists instead of a metadata file
 
 # export the cluster heatmap on the standard output or to the file if filename specified
 d.export_cluster_heatmap_as_json("filename")"""
