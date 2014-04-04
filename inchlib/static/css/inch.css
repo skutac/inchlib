@@ -512,3 +512,11 @@ sup{
 	margin-top: 15px;
 	font-style: italic;
 }
+
+#min_button{
+	margin-left: 20px;
+}
+
+.size{
+	font-size: 14px;
+}

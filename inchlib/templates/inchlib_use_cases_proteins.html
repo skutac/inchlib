@@ -55,6 +55,19 @@
             }
         };
 
+        dendrogram.events.dendrogram_node_onclick = function(object_ids){
+            var i;
+            
+            for(i = 0; i<object_ids.length; i++){
+                if(object_ids[i] == current_protein){
+                    return;
+                }
+            }
+            $("#protein > canvas").hide();
+            protein_card.hide();
+            dendrogram.highlight_rows([]);
+            }
+
         function get_protein_from_pdb(id){
             if(webgl){
                 protein_canvas = $("#protein > canvas");
@@ -126,6 +139,13 @@
             }
 
             protein_card.html(table);
+        }
+
+        dendrogram.events.empty_space_onclick = function(){
+            dendrogram.highlight_rows([]);
+            dendrogram.unhighlight_cluster();
+            $("#protein > canvas").hide();
+            protein_card.hide();
         }
 
         $(document).click(function(evt){
