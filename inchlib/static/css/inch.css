@@ -487,12 +487,28 @@ sup{
 	color: gray;
 }
 
-#openscreen_logo{
+#logos{
 	float: right;
-	margin-right: 50px;
+	margin-right: 100px;
 }
 
-#openscreen_logo:hover{
+#logos img{
+	margin-right: 50px;
+	margin-top: 30px;
+}
+
+#logos img:hover{
 	cursor: pointer;
 	opacity: 0.7;
-};
+}
+
+#method_buttons{
+	margin-top: 20px;
+	width: 95%;
+}
+
+#method_buttons > .pure-button{
+	margin-left: 15px;
+	margin-top: 15px;
+	font-style: italic;
+}
