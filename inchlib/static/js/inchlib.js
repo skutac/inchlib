@@ -165,7 +165,7 @@ function InCHlib(settings){
         "min_row_height": false,
         "max_row_height": 25,
         "max_column_width": 100,
-        "font": "Arial",
+        "font": "Helvetica",
         "values_center": "median",
         "draw_row_ids": false,
         "header_as_heatmap_row": false,
@@ -2114,7 +2114,7 @@ InCHlib.prototype._filter_icon_click = function(filter_button){
             "padding-right":"15px",
             "font-weight":"bold",
             "z-index": 1000,
-            "font-family": self.settings.font
+            "font-family": "Helvetica"
         });
 
         filter_features_element.find("ul").css({
@@ -2135,7 +2135,6 @@ InCHlib.prototype._filter_icon_click = function(filter_button){
         });
 
         draw_element_overlay();
-        filter_features_element.toTo
         filter_features_element.fadeIn("slow");
 
         function draw_element_overlay(){
@@ -2148,7 +2147,7 @@ InCHlib.prototype._filter_icon_click = function(filter_button){
                             "left": 0,
                             "right": 0,
                             "bottom": 0,
-                            "opacity": 0.5
+                            "opacity": 0
                 });
 
             target_element.css({"position": "relative"});
