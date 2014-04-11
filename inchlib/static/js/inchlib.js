@@ -2174,7 +2174,11 @@ InCHlib.prototype._filter_icon_click = function(filter_button){
         $(function(){
             $("#dendrogram_filter_features").click(function(){
                 return false;
-            })
+            });
+
+            $("#dendrogram_filter_features").mousedown(function(){
+                return false;
+            });
 
            $("#dendrogram_filter_features ul li, #dendrogram_filter_features div span").hover(
            function(){
@@ -2236,6 +2240,10 @@ InCHlib.prototype._filter_icon_click = function(filter_button){
 
             if(highlighted_cluster != null){
                 self._highlight_cluster(highlighted_cluster);
+            }
+
+            if(self.settings.highlighted_rows){
+              self.highlight_rows(self.settings.highlighted_rows);
             }
         });
     }

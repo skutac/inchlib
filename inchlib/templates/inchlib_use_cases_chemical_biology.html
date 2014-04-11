@@ -94,7 +94,7 @@
             }
         }
 
-        $(document).click(function(evt){
+        $(document).click(function(evt){            
             if(evt.target.localName != "img" && evt.target.localName != "canvas" && evt.target.localName != "a"){
                 hide_molecule();
                 dendrogram.unhighlight_cluster();
