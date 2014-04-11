@@ -164,7 +164,7 @@ function InCHlib(settings){
         "count_column_colors": "Reds",
         "min_row_height": false,
         "max_row_height": 25,
-        "max_column_width": 100,
+        "max_column_width": 150,
         "font": "Helvetica",
         "values_center": "median",
         "draw_row_ids": false,
@@ -2147,7 +2147,7 @@ InCHlib.prototype._filter_icon_click = function(filter_button){
                             "left": 0,
                             "right": 0,
                             "bottom": 0,
-                            "opacity": 0
+                            "opacity": 0.5,
                 });
 
             target_element.css({"position": "relative"});
@@ -2207,11 +2207,21 @@ InCHlib.prototype._filter_icon_click = function(filter_button){
             $("#dendrogram_overlay").fadeOut("slow");
 
             var node_id = (self.zoomed_clusters.length > 0)?self.zoomed_clusters[self.zoomed_clusters.length-1]:self.root_id;
-
             var highlighted_cluster = self.last_highlighted_cluster;
             self.last_highlighted_cluster = null;
+            self.distance = self._hack_round((self.settings.width-100)*(1-self.settings.heatmap_part_width));
+            self.heatmap_width = self.settings.width - self.distance - 100;
+
+            var current_dimensions_count = self.on_features.length+self.on_metadata_features.length;
+            self.pixels_for_dimension = self.heatmap_width/(current_dimensions_count);
+            self.pixels_for_dimension = (self.pixels_for_dimension > self.settings.max_column_width)?self.settings.max_column_width:self.pixels_for_dimension;
+            var curren_width = self.distance + self.heatmap_width;
+            self.distance = curren_width - current_dimensions_count*self.pixels_for_dimension;
+            self.heatmap_width = current_dimensions_count*self.pixels_for_dimension;
+
             
             self._delete_all_layers();
+            self._draw_stage_layer();
             if(self.settings.dendrogram){
                 self._draw_row_dendrogram(node_id);
             }

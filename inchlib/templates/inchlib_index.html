@@ -25,7 +25,7 @@
         var target_element = $("#dendrogram");
         var offset = target_element.offset();
         var max_y = offset.top + 150;
-        var x_pos = offset.left + dendrogram.distance + dendrogram.heatmap_width + 20;
+        var x_pos = offset.left + dendrogram.settings.width - 80;
         var mol_element = $("#molecule");
         var img_element = $("#molecule_img");
         var mol_id_element = $("#mol_id");
@@ -65,7 +65,6 @@
                 hide_molecule(evt);
             };
             dendrogram.events.row_onclick = function(ids, evt){
-                mol_element.css({"left": offset.left + dendrogram.distance + (dendrogram.on_features.length + dendrogram.on_metadata_features.length)*dendrogram.pixels_for_dimension + 20});
                 show_molecule(ids[0], evt);
                 fix_molecule(ids[0]);
                 current = ids[0];
@@ -95,17 +94,12 @@
         }
 
         $(document).click(function(evt){
-            console.log(evt)
             if(evt.target.localName != "img" && evt.target.localName != "canvas" && evt.target.localName != "a"){
                 hide_molecule();
                 dendrogram.unhighlight_cluster();
                 dendrogram.highlight_rows([])
                 bind_dendrogram_events();
             }
-        });
-
-        $("#update_filter_list").click(function(){
-            mol_element.css({"left": offset.left + dendrogram.distance + (dendrogram.on_features.length + dendrogram.on_metadata_features.length)*dendrogram.pixels_for_dimension + 20});
         });
 
     });
