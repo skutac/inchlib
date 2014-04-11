@@ -2148,6 +2148,7 @@ InCHlib.prototype._filter_icon_click = function(filter_button){
                             "right": 0,
                             "bottom": 0,
                             "opacity": 0.5,
+                            "z-index": 100
                 });
 
             target_element.css({"position": "relative"});
@@ -2177,6 +2178,14 @@ InCHlib.prototype._filter_icon_click = function(filter_button){
             });
 
             $("#dendrogram_filter_features").mousedown(function(){
+                return false;
+            });
+
+            $("#dendrogram_overlay").mousedown(function(){
+                return false;
+            });
+
+            $("#dendrogram_overlay").click(function(){
                 return false;
             });
 
