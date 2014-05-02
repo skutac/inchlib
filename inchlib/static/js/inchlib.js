@@ -759,11 +759,11 @@ InCHlib.prototype._reorder_heatmap = function(column_index){
         this.heatmap_array.reverse();
     }
     else{
-        if(typeof(this.heatmap_array[0][column_index]) == "string"){
-            this.heatmap_array.sort(function(a,b){return (a[column_index] == null)?-1:(b[column_index] == null)?1:(a[column_index] > b[column_index])?1:(a[column_index] < b[column_index])?-1:0});
+        if(this._is_number(this.heatmap_array[0][column_index])){
+          this.heatmap_array.sort(function(a,b){return (a[column_index] == null)?-1:(b[column_index] == null)?1:a[column_index] - b[column_index]});
         }
         else{
-            this.heatmap_array.sort(function(a,b){return (a[column_index] == null)?-1:(b[column_index] == null)?1:a[column_index] - b[column_index]});
+          this.heatmap_array.sort(function(a,b){return (a[column_index] == null)?-1:(b[column_index] == null)?1:(a[column_index] > b[column_index])?1:(a[column_index] < b[column_index])?-1:0});
         }
     }
 
@@ -848,6 +848,7 @@ InCHlib.prototype.draw = function(){
         this.ordered_by_index = 0;
         this._draw_heatmap();
     }
+    this._draw_heatmap_header();
 
     this.highlight_rows(this.settings.highlighted_rows);
     // When measuring the rendering duration
@@ -1185,8 +1186,6 @@ InCHlib.prototype._draw_heatmap = function(){
         self.heatmap_overlay.draw();
         self.events.heatmap_onmouseout(evt);
     });
-
-    this._draw_heatmap_header();
 }
 
 InCHlib.prototype._draw_heatmap_row = function(node_id, x1, y1){
@@ -2114,7 +2113,7 @@ InCHlib.prototype._filter_icon_click = function(filter_button){
             "padding-right":"15px",
             "font-weight":"bold",
             "z-index": 1000,
-            "font-family": "Helvetica"
+            "font-family": self.settings.font
         });
 
         filter_features_element.find("ul").css({
@@ -2147,8 +2146,7 @@ InCHlib.prototype._filter_icon_click = function(filter_button){
                             "left": 0,
                             "right": 0,
                             "bottom": 0,
-                            "opacity": 0.5,
-                            "z-index": 100
+                            "opacity": 0.5
                 });
 
             target_element.css({"position": "relative"});
@@ -2178,14 +2176,6 @@ InCHlib.prototype._filter_icon_click = function(filter_button){
             });
 
             $("#dendrogram_filter_features").mousedown(function(){
-                return false;
-            });
-
-            $("#dendrogram_overlay").mousedown(function(){
-                return false;
-            });
-
-            $("#dendrogram_overlay").click(function(){
                 return false;
             });
 
@@ -2249,10 +2239,6 @@ InCHlib.prototype._filter_icon_click = function(filter_button){
 
             if(highlighted_cluster != null){
                 self._highlight_cluster(highlighted_cluster);
-            }
-
-            if(self.settings.highlighted_rows){
-              self.highlight_rows(self.settings.highlighted_rows);
             }
         });
     }
@@ -2524,7 +2510,7 @@ InCHlib.prototype._draw_col_label = function(evt){
                              "Count": "Count"};
     var value = attrs.value;
     var header = header_type2value[column[0]];
-    if(value){
+    if(value || value === 0){
         value = [header, value].join("\n");
     }
     else{
