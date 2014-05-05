@@ -27,6 +27,15 @@ except Exception, e:
     PDB2DATA = {}
     GO2NAME = {}
 
+try:
+    with open(os.path.join(settings.ROOT, "static/source_data/compound2scaffold.csv"), "r") as scaffolds:
+        reader = csv.DictReader(scaffolds, delimiter=",")
+        COMPOUND2SCAFFOLD = {p["chembl_id"]:p["scaffold"] for p in reader}
+
+except Exception, e:
+    print str(e)
+    COMPOUND2SCAFFOLD = {}
+
 
 def index(req):
     return render_to_response("inchlib_index.html", {})
