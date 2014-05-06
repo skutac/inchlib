@@ -204,3 +204,18 @@ def get_pdb_file(req):
 def fetch_pdb(id):
   url = 'http://www.rcsb.org/pdb/files/%s.pdb' % id
   return urllib.urlopen(url).read()
+
+def get_scaffolds(req):
+    compounds = req.POST.getlist("compounds[]")
+    scaffold2count = {}
+    for chembl_id in compounds:
+        scaffold = COMPOUND2SCAFFOLD[chembl_id]
+        if scaffold in scaffold2count:
+            scaffold2count[scaffold] += 1
+        else:
+            scaffold2count[scaffold] = 1
+
+    scaffolds = [(s, scaffold2count[s]) for s in scaffold2count]
+    scaffolds.sort(key = lambda x: x[1], reverse=True)
+
+    return HttpResponse(json.dumps(scaffolds))

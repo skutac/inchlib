@@ -22,6 +22,7 @@ urlpatterns = patterns('',
     url(r'^inchlib_examples_summary_html$', 'inchlib.views.inchlib_examples_summary_html', name='inchlib_examples_summary_html'),
     url(r'^test$', 'inchlib.views.test', name='test'),
     url(r'^get_pdb_file$', 'inchlib.views.get_pdb_file', name='get_pdb_file'),
+    url(r'^get_scaffolds$', 'inchlib.views.get_scaffolds', name='get_scaffolds'),
     # url(r'^inch/', include('inchlib.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:

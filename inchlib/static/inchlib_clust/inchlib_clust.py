@@ -203,12 +203,12 @@ class Dendrogram():
         return
 
     def __create_unique_id__(self, node_id):
-        if re.match(".*?#\d+", node_id):
-            node_id, num = node_id.split("#")
+        if re.match(".*?@\d+", node_id):
+            node_id, num = node_id.split("@")
             num = str(int(num)+1)
-            node_id = "#".join([node_id, num])
+            node_id = "@".join([node_id, num])
         else:
-            node_id = "#".join([node_id, "2"])
+            node_id = "@".join([node_id, "2"])
         return node_id
 
     def __get_distance_treshold__(self, cluster_count):
@@ -348,7 +348,10 @@ class Dendrogram():
             data_start = 1
         
         for row in rows[data_start:]:
-            metadata[str(row[0])] = [r for r in row[1:]]
+            metadata_id = str(row[0])
+            while metadata_id in metadata:
+                metadata_id = self.__create_unique_id__(metadata_id)
+            metadata[metadata_id] = [r for r in row[1:]]
 
         return metadata, metadata_header
 

@@ -1,6 +1,8 @@
 import csv
 import MySQLdb
 
+import config
+
 import rdkit
 from rdkit import Chem
 from rdkit.Chem import AllChem
@@ -8,7 +10,7 @@ from rdkit.Chem import Draw
 from rdkit.Chem.Scaffolds import MurckoScaffold
 
 def get_cursor():
-    conn = MySQLdb.connect(host = "localhost", user = "", passwd = "", db = "chembl_18")
+    conn = MySQLdb.connect(host = "localhost", user = config.DB_USER, passwd = config.DB_PASSWORD, db = "chembl_15")
     cursor = conn.cursor(cursorclass=MySQLdb.cursors.DictCursor)
     return cursor
 
@@ -16,8 +18,8 @@ def get_cursor():
 def get_compounds():
 	compounds = []
 	cursor = get_cursor()
-	with open("../source_data/chembl_gr.csv", "r") as inputfile:
-		chembl_ids = [r["chembl_id"] for r in csv.DictReader(inputfile)]
+	with open("../source_data/chembl_gr_2.csv", "r") as inputfile:
+		chembl_ids = [r["id"] for r in csv.DictReader(inputfile)]
 
 	for c in chembl_ids:
 		query = """SELECT chembl_id, canonical_smiles FROM compound_structures
