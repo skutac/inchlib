@@ -8,7 +8,7 @@ from rdkit.Chem import Draw
 from rdkit.Chem.Scaffolds import MurckoScaffold
 
 def get_cursor():
-    conn = MySQLdb.connect(host = "localhost", user = "root", passwd = "gugoun", db = "chembl_18")
+    conn = MySQLdb.connect(host = "localhost", user = "", passwd = "", db = "chembl_18")
     cursor = conn.cursor(cursorclass=MySQLdb.cursors.DictCursor)
     return cursor
 
