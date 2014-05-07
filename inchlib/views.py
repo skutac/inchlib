@@ -207,6 +207,7 @@ def fetch_pdb(id):
 
 def get_scaffolds(req):
     compounds = req.POST.getlist("compounds[]")
+    print req
     scaffold2count = {}
     for chembl_id in compounds:
         scaffold = COMPOUND2SCAFFOLD[chembl_id]

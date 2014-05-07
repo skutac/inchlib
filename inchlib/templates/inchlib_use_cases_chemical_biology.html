@@ -3,11 +3,9 @@
 {% block content %}
 {% load staticfiles %}
 
-<script src="{% static "js/jquery.slides.min.js" %}"></script>
 <script>
     $(document).ready(function(){
         var current;
-        var scaffold_element = $("#slides");
 
         window.dendrogram = new InCHlib(
             {
@@ -20,7 +18,7 @@
                 highlight_colors: "PuOr",
             });
 
-        dendrogram.read_data_from_file("{% static "data/chembl_gr_normalized_2.json" %}");
+        dendrogram.read_data_from_file("{% static "data/chembl_era_normalized.json" %}");
         dendrogram.draw();
 
         var static_url = "{% static "img/gr_molecules/" %}";
@@ -33,7 +31,9 @@
         var img_element = $("#molecule_img");
         var mol_id_element = $("#mol_id");
         var mol_link = $("#molecule a");
+        var scaffolds_element = $("#scaffolds");
         mol_element.css({"left": x_pos});
+        scaffolds_element.css({"left": x_pos+30, "top": max_y});
 
         bind_dendrogram_events();
 
@@ -51,18 +51,21 @@
 
         }
 
-        function show_scaffold(scaffold, evt){
-            var filepath = "/static/img/gr_scaffolds/" + scaffold[0] + ".svg";
-            var y = evt.pageY-300;
-            if(y < max_y){
-                y = max_y;
+        function show_scaffolds(scaffolds, evt){
+            var i, height = 300;
+            if(target_element.height() > 300){
+                height = target_element.height() - 220;
             }
-            mol_element.css({"top": y, "border-width": "1px"});
-            img_element.attr("src", filepath);
-            mol_id_element.text(scaffold[1]);
-            mol_link.attr("href", chembl_url+mol_id);
-            mol_element.show();
 
+            scaffolds_element.hide();
+            scaffolds_element.html("");
+            scaffolds_element.css({"height": height});
+
+            for(i = 0; i < scaffolds.length; i++){
+                scaffolds_element.append('<div><img class="scaffold_img" src="/static/img/gr_scaffolds/' + scaffolds[i][0] + '.svg" alt=""><span class="scaffold_count">' + scaffolds[i][1] + '</span></div><hr />')
+            }
+
+            scaffolds_element.show();
         }
 
         function getCookie(c_name){ // from http://www.w3schools.com/js/js_cookies.asp
@@ -110,7 +113,7 @@
                 dendrogram.unhighlight_cluster();
             };
 
-            dendrogram.events.dendrogram_node_onclick = function(object_ids, evt){
+            dendrogram.events.dendrogram_node_highlight = function(object_ids, evt){
                 var i;
 
                 $.ajax({
@@ -119,8 +122,7 @@
                     url: "{% url get_scaffolds %}",
                     data:{compounds: object_ids, csrfmiddlewaretoken : getCookie("csrftoken")},
                     success: function(scaffolds){
-                        show_scaffold(scaffolds[0], evt);
-                        fix_molecule();
+                        show_scaffolds(scaffolds, evt);
                     },
                 });
                 
@@ -130,6 +132,10 @@
                     }
                 }
                 dendrogram.highlight_rows([]);
+            }
+
+            dendrogram.events.dendrogram_node_unhighlight = function(){
+                scaffolds_element.hide();
             }
 
             dendrogram.events.empty_space_onclick = function(){
@@ -193,6 +199,9 @@
         <img src="" id="molecule_img"></img>
         <div id="mol_id"></div>
     </a>
+</div>
+
+<div id="scaffolds">
 </div>
 
 <div id="dendrogram"></div>

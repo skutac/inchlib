@@ -1,0 +1,5279 @@
+{
+    "data": {
+        "nodes": {
+            "CHEMBL193482": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL193482"
+                ], 
+                "features": [
+                    2.58, 
+                    3.0, 
+                    3.0, 
+                    288.17, 
+                    0.0, 
+                    80.12, 
+                    60.69
+                ], 
+                "parent": "node@282"
+            }, 
+            "CHEMBL1200623": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL1200623"
+                ], 
+                "features": [
+                    5.09, 
+                    1.0, 
+                    1.0, 
+                    288.25, 
+                    1.0, 
+                    86.94, 
+                    20.23
+                ], 
+                "parent": "node@290"
+            }, 
+            "CHEMBL335884": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL335884"
+                ], 
+                "features": [
+                    3.8, 
+                    2.0, 
+                    3.0, 
+                    274.1, 
+                    0.0, 
+                    77.9, 
+                    40.46
+                ], 
+                "parent": "node@208"
+            }, 
+            "node@277": {
+                "count": 2, 
+                "distance": 8.561, 
+                "left_child": "CHEMBL1800984", 
+                "parent": "node@321", 
+                "right_child": "CHEMBL473801"
+            }, 
+            "node@276": {
+                "count": 2, 
+                "distance": 8.207, 
+                "left_child": "CHEMBL1201151", 
+                "parent": "node@326", 
+                "right_child": "CHEMBL2103774"
+            }, 
+            "node@275": {
+                "count": 3, 
+                "distance": 7.971, 
+                "left_child": "CHEMBL495326", 
+                "parent": "node@324", 
+                "right_child": "node@204"
+            }, 
+            "node@274": {
+                "count": 3, 
+                "distance": 7.933, 
+                "left_child": "CHEMBL1628190", 
+                "parent": "node@316", 
+                "right_child": "node@252"
+            }, 
+            "node@273": {
+                "count": 3, 
+                "distance": 7.811, 
+                "left_child": "CHEMBL489585", 
+                "parent": "node@317", 
+                "right_child": "node@201"
+            }, 
+            "node@272": {
+                "count": 2, 
+                "distance": 7.807, 
+                "left_child": "CHEMBL370403", 
+                "parent": "node@348", 
+                "right_child": "CHEMBL235386"
+            }, 
+            "node@378": {
+                "count": 27, 
+                "distance": 104.661, 
+                "left_child": "node@364", 
+                "parent": "node@382", 
+                "right_child": "node@370"
+            }, 
+            "node@270": {
+                "count": 3, 
+                "distance": 7.596, 
+                "left_child": "CHEMBL411", 
+                "parent": "node@289", 
+                "right_child": "node@251"
+            }, 
+            "node@376": {
+                "count": 17, 
+                "distance": 89.614, 
+                "left_child": "node@354", 
+                "parent": "node@380", 
+                "right_child": "node@360"
+            }, 
+            "node@377": {
+                "count": 14, 
+                "distance": 97.481, 
+                "left_child": "node@351", 
+                "parent": "node@384", 
+                "right_child": "node@371"
+            }, 
+            "CHEMBL197080": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL197080"
+                ], 
+                "features": [
+                    5.63, 
+                    2.0, 
+                    2.0, 
+                    368.1, 
+                    3.0, 
+                    97.28, 
+                    40.46
+                ], 
+                "parent": "node@309"
+            }, 
+            "node@375": {
+                "count": 22, 
+                "distance": 84.497, 
+                "left_child": "node@346", 
+                "parent": "node@382", 
+                "right_child": "node@368"
+            }, 
+            "node@372": {
+                "count": 19, 
+                "distance": 75.043, 
+                "left_child": "node@347", 
+                "parent": "node@383", 
+                "right_child": "node@356"
+            }, 
+            "node@373": {
+                "count": 23, 
+                "distance": 75.782, 
+                "left_child": "node@352", 
+                "parent": "node@379", 
+                "right_child": "node@355"
+            }, 
+            "node@279": {
+                "count": 2, 
+                "distance": 9.051, 
+                "left_child": "CHEMBL33889", 
+                "parent": "node@314", 
+                "right_child": "CHEMBL1087252"
+            }, 
+            "node@371": {
+                "count": 10, 
+                "distance": 73.067, 
+                "left_child": "node@307", 
+                "parent": "node@377", 
+                "right_child": "node@349"
+            }, 
+            "CHEMBL432371": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL432371"
+                ], 
+                "features": [
+                    7.41, 
+                    1.0, 
+                    4.0, 
+                    467.25, 
+                    8.0, 
+                    141.84, 
+                    45.84
+                ], 
+                "parent": "node@196"
+            }, 
+            "CHEMBL490197": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL490197"
+                ], 
+                "features": [
+                    6.98, 
+                    2.0, 
+                    3.0, 
+                    422.15, 
+                    6.0, 
+                    126.21, 
+                    66.76
+                ], 
+                "parent": "node@323"
+            }, 
+            "CHEMBL383372": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL383372"
+                ], 
+                "features": [
+                    6.02, 
+                    3.0, 
+                    5.0, 
+                    498.25, 
+                    9.0, 
+                    146.92, 
+                    82.03
+                ], 
+                "parent": "node@262"
+            }, 
+            "CHEMBL490198": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL490198"
+                ], 
+                "features": [
+                    7.45, 
+                    2.0, 
+                    3.0, 
+                    438.18, 
+                    8.0, 
+                    132.85, 
+                    66.76
+                ], 
+                "parent": "node@203"
+            }, 
+            "CHEMBL372526": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL372526"
+                ], 
+                "features": [
+                    5.51, 
+                    2.0, 
+                    2.0, 
+                    392.04, 
+                    3.0, 
+                    104.91, 
+                    40.46
+                ], 
+                "parent": "node@335"
+            }, 
+            "CHEMBL293599": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL293599"
+                ], 
+                "features": [
+                    3.2, 
+                    3.0, 
+                    3.0, 
+                    241.11, 
+                    1.0, 
+                    70.9, 
+                    52.49
+                ], 
+                "parent": "node@248"
+            }, 
+            "CHEMBL293297": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL293297"
+                ], 
+                "features": [
+                    5.79, 
+                    2.0, 
+                    5.0, 
+                    444.24, 
+                    6.0, 
+                    131.64, 
+                    56.17
+                ], 
+                "parent": "node@233"
+            }, 
+            "CHEMBL494698": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL494698"
+                ], 
+                "features": [
+                    5.9, 
+                    2.0, 
+                    4.0, 
+                    376.26, 
+                    9.0, 
+                    119.79, 
+                    49.84
+                ], 
+                "parent": "node@206"
+            }, 
+            "CHEMBL153211": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL153211"
+                ], 
+                "features": [
+                    2.99, 
+                    3.0, 
+                    8.0, 
+                    433.26, 
+                    9.0, 
+                    128.22, 
+                    89.44
+                ], 
+                "parent": "node@284"
+            }, 
+            "CHEMBL153359": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL153359"
+                ], 
+                "features": [
+                    2.58, 
+                    3.0, 
+                    9.0, 
+                    472.27, 
+                    10.0, 
+                    137.96, 
+                    113.23
+                ], 
+                "parent": "node@336"
+            }, 
+            "CHEMBL152993": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL152993"
+                ], 
+                "features": [
+                    3.71, 
+                    2.0, 
+                    8.0, 
+                    464.24, 
+                    10.0, 
+                    135.32, 
+                    77.41
+                ], 
+                "parent": "node@300"
+            }, 
+            "CHEMBL236718": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL236718"
+                ], 
+                "features": [
+                    4.36, 
+                    2.0, 
+                    3.0, 
+                    318.11, 
+                    1.0, 
+                    79.99, 
+                    49.69
+                ], 
+                "parent": "node@294"
+            }, 
+            "CHEMBL236045": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL236045"
+                ], 
+                "features": [
+                    4.36, 
+                    2.0, 
+                    3.0, 
+                    296.14, 
+                    1.0, 
+                    84.21, 
+                    49.69
+                ], 
+                "parent": "node@223"
+            }, 
+            "CHEMBL83": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL83"
+                ], 
+                "features": [
+                    6.0, 
+                    0.0, 
+                    2.0, 
+                    371.22, 
+                    8.0, 
+                    119.58, 
+                    12.47
+                ], 
+                "parent": "node@350"
+            }, 
+            "CHEMBL451143": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL451143"
+                ], 
+                "features": [
+                    4.23, 
+                    1.0, 
+                    4.0, 
+                    306.28, 
+                    9.0, 
+                    96.63, 
+                    41.05
+                ], 
+                "parent": "node@269"
+            }, 
+            "CHEMBL296411": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL296411"
+                ], 
+                "features": [
+                    3.88, 
+                    0.0, 
+                    3.0, 
+                    270.13, 
+                    5.0, 
+                    81.47, 
+                    27.69
+                ], 
+                "parent": "node@211"
+            }, 
+            "CHEMBL391532": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL391532"
+                ], 
+                "features": [
+                    4.9, 
+                    2.0, 
+                    3.0, 
+                    350.11, 
+                    2.0, 
+                    84.59, 
+                    49.69
+                ], 
+                "parent": "node@213"
+            }, 
+            "CHEMBL346215": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL346215"
+                ], 
+                "features": [
+                    3.36, 
+                    3.0, 
+                    8.0, 
+                    481.24, 
+                    10.0, 
+                    138.25, 
+                    89.44
+                ], 
+                "parent": "node@202"
+            }, 
+            "node@388": {
+                "count": 195, 
+                "distance": 1460.995, 
+                "left_child": "node@385", 
+                "right_child": "node@387"
+            }, 
+            "node@387": {
+                "count": 109, 
+                "distance": 662.56, 
+                "left_child": "node@384", 
+                "parent": "node@388", 
+                "right_child": "node@386"
+            }, 
+            "node@386": {
+                "count": 55, 
+                "distance": 277.221, 
+                "left_child": "node@367", 
+                "parent": "node@387", 
+                "right_child": "node@381"
+            }, 
+            "node@385": {
+                "count": 86, 
+                "distance": 271.007, 
+                "left_child": "node@382", 
+                "parent": "node@388", 
+                "right_child": "node@383"
+            }, 
+            "node@384": {
+                "count": 54, 
+                "distance": 217.125, 
+                "left_child": "node@377", 
+                "parent": "node@387", 
+                "right_child": "node@379"
+            }, 
+            "node@383": {
+                "count": 37, 
+                "distance": 192.158, 
+                "left_child": "node@372", 
+                "parent": "node@385", 
+                "right_child": "node@380"
+            }, 
+            "node@382": {
+                "count": 49, 
+                "distance": 171.042, 
+                "left_child": "node@375", 
+                "parent": "node@385", 
+                "right_child": "node@378"
+            }, 
+            "node@381": {
+                "count": 33, 
+                "distance": 124.971, 
+                "left_child": "node@369", 
+                "parent": "node@386", 
+                "right_child": "node@374"
+            }, 
+            "node@380": {
+                "count": 18, 
+                "distance": 123.81, 
+                "left_child": "CHEMBL464360", 
+                "parent": "node@383", 
+                "right_child": "node@376"
+            }, 
+            "node@271": {
+                "count": 2, 
+                "distance": 7.671, 
+                "left_child": "CHEMBL524104", 
+                "parent": "node@337", 
+                "right_child": "CHEMBL57093"
+            }, 
+            "CHEMBL57875": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL57875"
+                ], 
+                "features": [
+                    5.8, 
+                    1.0, 
+                    3.0, 
+                    380.19, 
+                    6.0, 
+                    120.19, 
+                    36.36
+                ], 
+                "parent": "node@229"
+            }, 
+            "node@379": {
+                "count": 40, 
+                "distance": 116.178, 
+                "left_child": "node@362", 
+                "parent": "node@384", 
+                "right_child": "node@373"
+            }, 
+            "CHEMBL1087884": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL1087884"
+                ], 
+                "features": [
+                    3.81, 
+                    2.0, 
+                    4.0, 
+                    278.25, 
+                    8.0, 
+                    87.23, 
+                    49.84
+                ], 
+                "parent": "node@304"
+            }, 
+            "node@374": {
+                "count": 16, 
+                "distance": 77.668, 
+                "left_child": "node@343", 
+                "parent": "node@381", 
+                "right_child": "node@363"
+            }, 
+            "CHEMBL128227": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL128227"
+                ], 
+                "features": [
+                    5.26, 
+                    2.0, 
+                    3.0, 
+                    316.16, 
+                    5.0, 
+                    100.86, 
+                    44.62
+                ], 
+                "parent": "node@308"
+            }, 
+            "CHEMBL234462": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL234462"
+                ], 
+                "features": [
+                    4.51, 
+                    2.0, 
+                    3.0, 
+                    296.14, 
+                    1.0, 
+                    84.28, 
+                    49.69
+                ], 
+                "parent": "node@222"
+            }, 
+            "CHEMBL234463": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL234463"
+                ], 
+                "features": [
+                    4.9, 
+                    2.0, 
+                    3.0, 
+                    310.16, 
+                    1.0, 
+                    88.9, 
+                    49.69
+                ], 
+                "parent": "node@294"
+            }, 
+            "CHEMBL234460": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL234460"
+                ], 
+                "features": [
+                    3.16, 
+                    2.0, 
+                    3.0, 
+                    242.09, 
+                    1.0, 
+                    67.9, 
+                    49.69
+                ], 
+                "parent": "node@259"
+            }, 
+            "CHEMBL128654": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL128654"
+                ], 
+                "features": [
+                    4.53, 
+                    2.0, 
+                    3.0, 
+                    289.11, 
+                    3.0, 
+                    88.36, 
+                    52.82
+                ], 
+                "parent": "node@260"
+            }, 
+            "node@338": {
+                "count": 5, 
+                "distance": 25.324, 
+                "left_child": "node@285", 
+                "parent": "node@358", 
+                "right_child": "node@314"
+            }, 
+            "node@339": {
+                "count": 6, 
+                "distance": 25.64, 
+                "left_child": "node@288", 
+                "parent": "node@368", 
+                "right_child": "node@310"
+            }, 
+            "node@370": {
+                "count": 12, 
+                "distance": 71.614, 
+                "left_child": "node@306", 
+                "parent": "node@378", 
+                "right_child": "node@358"
+            }, 
+            "node@332": {
+                "count": 7, 
+                "distance": 22.541, 
+                "left_child": "node@291", 
+                "parent": "node@364", 
+                "right_child": "node@300"
+            }, 
+            "node@333": {
+                "count": 4, 
+                "distance": 23.207, 
+                "left_child": "node@212", 
+                "parent": "node@348", 
+                "right_child": "node@213"
+            }, 
+            "node@330": {
+                "count": 5, 
+                "distance": 21.94, 
+                "left_child": "node@200", 
+                "parent": "node@358", 
+                "right_child": "node@303"
+            }, 
+            "node@278": {
+                "count": 5, 
+                "distance": 8.612, 
+                "left_child": "node@253", 
+                "parent": "node@317", 
+                "right_child": "node@257"
+            }, 
+            "node@336": {
+                "count": 5, 
+                "distance": 24.217, 
+                "left_child": "CHEMBL153359", 
+                "parent": "node@347", 
+                "right_child": "node@311"
+            }, 
+            "node@337": {
+                "count": 6, 
+                "distance": 24.948, 
+                "left_child": "node@242", 
+                "parent": "node@366", 
+                "right_child": "node@271"
+            }, 
+            "node@334": {
+                "count": 3, 
+                "distance": 23.318, 
+                "left_child": "CHEMBL298398", 
+                "parent": "node@351", 
+                "right_child": "node@281"
+            }, 
+            "node@335": {
+                "count": 3, 
+                "distance": 23.366, 
+                "left_child": "CHEMBL372526", 
+                "parent": "node@353", 
+                "right_child": "node@309"
+            }, 
+            "CHEMBL493490": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL493490"
+                ], 
+                "features": [
+                    4.78, 
+                    2.0, 
+                    4.0, 
+                    324.23, 
+                    8.0, 
+                    104.06, 
+                    49.84
+                ], 
+                "parent": "node@239"
+            }, 
+            "CHEMBL8145": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL8145"
+                ], 
+                "features": [
+                    2.87, 
+                    2.0, 
+                    4.0, 
+                    254.06, 
+                    1.0, 
+                    71.25, 
+                    70.67
+                ], 
+                "parent": "node@281"
+            }, 
+            "CHEMBL26865": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL26865"
+                ], 
+                "features": [
+                    4.32, 
+                    3.0, 
+                    3.0, 
+                    316.11, 
+                    2.0, 
+                    93.94, 
+                    60.69
+                ], 
+                "parent": "node@261"
+            }, 
+            "CHEMBL298398": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL298398"
+                ], 
+                "features": [
+                    1.87, 
+                    2.0, 
+                    4.0, 
+                    240.04, 
+                    0.0, 
+                    63.08, 
+                    74.6
+                ], 
+                "parent": "node@334"
+            }, 
+            "node@296": {
+                "count": 5, 
+                "distance": 12.41, 
+                "left_child": "node@216", 
+                "parent": "node@345", 
+                "right_child": "node@280"
+            }, 
+            "node@208": {
+                "count": 2, 
+                "distance": 0.0, 
+                "left_child": "CHEMBL335884", 
+                "parent": "node@217", 
+                "right_child": "CHEMBL138544"
+            }, 
+            "node@209": {
+                "count": 2, 
+                "distance": 0.0, 
+                "left_child": "CHEMBL216355", 
+                "parent": "node@214", 
+                "right_child": "CHEMBL234639"
+            }, 
+            "node@206": {
+                "count": 2, 
+                "distance": 0.0, 
+                "left_child": "CHEMBL494698", 
+                "parent": "node@227", 
+                "right_child": "CHEMBL494492"
+            }, 
+            "node@207": {
+                "count": 2, 
+                "distance": 0.0, 
+                "left_child": "CHEMBL495337", 
+                "parent": "node@226", 
+                "right_child": "CHEMBL495135"
+            }, 
+            "node@204": {
+                "count": 2, 
+                "distance": 0.0, 
+                "left_child": "CHEMBL294710", 
+                "parent": "node@275", 
+                "right_child": "CHEMBL58563"
+            }, 
+            "node@205": {
+                "count": 2, 
+                "distance": 0.0, 
+                "left_child": "CHEMBL489", 
+                "parent": "node@292", 
+                "right_child": "CHEMBL10041"
+            }, 
+            "node@202": {
+                "count": 2, 
+                "distance": 0.0, 
+                "left_child": "CHEMBL346215", 
+                "parent": "node@263", 
+                "right_child": "CHEMBL153405"
+            }, 
+            "node@203": {
+                "count": 2, 
+                "distance": 0.0, 
+                "left_child": "CHEMBL491433", 
+                "parent": "node@231", 
+                "right_child": "CHEMBL490198"
+            }, 
+            "node@200": {
+                "count": 2, 
+                "distance": 0.0, 
+                "left_child": "CHEMBL390021", 
+                "parent": "node@330", 
+                "right_child": "CHEMBL244205"
+            }, 
+            "node@201": {
+                "count": 2, 
+                "distance": 0.0, 
+                "left_child": "CHEMBL244000", 
+                "parent": "node@273", 
+                "right_child": "CHEMBL390020"
+            }, 
+            "CHEMBL59271": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL59271"
+                ], 
+                "features": [
+                    5.5, 
+                    1.0, 
+                    4.0, 
+                    395.2, 
+                    6.0, 
+                    122.72, 
+                    49.25
+                ], 
+                "parent": "node@224"
+            }, 
+            "CHEMBL12987": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL12987"
+                ], 
+                "features": [
+                    6.43, 
+                    2.0, 
+                    5.0, 
+                    466.23, 
+                    5.0, 
+                    140.78, 
+                    56.17
+                ], 
+                "parent": "node@291"
+            }, 
+            "CHEMBL10041": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL10041"
+                ], 
+                "features": [
+                    5.7, 
+                    1.0, 
+                    3.0, 
+                    387.22, 
+                    8.0, 
+                    121.25, 
+                    32.7
+                ], 
+                "parent": "node@205"
+            }, 
+            "CHEMBL58504": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL58504"
+                ], 
+                "features": [
+                    5.67, 
+                    1.0, 
+                    3.0, 
+                    346.2, 
+                    6.0, 
+                    109.69, 
+                    36.36
+                ], 
+                "parent": "node@228"
+            }, 
+            "CHEMBL292573": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL292573"
+                ], 
+                "features": [
+                    5.93, 
+                    1.0, 
+                    4.0, 
+                    395.2, 
+                    7.0, 
+                    122.35, 
+                    49.25
+                ], 
+                "parent": "node@232"
+            }, 
+            "CHEMBL33889": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL33889"
+                ], 
+                "features": [
+                    7.38, 
+                    1.0, 
+                    4.0, 
+                    481.26, 
+                    7.0, 
+                    148.25, 
+                    49.77
+                ], 
+                "parent": "node@279"
+            }, 
+            "CHEMBL495337": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL495337"
+                ], 
+                "features": [
+                    4.94, 
+                    2.0, 
+                    4.0, 
+                    360.23, 
+                    9.0, 
+                    112.98, 
+                    49.84
+                ], 
+                "parent": "node@207"
+            }, 
+            "CHEMBL335465": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL335465"
+                ], 
+                "features": [
+                    4.83, 
+                    1.0, 
+                    2.0, 
+                    273.12, 
+                    3.0, 
+                    86.69, 
+                    32.59
+                ], 
+                "parent": "node@280"
+            }, 
+            "CHEMBL243999": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL243999"
+                ], 
+                "features": [
+                    6.74, 
+                    1.0, 
+                    5.0, 
+                    464.21, 
+                    7.0, 
+                    138.07, 
+                    65.72
+                ], 
+                "parent": "node@255"
+            }, 
+            "CHEMBL150704": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL150704"
+                ], 
+                "features": [
+                    2.69, 
+                    4.0, 
+                    8.0, 
+                    433.26, 
+                    10.0, 
+                    128.46, 
+                    98.23
+                ], 
+                "parent": "node@235"
+            }, 
+            "CHEMBL1213784": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL1213784"
+                ], 
+                "features": [
+                    3.53, 
+                    0.0, 
+                    1.0, 
+                    479.18, 
+                    9.0, 
+                    128.54, 
+                    9.23
+                ], 
+                "parent": "node@306"
+            }, 
+            "CHEMBL1213785": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL1213785"
+                ], 
+                "features": [
+                    3.92, 
+                    0.0, 
+                    1.0, 
+                    493.2, 
+                    9.0, 
+                    133.14, 
+                    9.23
+                ], 
+                "parent": "node@306"
+            }, 
+            "CHEMBL418971": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL418971"
+                ], 
+                "features": [
+                    3.42, 
+                    2.0, 
+                    2.0, 
+                    228.12, 
+                    2.0, 
+                    68.34, 
+                    40.46
+                ], 
+                "parent": "node@328"
+            }, 
+            "CHEMBL60909": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL60909"
+                ], 
+                "features": [
+                    5.31, 
+                    1.0, 
+                    5.0, 
+                    420.24, 
+                    11.0, 
+                    126.71, 
+                    54.82
+                ], 
+                "parent": "node@286"
+            }, 
+            "CHEMBL58486": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL58486"
+                ], 
+                "features": [
+                    5.52, 
+                    1.0, 
+                    3.0, 
+                    346.2, 
+                    5.0, 
+                    109.62, 
+                    36.36
+                ], 
+                "parent": "node@228"
+            }, 
+            "node@248": {
+                "count": 2, 
+                "distance": 4.26, 
+                "left_child": "CHEMBL293599", 
+                "parent": "node@259", 
+                "right_child": "CHEMBL59438"
+            }, 
+            "node@249": {
+                "count": 2, 
+                "distance": 4.331, 
+                "left_child": "CHEMBL358890", 
+                "parent": "node@266", 
+                "right_child": "CHEMBL356852"
+            }, 
+            "CHEMBL411": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL411"
+                ], 
+                "features": [
+                    4.83, 
+                    2.0, 
+                    2.0, 
+                    268.15, 
+                    4.0, 
+                    83.61, 
+                    40.46
+                ], 
+                "parent": "node@270"
+            }, 
+            "node@242": {
+                "count": 4, 
+                "distance": 3.933, 
+                "left_child": "CHEMBL158017", 
+                "parent": "node@337", 
+                "right_child": "node@232"
+            }, 
+            "node@243": {
+                "count": 2, 
+                "distance": 3.968, 
+                "left_child": "CHEMBL30996", 
+                "parent": "node@310", 
+                "right_child": "CHEMBL60538"
+            }, 
+            "node@240": {
+                "count": 3, 
+                "distance": 3.786, 
+                "left_child": "CHEMBL153395", 
+                "parent": "node@268", 
+                "right_child": "node@230"
+            }, 
+            "node@241": {
+                "count": 2, 
+                "distance": 3.929, 
+                "left_child": "CHEMBL1162", 
+                "parent": "node@315", 
+                "right_child": "CHEMBL691"
+            }, 
+            "node@246": {
+                "count": 2, 
+                "distance": 4.164, 
+                "left_child": "CHEMBL392906", 
+                "parent": "node@318", 
+                "right_child": "CHEMBL391046"
+            }, 
+            "node@247": {
+                "count": 2, 
+                "distance": 4.17, 
+                "left_child": "CHEMBL58714", 
+                "parent": "node@288", 
+                "right_child": "CHEMBL58449"
+            }, 
+            "node@244": {
+                "count": 2, 
+                "distance": 4.113, 
+                "left_child": "CHEMBL394338", 
+                "parent": "node@327", 
+                "right_child": "CHEMBL235828"
+            }, 
+            "CHEMBL394338": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL394338"
+                ], 
+                "features": [
+                    3.61, 
+                    3.0, 
+                    4.0, 
+                    312.14, 
+                    2.0, 
+                    85.59, 
+                    69.92
+                ], 
+                "parent": "node@244"
+            }, 
+            "node@361": {
+                "count": 9, 
+                "distance": 41.69, 
+                "left_child": "node@324", 
+                "parent": "node@367", 
+                "right_child": "node@350"
+            }, 
+            "node@360": {
+                "count": 11, 
+                "distance": 41.165, 
+                "left_child": "node@312", 
+                "parent": "node@376", 
+                "right_child": "node@318"
+            }, 
+            "node@363": {
+                "count": 7, 
+                "distance": 46.793, 
+                "left_child": "node@327", 
+                "parent": "node@374", 
+                "right_child": "node@344"
+            }, 
+            "node@362": {
+                "count": 17, 
+                "distance": 43.728, 
+                "left_child": "node@290", 
+                "parent": "node@379", 
+                "right_child": "node@345"
+            }, 
+            "node@365": {
+                "count": 9, 
+                "distance": 53.927, 
+                "left_child": "node@321", 
+                "parent": "node@369", 
+                "right_child": "node@348"
+            }, 
+            "node@364": {
+                "count": 15, 
+                "distance": 47.212, 
+                "left_child": "node@317", 
+                "parent": "node@378", 
+                "right_child": "node@332"
+            }, 
+            "node@367": {
+                "count": 22, 
+                "distance": 63.183, 
+                "left_child": "node@361", 
+                "parent": "node@386", 
+                "right_child": "node@366"
+            }, 
+            "node@366": {
+                "count": 13, 
+                "distance": 61.382, 
+                "left_child": "node@337", 
+                "parent": "node@367", 
+                "right_child": "node@353"
+            }, 
+            "node@369": {
+                "count": 17, 
+                "distance": 69.594, 
+                "left_child": "node@357", 
+                "parent": "node@381", 
+                "right_child": "node@365"
+            }, 
+            "node@368": {
+                "count": 19, 
+                "distance": 65.883, 
+                "left_child": "node@339", 
+                "parent": "node@375", 
+                "right_child": "node@359"
+            }, 
+            "CHEMBL59438": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL59438"
+                ], 
+                "features": [
+                    3.31, 
+                    2.0, 
+                    3.0, 
+                    237.08, 
+                    1.0, 
+                    70.51, 
+                    53.35
+                ], 
+                "parent": "node@248"
+            }, 
+            "CHEMBL30996": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL30996"
+                ], 
+                "features": [
+                    6.48, 
+                    1.0, 
+                    3.0, 
+                    441.27, 
+                    6.0, 
+                    135.43, 
+                    32.7
+                ], 
+                "parent": "node@243"
+            }, 
+            "CHEMBL59311": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL59311"
+                ], 
+                "features": [
+                    5.3, 
+                    2.0, 
+                    5.0, 
+                    472.24, 
+                    7.0, 
+                    136.31, 
+                    73.24
+                ], 
+                "parent": "node@198"
+            }, 
+            "CHEMBL244205": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL244205"
+                ], 
+                "features": [
+                    7.01, 
+                    1.0, 
+                    4.0, 
+                    457.21, 
+                    7.0, 
+                    133.31, 
+                    41.93
+                ], 
+                "parent": "node@200"
+            }, 
+            "CHEMBL244207": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL244207"
+                ], 
+                "features": [
+                    5.4, 
+                    1.0, 
+                    6.0, 
+                    493.19, 
+                    7.0, 
+                    139.16, 
+                    76.07
+                ], 
+                "parent": "node@234"
+            }, 
+            "CHEMBL244206": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL244206"
+                ], 
+                "features": [
+                    7.15, 
+                    1.0, 
+                    4.0, 
+                    475.2, 
+                    7.0, 
+                    133.27, 
+                    41.93
+                ], 
+                "parent": "node@303"
+            }, 
+            "CHEMBL138544": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL138544"
+                ], 
+                "features": [
+                    3.8, 
+                    2.0, 
+                    3.0, 
+                    274.1, 
+                    0.0, 
+                    77.9, 
+                    40.46
+                ], 
+                "parent": "node@208"
+            }, 
+            "CHEMBL61026": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL61026"
+                ], 
+                "features": [
+                    5.85, 
+                    1.0, 
+                    4.0, 
+                    395.2, 
+                    6.0, 
+                    122.47, 
+                    49.25
+                ], 
+                "parent": "node@224"
+            }, 
+            "CHEMBL135": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL135"
+                ], 
+                "features": [
+                    3.61, 
+                    2.0, 
+                    2.0, 
+                    272.18, 
+                    0.0, 
+                    78.73, 
+                    40.46
+                ], 
+                "parent": "node@236"
+            }, 
+            "CHEMBL56390": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL56390"
+                ], 
+                "features": [
+                    5.4, 
+                    2.0, 
+                    5.0, 
+                    430.23, 
+                    6.0, 
+                    127.03, 
+                    56.17
+                ], 
+                "parent": "node@252"
+            }, 
+            "CHEMBL426073": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL426073"
+                ], 
+                "features": [
+                    5.51, 
+                    2.0, 
+                    5.0, 
+                    439.08, 
+                    4.0, 
+                    97.19, 
+                    70.65
+                ], 
+                "parent": "node@346"
+            }, 
+            "CHEMBL152916": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL152916"
+                ], 
+                "features": [
+                    2.81, 
+                    3.0, 
+                    9.0, 
+                    483.21, 
+                    10.0, 
+                    135.43, 
+                    98.67
+                ], 
+                "parent": "node@254"
+            }, 
+            "CHEMBL152913": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL152913"
+                ], 
+                "features": [
+                    3.75, 
+                    3.0, 
+                    8.0, 
+                    495.25, 
+                    11.0, 
+                    142.87, 
+                    89.44
+                ], 
+                "parent": "node@237"
+            }, 
+            "CHEMBL2103774": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL2103774"
+                ], 
+                "features": [
+                    3.88, 
+                    1.0, 
+                    2.0, 
+                    312.21, 
+                    0.0, 
+                    90.49, 
+                    37.3
+                ], 
+                "parent": "node@276"
+            }, 
+            "CHEMBL153765": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL153765"
+                ], 
+                "features": [
+                    3.44, 
+                    3.0, 
+                    8.0, 
+                    453.32, 
+                    10.0, 
+                    134.29, 
+                    89.44
+                ], 
+                "parent": "node@266"
+            }, 
+            "CHEMBL514646": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL514646"
+                ], 
+                "features": [
+                    4.77, 
+                    1.0, 
+                    3.0, 
+                    346.11, 
+                    3.0, 
+                    100.04, 
+                    41.99
+                ], 
+                "parent": "node@299"
+            }, 
+            "CHEMBL1800984": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL1800984"
+                ], 
+                "features": [
+                    4.75, 
+                    2.0, 
+                    5.0, 
+                    366.1, 
+                    4.0, 
+                    100.99, 
+                    71.45
+                ], 
+                "parent": "node@277"
+            }, 
+            "CHEMBL1800985": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL1800985"
+                ], 
+                "features": [
+                    4.15, 
+                    2.0, 
+                    6.0, 
+                    367.1, 
+                    4.0, 
+                    98.79, 
+                    84.34
+                ], 
+                "parent": "node@321"
+            }, 
+            "CHEMBL493097": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL493097"
+                ], 
+                "features": [
+                    5.33, 
+                    2.0, 
+                    4.0, 
+                    358.22, 
+                    8.0, 
+                    114.5, 
+                    49.84
+                ], 
+                "parent": "node@238"
+            }, 
+            "CHEMBL311636": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL311636"
+                ], 
+                "features": [
+                    3.88, 
+                    0.0, 
+                    3.0, 
+                    270.13, 
+                    5.0, 
+                    81.47, 
+                    27.69
+                ], 
+                "parent": "node@211"
+            }, 
+            "CHEMBL494717": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL494717"
+                ], 
+                "features": [
+                    4.4, 
+                    2.0, 
+                    4.0, 
+                    326.25, 
+                    9.0, 
+                    102.54, 
+                    49.84
+                ], 
+                "parent": "node@225"
+            }, 
+            "CHEMBL1201151": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL1201151"
+                ], 
+                "features": [
+                    3.92, 
+                    1.0, 
+                    2.0, 
+                    310.19, 
+                    1.0, 
+                    91.39, 
+                    29.46
+                ], 
+                "parent": "node@276"
+            }, 
+            "CHEMBL58449": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL58449"
+                ], 
+                "features": [
+                    7.22, 
+                    1.0, 
+                    3.0, 
+                    430.2, 
+                    5.0, 
+                    137.57, 
+                    36.36
+                ], 
+                "parent": "node@247"
+            }, 
+            "node@266": {
+                "count": 3, 
+                "distance": 7.35, 
+                "left_child": "CHEMBL153765", 
+                "parent": "node@318", 
+                "right_child": "node@249"
+            }, 
+            "CHEMBL1479": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL1479"
+                ], 
+                "features": [
+                    4.22, 
+                    1.0, 
+                    3.0, 
+                    337.2, 
+                    0.0, 
+                    96.35, 
+                    46.26
+                ], 
+                "parent": "node@265"
+            }, 
+            "node@287": {
+                "count": 3, 
+                "distance": 11.117, 
+                "left_child": "CHEMBL1200324", 
+                "parent": "node@313", 
+                "right_child": "node@265"
+            }, 
+            "node@284": {
+                "count": 3, 
+                "distance": 10.325, 
+                "left_child": "CHEMBL153211", 
+                "parent": "node@301", 
+                "right_child": "node@235"
+            }, 
+            "node@285": {
+                "count": 2, 
+                "distance": 10.702, 
+                "left_child": "CHEMBL31068", 
+                "parent": "node@338", 
+                "right_child": "CHEMBL58330"
+            }, 
+            "node@282": {
+                "count": 2, 
+                "distance": 9.569, 
+                "left_child": "CHEMBL193482", 
+                "parent": "node@295", 
+                "right_child": "CHEMBL319244"
+            }, 
+            "node@328": {
+                "count": 5, 
+                "distance": 20.694, 
+                "left_child": "CHEMBL418971", 
+                "parent": "node@342", 
+                "right_child": "node@320"
+            }, 
+            "node@280": {
+                "count": 3, 
+                "distance": 9.459, 
+                "left_child": "CHEMBL335465", 
+                "parent": "node@296", 
+                "right_child": "node@211"
+            }, 
+            "node@281": {
+                "count": 2, 
+                "distance": 9.538, 
+                "left_child": "CHEMBL405154", 
+                "parent": "node@334", 
+                "right_child": "CHEMBL8145"
+            }, 
+            "node@325": {
+                "count": 4, 
+                "distance": 20.192, 
+                "left_child": "node@199", 
+                "parent": "node@356", 
+                "right_child": "node@258"
+            }, 
+            "node@324": {
+                "count": 7, 
+                "distance": 19.754, 
+                "left_child": "node@275", 
+                "parent": "node@361", 
+                "right_child": "node@292"
+            }, 
+            "node@327": {
+                "count": 5, 
+                "distance": 20.686, 
+                "left_child": "node@244", 
+                "parent": "node@363", 
+                "right_child": "node@305"
+            }, 
+            "node@326": {
+                "count": 4, 
+                "distance": 20.365, 
+                "left_child": "node@269", 
+                "parent": "node@341", 
+                "right_child": "node@276"
+            }, 
+            "node@321": {
+                "count": 3, 
+                "distance": 18.921, 
+                "left_child": "CHEMBL1800985", 
+                "parent": "node@365", 
+                "right_child": "node@277"
+            }, 
+            "node@320": {
+                "count": 4, 
+                "distance": 18.689, 
+                "left_child": "CHEMBL165", 
+                "parent": "node@328", 
+                "right_child": "node@259"
+            }, 
+            "node@323": {
+                "count": 6, 
+                "distance": 19.565, 
+                "left_child": "CHEMBL490197", 
+                "parent": "node@359", 
+                "right_child": "node@316"
+            }, 
+            "node@322": {
+                "count": 5, 
+                "distance": 19.397, 
+                "left_child": "CHEMBL150356", 
+                "parent": "node@354", 
+                "right_child": "node@301"
+            }, 
+            "node@264": {
+                "count": 3, 
+                "distance": 6.848, 
+                "left_child": "CHEMBL285483", 
+                "parent": "node@311", 
+                "right_child": "node@254"
+            }, 
+            "node@340": {
+                "count": 7, 
+                "distance": 25.678, 
+                "left_child": "node@231", 
+                "parent": "node@359", 
+                "right_child": "node@302"
+            }, 
+            "node@268": {
+                "count": 4, 
+                "distance": 7.485, 
+                "left_child": "CHEMBL150279", 
+                "parent": "node@312", 
+                "right_child": "node@240"
+            }, 
+            "node@269": {
+                "count": 2, 
+                "distance": 7.579, 
+                "left_child": "CHEMBL451143", 
+                "parent": "node@326", 
+                "right_child": "CHEMBL130030"
+            }, 
+            "CHEMBL1213617": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL1213617"
+                ], 
+                "features": [
+                    1.84, 
+                    1.0, 
+                    2.0, 
+                    245.07, 
+                    2.0, 
+                    53.28, 
+                    40.54
+                ], 
+                "parent": "node@342"
+            }, 
+            "node@211": {
+                "count": 2, 
+                "distance": 0.0, 
+                "left_child": "CHEMBL296411", 
+                "parent": "node@280", 
+                "right_child": "CHEMBL311636"
+            }, 
+            "node@210": {
+                "count": 2, 
+                "distance": 0.0, 
+                "left_child": "CHEMBL189178", 
+                "parent": "node@346", 
+                "right_child": "CHEMBL191066"
+            }, 
+            "node@213": {
+                "count": 2, 
+                "distance": 0.0, 
+                "left_child": "CHEMBL235829", 
+                "parent": "node@333", 
+                "right_child": "CHEMBL391532"
+            }, 
+            "node@212": {
+                "count": 2, 
+                "distance": 0.0, 
+                "left_child": "CHEMBL236720", 
+                "parent": "node@333", 
+                "right_child": "CHEMBL393390"
+            }, 
+            "node@215": {
+                "count": 4, 
+                "distance": 0.0, 
+                "left_child": "CHEMBL278703", 
+                "parent": "node@221", 
+                "right_child": "node@214"
+            }, 
+            "node@214": {
+                "count": 3, 
+                "distance": 0.0, 
+                "left_child": "CHEMBL234633", 
+                "parent": "node@215", 
+                "right_child": "node@209"
+            }, 
+            "node@217": {
+                "count": 3, 
+                "distance": 0.0, 
+                "left_child": "CHEMBL135732", 
+                "parent": "node@218", 
+                "right_child": "node@208"
+            }, 
+            "node@216": {
+                "count": 2, 
+                "distance": 0.0, 
+                "left_child": "CHEMBL234637", 
+                "parent": "node@296", 
+                "right_child": "CHEMBL397775"
+            }, 
+            "node@219": {
+                "count": 5, 
+                "distance": 0.0, 
+                "left_child": "CHEMBL135180", 
+                "parent": "node@236", 
+                "right_child": "node@218"
+            }, 
+            "node@218": {
+                "count": 4, 
+                "distance": 0.0, 
+                "left_child": "CHEMBL335328", 
+                "parent": "node@219", 
+                "right_child": "node@217"
+            }, 
+            "node@352": {
+                "count": 11, 
+                "distance": 34.914, 
+                "left_child": "node@315", 
+                "parent": "node@373", 
+                "right_child": "node@341"
+            }, 
+            "node@353": {
+                "count": 7, 
+                "distance": 35.29, 
+                "left_child": "node@329", 
+                "parent": "node@366", 
+                "right_child": "node@335"
+            }, 
+            "node@354": {
+                "count": 6, 
+                "distance": 36.47, 
+                "left_child": "CHEMBL236495", 
+                "parent": "node@376", 
+                "right_child": "node@322"
+            }, 
+            "node@355": {
+                "count": 12, 
+                "distance": 36.673, 
+                "left_child": "node@304", 
+                "parent": "node@373", 
+                "right_child": "node@331"
+            }, 
+            "node@356": {
+                "count": 10, 
+                "distance": 39.548, 
+                "left_child": "node@319", 
+                "parent": "node@372", 
+                "right_child": "node@325"
+            }, 
+            "node@357": {
+                "count": 8, 
+                "distance": 39.969, 
+                "left_child": "node@238", 
+                "parent": "node@369", 
+                "right_child": "node@299"
+            }, 
+            "CHEMBL523138": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL523138"
+                ], 
+                "features": [
+                    7.88, 
+                    1.0, 
+                    2.0, 
+                    440.18, 
+                    8.0, 
+                    131.14, 
+                    46.53
+                ], 
+                "parent": "node@302"
+            }, 
+            "CHEMBL85561": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL85561"
+                ], 
+                "features": [
+                    7.41, 
+                    1.0, 
+                    4.0, 
+                    467.25, 
+                    8.0, 
+                    141.84, 
+                    45.84
+                ], 
+                "parent": "node@196"
+            }, 
+            "CHEMBL1087252": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL1087252"
+                ], 
+                "features": [
+                    6.61, 
+                    1.0, 
+                    4.0, 
+                    474.23, 
+                    7.0, 
+                    146.44, 
+                    55.12
+                ], 
+                "parent": "node@279"
+            }, 
+            "CHEMBL495135": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL495135"
+                ], 
+                "features": [
+                    4.94, 
+                    2.0, 
+                    4.0, 
+                    360.23, 
+                    9.0, 
+                    112.98, 
+                    49.84
+                ], 
+                "parent": "node@207"
+            }, 
+            "CHEMBL370403": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL370403"
+                ], 
+                "features": [
+                    4.82, 
+                    2.0, 
+                    3.0, 
+                    342.13, 
+                    3.0, 
+                    102.28, 
+                    57.53
+                ], 
+                "parent": "node@272"
+            }, 
+            "CHEMBL285483": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL285483"
+                ], 
+                "features": [
+                    4.97, 
+                    2.0, 
+                    7.0, 
+                    485.18, 
+                    7.0, 
+                    136.91, 
+                    100.21
+                ], 
+                "parent": "node@264"
+            }, 
+            "node@238": {
+                "count": 4, 
+                "distance": 3.395, 
+                "left_child": "CHEMBL493097", 
+                "parent": "node@357", 
+                "right_child": "node@226"
+            }, 
+            "node@311": {
+                "count": 4, 
+                "distance": 15.547, 
+                "left_child": "CHEMBL155510", 
+                "parent": "node@336", 
+                "right_child": "node@264"
+            }, 
+            "node@286": {
+                "count": 2, 
+                "distance": 10.789, 
+                "left_child": "CHEMBL491235", 
+                "parent": "node@316", 
+                "right_child": "CHEMBL60909"
+            }, 
+            "CHEMBL153395": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL153395"
+                ], 
+                "features": [
+                    2.88, 
+                    3.0, 
+                    8.0, 
+                    459.27, 
+                    9.0, 
+                    135.77, 
+                    89.44
+                ], 
+                "parent": "node@240"
+            }, 
+            "CHEMBL165": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL165"
+                ], 
+                "features": [
+                    2.97, 
+                    3.0, 
+                    3.0, 
+                    228.08, 
+                    2.0, 
+                    66.81, 
+                    60.69
+                ], 
+                "parent": "node@320"
+            }, 
+            "CHEMBL153405": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL153405"
+                ], 
+                "features": [
+                    3.36, 
+                    3.0, 
+                    8.0, 
+                    481.24, 
+                    10.0, 
+                    138.25, 
+                    89.44
+                ], 
+                "parent": "node@202"
+            }, 
+            "node@329": {
+                "count": 4, 
+                "distance": 21.705, 
+                "left_child": "CHEMBL315475", 
+                "parent": "node@353", 
+                "right_child": "node@227"
+            }, 
+            "node@283": {
+                "count": 3, 
+                "distance": 10.156, 
+                "left_child": "CHEMBL492875", 
+                "parent": "node@299", 
+                "right_child": "node@228"
+            }, 
+            "CHEMBL86206": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL86206"
+                ], 
+                "features": [
+                    7.51, 
+                    2.0, 
+                    5.0, 
+                    497.26, 
+                    9.0, 
+                    148.13, 
+                    66.07
+                ], 
+                "parent": "node@258"
+            }, 
+            "CHEMBL1628190": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL1628190"
+                ], 
+                "features": [
+                    4.94, 
+                    2.0, 
+                    4.0, 
+                    435.28, 
+                    5.0, 
+                    127.35, 
+                    52.93
+                ], 
+                "parent": "node@274"
+            }, 
+            "CHEMBL81": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL81"
+                ], 
+                "features": [
+                    6.08, 
+                    2.0, 
+                    6.0, 
+                    473.17, 
+                    7.0, 
+                    136.25, 
+                    70.0
+                ], 
+                "parent": "node@245"
+            }, 
+            "CHEMBL155510": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL155510"
+                ], 
+                "features": [
+                    2.44, 
+                    3.0, 
+                    10.0, 
+                    491.26, 
+                    10.0, 
+                    139.37, 
+                    107.9
+                ], 
+                "parent": "node@311"
+            }, 
+            "CHEMBL358890": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL358890"
+                ], 
+                "features": [
+                    3.0, 
+                    2.0, 
+                    8.0, 
+                    448.26, 
+                    10.0, 
+                    130.1, 
+                    86.64
+                ], 
+                "parent": "node@249"
+            }, 
+            "CHEMBL491433": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL491433"
+                ], 
+                "features": [
+                    7.45, 
+                    2.0, 
+                    3.0, 
+                    438.18, 
+                    8.0, 
+                    132.85, 
+                    66.76
+                ], 
+                "parent": "node@203"
+            }, 
+            "CHEMBL464360": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL464360"
+                ], 
+                "features": [
+                    -0.64, 
+                    6.0, 
+                    10.0, 
+                    432.11, 
+                    3.0, 
+                    102.21, 
+                    173.98
+                ], 
+                "parent": "node@380"
+            }, 
+            "node@288": {
+                "count": 3, 
+                "distance": 11.337, 
+                "left_child": "CHEMBL1276308", 
+                "parent": "node@339", 
+                "right_child": "node@247"
+            }, 
+            "CHEMBL346401": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL346401"
+                ], 
+                "features": [
+                    3.42, 
+                    3.0, 
+                    8.0, 
+                    461.29, 
+                    11.0, 
+                    137.71, 
+                    89.44
+                ], 
+                "parent": "node@230"
+            }, 
+            "CHEMBL56198": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL56198"
+                ], 
+                "features": [
+                    5.66, 
+                    2.0, 
+                    5.0, 
+                    458.26, 
+                    7.0, 
+                    135.69, 
+                    56.17
+                ], 
+                "parent": "node@197"
+            }, 
+            "CHEMBL153303": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL153303"
+                ], 
+                "features": [
+                    3.34, 
+                    3.0, 
+                    8.0, 
+                    473.29, 
+                    8.0, 
+                    140.33, 
+                    89.44
+                ], 
+                "parent": "node@298"
+            }, 
+            "node@289": {
+                "count": 9, 
+                "distance": 11.706, 
+                "left_child": "node@236", 
+                "parent": "node@345", 
+                "right_child": "node@270"
+            }, 
+            "CHEMBL236086": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL236086"
+                ], 
+                "features": [
+                    4.26, 
+                    2.0, 
+                    4.0, 
+                    326.15, 
+                    3.0, 
+                    90.38, 
+                    58.92
+                ], 
+                "parent": "node@305"
+            }, 
+            "CHEMBL234639": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL234639"
+                ], 
+                "features": [
+                    4.12, 
+                    2.0, 
+                    3.0, 
+                    282.13, 
+                    1.0, 
+                    79.66, 
+                    49.69
+                ], 
+                "parent": "node@209"
+            }, 
+            "CHEMBL234638": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL234638"
+                ], 
+                "features": [
+                    4.12, 
+                    2.0, 
+                    3.0, 
+                    282.13, 
+                    1.0, 
+                    79.66, 
+                    49.69
+                ], 
+                "parent": "node@221"
+            }, 
+            "CHEMBL234633": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL234633"
+                ], 
+                "features": [
+                    4.12, 
+                    2.0, 
+                    3.0, 
+                    282.13, 
+                    1.0, 
+                    79.66, 
+                    49.69
+                ], 
+                "parent": "node@214"
+            }, 
+            "CHEMBL234637": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL234637"
+                ], 
+                "features": [
+                    4.41, 
+                    1.0, 
+                    2.0, 
+                    266.13, 
+                    1.0, 
+                    78.0, 
+                    29.46
+                ], 
+                "parent": "node@216"
+            }, 
+            "CHEMBL158017": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL158017"
+                ], 
+                "features": [
+                    5.49, 
+                    2.0, 
+                    4.0, 
+                    394.22, 
+                    9.0, 
+                    123.42, 
+                    49.84
+                ], 
+                "parent": "node@242"
+            }, 
+            "CHEMBL150279": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL150279"
+                ], 
+                "features": [
+                    2.85, 
+                    3.0, 
+                    8.0, 
+                    465.27, 
+                    10.0, 
+                    133.2, 
+                    89.44
+                ], 
+                "parent": "node@268"
+            }, 
+            "CHEMBL294710": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL294710"
+                ], 
+                "features": [
+                    6.11, 
+                    1.0, 
+                    3.0, 
+                    394.2, 
+                    6.0, 
+                    124.93, 
+                    36.36
+                ], 
+                "parent": "node@204"
+            }, 
+            "CHEMBL524104": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL524104"
+                ], 
+                "features": [
+                    6.54, 
+                    1.0, 
+                    3.0, 
+                    410.15, 
+                    7.0, 
+                    123.28, 
+                    55.76
+                ], 
+                "parent": "node@271"
+            }, 
+            "CHEMBL58714": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL58714"
+                ], 
+                "features": [
+                    6.89, 
+                    1.0, 
+                    3.0, 
+                    434.24, 
+                    5.0, 
+                    136.59, 
+                    36.36
+                ], 
+                "parent": "node@247"
+            }, 
+            "CHEMBL59552": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL59552"
+                ], 
+                "features": [
+                    5.21, 
+                    1.0, 
+                    3.0, 
+                    332.19, 
+                    5.0, 
+                    104.88, 
+                    36.36
+                ], 
+                "parent": "node@313"
+            }, 
+            "CHEMBL2112892": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL2112892"
+                ], 
+                "features": [
+                    3.5, 
+                    3.0, 
+                    8.0, 
+                    493.24, 
+                    10.0, 
+                    140.71, 
+                    89.44
+                ], 
+                "parent": "node@237"
+            }, 
+            "CHEMBL492875": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL492875"
+                ], 
+                "features": [
+                    4.42, 
+                    1.0, 
+                    4.0, 
+                    340.26, 
+                    9.0, 
+                    107.32, 
+                    41.05
+                ], 
+                "parent": "node@283"
+            }, 
+            "node@259": {
+                "count": 3, 
+                "distance": 6.059, 
+                "left_child": "CHEMBL234460", 
+                "parent": "node@320", 
+                "right_child": "node@248"
+            }, 
+            "node@258": {
+                "count": 2, 
+                "distance": 5.908, 
+                "left_child": "CHEMBL86206", 
+                "parent": "node@325", 
+                "right_child": "CHEMBL489183"
+            }, 
+            "node@255": {
+                "count": 2, 
+                "distance": 5.194, 
+                "left_child": "CHEMBL314561", 
+                "parent": "node@291", 
+                "right_child": "CHEMBL243999"
+            }, 
+            "node@254": {
+                "count": 2, 
+                "distance": 5.113, 
+                "left_child": "CHEMBL150466", 
+                "parent": "node@264", 
+                "right_child": "CHEMBL152916"
+            }, 
+            "node@257": {
+                "count": 2, 
+                "distance": 5.795, 
+                "left_child": "CHEMBL491236", 
+                "parent": "node@278", 
+                "right_child": "CHEMBL31089"
+            }, 
+            "node@256": {
+                "count": 3, 
+                "distance": 5.639, 
+                "left_child": "CHEMBL364368", 
+                "parent": "node@302", 
+                "right_child": "node@233"
+            }, 
+            "node@251": {
+                "count": 2, 
+                "distance": 4.503, 
+                "left_child": "CHEMBL135236", 
+                "parent": "node@270", 
+                "right_child": "CHEMBL1405"
+            }, 
+            "node@250": {
+                "count": 2, 
+                "distance": 4.348, 
+                "left_child": "CHEMBL153115", 
+                "parent": "node@263", 
+                "right_child": "CHEMBL346455"
+            }, 
+            "node@253": {
+                "count": 3, 
+                "distance": 4.782, 
+                "left_child": "CHEMBL59146", 
+                "parent": "node@278", 
+                "right_child": "node@197"
+            }, 
+            "node@252": {
+                "count": 2, 
+                "distance": 4.657, 
+                "left_child": "CHEMBL381645", 
+                "parent": "node@274", 
+                "right_child": "CHEMBL56390"
+            }, 
+            "node@314": {
+                "count": 3, 
+                "distance": 16.635, 
+                "left_child": "CHEMBL243970", 
+                "parent": "node@338", 
+                "right_child": "node@279"
+            }, 
+            "node@315": {
+                "count": 5, 
+                "distance": 17.291, 
+                "left_child": "node@223", 
+                "parent": "node@352", 
+                "right_child": "node@241"
+            }, 
+            "node@316": {
+                "count": 5, 
+                "distance": 17.331, 
+                "left_child": "node@274", 
+                "parent": "node@323", 
+                "right_child": "node@286"
+            }, 
+            "node@317": {
+                "count": 8, 
+                "distance": 17.75, 
+                "left_child": "node@273", 
+                "parent": "node@364", 
+                "right_child": "node@278"
+            }, 
+            "node@310": {
+                "count": 3, 
+                "distance": 15.367, 
+                "left_child": "CHEMBL31738", 
+                "parent": "node@339", 
+                "right_child": "node@243"
+            }, 
+            "CHEMBL135732": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL135732"
+                ], 
+                "features": [
+                    3.8, 
+                    2.0, 
+                    3.0, 
+                    274.1, 
+                    0.0, 
+                    77.9, 
+                    40.46
+                ], 
+                "parent": "node@217"
+            }, 
+            "node@312": {
+                "count": 6, 
+                "distance": 15.75, 
+                "left_child": "node@268", 
+                "parent": "node@360", 
+                "right_child": "node@298"
+            }, 
+            "node@313": {
+                "count": 4, 
+                "distance": 16.315, 
+                "left_child": "CHEMBL59552", 
+                "parent": "node@343", 
+                "right_child": "node@287"
+            }, 
+            "CHEMBL131163": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL131163"
+                ], 
+                "features": [
+                    4.41, 
+                    2.0, 
+                    3.0, 
+                    288.13, 
+                    3.0, 
+                    91.11, 
+                    58.61
+                ], 
+                "parent": "node@260"
+            }, 
+            "node@318": {
+                "count": 5, 
+                "distance": 17.984, 
+                "left_child": "node@246", 
+                "parent": "node@360", 
+                "right_child": "node@266"
+            }, 
+            "node@319": {
+                "count": 6, 
+                "distance": 18.532, 
+                "left_child": "node@237", 
+                "parent": "node@356", 
+                "right_child": "node@297"
+            }, 
+            "CHEMBL392906": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL392906"
+                ], 
+                "features": [
+                    4.75, 
+                    1.0, 
+                    5.0, 
+                    451.33, 
+                    14.0, 
+                    124.66, 
+                    81.7
+                ], 
+                "parent": "node@246"
+            }, 
+            "CHEMBL149803": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL149803"
+                ], 
+                "features": [
+                    3.02, 
+                    3.0, 
+                    8.0, 
+                    461.29, 
+                    10.0, 
+                    137.98, 
+                    89.44
+                ], 
+                "parent": "node@230"
+            }, 
+            "CHEMBL236495": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL236495"
+                ], 
+                "features": [
+                    4.29, 
+                    2.0, 
+                    4.0, 
+                    408.34, 
+                    12.0, 
+                    117.13, 
+                    81.42
+                ], 
+                "parent": "node@354"
+            }, 
+            "CHEMBL356852": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL356852"
+                ], 
+                "features": [
+                    3.03, 
+                    3.0, 
+                    8.0, 
+                    447.27, 
+                    10.0, 
+                    133.09, 
+                    89.44
+                ], 
+                "parent": "node@249"
+            }, 
+            "CHEMBL364368": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL364368"
+                ], 
+                "features": [
+                    4.93, 
+                    1.0, 
+                    3.0, 
+                    443.25, 
+                    3.0, 
+                    129.57, 
+                    57.61
+                ], 
+                "parent": "node@256"
+            }, 
+            "node@228": {
+                "count": 2, 
+                "distance": 1.014, 
+                "left_child": "CHEMBL58486", 
+                "parent": "node@283", 
+                "right_child": "CHEMBL58504"
+            }, 
+            "node@229": {
+                "count": 2, 
+                "distance": 1.044, 
+                "left_child": "CHEMBL57875", 
+                "parent": "node@292", 
+                "right_child": "CHEMBL59184"
+            }, 
+            "node@220": {
+                "count": 2, 
+                "distance": 0.0, 
+                "left_child": "CHEMBL179243", 
+                "parent": "node@290", 
+                "right_child": "CHEMBL175525"
+            }, 
+            "node@221": {
+                "count": 5, 
+                "distance": 0.0, 
+                "left_child": "CHEMBL234638", 
+                "parent": "node@304", 
+                "right_child": "node@215"
+            }, 
+            "node@222": {
+                "count": 2, 
+                "distance": 0.15, 
+                "left_child": "CHEMBL234462", 
+                "parent": "node@223", 
+                "right_child": "CHEMBL399832"
+            }, 
+            "node@223": {
+                "count": 3, 
+                "distance": 0.193, 
+                "left_child": "CHEMBL236045", 
+                "parent": "node@315", 
+                "right_child": "node@222"
+            }, 
+            "node@224": {
+                "count": 2, 
+                "distance": 0.43, 
+                "left_child": "CHEMBL61026", 
+                "parent": "node@232", 
+                "right_child": "CHEMBL59271"
+            }, 
+            "node@225": {
+                "count": 3, 
+                "distance": 0.497, 
+                "left_child": "CHEMBL494717", 
+                "parent": "node@239", 
+                "right_child": "node@195"
+            }, 
+            "node@226": {
+                "count": 3, 
+                "distance": 0.497, 
+                "left_child": "CHEMBL494121", 
+                "parent": "node@238", 
+                "right_child": "node@207"
+            }, 
+            "node@227": {
+                "count": 3, 
+                "distance": 0.497, 
+                "left_child": "CHEMBL522823", 
+                "parent": "node@329", 
+                "right_child": "node@206"
+            }, 
+            "CHEMBL522823": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL522823"
+                ], 
+                "features": [
+                    5.55, 
+                    2.0, 
+                    4.0, 
+                    376.26, 
+                    9.0, 
+                    120.04, 
+                    49.84
+                ], 
+                "parent": "node@227"
+            }, 
+            "CHEMBL316003": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL316003"
+                ], 
+                "features": [
+                    7.12, 
+                    2.0, 
+                    5.0, 
+                    483.24, 
+                    8.0, 
+                    143.51, 
+                    66.07
+                ], 
+                "parent": "node@199"
+            }, 
+            "CHEMBL364442": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL364442"
+                ], 
+                "features": [
+                    5.27, 
+                    2.0, 
+                    2.0, 
+                    334.08, 
+                    2.0, 
+                    97.29, 
+                    40.46
+                ], 
+                "parent": "node@265"
+            }, 
+            "CHEMBL494493": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL494493"
+                ], 
+                "features": [
+                    4.75, 
+                    2.0, 
+                    4.0, 
+                    326.25, 
+                    9.0, 
+                    102.29, 
+                    49.84
+                ], 
+                "parent": "node@195"
+            }, 
+            "CHEMBL494492": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL494492"
+                ], 
+                "features": [
+                    5.9, 
+                    2.0, 
+                    4.0, 
+                    376.26, 
+                    9.0, 
+                    119.79, 
+                    49.84
+                ], 
+                "parent": "node@206"
+            }, 
+            "CHEMBL494491": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL494491"
+                ], 
+                "features": [
+                    4.75, 
+                    2.0, 
+                    4.0, 
+                    326.25, 
+                    9.0, 
+                    102.29, 
+                    49.84
+                ], 
+                "parent": "node@195"
+            }, 
+            "CHEMBL175525": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL175525"
+                ], 
+                "features": [
+                    4.27, 
+                    0.0, 
+                    3.0, 
+                    284.14, 
+                    6.0, 
+                    86.09, 
+                    27.69
+                ], 
+                "parent": "node@220"
+            }, 
+            "node@348": {
+                "count": 6, 
+                "distance": 31.033, 
+                "left_child": "node@272", 
+                "parent": "node@365", 
+                "right_child": "node@333"
+            }, 
+            "CHEMBL191066": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL191066"
+                ], 
+                "features": [
+                    5.81, 
+                    1.0, 
+                    4.0, 
+                    423.08, 
+                    4.0, 
+                    95.53, 
+                    50.42
+                ], 
+                "parent": "node@210"
+            }, 
+            "CHEMBL489183": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL489183"
+                ], 
+                "features": [
+                    9.01, 
+                    2.0, 
+                    3.0, 
+                    494.25, 
+                    12.0, 
+                    151.31, 
+                    66.76
+                ], 
+                "parent": "node@258"
+            }, 
+            "CHEMBL1162": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL1162"
+                ], 
+                "features": [
+                    3.49, 
+                    1.0, 
+                    2.0, 
+                    298.19, 
+                    0.0, 
+                    85.88, 
+                    37.3
+                ], 
+                "parent": "node@241"
+            }, 
+            "CHEMBL315475": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL315475"
+                ], 
+                "features": [
+                    6.26, 
+                    2.0, 
+                    4.0, 
+                    386.15, 
+                    5.0, 
+                    114.28, 
+                    62.83
+                ], 
+                "parent": "node@329"
+            }, 
+            "CHEMBL315474": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL315474"
+                ], 
+                "features": [
+                    7.12, 
+                    2.0, 
+                    5.0, 
+                    483.24, 
+                    8.0, 
+                    143.51, 
+                    66.07
+                ], 
+                "parent": "node@199"
+            }, 
+            "CHEMBL195437": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL195437"
+                ], 
+                "features": [
+                    4.3, 
+                    1.0, 
+                    1.0, 
+                    206.17, 
+                    7.0, 
+                    65.19, 
+                    20.23
+                ], 
+                "parent": "node@307"
+            }, 
+            "CHEMBL243970": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL243970"
+                ], 
+                "features": [
+                    8.05, 
+                    1.0, 
+                    5.0, 
+                    487.22, 
+                    8.0, 
+                    145.32, 
+                    41.93
+                ], 
+                "parent": "node@314"
+            }, 
+            "CHEMBL282575": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL282575"
+                ], 
+                "features": [
+                    5.12, 
+                    1.0, 
+                    3.0, 
+                    376.2, 
+                    3.0, 
+                    108.47, 
+                    46.53
+                ], 
+                "parent": "node@309"
+            }, 
+            "CHEMBL150503": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL150503"
+                ], 
+                "features": [
+                    2.77, 
+                    4.0, 
+                    8.0, 
+                    431.24, 
+                    9.0, 
+                    129.18, 
+                    98.23
+                ], 
+                "parent": "node@235"
+            }, 
+            "CHEMBL494706": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL494706"
+                ], 
+                "features": [
+                    3.68, 
+                    3.0, 
+                    5.0, 
+                    293.26, 
+                    9.0, 
+                    92.02, 
+                    61.87
+                ], 
+                "parent": "node@293"
+            }, 
+            "CHEMBL346455": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL346455"
+                ], 
+                "features": [
+                    4.02, 
+                    3.0, 
+                    8.0, 
+                    484.18, 
+                    10.0, 
+                    135.71, 
+                    86.2
+                ], 
+                "parent": "node@250"
+            }, 
+            "node@299": {
+                "count": 4, 
+                "distance": 12.958, 
+                "left_child": "CHEMBL514646", 
+                "parent": "node@357", 
+                "right_child": "node@283"
+            }, 
+            "node@298": {
+                "count": 2, 
+                "distance": 12.891, 
+                "left_child": "CHEMBL153303", 
+                "parent": "node@312", 
+                "right_child": "CHEMBL153709"
+            }, 
+            "node@291": {
+                "count": 3, 
+                "distance": 11.806, 
+                "left_child": "CHEMBL12987", 
+                "parent": "node@332", 
+                "right_child": "node@255"
+            }, 
+            "node@290": {
+                "count": 3, 
+                "distance": 11.772, 
+                "left_child": "CHEMBL1200623", 
+                "parent": "node@362", 
+                "right_child": "node@220"
+            }, 
+            "node@293": {
+                "count": 3, 
+                "distance": 11.903, 
+                "left_child": "CHEMBL494706", 
+                "parent": "node@331", 
+                "right_child": "node@260"
+            }, 
+            "node@292": {
+                "count": 4, 
+                "distance": 11.865, 
+                "left_child": "node@205", 
+                "parent": "node@324", 
+                "right_child": "node@229"
+            }, 
+            "node@295": {
+                "count": 3, 
+                "distance": 12.292, 
+                "left_child": "CHEMBL278936", 
+                "parent": "node@331", 
+                "right_child": "node@282"
+            }, 
+            "node@294": {
+                "count": 2, 
+                "distance": 11.953, 
+                "left_child": "CHEMBL236718", 
+                "parent": "node@341", 
+                "right_child": "CHEMBL234463"
+            }, 
+            "node@297": {
+                "count": 4, 
+                "distance": 12.646, 
+                "left_child": "node@234", 
+                "parent": "node@319", 
+                "right_child": "node@262"
+            }, 
+            "CHEMBL153115": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL153115"
+                ], 
+                "features": [
+                    2.99, 
+                    3.0, 
+                    8.0, 
+                    483.26, 
+                    10.0, 
+                    133.16, 
+                    89.44
+                ], 
+                "parent": "node@250"
+            }, 
+            "CHEMBL244000": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL244000"
+                ], 
+                "features": [
+                    6.58, 
+                    2.0, 
+                    5.0, 
+                    455.21, 
+                    7.0, 
+                    135.02, 
+                    62.16
+                ], 
+                "parent": "node@201"
+            }, 
+            "CHEMBL691": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL691"
+                ], 
+                "features": [
+                    3.61, 
+                    2.0, 
+                    2.0, 
+                    296.18, 
+                    0.0, 
+                    86.51, 
+                    40.46
+                ], 
+                "parent": "node@241"
+            }, 
+            "CHEMBL397775": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL397775"
+                ], 
+                "features": [
+                    4.41, 
+                    1.0, 
+                    2.0, 
+                    266.13, 
+                    1.0, 
+                    78.0, 
+                    29.46
+                ], 
+                "parent": "node@216"
+            }, 
+            "CHEMBL393390": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL393390"
+                ], 
+                "features": [
+                    4.51, 
+                    2.0, 
+                    4.0, 
+                    362.13, 
+                    3.0, 
+                    90.71, 
+                    58.92
+                ], 
+                "parent": "node@212"
+            }, 
+            "node@358": {
+                "count": 10, 
+                "distance": 40.207, 
+                "left_child": "node@330", 
+                "parent": "node@370", 
+                "right_child": "node@338"
+            }, 
+            "CHEMBL1200324": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL1200324"
+                ], 
+                "features": [
+                    4.12, 
+                    2.0, 
+                    2.0, 
+                    328.25, 
+                    0.0, 
+                    94.5, 
+                    48.91
+                ], 
+                "parent": "node@287"
+            }, 
+            "CHEMBL58330": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL58330"
+                ], 
+                "features": [
+                    7.68, 
+                    1.0, 
+                    3.0, 
+                    470.24, 
+                    8.0, 
+                    149.15, 
+                    36.36
+                ], 
+                "parent": "node@285"
+            }, 
+            "CHEMBL289277": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL289277"
+                ], 
+                "features": [
+                    1.89, 
+                    3.0, 
+                    5.0, 
+                    270.05, 
+                    0.0, 
+                    69.48, 
+                    94.83
+                ], 
+                "parent": "node@351"
+            }, 
+            "node@265": {
+                "count": 2, 
+                "distance": 7.167, 
+                "left_child": "CHEMBL364442", 
+                "parent": "node@287", 
+                "right_child": "CHEMBL1479"
+            }, 
+            "node@349": {
+                "count": 8, 
+                "distance": 33.915, 
+                "left_child": "node@267", 
+                "parent": "node@371", 
+                "right_child": "node@342"
+            }, 
+            "node@267": {
+                "count": 2, 
+                "distance": 7.435, 
+                "left_child": "CHEMBL493702", 
+                "parent": "node@349", 
+                "right_child": "CHEMBL484451"
+            }, 
+            "node@260": {
+                "count": 2, 
+                "distance": 6.485, 
+                "left_child": "CHEMBL131163", 
+                "parent": "node@293", 
+                "right_child": "CHEMBL128654"
+            }, 
+            "node@261": {
+                "count": 2, 
+                "distance": 6.485, 
+                "left_child": "CHEMBL380565", 
+                "parent": "node@305", 
+                "right_child": "CHEMBL26865"
+            }, 
+            "node@262": {
+                "count": 2, 
+                "distance": 6.6, 
+                "left_child": "CHEMBL383372", 
+                "parent": "node@297", 
+                "right_child": "CHEMBL154988"
+            }, 
+            "node@263": {
+                "count": 4, 
+                "distance": 6.834, 
+                "left_child": "node@202", 
+                "parent": "node@347", 
+                "right_child": "node@250"
+            }, 
+            "node@343": {
+                "count": 9, 
+                "distance": 27.867, 
+                "left_child": "node@308", 
+                "parent": "node@374", 
+                "right_child": "node@313"
+            }, 
+            "node@342": {
+                "count": 6, 
+                "distance": 27.709, 
+                "left_child": "CHEMBL1213617", 
+                "parent": "node@349", 
+                "right_child": "node@328"
+            }, 
+            "node@341": {
+                "count": 6, 
+                "distance": 26.731, 
+                "left_child": "node@294", 
+                "parent": "node@352", 
+                "right_child": "node@326"
+            }, 
+            "CHEMBL484451": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL484451"
+                ], 
+                "features": [
+                    3.17, 
+                    2.0, 
+                    4.0, 
+                    250.22, 
+                    7.0, 
+                    78.07, 
+                    49.84
+                ], 
+                "parent": "node@267"
+            }, 
+            "node@347": {
+                "count": 9, 
+                "distance": 30.654, 
+                "left_child": "node@263", 
+                "parent": "node@372", 
+                "right_child": "node@336"
+            }, 
+            "node@346": {
+                "count": 3, 
+                "distance": 29.891, 
+                "left_child": "CHEMBL426073", 
+                "parent": "node@375", 
+                "right_child": "node@210"
+            }, 
+            "node@345": {
+                "count": 14, 
+                "distance": 29.755, 
+                "left_child": "node@289", 
+                "parent": "node@362", 
+                "right_child": "node@296"
+            }, 
+            "node@344": {
+                "count": 2, 
+                "distance": 27.992, 
+                "left_child": "CHEMBL185355", 
+                "parent": "node@363", 
+                "right_child": "CHEMBL198499"
+            }, 
+            "node@350": {
+                "count": 2, 
+                "distance": 34.327, 
+                "left_child": "CHEMBL83", 
+                "parent": "node@361", 
+                "right_child": "CHEMBL954"
+            }, 
+            "node@351": {
+                "count": 4, 
+                "distance": 34.73, 
+                "left_child": "CHEMBL289277", 
+                "parent": "node@377", 
+                "right_child": "node@334"
+            }, 
+            "CHEMBL198499": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL198499"
+                ], 
+                "features": [
+                    3.71, 
+                    3.0, 
+                    3.0, 
+                    343.12, 
+                    3.0, 
+                    100.79, 
+                    83.55
+                ], 
+                "parent": "node@344"
+            }, 
+            "CHEMBL216355": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL216355"
+                ], 
+                "features": [
+                    4.12, 
+                    2.0, 
+                    3.0, 
+                    282.13, 
+                    1.0, 
+                    79.66, 
+                    49.69
+                ], 
+                "parent": "node@209"
+            }, 
+            "CHEMBL278936": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL278936"
+                ], 
+                "features": [
+                    3.29, 
+                    2.0, 
+                    4.0, 
+                    296.1, 
+                    1.0, 
+                    80.05, 
+                    66.76
+                ], 
+                "parent": "node@295"
+            }, 
+            "CHEMBL491235": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL491235"
+                ], 
+                "features": [
+                    7.74, 
+                    1.0, 
+                    2.0, 
+                    422.19, 
+                    8.0, 
+                    131.18, 
+                    46.53
+                ], 
+                "parent": "node@286"
+            }, 
+            "CHEMBL491236": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL491236"
+                ], 
+                "features": [
+                    7.75, 
+                    1.0, 
+                    3.0, 
+                    452.2, 
+                    9.0, 
+                    137.73, 
+                    55.76
+                ], 
+                "parent": "node@257"
+            }, 
+            "CHEMBL189178": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL189178"
+                ], 
+                "features": [
+                    5.81, 
+                    1.0, 
+                    4.0, 
+                    423.08, 
+                    4.0, 
+                    95.53, 
+                    50.42
+                ], 
+                "parent": "node@210"
+            }, 
+            "CHEMBL153062": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL153062"
+                ], 
+                "features": [
+                    4.69, 
+                    1.0, 
+                    1.0, 
+                    220.18, 
+                    8.0, 
+                    69.8, 
+                    20.23
+                ], 
+                "parent": "node@307"
+            }, 
+            "node@245": {
+                "count": 3, 
+                "distance": 4.159, 
+                "left_child": "CHEMBL81", 
+                "parent": "node@300", 
+                "right_child": "node@198"
+            }, 
+            "CHEMBL135180": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL135180"
+                ], 
+                "features": [
+                    3.8, 
+                    2.0, 
+                    3.0, 
+                    274.1, 
+                    0.0, 
+                    77.9, 
+                    40.46
+                ], 
+                "parent": "node@219"
+            }, 
+            "CHEMBL236720": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL236720"
+                ], 
+                "features": [
+                    4.51, 
+                    2.0, 
+                    4.0, 
+                    362.13, 
+                    3.0, 
+                    90.71, 
+                    58.92
+                ], 
+                "parent": "node@212"
+            }, 
+            "CHEMBL390021": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL390021"
+                ], 
+                "features": [
+                    7.01, 
+                    1.0, 
+                    4.0, 
+                    457.21, 
+                    7.0, 
+                    133.31, 
+                    41.93
+                ], 
+                "parent": "node@200"
+            }, 
+            "CHEMBL390020": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL390020"
+                ], 
+                "features": [
+                    6.58, 
+                    2.0, 
+                    5.0, 
+                    455.21, 
+                    7.0, 
+                    135.02, 
+                    62.16
+                ], 
+                "parent": "node@201"
+            }, 
+            "CHEMBL59146": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL59146"
+                ], 
+                "features": [
+                    5.59, 
+                    1.0, 
+                    4.0, 
+                    456.24, 
+                    7.0, 
+                    134.65, 
+                    53.01
+                ], 
+                "parent": "node@253"
+            }, 
+            "node@198": {
+                "count": 2, 
+                "distance": 0.0, 
+                "left_child": "CHEMBL59311", 
+                "parent": "node@245", 
+                "right_child": "CHEMBL56166"
+            }, 
+            "node@199": {
+                "count": 2, 
+                "distance": 0.0, 
+                "left_child": "CHEMBL316003", 
+                "parent": "node@325", 
+                "right_child": "CHEMBL315474"
+            }, 
+            "CHEMBL150466": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL150466"
+                ], 
+                "features": [
+                    3.47, 
+                    3.0, 
+                    9.0, 
+                    486.16, 
+                    10.0, 
+                    132.88, 
+                    95.43
+                ], 
+                "parent": "node@254"
+            }, 
+            "node@196": {
+                "count": 2, 
+                "distance": 0.0, 
+                "left_child": "CHEMBL432371", 
+                "parent": "node@303", 
+                "right_child": "CHEMBL85561"
+            }, 
+            "node@197": {
+                "count": 2, 
+                "distance": 0.0, 
+                "left_child": "CHEMBL56198", 
+                "parent": "node@253", 
+                "right_child": "CHEMBL58688"
+            }, 
+            "CHEMBL31738": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL31738"
+                ], 
+                "features": [
+                    7.57, 
+                    1.0, 
+                    3.0, 
+                    451.25, 
+                    6.0, 
+                    143.79, 
+                    32.7
+                ], 
+                "parent": "node@310"
+            }, 
+            "node@195": {
+                "count": 2, 
+                "distance": 0.0, 
+                "left_child": "CHEMBL494491", 
+                "parent": "node@225", 
+                "right_child": "CHEMBL494493"
+            }, 
+            "CHEMBL153709": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL153709"
+                ], 
+                "features": [
+                    3.34, 
+                    4.0, 
+                    8.0, 
+                    467.22, 
+                    10.0, 
+                    133.47, 
+                    98.23
+                ], 
+                "parent": "node@298"
+            }, 
+            "CHEMBL1405": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL1405"
+                ], 
+                "features": [
+                    3.82, 
+                    1.0, 
+                    2.0, 
+                    270.16, 
+                    0.0, 
+                    77.73, 
+                    37.3
+                ], 
+                "parent": "node@251"
+            }, 
+            "CHEMBL56166": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL56166"
+                ], 
+                "features": [
+                    5.3, 
+                    2.0, 
+                    5.0, 
+                    472.24, 
+                    7.0, 
+                    136.31, 
+                    73.24
+                ], 
+                "parent": "node@198"
+            }, 
+            "node@331": {
+                "count": 6, 
+                "distance": 22.414, 
+                "left_child": "node@293", 
+                "parent": "node@355", 
+                "right_child": "node@295"
+            }, 
+            "CHEMBL380565": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL380565"
+                ], 
+                "features": [
+                    4.2, 
+                    3.0, 
+                    3.0, 
+                    315.13, 
+                    2.0, 
+                    96.69, 
+                    66.48
+                ], 
+                "parent": "node@261"
+            }, 
+            "CHEMBL954": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL954"
+                ], 
+                "features": [
+                    6.56, 
+                    0.0, 
+                    2.0, 
+                    405.19, 
+                    9.0, 
+                    124.38, 
+                    12.47
+                ], 
+                "parent": "node@350"
+            }, 
+            "CHEMBL489585": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL489585"
+                ], 
+                "features": [
+                    7.84, 
+                    2.0, 
+                    3.0, 
+                    452.2, 
+                    9.0, 
+                    137.46, 
+                    66.76
+                ], 
+                "parent": "node@273"
+            }, 
+            "CHEMBL489584": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL489584"
+                ], 
+                "features": [
+                    7.3, 
+                    2.0, 
+                    3.0, 
+                    438.18, 
+                    7.0, 
+                    132.78, 
+                    66.76
+                ], 
+                "parent": "node@231"
+            }, 
+            "CHEMBL235829": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL235829"
+                ], 
+                "features": [
+                    4.9, 
+                    2.0, 
+                    3.0, 
+                    350.11, 
+                    2.0, 
+                    84.59, 
+                    49.69
+                ], 
+                "parent": "node@213"
+            }, 
+            "CHEMBL235828": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL235828"
+                ], 
+                "features": [
+                    3.68, 
+                    2.0, 
+                    4.0, 
+                    310.12, 
+                    1.0, 
+                    84.67, 
+                    66.76
+                ], 
+                "parent": "node@244"
+            }, 
+            "CHEMBL179243": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL179243"
+                ], 
+                "features": [
+                    4.27, 
+                    0.0, 
+                    3.0, 
+                    284.14, 
+                    6.0, 
+                    86.09, 
+                    27.69
+                ], 
+                "parent": "node@220"
+            }, 
+            "CHEMBL278703": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL278703"
+                ], 
+                "features": [
+                    4.12, 
+                    2.0, 
+                    3.0, 
+                    282.13, 
+                    1.0, 
+                    79.66, 
+                    49.69
+                ], 
+                "parent": "node@215"
+            }, 
+            "node@307": {
+                "count": 2, 
+                "distance": 14.788, 
+                "left_child": "CHEMBL153062", 
+                "parent": "node@371", 
+                "right_child": "CHEMBL195437"
+            }, 
+            "node@306": {
+                "count": 2, 
+                "distance": 14.761, 
+                "left_child": "CHEMBL1213784", 
+                "parent": "node@370", 
+                "right_child": "CHEMBL1213785"
+            }, 
+            "node@305": {
+                "count": 3, 
+                "distance": 14.606, 
+                "left_child": "CHEMBL236086", 
+                "parent": "node@327", 
+                "right_child": "node@261"
+            }, 
+            "node@304": {
+                "count": 6, 
+                "distance": 14.287, 
+                "left_child": "CHEMBL1087884", 
+                "parent": "node@355", 
+                "right_child": "node@221"
+            }, 
+            "node@303": {
+                "count": 3, 
+                "distance": 14.283, 
+                "left_child": "CHEMBL244206", 
+                "parent": "node@330", 
+                "right_child": "node@196"
+            }, 
+            "node@302": {
+                "count": 4, 
+                "distance": 14.282, 
+                "left_child": "CHEMBL523138", 
+                "parent": "node@340", 
+                "right_child": "node@256"
+            }, 
+            "node@301": {
+                "count": 4, 
+                "distance": 14.19, 
+                "left_child": "CHEMBL393340", 
+                "parent": "node@322", 
+                "right_child": "node@284"
+            }, 
+            "node@300": {
+                "count": 4, 
+                "distance": 13.253, 
+                "left_child": "CHEMBL152993", 
+                "parent": "node@332", 
+                "right_child": "node@245"
+            }, 
+            "CHEMBL493702": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL493702"
+                ], 
+                "features": [
+                    3.27, 
+                    2.0, 
+                    4.0, 
+                    256.15, 
+                    6.0, 
+                    73.7, 
+                    49.84
+                ], 
+                "parent": "node@267"
+            }, 
+            "node@309": {
+                "count": 2, 
+                "distance": 15.163, 
+                "left_child": "CHEMBL197080", 
+                "parent": "node@335", 
+                "right_child": "CHEMBL282575"
+            }, 
+            "node@308": {
+                "count": 5, 
+                "distance": 14.874, 
+                "left_child": "CHEMBL128227", 
+                "parent": "node@343", 
+                "right_child": "node@239"
+            }, 
+            "CHEMBL393340": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL393340"
+                ], 
+                "features": [
+                    4.66, 
+                    2.0, 
+                    4.0, 
+                    437.31, 
+                    13.0, 
+                    120.28, 
+                    92.7
+                ], 
+                "parent": "node@301"
+            }, 
+            "CHEMBL489": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL489"
+                ], 
+                "features": [
+                    5.7, 
+                    1.0, 
+                    3.0, 
+                    387.22, 
+                    8.0, 
+                    121.25, 
+                    32.7
+                ], 
+                "parent": "node@205"
+            }, 
+            "CHEMBL135236": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL135236"
+                ], 
+                "features": [
+                    3.74, 
+                    2.0, 
+                    2.0, 
+                    268.15, 
+                    0.0, 
+                    80.02, 
+                    40.46
+                ], 
+                "parent": "node@251"
+            }, 
+            "CHEMBL57093": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL57093"
+                ], 
+                "features": [
+                    6.24, 
+                    1.0, 
+                    4.0, 
+                    409.22, 
+                    7.0, 
+                    127.09, 
+                    49.25
+                ], 
+                "parent": "node@271"
+            }, 
+            "CHEMBL405154": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL405154"
+                ], 
+                "features": [
+                    3.23, 
+                    3.0, 
+                    4.0, 
+                    263.03, 
+                    2.0, 
+                    69.6, 
+                    73.05
+                ], 
+                "parent": "node@281"
+            }, 
+            "node@239": {
+                "count": 4, 
+                "distance": 3.453, 
+                "left_child": "CHEMBL493490", 
+                "parent": "node@308", 
+                "right_child": "node@225"
+            }, 
+            "CHEMBL1276308": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL1276308"
+                ], 
+                "features": [
+                    5.41, 
+                    1.0, 
+                    3.0, 
+                    429.27, 
+                    2.0, 
+                    129.43, 
+                    40.54
+                ], 
+                "parent": "node@288"
+            }, 
+            "node@233": {
+                "count": 2, 
+                "distance": 1.263, 
+                "left_child": "CHEMBL293297", 
+                "parent": "node@256", 
+                "right_child": "CHEMBL56306"
+            }, 
+            "node@232": {
+                "count": 3, 
+                "distance": 1.225, 
+                "left_child": "CHEMBL292573", 
+                "parent": "node@242", 
+                "right_child": "node@224"
+            }, 
+            "node@231": {
+                "count": 3, 
+                "distance": 1.17, 
+                "left_child": "CHEMBL489584", 
+                "parent": "node@340", 
+                "right_child": "node@203"
+            }, 
+            "node@230": {
+                "count": 2, 
+                "distance": 1.11, 
+                "left_child": "CHEMBL149803", 
+                "parent": "node@240", 
+                "right_child": "CHEMBL346401"
+            }, 
+            "node@237": {
+                "count": 2, 
+                "distance": 3.125, 
+                "left_child": "CHEMBL2112892", 
+                "parent": "node@319", 
+                "right_child": "CHEMBL152913"
+            }, 
+            "node@236": {
+                "count": 6, 
+                "distance": 3.003, 
+                "left_child": "CHEMBL135", 
+                "parent": "node@289", 
+                "right_child": "node@219"
+            }, 
+            "node@235": {
+                "count": 2, 
+                "distance": 2.368, 
+                "left_child": "CHEMBL150704", 
+                "parent": "node@284", 
+                "right_child": "CHEMBL150503"
+            }, 
+            "node@234": {
+                "count": 2, 
+                "distance": 2.115, 
+                "left_child": "CHEMBL244207", 
+                "parent": "node@297", 
+                "right_child": "CHEMBL428926"
+            }, 
+            "CHEMBL60538": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL60538"
+                ], 
+                "features": [
+                    5.95, 
+                    1.0, 
+                    4.0, 
+                    442.26, 
+                    7.0, 
+                    134.02, 
+                    35.94
+                ], 
+                "parent": "node@243"
+            }, 
+            "CHEMBL399832": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL399832"
+                ], 
+                "features": [
+                    4.42, 
+                    2.0, 
+                    3.0, 
+                    296.14, 
+                    1.0, 
+                    84.4, 
+                    49.69
+                ], 
+                "parent": "node@222"
+            }, 
+            "CHEMBL185355": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL185355"
+                ], 
+                "features": [
+                    3.18, 
+                    3.0, 
+                    6.0, 
+                    319.1, 
+                    2.0, 
+                    88.85, 
+                    90.88
+                ], 
+                "parent": "node@344"
+            }, 
+            "node@359": {
+                "count": 13, 
+                "distance": 40.414, 
+                "left_child": "node@323", 
+                "parent": "node@368", 
+                "right_child": "node@340"
+            }, 
+            "CHEMBL59184": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL59184"
+                ], 
+                "features": [
+                    6.07, 
+                    1.0, 
+                    3.0, 
+                    380.19, 
+                    5.0, 
+                    120.06, 
+                    36.36
+                ], 
+                "parent": "node@229"
+            }, 
+            "CHEMBL319244": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL319244"
+                ], 
+                "features": [
+                    2.9, 
+                    2.0, 
+                    4.0, 
+                    284.1, 
+                    6.0, 
+                    79.91, 
+                    66.76
+                ], 
+                "parent": "node@282"
+            }, 
+            "CHEMBL473801": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL473801"
+                ], 
+                "features": [
+                    4.45, 
+                    1.0, 
+                    4.0, 
+                    371.11, 
+                    3.0, 
+                    104.59, 
+                    65.78
+                ], 
+                "parent": "node@277"
+            }, 
+            "CHEMBL58688": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL58688"
+                ], 
+                "features": [
+                    5.66, 
+                    2.0, 
+                    5.0, 
+                    458.26, 
+                    7.0, 
+                    135.69, 
+                    56.17
+                ], 
+                "parent": "node@197"
+            }, 
+            "CHEMBL381645": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL381645"
+                ], 
+                "features": [
+                    5.48, 
+                    2.0, 
+                    4.0, 
+                    427.21, 
+                    6.0, 
+                    128.06, 
+                    52.93
+                ], 
+                "parent": "node@252"
+            }, 
+            "CHEMBL335328": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL335328"
+                ], 
+                "features": [
+                    3.8, 
+                    2.0, 
+                    3.0, 
+                    274.1, 
+                    0.0, 
+                    77.9, 
+                    40.46
+                ], 
+                "parent": "node@218"
+            }, 
+            "CHEMBL56306": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL56306"
+                ], 
+                "features": [
+                    5.27, 
+                    2.0, 
+                    5.0, 
+                    444.24, 
+                    7.0, 
+                    131.07, 
+                    56.17
+                ], 
+                "parent": "node@233"
+            }, 
+            "CHEMBL58563": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL58563"
+                ], 
+                "features": [
+                    6.11, 
+                    1.0, 
+                    3.0, 
+                    394.2, 
+                    6.0, 
+                    124.93, 
+                    36.36
+                ], 
+                "parent": "node@204"
+            }, 
+            "CHEMBL495326": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL495326"
+                ], 
+                "features": [
+                    5.58, 
+                    1.0, 
+                    4.0, 
+                    390.28, 
+                    9.0, 
+                    124.82, 
+                    41.05
+                ], 
+                "parent": "node@275"
+            }, 
+            "CHEMBL314561": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL314561"
+                ], 
+                "features": [
+                    6.86, 
+                    2.0, 
+                    5.0, 
+                    469.23, 
+                    7.0, 
+                    138.87, 
+                    66.07
+                ], 
+                "parent": "node@255"
+            }, 
+            "CHEMBL31068": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL31068"
+                ], 
+                "features": [
+                    8.35, 
+                    1.0, 
+                    3.0, 
+                    479.28, 
+                    6.0, 
+                    153.02, 
+                    32.7
+                ], 
+                "parent": "node@285"
+            }, 
+            "CHEMBL130030": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL130030"
+                ], 
+                "features": [
+                    4.87, 
+                    2.0, 
+                    3.0, 
+                    302.14, 
+                    4.0, 
+                    96.24, 
+                    44.62
+                ], 
+                "parent": "node@269"
+            }, 
+            "CHEMBL31089": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL31089"
+                ], 
+                "features": [
+                    6.59, 
+                    2.0, 
+                    4.0, 
+                    455.25, 
+                    6.0, 
+                    139.71, 
+                    52.93
+                ], 
+                "parent": "node@257"
+            }, 
+            "CHEMBL428926": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL428926"
+                ], 
+                "features": [
+                    5.49, 
+                    1.0, 
+                    6.0, 
+                    495.21, 
+                    7.0, 
+                    138.54, 
+                    76.07
+                ], 
+                "parent": "node@234"
+            }, 
+            "CHEMBL494121": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL494121"
+                ], 
+                "features": [
+                    5.29, 
+                    2.0, 
+                    4.0, 
+                    360.23, 
+                    9.0, 
+                    112.73, 
+                    49.84
+                ], 
+                "parent": "node@226"
+            }, 
+            "CHEMBL391046": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL391046"
+                ], 
+                "features": [
+                    4.45, 
+                    1.0, 
+                    5.0, 
+                    447.3, 
+                    13.0, 
+                    124.55, 
+                    81.7
+                ], 
+                "parent": "node@246"
+            }, 
+            "CHEMBL154988": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL154988"
+                ], 
+                "features": [
+                    3.71, 
+                    2.0, 
+                    8.0, 
+                    495.25, 
+                    10.0, 
+                    142.88, 
+                    80.65
+                ], 
+                "parent": "node@262"
+            }, 
+            "CHEMBL150356": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL150356"
+                ], 
+                "features": [
+                    2.3, 
+                    4.0, 
+                    8.0, 
+                    419.24, 
+                    9.0, 
+                    123.85, 
+                    98.23
+                ], 
+                "parent": "node@322"
+            }, 
+            "CHEMBL235386": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL235386"
+                ], 
+                "features": [
+                    4.65, 
+                    2.0, 
+                    4.0, 
+                    340.17, 
+                    4.0, 
+                    94.99, 
+                    58.92
+                ], 
+                "parent": "node@272"
+            }
+        }, 
+        "feature_names": [
+            "SlogP", 
+            "NumHBD", 
+            "NumHBA", 
+            "ExactMW", 
+            "NumRotatableBonds", 
+            "SMR", 
+            "TPSA"
+        ]
+    }, 
+    "metadata": {
+        "nodes": {
+            "CHEMBL86206": [
+                "34.0"
+            ], 
+            "CHEMBL150704": [
+                "1380.0"
+            ], 
+            "CHEMBL155510": [
+                "560.0"
+            ], 
+            "CHEMBL285483": [
+                "3.9"
+            ], 
+            "CHEMBL495337": [
+                "1700.0"
+            ], 
+            "CHEMBL1213784": [
+                "13.66"
+            ], 
+            "CHEMBL1213785": [
+                "25.43"
+            ], 
+            "CHEMBL494698": [
+                "2400.0"
+            ], 
+            "CHEMBL81": [
+                "0.37"
+            ], 
+            "CHEMBL1200623": [
+                "320.0"
+            ], 
+            "CHEMBL335884": [
+                "13.0"
+            ], 
+            "CHEMBL216355": [
+                "14.5"
+            ], 
+            "CHEMBL278936": [
+                "700.0"
+            ], 
+            "CHEMBL491235": [
+                "977.0"
+            ], 
+            "CHEMBL358890": [
+                "2400.0"
+            ], 
+            "CHEMBL189178": [
+                "51.0"
+            ], 
+            "CHEMBL197080": [
+                "2.1"
+            ], 
+            "CHEMBL296411": [
+                "261.0"
+            ], 
+            "CHEMBL464360": [
+                "5700.0"
+            ], 
+            "CHEMBL234638": [
+                "0.35"
+            ], 
+            "CHEMBL432371": [
+                "3.8"
+            ], 
+            "CHEMBL56198": [
+                "0.6"
+            ], 
+            "CHEMBL153303": [
+                "1000.0"
+            ], 
+            "CHEMBL236086": [
+                "11.45"
+            ], 
+            "CHEMBL490197": [
+                "60.0"
+            ], 
+            "CHEMBL234639": [
+                "41.0"
+            ], 
+            "CHEMBL292573": [
+                "180.0"
+            ], 
+            "CHEMBL60909": [
+                "2000.0"
+            ], 
+            "CHEMBL234633": [
+                "65.0"
+            ], 
+            "CHEMBL236720": [
+                "43.8"
+            ], 
+            "CHEMBL418971": [
+                "649.0"
+            ], 
+            "CHEMBL383372": [
+                "184.0"
+            ], 
+            "CHEMBL490198": [
+                "4.0"
+            ], 
+            "CHEMBL58486": [
+                "210.0"
+            ], 
+            "CHEMBL391532": [
+                "7.2"
+            ], 
+            "CHEMBL411": [
+                "0.3755"
+            ], 
+            "CHEMBL372526": [
+                "59.0"
+            ], 
+            "CHEMBL394338": [
+                "147.0"
+            ], 
+            "CHEMBL158017": [
+                "49000.0"
+            ], 
+            "CHEMBL293599": [
+                "170.0"
+            ], 
+            "CHEMBL150466": [
+                "570.0"
+            ], 
+            "CHEMBL31738": [
+                "290.0"
+            ], 
+            "CHEMBL150279": [
+                "380.0"
+            ], 
+            "CHEMBL294710": [
+                "650.0"
+            ], 
+            "CHEMBL153709": [
+                "200.0"
+            ], 
+            "CHEMBL59438": [
+                "310.0"
+            ], 
+            "CHEMBL293297": [
+                "2.5"
+            ], 
+            "CHEMBL30996": [
+                "8.69"
+            ], 
+            "CHEMBL524104": [
+                "692.0"
+            ], 
+            "CHEMBL1628190": [
+                "41.5"
+            ], 
+            "CHEMBL58714": [
+                "20.0"
+            ], 
+            "CHEMBL153211": [
+                "5130.0"
+            ], 
+            "CHEMBL153359": [
+                "570.0"
+            ], 
+            "CHEMBL2112892": [
+                "2275.0"
+            ], 
+            "CHEMBL31089": [
+                "120.0"
+            ], 
+            "CHEMBL152993": [
+                "270.0"
+            ], 
+            "CHEMBL1405": [
+                "2.19"
+            ], 
+            "CHEMBL236718": [
+                "8.35"
+            ], 
+            "CHEMBL59311": [
+                "37.0"
+            ], 
+            "CHEMBL193482": [
+                "0.483"
+            ], 
+            "CHEMBL492875": [
+                "8400.0"
+            ], 
+            "CHEMBL83": [
+                "31.19"
+            ], 
+            "CHEMBL56166": [
+                "88.0"
+            ], 
+            "CHEMBL244205": [
+                "0.24"
+            ], 
+            "CHEMBL381645": [
+                "1.7"
+            ], 
+            "CHEMBL244207": [
+                "1.03"
+            ], 
+            "CHEMBL244206": [
+                "0.2"
+            ], 
+            "CHEMBL138544": [
+                "23.0"
+            ], 
+            "CHEMBL135732": [
+                "4.0"
+            ], 
+            "CHEMBL150503": [
+                "6870.0"
+            ], 
+            "CHEMBL451143": [
+                "7200.0"
+            ], 
+            "CHEMBL131163": [
+                "2.2"
+            ], 
+            "CHEMBL149803": [
+                "1140.0"
+            ], 
+            "CHEMBL236495": [
+                "32000.0"
+            ], 
+            "CHEMBL61026": [
+                "830.0"
+            ], 
+            "CHEMBL380565": [
+                "0.67"
+            ], 
+            "CHEMBL954": [
+                "1.3"
+            ], 
+            "CHEMBL346215": [
+                "680.0"
+            ], 
+            "CHEMBL335465": [
+                "0.15"
+            ], 
+            "CHEMBL489585": [
+                "2.0"
+            ], 
+            "CHEMBL489584": [
+                "28.0"
+            ], 
+            "CHEMBL392906": [
+                "7100.0"
+            ], 
+            "CHEMBL356852": [
+                "3240.0"
+            ], 
+            "CHEMBL235829": [
+                "12.4"
+            ], 
+            "CHEMBL235828": [
+                "410.0"
+            ], 
+            "CHEMBL135": [
+                "2.0"
+            ], 
+            "CHEMBL56390": [
+                "0.9"
+            ], 
+            "CHEMBL364368": [
+                "34.0"
+            ], 
+            "CHEMBL278703": [
+                "2.69"
+            ], 
+            "CHEMBL491236": [
+                "158.0"
+            ], 
+            "CHEMBL57875": [
+                "490.0"
+            ], 
+            "CHEMBL493702": [
+                "7500.0"
+            ], 
+            "CHEMBL153115": [
+                "200.0"
+            ], 
+            "CHEMBL152916": [
+                "1000.0"
+            ], 
+            "CHEMBL393340": [
+                "12000.0"
+            ], 
+            "CHEMBL152913": [
+                "830.0"
+            ], 
+            "CHEMBL489": [
+                "0.32"
+            ], 
+            "CHEMBL2103774": [
+                "123.8"
+            ], 
+            "CHEMBL1087884": [
+                "29000.0"
+            ], 
+            "CHEMBL364442": [
+                "24.0"
+            ], 
+            "CHEMBL153062": [
+                "108.0"
+            ], 
+            "CHEMBL153765": [
+                "1420.0"
+            ], 
+            "CHEMBL514646": [
+                "15000.0"
+            ], 
+            "CHEMBL494493": [
+                "5800.0"
+            ], 
+            "CHEMBL494492": [
+                "7200.0"
+            ], 
+            "CHEMBL494491": [
+                "7900.0"
+            ], 
+            "CHEMBL128227": [
+                "0.47"
+            ], 
+            "CHEMBL234462": [
+                "2.88"
+            ], 
+            "CHEMBL234463": [
+                "6.11"
+            ], 
+            "CHEMBL234460": [
+                "126.0"
+            ], 
+            "CHEMBL128654": [
+                "1.1"
+            ], 
+            "CHEMBL175525": [
+                "380.8"
+            ], 
+            "CHEMBL59552": [
+                "620.0"
+            ], 
+            "CHEMBL57093": [
+                "70.0"
+            ], 
+            "CHEMBL1800984": [
+                "2300.0"
+            ], 
+            "CHEMBL1800985": [
+                "5500.0"
+            ], 
+            "CHEMBL405154": [
+                "310.0"
+            ], 
+            "CHEMBL493490": [
+                "7500.0"
+            ], 
+            "CHEMBL1276308": [
+                "6754.0"
+            ], 
+            "CHEMBL191066": [
+                "2222.0"
+            ], 
+            "CHEMBL493097": [
+                "16000.0"
+            ], 
+            "CHEMBL59271": [
+                "1260.0"
+            ], 
+            "CHEMBL60538": [
+                "1.7"
+            ], 
+            "CHEMBL8145": [
+                "1800.0"
+            ], 
+            "CHEMBL489183": [
+                "55.0"
+            ], 
+            "CHEMBL491433": [
+                "52.0"
+            ], 
+            "CHEMBL494717": [
+                "5800.0"
+            ], 
+            "CHEMBL185355": [
+                "3333.0"
+            ], 
+            "CHEMBL399832": [
+                "2.82"
+            ], 
+            "CHEMBL1201151": [
+                "5.22"
+            ], 
+            "CHEMBL59184": [
+                "380.0"
+            ], 
+            "CHEMBL319244": [
+                "2260.0"
+            ], 
+            "CHEMBL58504": [
+                "660.0"
+            ], 
+            "CHEMBL298398": [
+                "310.0"
+            ], 
+            "CHEMBL346401": [
+                "415.0"
+            ], 
+            "CHEMBL58449": [
+                "450.0"
+            ], 
+            "CHEMBL1479": [
+                "5083.0"
+            ], 
+            "CHEMBL473801": [
+                "26300.0"
+            ], 
+            "CHEMBL58688": [
+                "0.6"
+            ], 
+            "CHEMBL315475": [
+                "2.5"
+            ], 
+            "CHEMBL315474": [
+                "0.36"
+            ], 
+            "CHEMBL195437": [
+                "7907.0"
+            ], 
+            "CHEMBL426073": [
+                "26.0"
+            ], 
+            "CHEMBL243970": [
+                "0.091"
+            ], 
+            "CHEMBL236045": [
+                "3.3"
+            ], 
+            "CHEMBL282575": [
+                "18.0"
+            ], 
+            "CHEMBL335328": [
+                "24.0"
+            ], 
+            "CHEMBL494706": [
+                "5700.0"
+            ], 
+            "CHEMBL346455": [
+                "160.0"
+            ], 
+            "CHEMBL12987": [
+                "0.28"
+            ], 
+            "CHEMBL56306": [
+                "1.1"
+            ], 
+            "CHEMBL10041": [
+                "0.5"
+            ], 
+            "CHEMBL58563": [
+                "160.0"
+            ], 
+            "CHEMBL1162": [
+                "231.0"
+            ], 
+            "CHEMBL1213617": [
+                "2.0"
+            ], 
+            "CHEMBL495326": [
+                "2400.0"
+            ], 
+            "CHEMBL135180": [
+                "10.0"
+            ], 
+            "CHEMBL244000": [
+                "0.32"
+            ], 
+            "CHEMBL691": [
+                "0.128"
+            ], 
+            "CHEMBL314561": [
+                "32.0"
+            ], 
+            "CHEMBL33889": [
+                "490.0"
+            ], 
+            "CHEMBL393390": [
+                "198.0"
+            ], 
+            "CHEMBL198499": [
+                "4.2"
+            ], 
+            "CHEMBL31068": [
+                "210.0"
+            ], 
+            "CHEMBL130030": [
+                "3.7"
+            ], 
+            "CHEMBL523138": [
+                "724.0"
+            ], 
+            "CHEMBL85561": [
+                "60.0"
+            ], 
+            "CHEMBL26865": [
+                "8.5"
+            ], 
+            "CHEMBL428926": [
+                "1.89"
+            ], 
+            "CHEMBL1200324": [
+                "32.0"
+            ], 
+            "CHEMBL1087252": [
+                "4200.0"
+            ], 
+            "CHEMBL495135": [
+                "7600.0"
+            ], 
+            "CHEMBL58330": [
+                "130.0"
+            ], 
+            "CHEMBL234637": [
+                "40.0"
+            ], 
+            "CHEMBL522823": [
+                "2500.0"
+            ], 
+            "CHEMBL370403": [
+                "7.3"
+            ], 
+            "CHEMBL494121": [
+                "4100.0"
+            ], 
+            "CHEMBL179243": [
+                "136.0"
+            ], 
+            "CHEMBL391046": [
+                "7900.0"
+            ], 
+            "CHEMBL316003": [
+                "75.0"
+            ], 
+            "CHEMBL397775": [
+                "267.0"
+            ], 
+            "CHEMBL390021": [
+                "0.18"
+            ], 
+            "CHEMBL311636": [
+                "132.0"
+            ], 
+            "CHEMBL390020": [
+                "0.21"
+            ], 
+            "CHEMBL289277": [
+                "770.0"
+            ], 
+            "CHEMBL153395": [
+                "1240.0"
+            ], 
+            "CHEMBL59146": [
+                "29.0"
+            ], 
+            "CHEMBL484451": [
+                "10000.0"
+            ], 
+            "CHEMBL165": [
+                "785.0"
+            ], 
+            "CHEMBL243999": [
+                "0.24"
+            ], 
+            "CHEMBL154988": [
+                "145.0"
+            ], 
+            "CHEMBL153405": [
+                "300.0"
+            ], 
+            "CHEMBL135236": [
+                "8.0"
+            ], 
+            "CHEMBL150356": [
+                "2370.0"
+            ], 
+            "CHEMBL235386": [
+                "27.2"
+            ]
+        }, 
+        "feature_names": [
+            "nm"
+        ]
+    }
+}

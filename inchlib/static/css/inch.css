@@ -520,3 +520,26 @@ sup{
 .size{
 	font-size: 14px;
 }
+
+#scaffolds{
+	display: none;
+	width: 200px;
+	overflow: auto;
+	position: absolute;
+	z-index: 100;
+	background-color: white;
+	border-radius: 10px;
+	border: solid #D2D2D2 2px;
+}
+
+.scaffold_img{
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+.scaffold_count{
+	margin-left: 10px;
+	font-weight: bold;
+}

@@ -49,10 +49,12 @@ def export_compound2scaffold(compounds, scaffold2num):
 	return
 
 def filter_gr_data(filters):
-	with open("../source_data/chembl_GR_ligands_descriptors2.csv", "r") as gr_data:
+	with open("../source_data/chembl_era_ligands_descriptors.csv", "r") as gr_data:
 		rows = [r for r in csv.DictReader(gr_data)]
 
 	ids = [r["chembl_id"] for r in rows]
+
+	rows = [r for r in rows if float(r["ExactMW"]) <= 500]
 
 	for f in filters:
 		rows = [r for r in rows if r[f] == filters[f]]
@@ -75,7 +77,7 @@ def filter_gr_data(filters):
 	return final
 
 def export_gr_data(data, id_field, metadata_field):
-	with open("../source_data/chembl_gr_2.csv", "w") as output:
+	with open("../source_data/chembl_era.csv", "w") as output:
 		header = ["id"]
 		header.extend(FIELDS)
 		output.write(",".join(header))
@@ -90,7 +92,7 @@ def export_gr_data(data, id_field, metadata_field):
 			output.write(",".join(row))
 			output.write("\n")
 
-	with open("../source_data/chembl_gr_metadata_2.csv", "w") as output:
+	with open("../source_data/chembl_era_metadata.csv", "w") as output:
 		header = ["id", metadata_field]
 		output.write(",".join(header))
 		output.write("\n")
@@ -101,10 +103,10 @@ def export_gr_data(data, id_field, metadata_field):
 
 
 if __name__ == '__main__':
-	FIELDS = ["SlogP", "NumHBD", "NumHBA", "ExactMW", "NumRotatableBonds"]
-	FIELDS = ["SlogP", "SMR", "LabuteASA", "TPSA", "ExactMW", "NumRotatableBonds", "NumHBD", "NumHBA", "NumAmideBonds", "NumHeteroAtoms", "NumHeavyAtoms", "NumAtoms", "NumRings", "NumAromaticRings", "NumSaturatedRings", "NumAliphaticRings", "NumAromaticHeterocycles", "NumSaturatedHeterocycles", "NumAliphaticHeterocycles", "NumAromaticCarbocycles", "NumSaturatedCarbocycles", "NumAliphaticCarbocycles"]
+	FIELDS = ["SlogP", "NumHBD", "NumHBA", "ExactMW", "NumRotatableBonds", "SMR", "TPSA"]
+	# FIELDS = ["SlogP", "SMR", "LabuteASA", "TPSA", "ExactMW", "NumRotatableBonds", "NumHBD", "NumHBA", "NumAmideBonds", "NumHeteroAtoms", "NumHeavyAtoms", "NumAtoms", "NumRings", "NumAromaticRings", "NumSaturatedRings", "NumAliphaticRings", "NumAromaticHeterocycles", "NumSaturatedHeterocycles", "NumAliphaticHeterocycles", "NumAromaticCarbocycles", "NumSaturatedCarbocycles", "NumAliphaticCarbocycles"]
 	# FIELDS = ["MQN{}".format(i) for i in range(1, 42)]
-	data = filter_gr_data({"standard_type": "IC50", "standard_relation": "=", "confidence_score": "9"})
+	data = filter_gr_data({"standard_type": "Ki", "standard_relation": "="})
 	# data = filter_gr_data({"standard_type": "Potency", "confidence_score": "9"})
 	export_gr_data(data, "chembl_id", "nm")
 	# compounds = get_compounds()

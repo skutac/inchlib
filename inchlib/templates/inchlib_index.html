@@ -11,13 +11,13 @@
                 target: "dendrogram",
                 metadata: true, 
                 dendrogram: true,
-                max_height: 1400,
+                max_height: 900,
                 heatmap_colors: "Greens",
                 metadata_colors: "RdLrBu",
                 highlight_colors: "PuOr",
             });
 
-        dendrogram.read_data_from_file("{% static "data/chembl_gr_2.json" %}");
+        dendrogram.read_data_from_file("{% static "data/chembl_erb_normalized.json" %}");
         dendrogram.draw();
 
         var static_url = "{% static "img/gr_molecules/" %}";
