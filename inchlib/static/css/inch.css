@@ -418,8 +418,8 @@ body{
 
 #molecule{
 	position: absolute;
-	 height: 300px;
-	 width: 250px;
+	 height: 250px;
+	 width: 220px;
 	 z-index: 100;
 	 border: solid #D2D2D2 1px;
 	 border-radius: 10px;
@@ -427,8 +427,8 @@ body{
 }
 
 #molecule_img{
-	height: 270px;
-	width: 250px;
+	height: 225px;
+	width: 210px;
 	background-color: white;
 	border-radius: 10px;
 }
@@ -528,7 +528,6 @@ sup{
 	position: absolute;
 	z-index: 100;
 	background-color: white;
-	border-radius: 10px;
 	border: solid #D2D2D2 2px;
 }
 
@@ -542,4 +541,8 @@ sup{
 .scaffold_count{
 	margin-left: 10px;
 	font-weight: bold;
+}
+
+.scaffold:hover{
+	cursor: pointer;
 }

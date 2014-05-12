@@ -207,16 +207,16 @@ def fetch_pdb(id):
 
 def get_scaffolds(req):
     compounds = req.POST.getlist("compounds[]")
-    print req
-    scaffold2count = {}
+
+    scaffold2compound = {}
     for chembl_id in compounds:
         scaffold = COMPOUND2SCAFFOLD[chembl_id]
-        if scaffold in scaffold2count:
-            scaffold2count[scaffold] += 1
+        if scaffold in scaffold2compound:
+            scaffold2compound[scaffold].append(chembl_id)
         else:
-            scaffold2count[scaffold] = 1
+            scaffold2compound[scaffold] = [chembl_id]
 
-    scaffolds = [(s, scaffold2count[s]) for s in scaffold2count]
-    scaffolds.sort(key = lambda x: x[1], reverse=True)
+    scaffolds = [(s, scaffold2compound[s]) for s in scaffold2compound]
+    scaffolds.sort(key = lambda x: len(x[1]), reverse=True)
 
     return HttpResponse(json.dumps(scaffolds))

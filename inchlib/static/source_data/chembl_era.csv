@@ -1,4 +1,4 @@
-id,SlogP,NumHBD,NumHBA,ExactMW,NumRotatableBonds,SMR,TPSA
+id,logP,H-Bond Donors,H-Bond Acceptors,Molecular Weight,Rotatable Bonds,SMR,TPSA
 CHEMBL86206,7.51,2.0,5.0,497.26,9.0,148.13,66.07
 CHEMBL150704,2.69,4.0,8.0,433.26,10.0,128.46,98.23
 CHEMBL494491,4.75,2.0,4.0,326.25,9.0,102.29,49.84

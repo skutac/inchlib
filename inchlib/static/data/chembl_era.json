@@ -4675,12 +4675,12 @@
             }
         }, 
         "feature_names": [
-            "SlogP", 
-            "NumHBD", 
-            "NumHBA", 
-            "ExactMW", 
-            "NumRotatableBonds", 
-            "SMR", 
+            "logP",
+            "H-Bond Donors",
+            "H-Bond Acceptors",
+            "Molecular Weight",
+            "Rotatable Bonds",
+            "SMR",
             "TPSA"
         ]
     }, 
@@ -5273,7 +5273,7 @@
             ]
         }, 
         "feature_names": [
-            "nm"
+            "Ki [nM]"
         ]
     }
 }
