@@ -206,7 +206,7 @@ def fetch_pdb(id):
   return urllib.urlopen(url).read()
 
 def get_scaffolds(req):
-    compounds = req.POST.getlist("compounds[]")
+    compounds = req.GET.getlist("compounds[]")
 
     scaffold2compound = {}
     for chembl_id in compounds:

@@ -75,26 +75,6 @@
             scaffolds_element.fadeIn();
         }
 
-        function getCookie(c_name){ // from http://www.w3schools.com/js/js_cookies.asp
-            var c_value = document.cookie;
-            var c_start = c_value.indexOf(" " + c_name + "="); // index of cookie key if it is not first in the cookie string
-            if (c_start == -1){
-                c_start = c_value.indexOf(c_name + "="); // if it is first
-            }
-            if (c_start == -1){
-                c_value = null; // cookie not preent
-            }
-            else{
-                c_start = c_value.indexOf("=", c_start) + 1; // search for index of '=' key/value divider from correct key index
-                var c_end = c_value.indexOf(";", c_start); // search for ';' value terminator
-                if (c_end == -1){
-                    c_end = c_value.length; // if it is not present, the cookie is the last one
-                }
-                    c_value = unescape(c_value.substring(c_start,c_end)); // unescape value extracted using start / end indices
-            }
-            return c_value;
-        }
-
         function hide_molecule(ids, evt){
             mol_element.hide();
         }
@@ -124,10 +104,10 @@
                 var i;
 
                 $.ajax({
-                    type: 'POST',
+                    type: 'GET',
                     dataType: "json",
                     url: "{% url get_scaffolds %}",
-                    data:{compounds: object_ids, csrfmiddlewaretoken : getCookie("csrftoken")},
+                    data:{compounds: object_ids},
                     success: function(scaffolds){
                         hide_molecule();
                         show_scaffolds(scaffolds, evt);
