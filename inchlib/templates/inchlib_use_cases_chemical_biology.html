@@ -22,7 +22,8 @@
         dendrogram.read_data_from_file("{% static "data/chembl_era_normalized.json" %}");
         dendrogram.draw();
 
-        var static_url = "{% static "img/era_molecules/" %}";
+        var molecule_url = "{% static "img/era_molecules/" %}";
+        var scaffold_url = "{% static "img/era_scaffolds/" %}";
         var chembl_url = "https://www.ebi.ac.uk/chembl/compound/inspect/"
         var target_element = $("#dendrogram");
         var offset = target_element.offset();
@@ -40,7 +41,7 @@
 
         function show_molecule(mol_id, evt){
             scaffolds_element.hide();
-            var filepath = static_url + mol_id + ".svg";
+            var filepath = molecule_url + mol_id + ".svg";
             var y = evt.pageY-300;
             if(y < max_y){
                 y = max_y;
@@ -70,7 +71,7 @@
 
             for(i = 0; i < scaffolds.length; i++){
                 current_scaffolds[scaffolds[i][0]] = scaffolds[i][1];
-                scaffolds_element.append('<div class="scaffold" data-scaffold_id="' + scaffolds[i][0] + '"><img class="scaffold_img" src="/static/img/era_scaffolds/' + scaffolds[i][0] + '.svg" alt=""><span class="scaffold_count">' + scaffolds[i][1].length + '</span></div>')
+                scaffolds_element.append('<div class="scaffold" data-scaffold_id="' + scaffolds[i][0] + '"><img class="scaffold_img" src="' + scaffold_url + scaffolds[i][0] + '.svg" alt=""><span class="scaffold_count">' + scaffolds[i][1].length + '</span></div>')
             }
             scaffolds_element.fadeIn();
         }
