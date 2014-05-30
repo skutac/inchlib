@@ -528,7 +528,7 @@ sup{
 	position: absolute;
 	z-index: 100;
 	background-color: white;
-	border: solid #D2D2D2 2px;
+	/*border: solid #D2D2D2 2px;*/
 }
 
 .scaffold_img{
@@ -541,6 +541,11 @@ sup{
 .scaffold_count{
 	margin-left: 10px;
 	font-weight: bold;
+}
+
+.scaffold{
+	border: solid #D2D2D2 2px;
+	padding-bottom: 10px;
 }
 
 .scaffold:hover{

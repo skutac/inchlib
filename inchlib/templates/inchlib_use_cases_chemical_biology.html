@@ -22,7 +22,7 @@
         dendrogram.read_data_from_file("{% static "data/chembl_era_normalized.json" %}");
         dendrogram.draw();
 
-        var static_url = "{% static "img/gr_molecules/" %}";
+        var static_url = "{% static "img/era_molecules/" %}";
         var chembl_url = "https://www.ebi.ac.uk/chembl/compound/inspect/"
         var target_element = $("#dendrogram");
         var offset = target_element.offset();
@@ -39,6 +39,7 @@
         bind_dendrogram_events();
 
         function show_molecule(mol_id, evt){
+            scaffolds_element.hide();
             var filepath = static_url + mol_id + ".svg";
             var y = evt.pageY-300;
             if(y < max_y){
@@ -53,9 +54,13 @@
         }
 
         function show_scaffolds(scaffolds, evt){
-            var i, height = 300;
-            if(target_element.height() > 300){
+            var i, height = 200;
+            if(target_element.height() > 200){
                 height = target_element.height() - 240;
+            }
+
+            if(height > scaffolds.length*200){
+                height = scaffolds.length*200;
             }
 
             scaffolds_element.hide();
@@ -65,9 +70,9 @@
 
             for(i = 0; i < scaffolds.length; i++){
                 current_scaffolds[scaffolds[i][0]] = scaffolds[i][1];
-                scaffolds_element.append('<div class="scaffold" data-scaffold_id="' + scaffolds[i][0] + '"><img class="scaffold_img" src="/static/img/gr_scaffolds/' + scaffolds[i][0] + '.svg" alt=""><span class="scaffold_count">' + scaffolds[i][1].length + '</span></div><hr />')
+                scaffolds_element.append('<div class="scaffold" data-scaffold_id="' + scaffolds[i][0] + '"><img class="scaffold_img" src="/static/img/era_scaffolds/' + scaffolds[i][0] + '.svg" alt=""><span class="scaffold_count">' + scaffolds[i][1].length + '</span></div>')
             }
-            scaffolds_element.show();
+            scaffolds_element.fadeIn();
         }
 
         function getCookie(c_name){ // from http://www.w3schools.com/js/js_cookies.asp
@@ -124,7 +129,11 @@
                     url: "{% url get_scaffolds %}",
                     data:{compounds: object_ids, csrfmiddlewaretoken : getCookie("csrftoken")},
                     success: function(scaffolds){
+                        hide_molecule();
                         show_scaffolds(scaffolds, evt);
+                        dendrogram.events.row_onmouseover = function(ids, evt){
+                            return;
+                        };
                     },
                 });
                 
