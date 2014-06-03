@@ -29,13 +29,12 @@
         var offset = target_element.offset();
         var max_y = offset.top + 150;
         var x_pos = offset.left + dendrogram.settings.width - 80;
-        var mol_element = $("#molecule");
+        var mol_element = $("#molecule").css({"left": x_pos});
         var img_element = $("#molecule_img");
         var mol_id_element = $("#mol_id");
         var mol_link = $("#molecule a");
-        var scaffolds_element = $("#scaffolds");
-        mol_element.css({"left": x_pos});
-        scaffolds_element.css({"left": x_pos+30, "top": max_y+5});
+        var scaffolds_element = $("#scaffolds").css({"left": x_pos+30, "top": max_y+5});
+        var floating_mol = $("#floating_mol");
 
         bind_dendrogram_events();
 
@@ -81,8 +80,11 @@
         }
 
         function fix_molecule(){
+            floating_mol.hide();
             dendrogram.events.row_onmouseover = function(){};
-            dendrogram.events.heatmap_onmouseout = function(){};
+            dendrogram.events.heatmap_onmouseout = function(){
+                floating_mol.hide();
+            };
         }
 
         function bind_dendrogram_events(){
@@ -91,6 +93,7 @@
             };
             dendrogram.events.heatmap_onmouseout = function(evt){
                 hide_molecule(evt);
+                floating_mol.hide();
             };
             dendrogram.events.row_onclick = function(ids, evt){
                 show_molecule(ids[0], evt);
@@ -113,7 +116,10 @@
                         hide_molecule();
                         show_scaffolds(scaffolds, evt);
                         dendrogram.events.row_onmouseover = function(ids, evt){
-                            return;
+                            floating_mol.hide();
+                            floating_mol.css({"top": evt.pageY, "left": evt.pageX+30});
+                            floating_mol.find("img").attr("src", molecule_url + ids[0] + ".svg");
+                            floating_mol.show();
                         };
                     },
                 });
@@ -147,9 +153,14 @@
         });
 
         $("#scaffolds").on("click", ".scaffold", function(){
+            $(".active_scaffold").removeClass('active_scaffold');
             var scaffold_id = $(this).attr("data-scaffold_id");
-            console.log(scaffold_id, current_scaffolds[scaffold_id])
+            $(this).addClass('active_scaffold');
             dendrogram.highlight_rows(current_scaffolds[scaffold_id]);
+        });
+
+        $("#floating_mol").on("mouseover", "img", function(){
+            $("#floating_mol").hide();
         });
 
     });
@@ -197,6 +208,10 @@
         <img src="" id="molecule_img"></img>
         <div id="mol_id"></div>
     </a>
+</div>
+
+<div id="floating_mol">
+    <img src=""/>
 </div>
 
 <div id="scaffolds">

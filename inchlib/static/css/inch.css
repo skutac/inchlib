@@ -551,3 +551,22 @@ sup{
 .scaffold:hover{
 	cursor: pointer;
 }
+
+.active_scaffold{
+	border-color: #399757;
+	border-width: 4px;
+}
+
+#floating_mol{
+	display: none;
+	z-index: 101;
+	position: absolute;
+	background-color: white;
+	border-radius: 5px;
+	border: solid #D2D2D2 2px;
+}
+
+#floating_mol > img{
+	width: 150px;
+	height: 150px;
+}
