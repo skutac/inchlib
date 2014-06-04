@@ -40,7 +40,7 @@
 
         function show_molecule(mol_id, evt){
             scaffolds_element.hide();
-            var filepath = molecule_url + mol_id + ".svg";
+            var filepath = molecule_url + mol_id + ".png";
             var y = evt.pageY-300;
             if(y < max_y){
                 y = max_y;
@@ -70,7 +70,7 @@
 
             for(i = 0; i < scaffolds.length; i++){
                 current_scaffolds[scaffolds[i][0]] = scaffolds[i][1];
-                scaffolds_element.append('<div class="scaffold" data-scaffold_id="' + scaffolds[i][0] + '"><img class="scaffold_img" src="' + scaffold_url + scaffolds[i][0] + '.svg" alt=""><span class="scaffold_count">' + scaffolds[i][1].length + '</span></div>')
+                scaffolds_element.append('<div class="scaffold" data-scaffold_id="' + scaffolds[i][0] + '"><img class="scaffold_img" src="' + scaffold_url + scaffolds[i][0] + '.png" alt=""><span class="scaffold_count">' + scaffolds[i][1].length + '</span></div>')
             }
             scaffolds_element.fadeIn();
         }
@@ -118,7 +118,7 @@
                         dendrogram.events.row_onmouseover = function(ids, evt){
                             floating_mol.hide();
                             floating_mol.css({"top": evt.pageY, "left": evt.pageX+30});
-                            floating_mol.find("img").attr("src", molecule_url + ids[0] + ".svg");
+                            floating_mol.find("img").attr("src", molecule_url + ids[0] + ".png");
                             floating_mol.show();
                         };
                     },
@@ -211,7 +211,7 @@
 </div>
 
 <div id="floating_mol">
-    <img src=""/>
+    <img id="floating_img" src=""/>
 </div>
 
 <div id="scaffolds">

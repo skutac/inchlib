@@ -10,7 +10,7 @@ from rdkit.Chem import Draw
 from rdkit.Chem.Scaffolds import MurckoScaffold
 
 def get_cursor():
-    conn = MySQLdb.connect(host = "localhost", user = config.DB_USER, passwd = config.DB_PASSWORD, db = "chembl_17")
+    conn = MySQLdb.connect(host = "localhost", user = config.DB_USER, passwd = config.DB_PASSWORD, db = "chembl_18")
     cursor = conn.cursor(cursorclass=MySQLdb.cursors.DictCursor)
     return cursor
 
@@ -41,7 +41,7 @@ def create_scaffold_img(scaffold2num):
 	for m in scaffold2num:
 		mol = Chem.MolFromSmiles(m)
 		AllChem.Compute2DCoords(mol)
-		Draw.MolToFile(mol,'../img/era_scaffolds/{}.svg'.format(scaffold2num[m]))
+		Draw.MolToFile(mol,'../img/era_scaffolds/{}.png'.format(scaffold2num[m]))
 
 def export_compound2scaffold(compounds, scaffold2num):
 	with open("../source_data/compound2scaffold.csv", "w") as output:

@@ -427,8 +427,10 @@ body{
 }
 
 #molecule_img{
-	height: 225px;
-	width: 210px;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	width: 95%;
 	background-color: white;
 	border-radius: 10px;
 }
@@ -532,10 +534,10 @@ sup{
 }
 
 .scaffold_img{
-	width: 80%;
 	margin-left: auto;
 	margin-right: auto;
 	display: block;
+	width: 95%;
 }
 
 .scaffold_count{
@@ -564,9 +566,13 @@ sup{
 	background-color: white;
 	border-radius: 5px;
 	border: solid #D2D2D2 2px;
-}
-
-#floating_mol > img{
 	width: 150px;
 	height: 150px;
+}
+
+#floating_img{
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	width: 98%;
 }

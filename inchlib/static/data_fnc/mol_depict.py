@@ -15,4 +15,4 @@ molid2smiles = {r["chembl_id"]: r["smiles"] for r in reader if r["standard_type"
 for m in molid2smiles:
 	mol = Chem.MolFromSmiles(molid2smiles[m])
 	AllChem.Compute2DCoords(mol)
-	Draw.MolToFile(mol,'../img/era_molecules/{}.svg'.format(m))
+	Draw.MolToFile(mol,'../img/era_molecules/{}.png'.format(m))
