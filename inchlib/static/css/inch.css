@@ -418,12 +418,13 @@ body{
 
 #molecule{
 	position: absolute;
-	 height: 250px;
+	 height: 235px;
 	 width: 220px;
 	 z-index: 100;
 	 border: solid #D2D2D2 1px;
 	 border-radius: 10px;
 	 display: none;
+	 background-color: white;
 }
 
 #molecule_img{
