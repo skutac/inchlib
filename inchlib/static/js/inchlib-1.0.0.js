@@ -552,7 +552,7 @@ function InCHlib(settings){
   */
 InCHlib.prototype.read_data = function(json){
     this.data = json;
-    this.data.header = this.data.data.header;
+    this.data.header = this.data.data.feature_names;
     this.data.nodes = this.data.data.nodes;
 }
 
