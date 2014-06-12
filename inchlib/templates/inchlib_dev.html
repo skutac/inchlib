@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static "css/pure-min.css" %}" type="text/css"/>
+<link rel="stylesheet" href="{% static "css/inch.css" %}" type="text/css"/>
+<link rel="stylesheet" href="{% static "css/highlight.css" %}" type="text/css"/>
+<script src="{% static "js/inchlib_dev.js" %}"></script>
+<script src="{% static "js/jquery-2.0.3.min.js" %}"></script>
+<script src="{% static "js/kinetic-v5.1.0.min.js" %}"></script>
+
+<title>InCHlib - Interactive Cluster Heatmap library</title>
+</head>
+
+<script src="{% static "js/inchlib_dev.js" %}"></script>
+<script>
+$(document).ready(function(){
+
+    window.dendrogram = new InCHlib(
+            {
+                target: "dendrogram",
+                metadata: true, 
+                // column_dendrogram: true,
+                dendrogram: true,
+                max_height: 1200,
+                width: 800,
+                heatmap_colors: "RdBkGr",
+                metadata_colors: "RdLrBu",
+                highlight_colors: "PuOr",
+                header_as_heatmap_row: true,
+                show_export_button: true
+            });
+
+    dendrogram.read_data_from_file("{% static "data/chembl_era_normalized.json" %}");
+    dendrogram.draw();
+});
+</script>
+
+
+<body>
+    <h1>DEV</h1>
+       
+    <div id="dendrogram"></div>
+</body>
+</html>
+

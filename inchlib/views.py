@@ -132,8 +132,8 @@ def contact(req):
 def performance(req):
     return render_to_response("inchlib_performance.html", {})
 
-def test(req):
-    return render_to_response("inchlib_test.html", {})
+def dev(req):
+    return render_to_response("inchlib_dev.html", {})
 
 def inchlib_clust_doc(req):
     return render_to_response("inchlib_clust_doc.html", {})
