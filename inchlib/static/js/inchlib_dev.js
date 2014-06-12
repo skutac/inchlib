@@ -544,7 +544,6 @@ function InCHlib(settings){
     this.heatmap_width = 0;
     this.highlighted_row = null;
     this.leaves_y_coordinates = {};
-    this.rows = {};
 }
 
 /**
@@ -645,7 +644,7 @@ InCHlib.prototype._get_min_max_middle = function(data){
     var all = [];
 
     for(i = 0, len = data.length; i<len; i++){
-        all = all.concat(data[i]);
+        all = Array.prototype.push.apply(all, data[i]);
     }
 
     min_max_middle.push(Math.min.apply(null, all));
@@ -1148,7 +1147,7 @@ InCHlib.prototype._draw_heatmap = function(){
         return;
     }
 
-    var heatmap_row, row_id, col_number, col_label, row_values;
+    var heatmap_row, row_id, col_number, col_label, row_values, y;
     this.heatmap_layer = new Kinetic.Layer();
     this.heatmap_overlay = new Kinetic.Layer();
     this.current_draw_values = true;
@@ -1166,9 +1165,8 @@ InCHlib.prototype._draw_heatmap = function(){
 
     for(var i = 0, keys = Object.keys(this.leaves_y_coordinates), len = keys.length; i < len; i++){
         key = keys[i];
-        var y = this.leaves_y_coordinates[key];
+        y = this.leaves_y_coordinates[key];
         heatmap_row = this._draw_heatmap_row(key, x1, y);
-        this.rows[key] = heatmap_row;
         this.heatmap_layer.add(heatmap_row);
         current_leaves_y.push([key, y]);
         this._bind_row_events(heatmap_row);
@@ -1176,7 +1174,6 @@ InCHlib.prototype._draw_heatmap = function(){
 
     if(this.settings.header_as_heatmap_row){
         heatmap_row = this._draw_header_row(x1);
-        this.rows["header_row"] = heatmap_row;
         this.heatmap_layer.add(heatmap_row);
         this._bind_row_events(heatmap_row);
     }
@@ -2398,31 +2395,6 @@ InCHlib.prototype._visible_features_equal_column_dendrogram_count = function(){
     return false;
 }
 
-// InCHlib.prototype._clone_path = function(path){
-//     var path_clone = new Kinetic.Line({
-//                 points: path.attrs.points,
-//                 stroke: path.attrs.stroke,
-//                 strokeWidth: path.attrs.strokeWidth,
-//                 lineCap: path.attrs.lineCap,
-//                 lineJoin: path.attrs.lineJoin,
-//                 listening: path.attrs.listening,
-//     });
-//     return path_clone;
-// }
-
-// InCHlib.prototype._clone_rect = function(rect){
-//     var rect_clone = new Kinetic.Rect({
-//                 x: rect.attrs.x,
-//                 y: rect.attrs.y,
-//                 width: rect.attrs.width,
-//                 height: rect.attrs.height,
-//                 opacity: rect.attrs.opacity,
-//                 listening: rect.attrs.listening,
-//     });
-//     return rect_clone;
-
-// }
-
 InCHlib.prototype._get_color_for_value = function(value, min, max, middle, color_scale){
     var color = this.colors[color_scale];
     var c1 = color["start"];
@@ -2449,9 +2421,7 @@ InCHlib.prototype._get_color_for_value = function(value, min, max, middle, color
     var r = this._hack_round(c1.r+(position*(c2.r-c1.r)));
     var g = this._hack_round(c1.g+(position*(c2.g-c1.g)));
     var b = this._hack_round(c1.b+(position*(c2.b-c1.b)));
-    
-    var calc_color = 'rgb('+r+','+g+','+b+')';
-    return calc_color;
+    return 'rgb('+r+','+g+','+b+')';
 }
 
 InCHlib.prototype._get_font_size = function(text_length, width, height, max_font_size){
@@ -2489,13 +2459,6 @@ InCHlib.prototype._collect_object_ids = function(y1,y2){
 }
 
 InCHlib.prototype._hack_size = function(obj) {
-    // var size = 0, key;
-    // for (key in obj) {
-    //     if (obj.hasOwnProperty(key)){
-    //         size++;
-    //     }
-    // }
-    // return size;
     return Object.keys(obj).length;
 };
 
@@ -2532,14 +2495,16 @@ InCHlib.prototype._row_mouseenter = function(evt){
 
     if(row_id !== "header_row"){
         this.highlighted_row = row_id;
-        var y = this.leaves_y_coordinates[row_id] - 0.5*this.pixels_for_leaf;
+        var y = this.leaves_y_coordinates[row_id];
         var x = this.distance+this.dendrogram_heatmap_distance;
         this.row_borders = this.objects_ref.row_borders.clone();
         
-        var border = this.objects_ref.row_border.clone({points: [x, y, x+visible*this.pixels_for_dimension, y]})
-        this.row_borders.add(border);
-        y = y+this.pixels_for_leaf;
-        this.row_borders.add(this.objects_ref.row_border.clone({points:[x, y, x+visible*this.pixels_for_dimension, y]}));
+        var row_overlay = this.objects_ref.heatmap_line.clone({points: [x, y, x + this.heatmap_width, y],
+          strokeWidth: this.pixels_for_leaf,
+          stroke: "#FFFFFF",
+          opacity: 0.3});
+
+        this.row_borders.add(row_overlay);
         this.heatmap_overlay.add(this.row_borders);
         this.heatmap_overlay.draw();
         this.events.row_onmouseover(this.data.nodes[row_id].objects, evt);
@@ -2573,6 +2538,13 @@ InCHlib.prototype._draw_col_label = function(evt){
     var tooltip = this.objects_ref.tooltip_label.clone({x: x, y:y, id: "col_label",});
     tooltip.add(this.objects_ref.tooltip_tag.clone({pointerDirection: 'down'}));
     tooltip.add(this.objects_ref.tooltip_text.clone({text: value}));
+
+    var column_overlay = this.objects_ref.heatmap_line.clone({points: [x, this.header_height, x, this.settings.height - this.header_height - this.footer_height],
+      strokeWidth: this.pixels_for_dimension,
+      stroke: "#FFFFFF",
+      opacity: 0.3});
+
+    this.heatmap_overlay.add(column_overlay);
     
     this.heatmap_overlay.add(tooltip);
     this.heatmap_overlay.moveToTop();
