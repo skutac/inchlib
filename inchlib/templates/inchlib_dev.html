@@ -17,13 +17,16 @@
 <script>
 $(document).ready(function(){
  
-    window.dendrogram = new InCHlib(
+    window.dendrogram_1 = new InCHlib(
             {
-                target: "dendrogram",
+                target: "dendrogram_1",
                 metadata: true, 
+                // heatmap: false,
+                heatmap_header: false,
+                draw_row_ids: true,
                 // column_dendrogram: true,
                 dendrogram: true,
-                max_height: 1200,
+                max_height: 500,
                 width: 800,
                 heatmap_colors: "Greens",
                 metadata_colors: "RdLrBu",
@@ -31,9 +34,37 @@ $(document).ready(function(){
                 header_as_heatmap_row: true,
                 show_export_button: true
             });
+    // dendrogram.add_color_scale("WhBk", {"start": {"r":255, "g": 255, "b": 255}, "middle": {"r": 236, "g": 158, "b": 56}, "end": {"r": 0, "g": 0, "b": 0}})
+    dendrogram_1.read_data_from_file("{% static "data/chembl_era_normalized.json" %}");
+    dendrogram_1.draw();
 
-    dendrogram.read_data_from_file("{% static "data/chembl_era_normalized.json" %}");
-    dendrogram.draw();
+    window.dendrogram_2 = new InCHlib(
+            {
+                target: "dendrogram_2",
+                metadata: true, 
+                // heatmap: false,
+                draw_row_ids: true,
+                // column_dendrogram: true,
+                dendrogram: true,
+                max_height: 500,
+                width: 800,
+                heatmap_colors: "Greens",
+                metadata_colors: "RdLrBu",
+                highlight_colors: "PuOr",
+                header_as_heatmap_row: true,
+                show_export_button: true
+            });
+    // dendrogram.add_color_scale("WhBk", {"start": {"r":255, "g": 255, "b": 255}, "middle": {"r": 236, "g": 158, "b": 56}, "end": {"r": 0, "g": 0, "b": 0}})
+    dendrogram_2.read_data_from_file("{% static "data/chembl_era.json" %}");
+    dendrogram_2.draw();
+
+    dendrogram_1.events.row_onmouseover = function(leaf_id){
+        dendrogram_2.highlight_rows([leaf_id]);
+    }
+
+    dendrogram_1.events.dendrogram_node_onclick = function(leaf_ids){
+        dendrogram_2.highlight_rows(leaf_ids);
+    }
 });
 </script>
 
@@ -41,7 +72,8 @@ $(document).ready(function(){
 <body>
     <h1>DEV</h1>
        
-    <div id="dendrogram"></div>
+    <div id="dendrogram_1"></div>
+    <div id="dendrogram_2"></div>
 </body>
 </html>
 

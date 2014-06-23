@@ -1,7 +1,8 @@
 #coding: utf-8
 import csv, json, copy, re, argparse
 
-import numpy, scipy, hcluster, fastcluster, sklearn
+import numpy, scipy, fastcluster, sklearn
+import scipy.cluster.hierarchy as hcluster
 from sklearn import preprocessing
 from scipy import spatial
 

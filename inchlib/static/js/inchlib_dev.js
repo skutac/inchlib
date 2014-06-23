@@ -148,6 +148,7 @@ function InCHlib(settings){
     this.settings = {
         "target" : "YourOwnDivId",
         "heatmap" : true,
+        "heatmap_header": true,
         "dendrogram": true,
         "metadata": false,
         "max_height" : 800,
@@ -859,7 +860,6 @@ InCHlib.prototype.draw = function(){
         this.ordered_by_index = 0;
         this._draw_heatmap();
     }
-    this._draw_heatmap_header();
 
     this.highlight_rows(this.settings.highlighted_rows);
     // When measuring the rendering duration
@@ -1201,6 +1201,10 @@ InCHlib.prototype._draw_heatmap = function(){
         self.heatmap_overlay.draw();
         self.events.heatmap_onmouseout(evt);
     });
+
+    if(this.settings.heatmap_header){
+        this._draw_heatmap_header();
+    }
 }
 
 InCHlib.prototype._draw_heatmap_row = function(node_id, x1, y1){
@@ -1787,9 +1791,9 @@ InCHlib.prototype._highlight_cluster = function(path_id){
     this.last_highlighted_cluster = path_id;
     this._highlight_path(path_id);
     this.dendrogram_overlay_layer.draw();
-    if(this.settings.heatmap){
+    // if(this.settings.heatmap){
       object_ids = this._draw_cluster_layer(path_id);
-    }
+    // }
     this.events.dendrogram_node_highlight(object_ids, path_id);
 
     return object_ids;
@@ -1948,7 +1952,6 @@ InCHlib.prototype._zoom_cluster = function(node_id){
 
         this._draw_navigation();
         this._draw_heatmap();
-        this._draw_heatmap_header();
         this.highlight_rows(this.settings.highlighted_rows);
 
         this.events.on_zoom(this._unprefix(node_id));
@@ -2110,15 +2113,15 @@ InCHlib.prototype._draw_horizontal_path = function(path_id, x1, y1, x2, y2, left
 }
 
 InCHlib.prototype._filter_icon_click = function(filter_button){
-    var filter_list = $("#dendrogram_filter_features").text();
-    var symbol = "✖";
     var self = this;
+    var filter_list = $("#" + self.settings.target).find(".dendrogram_filter_features").text();
+    var symbol = "✖";
 
     if(filter_list.length > 0){
-        $("#dendrogram_filter_features").fadeIn("slow");
+        $("#" + self.settings.target).find(".dendrogram_filter_features").fadeIn("slow");
         var target_element = $("#" + self.settings.target);
-        $("#dendrogram_overlay").css({"width": target_element.outerWidth(true), "height": target_element.outerHeight(true)});
-        $("#dendrogram_overlay").fadeIn("slow");
+        $("#" + self.settings.target).find(".dendrogram_overlay").css({"width": target_element.outerWidth(true), "height": target_element.outerHeight(true)});
+        $("#" + self.settings.target).find(".dendrogram_overlay").fadeIn("slow");
     }
     else{
         filter_list = "";
@@ -2137,8 +2140,8 @@ InCHlib.prototype._filter_icon_click = function(filter_button){
             }
         }
         
-        $("#" + self.settings.target).append("<div id='dendrogram_filter_features'><ul>" + filter_list + "</ul><hr /><div><span id='cancel_filter_list'>Cancel</span>&nbsp;&nbsp;&nbsp;<span id='update_filter_list'>Update</span></div></div>");
-        var filter_features_element = $("#dendrogram_filter_features");
+        $("#" + self.settings.target).append("<div class='dendrogram_filter_features'><ul>" + filter_list + "</ul><hr /><div><span class='cancel_filter_list'>Cancel</span>&nbsp;&nbsp;&nbsp;<span class='update_filter_list'>Update</span></div></div>");
+        var filter_features_element = $("#" + self.settings.target).find(".dendrogram_filter_features");
         
         filter_features_element.css({"display":"none",
             "top": 20,
@@ -2179,7 +2182,7 @@ InCHlib.prototype._filter_icon_click = function(filter_button){
 
         function draw_element_overlay(){
             var target_element = $("#" + self.settings.target);
-            var overlay = $("<div id='dendrogram_overlay'></div>");
+            var overlay = $("<div class='dendrogram_overlay'></div>");
 
             overlay.css({"background-color": "white", 
                             "position": "absolute",
@@ -2194,7 +2197,7 @@ InCHlib.prototype._filter_icon_click = function(filter_button){
             target_element.append(overlay);
         }
 
-        $(".feature_switch").click(function(){
+        $("#" + self.settings.target + " .feature_switch").click(function(){
             var num = parseInt($(this).attr("data-num"));
             var symbol_element = $(this).find("span");
             self.features[num] = -self.features[num];
@@ -2212,15 +2215,15 @@ InCHlib.prototype._filter_icon_click = function(filter_button){
         });
 
         $(function(){
-            $("#dendrogram_filter_features").click(function(){
+            $("#" + self.settings.target + " .dendrogram_filter_features").click(function(){
                 return false;
             });
 
-            $("#dendrogram_filter_features").mousedown(function(){
+            $("#" + self.settings.target + " .dendrogram_filter_features").mousedown(function(){
                 return false;
             });
 
-           $("#dendrogram_filter_features ul li, #dendrogram_filter_features div span").hover(
+           $("#" + self.settings.target + " .dendrogram_filter_features ul li," + "#" + self.settings.target + " .dendrogram_filter_features div span").hover(
            function(){
               $(this).css({
                     "cursor": "pointer",
@@ -2235,20 +2238,19 @@ InCHlib.prototype._filter_icon_click = function(filter_button){
            });
         });
 
-
-        $("#cancel_filter_list").click(function(){
-            $("#dendrogram_filter_features").fadeOut("slow");
-            $("#dendrogram_overlay").fadeOut("slow");
+        $("#" + self.settings.target + " .cancel_filter_list").click(function(){
+            $("#" + self.settings.target).find(".dendrogram_filter_features").fadeOut("slow");
+            $("#" + self.settings.target).find(".dendrogram_overlay").fadeOut("slow");
         });
 
-        $("#dendrogram_overlay").click(function(){
-            $("#dendrogram_filter_features").fadeOut("slow");
-            $("#dendrogram_overlay").fadeOut("slow");
+        $("#" + self.settings.target + " .dendrogram_overlay").click(function(){
+            $("#" + self.settings.target).find(".dendrogram_filter_features").fadeOut("slow");
+            $("#" + self.settings.target).find(".dendrogram_overlay").fadeOut("slow");
         });
 
-        $("#update_filter_list").click(function(){
-            $("#dendrogram_filter_features").fadeOut("slow");
-            $("#dendrogram_overlay").fadeOut("slow");
+        $("#" + self.settings.target + " .update_filter_list").click(function(){
+            $("#" + self.settings.target).find(".dendrogram_filter_features").fadeOut("slow");
+            $("#" + self.settings.target).find(".dendrogram_overlay").fadeOut("slow");
 
             var node_id = (self.zoomed_clusters.length > 0)?self.zoomed_clusters[self.zoomed_clusters.length-1]:self.root_id;
             var highlighted_cluster = self.last_highlighted_cluster;
@@ -2276,7 +2278,6 @@ InCHlib.prototype._filter_icon_click = function(filter_button){
 
             self._draw_navigation();
             self._draw_heatmap();
-            self._draw_heatmap_header();
 
             if(highlighted_cluster != null){
                 self._highlight_cluster(highlighted_cluster);
@@ -2296,7 +2297,6 @@ InCHlib.prototype._refresh_icon_click = function(){
     }
     this._draw_navigation();
     this._draw_heatmap();
-    this._draw_heatmap_header();
     this.highlight_rows(this.settings.highlighted_rows);
 }
 
@@ -2570,4 +2570,19 @@ InCHlib.prototype._unprefix = function(prefixed){
 
 InCHlib.prototype._prefix = function(nonprefixed){
     return this.settings.target + "#" + nonprefixed;
+}
+
+/**
+  * Returns array of features for leaf by its ID. When sent leaf ID is not present, false is returned
+  */
+InCHlib.prototype.get_features_for_leaf = function(leaf_id){
+    if(this.objects2leaves[leaf_id] !== undefined){
+      var row_id = this.objects2leaves[leaf_id];
+      return this.data.nodes[row_id].features;
+    }
+    return false;
+}
+
+InCHlib.prototype.add_color_scale = function(color_scale_name, color_scale){
+    this.colors[color_scale_name] = color_scale;
 }
