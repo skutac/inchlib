@@ -32,7 +32,7 @@ $(document).ready(function(){
                 metadata_colors: "RdLrBu",
                 highlight_colors: "PuOr",
                 header_as_heatmap_row: true,
-                show_export_button: true
+                show_export_button: true,
             });
     // dendrogram.add_color_scale("WhBk", {"start": {"r":255, "g": 255, "b": 255}, "middle": {"r": 236, "g": 158, "b": 56}, "end": {"r": 0, "g": 0, "b": 0}})
     dendrogram_1.read_data_from_file("{% static "data/chembl_era_normalized.json" %}");

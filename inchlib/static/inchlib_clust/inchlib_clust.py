@@ -32,13 +32,13 @@ class Dendrogram():
         dendrogram = {"nodes":{}}
 
         for node in nodes:
-            node_id = "node@{0}".format(node.id)
+            node_id = node.id
             if node.count == 1:
                 node_id2node[node_id] = {"count":1, "distance":0}
 
             else:
-                node_left_child = "node@{0}".format(node.get_left().id)
-                node_right_child = "node@{0}".format(node.get_right().id)
+                node_left_child = node.get_left().id
+                node_right_child = node.get_right().id
                 node_id2node[node_id] = {"count":node.count, "distance":round(node.dist, 3), "left_child": node_left_child, "right_child": node_right_child}
 
         for n in node_id2node:
@@ -50,25 +50,24 @@ class Dendrogram():
         for n in node_id2node:
             node = node_id2node[n]
 
-            original_id = int(n.split("@")[-1])
             if node["count"] == 1:
-                data = self.data[original_id]
-                node["objects"] = [self.data_names[original_id]]
-                node_id = self.data_names[original_id]
+                data = self.data[n]
+                node["objects"] = [self.data_names[n]]
+                # node_id = n
 
-                while node_id in dendrogram["nodes"]:
-                    node_id = self.__create_unique_id__(node_id)
+                # while node_id in dendrogram["nodes"]:
+                #     node_id = self.__create_unique_id__(node_id)
 
                 if node_id2node[node["parent"]]["left_child"] == n:
-                    node_id2node[node["parent"]]["left_child"] = node_id
+                    node_id2node[node["parent"]]["left_child"] = n
                 else:
-                    node_id2node[node["parent"]]["right_child"] = node_id
+                    node_id2node[node["parent"]]["right_child"] = n
 
                 if not write_data:
                     data = []
 
                 node["features"] = data
-                dendrogram["nodes"][node_id] = node
+                dendrogram["nodes"][n] = node
 
         for n in node_id2node:
              if node_id2node[n]["count"] != 1:
@@ -82,13 +81,13 @@ class Dendrogram():
         dendrogram = {"nodes":{}}
 
         for node in nodes:
-            node_id = "node@{0}".format(node.id)
+            node_id = node.id
             if node.count == 1:
                 node_id2node[node_id] = {"count":1, "distance":0}
 
             else:
-                node_left_child = "node@{0}".format(node.get_left().id)
-                node_right_child = "node@{0}".format(node.get_right().id)
+                node_left_child = node.get_left().id
+                node_right_child = node.get_right().id
                 node_id2node[node_id] = {"count":node.count, "distance":round(node.dist, 3), "left_child": node_left_child, "right_child": node_right_child}
 
         for n in node_id2node:
@@ -203,14 +202,14 @@ class Dendrogram():
                     parent_id = node["parent"]
         return
 
-    def __create_unique_id__(self, node_id):
-        if re.match(".*?@\d+", node_id):
-            node_id, num = node_id.split("@")
-            num = str(int(num)+1)
-            node_id = "@".join([node_id, num])
-        else:
-            node_id = "@".join([node_id, "2"])
-        return node_id
+    # def __create_unique_id__(self, node_id):
+    #     if re.match(".*?@\d+", node_id):
+    #         node_id, num = node_id.split("@")
+    #         num = str(int(num)+1)
+    #         node_id = "@".join([node_id, num])
+    #     else:
+    #         node_id = "@".join([node_id, "2"])
+    #     return node_id
 
     def __get_distance_treshold__(self, cluster_count):
         print "Calculating distance treshold for cluster compression..."
@@ -318,7 +317,6 @@ class Dendrogram():
                     row.append(value)
 
                 self.dendrogram["metadata"]["nodes"][leaf] = row
-
         return
 
     def __read_metadata__(self, metadata, header):
@@ -355,6 +353,31 @@ class Dendrogram():
             metadata[metadata_id] = [r for r in row[1:]]
 
         return metadata, metadata_header
+
+    def add_column_metadata(self, metadata):
+        """Adds column metadata in a form of list of lists (tuples). Column metadata doesn't have header"""
+        self.column_metadata = metadata
+        self.__check_column_metadata_length__()
+        self.__add_column_metadata_to_data__()
+        return
+
+    def add_column_metadata_from_file(self, column_metadata_file, delimiter=","):
+        csv_reader = csv.reader(open(column_metadata_file, "r"), delimiter=delimiter)
+        self.column_metadata = [row for row in csv_reader]
+        self.__check_column_metadata_length__()
+        self.__add_column_metadata_to_data__()
+        return
+
+    def __check_column_metadata_length__(self):
+        features_length = len(self.data[0])
+        for row in self.column_metadata:
+            if features_length != len(row):
+                raise Exception("Column metadata length and features length must be the same.")
+        return
+
+    def __add_column_metadata_to_data__(self):
+        self.dendrogram["column_metadata"] = self.column_metadata
+        return
 
 
 class Cluster():
@@ -518,6 +541,9 @@ def _process_(arguments):
     if arguments.metadata:
         d.add_metadata_from_file(metadata_file=arguments.metadata, delimiter=arguments.metadata_delimiter, header=arguments.metadata_header, metadata_compressed_value=arguments.metadata_compressed_value)
     
+    if arguments.column_metadata:
+        d.add_column_metadata_from_file(column_metadata_file=arguments.column_metadata, delimiter=arguments.column_metadata_delimiter)
+    
     if arguments.output_file:
         d.export_cluster_heatmap_as_json(arguments.output_file)
     else:
@@ -546,6 +572,8 @@ if __name__ == '__main__':
     parser.add_argument("-dwd", "--dont_write_data", default=False, help="don't write clustered data to the inchlib data format", action="store_true")
     parser.add_argument("-n", "--normalize", default=False, help="normalize data to [0, 1] range", action="store_true")
     parser.add_argument("-wo", "--write_original", default=False, help="cluster normalized data but write the original ones to the heatmap", action="store_true")
+    parser.add_argument("-cm", "--column_metadata", type=str, default=None, help="csv(text) metadata file with delimited values without header")
+    parser.add_argument("-cmd", "--column_metadata_delimiter", type=str, default=",", help="delimiter of values in column metadata file")
     
     args = parser.parse_args()
     _process_(args)
