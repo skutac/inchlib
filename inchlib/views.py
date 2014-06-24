@@ -40,6 +40,9 @@ except Exception, e:
 def index(req):
     return render_to_response("inchlib_index.html", {})
 
+def release_notes(req):
+    return render_to_response("inchlib_release_notes.html", {})
+
 def examples(req, exampleid):
     examples = [e for e in Examples.objects.filter(exampletype=1)]
     examples.sort(key=lambda e: e.order)
