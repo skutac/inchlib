@@ -151,6 +151,9 @@ function InCHlib(settings){
         "heatmap_header": true,
         "dendrogram": true,
         "metadata": false,
+        "column_metadata": false,
+        "column_metadata_row_height": 8,
+        "column_metadata_colors": "RdLrBu",
         "max_height" : 800,
         "width" : target_width,
         "heatmap_colors" : "Greens",
@@ -451,17 +454,6 @@ function InCHlib(settings){
                             lineHeight: 1.2,
                         }),
 
-        // "row_border": new Kinetic.Line({
-        //                   stroke: "black",
-        //                   strokeWidth: 0.5,
-        //                   lineCap: "round",
-        //                   shadowOffset: 1,
-        //                   dash: [4, 2],
-        //                   listening: false,
-        //               }),
-
-        // "row_borders": new Kinetic.Group(),
-
         "row_node": new Kinetic.Line({
                             stroke: "grey",
                             strokeWidth: "2",
@@ -654,26 +646,35 @@ InCHlib.prototype._get_min_max_middle = function(data){
     return min_max_middle;
 }
 
-InCHlib.prototype._get_columns_min_max_middle = function(data){
+InCHlib.prototype._get_data_min_max_middle = function(data, axis){
+    if(axis === undefined){
+        axis = "column";
+    }
+
     var self = this;
-    var columns = [];
+    var columns = data;
     var i, j, value;
     var data_length = data[0].length;
 
-    for(i = 0; i<data_length; i++){
-        columns.push([]);
-    }
+    if(axis == "column"){
+        columns = [];
 
-    for(i = 0; i<data.length; i++){
-        for(j = 0; j < data_length; j++){
-            value = data[i][j];
-            if(typeof value != "undefined"){
-                columns[j].push(value);
+        for(i = 0; i<data_length; i++){
+            columns.push([]);
+        }
+
+        for(i = 0; i<data.length; i++){
+            for(j = 0; j < data_length; j++){
+                value = data[i][j];
+                if(value !== undefined){
+                    columns[j].push(value);
+                }
             }
         }
     }
 
-    var columns_min_max = [], min, max, middle;
+    var data2descs = {}
+    var data_min_max_middle = [], min, max, middle;
 
     for(i = 0; i<columns.length; i++){
         if(this._is_number(columns[i][0])){
@@ -681,24 +682,73 @@ InCHlib.prototype._get_columns_min_max_middle = function(data){
             min = Math.min.apply(null, columns[i]);
             max = Math.max.apply(null, columns[i]);
             middle = this._middle2fnc(columns[i]);
+            data2descs[i] = {"min": min, "max": max, "middle": middle};
         }
         else{
             var hash_object = this._get_hash_object(columns[i]);
             min = 0;
             max = this._hack_size(hash_object)-1;
             middle = max/2;
-            this.categories2numbers[i] = hash_object;
+            data2descs[i] = {"min": min, "max": max, "middle": middle, "str2num": hash_object};
         }
-        columns_min_max.push([min,max,middle]);
     }
-    return columns_min_max;
+
+    return data2descs;
 }
+
+// InCHlib.prototype._get_data_min_max_middle = function(data, axis){
+//     if(axis === undefined){
+//         axis = "column";
+//     }
+
+//     var self = this;
+//     var columns = data;
+//     var i, j, value;
+//     var data_length = data[0].length;
+
+//     if(axis == "column"){
+//         columns = [];
+
+//         for(i = 0; i<data_length; i++){
+//             columns.push([]);
+//         }
+
+//         for(i = 0; i<data.length; i++){
+//             for(j = 0; j < data_length; j++){
+//                 value = data[i][j];
+//                 if(value !== undefined){
+//                     columns[j].push(value);
+//                 }
+//             }
+//         }
+//     }
+
+//     var data_min_max_middle = [], min, max, middle;
+
+//     for(i = 0; i<columns.length; i++){
+//         if(this._is_number(columns[i][0])){
+//             columns[i] = columns[i].map(parseFloat)
+//             min = Math.min.apply(null, columns[i]);
+//             max = Math.max.apply(null, columns[i]);
+//             middle = this._middle2fnc(columns[i]);
+//         }
+//         else{
+//             var hash_object = this._get_hash_object(columns[i]);
+//             min = 0;
+//             max = this._hack_size(hash_object)-1;
+//             middle = max/2;
+//             this.categories2numbers[i] = hash_object;
+//         }
+//         data_min_max_middle.push([min,max,middle]);
+//     }
+//     return data_min_max_middle;
+// }
 
 InCHlib.prototype._get_hash_object = function(array){
     var i, count=0, hash_object = {};
 
     for(i = 0; i<array.length; i++){
-        if(typeof(hash_object[array[i]]) == "undefined"){
+        if(hash_object[array[i]] === undefined){
             hash_object[array[i]] = count;
             count++;
         }
@@ -811,6 +861,15 @@ InCHlib.prototype.draw = function(){
         this.metadata_dimensions = 0
     }
 
+    if(this.settings.column_metadata){
+        this.column_metadata_rows = this.data.column_metadata.length;
+    }
+    else{
+        this.column_metadata_rows = 0
+    }
+
+    this.column_metadata_height = this.column_metadata_rows * this.settings.column_metadata_row_height;
+
     if(this.settings.heatmap){
         this._set_heatmap_settings();
     }
@@ -826,7 +885,7 @@ InCHlib.prototype.draw = function(){
         container: this.settings.target,
     });
 
-    this.pixels_for_leaf = (this.settings.max_height-this.header_height-this.footer_height)/this.heatmap_array.length;
+    this.pixels_for_leaf = (this.settings.max_height-this.header_height-this.footer_height-this.column_metadata_height)/this.heatmap_array.length;
     if(this.pixels_for_leaf > this.settings.max_row_height){
         this.pixels_for_leaf = this.settings.max_row_height;
     }
@@ -878,7 +937,7 @@ InCHlib.prototype._draw_row_dendrogram = function(node_id){
     this.leaves_y_coordinates = {};
     this.objects2leaves = {};
 
-    this.pixels_for_leaf = (this.settings.max_height-this.header_height-this.footer_height)/count;
+    this.pixels_for_leaf = (this.settings.max_height-this.header_height-this.footer_height-this.column_metadata_height)/count;
     if(this.pixels_for_leaf > this.settings.max_row_height){
         this.pixels_for_leaf = this.settings.max_row_height;
     }
@@ -887,13 +946,15 @@ InCHlib.prototype._draw_row_dendrogram = function(node_id){
         this.pixels_for_leaf = this.settings.min_row_height;
     }
 
-    this.settings.height = count*this.pixels_for_leaf+this.header_height+this.footer_height;
+    this.settings.height = count*this.pixels_for_leaf+this.header_height+this.footer_height+this.column_metadata_height;
+    
     this.stage.setWidth(this.settings.width);
     this.stage.setHeight(this.settings.height);
 
     var current_left_count = 0;
     var current_right_count = 0;
-    var y = this.header_height + this.pixels_for_leaf/2;
+    var y = this.header_height + this.column_metadata_height + this.pixels_for_leaf/2;
+    
     if(node.count > 1){
         current_left_count = this.data.nodes[node.left_child].count;
         current_right_count = this.data.nodes[node.right_child].count;
@@ -1009,7 +1070,8 @@ InCHlib.prototype._draw_stage_layer = function(){
 InCHlib.prototype._draw_column_dendrogram = function(node_id){
     this.column_dendrogram_layer = new Kinetic.Layer();
     var node = this.data.column_dendrogram.nodes[node_id];
-    this.vertical_distance = (this.settings.header_as_heatmap_row)?this.header_height-18:this.header_height-5;
+    // this.vertical_distance = (this.settings.header_as_heatmap_row)?this.header_height-18:this.header_height-5;
+    this.vertical_distance = this.header_height-5;
     this.vertical_distance_step = this.vertical_distance/node.distance;
 
     var current_left_count = this.data.column_dendrogram.nodes[node.left_child].count;
@@ -1033,32 +1095,12 @@ InCHlib.prototype._set_heatmap_settings = function(){
     this.heatmap_header = false;
     this.metadata_header = false;
     this.current_label = null;
-    this.categories2numbers = {};
 
     if(this.data.header && this.data.header.length > 0){
         this.heatmap_header = this.data.header;
         for(i=0; i<this.data_dimensions; i++){
             this.header[i] = this.heatmap_header[i];
         }
-
-        if(this.heatmap_header.length > 0 && this.settings.header_as_heatmap_row){
-            var header_column = [];
-            for(i = 0; i<this.heatmap_header.length; i++){
-                header_column.push([this.heatmap_header[i]]);
-            }
-            this.header_min_max = this._get_columns_min_max_middle(header_column)[0];
-            if(this.categories2numbers[0]){
-                this.categories2numbers["header"] = this.categories2numbers[0];
-            };
-            var empty_arr = [];
-            for(var i = 0; i < this.heatmap_header.length; i++) {
-                empty_arr.push("");
-            }
-            this.data.nodes["header_row"] = {"features": empty_arr};
-        }
-    }
-    else{
-        this.settings.header_as_heatmap_row = false;
     }
 
     var data = [];
@@ -1070,7 +1112,7 @@ InCHlib.prototype._set_heatmap_settings = function(){
     }
         
     if(this.settings.independent_columns){
-        this.columns_min_max = this._get_columns_min_max_middle(data);
+        this.data_descs = this._get_data_min_max_middle(data);
     }
     else{
         var min_max_middle = this._get_min_max_middle(data);
@@ -1094,7 +1136,7 @@ InCHlib.prototype._set_heatmap_settings = function(){
         for(i = 0, keys = Object.keys(this.data.metadata.nodes), len = keys.length; i < len; i++){
             metadata.push(this.data.metadata.nodes[keys[i]]);
         }
-        this.metadata_columns_min_max = this._get_columns_min_max_middle(metadata);
+        this.metadata_descs = this._get_data_min_max_middle(metadata);
     }
 
     if(this.settings.count_column){
@@ -1121,6 +1163,8 @@ InCHlib.prototype._set_heatmap_settings = function(){
     for(i=0; i<this.dimensions; i++){
         this.features[i] = 1;
     }
+
+    this.top_heatmap_distance = this.header_height + this.column_metadata_height + this.settings.column_metadata_row_height/2
 }
 
 InCHlib.prototype._set_on_features = function(){
@@ -1173,10 +1217,17 @@ InCHlib.prototype._draw_heatmap = function(){
         this._bind_row_events(heatmap_row);
     }
 
-    if(this.settings.header_as_heatmap_row){
-        heatmap_row = this._draw_header_row(x1);
-        this.heatmap_layer.add(heatmap_row);
-        this._bind_row_events(heatmap_row);
+    if(this.settings.column_metadata){
+        this.column_metadata_descs = this._get_data_min_max_middle(this.data.column_metadata, "row");
+        y1 = this.header_height + 0.5*this.settings.column_metadata_row_height;
+
+        for(var i = 0, len = this.data.column_metadata.length; i < len; i++){
+            heatmap_row = this._draw_column_metadata_row(this.data.column_metadata[i], i, x1, y1);
+            this.heatmap_layer.add(heatmap_row);
+            this._bind_row_events(heatmap_row);
+            y1 = y1 + this.settings.column_metadata_row_height;
+        }
+        
     }
 
     if(this.settings.draw_row_ids){
@@ -1189,7 +1240,6 @@ InCHlib.prototype._draw_heatmap = function(){
     this.highlighted_rows_layer = new Kinetic.Layer();
     this.stage.add(this.highlighted_rows_layer);
     this.highlighted_rows_layer.moveToTop();
-    // this.row_overlay = this.objects_ref.row_borders.clone();
     this.row_overlay = this.objects_ref.heatmap_line.clone();
     this.column_overlay = this.objects_ref.heatmap_line.clone();
 
@@ -1217,9 +1267,9 @@ InCHlib.prototype._draw_heatmap_row = function(node_id, x1, y1){
         value = node.features[col_index];
 
         if(this.settings.independent_columns){
-            this.min_value = this.columns_min_max[col_index][0];
-            this.max_value = this.columns_min_max[col_index][1];
-            this.middle_value = this.columns_min_max[col_index][2];
+            this.min_value = this.data_descs[col_index]["min"];
+            this.max_value = this.data_descs[col_index]["max"];
+            this.middle_value = this.data_descs[col_index]["middle"];
         }
 
         color = this._get_color_for_value(value, this.min_value, this.max_value, this.middle_value, this.settings.heatmap_colors);
@@ -1253,11 +1303,11 @@ InCHlib.prototype._draw_heatmap_row = function(node_id, x1, y1){
             col_index = this.on_metadata_features[i];
             value = metadata[col_index];
             text_value = value;
-            this.metadata_min_value = this.metadata_columns_min_max[col_index][0];
-            this.metadata_max_value = this.metadata_columns_min_max[col_index][1];
-            this.metadata_middle_value = this.metadata_columns_min_max[col_index][2];
+            this.metadata_min_value = this.metadata_descs[col_index]["min"];
+            this.metadata_max_value = this.metadata_descs[col_index]["max"];
+            this.metadata_middle_value = this.metadata_descs[col_index]["middle"];
 
-            if(!this._is_number(text_value)){
+            if(this.metadata_descs[col_index]["str2num"] !== undefined){
                 value = this.categories2numbers[col_index][value];
             }
 
@@ -1320,6 +1370,37 @@ InCHlib.prototype._draw_heatmap_row = function(node_id, x1, y1){
     return row;
 }
 
+InCHlib.prototype._draw_column_metadata_row = function(data, row_index, x1, y1){
+    var row = new Kinetic.Group({"class": "column_metadata"});
+    var x2, y2, color, line, value, text, text_value, width, col_index;
+    var str2num = (this.column_metadata_descs[row_index]["str2num"] === undefined)?false:true;
+
+    for (var i = 0, len = this.on_features.length; i < len; i++){
+        col_index = this.on_features[i];
+        value = data[col_index];
+        text_value = value;
+        
+        if(str2num){
+            value = this.column_metadata_descs[row_index]["str2num"][value];
+        }
+
+        color = this._get_color_for_value(value, this.column_metadata_descs[row_index]["min"], this.column_metadata_descs[row_index]["max"], this.column_metadata_descs[row_index]["middle"], this.settings.column_metadata_colors);
+        x2 = x1 + this.pixels_for_dimension;
+        y2 = y1;
+            
+        line = this.objects_ref.heatmap_line.clone({
+                strokeWidth: this.settings.column_metadata_row_height,
+                stroke: color,
+                value: text_value,
+                points: [x1, y1, x2, y2],
+                column: ["d", col_index].join("_"),
+            });
+        row.add(line);
+        x1 = x2;
+    }
+    return row;
+}
+
 InCHlib.prototype._bind_row_events = function(row){
     var self = this;
     row.on("mouseenter", function(evt){
@@ -1340,7 +1421,7 @@ InCHlib.prototype._bind_row_events = function(row){
 
     row.on("click", function(evt){
         var row_id = evt.target.parent.attrs.id;
-        if(row_id != "header_row"){
+        if(evt.target.parent.attrs.class !== "column_metadata"){
             var items = self.data.nodes[row_id].objects;
             var item_ids = [];
             
@@ -1388,43 +1469,12 @@ InCHlib.prototype._draw_row_ids = function(leaves_y){
     return;
 }
 
-InCHlib.prototype._draw_header_row = function(x1){
-    var row = new Kinetic.Group({id:"header_row"});
-    var row_height = 14;
-    var y1 = this.header_height - 0.5*row_height - 2;
-    var x, y, x2, y2, color, line, i, value, text, text_value, width, col_index;
-    
-    for (i = 0; i < this.on_features.length; i++){
-        col_index = this.on_features[i];
-        value = this.heatmap_header[col_index];
-        text_value = value;
-
-        if(!this._is_number(text_value)){
-            value = this.categories2numbers["header"][value];
-        }
-
-        color = this._get_color_for_value(value, this.header_min_max[0], this.header_min_max[1], this.header_min_max[2], this.settings.header_row_colors);
-        x2 = x1 + this.pixels_for_dimension;
-        y2 = y1;
-            
-        line = this.objects_ref.heatmap_line.clone({
-                strokeWidth: row_height,
-                stroke: color,
-                points: [x1, y1, x2, y2],
-                column: ["d", col_index].join("_"),
-            });
-        row.add(line);
-        x1 = x2;
-    }
-    return row;
-}
-
 InCHlib.prototype._draw_heatmap_header = function(){
     this.header_layer = new Kinetic.Layer();
     var row_count = this._hack_size(this.leaves_y_coordinates);
     var y = (this.settings.column_dendrogram && this.heatmap_header)? this.header_height+(this.pixels_for_leaf*row_count) + 10: this.header_height - 20;
     var rotation = (this.settings.column_dendrogram && this.heatmap_header) ? 45 : -45;
-    y = (rotation == -45 && this.settings.header_as_heatmap_row)? y - 10: y;
+    // y = (rotation == -45 && this.settings.header_as_heatmap_row)? y - 10: y;
     var distance = 0;
     var x, i, column_header;
     var items = [];
@@ -1495,7 +1545,7 @@ InCHlib.prototype._draw_heatmap_header = function(){
 
 InCHlib.prototype._draw_distance_scale = function(distance){
     this.distance_scale_layer = new Kinetic.Layer();
-    var y1 = this.header_height-15;
+    var y1 = this.header_height + this.column_metadata_height + this.settings.column_metadata_row_height/2 -10;
     var y2 = y1;
     var x1 = 0;
     var x2 = this.distance;
@@ -2066,13 +2116,13 @@ InCHlib.prototype._draw_column_dendrogram_node = function(node_id, node, current
 InCHlib.prototype._get_y1 = function(node_neighbourhood, current_left_count, current_right_count){
     current_left_count = current_left_count-node_neighbourhood.left_node.right_count-node_neighbourhood.left_node.left_node.right_count;
     var y = (current_left_count+(node_neighbourhood.left_node.left_node.right_count+node_neighbourhood.left_node.right_node.left_count)/2)*this.pixels_for_leaf;
-    return y + this.header_height;
+    return y + this.top_heatmap_distance;
 }
 
 InCHlib.prototype._get_y2 = function(node_neighbourhood, current_left_count, current_right_count){
     current_left_count = current_left_count+node_neighbourhood.right_node.left_node.left_count;
     var y = (current_left_count+(node_neighbourhood.right_node.left_node.right_count+node_neighbourhood.right_node.right_node.left_count)/2)*this.pixels_for_leaf;
-    return y + this.header_height;
+    return y + this.top_heatmap_distance;
 }
 
 InCHlib.prototype._get_x1 = function(node_neighbourhood, current_left_count, current_right_count){
@@ -2498,7 +2548,7 @@ InCHlib.prototype._row_mouseenter = function(evt){
         visible++;
     }
 
-    if(row_id !== "header_row"){
+    if(evt.target.parent.attrs.class !== "column_metadata"){
         this.highlighted_row = row_id;
         var y = this.leaves_y_coordinates[row_id];
         var x = this.distance+this.dendrogram_heatmap_distance;
@@ -2538,7 +2588,7 @@ InCHlib.prototype._draw_col_label = function(evt){
     if(header !== this.last_column){
       this.column_overlay.destroy();
       this.last_column = attrs.column;
-      this.column_overlay = this.objects_ref.heatmap_line.clone({points: [x, this.header_height, x, this.header_height + this.data.nodes[this.root_id].count*this.pixels_for_leaf],
+      this.column_overlay = this.objects_ref.heatmap_line.clone({points: [x, this.header_height, x, this.header_height + this.column_metadata_height + this.data.nodes[this.root_id].count*this.pixels_for_leaf],
         strokeWidth: this.pixels_for_dimension,
         stroke: "#FFFFFF",
         opacity: 0.3,
@@ -2546,12 +2596,9 @@ InCHlib.prototype._draw_col_label = function(evt){
 
       this.heatmap_overlay.add(this.column_overlay);
     }
-
-    if(value || value === 0){
+    
+    if(header !== undefined){
         value = [header, value].join("\n");
-    }
-    else{
-        value = header;
     }
 
     var tooltip = this.objects_ref.tooltip_label.clone({x: x, y:y, id: "col_label",});
@@ -2582,6 +2629,10 @@ InCHlib.prototype.get_features_for_leaf = function(leaf_id){
     }
     return false;
 }
+
+/**
+  * Adds a user defined color scale defined by its name start color, end color and optionaly middle color
+  */
 
 InCHlib.prototype.add_color_scale = function(color_scale_name, color_scale){
     this.colors[color_scale_name] = color_scale;
