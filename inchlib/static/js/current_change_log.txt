@@ -1,0 +1,5 @@
+1. New way of highlighting rows
+2. Columns highlighting
+3. Possibility to display export button which exports cluster heatmap as an image (show_export_button settings attribute)
+4. get_features_for_leaf(leaf_id) method added
+5. add_color_scale(color_scale_name, color_scale) method added - color scale form - {"start": {"r":255, "g": 255, "b": 255}, "end": {"r": 0, "g": 0, "b": 0}}, also possible middle color - {"start": {"r":255, "g": 255, "b": 255}, "middle": {"r": 236, "g": 158, "b": 56}, "end": {"r": 0, "g": 0, "b": 0}}
