@@ -355,13 +355,14 @@ class Dendrogram():
         return metadata, metadata_header
 
     def add_column_metadata(self, metadata):
-        """Adds column metadata in a form of list of lists (tuples). Column metadata doesn't have header"""
+        """Adds column metadata in a form of list of lists (tuples). Column metadata doesn't have header."""
         self.column_metadata = metadata
         self.__check_column_metadata_length__()
         self.__add_column_metadata_to_data__()
         return
 
     def add_column_metadata_from_file(self, column_metadata_file, delimiter=","):
+        """Adds column metadata from csv file. Column metadata doesn't have header."""
         csv_reader = csv.reader(open(column_metadata_file, "r"), delimiter=delimiter)
         self.column_metadata = [row for row in csv_reader]
         self.__check_column_metadata_length__()
@@ -376,7 +377,20 @@ class Dendrogram():
         return
 
     def __add_column_metadata_to_data__(self):
+        if self.cluster_object.clustering_axis == "both":
+            self.__reorder_column_metadata__()
         self.dendrogram["column_metadata"] = self.column_metadata
+        return
+
+    def __reorder_column_metadata__(self):
+        reordered = []
+        for row in self.column_metadata:
+            reordered_row = []
+            for i in self.cluster_object.data_order:
+                reordered_row.append(row[i])
+            reordered.append(reordered_row)
+
+        self.column_metadata = reordered
         return
 
 
