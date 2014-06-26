@@ -60,8 +60,8 @@
       <b>-h, --help</b>            show this help message and exit
       <b>-o OUTPUT_FILE, --output_file OUTPUT_FILE</b>
                             the name of output file (<i>default:</i> None)
-      <b>-d DISTANCE, --distance DISTANCE</b>
-                            set the distance to use for clustering (<i>default:</i> euclidean)
+      <b>-rd ROW_DISTANCE, --row_distance ROW_DISTANCE</b>
+                            set the distance to use for clustering rows(<i>default:</i> euclidean)
                             
                             <b>possible values</b>: dice, hamming, jaccard, 
                             kulsinski, matching, rogerstanimoto, 
@@ -70,8 +70,24 @@
                             cityblock, correlation, cosine, euclidean, 
                             mahalanobis, minkowski, seuclidean, sqeuclidean
 
-      <b>-l LINKAGE, --linkage LINKAGE</b>
-                            set the linkage to use for clustering (<i>default:</i> ward)
+      <b>-rl ROW_LINKAGE, --row_linkage ROW_LINKAGE</b>
+                            set the linkage to use for clustering rows (<i>default:</i> ward)
+
+                             <b>possible values</b>: single, complete, 
+                             average, weighted, centroid, median, ward
+
+      <b>-cd COLUMN_DISTANCE, --column_distance COLUMN_DISTANCE</b>
+                            set the distance to use for clustering columns(<i>default:</i> euclidean)
+                            
+                            <b>possible values</b>: dice, hamming, jaccard, 
+                            kulsinski, matching, rogerstanimoto, 
+                            russellrao, sokalmichener, sokalsneath, 
+                            yule, braycurtis, canberra, chebyshev, 
+                            cityblock, correlation, cosine, euclidean, 
+                            mahalanobis, minkowski, seuclidean, sqeuclidean
+
+      <b>-cl COLUMN_LINKAGE, --column_linkage COLUMN_LINKAGE</b>
+                            set the linkage to use for clustering columns (<i>default:</i> ward)
 
                              <b>possible values</b>: single, complete, 
                              average, weighted, centroid, median, ward

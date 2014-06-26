@@ -53,10 +53,6 @@ class Dendrogram():
             if node["count"] == 1:
                 data = self.data[n]
                 node["objects"] = [self.data_names[n]]
-                # node_id = n
-
-                # while node_id in dendrogram["nodes"]:
-                #     node_id = self.__create_unique_id__(node_id)
 
                 if node_id2node[node["parent"]]["left_child"] == n:
                     node_id2node[node["parent"]]["left_child"] = n
@@ -202,15 +198,6 @@ class Dendrogram():
                     parent_id = node["parent"]
         return
 
-    # def __create_unique_id__(self, node_id):
-    #     if re.match(".*?@\d+", node_id):
-    #         node_id, num = node_id.split("@")
-    #         num = str(int(num)+1)
-    #         node_id = "@".join([node_id, num])
-    #     else:
-    #         node_id = "@".join([node_id, "2"])
-    #     return node_id
-
     def __get_distance_treshold__(self, cluster_count):
         print "Calculating distance treshold for cluster compression..."
         if cluster_count >= self.tree.count:
@@ -270,7 +257,7 @@ class Dendrogram():
         if self.metadata_header:
             self.dendrogram["metadata"]["feature_names"] = self.metadata_header
 
-        leaves = {n:self.dendrogram["data"]["nodes"][n] for n in self.dendrogram["data"]["nodes"] if self.dendrogram["data"]["nodes"][n]["count"] == 1}
+        leaves = {n:value for n, value in self.dendrogram["data"]["nodes"].iteritems() if value["count"] == 1}
 
         if not self.compress:
             
@@ -378,19 +365,8 @@ class Dendrogram():
 
     def __add_column_metadata_to_data__(self):
         if self.cluster_object.clustering_axis == "both":
-            self.__reorder_column_metadata__()
+            self.column_data = self.cluster_object.__reorder_data__(self.column_metadata, self.cluster_object.data_order)
         self.dendrogram["column_metadata"] = self.column_metadata
-        return
-
-    def __reorder_column_metadata__(self):
-        reordered = []
-        for row in self.column_metadata:
-            reordered_row = []
-            for i in self.cluster_object.data_order:
-                reordered_row.append(row[i])
-            reordered.append(reordered_row)
-
-        self.column_metadata = reordered
         return
 
 
@@ -520,25 +496,21 @@ class Cluster():
         columns = zip(*self.data)
         self.column_clustering = fastcluster.linkage(columns, method=column_linkage, metric=column_distance)
         self.data_order = hcluster.leaves_list(self.column_clustering)
-        self.__reorder_data__()
-        return
-
-    def __reorder_data__(self):
-        for i in xrange(len(self.data)):
-            reordered_data = []
-            for j in self.data_order:
-                reordered_data.append(self.data[i][j])
-            reordered_data.reverse()
-            self.data[i] = reordered_data
-
+        self.data = self.__reorder_data__(self.data, self.data_order)
+        self.original_data = self.__reorder_data__(self.original_data, self.data_order)
         if self.header:
-            data = self.header
-            reordered_data = []
-            for i in self.data_order:
-                reordered_data.append(data[i])
-            reordered_data.reverse()
-            self.header = reordered_data
+            self.header = self.__reorder_data__([self.header], self.data_order)[0]
         return
+
+    def __reorder_data__(self, data, order):
+        for i in xrange(len(data)):
+            reordered_data = []
+            for j in order:
+                reordered_data.append(data[i][j])
+            reordered_data.reverse()
+            data[i] = reordered_data
+
+        return data
 
 def _process_(arguments):
     c = Cluster()
