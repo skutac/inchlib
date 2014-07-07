@@ -1,4 +1,6 @@
 #coding: utf-8
+from __future__ import print_function
+
 import csv, json, copy, re, argparse
 
 import numpy, scipy, fastcluster, sklearn
@@ -53,10 +55,6 @@ class Dendrogram():
             if node["count"] == 1:
                 data = self.data[n]
                 node["objects"] = [self.data_names[n]]
-                # node_id = n
-
-                # while node_id in dendrogram["nodes"]:
-                #     node_id = self.__create_unique_id__(node_id)
 
                 if node_id2node[node["parent"]]["left_child"] == n:
                     node_id2node[node["parent"]]["left_child"] = n
@@ -115,7 +113,7 @@ class Dendrogram():
         self.compress_cluster_treshold = 0
         if self.compress and self.compress >= 0:
             self.compress_cluster_treshold = self.__get_distance_treshold__(compress)
-            print "Distance treshold for compression:", self.compress_cluster_treshold
+            print("Distance treshold for compression:", self.compress_cluster_treshold)
             if self.compress_cluster_treshold >= 0:
                 self.__compress_data__()
         else:
@@ -203,7 +201,7 @@ class Dendrogram():
         return
 
     def __get_distance_treshold__(self, cluster_count):
-        print "Calculating distance treshold for cluster compression..."
+        print("Calculating distance treshold for cluster compression...")
         if cluster_count >= self.tree.count:
             return -1
         
@@ -373,19 +371,8 @@ class Dendrogram():
 
     def __add_column_metadata_to_data__(self):
         if self.cluster_object.clustering_axis == "both":
-            self.__reorder_column_metadata__()
+            self.column_data = self.cluster_object.__reorder_data__(self.column_metadata, self.cluster_object.data_order)
         self.dendrogram["column_metadata"] = self.column_metadata
-        return
-
-    def __reorder_column_metadata__(self):
-        reordered = []
-        for row in self.column_metadata:
-            reordered_row = []
-            for i in self.cluster_object.data_order:
-                reordered_row.append(row[i])
-            reordered.append(reordered_row)
-
-        self.column_metadata = reordered
         return
 
 
@@ -393,19 +380,19 @@ class Cluster():
     """Class for data clustering"""
 
     def __init__(self):
-        self.write_original = False
+        pass
 
-    def read_csv(self, filename, delimiter=",", header=False):
+    def read_csv(self, filename, delimiter=",", header=False, missing_value=False):
         """Reads data from the CSV file"""
         self.filename = filename
-        self.delimiter = delimiter
-        self.header = header
         csv_reader = csv.reader(open(self.filename, "r"), delimiter=delimiter)
         rows = [row for row in csv_reader]
-        self.read_data(rows, header)
+        self.read_data(rows, header, missing_value)
 
-    def read_data(self, rows, header=False):
+    def read_data(self, rows, header=False, missing_value=False):
         """Reads data in a form of list of lists (tuples)"""
+        self.missing_value = missing_value
+        self.missing_values_indexes = []
         self.header = header
         data_start = 0
 
@@ -414,7 +401,20 @@ class Cluster():
             data_start = 1
         
         self.data_names = [str(row[0]) for row in rows[data_start:]]
-        self.data = [[round(float(value), 3) for value in row[1:]] for row in rows[data_start:]]
+
+        if not missing_value is False:
+            self.data = [row[1:] for row in rows[data_start:]]
+            for i, row in enumerate(self.data):
+                self.missing_values_indexes.append([j for j, v in enumerate(row) if v == missing_value])
+
+                for j, value in enumerate(row):
+                    if value == missing_value:
+                        self.data[i][j] = numpy.nan
+            
+            imputer = preprocessing.Imputer(missing_values="NaN", strategy="mean")
+            self.data = [list(row) for row in imputer.fit_transform(self.data)]
+        else:
+            self.data = [[round(float(value), 3) for value in row[1:]] for row in rows[data_start:]]
         return
 
     def __binarize_nominal_data__(self):
@@ -439,24 +439,6 @@ class Cluster():
         self.data = self.binarized_data
         return
 
-    def __integerize_nominal_data(self__):
-        nominal_data = zip(*self.original_data)
-        pos2categories = {}
-        self.integerized_data = []
-        
-        for x in xrange(len(nominal_data)):
-            unique = list(set(nominal_data[x]))
-            unique.sort()
-            pos2categories[x] = unique
-
-        for row in self.original_data:
-            integerized_row = []
-            for pos in xrange(len(row)):
-                integerized_row.append(pos2categories[pos].index(row[pos]))
-            self.integerized_data.append(integerized_row)
-        self.data = self.integerized_data
-        return            
-
     def normalize_data(self, feature_range=(0,1), write_original=False):
         """Normalizes data to a scale from 0 to 1. When write_original is set to True, 
         the normalized data will be clustered, but original data will be written to the heatmap."""
@@ -475,7 +457,7 @@ class Cluster():
         @axis - row/both
         """
         
-        print "Clustering rows:", row_distance, row_linkage
+        print("Clustering rows:", row_distance, row_linkage)
         self.data_type = data_type
         self.clustering_axis = axis
         row_linkage = str(row_linkage)
@@ -500,7 +482,7 @@ class Cluster():
 
         self.column_clustering = []
         if axis == "both" and len(self.data[0]) > 2:
-            print "Clustering columns:", column_distance, column_linkage
+            print("Clustering columns:", column_distance, column_linkage)
             self.__cluster_columns__(column_distance, column_linkage)
 
         if data_type == "nominal":
@@ -515,29 +497,25 @@ class Cluster():
         columns = zip(*self.data)
         self.column_clustering = fastcluster.linkage(columns, method=column_linkage, metric=column_distance)
         self.data_order = hcluster.leaves_list(self.column_clustering)
-        self.__reorder_data__()
-        return
-
-    def __reorder_data__(self):
-        for i in xrange(len(self.data)):
-            reordered_data = []
-            for j in self.data_order:
-                reordered_data.append(self.data[i][j])
-            reordered_data.reverse()
-            self.data[i] = reordered_data
-
+        self.data = self.__reorder_data__(self.data, self.data_order)
+        self.original_data = self.__reorder_data__(self.original_data, self.data_order)
         if self.header:
-            data = self.header
-            reordered_data = []
-            for i in self.data_order:
-                reordered_data.append(data[i])
-            reordered_data.reverse()
-            self.header = reordered_data
+            self.header = self.__reorder_data__([self.header], self.data_order)[0]
         return
+
+    def __reorder_data__(self, data, order):
+        for i in xrange(len(data)):
+            reordered_data = []
+            for j in order:
+                reordered_data.append(data[i][j])
+            reordered_data.reverse()
+            data[i] = reordered_data
+
+        return data
 
 def _process_(arguments):
     c = Cluster()
-    c.read_csv(arguments.data_file, arguments.data_delimiter, arguments.data_header)
+    c.read_csv(arguments.data_file, arguments.data_delimiter, arguments.data_header, arguments.missing_values)
     
     if arguments.normalize:
         c.normalize_data(feature_range=(0,1), write_original=arguments.write_original)
@@ -556,7 +534,7 @@ def _process_(arguments):
     if arguments.output_file:
         d.export_cluster_heatmap_as_json(arguments.output_file)
     else:
-        print json.dumps(d.dendrogram, indent=4)
+        print(json.dumps(d.dendrogram, indent=4))
 
 
 if __name__ == '__main__':
@@ -583,6 +561,7 @@ if __name__ == '__main__':
     parser.add_argument("-wo", "--write_original", default=False, help="cluster normalized data but write the original ones to the heatmap", action="store_true")
     parser.add_argument("-cm", "--column_metadata", type=str, default=None, help="csv(text) metadata file with delimited values without header")
     parser.add_argument("-cmd", "--column_metadata_delimiter", type=str, default=",", help="delimiter of values in column metadata file")
+    parser.add_argument("-mv", "--missing_values", type=str, default=False, help="define the string representating missing values in the data")
     
     args = parser.parse_args()
     _process_(args)
