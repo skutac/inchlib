@@ -341,8 +341,6 @@ class Dendrogram():
         
         for row in rows[data_start:]:
             metadata_id = str(row[0])
-            # while metadata_id in metadata:
-            #     metadata_id = self.__create_unique_id__(metadata_id)
             metadata[metadata_id] = [r for r in row[1:]]
 
         return metadata, metadata_header
@@ -380,7 +378,7 @@ class Cluster():
     """Class for data clustering"""
 
     def __init__(self):
-        pass
+        self.write_original = False
 
     def read_csv(self, filename, delimiter=",", header=False, missing_value=False):
         """Reads data from the CSV file"""
