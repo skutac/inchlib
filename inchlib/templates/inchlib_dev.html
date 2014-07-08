@@ -38,7 +38,7 @@ $(document).ready(function(){
                 show_export_button: true,
             });
     // dendrogram_1.add_color_scale("WhBk", {"start": {"r":255, "g": 255, "b": 255}, "middle": {"r": 236, "g": 158, "b": 56}, "end": {"r": 0, "g": 0, "b": 0}})
-    dendrogram_1.read_data_from_file("{% static "data/microarrays_column_metadata.json" %}");
+    dendrogram_1.read_data_from_file("{% static "data/microarrays.json" %}");
     dendrogram_1.draw();
     
     /*
