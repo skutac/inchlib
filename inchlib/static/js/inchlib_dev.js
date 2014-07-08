@@ -1292,6 +1292,7 @@ InCHlib.prototype._draw_heatmap_row = function(node_id, x1, y1){
 
     if(this.settings.metadata){
         var metadata = this.data.metadata.nodes[node_id];
+
         for (var i = 0, len = this.on_metadata_features.length; i < len; i++){
             col_index = this.on_metadata_features[i];
             value = metadata[col_index];
@@ -1301,7 +1302,7 @@ InCHlib.prototype._draw_heatmap_row = function(node_id, x1, y1){
             this.metadata_middle_value = this.metadata_descs[col_index]["middle"];
 
             if(this.metadata_descs[col_index]["str2num"] !== undefined){
-                value = this.categories2numbers[col_index][value];
+                value = this.metadata_descs[col_index]["str2num"][value];
             }
 
             color = this._get_color_for_value(value, this.metadata_min_value, this.metadata_max_value, this.metadata_middle_value, this.settings.metadata_colors);
@@ -1311,7 +1312,7 @@ InCHlib.prototype._draw_heatmap_row = function(node_id, x1, y1){
             line = this.objects_ref.heatmap_line.clone({
                     stroke: color,
                     points: [x1, y1, x2, y2],
-                    value: value,
+                    value: text_value,
                     column: ["m", col_index].join("_"),
                     strokeWidth: this.pixels_for_leaf,
                 });

@@ -259,13 +259,17 @@ class Dendrogram():
         if self.metadata_header:
             self.dendrogram["metadata"]["feature_names"] = self.metadata_header
 
-        leaves = {n:value for n, value in self.dendrogram["data"]["nodes"].iteritems() if value["count"] == 1}
+        leaves = {n:node for n, node in self.dendrogram["data"]["nodes"].items() if node["count"] == 1}
+        # leaf_ids = []
+        
+        # for l, leaf in leaves.items():
+        #     leaf_ids.extend(leaf["objects"])
 
         if not self.compress:
             
-            for leaf in leaves:
+            for leaf_id, leaf in leaves.items():
                 try:
-                    self.dendrogram["metadata"]["nodes"][leaf] = self.metadata[leaf]
+                    self.dendrogram["metadata"]["nodes"][leaf_id] = self.metadata[leaf["objects"][0]]
                 except Exception, e:
                     continue
         else:
@@ -337,8 +341,8 @@ class Dendrogram():
         
         for row in rows[data_start:]:
             metadata_id = str(row[0])
-            while metadata_id in metadata:
-                metadata_id = self.__create_unique_id__(metadata_id)
+            # while metadata_id in metadata:
+            #     metadata_id = self.__create_unique_id__(metadata_id)
             metadata[metadata_id] = [r for r in row[1:]]
 
         return metadata, metadata_header
