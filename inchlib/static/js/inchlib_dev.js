@@ -2359,9 +2359,14 @@ InCHlib.prototype._export_icon_click = function(){
     quality: 1,
     callback: function(dataUrl){
       self.navigation_layer.show();
-      window.open(dataUrl);
+      self.navigation_layer.draw();
+      download_image(dataUrl);
     }
   });
+
+  function download_image(dataUrl){
+    $('<a download="inchlib" href="'+ dataUrl + '"></a>')[0].click();
+  }
 };
 
 InCHlib.prototype._unzoom_icon_click = function(){
