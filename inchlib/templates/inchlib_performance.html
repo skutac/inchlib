@@ -12,17 +12,21 @@ $(document).ready(function() {
             },
             title: {
                 text:'Clustering Time X Number of data points (50 features)',
+                //style: {"font-size": 26},
                 x: -20 //center
             },
             xAxis: {
                 categories: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
                 title: {
-                    text: 'Data points (thousands)'
+                    text: 'Data points (thousands)',
+                  //  style: {"font-size": 28},
+                  //  margin: 20,
                 },
             },
             yAxis: {
                 title: {
-                    text: 'Time (seconds)'
+                    text: 'Time (seconds)',
+                    //style: {"font-size": 28}
                 },
                 plotLines: [{
                     value: 0,
@@ -37,7 +41,7 @@ $(document).ready(function() {
                 layout: 'vertical',
                 align: 'right',
                 verticalAlign: 'middle',
-                borderWidth: 0
+                borderWidth: 0,
             },
             series: [{
                 name: 'Time',

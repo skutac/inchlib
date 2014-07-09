@@ -3,3 +3,5 @@
 3. Possibility to display export button which exports cluster heatmap as an image (show_export_button settings attribute)
 4. get_features_for_leaf(leaf_id) method added
 5. add_color_scale(color_scale_name, color_scale) method added - color scale form - {"start": {"r":255, "g": 255, "b": 255}, "end": {"r": 0, "g": 0, "b": 0}}, also possible middle color - {"start": {"r":255, "g": 255, "b": 255}, "middle": {"r": 236, "g": 158, "b": 56}, "end": {"r": 0, "g": 0, "b": 0}}
+6. InChlib can handla missing values (represented as null), in the heatmap the missing values are inactive white spots
+7. inchlib_clust can handle missing values, missing value representation has to be specified (e.g., None, null, False...), prior to clustering missing values are replaced by mean of the column/row and after are replaced for None value

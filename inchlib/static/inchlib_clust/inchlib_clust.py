@@ -410,6 +410,7 @@ class Cluster():
                         self.data[i][j] = numpy.nan
             
             imputer = preprocessing.Imputer(missing_values="NaN", strategy="mean")
+            #error when using median strategy - minus one dimension in imputed data... mg
             self.data = [list(row) for row in imputer.fit_transform(self.data)]
         else:
             self.data = [[round(float(value), 3) for value in row[1:]] for row in rows[data_start:]]
@@ -489,6 +490,16 @@ class Cluster():
         if self.write_original:
             self.data = self.original_data
 
+        if not self.missing_value is False:
+            self.__return_missing_values__()
+
+        return
+
+    def __return_missing_values__(self):
+        for i, indexes in enumerate(self.missing_values_indexes):
+            if indexes:
+                for index in indexes:
+                    self.data[i][index] = None
         return
 
     def __cluster_columns__(self, column_distance, column_linkage):
