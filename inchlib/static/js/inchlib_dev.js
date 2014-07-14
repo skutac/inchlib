@@ -1939,9 +1939,11 @@ InCHlib.prototype._draw_cluster_layer = function(path_id){
     var y = this.highlighted_rows_y[this.highlighted_rows_y.length-1];
     y = this._hack_round(y - row_count/2*this.pixels_for_leaf - 0.5*this.pixels_for_leaf);
 
-    var rows_desc = this.objects_ref.row_count.clone({x: x + 35,
-                                                      y: y + 5,
+    var rows_desc = this.objects_ref.row_count.clone({x: x + 25,
+                                                      y: y - 5,
                                                       text: row_count,
+                                                      fontSize: 12,
+                                                      fill: "#6d6b6a"
                                                   });
 
     var zoom_icon = this.objects_ref.icon.clone({
