@@ -19,7 +19,7 @@ class Dendrogram():
 
     def __init__(self, clustering):
         self.cluster_object = clustering
-        self.data_type = clustering.data_type
+        self.datatype = clustering.datatype
         self.axis = clustering.clustering_axis
         self.clustering = clustering.clustering
         self.tree = hcluster.to_tree(self.clustering)
@@ -249,7 +249,8 @@ class Dendrogram():
 
     def __connect_metadata_to_data__(self):
         if len(set(self.metadata.keys()) & set(self.data_names)) == 0:
-            raise Exception("Metadata objects must correspond with original data objects.")
+            print("No metadata objects correspond with the clustered data according to their IDs. No metadata added.")
+            return
 
         if not self.dendrogram:
             raise Exception("You must create dendrogram before adding metadata.")
@@ -260,10 +261,6 @@ class Dendrogram():
             self.dendrogram["metadata"]["feature_names"] = self.metadata_header
 
         leaves = {n:node for n, node in self.dendrogram["data"]["nodes"].items() if node["count"] == 1}
-        # leaf_ids = []
-        
-        # for l, leaf in leaves.items():
-        #     leaf_ids.extend(leaf["objects"])
 
         if not self.compress:
             
@@ -380,17 +377,17 @@ class Cluster():
     def __init__(self):
         self.write_original = False
 
-    def read_csv(self, filename, delimiter=",", header=False, missing_value=False):
+    def read_csv(self, filename, delimiter=",", header=False, missing_value=False, datatype="numerical"):
         """Reads data from the CSV file"""
         self.filename = filename
         csv_reader = csv.reader(open(self.filename, "r"), delimiter=delimiter)
         rows = [row for row in csv_reader]
-        self.read_data(rows, header, missing_value)
+        self.read_data(rows, header, missing_value, datatype)
 
-    def read_data(self, rows, header=False, missing_value=False):
+    def read_data(self, rows, header=False, missing_value=False, datatype="numerical"):
         """Reads data in a form of list of lists (tuples)"""
+        self.datatype = datatype
         self.missing_value = missing_value
-        self.missing_values_indexes = []
         self.header = header
         data_start = 0
 
@@ -399,22 +396,41 @@ class Cluster():
             data_start = 1
         
         self.data_names = [str(row[0]) for row in rows[data_start:]]
+        self.data = [row[1:] for row in rows[data_start:]]
+        
+        if datatype == "numeric":
+            if not missing_value is False:
+                self.data = self.__impute_missing_values__("mean")
+            self.data = [[round(float(value), 3) for value in row] for row in self.data]
 
-        if not missing_value is False:
-            self.data = [row[1:] for row in rows[data_start:]]
-            for i, row in enumerate(self.data):
-                self.missing_values_indexes.append([j for j, v in enumerate(row) if v == missing_value])
+        elif datatype == "nominal":
+            if not missing_value is False:
+                self.data = self.__impute_missing_values__("most_frequent")
+            # self.data = [[(value) for value in row] for row in self.data]
 
-                for j, value in enumerate(row):
-                    if value == missing_value:
-                        self.data[i][j] = numpy.nan
-            
-            imputer = preprocessing.Imputer(missing_values="NaN", strategy="mean")
-            #error when using median strategy - minus one dimension in imputed data... mg
-            self.data = [list(row) for row in imputer.fit_transform(self.data)]
+        elif datatype == "binary":
+            if not missing_value is False:
+                self.data = self.__impute_missing_values__("most_frequent")
+            self.data = [[bool(value) for value in row] for row in self.data]
+
         else:
-            self.data = [[round(float(value), 3) for value in row[1:]] for row in rows[data_start:]]
+             raise Exception("".join(["You can choose only from data types: ", ", ".join(DISTANCES.keys())]))
+        
         return
+
+    def __impute_missing_values__(self, strategy="mean"):
+        self.missing_values_indexes = []
+        for i, row in enumerate(self.data):
+            self.missing_values_indexes.append([j for j, v in enumerate(row) if v == self.missing_value])
+
+            for j, value in enumerate(row):
+                if value == self.missing_value:
+                    self.data[i][j] = numpy.nan
+            
+        imputer = preprocessing.Imputer(missing_values="NaN", strategy=strategy)
+        #error when using median strategy - minus one dimension in imputed data... omg
+        imputed_data = [list(row) for row in imputer.fit_transform(self.data)]
+        return imputed_data
 
     def __binarize_nominal_data__(self):
         nominal_data = zip(*self.data)
@@ -448,20 +464,19 @@ class Cluster():
         self.data = [[round(v, 3) for v in row] for row in self.data]
         return
 
-    def cluster_data(self, data_type="numeric", row_distance="euclidean", row_linkage="single", axis="row", column_distance="euclidean", column_linkage="ward"):
+    def cluster_data(self, row_distance="euclidean", row_linkage="single", axis="row", column_distance="euclidean", column_linkage="ward"):
         """Performs clustering according to the given parameters.
-        @data_type - numeric/binary
+        @datatype - numeric/binary/nominal
         @row_distance/column_distance - see. DISTANCES variable
         @row_linkage/column_linkage - see. LINKAGES variable
         @axis - row/both
         """
         
         print("Clustering rows:", row_distance, row_linkage)
-        self.data_type = data_type
         self.clustering_axis = axis
         row_linkage = str(row_linkage)
 
-        if data_type == "nominal":
+        if self.datatype == "nominal":
             self.__binarize_nominal_data__()
         
         if row_linkage in RAW_LINKAGES:
@@ -470,12 +485,10 @@ class Cluster():
         else:
             self.distance_vector = fastcluster.pdist(self.data, row_distance)
 
-            if data_type == "numeric" and not row_distance in DISTANCES[data_type]:
-                raise Exception("".join(["When clustering numeric data you must choose from these distance measures: ", ", ".join(DISTANCES[data_type])]))
-            elif (data_type == "binary" or data_type == "nominal") and not row_distance in DISTANCES[data_type]:
-                raise Exception("".join(["When clustering binary or nominal data you must choose from these distance measures: ", ", ".join(DISTANCES[data_type])]))
-            elif not data_type in DISTANCES.keys():
-                raise Exception("".join(["You can choose only from data types: ", ", ".join(DISTANCES.keys())]))
+            if self.datatype == "numeric" and not row_distance in DISTANCES[self.datatype]:
+                raise Exception("".join(["When clustering numeric data you must choose from these distance measures: ", ", ".join(DISTANCES[self.datatype])]))
+            elif (self.datatype == "binary" or self.datatype == "nominal") and not row_distance in DISTANCES[self.datatype]:
+                raise Exception("".join(["When clustering binary or nominal data you must choose from these distance measures: ", ", ".join(DISTANCES[self.datatype])]))
 
             self.clustering = fastcluster.linkage(self.distance_vector, method=str(row_linkage))
 
@@ -484,10 +497,7 @@ class Cluster():
             print("Clustering columns:", column_distance, column_linkage)
             self.__cluster_columns__(column_distance, column_linkage)
 
-        if data_type == "nominal":
-            self.__integerize_nominal_data__()
-
-        if self.write_original:
+        if self.write_original or self.datatype == "nominal":
             self.data = self.original_data
 
         if not self.missing_value is False:
@@ -524,12 +534,12 @@ class Cluster():
 
 def _process_(arguments):
     c = Cluster()
-    c.read_csv(arguments.data_file, arguments.data_delimiter, arguments.data_header, arguments.missing_values)
+    c.read_csv(arguments.data_file, arguments.data_delimiter, arguments.data_header, arguments.missing_values, arguments.datatype)
     
     if arguments.normalize:
         c.normalize_data(feature_range=(0,1), write_original=arguments.write_original)
 
-    c.cluster_data(data_type=arguments.datatype, row_distance=arguments.row_distance, row_linkage=arguments.row_linkage, axis=arguments.axis, column_distance=arguments.column_distance, column_linkage=arguments.column_linkage)
+    c.cluster_data(row_distance=arguments.row_distance, row_linkage=arguments.row_linkage, axis=arguments.axis, column_distance=arguments.column_distance, column_linkage=arguments.column_linkage)
 
     d = Dendrogram(c)
     d.create_cluster_heatmap(compress=arguments.compress, compressed_value=arguments.compressed_value, write_data=not arguments.dont_write_data)
@@ -544,7 +554,6 @@ def _process_(arguments):
         d.export_cluster_heatmap_as_json(arguments.output_file)
     else:
         print(json.dumps(d.dendrogram, indent=4))
-
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
