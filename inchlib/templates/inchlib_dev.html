@@ -22,10 +22,10 @@ $(document).ready(function(){
                 // heatmap: false,
                 // heatmap_header: true,
                 // draw_row_ids: true,
-                column_metadata_row_height: 10,
-                column_metadata_colors: "BuYl",
+                // column_metadata_row_height: 10,
+                // column_metadata_colors: "BuYl",
                 column_dendrogram: true,
-                column_metadata: true,
+                // column_metadata: true,
                 dendrogram: true,
                 max_height: 900,
                 width: 800,
@@ -36,10 +36,11 @@ $(document).ready(function(){
                 // header_as_heatmap_row: true,
                 show_export_button: true,
                 // count_column: true,
+                values_center: "mean"
             });
     // dendrogram_1.add_color_scale("WhBk", {"start": {"r":255, "g": 255, "b": 255}, "middle": {"r": 236, "g": 158, "b": 56}, "end": {"r": 0, "g": 0, "b": 0}})
 
-    dendrogram_1.read_data_from_file("{% static "data/microarrays_column_metadata.json" %}");
+    dendrogram_1.read_data_from_file("{% static "data/microarrays.json" %}");
     dendrogram_1.draw();
     
     /*
