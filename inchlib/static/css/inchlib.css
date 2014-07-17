@@ -577,3 +577,16 @@ sup{
 	display: block;
 	width: 98%;
 }
+
+#message{
+	width: 400px;
+	height: 300px;
+}
+
+#contact_form{
+	margin-left: 20px;
+}
+
+#contact_form div{
+	margin-top: 10px;
+}

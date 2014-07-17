@@ -1,8 +1,31 @@
 {% extends "inchlib_base.html" %}
 
 {% block content %}
+
 {% load staticfiles %}
-	
+	<form class="pure-form pure-form-stacked" id="contact_form">
+	    <fieldset>
+	        <div class="pure-control-group">
+	            <label for="name">Name</label>
+	            <input id="name" type="text" placeholder="Name">
+	        </div>
+
+	        <div class="pure-control-group">
+	            <label for="email">Email Address</label>
+	            <input id="email" type="email" placeholder="Email Address">
+	        </div>
+
+	        <div class="pure-control-group">
+	            <label for="foo">Message</label>
+	            <input id="message" type="textarea" placeholder="Message...">
+	        </div>
+
+	        <div class="pure-controls">
+	            <button type="submit" class="pure-button pure-button-primary">Send</button>
+	        </div>
+	    </fieldset>
+	</form>
+	<hr/>
 	<div id="logos">
 		<a href="http://openscreen.cz/en" target=blank><img id="openscreen_logo" src="{% static "img/openscreen.png" %}"></a>
 		<a href="http://ich.vscht.cz/" target=blank><img id="lich_logo" src="{% static "img/lich.gif" %}"></a>
