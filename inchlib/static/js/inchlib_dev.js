@@ -826,6 +826,7 @@ InCHlib.prototype.draw = function(){
     this.last_column = null;
     this.zoomed_row_clusters = [];
     this.zoomed_column_clusters = [];
+    this.columns_start_id = 0;
 
     if(this.settings.metadata){
         this.metadata_dimensions = this._get_dimensions(this.data.metadata.nodes);
@@ -903,7 +904,6 @@ InCHlib.prototype.draw = function(){
 
 InCHlib.prototype._draw_row_dendrogram = function(node_id){
     this.dendrogram_layer = new Kinetic.Layer();
-    console.log(node_id)
     var node = this.data.nodes[node_id];
     var count = node.count;
 
@@ -1259,7 +1259,6 @@ InCHlib.prototype._draw_heatmap = function(){
     var self = this;
 
     var time_1 = new Date().getTime();
-
     for(var i = 0, keys = Object.keys(this.leaves_y_coordinates), len = keys.length; i < len; i++){
         key = keys[i];
         y = this.leaves_y_coordinates[key];
@@ -1541,11 +1540,11 @@ InCHlib.prototype._draw_heatmap_header = function(){
     var current_headers = [];
     
     for(i = 0, len = this.on_features.length; i < len; i++){
-      current_headers.push(this.header[i]);
+      current_headers.push(this.header[this.on_features[i]]);
     }
 
     for(i = this.data_dimensions, len = this.on_metadata_features.length + this.data_dimensions; i < len; i++){
-      current_headers.push(this.header[i]);
+      current_headers.push(this.header[this.on_metadata_features[i]]);
     }
 
     var max_text_length = this._get_max_length(current_headers);
@@ -1722,6 +1721,31 @@ InCHlib.prototype._draw_navigation = function(){
 
         refresh_overlay.on("mouseout", function(){
             self._icon_mouseout(refresh_icon, refresh_overlay, self.navigation_layer);
+        });
+    }
+
+    if(self.zoomed_column_clusters.length > 0){
+        var column_unzoom_icon = this.objects_ref.icon.clone({
+            data: "M22.646,19.307c0.96-1.583,1.523-3.435,1.524-5.421C24.169,8.093,19.478,3.401,13.688,3.399C7.897,3.401,3.204,8.093,3.204,13.885c0,5.789,4.693,10.481,10.484,10.481c1.987,0,3.839-0.563,5.422-1.523l7.128,7.127l3.535-3.537L22.646,19.307zM13.688,20.369c-3.582-0.008-6.478-2.904-6.484-6.484c0.006-3.582,2.903-6.478,6.484-6.486c3.579,0.008,6.478,2.904,6.484,6.486C20.165,17.465,17.267,20.361,13.688,20.369zM8.854,11.884v4.001l9.665-0.001v-3.999L8.854,11.884z",
+            x: self.settings.width - 60,
+            y: 50,
+            label: "Unzoom\ncolumns"
+        });
+        var column_unzoom_overlay = self._draw_icon_overlay(self.settings.width - 60, 50);
+
+        self.navigation_layer.add(column_unzoom_icon, column_unzoom_overlay);
+
+        column_unzoom_overlay.on("click", function(){
+            // self.events.on_unzoom(self._unprefix(self.zoomed_row_clusters[self.zoomed_row_clusters.length-1]));
+            self._column_unzoom_icon_click(this);
+        });
+
+        column_unzoom_overlay.on("mouseover", function(){
+            self._icon_mouseover(column_unzoom_icon, column_unzoom_overlay, self.navigation_layer);
+        });
+
+        column_unzoom_overlay.on("mouseout", function(){
+            self._icon_mouseout(column_unzoom_icon, column_unzoom_overlay, self.navigation_layer);
         });
     }
 
@@ -1902,7 +1926,6 @@ InCHlib.prototype._highlight_column_cluster = function(path_id){
       this.column_cluster_group.destroy();
       this.column_dendrogram_overlay_layer.destroyChildren();
     }
-    this.current_column_ids = this._get_column_ids(path_id);
     this.last_highlighted_column_cluster = path_id;
     this._highlight_column_path(path_id);
     this.column_dendrogram_overlay_layer.draw();
@@ -2044,18 +2067,11 @@ InCHlib.prototype._draw_cluster_layer = function(path_id){
 
 InCHlib.prototype._draw_column_cluster_layer = function(path_id){
     this.column_cluster_group = new Kinetic.Group();
-    var x1 = this._hack_round(this.current_column_ids[0]*this.pixels_for_dimension);
-    var x2 = this._hack_round((this.current_column_ids[0] + this.current_column_ids.length)*this.pixels_for_dimension);
+    var x1 = this._hack_round((this.current_column_ids[0] - this.columns_start_id)*this.pixels_for_dimension);
+    var x2 = this._hack_round((this.current_column_ids[0] - this.columns_start_id + this.current_column_ids.length)*this.pixels_for_dimension);
     var y1 = this.header_height;
     var y2 = this.settings.height-this.footer_height;
     var height = this.settings.height-this.footer_height-this.header_height+0.5*this.settings.column_metadata_row_height;    
-    
-    var cluster_overlay_2 = this.objects_ref.cluster_overlay.clone({
-        x: x2+this.heatmap_distance,
-        y: this.header_height,
-        width: this.heatmap_width - x2,
-        height: height,
-    });
     
     var cluster_overlay_1 = this.objects_ref.cluster_overlay.clone({
         x: this.heatmap_distance,
@@ -2063,6 +2079,14 @@ InCHlib.prototype._draw_column_cluster_layer = function(path_id){
         width: x1,
         height: height,
     });
+
+    var cluster_overlay_2 = this.objects_ref.cluster_overlay.clone({
+        x: x2+this.heatmap_distance,
+        y: this.header_height,
+        width: this.heatmap_width - x2,
+        height: height,
+    });
+  
 
     this.column_cluster_group.add(cluster_overlay_1, cluster_overlay_2);
     this.cluster_layer.add(this.column_cluster_group);
@@ -2079,9 +2103,10 @@ InCHlib.prototype._draw_column_cluster_layer = function(path_id){
 }
 
 InCHlib.prototype._zoom_column_cluster = function(node_id){
-  if(node_id != this.zoomed_column_clusters[this.zoomed_column_clusters.length-1] && node_id != this.column_root_id){
-    this.zoomed_column_clusters.push(node_id);
+  if(node_id != this.zoomed_column_clusters[this.zoomed_column_clusters.length-1]){
+    this.zoomed_column_clusters.push(node_id);    
     this.current_column_ids = this._get_column_ids(node_id);
+    this.columns_start_id = this.current_column_ids[0];
     this.on_features = this.current_column_ids;
     var distance = this.distance;
     this._adjust_dimension_size(this.on_features.length);
@@ -2501,6 +2526,15 @@ InCHlib.prototype._unzoom_icon_click = function(){
     this._highlight_cluster(current_node_id);
 };
 
+InCHlib.prototype._column_unzoom_icon_click = function(){
+    var current_node_id = this.zoomed_column_clusters.pop();
+    var node_id = (this.zoomed_column_clusters.length === 0)?this.column_root_id:this.zoomed_column_clusters.pop();
+    // this.columns_start_id = this._get_column_ids(node_id)[0];
+    console.log(node_id)
+    this._zoom_column_cluster(node_id);
+    this._highlight_column_cluster(current_node_id);
+};
+
 InCHlib.prototype._icon_mouseover = function(icon, icon_overlay, layer){
     var label = icon.getAttr("label");
     var x = icon_overlay.getAttr("x");
@@ -2658,13 +2692,12 @@ InCHlib.prototype._get_column_ids = function(node_id){
       right_child = this.data.column_dendrogram.nodes[right_child]["right_child"];
     }
 
-    var start = this._hack_round(this.column_x_coordinates[node_id]/this.pixels_for_dimension-0.5);
+    var start = this._hack_round(this.column_x_coordinates[node_id]/this.pixels_for_dimension-0.5) + this.columns_start_id;
     var end = start + count;
     
     for(var i = start; i < end; i++){
       column_ids.push(i);
     }
-
     return column_ids;
 }
 
