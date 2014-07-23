@@ -851,8 +851,6 @@ InCHlib.prototype.draw = function(){
     this.stage.setHeight(this.settings.height);
     this._draw_stage_layer();
 
-    //*********************************************************************
-
     if(this.settings.dendrogram){
         this.root_id = this._get_root_id(this.data.nodes);
         this.distance = this.settings.width - this.heatmap_width-this.right_margin;
@@ -881,9 +879,7 @@ InCHlib.prototype.draw = function(){
       this.columns_start_index = 0;
       this._draw_column_dendrogram(this.column_root_id);
     }
-    //*********************************************************************
     this._draw_navigation();
-
     this.highlight_rows(this.settings.highlighted_rows);
     // When measuring the rendering duration
     this.end = new Date().getTime();
@@ -1690,7 +1686,7 @@ InCHlib.prototype._draw_navigation = function(){
     if(self.zoomed_clusters["row"].length > 0){
         var refresh_icon = this.objects_ref.icon.clone({
             data: "M24.083,15.5c-0.009,4.739-3.844,8.574-8.583,8.583c-4.741-0.009-8.577-3.844-8.585-8.583c0.008-4.741,3.844-8.577,8.585-8.585c1.913,0,3.665,0.629,5.09,1.686l-1.782,1.783l8.429,2.256l-2.26-8.427l-1.89,1.89c-2.072-1.677-4.717-2.688-7.587-2.688C8.826,3.418,3.418,8.826,3.416,15.5C3.418,22.175,8.826,27.583,15.5,27.583S27.583,22.175,27.583,15.5H24.083z",
-            x: 50,
+            x: 10,
             y: 10,
             id: "refresh_icon",
             label: "Refresh"
@@ -1698,13 +1694,13 @@ InCHlib.prototype._draw_navigation = function(){
 
         var unzoom_icon = this.objects_ref.icon.clone({
             data: "M22.646,19.307c0.96-1.583,1.523-3.435,1.524-5.421C24.169,8.093,19.478,3.401,13.688,3.399C7.897,3.401,3.204,8.093,3.204,13.885c0,5.789,4.693,10.481,10.484,10.481c1.987,0,3.839-0.563,5.422-1.523l7.128,7.127l3.535-3.537L22.646,19.307zM13.688,20.369c-3.582-0.008-6.478-2.904-6.484-6.484c0.006-3.582,2.903-6.478,6.484-6.486c3.579,0.008,6.478,2.904,6.484,6.486C20.165,17.465,17.267,20.361,13.688,20.369zM8.854,11.884v4.001l9.665-0.001v-3.999L8.854,11.884z",
-            x: 90,
+            x: 50,
             y: 10,
             label: "Unzoom\nrows"
         });
 
-        var refresh_overlay = self._draw_icon_overlay(50, 10);
-        var unzoom_overlay = self._draw_icon_overlay(90, 10);
+        var refresh_overlay = self._draw_icon_overlay(10, 10);
+        var unzoom_overlay = self._draw_icon_overlay(50, 10);
 
         self.navigation_layer.add(refresh_icon, unzoom_icon, refresh_overlay, unzoom_overlay);
 
@@ -1739,10 +1735,10 @@ InCHlib.prototype._draw_navigation = function(){
         var column_unzoom_icon = this.objects_ref.icon.clone({
             data: "M22.646,19.307c0.96-1.583,1.523-3.435,1.524-5.421C24.169,8.093,19.478,3.401,13.688,3.399C7.897,3.401,3.204,8.093,3.204,13.885c0,5.789,4.693,10.481,10.484,10.481c1.987,0,3.839-0.563,5.422-1.523l7.128,7.127l3.535-3.537L22.646,19.307zM13.688,20.369c-3.582-0.008-6.478-2.904-6.484-6.484c0.006-3.582,2.903-6.478,6.484-6.486c3.579,0.008,6.478,2.904,6.484,6.486C20.165,17.465,17.267,20.361,13.688,20.369zM8.854,11.884v4.001l9.665-0.001v-3.999L8.854,11.884z",
             x: self.settings.width - 60,
-            y: 50,
+            y: 45,
             label: "Unzoom\ncolumns"
         });
-        var column_unzoom_overlay = self._draw_icon_overlay(self.settings.width - 60, 50);
+        var column_unzoom_overlay = self._draw_icon_overlay(self.settings.width - 60, 35);
 
         self.navigation_layer.add(column_unzoom_icon, column_unzoom_overlay);
 
@@ -1788,13 +1784,13 @@ InCHlib.prototype._draw_navigation = function(){
     if(self.settings.show_export_button){
       var export_icon = this.objects_ref.icon.clone({
             data: "M24.25,10.25H20.5v-1.5h-9.375v1.5h-3.75c-1.104,0-2,0.896-2,2v10.375c0,1.104,0.896,2,2,2H24.25c1.104,0,2-0.896,2-2V12.25C26.25,11.146,25.354,10.25,24.25,10.25zM15.812,23.499c-3.342,0-6.06-2.719-6.06-6.061c0-3.342,2.718-6.062,6.06-6.062s6.062,2.72,6.062,6.062C21.874,20.78,19.153,23.499,15.812,23.499zM15.812,13.375c-2.244,0-4.062,1.819-4.062,4.062c0,2.244,1.819,4.062,4.062,4.062c2.244,0,4.062-1.818,4.062-4.062C19.875,15.194,18.057,13.375,15.812,13.375z",
-            x: self.settings.width - 60,
+            x: self.settings.width - 62,
             y: 10,
             id: "export_icon",
             label: "Export"
       });
 
-      var export_overlay = self._draw_icon_overlay(self.settings.width - 60, 10);
+      var export_overlay = self._draw_icon_overlay(self.settings.width - 60, 0);
       self.navigation_layer.add(export_icon, export_overlay);
 
       export_overlay.on("click", function(){
@@ -2010,9 +2006,8 @@ InCHlib.prototype._draw_cluster_layer = function(path_id){
     this.row_cluster_group = new Kinetic.Group();
     var visible = this._get_visible_count();
     var row_count = this.data.nodes[path_id].count;
-    var x = this._hack_round(this.distance+visible*this.pixels_for_dimension) + 10;
-    var y = this.highlighted_rows_y[this.highlighted_rows_y.length-1];
-    y = this._hack_round(y - row_count/2*this.pixels_for_leaf - 0.5*this.pixels_for_leaf);
+    var x = 90;
+    var y = 10;
 
     var rows_desc = this.objects_ref.row_count.clone({x: x + 25,
                                                       y: y - 5,
@@ -2025,7 +2020,7 @@ InCHlib.prototype._draw_cluster_layer = function(path_id){
                     data: "M22.646,19.307c0.96-1.583,1.523-3.435,1.524-5.421C24.169,8.093,19.478,3.401,13.688,3.399C7.897,3.401,3.204,8.093,3.204,13.885c0,5.789,4.693,10.481,10.484,10.481c1.987,0,3.839-0.563,5.422-1.523l7.128,7.127l3.535-3.537L22.646,19.307zM13.688,20.369c-3.582-0.008-6.478-2.904-6.484-6.484c0.006-3.582,2.903-6.478,6.484-6.486c3.579,0.008,6.478,2.904,6.484,6.486C20.165,17.465,17.267,20.361,13.688,20.369zM15.687,9.051h-4v2.833H8.854v4.001h2.833v2.833h4v-2.834h2.832v-3.999h-2.833V9.051z",
                     x: x,
                     y: y,
-                    label: "Zoom",
+                    label: "Zoom\nrows",
                 });
 
     var zoom_overlay = this._draw_icon_overlay(x, y);
@@ -2080,6 +2075,25 @@ InCHlib.prototype._draw_cluster_layer = function(path_id){
 
 InCHlib.prototype._draw_column_cluster_layer = function(){
     this.column_cluster_group = new Kinetic.Group();
+    var x = this.settings.width - 102;
+    var y = 10;
+
+    var cols_desc = this.objects_ref.row_count.clone({x: x + 25,
+                                                      y: y - 5,
+                                                      text: this.current_column_ids.length,
+                                                      fontSize: 12,
+                                                      fill: "#6d6b6a"
+                                                  });
+
+    var zoom_icon = this.objects_ref.icon.clone({
+                    data: "M22.646,19.307c0.96-1.583,1.523-3.435,1.524-5.421C24.169,8.093,19.478,3.401,13.688,3.399C7.897,3.401,3.204,8.093,3.204,13.885c0,5.789,4.693,10.481,10.484,10.481c1.987,0,3.839-0.563,5.422-1.523l7.128,7.127l3.535-3.537L22.646,19.307zM13.688,20.369c-3.582-0.008-6.478-2.904-6.484-6.484c0.006-3.582,2.903-6.478,6.484-6.486c3.579,0.008,6.478,2.904,6.484,6.486C20.165,17.465,17.267,20.361,13.688,20.369zM15.687,9.051h-4v2.833H8.854v4.001h2.833v2.833h4v-2.834h2.832v-3.999h-2.833V9.051z",
+                    x: x,
+                    y: y,
+                    label: "Zoom\ncolumns",
+                });
+
+    var zoom_overlay = this._draw_icon_overlay(x, y);
+
     var x1 = this._hack_round((this.current_column_ids[0] - this.columns_start_index)*this.pixels_for_dimension);
     var x2 = this._hack_round((this.current_column_ids[0] + this.current_column_ids.length - this.columns_start_index)*this.pixels_for_dimension);
     var y1 = this.header_height;
@@ -2101,12 +2115,24 @@ InCHlib.prototype._draw_column_cluster_layer = function(){
     });
   
 
-    this.column_cluster_group.add(cluster_overlay_1, cluster_overlay_2);
+    this.column_cluster_group.add(cluster_overlay_1, cluster_overlay_2, zoom_icon, zoom_overlay, cols_desc);
     this.cluster_layer.add(this.column_cluster_group);
     this.stage.add(this.cluster_layer);
     this.cluster_layer.draw();
 
     var self = this;
+
+    zoom_overlay.on("mouseover", function(){
+        self._icon_mouseover(zoom_icon, zoom_overlay, self.cluster_layer);
+    });
+
+    zoom_overlay.on("mouseout", function(){
+        self._icon_mouseout(zoom_icon, zoom_overlay, self.cluster_layer);
+    });
+
+    zoom_overlay.on("click", function(){
+        self._zoom_column_cluster(self.last_highlighted_column_cluster);
+    });
 
     this.cluster_layer.on("click", function(evt){
         self.unhighlight_cluster();
@@ -2503,8 +2529,7 @@ InCHlib.prototype._filter_icon_click = function(filter_button){
 
 InCHlib.prototype._refresh_icon_click = function(){
     var node_id = this.root_id;
-    this.zoomed_clusters["row"] = [];
-    this.zoomed_clusters["column"] = [];
+    this.zoomed_clusters = {"row": [], "column": []};
     this._adjust_dimension_size(this.dimensions["overall"]);
     this._delete_all_layers();
     this._draw_stage_layer();
@@ -2512,6 +2537,8 @@ InCHlib.prototype._refresh_icon_click = function(){
 
     this._draw_row_dendrogram(node_id);
     if(this.settings.column_dendrogram){
+        this.columns_start_index = 0;
+        this._get_column_ids(this.column_root_id);
         this._draw_column_dendrogram(this.column_root_id);
     }
     this._draw_navigation();
@@ -2557,7 +2584,7 @@ InCHlib.prototype._icon_mouseover = function(icon, icon_overlay, layer){
     var width = icon_overlay.getWidth();
     var height = icon_overlay.getHeight();
 
-    this.icon_tooltip = this.objects_ref.tooltip_label.clone({x: x,
+    this.icon_tooltip = this.objects_ref.tooltip_label.clone({x: x - 10,
         y: y+1.2*height
     });
 
