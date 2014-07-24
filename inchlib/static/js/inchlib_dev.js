@@ -648,8 +648,8 @@ InCHlib.prototype._get_dimensions = function(){
     }
 
     if(this.settings.metadata){
-      key = Object.keys(this.data.metadata)[0];
-      dimensions["metadata"] = this.data.metadata[key].length;
+      key = Object.keys(this.data.metadata.nodes)[0];
+      dimensions["metadata"] = this.data.metadata.nodes[key].length;
     }
     
     dimensions["overall"] = dimensions["data"] + dimensions["metadata"];
@@ -1021,6 +1021,7 @@ InCHlib.prototype._draw_column_dendrogram = function(node_id){
     this.column_x_coordinates = {};
     var node = this.data.column_dendrogram.nodes[node_id];
     this.current_column_count = node.count;
+    this.current_column_ids = [];
     this.vertical_distance = this.header_height-5;
     this.vertical_distance_step = this.vertical_distance/node.distance;
 
@@ -1543,7 +1544,7 @@ InCHlib.prototype._draw_heatmap_header = function(){
     var row_count = this._hack_size(this.leaves_y_coordinates);
     var y = (this.settings.column_dendrogram && this.heatmap_header)? this.header_height+(this.pixels_for_leaf*row_count) + 10: this.header_height - 20;
     var rotation = (this.settings.column_dendrogram && this.heatmap_header) ? 45 : -45;
-    var distance = 0;
+    var distance_step = 0;
     var x, i, column_header, key;
     var current_headers = [];
     
@@ -1551,21 +1552,21 @@ InCHlib.prototype._draw_heatmap_header = function(){
       current_headers.push(this.header[this.on_features["data"][i]]);
     }
 
-    for(i = this.dimensions["data"], len = this.on_features["metadata"].length + this.dimensions["data"]; i < len; i++){
-      current_headers.push(this.header[this.on_features["metadata"][i]]);
+    for(i = 0, len = this.on_features["metadata"].length; i < len; i++){
+      current_headers.push(this.header[this.on_features["metadata"][i] + this.dimensions["data"]]);
     }
 
     var max_text_length = this._get_max_length(current_headers);
-    var font_size = this._hack_round(this.header_height*1.5/max_text_length);
-    font_size = (font_size > 16)?16:font_size;
-    font_size = (font_size > this.pixels_for_dimension)? this.pixels_for_dimension - 3: font_size;
-    
+    // var font_size = this._hack_round(this.header_height*1.5/max_text_length);
+    var font_size = this._get_font_size(max_text_length, this.header_height, this.pixels_for_dimension, 16);
+    // font_size = (font_size > 16)?16:font_size;
+    // font_size = (font_size > this.pixels_for_dimension)? this.pixels_for_dimension - 3: font_size;
     if(font_size < 8){
         return;
     }
     
     for(i = 0, len = current_headers.length; i<len; i++){
-      x = this.heatmap_distance+distance*this.pixels_for_dimension+this.pixels_for_dimension/2;
+      x = this.heatmap_distance+distance_step*this.pixels_for_dimension+this.pixels_for_dimension/2;
       column_header = this.objects_ref.column_header.clone({
               x: x,
               y: y,
@@ -1575,7 +1576,7 @@ InCHlib.prototype._draw_heatmap_header = function(){
               rotationDeg: rotation,
       });
       this.header_layer.add(column_header);
-      distance++;
+      distance_step++;
     }
 
     this.stage.add(this.header_layer);
@@ -1645,7 +1646,7 @@ InCHlib.prototype._draw_distance_scale = function(distance){
             x: 0,
             y: y1-20,
             text: distance,
-            fontSize: 14,
+            fontSize: 12,
             fontFamily: this.settings.font,
             fontStyle: 'bold',
             fill: 'black',
@@ -1682,27 +1683,45 @@ InCHlib.prototype._draw_distance_scale = function(distance){
 InCHlib.prototype._draw_navigation = function(){
     this.navigation_layer = new Kinetic.Layer();
     var self = this;
+    var x = 10;
+    var y = 10;
+
+    if(!this.settings.column_dendrogram){
+        var filter_icon = this.objects_ref.icon.clone({
+                data: "M26.834,6.958c0-2.094-4.852-3.791-10.834-3.791c-5.983,0-10.833,1.697-10.833,3.791c0,0.429,0.213,0.84,0.588,1.224l8.662,15.002v4.899c0,0.414,0.709,0.75,1.583,0.75c0.875,0,1.584-0.336,1.584-0.75v-4.816l8.715-15.093h-0.045C26.625,7.792,26.834,7.384,26.834,6.958zM16,9.75c-6.363,0-9.833-1.845-9.833-2.792S9.637,4.167,16,4.167c6.363,0,9.834,1.844,9.834,2.791S22.363,9.75,16,9.75z",
+                x: x,
+                y: y,
+                label: "Filter\ncolumns"
+        });
+    
+        var filter_overlay = self._draw_icon_overlay(x, y);
+        self.navigation_layer.add(filter_icon, filter_overlay);
+        x = x + 40;    
+    
+        filter_overlay.on("click", function(){
+            self._filter_icon_click(this);
+        });
+            
+        filter_overlay.on("mouseover", function(){
+            self._icon_mouseover(filter_icon, filter_overlay, self.navigation_layer);
+        });
+           
+        filter_overlay.on("mouseout", function(){
+            self._icon_mouseout(filter_icon, filter_overlay, self.navigation_layer);
+        });
+    }
 
     if(self.zoomed_clusters["row"].length > 0){
-        var refresh_icon = this.objects_ref.icon.clone({
-            data: "M24.083,15.5c-0.009,4.739-3.844,8.574-8.583,8.583c-4.741-0.009-8.577-3.844-8.585-8.583c0.008-4.741,3.844-8.577,8.585-8.585c1.913,0,3.665,0.629,5.09,1.686l-1.782,1.783l8.429,2.256l-2.26-8.427l-1.89,1.89c-2.072-1.677-4.717-2.688-7.587-2.688C8.826,3.418,3.418,8.826,3.416,15.5C3.418,22.175,8.826,27.583,15.5,27.583S27.583,22.175,27.583,15.5H24.083z",
-            x: 10,
-            y: 10,
-            id: "refresh_icon",
-            label: "Refresh"
-        });
-
         var unzoom_icon = this.objects_ref.icon.clone({
             data: "M22.646,19.307c0.96-1.583,1.523-3.435,1.524-5.421C24.169,8.093,19.478,3.401,13.688,3.399C7.897,3.401,3.204,8.093,3.204,13.885c0,5.789,4.693,10.481,10.484,10.481c1.987,0,3.839-0.563,5.422-1.523l7.128,7.127l3.535-3.537L22.646,19.307zM13.688,20.369c-3.582-0.008-6.478-2.904-6.484-6.484c0.006-3.582,2.903-6.478,6.484-6.486c3.579,0.008,6.478,2.904,6.484,6.486C20.165,17.465,17.267,20.361,13.688,20.369zM8.854,11.884v4.001l9.665-0.001v-3.999L8.854,11.884z",
-            x: 50,
-            y: 10,
+            x: x,
+            y: y,
             label: "Unzoom\nrows"
         });
+        var unzoom_overlay = self._draw_icon_overlay(x, y);
+        x = x + 40;
 
-        var refresh_overlay = self._draw_icon_overlay(10, 10);
-        var unzoom_overlay = self._draw_icon_overlay(50, 10);
-
-        self.navigation_layer.add(refresh_icon, unzoom_icon, refresh_overlay, unzoom_overlay);
+        self.navigation_layer.add(unzoom_icon, unzoom_overlay);
 
         unzoom_overlay.on("click", function(){
             self.events.on_unzoom(self._unprefix(self.zoomed_clusters["row"][self.zoomed_clusters["row"].length-1]));
@@ -1716,19 +1735,31 @@ InCHlib.prototype._draw_navigation = function(){
         unzoom_overlay.on("mouseout", function(){
             self._icon_mouseout(unzoom_icon, unzoom_overlay, self.navigation_layer);
         });
+    }
 
-        refresh_overlay.on("click", function(){
-            self._refresh_icon_click();
-            self.events.on_refresh();
-        });
+    if(self.zoomed_clusters["row"].length > 0 || self.zoomed_clusters["column"].length > 0){
+      var refresh_icon = this.objects_ref.icon.clone({
+            data: "M24.083,15.5c-0.009,4.739-3.844,8.574-8.583,8.583c-4.741-0.009-8.577-3.844-8.585-8.583c0.008-4.741,3.844-8.577,8.585-8.585c1.913,0,3.665,0.629,5.09,1.686l-1.782,1.783l8.429,2.256l-2.26-8.427l-1.89,1.89c-2.072-1.677-4.717-2.688-7.587-2.688C8.826,3.418,3.418,8.826,3.416,15.5C3.418,22.175,8.826,27.583,15.5,27.583S27.583,22.175,27.583,15.5H24.083z",
+            x: x,
+            y: y,
+            id: "refresh_icon",
+            label: "Refresh"
+      });
+      var refresh_overlay = self._draw_icon_overlay(x, y);
+      self.navigation_layer.add(refresh_icon, refresh_overlay);
 
-        refresh_overlay.on("mouseover", function(){
-            self._icon_mouseover(refresh_icon, refresh_overlay, self.navigation_layer);
-        });
+      refresh_overlay.on("click", function(){
+          self._refresh_icon_click();
+          self.events.on_refresh();
+      });
 
-        refresh_overlay.on("mouseout", function(){
-            self._icon_mouseout(refresh_icon, refresh_overlay, self.navigation_layer);
-        });
+      refresh_overlay.on("mouseover", function(){
+          self._icon_mouseover(refresh_icon, refresh_overlay, self.navigation_layer);
+      });
+
+      refresh_overlay.on("mouseout", function(){
+          self._icon_mouseout(refresh_icon, refresh_overlay, self.navigation_layer);
+      });
     }
 
     if(self.zoomed_clusters["column"].length > 0){
@@ -1755,31 +1786,6 @@ InCHlib.prototype._draw_navigation = function(){
             self._icon_mouseout(column_unzoom_icon, column_unzoom_overlay, self.navigation_layer);
         });
     }
-
-    if(!this.settings.column_dendrogram){
-        var filter_icon = this.objects_ref.icon.clone({
-                data: "M26.834,6.958c0-2.094-4.852-3.791-10.834-3.791c-5.983,0-10.833,1.697-10.833,3.791c0,0.429,0.213,0.84,0.588,1.224l8.662,15.002v4.899c0,0.414,0.709,0.75,1.583,0.75c0.875,0,1.584-0.336,1.584-0.75v-4.816l8.715-15.093h-0.045C26.625,7.792,26.834,7.384,26.834,6.958zM16,9.75c-6.363,0-9.833-1.845-9.833-2.792S9.637,4.167,16,4.167c6.363,0,9.834,1.844,9.834,2.791S22.363,9.75,16,9.75z",
-                x: 10,
-                y: 10,
-                label: "Filter\ncolumns"
-        });
-    
-        var filter_overlay = self._draw_icon_overlay(10, 10);
-        self.navigation_layer.add(filter_icon, filter_overlay);
-    
-    
-        filter_overlay.on("click", function(){
-            self._filter_icon_click(this);
-        });
-            
-        filter_overlay.on("mouseover", function(){
-            self._icon_mouseover(filter_icon, filter_overlay, self.navigation_layer);
-        });
-           
-        filter_overlay.on("mouseout", function(){
-            self._icon_mouseout(filter_icon, filter_overlay, self.navigation_layer);
-        });
-      }
 
     if(self.settings.show_export_button){
       var export_icon = this.objects_ref.icon.clone({
@@ -2006,7 +2012,7 @@ InCHlib.prototype._draw_cluster_layer = function(path_id){
     this.row_cluster_group = new Kinetic.Group();
     var visible = this._get_visible_count();
     var row_count = this.data.nodes[path_id].count;
-    var x = 90;
+    var x = 50;
     var y = 10;
 
     var rows_desc = this.objects_ref.row_count.clone({x: x + 25,
@@ -2043,7 +2049,6 @@ InCHlib.prototype._draw_cluster_layer = function(path_id){
         width: width,
         height: this.settings.height-lower_y-this.footer_height + 0.5*this.pixels_for_leaf,
     });
-
 
     this.row_cluster_group.add(rows_desc, cluster_overlay_1, cluster_overlay_2, zoom_icon, zoom_overlay)
     this.cluster_layer.add(this.row_cluster_group);
@@ -2146,7 +2151,6 @@ InCHlib.prototype._zoom_column_cluster = function(node_id){
     if(node_id !== this.column_root_id){
       this.zoomed_clusters["column"].push(node_id);
     }
-    this.current_column_ids = [];
     this._get_column_ids(node_id);
     this.current_column_ids.sort(function(a,b){return a - b});
     this.columns_start_index = this.current_column_ids[0];
@@ -2186,7 +2190,7 @@ InCHlib.prototype._zoom_cluster = function(node_id){
         this._draw_row_dendrogram(node_id);
         this._draw_heatmap();
         this._draw_navigation();
-        if(this.last_highlighted_column_cluster !== null){
+        if(this.settings.column_dendrogram && this.last_highlighted_column_cluster !== null){
           this._draw_column_cluster_layer(this.last_highlighted_column_cluster);
         }
         this.highlight_rows(this.settings.highlighted_rows);
@@ -2720,7 +2724,6 @@ InCHlib.prototype._get_object_ids = function(node_id){
       this.current_object_ids.push.apply(this.current_object_ids, this.data.nodes[node_id]["objects"])
     }
 }
-
 
 InCHlib.prototype._get_column_ids = function(node_id){
   if(this.data.column_dendrogram.nodes[node_id]["left_child"] !== undefined){
