@@ -43,14 +43,12 @@ class Dendrogram():
                 node_right_child = node.get_right().id
                 node_id2node[node_id] = {"count":node.count, "distance":round(node.dist, 3), "left_child": node_left_child, "right_child": node_right_child}
 
-        for n in node_id2node:
-            node = node_id2node[n]
+        for n, node in node_id2node.items():
             if node["count"] != 1:
                 node_id2node[node["left_child"]]["parent"] = n
                 node_id2node[node["right_child"]]["parent"] = n
 
-        for n in node_id2node:
-            node = node_id2node[n]
+        for n, node in node_id2node.items():
 
             if node["count"] == 1:
                 data = self.data[n]
@@ -377,14 +375,14 @@ class Cluster():
     def __init__(self):
         self.write_original = False
 
-    def read_csv(self, filename, delimiter=",", header=False, missing_value=False, datatype="numerical"):
+    def read_csv(self, filename, delimiter=",", header=False, missing_value=False, datatype="numeric"):
         """Reads data from the CSV file"""
         self.filename = filename
         csv_reader = csv.reader(open(self.filename, "r"), delimiter=delimiter)
         rows = [row for row in csv_reader]
         self.read_data(rows, header, missing_value, datatype)
 
-    def read_data(self, rows, header=False, missing_value=False, datatype="numerical"):
+    def read_data(self, rows, header=False, missing_value=False, datatype="numeric"):
         """Reads data in a form of list of lists (tuples)"""
         self.datatype = datatype
         self.missing_value = missing_value
@@ -397,40 +395,33 @@ class Cluster():
         
         self.data_names = [str(row[0]) for row in rows[data_start:]]
         self.data = [row[1:] for row in rows[data_start:]]
-        
-        if datatype == "numeric":
-            if not missing_value is False:
-                self.data = self.__impute_missing_values__("mean")
-            self.data = [[round(float(value), 3) for value in row] for row in self.data]
-
-        elif datatype == "nominal":
-            if not missing_value is False:
-                self.data = self.__impute_missing_values__("most_frequent")
-            # self.data = [[(value) for value in row] for row in self.data]
-
-        elif datatype == "binary":
-            if not missing_value is False:
-                self.data = self.__impute_missing_values__("most_frequent")
-            self.data = [[bool(value) for value in row] for row in self.data]
-
-        else:
-             raise Exception("".join(["You can choose only from data types: ", ", ".join(DISTANCES.keys())]))
-        
+        self.original_data = copy.deepcopy(self.data)
         return
 
-    def __impute_missing_values__(self, strategy="mean"):
-        self.missing_values_indexes = []
+    def __impute_missing_values__(self, data):
+        datatype2impute = {"numeric": {"strategy":"mean", 
+                                        "value": lambda x: round(float(value), 3)}, 
+                           "binary": {"strategy":"most_frequent", 
+                                      "value": lambda x: int(value)}
+                           }
+
+        if not self.datatype in DISTANCES:
+            raise Exception("".join(["You can choose only from data types: ", ", ".join(DISTANCES.keys())]))
+
+        missing_values_indexes = []
+        
         for i, row in enumerate(self.data):
-            self.missing_values_indexes.append([j for j, v in enumerate(row) if v == self.missing_value])
+            missing_values_indexes.append([j for j, v in enumerate(row) if v == self.missing_value])
 
             for j, value in enumerate(row):
                 if value == self.missing_value:
-                    self.data[i][j] = numpy.nan
+                    data[i][j] = numpy.nan
             
-        imputer = preprocessing.Imputer(missing_values="NaN", strategy=strategy)
+        imputer = preprocessing.Imputer(missing_values="NaN", strategy=datatype2impute[self.datatype]["strategy"])
         #error when using median strategy - minus one dimension in imputed data... omg
         imputed_data = [list(row) for row in imputer.fit_transform(self.data)]
-        return imputed_data
+        imputed_data = [[datatype2impute[self.datatype]["value"](value) for value in row] for row in imputed_data]
+        return imputed_data, missing_values_indexes
 
     def __binarize_nominal_data__(self):
         nominal_data = zip(*self.data)
@@ -459,7 +450,6 @@ class Cluster():
         the normalized data will be clustered, but original data will be written to the heatmap."""
         self.write_original = write_original
         min_max_scaler = preprocessing.MinMaxScaler(feature_range)
-        self.original_data = copy.deepcopy(self.data)
         self.data = min_max_scaler.fit_transform(self.data)
         self.data = [[round(v, 3) for v in row] for row in self.data]
         return
@@ -475,6 +465,9 @@ class Cluster():
         print("Clustering rows:", row_distance, row_linkage)
         self.clustering_axis = axis
         row_linkage = str(row_linkage)
+
+        if not self.missing_value is False:
+            self.data, missing_values_indexes = self.__impute_missing_values__(self.data)
 
         if self.datatype == "nominal":
             self.__binarize_nominal_data__()
@@ -492,6 +485,10 @@ class Cluster():
 
             self.clustering = fastcluster.linkage(self.distance_vector, method=str(row_linkage))
 
+
+        if not self.missing_value is False:
+            self.data = self.__return_missing_values__(self.data, missing_values_indexes)
+            
         self.column_clustering = []
         if axis == "both" and len(self.data[0]) > 2:
             print("Clustering columns:", column_distance, column_linkage)
@@ -500,22 +497,27 @@ class Cluster():
         if self.write_original or self.datatype == "nominal":
             self.data = self.original_data
 
-        if not self.missing_value is False:
-            self.__return_missing_values__()
-
         return
 
-    def __return_missing_values__(self):
-        for i, indexes in enumerate(self.missing_values_indexes):
+    def __return_missing_values__(self, data, missing_values_indexes):
+        for i, indexes in enumerate(missing_values_indexes):
             if indexes:
                 for index in indexes:
-                    self.data[i][index] = None
-        return
+                    data[i][index] = None
+        return data
 
     def __cluster_columns__(self, column_distance, column_linkage):
-        columns = zip(*self.data)
-        self.column_clustering = fastcluster.linkage(columns, method=column_linkage, metric=column_distance)
+        self.data = [list(col) for col in zip(*self.data)]
+        if not self.missing_value is False:
+            self.data, missing_values_indexes = self.__impute_missing_values__(self.data)
+
+        self.column_clustering = fastcluster.linkage(self.data, method=column_linkage, metric=column_distance)
         self.data_order = hcluster.leaves_list(self.column_clustering)
+
+        if not self.missing_value is False:
+            self.data = self.__return_missing_values__(self.data, missing_values_indexes)
+        
+        self.data = zip(*self.data)
         self.data = self.__reorder_data__(self.data, self.data_order)
         self.original_data = self.__reorder_data__(self.original_data, self.data_order)
         if self.header:
