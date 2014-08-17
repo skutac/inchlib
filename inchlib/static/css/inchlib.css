@@ -590,3 +590,19 @@ sup{
 #contact_form div{
 	margin-top: 10px;
 }
+
+#interactive_form{
+	width: 20%;
+	float: left;
+	font-size: 12px;
+	color: gray;
+	margin-left: 20px;
+}
+
+#interactive_form label{
+	margin-top: 10px;
+}
+
+#interactive_example > #dendrogram{
+	width: 80%;
+}

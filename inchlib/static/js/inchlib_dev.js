@@ -139,7 +139,7 @@ function InCHlib(settings){
     this.user_settings = settings;
     var target_width = $("#" + settings.target).width();
     // When measuring the rendering duration
-    this.start = new Date().getTime();
+    // this.start = new Date().getTime();
 
     /**
     * Default values for the settings
@@ -689,7 +689,7 @@ InCHlib.prototype._get_min_max_middle = function(data){
     }
 
     var len = all.length;
-
+    all.sort(function(a,b){return a - b});
     min_max_middle.push((this.settings.min_quantile > 0)?all[this._hack_round(len*this.settings.min_quantile/100)]:Math.min.apply(null, all));
     min_max_middle.push((this.settings.max_quantile < 100)?all[this._hack_round(len*this.settings.max_quantile/100)]:Math.max.apply(null, all));
     min_max_middle.push((this.settings.middle_quantile != 50)?all[this._hack_round(len*this.settings.middle_quantile/100)]:this._middle2fnc(all));
@@ -729,7 +729,7 @@ InCHlib.prototype._get_data_min_max_middle = function(data, axis){
     for(i = 0; i<columns.length; i++){
         if(this._is_number(columns[i][0])){
             columns[i] = columns[i].map(parseFloat);
-            columns[i].sort();
+            columns[i].sort(function(a,b){return a - b});
             len = columns[i].length;
             max = (this.settings.max_quantile < 100)?columns[i][this._hack_round(len*this.settings.max_quantile/100)]:Math.max.apply(null, columns[i]);
             min = (this.settings.min_quantile > 0)?columns[i][this._hack_round(len*this.settings.min_quantile/100)]:Math.min.apply(null, columns[i]);
@@ -909,8 +909,8 @@ InCHlib.prototype.draw = function(){
     this._draw_navigation();
     this.highlight_rows(this.settings.highlighted_rows);
     // When measuring the rendering duration
-    this.end = new Date().getTime();
-    console.log(this.end - this.start);
+    // this.end = new Date().getTime();
+    // console.log(this.end - this.start);
 }
 
 InCHlib.prototype._draw_row_dendrogram = function(node_id){

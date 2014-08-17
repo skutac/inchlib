@@ -1,0 +1,76 @@
+{% extends "inchlib_base.html" %}
+
+{% block content %}
+
+{% load staticfiles %}
+
+<script src="{% static "js/inchlib_dev.js" %}"></script>
+<script src="{% static "js/jquery-2.0.3.min.js" %}"></script>
+<script src="{% static "js/kinetic-v5.1.0.min.js" %}"></script>
+
+<script>
+$(document).ready(function(){
+
+    window.dendrogram = new InCHlib(
+            {
+                target: "dendrogram",
+                // heatmap: false,
+                heatmap_header: true,
+                draw_row_ids: true,
+                column_metadata_row_height: 10,
+                column_metadata_colors: "BuYl",
+                dendrogram: true,
+                max_height: 900,
+                width: 800,
+                // heatmap_colors: "RdBkGr",
+                // metadata_colors: "RdLrBu",
+                // highlight_colors: "PuOr",
+                // heatmap_font_color: "white",
+                show_export_button: true,
+                // count_column: true,
+                values_center: "median",
+                // independent_columns: false,
+                // max_quantile: 80,
+                // min_quantile: 30,
+                // middle_quantile: 80
+            });
+    // dendrogram_1.add_color_scale("WhBk", {"start": {"r":255, "g": 255, "b": 255}, "middle": {"r": 236, "g": 158, "b": 56}, "end": {"r": 0, "g": 0, "b": 0}})
+
+    dendrogram.read_data_from_file("{% static "data/microarrays_column_metadata.json" %}");
+    dendrogram.draw();
+
+    $("#redraw_button").click(function(evt){
+        evt.preventDefault();
+        evt.stopPropagation();
+
+        var settings = {}, option, key, value;
+        var settings_fieldset = $("#interactive_form > fieldset > input");
+        settings_fieldset.each(function(){
+            option = $(this);
+            console.log(this)
+            key = option.attr("name");
+            value = option.val();
+            if(value != ""){
+                if(value == "on"){
+                    value = true;
+                }
+                settings[key] = value;
+            }
+        });
+        console.log(settings)
+        dendrogram.update_settings(settings);
+        dendrogram.redraw();
+    })
+});
+</script>
+
+        <form class="pure-form pure-form-stacked" id="interactive_form">
+        <fieldset>
+        {{ interactive_form }}
+        </fieldset>
+        <button id="redraw_button" class="pure-button pure-button-primary">Redraw</button>
+        </form>
+    <div id="dendrogram"></div>
+
+{% endblock %}
+
