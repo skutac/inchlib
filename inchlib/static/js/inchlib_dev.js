@@ -139,7 +139,7 @@ function InCHlib(settings){
     this.user_settings = settings;
     var target_width = $("#" + settings.target).width();
     // When measuring the rendering duration
-    this.start = new Date().getTime();
+    // this.start = new Date().getTime();
 
     /**
     * Default values for the settings
@@ -176,7 +176,10 @@ function InCHlib(settings){
         "draw_row_ids": false,
         "header_as_heatmap_row": false,
         "header_row_colors": "YlOrB",
-        "show_export_button": false
+        "show_export_button": false,
+        "max_quantile": 100,
+        "min_quantile": 0,
+        "middle_quantile": 50
     };
 
     $.extend(this.settings, settings);
@@ -685,9 +688,11 @@ InCHlib.prototype._get_min_max_middle = function(data){
         all = all.concat(data[i].filter(function(x){return x !== null}));
     }
 
-    min_max_middle.push(Math.min.apply(null, all));
-    min_max_middle.push(Math.max.apply(null, all));
-    min_max_middle.push(this._middle2fnc(all));
+    var len = all.length;
+    all.sort(function(a,b){return a - b});
+    min_max_middle.push((this.settings.min_quantile > 0)?all[this._hack_round(len*this.settings.min_quantile/100)]:Math.min.apply(null, all));
+    min_max_middle.push((this.settings.max_quantile < 100)?all[this._hack_round(len*this.settings.max_quantile/100)]:Math.max.apply(null, all));
+    min_max_middle.push((this.settings.middle_quantile != 50)?all[this._hack_round(len*this.settings.middle_quantile/100)]:this._middle2fnc(all));
     return min_max_middle;
 }
 
@@ -698,7 +703,7 @@ InCHlib.prototype._get_data_min_max_middle = function(data, axis){
 
     var self = this;
     var columns = data;
-    var i, j, value;
+    var i, j, value, len;
     var data_length = data[0].length;
 
     if(axis == "column"){
@@ -723,10 +728,12 @@ InCHlib.prototype._get_data_min_max_middle = function(data, axis){
 
     for(i = 0; i<columns.length; i++){
         if(this._is_number(columns[i][0])){
-            columns[i] = columns[i].map(parseFloat)
-            min = Math.min.apply(null, columns[i]);
-            max = Math.max.apply(null, columns[i]);
-            middle = this._middle2fnc(columns[i]);
+            columns[i] = columns[i].map(parseFloat);
+            columns[i].sort(function(a,b){return a - b});
+            len = columns[i].length;
+            max = (this.settings.max_quantile < 100)?columns[i][this._hack_round(len*this.settings.max_quantile/100)]:Math.max.apply(null, columns[i]);
+            min = (this.settings.min_quantile > 0)?columns[i][this._hack_round(len*this.settings.min_quantile/100)]:Math.min.apply(null, columns[i]);
+            middle = (this.settings.middle_quantile != 50)?columns[i][this._hack_round(len*this.settings.middle_quantile/100)]:this._middle2fnc(columns[i]);
             data2descs[i] = {"min": min, "max": max, "middle": middle};
         }
         else{
@@ -902,8 +909,8 @@ InCHlib.prototype.draw = function(){
     this._draw_navigation();
     this.highlight_rows(this.settings.highlighted_rows);
     // When measuring the rendering duration
-    this.end = new Date().getTime();
-    console.log(this.end - this.start);
+    // this.end = new Date().getTime();
+    // console.log(this.end - this.start);
 }
 
 InCHlib.prototype._draw_row_dendrogram = function(node_id){
@@ -1139,6 +1146,10 @@ InCHlib.prototype._delete_all_layers = function(){
 
 InCHlib.prototype._adjust_leaf_size = function(leaves){
     this.pixels_for_leaf = (this.settings.max_height-this.header_height-this.footer_height-this.column_metadata_height)/leaves;
+    if(this.pixels_for_leaf > this.pixels_for_dimension){
+      this.pixels_for_leaf = this.pixels_for_dimension;
+    }
+
     if(this.pixels_for_leaf > this.settings.max_row_height){
         this.pixels_for_leaf = this.settings.max_row_height;
     }
@@ -1383,7 +1394,6 @@ InCHlib.prototype._draw_heatmap_row = function(node_id, x1, y1){
 
         if(metadata !== undefined){
           for (var i = 0, len = this.on_features["metadata"].length; i < len; i++){
-              console.log(node_id)
               col_index = this.on_features["metadata"][i];
               value = metadata[col_index];
               x2 = x1 + this.pixels_for_dimension;
@@ -2029,6 +2039,9 @@ InCHlib.prototype._draw_cluster_layer = function(path_id){
     var count = this.data.nodes[path_id].count;
     var x = (this.settings.column_dendrogram)?10:50;
     var y = 10;
+    // if(this.navigation_layer.find("#refresh_icon")){
+    //   x = x + 40;
+    // }
 
     var rows_desc = this.objects_ref.count.clone({x: x + 25,
                                                       y: y - 5,
@@ -2696,8 +2709,12 @@ InCHlib.prototype._get_color_for_value = function(value, min, max, middle, color
     var c1 = color["start"];
     var c2 = color["end"];
 
-    if(min == max){
-        return 'rgb('+c1.r+','+c1.g+','+c1.b+')';
+    if(value > max){
+      return 'rgb('+c2.r+','+c2.g+','+c2.b+')';
+    }
+
+    if(min == max || value < min){
+      return 'rgb('+c1.r+','+c1.g+','+c1.b+')';
     }
 
     if(color["middle"] !== undefined){
@@ -2888,14 +2905,13 @@ InCHlib.prototype._get_visible_count = function(){
     return visible;
 }
 
-InCHlib.prototype.set_max_quantile = function(value){
+InCHlib.prototype.update_settings = function(settings_object){
+  $.extend(this.settings, settings_object);
   return;
 }
 
-InCHlib.prototype.set_min_quantile = function(value){
-  return; 
-}
-
-InCHlib.prototype.set_middle_quantile = function(value){
+InCHlib.prototype.redraw = function(){
+  this._delete_all_layers();
+  this.draw();
   return;
 }

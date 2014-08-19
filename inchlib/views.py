@@ -13,6 +13,8 @@ from django.conf import settings
 
 from examples.models import Examples, SettingsAttributes
 
+from inchlib_forms import InteractiveExampleForm
+
 try:
     with open(os.path.join(settings.ROOT, "static/source_data/proteins_report.csv"), "r") as pdb_input:
         reader = csv.DictReader(pdb_input, delimiter=",")
@@ -59,6 +61,10 @@ def examples(req, exampleid):
         template = "inchlib_examples_summary.html"
 
     return render_to_response(template, {"examples":examples, "example": example, "settings": settings, "next": next, "previous": previous})
+
+def interactive_example(req):
+    interactive_form = InteractiveExampleForm()
+    return render_to_response("inchlib_interactive_example.html", {"interactive_form": interactive_form})
 
 def use_cases(req, exampleid):
     examples = [e for e in Examples.objects.filter(exampletype=3)]
