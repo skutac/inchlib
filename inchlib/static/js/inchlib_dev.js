@@ -2679,6 +2679,7 @@ InCHlib.prototype._dendrogram_layers_mouseout = function(layer, evt){
 
 InCHlib.prototype._dendrogram_layers_mouseover = function(layer, evt){
   this.path_overlay = evt.target.attrs.path.clone({"strokeWidth": 4});
+  
   this.dendrogram_hover_layer.add(this.path_overlay);
   this.dendrogram_hover_layer.draw();
 }
