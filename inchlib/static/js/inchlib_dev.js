@@ -179,7 +179,8 @@ function InCHlib(settings){
         "show_export_button": false,
         "max_quantile": 100,
         "min_quantile": 0,
-        "middle_quantile": 50
+        "middle_quantile": 50,
+        "show_settings_button": true
     };
 
     $.extend(this.settings, settings);
@@ -1822,7 +1823,7 @@ InCHlib.prototype._draw_navigation = function(){
             label: "Export"
       });
 
-      var export_overlay = self._draw_icon_overlay(self.settings.width - 60, 0);
+      var export_overlay = self._draw_icon_overlay(self.settings.width - 62, 10);
       self.navigation_layer.add(export_icon, export_overlay);
 
       export_overlay.on("click", function(){
@@ -1835,6 +1836,31 @@ InCHlib.prototype._draw_navigation = function(){
          
       export_overlay.on("mouseout", function(){
           self._icon_mouseout(export_icon, export_overlay, self.navigation_layer);
+      });
+    }
+
+    if(self.settings.show_settings_button){
+      var settings_icon = this.objects_ref.icon.clone({
+            data: "M26.834,14.693c1.816-2.088,2.181-4.938,1.193-7.334l-3.646,4.252l-3.594-0.699L19.596,7.45l3.637-4.242c-2.502-0.63-5.258,0.13-7.066,2.21c-1.907,2.193-2.219,5.229-1.039,7.693L5.624,24.04c-1.011,1.162-0.888,2.924,0.274,3.935c1.162,1.01,2.924,0.888,3.935-0.274l9.493-10.918C21.939,17.625,24.918,16.896,26.834,14.693z",
+            x: self.settings.width - 62,
+            y: 80,
+            id: "settings_icon",
+            label: "Settings"
+      });
+
+      var settings_overlay = self._draw_icon_overlay(self.settings.width - 62, 80);
+      self.navigation_layer.add(settings_icon, settings_overlay);
+
+      settings_overlay.on("click", function(evt){
+          self._settings_icon_click(this, evt);
+      });
+          
+      settings_overlay.on("mouseover", function(){
+          self._icon_mouseover(settings_icon, settings_overlay, self.navigation_layer);
+      });
+         
+      settings_overlay.on("mouseout", function(){
+          self._icon_mouseout(settings_icon, settings_overlay, self.navigation_layer);
       });
     }
 
@@ -2595,6 +2621,71 @@ InCHlib.prototype._export_icon_click = function(){
     $('<a download="inchlib" href="'+ dataUrl + '"></a>')[0].click();
   }
 };
+
+InCHlib.prototype._settings_icon_click = function(icon, evt){
+  var self = this;
+  var i, option, key, value;
+  var show_options = {"heatmap_colors": "Heatmap data colors",
+                      "max_quantile": "Max quantile value",
+                      "min_quantile": "Min quantile value",
+                      "middle_quantile": "Middle quantile value"};
+  if(this.settings.column_metadata){
+    show_options["column_metadata_colors"] = "Column metadata colors";
+  }
+  var form_id = "settings_form_" + this.settings.target;
+  var settings_form = $("#" + form_id);
+  if(settings_form.length){
+    if(settings_form.is(":visible")){
+      settings_form.hide();
+    }
+    else{
+      settings_form.show();
+    }
+  }
+  else{
+    var target = $("#" + this.settings.target);
+    target.css({"position": "relative"});
+    settings_form = $("<form class='settings_form' id='" + form_id + "'></form>");
+    var options = "";
+
+    for(i = 0, keys = Object.keys(show_options), len = keys.length; i < len; i++){
+      key = keys[i];
+      option = "<div><div class='form_label'>" + show_options[key] + "</div><input type='text' name='" + key +"' value='"+ this.settings[key] + "'/></div>";
+      options = options + option;
+    }
+    options = options + '<button type="submit">Redraw</button>'
+    settings_form.html(options);
+    target.append(settings_form);
+    settings_form.css({"z-index": 1000, "position": "absolute", "top": 20, "left": this.stage.width(), "padding": "10px", "border": "solid #D2D2D2 2px", "border-radius": "5px", "background-color": "white"});
+    $("#" + form_id + " > div").css({"font-size": "12px", "margin-bottom": "10px"});  
+    $("#" + form_id + " input").css({"border-radius": "5px"});  
+    $("#" + form_id + " .form_label").css({"color": "gray", "margin-bottom": "5px", "font-style": "italic"});  
+    $("#" + form_id + " button").css({"padding-top": "7px", "padding-bottom": "5px", "padding-right": "5px", "padding-left": "5px", "color": "white", "border": "solid #D2D2D2 1px", "border-radius": "5px", "margin-top": "10px", "width": "100%", "background-color": "#2171b5"});  
+
+    settings_form.submit(function(evt){
+      var settings = {};
+      var settings_fieldset = $(this).find("input");
+
+      settings_fieldset.each(function(){
+          option = $(this);
+          key = option.attr("name");
+          value = option.val();
+          if(value != ""){
+              if(value == "on"){
+                  value = true;
+              }
+              settings[key] = value;
+          }
+      });
+      
+      self.update_settings(settings);
+      self.redraw();
+      evt.preventDefault();
+      evt.stopPropagation();
+    })
+
+  }
+}
 
 InCHlib.prototype._unzoom_icon_click = function(){
     var current_node_id = this.zoomed_clusters["row"].pop();
