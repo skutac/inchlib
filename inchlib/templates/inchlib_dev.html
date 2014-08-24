@@ -6,9 +6,9 @@
 <link rel="stylesheet" href="{% static "css/pure-min.css" %}" type="text/css"/>
 <link rel="stylesheet" href="{% static "css/inchlib.css" %}" type="text/css"/>
 <link rel="stylesheet" href="{% static "css/highlight.css" %}" type="text/css"/>
-<script src="{% static "js/inchlib_dev.js" %}"></script>
+<script src="{% static "js/inchlib-1.0.1.js" %}"></script>
 <script src="{% static "js/jquery-2.0.3.min.js" %}"></script>
-<script src="{% static "js/kinetic-v5.1.0.min.js" %}"></script>
+<script src="{% static "js/kinetic-v5.0.0.min.js" %}"></script>
 
 <title>InCHlib - Interactive Cluster Heatmap library</title>
 </head>
@@ -21,8 +21,8 @@ $(document).ready(function(){
                 // heatmap: false,
                 heatmap_header: true,
                 draw_row_ids: true,
-                column_metadata_row_height: 10,
-                column_metadata_colors: "BuYl",
+                // column_metadata_row_height: 10,
+                // column_metadata_colors: "BuYl",
                 dendrogram: true,
                 max_height: 900,
                 width: 800,
@@ -30,7 +30,7 @@ $(document).ready(function(){
                 // metadata_colors: "RdLrBu",
                 // highlight_colors: "PuOr",
                 // heatmap_font_color: "white",
-                show_export_button: true,
+                // show_export_button: true,
                 // count_column: true,
                 values_center: "median",
                 // independent_columns: false,
@@ -40,7 +40,7 @@ $(document).ready(function(){
             });
     // dendrogram_1.add_color_scale("WhBk", {"start": {"r":255, "g": 255, "b": 255}, "middle": {"r": 236, "g": 158, "b": 56}, "end": {"r": 0, "g": 0, "b": 0}})
 
-    dendrogram_1.read_data_from_file("{% static "data/microarrays_column_metadata.json" %}");
+    dendrogram_1.read_data_from_file("{% static "data/chembl_era_normalized.json" %}");
     dendrogram_1.draw();
     
     /*
