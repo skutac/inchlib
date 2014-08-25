@@ -516,7 +516,6 @@ function InCHlib(settings){
                             listening: false,
                         }),
 
-
         "heatmap_line": new Kinetic.Line({
                            lineCap: 'butt',
                            value: false,

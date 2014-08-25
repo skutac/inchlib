@@ -124,7 +124,7 @@
             var class2values = {"tumour":[], "normal":[]};
             var max_y = min_y + target_element.height() - dendrogram.footer_height;
             var i, j, values, row_id, done_rows = {};
-            var header = dendrogram.data.header;
+            var header = dendrogram.header;
             var boxplot_height = 400;
             
             y = (y + boxplot_height > max_y)?max_y - boxplot_height:y-100;
