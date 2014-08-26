@@ -2681,10 +2681,23 @@ InCHlib.prototype._get_font_size = function(text_length, width, height, max_font
 
 InCHlib.prototype._export_icon_click = function(){
   var self = this;
+  var zoom = 3;
+  var width = this.stage.width();
+  var height = this.stage.height();
+  this.stage.width(width*zoom);
+  this.stage.height(height*zoom);
+  $("#" + this.settings.target).hide();
+  this.stage.scale({x: zoom, y:zoom});
+  this.stage.draw();
   self.navigation_layer.hide();
   this.stage.toDataURL({
     quality: 1,
     callback: function(dataUrl){
+      self.stage.width(width);
+      self.stage.height(height);
+      self.stage.scale({x: 1, y:1});
+      self.stage.draw();
+      $("#" + self.settings.target).show();
       self.navigation_layer.show();
       self.navigation_layer.draw();
       download_image(dataUrl);
@@ -2692,7 +2705,9 @@ InCHlib.prototype._export_icon_click = function(){
   });
 
   function download_image(dataUrl){
-    $('<a download="inchlib" href="'+ dataUrl + '"></a>')[0].click();
+    window.open(dataUrl, '_blank');
+    // $('<a download="inchlib" href="'+ dataUrl + '"></a>')[0].click();
+    // $('<a target="blank" href="'+ dataUrl + '"></a>')[0].click();
   }
 };
 
