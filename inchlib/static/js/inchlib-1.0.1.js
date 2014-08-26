@@ -832,6 +832,7 @@ InCHlib.prototype.draw = function(){
     this.data_dimensions = this.dimensions;
     this.on_features = [];
     this.on_metadata_features = [];
+    this.current_object_ids = [];
 
     if(this.settings.metadata){
         this.metadata_dimensions = this._get_dimensions(this.metadata.nodes);
@@ -1982,6 +1983,10 @@ InCHlib.prototype._draw_cluster_layer = function(){
 
 InCHlib.prototype._zoom_cluster = function(node_id){
     if(node_id != this.zoomed_clusters[this.zoomed_clusters.length-1] && node_id != this.root_id){
+        this.current_object_ids = [];
+        this._get_object_ids(node_id);
+        this.events.on_zoom(this.current_object_ids,this._unprefix(node_id));
+
         this.zoomed_clusters.push(node_id);
         this._delete_all_layers();
         this._draw_stage_layer();
@@ -1995,8 +2000,6 @@ InCHlib.prototype._zoom_cluster = function(node_id){
         this._draw_heatmap();
         this._draw_heatmap_header();
         this.highlight_rows(this.settings.highlighted_rows);
-
-        this.events.on_zoom(this._unprefix(node_id));
     }
     else{
         return false;
@@ -2822,4 +2825,14 @@ InCHlib.prototype.redraw = function(){
   this._delete_all_layers();
   this.draw();
   return;
+}
+
+InCHlib.prototype._get_object_ids = function(node_id){
+    if(this.data.nodes[node_id]["left_child"] !== undefined){
+      this._get_object_ids(this.data.nodes[node_id]["left_child"]);
+      this._get_object_ids(this.data.nodes[node_id]["right_child"]);
+    }
+    else{
+      this.current_object_ids.push.apply(this.current_object_ids, this.data.nodes[node_id]["objects"])
+    }
 }

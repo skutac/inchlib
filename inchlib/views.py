@@ -15,6 +15,8 @@ from examples.models import Examples, SettingsAttributes
 
 from inchlib_forms import InteractiveExampleForm
 
+import inchlib_clust as clust
+
 try:
     with open(os.path.join(settings.ROOT, "static/source_data/proteins_report.csv"), "r") as pdb_input:
         reader = csv.DictReader(pdb_input, delimiter=",")
@@ -23,6 +25,12 @@ try:
     with open(os.path.join(settings.ROOT, "static/source_data/proteins_go_names.csv"), "r") as go_names_input:
         reader = csv.DictReader(go_names_input, delimiter=",")
         GO2NAME = {g["go"]:g["name"] for g  in reader}
+
+    with open(os.path.join(settings.ROOT, "static/source_data/example_data.csv"), "r") as input_data:
+        example_data = [r for r in csv.reader(input_data, delimiter=",")]
+
+    with open(os.path.join(settings.ROOT, "static/source_data/example_metadata.csv"), "r") as input_data:
+        example_metadata = [r for r in csv.reader(input_data, delimiter=",")]
 
 except Exception, e:
     print str(e)
@@ -59,6 +67,8 @@ def examples(req, exampleid):
     template = "inchlib_examples.html"
     if exampleid == "18":
         template = "inchlib_examples_summary.html"
+    elif exampleid == "5":
+        template = "inchlib_examples_row_compression.html"
 
     return render_to_response(template, {"examples":examples, "example": example, "settings": settings, "next": next, "previous": previous})
 
@@ -229,3 +239,18 @@ def get_scaffolds(req):
     scaffolds.sort(key = lambda x: len(x[1]), reverse=True)
 
     return HttpResponse(json.dumps(scaffolds))
+
+def get_compressed_rows_json_by_node(req):
+    row_ids = req.POST.getlist("row_ids[]")
+    data = [example_data[0]]
+    data.extend([r for r in example_data if r[0] in row_ids])
+
+    c = clust.Cluster()
+    c.read_data(data, header=True)
+    c.cluster_data(data_type="numeric", row_distance="euclidean", row_linkage="ward", axis="both")
+
+    d = clust.Dendrogram(c)
+    d.create_cluster_heatmap(compress=20, compressed_value="median")
+    d.add_metadata(example_metadata, header=True, metadata_compressed_value="median")
+    json = d.export_cluster_heatmap_as_json()
+    return HttpResponse(json)

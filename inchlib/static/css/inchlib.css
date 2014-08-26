@@ -606,3 +606,7 @@ sup{
 #interactive_example > #dendrogram{
 	width: 80%;
 }
+
+#around_dendrogram{
+	min-height: 800px;
+}
