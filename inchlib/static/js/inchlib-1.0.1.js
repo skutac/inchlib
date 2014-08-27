@@ -2884,8 +2884,9 @@ InCHlib.prototype.update_settings = function(settings_object){
 }
 
 InCHlib.prototype.redraw = function(){
+  var add_prefix = false;
   this._delete_all_layers();
-  this.draw(false);
+  this.draw(add_prefix);
   return;
 }
 
