@@ -53,6 +53,9 @@ def index(req):
 def release_notes(req):
     return render_to_response("inchlib_release_notes.html", {})
 
+def release_notes_inchlib_clust(req):
+    return render_to_response("inchlib_release_notes_inchlib_clust.html", {})
+
 def examples(req, exampleid):
     examples = [e for e in Examples.objects.filter(exampletype=1)]
     examples.sort(key=lambda e: e.order)
@@ -241,7 +244,7 @@ def get_scaffolds(req):
     return HttpResponse(json.dumps(scaffolds))
 
 def get_compressed_rows_json_by_node(req):
-    row_ids = req.POST.getlist("row_ids[]")
+    row_ids = req.GET.getlist("row_ids[]")
     data = [example_data[0]]
     data.extend([r for r in example_data if r[0] in row_ids])
 

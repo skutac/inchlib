@@ -3,14 +3,26 @@
 {% block content %}
 {% load staticfiles %}
 
+<div class="pure-menu pure-menu-open pure-menu-horizontal">
+    <ul>
+        <li class="pure-menu-selected"><a href="{% url release_notes %}">InChlib</a></li>
+        <li><a href="{% url release_notes_inchlib_clust %}">inchlib_clust</a></li>
+    </ul>
+</div>
+<hr/>
 
-<!-- <div class="description">
+
+<div class="description">
 	<h2>InCHlib 1.0.1 - August 2014</h2>
 	<ul>
-		<li>InCHlib 1.0.0 released</li>
+		<li>Added button to export cluster heatmap as a high resolution image</li>
+		<li>Added color scale icon which enables to change color scales of individual parts of heatmap in real time</li>
+		<li>Added <a href="../docs#update_settings" target=blank>update_settings()</a> method which enables to change visualization settings in real time</li>
+		<li>Added <a href="../docs#redraw" target=blank>redraw()</a> method for redrawing visualization e.g., with updated settings</li>
+		<li>Some bugfixes and code improvement</li>
 	</ul>
 </div>
-<hr /> -->
+<hr />
 
 <div class="description">
 	<h2>InCHlib 1.0.0 - March 2014</h2>

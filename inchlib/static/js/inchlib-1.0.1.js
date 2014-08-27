@@ -137,7 +137,9 @@
 
 function InCHlib(settings){
     this.user_settings = settings;
-    var target_width = $("#" + settings.target).width();
+    this.target_element = $("#" + settings.target);
+    var target_width = this.target_element.width();
+    this.target_element.css({"position": "relative"});
     // When measuring the rendering duration
     // this.start = new Date().getTime();
 
@@ -824,8 +826,10 @@ InCHlib.prototype._reorder_heatmap = function(column_index){
 /**
   * Draw already read data (from file/JSON variable).
   */
-InCHlib.prototype.draw = function(){
-    this._add_prefix();
+InCHlib.prototype.draw = function(add_prefix){
+    if(add_prefix === undefined){
+      this._add_prefix();
+    }
     this.dimensions = this._get_dimensions(this.data.nodes);
     this.zoomed_clusters = [];
     this.heatmap_array = this._preprocess_heatmap_data();
@@ -1692,7 +1696,7 @@ InCHlib.prototype._draw_navigation = function(){
             x: self.settings.width - 62,
             y: 10,
             id: "export_icon",
-            label: "Export"
+            label: "Export\nin png format"
       });
 
       var export_overlay = self._draw_icon_overlay(self.settings.width - 62, 10);
@@ -2159,8 +2163,7 @@ InCHlib.prototype._draw_horizontal_path = function(path_id, x1, y1, x2, y2, left
 
 InCHlib.prototype._filter_icon_click = function(filter_button){
     var self = this;
-    var target_element = $("#" + self.settings.target);
-    var filter_features_element = $("#" + self.settings.target).find(".filter_features");
+    var filter_features_element = this.target_element.find(".filter_features");
     var symbol = "✖";
 
     if(filter_features_element.length){
@@ -2315,8 +2318,7 @@ InCHlib.prototype._filter_icon_click = function(filter_button){
 }
 
 InCHlib.prototype._draw_target_overlay = function(){
-    var target_element = $("#" + this.settings.target);
-    var overlay = target_element.find(".target_overlay");
+    var overlay = this.target_element.find(".target_overlay");
 
     if(overlay.length){
       overlay.fadeIn("fast");
@@ -2331,9 +2333,7 @@ InCHlib.prototype._draw_target_overlay = function(){
                       "bottom": 0,
                       "opacity": 0.5
           });
-
-      target_element.css({"position": "relative"});
-      target_element.append(overlay);
+      this.target_element.append(overlay);
     }
 
     return overlay;
@@ -2376,6 +2376,10 @@ InCHlib.prototype._icon_mouseover = function(icon, icon_overlay, layer){
     var width = icon_overlay.getWidth();
     var height = icon_overlay.getHeight();
 
+    if(icon.getAttr("id") === "export_icon"){
+      x = x - 50;
+    }
+
     this.icon_tooltip = this.objects_ref.tooltip_label.clone({x: x,
         y: y+1.2*height
     });
@@ -2412,13 +2416,11 @@ InCHlib.prototype._color_scale_click = function(icon, evt){
   var form_id = "settings_form_" + this.settings.target;
   var settings_form = $("#" + form_id);
   var overlay = this._draw_target_overlay();
-  var target = $("#" + this.settings.target);
 
   if(settings_form.length){
     settings_form.fadeIn("fast");
   }
   else{
-    target.css({"position": "relative"});
     settings_form = $("<form class='settings_form' id='" + form_id + "'></form>");
     var options = "", color_1, color_2, color_3;
 
@@ -2434,7 +2436,7 @@ InCHlib.prototype._color_scale_click = function(icon, evt){
     options = options + '<button type="submit">Redraw</button>'
     settings_form.html(options);
 
-    target.append(settings_form);
+    this.target_element.append(settings_form);
     settings_form.css({"z-index": 1000, "position": "absolute", "top": 110, "left": 0, "padding": "10px", "border": "solid #D2D2D2 2px", "border-radius": "5px", "background-color": "white"});
     $("#" + form_id + " .color_button").css({"border": "solid #D2D2D2 1px", "height": "15px", "width": "30px", "display": "inline-block"});  
     $("#" + form_id + " > div").css({"font-size": "12px", "margin-bottom": "10px"});  
@@ -2483,8 +2485,7 @@ InCHlib.prototype._color_scale_click = function(icon, evt){
 }
 
 InCHlib.prototype._draw_color_scales_select = function(element, evt){
-  var target_element = $("#" + this.settings.target);
-  var scales_div = target_element.find(".color_scales");
+  var scales_div = this.target_element.find(".color_scales");
   var scale_divs;
   var self = this;
 
@@ -2504,7 +2505,7 @@ InCHlib.prototype._draw_color_scales_select = function(element, evt){
       scale = "<div class='color_scale' data-scale_acronym='" + key + "' style='background: linear-gradient(to right, " + color_1 + "," + color_2 + "," + color_3 + ")'></div>";
       scales_div.append(scale);
     }
-    target_element.append(scales_div);
+    this.target_element.append(scales_div);
     scales_div.css({"border": "solid #D2D2D2 2px",
                    "border-radius": "5px",
                    "padding": "5px",
@@ -2513,7 +2514,7 @@ InCHlib.prototype._draw_color_scales_select = function(element, evt){
                    "left": 170,
                    "background-color": "white"});
 
-    scale_divs = target_element.find(".color_scale");
+    scale_divs = this.target_element.find(".color_scale");
     scale_divs.css({"margin-top":"3px",
                     "width": "80px",
                     "height": "20px",
@@ -2524,7 +2525,7 @@ InCHlib.prototype._draw_color_scales_select = function(element, evt){
       function(){$(this).css({"opacity": 1})}
     );
 
-    target_element.find(".target_overlay").click(function(){
+    this.target_element.find(".target_overlay").click(function(){
       scales_div.fadeOut("fast");
     });
   }
@@ -2681,34 +2682,80 @@ InCHlib.prototype._get_font_size = function(text_length, width, height, max_font
 
 InCHlib.prototype._export_icon_click = function(){
   var self = this;
-  var zoom = 3;
-  var width = this.stage.width();
-  var height = this.stage.height();
-  this.stage.width(width*zoom);
-  this.stage.height(height*zoom);
-  $("#" + this.settings.target).hide();
-  this.stage.scale({x: zoom, y:zoom});
-  this.stage.draw();
-  self.navigation_layer.hide();
-  this.stage.toDataURL({
-    quality: 1,
-    callback: function(dataUrl){
-      self.stage.width(width);
-      self.stage.height(height);
-      self.stage.scale({x: 1, y:1});
+  var export_menu = this.target_element.find(".export_menu");
+  var overlay = this._draw_target_overlay();
+
+  if(export_menu.length){
+    export_menu.fadeIn("fast");
+  }
+  else{
+    export_menu = $("<div class='export_menu'><div><button type='submit' data-action='open'>Show image</button></div><div><button type='submit' data-action='save'>Save image</button></div></div>");
+    this.target_element.append(export_menu);
+    export_menu.css({"position": "absolute",
+                    "top": 45,
+                    "left": self.settings.width - 125,
+                    "font-size": "12px",
+                    "border": "solid #D2D2D2 1px",
+                    "border-radius": "5px",
+                    "padding": "2px",
+                    "background-color": "white"});
+
+    var buttons = export_menu.find("button");
+    buttons.css({"padding-top": "7px", "padding-bottom": "5px", "padding-right": "8px", "padding-left": "8px", "color": "white", "border": "solid #D2D2D2 1px", "width": "100%", "background-color": "#2171b5", "font-weight": "bold"});  
+
+    buttons.hover(
+      function(){$(this).css({"cursor": "pointer", "opacity": 0.7})},
+      function(){$(this).css({"opacity": 1})}
+    );
+
+    overlay.click(function(){
+      export_menu.fadeOut("fast");
+      overlay.fadeOut("fast");
+    });
+
+    buttons.click(function(){
+      var action = $(this).attr("data-action");
+      var zoom = 3;
+      var width = self.stage.width();
+      var height = self.stage.height();
+      var loading_div = $("<h3 style='margin-top: 100px; margin-left: 100px; width: " + width + "px; height: " + height + "px;'>Loading...</h3>");
+      self.target_element.after(loading_div);
+      self.target_element.hide();
+      self.stage.width(width*zoom);
+      self.stage.height(height*zoom);
+      self.stage.scale({x: zoom, y:zoom});
       self.stage.draw();
-      $("#" + self.settings.target).show();
-      self.navigation_layer.show();
-      self.navigation_layer.draw();
-      download_image(dataUrl);
-    }
-  });
+      self.navigation_layer.hide();
+      self.stage.toDataURL({
+        quality: 1,
+        callback: function(dataUrl){
+          if(action === "open"){
+            open_image(dataUrl);
+          }
+          else{
+            download_image(dataUrl);
+          }
+          self.stage.width(width);
+          self.stage.height(height);
+          self.stage.scale({x: 1, y:1});
+          self.stage.draw();
+          loading_div.remove();
+          self.target_element.show();
+          self.navigation_layer.show();
+          self.navigation_layer.draw();
+          overlay.trigger("click");
+        }
+      });
+    });
+  }
 
   function download_image(dataUrl){
+    $('<a download="inchlib" href="'+ dataUrl + '"></a>')[0].click();
+  };
+  
+  function open_image(dataUrl){
     window.open(dataUrl, '_blank');
-    // $('<a download="inchlib" href="'+ dataUrl + '"></a>')[0].click();
-    // $('<a target="blank" href="'+ dataUrl + '"></a>')[0].click();
-  }
+  };
 };
 
 InCHlib.prototype._collect_object_ids = function(y1,y2){
@@ -2838,7 +2885,7 @@ InCHlib.prototype.update_settings = function(settings_object){
 
 InCHlib.prototype.redraw = function(){
   this._delete_all_layers();
-  this.draw();
+  this.draw(false);
   return;
 }
 

@@ -34,57 +34,57 @@
 		dendrogram.read_data_from_file("{% static "data/"|add:example.data %}");
 		dendrogram.draw();
 
-		// dendrogram._unzoom_icon_click = function(){
-		// 	return false;
-		// }
+		dendrogram._unzoom_icon_click = function(){
+			return false;
+		}
 
-		// dendrogram.events.row_onclick = function(object_ids, evt){
-		// 	console.log(object_ids);
-		// };
+		dendrogram.events.row_onclick = function(object_ids, evt){
+			console.log(object_ids);
+		};
 
-		// dendrogram.events.on_zoom = function(object_ids, node_id, evt){
-		// 	$("#dendrogram").hide();
-		// 	$.ajax({
-  //               type: 'POST',
-  //               dataType: "json",
-  //               url: "{% url get_compressed_rows %}",
-  //               data:{row_ids: object_ids, csrfmiddlewaretoken : getCookie('csrftoken'),},
-  //               success: function(json){
-  //               	prev_clusters.push([node_id, $.extend(true, {}, current_json)]);
-  //               	current_json = {};
-  //               	$.extend(true, current_json, json);
-  //                   dendrogram.read_data(json);
-  //                   dendrogram.redraw();
-  //                   dendrogram.zoomed_clusters = [dendrogram.root_id];
-  //                   dendrogram._draw_navigation();
-  //                   $("#dendrogram").fadeIn("fast");
-  //               },
-  //           });
-		// };
+		dendrogram.events.on_zoom = function(object_ids, node_id, evt){
+			$("#dendrogram").hide();
+			$.ajax({
+                type: 'GET',
+                dataType: "json",
+                url: "{% url get_compressed_rows %}",
+                data:{row_ids: object_ids, csrfmiddlewaretoken : getCookie('csrftoken'),},
+                success: function(json){
+                	prev_clusters.push([node_id, $.extend(true, {}, current_json)]);
+                	current_json = {};
+                	$.extend(true, current_json, json);
+                    dendrogram.read_data(json);
+                    dendrogram.redraw();
+                    dendrogram.zoomed_clusters = [dendrogram.root_id];
+                    dendrogram._draw_navigation();
+                    $("#dendrogram").fadeIn("fast");
+                },
+            });
+		};
 
-		// dendrogram.events.on_unzoom = function(){
-		// 	$("#dendrogram").hide();
-		// 	if(prev_clusters.length > 1){
-		// 		prev_cluster = prev_clusters.pop();
-		//         dendrogram.read_data(prev_cluster[1]);
-	 //            dendrogram.redraw();
-	 //            dendrogram.zoomed_clusters = [dendrogram.root_id]
-	 //            dendrogram.highlight_cluster(prev_cluster[0]);
-	 //            dendrogram._draw_navigation();
-		// 	}
-		// 	else{
-		// 		var highlight = prev_clusters[0][0];
-		// 		dendrogram.events.on_refresh();
-		// 		dendrogram.highlight_cluster(highlight);
-		// 	}
-		// 	$("#dendrogram").fadeIn("fast");
-		// };
+		dendrogram.events.on_unzoom = function(){
+			$("#dendrogram").hide();
+			if(prev_clusters.length > 1){
+				prev_cluster = prev_clusters.pop();
+		        dendrogram.read_data(prev_cluster[1]);
+	            dendrogram.redraw();
+	            dendrogram.zoomed_clusters = [dendrogram.root_id]
+	            dendrogram.highlight_cluster(prev_cluster[0]);
+	            dendrogram._draw_navigation();
+			}
+			else{
+				var highlight = prev_clusters[0][0];
+				dendrogram.events.on_refresh();
+				dendrogram.highlight_cluster(highlight);
+			}
+			$("#dendrogram").fadeIn("fast");
+		};
 
-		// dendrogram.events.on_refresh = function(){
-		// 	dendrogram.read_data_from_file("{% static "data/"|add:example.data %}");
-		// 	dendrogram.redraw();
-		// 	prev_clusters = [];
-		// };
+		dendrogram.events.on_refresh = function(){
+			dendrogram.read_data_from_file("{% static "data/"|add:example.data %}");
+			dendrogram.redraw();
+			prev_clusters = [];
+		};
 
 		function getCookie(c_name){ // from http://www.w3schools.com/js/js_cookies.asp
 		    var c_value = document.cookie;
