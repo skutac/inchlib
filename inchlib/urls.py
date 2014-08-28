@@ -3,12 +3,12 @@ from django.views.generic.base import RedirectView
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
-import config
+from django.conf import settings
 admin.autodiscover()
 
 urlpatterns = patterns('',
     # # Examples:
-    url(r'^$', RedirectView.as_view(url="/".join([config.BASE_URL, 'home/'])), name="redirect"),
+    url(r'^$', RedirectView.as_view(url="/".join([settings.BASE_URL, 'home/'])), name="redirect"),
     url(r'^home/$', 'inchlib.views.index', name='index'),
     url(r'^examples/(\d+)$', 'inchlib.views.examples', name='examples'),
     url(r'^use_cases/(\d+)$', 'inchlib.views.use_cases', name='use_cases'),

@@ -3,6 +3,12 @@
 {% block content %}
 {% load staticfiles %}
 
+<script>
+    $(document).ready(function() {
+        $("#menu_tutorial").addClass('pure-menu-selected'); 
+    });
+</script>
+
 <div id="examples_menu" class="pure-menu pure-menu-open">
     <a class="pure-menu-heading"><b>Examples</b></a>
     
@@ -68,7 +74,6 @@
 <p>The file <a href="{% static "data/example.json" %}" target=blank>example.json</a> describes dendrogram structure and it contains all data necessary for cluster heatmap visualization. No ther file is needed to render the cluster heatmap. An example below demonstrates how easy it is to integrate InCHlib visualization into your web page.</p>
 
 <p>inchlib.js (and its dependencies <a href="{% static "js/jquery-2.0.3.min.js" %}" target=blank>jquery-2.0.3.min.js</a> and <a href="{% static "js/kinetic-v5.0.0.min.js" %}" target=blank>kinetic-v5.0.0.min.js</a>) must be first imported in the <i>&lt;script&gt;</i> tag. InCHlib is initialized immediately when the whole page is loaded (detected by the <i>$(document).ready</i> event), and it contains several attributes defining the appearance of the visualization (all attributes are documented <a href="{% url docs %}" target=blank>here</a>). Finally, <a href="{% static "data/example.json" %}" target=blank>example.json</a> is loaded, and the cluster heatmap is displayed.
-
 </p>
 
 <p>Below is an example of a simple HTML web page with InCHlib integration:</p>
@@ -102,6 +107,9 @@
 </div>
 
 <p><a href="{% url inchlib_examples_summary_html %}" target=blank class="small_title">You can see the resulted web page here >></a></p>
+
+<div class="small_title">New in inchlib_clust 0.1.2</div>
+<p>Simple HTML page with embedded cluster heatmap can also be exported by <a href="{% url inchlib_clust %}" target=blank>inchlib_clust</a> using the <i>export_cluster_heatmap_as_html()</i> function (<i>-html /path/to/dir</i> in command-line). All files including dependencies are stored to the user defined directory (to current directory when directory parameter is not provided).</p>
 
 </div>
 </div>

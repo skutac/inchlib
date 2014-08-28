@@ -232,25 +232,22 @@ class Dendrogram():
         return dendrogram_json
 
     def export_cluster_heatmap_as_html(self, htmldir="."):
-        """Returns cluster heatmap in a JSON format or exports it to the file specified by the filename parameter."""
+        """Export simple HTML page with embedded cluster heatmap and dependencies to given directory."""
         if not os.path.exists(htmldir):
             os.makedirs(htmldir)
         dendrogram_json = json.dumps(self.dendrogram, indent=4)
         template = """<html>
         <head>
-            <script src="jquery.js"></script>
-            <script src="kinetic.js"></script>
-            <script src="inchlib.js"></script>
+            <script src="jquery-2.0.3.min.js"></script>
+            <script src="kinetic-v5.0.0.min.js"></script>
+            <script src="inchlib-1.0.1.min.js"></script>
             <script>
             $(document).ready(function() {{
                 var data = {};
                 var inchlib = new InCHlib({{
                     target: "inchlib",
-                    metadata: true, 
                     max_height: 1200,
                     width: 1000,
-                    heatmap_colors: "Greens",
-                    metadata_colors: "Reds",
                 }});
                 inchlib.read_data(data);
                 inchlib.draw();
@@ -263,17 +260,20 @@ class Dendrogram():
         </body>
         </html>""".format(dendrogram_json)
 
-        lib2url = {"inchlib.js": "http://openscreen.cz/software/inchlib/static/js/inchlib-1.0.0.min.js",
-                    "jquery.js": "http://openscreen.cz/software/inchlib/static/js/jquery-2.0.3.min.js",
-                    "kinetic.js": "http://openscreen.cz/software/inchlib/static/js/kinetic-v5.0.0.min.js"}
+        lib2url = {"inchlib-1.0.1.min.js": "http://openscreen.cz/software/inchlib/static/js/inchlib-1.0.1.min.js",
+                    "jquery-2.0.3.min.js": "http://openscreen.cz/software/inchlib/static/js/jquery-2.0.3.min.js",
+                    "kinetic-v5.0.0.min.js": "http://openscreen.cz/software/inchlib/static/js/kinetic-v5.0.0.min.js"}
         
         for lib, url in lib2url.items():
-            source = urllib2.urlopen(url)
-            source_html = source.read()
-            with open(os.path.join(htmldir, lib), "w") as output:
-                output.write(source_html)
+            try:
+                source = urllib2.urlopen(url)
+                source_html = source.read()
+                with open(os.path.join(htmldir, lib), "w") as output:
+                    output.write(source_html)
+            except urllib2.URLError, e:
+                raise Exception("\nCan't download file {}.\nPlease check your internet connection and try again.\nIf the error persists there can be something wrong with the InCHlib server.\n".format(url))
 
-        with open(os.path.join(htmldir, "inchlib.html"), "w") as output:
+        with open(os.path.join(htmdlir, "inchlib.html"), "w") as output:
             output.write(template)
         return
 
@@ -412,28 +412,7 @@ class Cluster():
         
         self.data_names = [str(row[0]) for row in rows[data_start:]]
         self.data = [[round(float(value), 3) for value in row[1:]] for row in rows[data_start:]]
-        return
-
-    def __binarize_nominal_data__(self):
-        nominal_data = zip(*self.data)
-        pos2bits = {}
-        self.binarized_data = []
-        
-        for x in xrange(len(nominal_data)):
-            unique = list(set(nominal_data[x]))
-            unique.sort()
-            pos2bits[x] = unique
-
-        for row in self.data:
-            binarized_row = []
-            for pos in xrange(len(row)):
-                binarized_position = [0 for x in xrange(len(pos2bits[pos]))]
-                binarized_position[pos2bits[pos].index(row[pos])] = 1
-                binarized_row.extend(binarized_position)
-            self.binarized_data.append(binarized_row)
-
         self.original_data = copy.deepcopy(self.data)
-        self.data = self.binarized_data
         return
 
     def normalize_data(self, feature_range=(0,1), write_original=False):
@@ -441,7 +420,6 @@ class Cluster():
         the normalized data will be clustered, but original data will be written to the heatmap."""
         self.write_original = write_original
         min_max_scaler = preprocessing.MinMaxScaler(feature_range)
-        self.original_data = copy.deepcopy(self.data)
         self.data = min_max_scaler.fit_transform(self.data)
         self.data = [[round(v, 3) for v in row] for row in self.data]
         return

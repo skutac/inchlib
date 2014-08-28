@@ -3,6 +3,7 @@
 {% block content %}
 <script>
 	$(document).ready(function(){
+        $("#menu_use_cases").addClass('pure-menu-selected'); 
 		window.dendrogram = new InCHlib({{ settings }});
 		{% load staticfiles %}
 		dendrogram.read_data_from_file("{% static "data/"|add:example.data %}");

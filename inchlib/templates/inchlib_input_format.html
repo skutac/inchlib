@@ -2,6 +2,12 @@
 
 {% block content %}
 
+<script>
+    $(document).ready(function() {
+        $("#menu_docs").addClass('pure-menu-selected'); 
+    });
+</script>
+
 <div class="pure-menu pure-menu-open pure-menu-horizontal">
     <ul>
         <li><a href="{% url docs %}">InCHlib</a></li>

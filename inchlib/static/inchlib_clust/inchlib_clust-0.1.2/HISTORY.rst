@@ -1,6 +1,10 @@
 Changelog for pem
 =================
 
+0.1.2 (28-08-2014)
+------------------
+   - export_cluster_heatmap_as_html() function added
+
 0.1.1 (08-07-2014)
 ------------------
    - Minor fixes in functioning

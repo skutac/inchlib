@@ -6,6 +6,7 @@
 	var settings = {{ settings }};
 
 	$(document).ready(function(){
+		$("#menu_tutorial").addClass('pure-menu-selected'); 
 		var settings_string = "{}", i, val;
 		var prev_clusters = [], current_json = null, prev_json, prev_cluster;
 
@@ -53,8 +54,9 @@
                 	prev_clusters.push([node_id, $.extend(true, {}, current_json)]);
                 	current_json = {};
                 	$.extend(true, current_json, json);
+                	dendrogram._delete_all_layers();
                     dendrogram.read_data(json);
-                    dendrogram.redraw();
+                    dendrogram.draw();
                     dendrogram.zoomed_clusters = [dendrogram.root_id];
                     dendrogram._draw_navigation();
                     $("#dendrogram").fadeIn("fast");
@@ -66,8 +68,9 @@
 			$("#dendrogram").hide();
 			if(prev_clusters.length > 1){
 				prev_cluster = prev_clusters.pop();
+				dendrogram._delete_all_layers();
 		        dendrogram.read_data(prev_cluster[1]);
-	            dendrogram.redraw();
+	            dendrogram.draw();
 	            dendrogram.zoomed_clusters = [dendrogram.root_id]
 	            dendrogram.highlight_cluster(prev_cluster[0]);
 	            dendrogram._draw_navigation();
@@ -81,8 +84,9 @@
 		};
 
 		dendrogram.events.on_refresh = function(){
+			dendrogram._delete_all_layers();
 			dendrogram.read_data_from_file("{% static "data/"|add:example.data %}");
-			dendrogram.redraw();
+			dendrogram.draw();
 			prev_clusters = [];
 		};
 

@@ -9,7 +9,7 @@ def read(*paths):
 
 setup(
     name='inchlib_clust',
-    version='0.1.1',
+    version='0.1.2',
     description='Cluster and prepare data in proper format for InCHlib library',
     long_description=(read('README.rst') + '\n\n' +
                       read('HISTORY.rst') + '\n\n' +

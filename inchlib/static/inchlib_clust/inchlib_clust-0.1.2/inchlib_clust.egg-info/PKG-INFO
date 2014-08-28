@@ -1,6 +1,6 @@
 Metadata-Version: 1.1
 Name: inchlib-clust
-Version: 0.1.1
+Version: 0.1.2
 Summary: Cluster and prepare data in proper format for InCHlib library
 Home-page: http://openscreen.cz/software/inchlib/download
 Author: Ctibor Skuta
@@ -11,6 +11,10 @@ Description: inchlib_clust: Clustering and data preparation for InCHlib
         
         Changelog for pem
         =================
+        
+        0.1.2 (28-08-2014)
+        ------------------
+           - export_cluster_heatmap_as_html() function added
         
         0.1.1 (08-07-2014)
         ------------------

@@ -6,6 +6,7 @@
 	var settings = {{ settings }};
 
 	$(document).ready(function(){
+		$("#menu_tutorial").addClass('pure-menu-selected'); 
 		var settings_string = "{}", i, val;
 
 		if(!($.isEmptyObject(settings))){

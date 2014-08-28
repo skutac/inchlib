@@ -3,6 +3,12 @@
 {% block content %}
 {% load staticfiles %}
 
+<script>
+  $(document).ready(function() {
+   $("#menu_docs").addClass('pure-menu-selected'); 
+  });
+</script>
+
 <div class="pure-menu pure-menu-open pure-menu-horizontal">
     <ul>
         <li><a href="{% url docs %}">InCHlib</a></li>
@@ -60,6 +66,11 @@
       <b>-h, --help</b>            show this help message and exit
       <b>-o OUTPUT_FILE, --output_file OUTPUT_FILE</b>
                             the name of output file (<i>default:</i> None)
+                            
+      <b>-html DIRECTORY, --html_dir DIRECTORY</b>
+                            directory where simple HTML page with embedded cluster heatmap
+                            and dependencies is stored (<i>default:</i> .)
+
       <b>-rd ROW_DISTANCE, --row_distance ROW_DISTANCE</b>
                             set the distance to use for clustering rows(<i>default:</i> euclidean)
                             

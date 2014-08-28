@@ -78,9 +78,6 @@
 * @option {boolean} [independent_columns=false]
 *   determines whether the color scale is based on the values from all columns together or for each column separately
 
-* @option {string} [label_color=grey]
-*   color of column label
-
 * @option {number} [max_column_width=100]
 *   maximum column width in pixels
 
@@ -163,7 +160,6 @@ function InCHlib(settings){
         "metadata_colors" : "Oranges",
         "highlight_colors" : "Reds",
         "highlighted_rows" : [],
-        "label_color": "#9E9E9E",
         "count_column": false,
         "count_column_colors": "Reds",
         "min_row_height": false,
@@ -435,7 +431,7 @@ function InCHlib(settings){
                          }),
 
         "tooltip_tag": new Kinetic.Tag({
-                            fill: this.settings.label_color,
+                            fill: "#9E9E9E",
                             pointerWidth: 10,
                             pointerHeight: 10,
                             lineJoin: 'round',
@@ -888,7 +884,6 @@ InCHlib.prototype.draw = function(add_prefix){
         }
     }
     else{
-        this.settings.heatmap_part_width = 1;
         this.settings.column_dendrogram = false;
         this.distance = this._hack_round((this.settings.width-this.heatmap_width)/2);
         this._reorder_heatmap(0);
@@ -1146,6 +1141,7 @@ InCHlib.prototype._set_heatmap_settings = function(){
     }
 
     this.settings.heatmap_part_width = this.dimensions?this.settings.heatmap_part_width:0;
+    this.settings.heatmap_part_width = this.settings.dendrogram?this.settings.heatmap_part_width:1;
     this.heatmap_width = this.dimensions?this._hack_round(this.settings.heatmap_part_width*(this.settings.width-100)):0;
     this.pixels_for_dimension = this.dimensions?this.heatmap_width/this.dimensions:0;
 
@@ -2289,11 +2285,14 @@ InCHlib.prototype._filter_icon_click = function(filter_button){
             self.heatmap_width = self.settings.width - self.distance - 100;
 
             var current_dimensions_count = self.on_features.length+self.on_metadata_features.length;
+            if(self.settings.count_column && self.features[self.features.length-1] === 1){
+              current_dimensions_count++;
+            }
             self.pixels_for_dimension = self.heatmap_width/(current_dimensions_count);
             self.pixels_for_dimension = (self.pixels_for_dimension > self.settings.max_column_width)?self.settings.max_column_width:self.pixels_for_dimension;
             var curren_width = self.distance + self.heatmap_width;
-            self.distance = curren_width - current_dimensions_count*self.pixels_for_dimension;
             self.heatmap_width = current_dimensions_count*self.pixels_for_dimension;
+            self.distance = self.settings.dendrogram?curren_width - current_dimensions_count*self.pixels_for_dimension:self._hack_round((self.settings.width-self.heatmap_width)/2);
 
             
             self._delete_all_layers();
@@ -2606,7 +2605,8 @@ InCHlib.prototype._dendrogram_layers_mouseover = function(evt){
 
 InCHlib.prototype._visible_features_equal_column_dendrogram_count = function(){
     var i;
-    if((this.on_features.length + this.on_metadata_features.length) == (this.data_dimensions + this.metadata_dimensions)){
+
+    if(this.on_features.length === this.data_dimensions){
         return true;
     }
     return false;

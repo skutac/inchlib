@@ -3,6 +3,12 @@
 {% block content %}
 {% load staticfiles %}
 
+<script>
+    $(document).ready(function() {
+        $("#menu_release_notes").addClass('pure-menu-selected'); 
+    });
+</script>
+
 <div class="pure-menu pure-menu-open pure-menu-horizontal">
     <ul>
         <li class="pure-menu-selected"><a href="{% url release_notes %}">InChlib</a></li>
@@ -15,10 +21,11 @@
 <div class="description">
 	<h2>InCHlib 1.0.1 - August 2014</h2>
 	<ul>
-		<li>Added button to export cluster heatmap as a high resolution image</li>
+		<li>Added button to export cluster heatmap as a high resolution image (<a href="../docs#show_export_button" target=blank>show_export_button</a> settings attribute added)</li>
 		<li>Added color scale icon which enables to change color scales of individual parts of heatmap in real time</li>
 		<li>Added <a href="../docs#update_settings" target=blank>update_settings()</a> method which enables to change visualization settings in real time</li>
 		<li>Added <a href="../docs#redraw" target=blank>redraw()</a> method for redrawing visualization e.g., with updated settings</li>
+		<li>Automatic detection of presence of individual parts of cluster heatmap (metadata, column dendrogram) i.e., when metadata attribute is not specified InCHlib automatically detects whether the metadata are present or not</li>
 		<li>Some bugfixes and code improvement</li>
 	</ul>
 </div>

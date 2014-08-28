@@ -3,17 +3,24 @@
 {% block content %}
 
 {% load staticfiles %}
+
+<script>
+    $(document).ready(function() {
+        $("#menu_download").addClass('pure-menu-selected'); 
+    });
+</script>
+
 <div class="description">
 	<div class="title">InCHlib</div>
 
 	<p><b>InCHlib</b> is open-source software released under the <a href="http://opensource.org/licenses/MIT" target=blank>MIT license</a>.</p>
 
 	<div class="pure-button download_button">
-		<a href="{% static "js/inchlib-1.0.1.js" %}" target=blank>Download InCHlib 1.0.1 <span class="size">(103.3 KB)</span></a>
+		<a href="{% static "js/inchlib-1.0.1.js" %}" target=blank>Download InCHlib 1.0.1 <span class="size">(103.5 KB)</span></a>
 	</div>
 
 	<div class="pure-button download_button" id="min_button">
-		<a href="{% static "js/inchlib-1.0.1.min.js" %}" target=blank>Download the compressed InCHlib 1.0.1 <span class="size">(54.3 KB)</span></a>
+		<a href="{% static "js/inchlib-1.0.1.min.js" %}" target=blank>Download the compressed InCHlib 1.0.1 <span class="size">(54.4 KB)</span></a>
 	</div>
 
 	<div class="small_title">
@@ -36,7 +43,7 @@
 	<div class="title">inchlib_clust</div>
 
 	<div class="pure-button download_button">
-		<a href="{% static "inchlib_clust/inchlib_clust-0.1.1.zip" %}" target=blank>Download inchlib_clust 0.1.1 <span class="size">(10.6 KB)</span></a>
+		<a href="{% static "inchlib_clust/inchlib_clust-0.1.2.zip" %}" target=blank>Download inchlib_clust 0.1.2 <span class="size">(11.2 KB)</span></a>
 	</div>
 
 	<div class="small_title">
@@ -54,8 +61,8 @@
 	<div class="description">
 		On <b>Linux</b>, install <b>inchlib_clust</b> using following commands:
 	</div>
-	<div class="code"> sudo unzip inchlib_clust-0.1.1.zip
- cd inchlib_clust-0.1.1/
+	<div class="code"> sudo unzip inchlib_clust-0.1.2.zip
+ cd inchlib_clust-0.1.2/
  sudo python setup.py install</div>
 
 	<div class="description">

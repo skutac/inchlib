@@ -4,8 +4,6 @@ from pygments import highlight
 from pygments.lexers import PythonLexer, JavascriptLexer, BashLexer
 from pygments.formatters import HtmlFormatter
 
-import config
-
 from django.shortcuts import render_to_response, redirect
 from django.utils.safestring import mark_safe
 from django.http import HttpResponse
@@ -62,10 +60,10 @@ def examples(req, exampleid):
     example = Examples.objects.get(exampleid=exampleid)
     next, previous = get_neighbours(int(exampleid), examples)
 
-    settings = example.examplesettings_set.filter()
-    settings = mark_safe(json.dumps(parse_settings({e.settingsattribute.name: e.value for e in settings})))
+    example_settings = example.examplesettings_set.filter()
+    example_settings = mark_safe(json.dumps(parse_settings({e.settingsattribute.name: e.value for e in example_settings})))
 
-    example.description = re.sub('href="', '"'.join(['href=', config.BASE_URL]), example.description)
+    example.description = re.sub('href="', '"'.join(['href=', settings.BASE_URL]), example.description)
 
     template = "inchlib_examples.html"
     if exampleid == "18":
@@ -73,7 +71,7 @@ def examples(req, exampleid):
     elif exampleid == "5":
         template = "inchlib_examples_row_compression.html"
 
-    return render_to_response(template, {"examples":examples, "example": example, "settings": settings, "next": next, "previous": previous})
+    return render_to_response(template, {"examples":examples, "example": example, "settings": example_settings, "next": next, "previous": previous})
 
 def interactive_example(req):
     interactive_form = InteractiveExampleForm()
@@ -84,10 +82,10 @@ def use_cases(req, exampleid):
     examples.sort(key=lambda e: e.order)
     example = Examples.objects.get(exampleid=exampleid)
     
-    settings = example.examplesettings_set.all()
-    settings = mark_safe(json.dumps(parse_settings({e.settingsattribute.name: e.value for e in settings})))
+    example_settings = example.examplesettings_set.all()
+    example_settings = mark_safe(json.dumps(parse_settings({e.settingsattribute.name: e.value for e in example_settings})))
 
-    example.description = re.sub('href="', '"'.join(['href=', config.BASE_URL]), example.description)
+    example.description = re.sub('href="', '"'.join(['href=', settings.BASE_URL]), example.description)
     template = "inchlib_use_cases.html"
     
     if exampleid == "16":
@@ -99,7 +97,7 @@ def use_cases(req, exampleid):
     elif exampleid == "12":
         template = "inchlib_use_cases_microarrays.html"
     
-    return render_to_response(template, {"examples":examples, "example": example, "settings": settings})
+    return render_to_response(template, {"examples":examples, "example": example, "settings": example_settings})
 
 def docs(req):
     attributes = list(SettingsAttributes.objects.filter(settingsattributetype = 1))
@@ -127,22 +125,22 @@ def get_neighbours(exampleid, examples):
         
     return next, previous
 
-def parse_settings(settings):
-    for k in settings.keys():
+def parse_settings(example_settings):
+    for k in example_settings.keys():
         try:
-            val = float(settings[k])
-            settings[k] = val
+            val = float(example_settings[k])
+            example_settings[k] = val
         except Exception, e:
-            if settings[k] == "True":
-                settings[k] = True
+            if example_settings[k] == "True":
+                example_settings[k] = True
 
-            elif settings[k] == "False":
-                settings[k] = False
+            elif example_settings[k] == "False":
+                example_settings[k] = False
 
-            elif settings[k].startswith("["):
-                settings[k] = list(settings[k].strip("[]").split(","))
+            elif example_settings[k].startswith("["):
+                example_settings[k] = list(example_settings[k].strip("[]").split(","))
 
-    return settings
+    return example_settings
 
 
 def download(req):
@@ -191,7 +189,8 @@ d.add_metadata_from_file(metadata_file="filename", delimiter=",", header=bool, m
 # d.add_metadata(metadata, header=bool, metadata_compressed_value="median") use add_metadata() for list of lists instead of a metadata file
 
 # export the cluster heatmap on the standard output or to the file if filename specified
-d.export_cluster_heatmap_as_json("filename")"""
+d.export_cluster_heatmap_as_json("filename")
+# d.export_cluster_heatmap_as_html("path/to/dir") simple HTML page with cluster heatmap and dependencies is stored in user defined directory"""
 
     bash = "python inchlib_clust.py input_file.csv -m metadata.csv -dh -mh -d euclidean -l ward -a both -dd , -md ,"
 

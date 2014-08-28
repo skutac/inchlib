@@ -3,6 +3,12 @@
 {% block content %}
 {% load staticfiles %}
 
+<script>
+    $(document).ready(function() {
+        $("#menu_release_notes").addClass('pure-menu-selected'); 
+    });
+</script>
+
 <div class="pure-menu pure-menu-open pure-menu-horizontal">
     <ul>
         <li><a href="{% url release_notes %}">InChlib</a></li>
@@ -12,7 +18,7 @@
 <hr/>
 
 <div class="description">
-	<h2>inchlib_clust 0.1.3 - August 2014</h2>
+	<h2>inchlib_clust 0.1.2 - August 2014</h2>
 	<ul>
 		<li>export_cluster_heatmap_as_html function added</li>
 	</ul>
@@ -20,7 +26,7 @@
 <hr />
 
 <div class="description">
-	<h2>inchlib_clust 0.1.2 - July 2014</h2>
+	<h2>inchlib_clust 0.1.1 - July 2014</h2>
 	<ul>
 		<li>Removed dependency on hcluster package</li>
 	</ul>
@@ -28,9 +34,9 @@
 <hr />
 
 <div class="description">
-	<h2>inchlib_clust 0.1.1 - March 2014</h2>
+	<h2>inchlib_clust 0.1.0 - March 2014</h2>
 	<ul>
-		<li>inchlib_clust 0.1.1 released</li>
+		<li>inchlib_clust 0.1.0 released</li>
 	</ul>
 </div>
 <hr />
