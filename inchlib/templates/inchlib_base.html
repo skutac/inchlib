@@ -40,7 +40,7 @@
     });
 
     $(document).click(function(evt){
-          if(evt.target.localName != "canvas" && evt.target.localName != "a" && !($(evt.target).hasClass('pure-button')) && evt.target.localName != "button" && !($(evt.target).hasClass('target_overlay'))){
+          if(evt.target.localName != "canvas" && evt.target.localName != "a" && !($(evt.target).hasClass('pure-button')) && evt.target.localName != "button" && !($(evt.target).hasClass('target_overlay')) && !($(evt.target).hasClass('scaffold_img'))){
               dendrogram.unhighlight_cluster();
               dendrogram.highlight_rows([])
           }
