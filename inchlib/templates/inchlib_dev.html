@@ -7,8 +7,8 @@
 <link rel="stylesheet" href="{% static "css/inchlib.css" %}" type="text/css"/>
 <link rel="stylesheet" href="{% static "css/highlight.css" %}" type="text/css"/>
 <script src="{% static "js/jquery-2.0.3.min.js" %}"></script>
-<script src="{% static "js/kinetic-v5.0.0.min.js" %}"></script>
-<script src="{% static "js/inchlib-1.0.1.js" %}"></script>
+<script src="{% static "js/kinetic-v5.1.0.min.js" %}"></script>
+<script src="{% static "js/inchlib_dev.js" %}"></script>
 
 <title>InCHlib - Interactive Cluster Heatmap library</title>
 </head>
@@ -40,7 +40,7 @@ $(document).ready(function(){
             });
     // dendrogram_1.add_color_scale("WhBk", {"start": {"r":255, "g": 255, "b": 255}, "middle": {"r": 236, "g": 158, "b": 56}, "end": {"r": 0, "g": 0, "b": 0}})
 
-    dendrogram_1.read_data_from_file("{% static "data/chembl_era_normalized.json" %}");
+    dendrogram_1.read_data_from_file("{% static "data/microarrays_column_metadata.json" %}");
     dendrogram_1.draw();
     
     /*
