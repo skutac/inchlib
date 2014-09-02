@@ -141,6 +141,7 @@ var InCHlib;
   InCHlib = function(settings){
       // When measuring the rendering duration
       // this.start = new Date().getTime();
+      var self = this;
       this.user_settings = settings;
       this.target_element = $("#" + settings.target);
       var target_width = this.target_element.width();
@@ -494,7 +495,7 @@ var InCHlib;
 
           "node": new Kinetic.Line({
                               stroke: "grey",
-                              strokeWidth: "2",
+                              strokeWidth: 2,
                               lineCap: 'sqare',
                               lineJoin: 'round',
                               listening: false
@@ -539,7 +540,12 @@ var InCHlib;
 
           "cluster_overlay": new Kinetic.Rect({
                                   fill: "white",
-                                  opacity: 0.3,
+                                  opacity: 0.5,
+                              }),
+
+          "cluster_border": new Kinetic.Line({
+                                  stroke: "black",
+                                  strokeWidth: 1,
                               }),
 
           "icon": new Kinetic.Path({
@@ -550,7 +556,7 @@ var InCHlib;
           "rect_gradient": new Kinetic.Rect({
                               x: 0,
                               y: 80,
-                              width: 120,
+                              width: 100,
                               height: 20,
                               fillLinearGradientStartPoint: {x: 0, y: 80},
                               fillLinearGradientEndPoint: {x: 100, y: 80},
@@ -1159,7 +1165,7 @@ var InCHlib;
 
   InCHlib.prototype._adjust_leaf_size = function(leaves){
       this.pixels_for_leaf = (this.settings.max_height-this.header_height-this.footer_height-this.column_metadata_height)/leaves;
-      if(this.pixels_for_leaf > this.pixels_for_dimension){
+      if(this.pixels_for_leaf > 3*this.pixels_for_dimension){
         this.pixels_for_leaf = this.pixels_for_dimension;
       }
 
@@ -1720,7 +1726,7 @@ var InCHlib;
       var x = 0;
       var y = 10;
 
-      var color_steps = [0, this._get_color_for_value(0, 0, 1, 0.5, this.settings.heatmap_colors), 0.5, this._get_color_for_value(0.5, 0, 1, 0.5, this.settings.heatmap_colors), 1, this._get_color_for_value(1, 0, 1, 0.5, this.settings.heatmap_colors)];
+      var color_steps = [this.settings.min_quantile/100, this._get_color_for_value(0, 0, 1, 0.5, this.settings.heatmap_colors), this.settings.middle_quantile/100, this._get_color_for_value(0.5, 0, 1, 0.5, this.settings.heatmap_colors), this.settings.max_quantile/100, this._get_color_for_value(1, 0, 1, 0.5, this.settings.heatmap_colors)];
       var color_scale = this.objects_ref.rect_gradient.clone({"label": "Color settings",
                                                               "fillLinearGradientColorStops": color_steps});
 
@@ -2090,11 +2096,8 @@ var InCHlib;
       this.row_cluster_group = new Kinetic.Group();
       var visible = this._get_visible_count();
       var count = this.data.nodes[path_id].count;
-      var x = (this.settings.column_dendrogram)?10:50;
+      var x = (this.settings.column_dendrogram)?0:40;
       var y = 10;
-      // if(this.navigation_layer.find("#refresh_icon")){
-      //   x = x + 40;
-      // }
 
       var rows_desc = this.objects_ref.count.clone({x: x + 25,
                                                         y: y - 5,
@@ -2124,6 +2127,10 @@ var InCHlib;
           height: upper_y-this.header_height - this.column_metadata_height,
       });
 
+      var cluster_border_1 = this.objects_ref.cluster_border.clone({
+          points: [x, upper_y, x+width, upper_y],
+      });
+
       var cluster_overlay_2 = this.objects_ref.cluster_overlay.clone({
           x: x,
           y: lower_y,
@@ -2131,7 +2138,11 @@ var InCHlib;
           height: this.settings.height-lower_y-this.footer_height + 0.5*this.pixels_for_leaf,
       });
 
-      this.row_cluster_group.add(rows_desc, cluster_overlay_1, cluster_overlay_2, zoom_icon, zoom_overlay)
+      var cluster_border_2 = this.objects_ref.cluster_border.clone({
+          points: [x, lower_y, x+width, lower_y],
+      });
+
+      this.row_cluster_group.add(rows_desc, cluster_overlay_1, cluster_overlay_2, zoom_icon, zoom_overlay, cluster_border_1, cluster_border_2);
       this.cluster_layer.add(this.row_cluster_group);
       this.stage.add(this.cluster_layer);
       rows_desc.moveToTop();
@@ -2183,14 +2194,22 @@ var InCHlib;
       var x1 = this._hack_round((this.current_column_ids[0] - this.columns_start_index)*this.pixels_for_dimension);
       var x2 = this._hack_round((this.current_column_ids[0] + this.current_column_ids.length - this.columns_start_index)*this.pixels_for_dimension);
       var y1 = this.header_height;
-      var y2 = this.settings.height-this.footer_height;
-      var height = this.settings.height-this.footer_height-this.header_height+0.5*this.settings.column_metadata_row_height;    
+      var y2 = this.settings.height-this.footer_height+0.5*this.pixels_for_leaf;
+      var height = this.settings.height-this.footer_height-this.header_height+this.settings.column_metadata_row_height;    
       
+      var cluster_border_1 = this.objects_ref.cluster_border.clone({
+          points: [this.heatmap_distance + x1, y1, this.heatmap_distance + x1, y2],
+      });
+
       var cluster_overlay_1 = this.objects_ref.cluster_overlay.clone({
           x: this.heatmap_distance,
           y: this.header_height,
           width: x1,
           height: height,
+      });
+
+      var cluster_border_2 = this.objects_ref.cluster_border.clone({
+          points: [this.heatmap_distance + x2, y1, this.heatmap_distance + x2, y2],
       });
 
       var cluster_overlay_2 = this.objects_ref.cluster_overlay.clone({
@@ -2201,7 +2220,7 @@ var InCHlib;
       });
     
 
-      this.column_cluster_group.add(cluster_overlay_1, cluster_overlay_2, zoom_icon, zoom_overlay, cols_desc);
+      this.column_cluster_group.add(cluster_overlay_1, cluster_overlay_2, zoom_icon, zoom_overlay, cols_desc, cluster_border_1, cluster_border_2);
       this.cluster_layer.add(this.column_cluster_group);
       this.stage.add(this.cluster_layer);
       this.cluster_layer.draw();
@@ -2715,14 +2734,16 @@ var InCHlib;
   InCHlib.prototype._color_scale_click = function(icon, evt){
     var self = this;
     var i, option, key, value;
-    var color_options = {"heatmap_colors": "Heatmap data colors",
-                        "metadata_colors": "Heatmap metadata colors",
-                      };
+    var color_options = {"heatmap_colors": "Heatmap data colors"};
 
     var value_options = {"max_quantile": "Max quantile value",
                         "min_quantile": "Min quantile value",
                         "middle_quantile": "Middle quantile value"
                       };
+
+    if(this.settings.metadata){
+      color_options["metadata_colors"] = "Metadata colors";
+    }
 
     if(this.settings.column_metadata){
       color_options["column_metadata_colors"] = "Column metadata colors";
