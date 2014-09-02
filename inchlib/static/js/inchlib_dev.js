@@ -2738,7 +2738,7 @@ var InCHlib;
 
     var value_options = {"max_quantile": "Max quantile value",
                         "min_quantile": "Min quantile value",
-                        "middle_quantile": "Middle quantile value"
+                        "middle_quantile": "Middle quantile value",
                       };
 
     if(this.settings.metadata){
@@ -2767,14 +2767,27 @@ var InCHlib;
         color_3 = this._get_color_for_value(1,0,1,0.5,this.settings[key]);
 
         option = "<div><div class='form_label'>" + color_options[key] + "</div><input type='text' name='" + key +"' value='"+ this.settings[key] + "'/> <div class='color_button' style='background: linear-gradient(to right, " + color_1 + "," + color_2 + "," + color_3 + ")'></div></div>";
-        options = options + option;
+        options += option;
       }
 
       for(i = 0, keys = Object.keys(value_options), len = keys.length; i < len; i++){
         key = keys[i];
         option = "<div><div class='form_label'>" + value_options[key] + "</div><input type='text' name='" + key +"' value='"+ this.settings[key] + "'/></div>";
-        options = options + option;
+        options += option;
       }
+      option = "<div><div class='form_label'>Heatmap coloring</div>\
+                <select name='independent_columns'>"
+      
+      if(this.settings.independent_columns){
+        option += "<option value='true' selected>By columns</option>\
+                  <option value='false'>Entire heatmap</option>"
+      }
+      else{
+        option += "<option value='true'>By columns</option>\
+                  <option value='false' selected>Entire heatmap</option>" 
+      }
+      option += "</select></div>";
+      options += option;
 
       options = options + '<button type="submit">Redraw</button>'
       settings_form.html(options);
@@ -2806,20 +2819,23 @@ var InCHlib;
 
     settings_form.submit(function(evt){
       var settings = {};
-      var settings_fieldset = $(this).find("input");
+      var settings_fieldset = $(this).find("input, select");
 
       settings_fieldset.each(function(){
           option = $(this);
           key = option.attr("name");
           value = option.val();
           if(value != ""){
-              if(value == "on"){
+              if(value === "true"){
                   value = true;
+              }
+              else if(value === "false"){
+                value = false;
               }
               settings[key] = value;
           }
       });
-      
+      console.log(settings)
       self.update_settings(settings);
       self.redraw();
       evt.preventDefault();
