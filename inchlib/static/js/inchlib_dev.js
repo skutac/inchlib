@@ -1726,23 +1726,7 @@ var InCHlib;
       var x = 0;
       var y = 10;
 
-      var color_steps = [this.settings.min_quantile/100, this._get_color_for_value(0, 0, 1, 0.5, this.settings.heatmap_colors), this.settings.middle_quantile/100, this._get_color_for_value(0.5, 0, 1, 0.5, this.settings.heatmap_colors), this.settings.max_quantile/100, this._get_color_for_value(1, 0, 1, 0.5, this.settings.heatmap_colors)];
-      var color_scale = this.objects_ref.rect_gradient.clone({"label": "Color settings",
-                                                              "fillLinearGradientColorStops": color_steps});
-
-      color_scale.on("mouseover", function(){
-        self._color_scale_mouseover(color_scale, self.navigation_layer);
-      });
-
-      color_scale.on("mouseout", function(){
-        self._color_scale_mouseout(color_scale, self.navigation_layer);
-      });
-
-      color_scale.on("click", function(){
-        self._color_scale_click(color_scale, self.navigation_layer);
-      });
-
-      this.navigation_layer.add(color_scale);
+      this._draw_color_scale();
 
       if(!this.settings.column_dendrogram){
           var filter_icon = this.objects_ref.icon.clone({
@@ -1898,6 +1882,34 @@ var InCHlib;
       }
 
       self.stage.add(self.navigation_layer);
+  }
+
+  InCHlib.prototype._draw_color_scale = function(){
+      var self = this;
+      var color_steps = [this.settings.min_quantile/100, this._get_color_for_value(0, 0, 1, 0.5, this.settings.heatmap_colors), this.settings.middle_quantile/100, this._get_color_for_value(0.5, 0, 1, 0.5, this.settings.heatmap_colors), this.settings.max_quantile/100, this._get_color_for_value(1, 0, 1, 0.5, this.settings.heatmap_colors)];
+      var color_scale = this.objects_ref.rect_gradient.clone({"label": "Color settings",
+                                                              "fillLinearGradientColorStops": color_steps,
+                                                              "id": "color_scale"});
+
+      color_scale.on("mouseover", function(){
+        self._color_scale_mouseover(color_scale, self.navigation_layer);
+      });
+
+      color_scale.on("mouseout", function(){
+        self._color_scale_mouseout(color_scale, self.navigation_layer);
+      });
+
+      color_scale.on("click", function(){
+        self._color_scale_click(color_scale, self.navigation_layer);
+      });
+
+      this.navigation_layer.add(color_scale);
+  }
+
+  InCHlib.prototype._update_color_scale = function(){
+    var color_scale = this.navigation_layer.find("#color_scale");
+    color_scale.fillLinearGradientColorStops([this.settings.min_quantile/100, this._get_color_for_value(0, 0, 1, 0.5, this.settings.heatmap_colors), this.settings.middle_quantile/100, this._get_color_for_value(0.5, 0, 1, 0.5, this.settings.heatmap_colors), this.settings.max_quantile/100, this._get_color_for_value(1, 0, 1, 0.5, this.settings.heatmap_colors)]);
+    this.navigation_layer.draw();
   }
 
   InCHlib.prototype._draw_icon_overlay = function(x, y){
@@ -2835,9 +2847,10 @@ var InCHlib;
               settings[key] = value;
           }
       });
-      console.log(settings)
       self.update_settings(settings);
-      self.redraw();
+      self.redraw_heatmap();
+      self._update_color_scale();
+      overlay.trigger('click');
       evt.preventDefault();
       evt.stopPropagation();
     })
@@ -3251,6 +3264,14 @@ var InCHlib;
   InCHlib.prototype.redraw = function(){
     this._delete_all_layers();
     this.draw();
+    return;
+  }
+
+  InCHlib.prototype.redraw_heatmap = function(){
+    this._delete_layers([this.heatmap_layer]);
+    this._draw_heatmap();
+    this.heatmap_layer.moveToBottom();
+    this.heatmap_layer.moveUp();
     return;
   }
 }(jQuery));
