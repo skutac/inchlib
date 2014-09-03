@@ -181,9 +181,9 @@ var InCHlib;
           "values_center": "median",
           "draw_row_ids": false,
           "show_export_button": true,
-          "max_quantile": 100,
-          "min_quantile": 0,
-          "middle_quantile": 50,
+          "max_percentile": 100,
+          "min_percentile": 0,
+          "middle_percentile": 50,
       };
 
       $.extend(this.settings, settings);
@@ -709,9 +709,9 @@ var InCHlib;
 
       var len = all.length;
       all.sort(function(a,b){return a - b});
-      min_max_middle.push((this.settings.min_quantile > 0)?all[this._hack_round(len*this.settings.min_quantile/100)]:Math.min.apply(null, all));
-      min_max_middle.push((this.settings.max_quantile < 100)?all[this._hack_round(len*this.settings.max_quantile/100)]:Math.max.apply(null, all));
-      min_max_middle.push((this.settings.middle_quantile != 50)?all[this._hack_round(len*this.settings.middle_quantile/100)]:this._middle2fnc(all));
+      min_max_middle.push((this.settings.min_percentile > 0)?all[this._hack_round(len*this.settings.min_percentile/100)]:Math.min.apply(null, all));
+      min_max_middle.push((this.settings.max_percentile < 100)?all[this._hack_round(len*this.settings.max_percentile/100)]:Math.max.apply(null, all));
+      min_max_middle.push((this.settings.middle_percentile != 50)?all[this._hack_round(len*this.settings.middle_percentile/100)]:this._middle2fnc(all));
       return min_max_middle;
   }
 
@@ -750,9 +750,9 @@ var InCHlib;
               columns[i] = columns[i].map(parseFloat);
               columns[i].sort(function(a,b){return a - b});
               len = columns[i].length;
-              max = (this.settings.max_quantile < 100)?columns[i][this._hack_round(len*this.settings.max_quantile/100)]:Math.max.apply(null, columns[i]);
-              min = (this.settings.min_quantile > 0)?columns[i][this._hack_round(len*this.settings.min_quantile/100)]:Math.min.apply(null, columns[i]);
-              middle = (this.settings.middle_quantile != 50)?columns[i][this._hack_round(len*this.settings.middle_quantile/100)]:this._middle2fnc(columns[i]);
+              max = (this.settings.max_percentile < 100)?columns[i][this._hack_round(len*this.settings.max_percentile/100)]:Math.max.apply(null, columns[i]);
+              min = (this.settings.min_percentile > 0)?columns[i][this._hack_round(len*this.settings.min_percentile/100)]:Math.min.apply(null, columns[i]);
+              middle = (this.settings.middle_percentile != 50)?columns[i][this._hack_round(len*this.settings.middle_percentile/100)]:this._middle2fnc(columns[i]);
               data2descs[i] = {"min": min, "max": max, "middle": middle};
           }
           else{
@@ -1194,6 +1194,36 @@ var InCHlib;
       return;
   }
 
+  InCHlib.prototype._set_color_settings = function(){
+    var data = [];
+    for(i = 0, keys = Object.keys(this.data.nodes), len = keys.length; i < len; i++){
+        node = this.data.nodes[keys[i]];
+        if(node.count == 1){
+            data.push(node.features);
+        };
+    }
+    
+    this.data_descs = {};
+    if(this.settings.independent_columns){
+        this.data_descs = this._get_data_min_max_middle(data);
+    }
+    else{
+        var min_max_middle = this._get_min_max_middle(data);
+        for(i = 0; i < this.dimensions["data"]; i++){
+          this.data_descs[i] = {"min": min_max_middle[0], "max": min_max_middle[1], "middle": min_max_middle[2]};
+        }
+    }
+
+    if(this.settings.metadata){
+        var metadata = [];
+
+        for(i = 0, keys = Object.keys(this.metadata.nodes), len = keys.length; i < len; i++){
+            metadata.push(this.metadata.nodes[keys[i]]);
+        }
+        this.metadata_descs = this._get_data_min_max_middle(metadata);
+    }
+  }
+
   InCHlib.prototype._set_heatmap_settings = function(){
       var i, keys, key, len, node;
 
@@ -1206,29 +1236,12 @@ var InCHlib;
       this.metadata_header = false;
       this.current_label = null;
 
+      this._set_color_settings();
+
       if(this.data.feature_names !== undefined){
           this.heatmap_header = this.data.feature_names;
           for(i=0; i<this.dimensions["data"]; i++){
               this.header[i] = this.heatmap_header[i];
-          }
-      }
-
-      var data = [];
-      for(i = 0, keys = Object.keys(this.data.nodes), len = keys.length; i < len; i++){
-          node = this.data.nodes[keys[i]];
-          if(node.count == 1){
-              data.push(node.features);
-          };
-      }
-      
-      this.data_descs = {};
-      if(this.settings.independent_columns){
-          this.data_descs = this._get_data_min_max_middle(data);
-      }
-      else{
-          var min_max_middle = this._get_min_max_middle(data);
-          for(i = 0; i < this.dimensions["data"]; i++){
-            this.data_descs[i] = {"min": min_max_middle[0], "max": min_max_middle[1], "middle": min_max_middle[2]};
           }
       }
 
@@ -1241,13 +1254,6 @@ var InCHlib;
                   this.header[this.dimensions["data"]+i] = this.metadata_header[i];
               }
           }
-
-          var metadata = [];
-
-          for(i = 0, keys = Object.keys(this.metadata.nodes), len = keys.length; i < len; i++){
-              metadata.push(this.metadata.nodes[keys[i]]);
-          }
-          this.metadata_descs = this._get_data_min_max_middle(metadata);
       }
 
       if(this.settings.count_column){
@@ -1886,7 +1892,7 @@ var InCHlib;
 
   InCHlib.prototype._draw_color_scale = function(){
       var self = this;
-      var color_steps = [this.settings.min_quantile/100, this._get_color_for_value(0, 0, 1, 0.5, this.settings.heatmap_colors), this.settings.middle_quantile/100, this._get_color_for_value(0.5, 0, 1, 0.5, this.settings.heatmap_colors), this.settings.max_quantile/100, this._get_color_for_value(1, 0, 1, 0.5, this.settings.heatmap_colors)];
+      var color_steps = [this.settings.min_percentile/100, this._get_color_for_value(0, 0, 1, 0.5, this.settings.heatmap_colors), this.settings.middle_percentile/100, this._get_color_for_value(0.5, 0, 1, 0.5, this.settings.heatmap_colors), this.settings.max_percentile/100, this._get_color_for_value(1, 0, 1, 0.5, this.settings.heatmap_colors)];
       var color_scale = this.objects_ref.rect_gradient.clone({"label": "Color settings",
                                                               "fillLinearGradientColorStops": color_steps,
                                                               "id": "color_scale"});
@@ -1908,7 +1914,7 @@ var InCHlib;
 
   InCHlib.prototype._update_color_scale = function(){
     var color_scale = this.navigation_layer.find("#color_scale");
-    color_scale.fillLinearGradientColorStops([this.settings.min_quantile/100, this._get_color_for_value(0, 0, 1, 0.5, this.settings.heatmap_colors), this.settings.middle_quantile/100, this._get_color_for_value(0.5, 0, 1, 0.5, this.settings.heatmap_colors), this.settings.max_quantile/100, this._get_color_for_value(1, 0, 1, 0.5, this.settings.heatmap_colors)]);
+    color_scale.fillLinearGradientColorStops([this.settings.min_percentile/100, this._get_color_for_value(0, 0, 1, 0.5, this.settings.heatmap_colors), this.settings.middle_percentile/100, this._get_color_for_value(0.5, 0, 1, 0.5, this.settings.heatmap_colors), this.settings.max_percentile/100, this._get_color_for_value(1, 0, 1, 0.5, this.settings.heatmap_colors)]);
     this.navigation_layer.draw();
   }
 
@@ -2748,9 +2754,9 @@ var InCHlib;
     var i, option, key, value;
     var color_options = {"heatmap_colors": "Heatmap data colors"};
 
-    var value_options = {"max_quantile": "Max quantile value",
-                        "min_quantile": "Min quantile value",
-                        "middle_quantile": "Middle quantile value",
+    var value_options = {"max_percentile": "Max percentile value",
+                        "min_percentile": "Min percentile value",
+                        "middle_percentile": "Middle percentile value",
                       };
 
     if(this.settings.metadata){
@@ -3272,6 +3278,7 @@ var InCHlib;
     */
   InCHlib.prototype.redraw_heatmap = function(){
     this._delete_layers([this.heatmap_layer, this.heatmap_overlay, this.highlighted_rows_layer]);
+    this._set_color_settings();
     this._draw_heatmap();
     this.heatmap_layer.moveToBottom();
     this.heatmap_layer.moveUp();
