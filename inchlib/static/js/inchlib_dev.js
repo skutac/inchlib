@@ -2811,49 +2811,49 @@ var InCHlib;
       $("#" + form_id + " input").css({"border-radius": "5px", "width": "100px"});  
       $("#" + form_id + " .form_label").css({"color": "gray", "margin-bottom": "5px", "font-style": "italic"});  
       $("#" + form_id + " button").css({"padding-top": "7px", "padding-bottom": "5px", "padding-right": "5px", "padding-left": "5px", "color": "white", "border": "solid #D2D2D2 1px", "border-radius": "5px", "width": "100%", "background-color": "#2171b5", "font-weight": "bold"});  
-    }
 
-    overlay.click(function(){
-      settings_form.fadeOut("fast");
-      overlay.fadeOut("fast");
-    });
-
-    var color_buttons = $("#" + form_id + " .color_button");
-    
-    color_buttons.hover(
-      function(){$(this).css({"cursor": "pointer", "opacity": 0.7})},
-      function(){$(this).css({"opacity": 1})}
-    );
-
-    color_buttons.click(function(evt){
-      self._draw_color_scales_select(this, evt);
-    });
-
-    settings_form.submit(function(evt){
-      var settings = {};
-      var settings_fieldset = $(this).find("input, select");
-
-      settings_fieldset.each(function(){
-          option = $(this);
-          key = option.attr("name");
-          value = option.val();
-          if(value != ""){
-              if(value === "true"){
-                  value = true;
-              }
-              else if(value === "false"){
-                value = false;
-              }
-              settings[key] = value;
-          }
+      overlay.click(function(){
+        settings_form.fadeOut("fast");
+        overlay.fadeOut("fast");
       });
-      self.update_settings(settings);
-      self.redraw_heatmap();
-      self._update_color_scale();
-      overlay.trigger('click');
-      evt.preventDefault();
-      evt.stopPropagation();
-    })
+
+      var color_buttons = $("#" + form_id + " .color_button");
+      
+      color_buttons.hover(
+        function(){$(this).css({"cursor": "pointer", "opacity": 0.7})},
+        function(){$(this).css({"opacity": 1})}
+      );
+
+      color_buttons.click(function(evt){
+        self._draw_color_scales_select(this, evt);
+      });
+
+      settings_form.submit(function(evt){
+        var settings = {};
+        var settings_fieldset = $(this).find("input, select");
+
+        settings_fieldset.each(function(){
+            option = $(this);
+            key = option.attr("name");
+            value = option.val();
+            if(value != ""){
+                if(value === "true"){
+                    value = true;
+                }
+                else if(value === "false"){
+                  value = false;
+                }
+                settings[key] = value;
+            }
+        });
+        self.update_settings(settings);
+        self.redraw_heatmap();
+        self._update_color_scale();
+        overlay.trigger('click');
+        evt.preventDefault();
+        evt.stopPropagation();
+      })
+    }
   }
 
   InCHlib.prototype._draw_color_scales_select = function(element, evt){
@@ -3267,8 +3267,11 @@ var InCHlib;
     return;
   }
 
+  /**
+    * Redraw heatmap only
+    */
   InCHlib.prototype.redraw_heatmap = function(){
-    this._delete_layers([this.heatmap_layer]);
+    this._delete_layers([this.heatmap_layer, this.heatmap_overlay, this.highlighted_rows_layer]);
     this._draw_heatmap();
     this.heatmap_layer.moveToBottom();
     this.heatmap_layer.moveUp();
