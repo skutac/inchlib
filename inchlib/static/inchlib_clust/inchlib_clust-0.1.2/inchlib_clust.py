@@ -273,7 +273,7 @@ class Dendrogram():
             except urllib2.URLError, e:
                 raise Exception("\nCan't download file {}.\nPlease check your internet connection and try again.\nIf the error persists there can be something wrong with the InCHlib server.\n".format(url))
 
-        with open(os.path.join(htmdlir, "inchlib.html"), "w") as output:
+        with open(os.path.join(htmldir, "inchlib.html"), "w") as output:
             output.write(template)
         return
 

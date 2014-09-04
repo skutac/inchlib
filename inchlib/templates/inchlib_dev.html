@@ -19,24 +19,25 @@ $(document).ready(function(){
             {
                 target: "dendrogram_1",
                 // heatmap: false,
-                heatmap_header: true,
+                // heatmap_header: true,
                 draw_row_ids: true,
                 // column_metadata_row_height: 10,
                 // column_metadata_colors: "BuYl",
-                dendrogram: true,
+                // dendrogram: true,
                 max_height: 900,
                 width: 800,
-                // heatmap_colors: "RdBkGr",
+                heatmap_colors: "BuWhRd",
+                column_dendrogram: true,
                 // metadata_colors: "RdLrBu",
                 // highlight_colors: "PuOr",
                 // heatmap_font_color: "white",
                 // show_export_button: true,
                 // count_column: true,
-                values_center: "median",
+                // values_center: "median",
                 // independent_columns: false,
-                // max_quantile: 80,
-                // min_quantile: 30,
-                // middle_quantile: 80
+                max_percentile: 90,
+                min_percentile: 20,
+                middle_percentile: 70
             });
     // dendrogram_1.add_color_scale("WhBk", {"start": {"r":255, "g": 255, "b": 255}, "middle": {"r": 236, "g": 158, "b": 56}, "end": {"r": 0, "g": 0, "b": 0}})
 

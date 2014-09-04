@@ -875,7 +875,7 @@ var InCHlib;
         this.last_column = null;
         this.on_features = {"data":[], "metadata":[]}
         this.dimensions = this._get_dimensions();
-        this.column_metadata_rows = (this.settings.column_metadata)?this.column_metadata.length:0;
+        this.column_metadata_rows = (this.settings.column_metadata)?this.column_metadata.features.length:0;
         this.column_metadata_height = this.column_metadata_rows * this.settings.column_metadata_row_height;
         this._set_heatmap_settings();
         this._adjust_leaf_size(this.heatmap_array.length);
@@ -1256,6 +1256,12 @@ var InCHlib;
           }
       }
 
+      if(this.settings.column_metadata){
+        if(this.column_metadata.feature_names !== undefined){
+          this.column_metadata_header = this.column_metadata.feature_names;
+        }
+      }
+
       if(this.settings.count_column){
           this.max_item_count = 1;
           this.min_item_count = 1;
@@ -1339,11 +1345,11 @@ var InCHlib;
 
       if(this.settings.column_metadata){
           var time_3 = new Date().getTime();
-          this.column_metadata_descs = this._get_data_min_max_middle(this.column_metadata, "row");
+          this.column_metadata_descs = this._get_data_min_max_middle(this.column_metadata.features, "row");
           y1 = this.header_height + 0.5*this.settings.column_metadata_row_height;
 
-          for(var i = 0, len = this.column_metadata.length; i < len; i++){
-              heatmap_row = this._draw_column_metadata_row(this.column_metadata[i], i, x1, y1);
+          for(var i = 0, len = this.column_metadata.features.length; i < len; i++){
+              heatmap_row = this._draw_column_metadata_row(this.column_metadata.features[i], i, x1, y1);
               this.heatmap_layer.add(heatmap_row);
               this._bind_row_events(heatmap_row);
               y1 = y1 + this.settings.column_metadata_row_height;
@@ -1512,7 +1518,7 @@ var InCHlib;
                   stroke: color,
                   value: text_value,
                   points: [x1, y1, x2, y2],
-                  column: ["d", col_index].join("_"),
+                  column: ["cm", row_index].join("_"),
               });
           row.add(line);
           x1 = x2;
@@ -1759,32 +1765,6 @@ var InCHlib;
           });
       }
 
-      if(self.zoomed_clusters["row"].length > 0){
-          var unzoom_icon = this.objects_ref.icon.clone({
-              data: "M22.646,19.307c0.96-1.583,1.523-3.435,1.524-5.421C24.169,8.093,19.478,3.401,13.688,3.399C7.897,3.401,3.204,8.093,3.204,13.885c0,5.789,4.693,10.481,10.484,10.481c1.987,0,3.839-0.563,5.422-1.523l7.128,7.127l3.535-3.537L22.646,19.307zM13.688,20.369c-3.582-0.008-6.478-2.904-6.484-6.484c0.006-3.582,2.903-6.478,6.484-6.486c3.579,0.008,6.478,2.904,6.484,6.486C20.165,17.465,17.267,20.361,13.688,20.369zM8.854,11.884v4.001l9.665-0.001v-3.999L8.854,11.884z",
-              x: x,
-              y: y,
-              label: "Unzoom\nrows"
-          });
-          var unzoom_overlay = self._draw_icon_overlay(x, y);
-          x = x + 40;
-
-          self.navigation_layer.add(unzoom_icon, unzoom_overlay);
-
-          unzoom_overlay.on("click", function(){
-              self.events.on_unzoom(self._unprefix(self.zoomed_clusters["row"][self.zoomed_clusters["row"].length-1]));
-              self._unzoom_icon_click(this);
-          });
-
-          unzoom_overlay.on("mouseover", function(){
-              self._icon_mouseover(unzoom_icon, unzoom_overlay, self.navigation_layer);
-          });
-
-          unzoom_overlay.on("mouseout", function(){
-              self._icon_mouseout(unzoom_icon, unzoom_overlay, self.navigation_layer);
-          });
-      }
-
       if(self.zoomed_clusters["row"].length > 0 || self.zoomed_clusters["column"].length > 0){
         var refresh_icon = this.objects_ref.icon.clone({
               data: "M24.083,15.5c-0.009,4.739-3.844,8.574-8.583,8.583c-4.741-0.009-8.577-3.844-8.585-8.583c0.008-4.741,3.844-8.577,8.585-8.585c1.913,0,3.665,0.629,5.09,1.686l-1.782,1.783l8.429,2.256l-2.26-8.427l-1.89,1.89c-2.072-1.677-4.717-2.688-7.587-2.688C8.826,3.418,3.418,8.826,3.416,15.5C3.418,22.175,8.826,27.583,15.5,27.583S27.583,22.175,27.583,15.5H24.083z",
@@ -1810,13 +1790,41 @@ var InCHlib;
         });
       }
 
+      if(self.zoomed_clusters["row"].length > 0){
+        x = this.distance - 30;
+        y = this.header_height + this.column_metadata_height - 45;
+        var unzoom_icon = this.objects_ref.icon.clone({
+            data: "M22.646,19.307c0.96-1.583,1.523-3.435,1.524-5.421C24.169,8.093,19.478,3.401,13.688,3.399C7.897,3.401,3.204,8.093,3.204,13.885c0,5.789,4.693,10.481,10.484,10.481c1.987,0,3.839-0.563,5.422-1.523l7.128,7.127l3.535-3.537L22.646,19.307zM13.688,20.369c-3.582-0.008-6.478-2.904-6.484-6.484c0.006-3.582,2.903-6.478,6.484-6.486c3.579,0.008,6.478,2.904,6.484,6.486C20.165,17.465,17.267,20.361,13.688,20.369zM8.854,11.884v4.001l9.665-0.001v-3.999L8.854,11.884z",
+            x: x,
+            y: y,
+            scale: {x: 0.7, y: 0.7},
+            label: "Unzoom\nrows"
+        });
+        var unzoom_overlay = self._draw_icon_overlay(x, y);
+        self.navigation_layer.add(unzoom_icon, unzoom_overlay);
+
+        unzoom_overlay.on("click", function(){
+            self.events.on_unzoom(self._unprefix(self.zoomed_clusters["row"][self.zoomed_clusters["row"].length-1]));
+            self._unzoom_icon_click(this);
+        });
+
+        unzoom_overlay.on("mouseover", function(){
+            self._icon_mouseover(unzoom_icon, unzoom_overlay, self.navigation_layer);
+        });
+
+        unzoom_overlay.on("mouseout", function(){
+            self._icon_mouseout(unzoom_icon, unzoom_overlay, self.navigation_layer);
+        });
+      }
+
       if(self.zoomed_clusters["column"].length > 0){
-          x = self.settings.width - 60;
-          y = 45;
+          x = self.settings.width - 85;
+          y = this.header_height - 35;
           var column_unzoom_icon = this.objects_ref.icon.clone({
               data: "M22.646,19.307c0.96-1.583,1.523-3.435,1.524-5.421C24.169,8.093,19.478,3.401,13.688,3.399C7.897,3.401,3.204,8.093,3.204,13.885c0,5.789,4.693,10.481,10.484,10.481c1.987,0,3.839-0.563,5.422-1.523l7.128,7.127l3.535-3.537L22.646,19.307zM13.688,20.369c-3.582-0.008-6.478-2.904-6.484-6.484c0.006-3.582,2.903-6.478,6.484-6.486c3.579,0.008,6.478,2.904,6.484,6.486C20.165,17.465,17.267,20.361,13.688,20.369zM8.854,11.884v4.001l9.665-0.001v-3.999L8.854,11.884z",
               x: x,
               y: y,
+              scale: {x: 0.7, y: 0.7},
               label: "Unzoom\ncolumns"
           });
           var column_unzoom_overlay = self._draw_icon_overlay(x, y);
@@ -1842,6 +1850,7 @@ var InCHlib;
               data: "M24.25,10.25H20.5v-1.5h-9.375v1.5h-3.75c-1.104,0-2,0.896-2,2v10.375c0,1.104,0.896,2,2,2H24.25c1.104,0,2-0.896,2-2V12.25C26.25,11.146,25.354,10.25,24.25,10.25zM15.812,23.499c-3.342,0-6.06-2.719-6.06-6.061c0-3.342,2.718-6.062,6.06-6.062s6.062,2.72,6.062,6.062C21.874,20.78,19.153,23.499,15.812,23.499zM15.812,13.375c-2.244,0-4.062,1.819-4.062,4.062c0,2.244,1.819,4.062,4.062,4.062c2.244,0,4.062-1.818,4.062-4.062C19.875,15.194,18.057,13.375,15.812,13.375z",
               x: self.settings.width - 62,
               y: 10,
+              scale: {x: 0.7, y: 0.7},
               id: "export_icon",
               label: "Export\nin png format"
         });
@@ -2114,10 +2123,10 @@ var InCHlib;
       this.row_cluster_group = new Kinetic.Group();
       var visible = this._get_visible_count();
       var count = this.data.nodes[path_id].count;
-      var x = (this.settings.column_dendrogram)?0:40;
-      var y = 10;
+      var x = this.distance - 30;
+      var y = this.header_height + this.column_metadata_height - 45;
 
-      var rows_desc = this.objects_ref.count.clone({x: x + 25,
+      var rows_desc = this.objects_ref.count.clone({x: x + 20,
                                                         y: y - 5,
                                                         text: count,
                                                         fontSize: 12,
@@ -2128,6 +2137,7 @@ var InCHlib;
                       data: "M22.646,19.307c0.96-1.583,1.523-3.435,1.524-5.421C24.169,8.093,19.478,3.401,13.688,3.399C7.897,3.401,3.204,8.093,3.204,13.885c0,5.789,4.693,10.481,10.484,10.481c1.987,0,3.839-0.563,5.422-1.523l7.128,7.127l3.535-3.537L22.646,19.307zM13.688,20.369c-3.582-0.008-6.478-2.904-6.484-6.484c0.006-3.582,2.903-6.478,6.484-6.486c3.579,0.008,6.478,2.904,6.484,6.486C20.165,17.465,17.267,20.361,13.688,20.369zM15.687,9.051h-4v2.833H8.854v4.001h2.833v2.833h4v-2.834h2.832v-3.999h-2.833V9.051z",
                       x: x,
                       y: y,
+                      scale: {x: 0.7, y: 0.7},
                       label: "Zoom\nrows",
                   });
 
@@ -2190,10 +2200,10 @@ var InCHlib;
 
   InCHlib.prototype._draw_column_cluster_layer = function(){
       this.column_cluster_group = new Kinetic.Group();
-      var x = this.settings.width - 60;
-      var y = 45;
+      var x = this.settings.width - 85;
+      var y = this.header_height - 35;
 
-      var cols_desc = this.objects_ref.count.clone({x: x + 25,
+      var cols_desc = this.objects_ref.count.clone({x: x + 20,
                                                         y: y,
                                                         text: this.current_column_ids.length,
                                                         fontSize: 12,
@@ -2204,6 +2214,7 @@ var InCHlib;
                       data: "M22.646,19.307c0.96-1.583,1.523-3.435,1.524-5.421C24.169,8.093,19.478,3.401,13.688,3.399C7.897,3.401,3.204,8.093,3.204,13.885c0,5.789,4.693,10.481,10.484,10.481c1.987,0,3.839-0.563,5.422-1.523l7.128,7.127l3.535-3.537L22.646,19.307zM13.688,20.369c-3.582-0.008-6.478-2.904-6.484-6.484c0.006-3.582,2.903-6.478,6.484-6.486c3.579,0.008,6.478,2.904,6.484,6.486C20.165,17.465,17.267,20.361,13.688,20.369zM15.687,9.051h-4v2.833H8.854v4.001h2.833v2.833h4v-2.834h2.832v-3.999h-2.833V9.051z",
                       x: x,
                       y: y,
+                      scale: {x: 0.7, y: 0.7},
                       label: "Zoom\ncolumns",
                   });
 
@@ -3191,6 +3202,7 @@ var InCHlib;
       var column = attrs.column.split("_");
       var header_type2value = {"d": this.heatmap_header[column[1]],
                                "m": this.metadata_header[column[1]],
+                               "cm": this.column_metadata_header[column[1]],
                                "Count": "Count"};
       
       var value = attrs.value;

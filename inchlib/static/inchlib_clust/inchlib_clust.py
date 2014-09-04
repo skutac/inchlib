@@ -1,7 +1,7 @@
 #coding: utf-8
 from __future__ import print_function
 
-import csv, json, copy, re, argparse
+import csv, json, copy, re, argparse, os, urllib2
 
 import numpy, scipy, fastcluster, sklearn
 import scipy.cluster.hierarchy as hcluster
@@ -125,7 +125,6 @@ class Dendrogram():
         if self.axis == "both" and len(self.cluster_object.column_clustering):
             column_dendrogram = hcluster.to_tree(self.cluster_object.column_clustering)            
             self.dendrogram["column_dendrogram"] = self.__get_column_dendrogram__()
-        return
 
     def __compress_data__(self):
         nodes = {}
@@ -175,8 +174,6 @@ class Dendrogram():
 
         self.__adjust_node_counts__()
 
-        return
-
     def __adjust_node_counts__(self):
         leaves = []
 
@@ -196,7 +193,6 @@ class Dendrogram():
                 parent_id = False
                 if "parent" in node:
                     parent_id = node["parent"]
-        return
 
     def __get_distance_treshold__(self, cluster_count):
         print("Calculating distance treshold for cluster compression...")
@@ -229,13 +225,58 @@ class Dendrogram():
             output.write(dendrogram_json)
         return dendrogram_json
 
+    def export_cluster_heatmap_as_html(self, htmldir="."):
+        """Export simple HTML page with embedded cluster heatmap and dependencies to given directory."""
+        if not os.path.exists(htmldir):
+            os.makedirs(htmldir)
+        dendrogram_json = json.dumps(self.dendrogram, indent=4)
+        template = """<html>
+        <head>
+            <script src="jquery-2.0.3.min.js"></script>
+            <script src="kinetic-v5.0.0.min.js"></script>
+            <script src="inchlib-1.0.1.min.js"></script>
+            <script>
+            $(document).ready(function() {{
+                var data = {};
+                var inchlib = new InCHlib({{
+                    target: "inchlib",
+                    max_height: 1200,
+                    width: 1000,
+                }});
+                inchlib.read_data(data);
+                inchlib.draw();
+            }});
+            </script>
+        </head>
+
+        <body>
+            <div id="inchlib"></div>
+        </body>
+        </html>""".format(dendrogram_json)
+
+        lib2url = {"inchlib-1.0.1.min.js": "http://openscreen.cz/software/inchlib/static/js/inchlib-1.0.1.min.js",
+                    "jquery-2.0.3.min.js": "http://openscreen.cz/software/inchlib/static/js/jquery-2.0.3.min.js",
+                    "kinetic-v5.0.0.min.js": "http://openscreen.cz/software/inchlib/static/js/kinetic-v5.0.0.min.js"}
+        
+        for lib, url in lib2url.items():
+            try:
+                source = urllib2.urlopen(url)
+                source_html = source.read()
+
+                with open(os.path.join(htmldir, lib), "w") as output:
+                    output.write(source_html)
+            except urllib2.URLError, e:
+                raise Exception("\nCan't download file {}.\nPlease check your internet connection and try again.\nIf the error persists there can be something wrong with the InCHlib server.\n".format(url))
+
+        with open(os.path.join(htmldir, "inchlib.html"), "w") as output:
+            output.write(template)
+
     def add_metadata_from_file(self, metadata_file, delimiter, header=True, metadata_compressed_value="median"):
         """Adds metadata from csv file.
         Metadata_compressed_value specifies the resulted value when the data are compressed (median/mean/frequency)"""
         self.metadata_compressed_value = metadata_compressed_value
         self.metadata, self.metadata_header = self.__read_metadata_file__(metadata_file, delimiter, header)
         self.__connect_metadata_to_data__()
-        return
 
     def add_metadata(self, metadata, header=True, metadata_compressed_value="median"):
         """Adds metadata in a form of list of lists (tuples).
@@ -243,7 +284,6 @@ class Dendrogram():
         self.metadata_compressed_value = metadata_compressed_value
         self.metadata, self.metadata_header = self.__read_metadata__(metadata, header)
         self.__connect_metadata_to_data__()
-        return
 
     def __connect_metadata_to_data__(self):
         if len(set(self.metadata.keys()) & set(self.data_names)) == 0:
@@ -305,7 +345,6 @@ class Dendrogram():
                     row.append(value)
 
                 self.dendrogram["metadata"]["nodes"][leaf] = row
-        return
 
     def __read_metadata__(self, metadata, header):
         metadata_header = []
@@ -340,34 +379,36 @@ class Dendrogram():
 
         return metadata, metadata_header
 
-    def add_column_metadata(self, metadata):
-        """Adds column metadata in a form of list of lists (tuples). Column metadata doesn't have header."""
-        self.column_metadata = metadata
+    def add_column_metadata(self, column_metadata, header=True):
+        """Adds column metadata in a form of list of lists (tuples). Column metadata doesn't have header row, first item in each row is used as label instead"""
+        if header:
+            self.column_metadata = [r[1:] for r in column_metadata]
+            self.column_metadata_header = [r[0] for r in column_metadata]
+        else:
+            self.column_metadata = [r for r in column_metadata]
+            self.column_metadata_header = False
+
         self.__check_column_metadata_length__()
         self.__add_column_metadata_to_data__()
-        return
 
-    def add_column_metadata_from_file(self, column_metadata_file, delimiter=","):
+    def add_column_metadata_from_file(self, column_metadata_file, delimiter=",", header=True):
         """Adds column metadata from csv file. Column metadata doesn't have header."""
         csv_reader = csv.reader(open(column_metadata_file, "r"), delimiter=delimiter)
-        self.column_metadata = [row for row in csv_reader]
-        self.__check_column_metadata_length__()
-        self.__add_column_metadata_to_data__()
-        return
+        column_metadata = [row for row in csv_reader]
+        self.add_column_metadata(column_metadata, header)
 
     def __check_column_metadata_length__(self):
         features_length = len(self.data[0])
         for row in self.column_metadata:
             if features_length != len(row):
                 raise Exception("Column metadata length and features length must be the same.")
-        return
 
     def __add_column_metadata_to_data__(self):
         if self.cluster_object.clustering_axis == "both":
             self.column_data = self.cluster_object.__reorder_data__(self.column_metadata, self.cluster_object.data_order)
-        self.dendrogram["column_metadata"] = self.column_metadata
-        return
-
+        self.dendrogram["column_metadata"] = {"features":self.column_metadata}
+        if self.column_metadata_header:
+            self.dendrogram["column_metadata"]["feature_names"] = self.column_metadata_header
 
 class Cluster():
     """Class for data clustering"""
@@ -396,8 +437,11 @@ class Cluster():
         self.data_names = [str(row[0]) for row in rows[data_start:]]
         self.data = [row[1:] for row in rows[data_start:]]
         self.original_data = copy.deepcopy(self.data)
-        return
 
+        if not self.missing_value is False:
+            self.data, self.missing_values_indexes = self.__impute_missing_values__(self.data)
+            self.original_data = self.__return_missing_values__(copy.deepcopy(self.data), self.missing_values_indexes)
+        
     def __impute_missing_values__(self, data):
         datatype2impute = {"numeric": {"strategy":"mean", 
                                         "value": lambda x: round(float(value), 3)}, 
@@ -416,7 +460,6 @@ class Cluster():
             for j, value in enumerate(row):
                 if value == self.missing_value:
                     data[i][j] = numpy.nan
-            
         imputer = preprocessing.Imputer(missing_values="NaN", strategy=datatype2impute[self.datatype]["strategy"])
         #error when using median strategy - minus one dimension in imputed data... omg
         imputed_data = [list(row) for row in imputer.fit_transform(self.data)]
@@ -441,10 +484,8 @@ class Cluster():
                 binarized_row.extend(binarized_position)
             self.binarized_data.append(binarized_row)
 
-        self.original_data = copy.deepcopy(self.data)
         self.data = self.binarized_data
-        return
-
+        
     def normalize_data(self, feature_range=(0,1), write_original=False):
         """Normalizes data to a scale from 0 to 1. When write_original is set to True, 
         the normalized data will be clustered, but original data will be written to the heatmap."""
@@ -452,7 +493,6 @@ class Cluster():
         min_max_scaler = preprocessing.MinMaxScaler(feature_range)
         self.data = min_max_scaler.fit_transform(self.data)
         self.data = [[round(v, 3) for v in row] for row in self.data]
-        return
 
     def cluster_data(self, row_distance="euclidean", row_linkage="single", axis="row", column_distance="euclidean", column_linkage="ward"):
         """Performs clustering according to the given parameters.
@@ -465,9 +505,6 @@ class Cluster():
         print("Clustering rows:", row_distance, row_linkage)
         self.clustering_axis = axis
         row_linkage = str(row_linkage)
-
-        if not self.missing_value is False:
-            self.data, missing_values_indexes = self.__impute_missing_values__(self.data)
 
         if self.datatype == "nominal":
             self.__binarize_nominal_data__()
@@ -487,17 +524,15 @@ class Cluster():
 
 
         if not self.missing_value is False:
-            self.data = self.__return_missing_values__(self.data, missing_values_indexes)
-            
+            self.data = self.__return_missing_values__(self.data, self.missing_values_indexes)
         self.column_clustering = []
+
         if axis == "both" and len(self.data[0]) > 2:
             print("Clustering columns:", column_distance, column_linkage)
             self.__cluster_columns__(column_distance, column_linkage)
-
+        
         if self.write_original or self.datatype == "nominal":
             self.data = self.original_data
-
-        return
 
     def __return_missing_values__(self, data, missing_values_indexes):
         for i, indexes in enumerate(missing_values_indexes):
@@ -510,7 +545,7 @@ class Cluster():
         self.data = [list(col) for col in zip(*self.data)]
         if not self.missing_value is False:
             self.data, missing_values_indexes = self.__impute_missing_values__(self.data)
-
+        
         self.column_clustering = fastcluster.linkage(self.data, method=column_linkage, metric=column_distance)
         self.data_order = hcluster.leaves_list(self.column_clustering)
 
@@ -522,7 +557,6 @@ class Cluster():
         self.original_data = self.__reorder_data__(self.original_data, self.data_order)
         if self.header:
             self.header = self.__reorder_data__([self.header], self.data_order)[0]
-        return
 
     def __reorder_data__(self, data, order):
         for i in xrange(len(data)):
@@ -550,10 +584,13 @@ def _process_(arguments):
         d.add_metadata_from_file(metadata_file=arguments.metadata, delimiter=arguments.metadata_delimiter, header=arguments.metadata_header, metadata_compressed_value=arguments.metadata_compressed_value)
     
     if arguments.column_metadata:
-        d.add_column_metadata_from_file(column_metadata_file=arguments.column_metadata, delimiter=arguments.column_metadata_delimiter)
+        d.add_column_metadata_from_file(column_metadata_file=arguments.column_metadata, delimiter=arguments.column_metadata_delimiter, header=arguments.column_metadata_header)
     
-    if arguments.output_file:
-        d.export_cluster_heatmap_as_json(arguments.output_file)
+    if arguments.output_file or arguments.html_dir:
+        if arguments.output_file:
+            d.export_cluster_heatmap_as_json(arguments.output_file)
+        else:
+            d.export_cluster_heatmap_as_html(arguments.html_dir)
     else:
         print(json.dumps(d.dendrogram, indent=4))
 
@@ -562,6 +599,7 @@ if __name__ == '__main__':
 
     parser.add_argument("data_file", type=str, help="csv(text) data file with delimited values")
     parser.add_argument("-o", "--output_file", type=str, help="the name of output file")
+    parser.add_argument("-html", "--html_dir", type=str, help="the directory to store HTML page with dependencies")
     parser.add_argument("-rd", "--row_distance", type=str, default="euclidean", help="set the distance to use for clustering rows")
     parser.add_argument("-rl", "--row_linkage", type=str, default="ward", help="set the linkage to use for clustering rows")
     parser.add_argument("-cd", "--column_distance", type=str, default="euclidean", help="set the distance to use for clustering columns (only when clustering by both axis -a parameter)")
@@ -581,6 +619,7 @@ if __name__ == '__main__':
     parser.add_argument("-wo", "--write_original", default=False, help="cluster normalized data but write the original ones to the heatmap", action="store_true")
     parser.add_argument("-cm", "--column_metadata", type=str, default=None, help="csv(text) metadata file with delimited values without header")
     parser.add_argument("-cmd", "--column_metadata_delimiter", type=str, default=",", help="delimiter of values in column metadata file")
+    parser.add_argument("-cmh", "--column_metadata_header", default=False, help="whether the first column of the column metadata is the row label ('header')", action="store_true")
     parser.add_argument("-mv", "--missing_values", type=str, default=False, help="define the string representating missing values in the data")
     
     args = parser.parse_args()
