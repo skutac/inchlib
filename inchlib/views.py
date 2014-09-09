@@ -249,6 +249,7 @@ def get_compressed_rows_json_by_node(req):
     row_ids = req.GET.getlist("row_ids[]")
     data = [example_data[0]]
     data.extend([r for r in example_data if r[0] in row_ids])
+    print data
 
     c = clust.Cluster()
     c.read_data(data, header=True)

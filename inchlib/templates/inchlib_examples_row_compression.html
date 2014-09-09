@@ -39,9 +39,9 @@
 			return false;
 		}
 
-		dendrogram.events.row_onclick = function(object_ids, evt){
-			console.log(object_ids);
-		};
+		// dendrogram.events.row_onclick = function(object_ids, evt){
+		// 	console.log(object_ids);
+		// };
 
 		dendrogram.events.on_zoom = function(object_ids, node_id, evt){
 			$("#dendrogram").hide();
@@ -57,7 +57,7 @@
                 	dendrogram._delete_all_layers();
                     dendrogram.read_data(json);
                     dendrogram.draw();
-                    dendrogram.zoomed_clusters = [dendrogram.root_id];
+                    dendrogram.zoomed_clusters["row"] = [dendrogram.root_id];
                     dendrogram._draw_navigation();
                     $("#dendrogram").fadeIn("fast");
                 },
@@ -71,7 +71,7 @@
 				dendrogram._delete_all_layers();
 		        dendrogram.read_data(prev_cluster[1]);
 	            dendrogram.draw();
-	            dendrogram.zoomed_clusters = [dendrogram.root_id]
+	            dendrogram.zoomed_clusters["row"] = [dendrogram.root_id]
 	            dendrogram.highlight_cluster(prev_cluster[0]);
 	            dendrogram._draw_navigation();
 			}
