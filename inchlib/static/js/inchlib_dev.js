@@ -3202,8 +3202,11 @@ var InCHlib;
       var column = attrs.column.split("_");
       var header_type2value = {"d": this.heatmap_header[column[1]],
                                "m": this.metadata_header[column[1]],
-                               "cm": this.column_metadata_header[column[1]],
                                "Count": "Count"};
+      
+      if(this.column_metadata_header !== undefined){
+        header_type2value["cm"] = this.column_metadata_header[column[1]];
+      }
       
       var value = attrs.value;
       var header = header_type2value[column[0]];
