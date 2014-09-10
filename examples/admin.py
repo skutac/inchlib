@@ -13,7 +13,7 @@ class ExamplesAdmin(admin.ModelAdmin):
     )
     class Media:
         css = {
-            "all": ("admin/css/admin.css",)
+            "all": ("css/admin.css",)
         }
 
 admin.site.register(Examples, ExamplesAdmin)
