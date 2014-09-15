@@ -26,3 +26,6 @@ class ExampleSettings(models.Model):
 class ExampleTypes(models.Model):
     exampltypeid = models.AutoField(primary_key=True)
     exampletypename = models.CharField(max_length=255)
+
+    def __unicode__(self):
+        return self.exampletypename
