@@ -8,7 +8,7 @@ class ExamplesAdmin(admin.ModelAdmin):
     fieldsets = (
         (None, {
         	'classes': ('wide',),
-            'fields': ('title', 'description', 'data'),
+            'fields': ('title', 'description', 'data', 'exampletype', 'order'),
         }),
     )
     class Media:

@@ -4,6 +4,9 @@
 {% load staticfiles %}
 <script>
 	var settings = {{ settings }};
+	if(settings["target"] === undefined){
+		settings["target"] = "dendrogram";
+	}
 
 	$(document).ready(function(){
 		$("#menu_tutorial").addClass('pure-menu-selected'); 
@@ -30,7 +33,7 @@
 		
 		$("#example .settings").html(settings_string);
 
-		window.dendrogram = new InCHlib({{ settings }});
+		window.dendrogram = new InCHlib(settings);
 		dendrogram.read_data_from_file("{% static "data/"|add:example.data %}");
 		dendrogram.draw();
 
