@@ -546,6 +546,7 @@ var InCHlib;
           "cluster_border": new Kinetic.Line({
                                   stroke: "black",
                                   strokeWidth: 1,
+                                  dash: [6,2]
                               }),
 
           "icon": new Kinetic.Path({
@@ -721,8 +722,7 @@ var InCHlib;
       }
 
       var self = this;
-      var columns = data;
-      var i, j, value, len;
+      var i, j, value, len, columns;
       var data_length = data[0].length;
 
       if(axis == "column"){
@@ -740,6 +740,9 @@ var InCHlib;
                   }
               }
           }
+      }
+      else{
+        columns = data.slice(0);
       }
 
       var data2descs = {}
@@ -1067,7 +1070,7 @@ var InCHlib;
       var node = this.column_dendrogram.nodes[node_id];
       this.current_column_count = node.count;
       this.current_column_ids = [];
-      this.vertical_distance = this.header_height-5;
+      this.vertical_distance = this.header_height;
       this.vertical_distance_step = this.vertical_distance/node.distance;
 
       this.last_highlighted_column_cluster = null;
@@ -1165,7 +1168,7 @@ var InCHlib;
   }
 
   InCHlib.prototype._adjust_leaf_size = function(leaves){
-      this.pixels_for_leaf = (this.settings.max_height-this.header_height-this.footer_height-this.column_metadata_height)/leaves;
+      this.pixels_for_leaf = (this.settings.max_height-this.header_height-this.footer_height-this.column_metadata_height-5)/leaves;
       if(this.pixels_for_leaf > 3*this.pixels_for_dimension){
         this.pixels_for_leaf = this.pixels_for_dimension;
       }
@@ -1594,7 +1597,7 @@ var InCHlib;
   InCHlib.prototype._draw_heatmap_header = function(){
       this.header_layer = new Kinetic.Layer();
       var count = this._hack_size(this.leaves_y_coordinates);
-      var y = (this.settings.column_dendrogram && this.heatmap_header)? this.header_height+(this.pixels_for_leaf*count) + 10: this.header_height - 20;
+      var y = (this.settings.column_dendrogram && this.heatmap_header)? this.header_height+(this.pixels_for_leaf*count) + 10 + this.column_metadata_height: this.header_height - 20;
       var rotation = (this.settings.column_dendrogram && this.heatmap_header) ? 45 : -45;
       var distance_step = 0;
       var x, i, column_header, key;
@@ -1790,8 +1793,8 @@ var InCHlib;
       }
 
       if(self.zoomed_clusters["row"].length > 0){
-        x = this.distance - 30;
-        y = this.header_height + this.column_metadata_height - 45;
+        x = this.distance - 40;
+        y = this.header_height + this.column_metadata_height - 40;
         var unzoom_icon = this.objects_ref.icon.clone({
             data: "M22.646,19.307c0.96-1.583,1.523-3.435,1.524-5.421C24.169,8.093,19.478,3.401,13.688,3.399C7.897,3.401,3.204,8.093,3.204,13.885c0,5.789,4.693,10.481,10.484,10.481c1.987,0,3.839-0.563,5.422-1.523l7.128,7.127l3.535-3.537L22.646,19.307zM13.688,20.369c-3.582-0.008-6.478-2.904-6.484-6.484c0.006-3.582,2.903-6.478,6.484-6.486c3.579,0.008,6.478,2.904,6.484,6.486C20.165,17.465,17.267,20.361,13.688,20.369zM8.854,11.884v4.001l9.665-0.001v-3.999L8.854,11.884z",
             x: x,
@@ -2122,8 +2125,8 @@ var InCHlib;
       this.row_cluster_group = new Kinetic.Group();
       var visible = this._get_visible_count();
       var count = this.data.nodes[path_id].count;
-      var x = this.distance - 30;
-      var y = this.header_height + this.column_metadata_height - 45;
+      var x = this.distance - 40;
+      var y = this.header_height + this.column_metadata_height - 40;
 
       var rows_desc = this.objects_ref.count.clone({x: x + 20,
                                                         y: y - 5,
@@ -2142,8 +2145,8 @@ var InCHlib;
 
       var zoom_overlay = this._draw_icon_overlay(x, y);
 
-      x = this.heatmap_distance;
-      var width = visible*this.pixels_for_dimension;
+      x = 0;
+      var width = visible*this.pixels_for_dimension+this.heatmap_distance;
       var upper_y = this.highlighted_rows_y[0]-this.pixels_for_leaf/2;
       var lower_y = this.highlighted_rows_y[this.highlighted_rows_y.length-1]+this.pixels_for_leaf/2;
       
@@ -2162,7 +2165,7 @@ var InCHlib;
           x: x,
           y: lower_y,
           width: width,
-          height: this.settings.height-lower_y-this.footer_height + 0.5*this.pixels_for_leaf,
+          height: this.settings.height-lower_y-this.footer_height + 5,
       });
 
       var cluster_border_2 = this.objects_ref.cluster_border.clone({
@@ -2221,8 +2224,8 @@ var InCHlib;
 
       var x1 = this._hack_round((this.current_column_ids[0] - this.columns_start_index)*this.pixels_for_dimension);
       var x2 = this._hack_round((this.current_column_ids[0] + this.current_column_ids.length - this.columns_start_index)*this.pixels_for_dimension);
-      var y1 = this.header_height;
-      var y2 = this.settings.height-this.footer_height+0.5*this.pixels_for_leaf;
+      var y1 = 0;
+      var y2 = this.settings.height-this.footer_height+5;
       var height = this.settings.height-this.footer_height-this.header_height+this.settings.column_metadata_row_height;    
       
       var cluster_border_1 = this.objects_ref.cluster_border.clone({
@@ -3152,7 +3155,7 @@ var InCHlib;
       var fncs = {"zero": function(values){return 0;},
         "median": function(values){
           values.sort(function(a,b){return a - b});
-          var median_pos = self._hack_round(values.length/2);
+          var median_pos = self._hack_round((values.length-1)/2);
           return values[median_pos];
           }, 
         "mean": function(values){
