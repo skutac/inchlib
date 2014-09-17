@@ -279,7 +279,7 @@ body{
 	margin-left: auto;
 	margin-right: auto;
 	display: block;
-	height: 400px;
+	height: 500px;
 }
 
 .input_example #data{
@@ -292,6 +292,10 @@ body{
 
 .input_example #column_dendrogram{
 	background-color: rgba(45,74,243,0.6);
+}
+
+.input_example #column_metadata{
+	background-color: rgb(236,127,53);
 }
 
 .js_comment{

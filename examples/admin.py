@@ -1,9 +1,8 @@
 from django.contrib import admin
-from examples.models import Examples, ExampleTypes
+from examples.models import Examples, ExampleTypes, SettingsAttributes
 
 
 class ExamplesAdmin(admin.ModelAdmin):
-    # fields = ('title', 'description')
     list_display = ('title', 'exampletype', 'order',)
     fieldsets = (
         (None, {
@@ -27,4 +26,20 @@ class ExampleTypesAdmin(admin.ModelAdmin):
         }
 
 admin.site.register(ExampleTypes, ExampleTypesAdmin)
+
+
+class SettingsAttributesAdmin(admin.ModelAdmin):
+    list_display = ('name', 'description', 'settingsattributetype')
+    fieldsets = (
+        (None, {
+            'classes': ('wide',),
+            'fields': ('name', 'description', 'settingsattributetype'),
+        }),
+    )
+    class Media:
+        css = {
+            "all": ("css/admin.css",)
+        }
+
+admin.site.register(SettingsAttributes, SettingsAttributesAdmin)
 

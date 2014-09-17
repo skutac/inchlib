@@ -35,13 +35,14 @@ $(document).ready(function(){
                 // count_column: true,
                 // values_center: "median",
                 // independent_columns: false,
-                max_percentile: 90,
-                min_percentile: 20,
-                middle_percentile: 70
+                // max_percentile: 90,
+                // min_percentile: 20,
+                // middle_percentile: 70
             });
     // dendrogram_1.add_color_scale("WhBk", {"start": {"r":255, "g": 255, "b": 255}, "middle": {"r": 236, "g": 158, "b": 56}, "end": {"r": 0, "g": 0, "b": 0}})
 
-    dendrogram_1.read_data_from_file("{% static "data/microarrays_column_metadata.json" %}");
+    // dendrogram_1.read_data_from_file("{% static "data/microarrays_column_metadata.json" %}");
+    dendrogram_1.read_data_from_file("{% static "data/input_format.json" %}");
     dendrogram_1.draw();
     
     /*

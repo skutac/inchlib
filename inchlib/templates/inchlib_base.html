@@ -19,6 +19,8 @@
   ga('create', 'UA-47862853-1', 'openscreen.cz');
   ga('send', 'pageview');
 
+  var dendrogram = null;
+
   $(document).ready(function() {
     $(document).keyup(function(e) {
       if (e.keyCode == 27){
@@ -41,8 +43,10 @@
 
     $(document).click(function(evt){
           if(evt.target.localName != "canvas" && evt.target.localName != "a" && !($(evt.target).hasClass('pure-button')) && evt.target.localName != "button" && !($(evt.target).hasClass('target_overlay')) && !($(evt.target).hasClass('scaffold_img'))){
+            if(dendrogram !== null){
               dendrogram.unhighlight_cluster();
-              dendrogram.highlight_rows([])
+              dendrogram.highlight_rows([]);
+            }
           }
       });
 

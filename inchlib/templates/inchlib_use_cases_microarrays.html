@@ -83,7 +83,6 @@
             });
 
         dendrogram.events.row_onclick = function(object_ids, evt){
-            console.log(object_ids)
             current = object_ids[0];
             draw_boxplot(object_ids, evt.pageY);
             dendrogram.highlight_rows(object_ids);

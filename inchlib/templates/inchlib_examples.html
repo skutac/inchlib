@@ -59,7 +59,7 @@
 			});
 
 			$("#update_settings_button").click(function(){
-				dendrogram.update_settings({"heatmap_colors": "Greys"});
+				dendrogram.update_settings({"max_column_width": 20});
 			});
 
 			$("#redraw_button").click(function(){
@@ -142,7 +142,7 @@ inchlib.draw(); //draw visualization</div>
 				<div class="pure-button inactive" id="unhighlight_rows_button">inchlib.unhighlight_rows();</div>
 				<div class="pure-button active" id="highlight_cluster_button">inchlib.highlight_cluster("node@337");</div>
 				<div class="pure-button inactive" id="unhighlight_cluster_button">inchlib.unhighlight_cluster();</div>
-				<div class="pure-button inactive" id="update_settings_button">inchlib.update_settings({"heatmap_colors": "Greys"});</div>
+				<div class="pure-button inactive" id="update_settings_button">inchlib.update_settings({"max_column_width": 20});</div>
 				<div class="pure-button inactive" id="redraw_button">inchlib.redraw();</div>
 			</div>
 		{% endif %}

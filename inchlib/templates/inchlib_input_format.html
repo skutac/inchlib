@@ -19,17 +19,18 @@
 
 <div class="description">
     <div class="title">Input format</div>
-    Clustering and heatmap data are supplied to <b>InCHlib</b> in a <i>Javascript Object Notation</i> (JSON) compliant format. It is an easily extensible text format in which data objects are defined as attribute–value pairs. <b>InCHlib</b> input consists of three blocks (see a color coded example at the end of the page):
+    Clustering and heatmap data are supplied to <b>InCHlib</b> in a <i>Javascript Object Notation</i> (JSON) compliant format. It is an easily extensible text format in which data objects are defined as attribute–value pairs. <b>InCHlib</b> input consists of four blocks (see a color coded example at the end of the page):
     <ul>
     <li><b>data block</b> - contains heatmap and dendrogram data</li>
     <li><b>metadata block</b> - contains metadata (i.e., additional information, such as, e.g., class membership, about individual objects)</li>
     <li><b>column dendrogram block</b> - contains information about a column dendrogram</li>
+    <li><b>column metadata block</b> - contains column metadata (i.e., additional information, such as, e.g., class membership, about individual columns), <b>added in InCHlib 1.1.0</b></li>
 </ul>
 </div>
 
 
 {% load staticfiles %}
-<img id="inchlib_described" src="{% static "img/inchlib_described.png" %}" alt="InCHlib described" />
+<img id="inchlib_described" src="{% static "img/input_format_described.png" %}" alt="InCHlib described" />
 
 <div class="description">A dendrogram is determined as a structure consisting of inner nodes and terminal nodes (usually referred to as leaves) connected by branches. Each leaf is associated with one data item (row in the heatmap). Each item is described by a set of features (columns in the heatmap). Features describe either one object (data point) or several objects if the <a href="{% url examples 5 %}">row compression</a> is used.</div>
 
@@ -91,6 +92,20 @@
 </div>
 
 <div class="description">Column dendrogram represents the vertical dendrogram and has the same structure as the main row dendrogram contained in nodes section. The only difference is that the terminal nodes (leaves) don't have the <i>features</i> and <i>objects</i> parameters.
+</div>
+
+<div class="description">Column metadata block contains additional data for data features (columns), such as, e.g., class membership information. Column metadata have no influence on the order of the objects in the heatmap.</div>
+
+<div class="description">
+    <div class="small_title">Column metadata example</div>
+    <div class="code">"column_metadata": {     <span class="js_comment">//contains features and feature_names sections of column metadata</span>
+    "features": [   <span class="js_comment">//the array containing arrays of column metadata features</span>
+        ["2", "1", "3"],    <span class="js_comment">//the array of column metadata</span>
+        ["negative", "positive", "positive"]
+    ], 
+    "feature_names": ["Numeric", "Categoric"]   <span class="js_comment">//the array of the column metadata feature_names</span>
+}, 
+</div>
 </div>
 
 <div class="description">For the generation of <b>InCHlib</b> data format you can use our python wrapper called <b><a href="inchlib_clust">inchlib_clust</a></b>.</div>
@@ -168,58 +183,16 @@
                 "right_child": "node_2"
             }
         }
-    }
+    },
+</div>
+<div class="data" id="column_metadata">    "column_metadata": {     <span class="js_comment">//contains features and feature_names sections of column metadata</span>
+        "features": [   <span class="js_comment">//the array containing arrays of column metadata features</span>
+            ["2", "1", "3"],    <span class="js_comment">//the array of column metadata</span>
+            ["negative", "positive", "positive"]
+        ], 
+        "feature_names": ["Numeric", "Categoric"]   <span class="js_comment">//the array of the column metadata feature_names</span>
+    }, 
 }</div>
 </div>
-
-<!-- <div id="dendrogram"></div> -->
-
-
-	<!-- <div class="format_desc">
-		<div class="title"><a href="#format_nodes">Nodes</a></div>
-		<div class="description" id="nodes">
-			<p>The basic <b>InCHlib</b> format structure is <b>node/leaf</b>. All horizontal dendrogram nodes together with heatmap data are contained in the <i>nodes</i> section of the input data and each has its own ID. All nodes except for the root have the parent attribute which indicates the ID of its parent node.</p>
-		
-			<p><b>Node</b> is a non-terminal part of dendrogram which always has two child-nodes - left (<i>left_child</i>) and right (<i>right_child</i>). The distance from the dendrogram base is generally <b>greater than 0</b> and the count is always <b>greater than 1</b>.</p>
-			 
-			<p><b>Leaf-node</b> is a terminal part of dendrogram which has no child-nodes. The distance from the dendrogram base is <b>0</b> and the count is <b>1</b>. Leaf-node also has additional attribute <i>data</i> which is an array representing the heatmap row. Another attribute - <i>objects</i> - is an array containing one or more IDs of objects which are represented by the row.</p>
-		
-			<ul>
-				<li><a href="#format_count" id="count_attr"><b>count</b></a> - count of rows in the underlying hierarchy of node</li>
-				<li><a href="#format_distance" id="distance_attr"><b>distance</b></a> - distance from the base of the dendrogram</li>
-				<li><a href="#format_parent" id="parent_attr"><b>parent</b></a> - ID of a parent node</li>
-				<li><a href="#format_left_child" id="left_child_attr"><b>left_child</b></a> - ID of a left child</li>
-				<li><a href="#format_right_child" id="right_child_attr"><b>right_child</b></a> - ID of a right child</li>
-				<li><a href="#format_objects" id="objects_attr"><b>objects</b></a> - ID/IDs of objects represented by the row</li>
-				<li><a href="#format_data" id="data_attr"><b>data</b></a> - array of values representing the heatmap row</li>
-			</ul>
-		</div>
-	</div>
-
-	<div class="format_desc">
-		<div class="title"><a href="#format_feature_names">feature_names</a></div>
-		<div>
-			<p>feature_names is just an array containing labels for heatmap columns. feature_names for metadata columns is contained under <i>metadata > feature_names</i>.</p>
-		</div>
-	</div>
-
-	<div class="format_desc">
-		<div class="title"><a href="#format_metadata">Metadata</a></div>
-		<div>
-            <p>Additional data for the main heatmap data. They have no influence on the order of the rows in the heatmap.</p>
-            <ul>
-                <li><a href="#format_metadata_nodes" id="metadata_nodes"><b>nodes</b></a> - object containing row IDs matching the leaf-node IDs in <a href="#format_nodes">nodes</a> section with an array of metadata values</li>
-                <li><a href="#format_metadata_feature_names" id="metadata_feature_names"><b>feature_names</b></a> - an array containing labels for metadata columns</li>
-            </ul>
-            
-        </div>
-	</div>
-
-	<div class="format_desc">
-		<div class="title"><a href="#format_column_dendrogram">Column dendrogram</a></div>
-		<div>
-			<p>Column dendrogram represents the vertical dendrogram and has the same structure as the main row dendrogram contained in <a href="#format_nodes">nodes</a> section.</p>
-		</div>
-	</div> -->
 
 {% endblock %}

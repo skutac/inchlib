@@ -46,6 +46,7 @@
 			text = attr + ": " + dendrogram.events[attr];
 			element.text(text);
 		}
+		dendrogram = null;
 	});
 
 </script>
@@ -68,10 +69,13 @@
         <li><a href="#draw">draw</a></li>
         <li><a href="#update_settings">update_settings</a></li>
         <li><a href="#redraw">redraw</a></li>
+        <li><a href="#redraw_heatmap">redraw_heatmap</a></li>
         <li><a href="#highlight_rows">highlight_rows</a></li>
         <li><a href="#unhighlight_rows">unhighlight_rows</a></li>
         <li><a href="#highlight_cluster">highlight_cluster</a></li>
-        <li><a href="#highlight_cluster">unhighlight_cluster</a></li>
+        <li><a href="#unhighlight_cluster">unhighlight_cluster</a></li>
+        <li><a href="#get_features_for_object">get_features_for_object</a></li>
+        <li><a href="#add_color_scale">add_color_scale</a></li>
         <li class="pure-menu-heading"><b>Events</b></li>
         {% for e in events %}
         	<li><a href="#{{ e.name }}">{{ e.name }}</a></li>
@@ -138,6 +142,15 @@
 		</div>
 
 		<div class="doc">
+			<div class="small_title" id="redraw_heatmap">redraw_heatmap()</div>
+			<div class="description">redraw only the heatmap part of the visualization when only coloring settings have been changed</div>
+			<div class="default">
+				<div class="subtitle">Example:</div>
+				<div class="default_value">inchlib_instance.redraw_heatmap()</div>
+			</div>
+		</div>
+
+		<div class="doc">
 			<div class="small_title" id="highlight_rows">highlight_rows()</div>
 			<div class="description">highlight rows specified by row IDs</div>
 			<div class="default">
@@ -169,6 +182,28 @@
 			<div class="default">
 				<div class="subtitle">Example:</div>
 				<div class="default_value">inchlib_instance.unhighlight_cluster()</div>
+			</div>
+		</div>
+
+		<div class="doc">
+			<div class="small_title" id="get_features_for_object">get_features_for_object()</div>
+			<div class="description">get features for object given by the <i>object_id</i> parameter</div>
+			<div class="default">
+				<div class="subtitle">Example:</div>
+				<div class="default_value">inchlib_instance.get_features_for_object(object_id)</div>
+			</div>
+		</div>
+
+		<div class="doc">
+			<div class="small_title" id="get_features_for_object">add_color_scale()</div>
+			<div class="description">add user defined color scale in the form shown below, the middle color is optional, first parameter is the color scale name and the second its definition</div>
+			<div class="default">
+				<div class="subtitle">Example:</div>
+				<div class="default_value">inchlib_instance.add_color_scale("WhBk", 
+				{"start": {"r":255, "g": 255, "b": 255}, 
+				"middle": {"r": 236, "g": 158, "b": 56}, 
+				"end": {"r": 0, "g": 0, "b": 0}
+				})</div>
 			</div>
 		</div>
 
