@@ -234,7 +234,7 @@ class Dendrogram():
         <head>
             <script src="jquery-2.0.3.min.js"></script>
             <script src="kinetic-v5.1.0.min.js"></script>
-            <script src="inchlib-1.1.0.js"></script>
+            <script src="inchlib-1.1.0.min.js"></script>
             <script>
             $(document).ready(function() {{
                 var data = {};
@@ -254,9 +254,9 @@ class Dendrogram():
         </body>
         </html>""".format(dendrogram_json)
 
-        lib2url = {"inchlib-1.1.0.js": "http://localhost:8000/static/js/inchlib-1.1.0.js",
-                    "jquery-2.0.3.min.js": "http://localhost:8000/static/js/jquery-2.0.3.min.js",
-                    "kinetic-v5.1.0.min.js": "http://localhost:8000/static/js/kinetic-v5.1.0.min.js"}
+        lib2url = {"inchlib-1.1.0.min.js": "http://openscreen.cz/software/inchlib/static/js/inchlib-1.1.0.min.js",
+                    "jquery-2.0.3.min.js": "http://openscreen.cz/software/inchlib/static/js/jquery-2.0.3.min.js",
+                    "kinetic-v5.1.0.min.js": "http://openscreen.cz/software/inchlib/static/js/kinetic-v5.1.0.min.js"}
         
         for lib, url in lib2url.items():
             try:

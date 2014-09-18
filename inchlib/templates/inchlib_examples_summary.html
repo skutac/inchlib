@@ -44,7 +44,7 @@
        <img id="workflow" src="{% static "img/workflow.png" %}"/>
 
         <div class="medium_title">Step 1 - Data preparation</div>
-        <p>Data for clustering are typically supplied to <a href="{% url inchlib_clust %}" target=blank>inchlib_clust</a> as a csv (comma separated values) file. If the user wants to have column headers displayed in the heatmap, the first row of a csv file must contain header names. Metadata are provided in a separate csv file. The first column of both data and metadata files is always taken as an ID column. Below are given example snippets of data and metadata files used in all tutorial examples. They represent the activities of several ligands measured at three different concentrations with three physico-chemical properties as metadata.</p>
+        <p>Data for clustering are typically supplied to <a href="{% url inchlib_clust %}" target=blank>inchlib_clust</a> as a csv (comma separated values) file. If the user wants to have column headers displayed in the heatmap, the first row of a csv file must contain header names. Row and column metadata are provided in a separate csv files. The first column of both data and row metadata files is always taken as an ID column. Below are given example snippets of data and row/column metadata files used in all tutorial examples. They represent the activities of several ligands measured at three different concentrations with three physico-chemical properties as row metadata and three measurement properties as column metadata.</p>
 
         <div class="small_title"><a href="{% static "source_data/example_data.csv" %}" target=blank>Whole data file</a></div>
     <div class="code">compoundid,1x10-5 mol.dm-3,1x10-4 mol.dm-3, 1x10-3 mol.dm-3
@@ -64,16 +64,23 @@
 10701,5.209,472.228,1
 </div>
 
+        <div class="small_title"><a href="{% static "source_data/example_column_metadata.csv" %}" target=blank>Whole column metadata file</a></div>
+    <div class="code">Solvent,DMSO,DMSO,DMSO
+Concentration,0.00001,0.0001,0.001
+Measurement order,2,1,3
+</div>
+
 <div class="medium_title">Step 2 - Data clustering</div>
-<p>Recommended way of data clustering is the use of the <a href="{% url inchlib_clust %}" target=blank>inchlib_clust</a> script. This script not only performs clustering, but also returns the cluster heatmap as an <a href="{% url input_format %}" target=blank>InCHlib input file</a>. Below given is the command-line for Ward’s clustering with the Euclidean distance (these two options are implicit) of data stored in the <a href="{% static "source_data/example_data.csv" %}" target=blank>example_data.csv</a> file. Metadata are provided (option <i>-m</i>) as the <a href="{% static "source_data/example_metadata.csv" %}" target=blank>example_metadata.csv</a> file. Both data as well as metadata files have column  headers (<i>-dh</i> and <i>-mh</i> options). The output file <a href="{% static "data/example.json" %}" target=blank>example.json</a> contains the cluster heatmap in the <a href="{% url input_format %}" target=blank>InCHlib input format</a>.</p>
+<p>Recommended way of data clustering is the use of the <a href="{% url inchlib_clust %}" target=blank>inchlib_clust</a> script. This script not only performs clustering, but also returns the cluster heatmap as an <a href="{% url input_format %}" target=blank>InCHlib input file</a>. Below given is the command-line for Ward’s clustering with the Euclidean distance (these two options are implicit) of data stored in the <a href="{% static "source_data/example_data.csv" %}" target=blank>example_data.csv</a> file. Row metadata are provided (option <i>-m</i>) as the <a href="{% static "source_data/example_metadata.csv" %}" target=blank>example_metadata.csv</a> file and column metadata (option <i>-cm</i>) as the <a href="{% static "source_data/example_column_metadata.csv" %}" target=blank>example_column_metadata.csv</a> file. Data as well as row metadata files have column headers (<i>-dh</i> and <i>-mh</i> options). Column metadata has 'header' (labels) in the first column (<i>-cmh</i> option). The output file <a href="{% static "data/example.json" %}" target=blank>example.json</a> contains the cluster heatmap in the <a href="{% url input_format %}" target=blank>InCHlib input format</a>.</p>
 
 <div class="small_title">Command-line</div>
-<div class="code">python inchlib_clust.py example_data.csv -m example_metadata.csv -dh -mh -o example.json</div>
+<div class="code">python inchlib_clust.py example_data.csv -m example_metadata.csv -cm example_column_metadata.csv -dh -mh -cmh 
+-o example.json</div>
 
 <div class="medium_title">Step 3 - InCHlib deployment</div>
-<p>The file <a href="{% static "data/example.json" %}" target=blank>example.json</a> describes dendrogram structure and it contains all data necessary for cluster heatmap visualization. No ther file is needed to render the cluster heatmap. An example below demonstrates how easy it is to integrate InCHlib visualization into your web page.</p>
+<p>The file <a href="{% static "data/example.json" %}" target=blank>example.json</a> describes dendrogram structure and it contains all data necessary for cluster heatmap visualization. No other file is needed to render the cluster heatmap. An example below demonstrates how easy it is to integrate InCHlib visualization into your web page.</p>
 
-<p>inchlib.js (and its dependencies <a href="{% static "js/jquery-2.0.3.min.js" %}" target=blank>jquery-2.0.3.min.js</a> and <a href="{% static "js/kinetic-v5.0.0.min.js" %}" target=blank>kinetic-v5.0.0.min.js</a>) must be first imported in the <i>&lt;script&gt;</i> tag. InCHlib is initialized immediately when the whole page is loaded (detected by the <i>$(document).ready</i> event), and it contains several attributes defining the appearance of the visualization (all attributes are documented <a href="{% url docs %}" target=blank>here</a>). Finally, <a href="{% static "data/example.json" %}" target=blank>example.json</a> is loaded, and the cluster heatmap is displayed.
+<p>inchlib.js (and its dependencies <a href="{% static "js/jquery-2.0.3.min.js" %}" target=blank>jquery-2.0.3.min.js</a> and <a href="{% static "js/kinetic-v5.1.0.min.js" %}" target=blank>kinetic-v5.1.0.min.js</a>) must be first imported in the <i>&lt;script&gt;</i> tag. InCHlib is initialized immediately when the whole page is loaded (detected by the <i>$(document).ready</i> event), and it contains several attributes defining the appearance of the visualization (all attributes are documented <a href="{% url docs %}" target=blank>here</a>). Finally, <a href="{% static "data/example.json" %}" target=blank>example.json</a> is loaded, and the cluster heatmap is displayed.
 </p>
 
 <p>Below is an example of a simple HTML web page with InCHlib integration:</p>
@@ -88,6 +95,7 @@
             window.inchlib = new InCHlib({ <span class="js_comment">//instantiate InCHlib</span>
                 <a href="{% url docs %}#target" target=blank>target</a>: "inchlib", <span class="js_comment">//ID of a target HTML element</span>
                 <a href="{% url docs %}#metadata" target=blank>metadata</a>: true, <span class="js_comment">//turn on the metadata</span> 
+                <a href="{% url docs %}#column_metadata" target=blank>column_metadata</a>: true, <span class="js_comment">//turn on the column metadata</span> 
                 <a href="{% url docs %}#max_height" target=blank>max_height</a>: 1200, <span class="js_comment">//set maximum height of visualization in pixels</span>
                 <a href="{% url docs %}#width" target=blank>width</a>: 1000, <span class="js_comment">//set width of visualization in pixels</span>
                 <a href="{% url docs %}#heatmap_colors" target=blank>heatmap_colors</a>: "Greens", <span class="js_comment">//set <a href="{% url docs%}#colors" target=blank>color scale</a> for clustered data</span>
