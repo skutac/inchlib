@@ -9,7 +9,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>inchlib_clust</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><br></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"></font></td></tr></table>
     <p><tt>#coding:&nbsp;utf-8</tt></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -22,7 +22,7 @@
 copy<br>
 csv<br>
 fastcluster<br>
-</td><td width="25%" valign=top>hierarchy.html">scipy.cluster.hierarchy<br>
+</td><td width="25%" valign=top>.html">scipy.cluster.hierarchy<br>
 json<br>
 numpy<br>
 os<br>
@@ -40,8 +40,8 @@ urllib2<br>
     
 <tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><dl>
-<dt><font face="helvetica, arial">Cluster
-</font></dt><dt><font face="helvetica, arial">Dendrogram
+<dt><font face="helvetica, arial"><a href="inchlib_clust.html#Cluster">Cluster</a>
+</font></dt><dt><font face="helvetica, arial"><a href="inchlib_clust.html#Dendrogram">Dendrogram</a>
 </font></dt></dl>
  <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -55,12 +55,16 @@ urllib2<br>
 <td width="100%">Methods defined here:<br>
 <dl><dt><a name="Cluster-__cluster_columns__"><strong>__cluster_columns__</strong></a>(self, column_distance, column_linkage)</dt></dl>
 
+<dl><dt><a name="Cluster-__impute_missing_values__"><strong>__impute_missing_values__</strong></a>(self, data)</dt></dl>
+
 <dl><dt><a name="Cluster-__init__"><strong>__init__</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="Cluster-__reorder_data__"><strong>__reorder_data__</strong></a>(self, data, order)</dt></dl>
 
-<dl><dt><a name="Cluster-cluster_data"><strong>cluster_data</strong></a>(self, data_type<font color="#909090">='numeric'</font>, row_distance<font color="#909090">='euclidean'</font>, row_linkage<font color="#909090">='single'</font>, axis<font color="#909090">='row'</font>, column_distance<font color="#909090">='euclidean'</font>, column_linkage<font color="#909090">='ward'</font>)</dt><dd><tt>Performs&nbsp;clustering&nbsp;according&nbsp;to&nbsp;the&nbsp;given&nbsp;parameters.<br>
-@data_type&nbsp;-&nbsp;numeric/binary<br>
+<dl><dt><a name="Cluster-__return_missing_values__"><strong>__return_missing_values__</strong></a>(self, data, missing_values_indexes)</dt></dl>
+
+<dl><dt><a name="Cluster-cluster_data"><strong>cluster_data</strong></a>(self, row_distance<font color="#909090">='euclidean'</font>, row_linkage<font color="#909090">='single'</font>, axis<font color="#909090">='row'</font>, column_distance<font color="#909090">='euclidean'</font>, column_linkage<font color="#909090">='ward'</font>)</dt><dd><tt>Performs&nbsp;clustering&nbsp;according&nbsp;to&nbsp;the&nbsp;given&nbsp;parameters.<br>
+@datatype&nbsp;-&nbsp;numeric/binary<br>
 @row_distance/column_distance&nbsp;-&nbsp;see.&nbsp;DISTANCES&nbsp;variable<br>
 @row_linkage/column_linkage&nbsp;-&nbsp;see.&nbsp;LINKAGES&nbsp;variable<br>
 @axis&nbsp;-&nbsp;row/both</tt></dd></dl>
@@ -68,9 +72,9 @@ urllib2<br>
 <dl><dt><a name="Cluster-normalize_data"><strong>normalize_data</strong></a>(self, feature_range<font color="#909090">=(0, 1)</font>, write_original<font color="#909090">=False</font>)</dt><dd><tt>Normalizes&nbsp;data&nbsp;to&nbsp;a&nbsp;scale&nbsp;from&nbsp;0&nbsp;to&nbsp;1.&nbsp;When&nbsp;write_original&nbsp;is&nbsp;set&nbsp;to&nbsp;True,&nbsp;<br>
 the&nbsp;normalized&nbsp;data&nbsp;will&nbsp;be&nbsp;clustered,&nbsp;but&nbsp;original&nbsp;data&nbsp;will&nbsp;be&nbsp;written&nbsp;to&nbsp;the&nbsp;heatmap.</tt></dd></dl>
 
-<dl><dt><a name="Cluster-read_csv"><strong>read_csv</strong></a>(self, filename, delimiter<font color="#909090">=','</font>, header<font color="#909090">=False</font>)</dt><dd><tt>Reads&nbsp;data&nbsp;from&nbsp;the&nbsp;CSV&nbsp;file</tt></dd></dl>
+<dl><dt><a name="Cluster-read_csv"><strong>read_csv</strong></a>(self, filename, delimiter<font color="#909090">=','</font>, header<font color="#909090">=False</font>, missing_value<font color="#909090">=False</font>, datatype<font color="#909090">='numeric'</font>)</dt><dd><tt>Reads&nbsp;data&nbsp;from&nbsp;the&nbsp;CSV&nbsp;file</tt></dd></dl>
 
-<dl><dt><a name="Cluster-read_data"><strong>read_data</strong></a>(self, rows, header<font color="#909090">=False</font>)</dt><dd><tt>Reads&nbsp;data&nbsp;in&nbsp;a&nbsp;form&nbsp;of&nbsp;list&nbsp;of&nbsp;lists&nbsp;(tuples)</tt></dd></dl>
+<dl><dt><a name="Cluster-read_data"><strong>read_data</strong></a>(self, rows, header<font color="#909090">=False</font>, missing_value<font color="#909090">=False</font>, datatype<font color="#909090">='numeric'</font>)</dt><dd><tt>Reads&nbsp;data&nbsp;in&nbsp;a&nbsp;form&nbsp;of&nbsp;list&nbsp;of&nbsp;lists&nbsp;(tuples)</tt></dd></dl>
 
 </td></tr></table> <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -83,7 +87,11 @@ the&nbsp;normalized&nbsp;data&nbsp;will&nbsp;be&nbsp;clustered,&nbsp;but&nbsp;or
 As&nbsp;an&nbsp;input&nbsp;it&nbsp;takes&nbsp;a&nbsp;<a href="#Cluster">Cluster</a>&nbsp;instance&nbsp;with&nbsp;clustered&nbsp;data.<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
+<dl><dt><a name="Dendrogram-__add_column_metadata_to_data__"><strong>__add_column_metadata_to_data__</strong></a>(self)</dt></dl>
+
 <dl><dt><a name="Dendrogram-__adjust_node_counts__"><strong>__adjust_node_counts__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Dendrogram-__check_column_metadata_length__"><strong>__check_column_metadata_length__</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="Dendrogram-__compress_data__"><strong>__compress_data__</strong></a>(self)</dt></dl>
 
@@ -100,6 +108,10 @@ As&nbsp;an&nbsp;input&nbsp;it&nbsp;takes&nbsp;a&nbsp;<a href="#Cluster">Cluster<
 <dl><dt><a name="Dendrogram-__read_metadata__"><strong>__read_metadata__</strong></a>(self, metadata, header)</dt></dl>
 
 <dl><dt><a name="Dendrogram-__read_metadata_file__"><strong>__read_metadata_file__</strong></a>(self, metadata_file, delimiter, header)</dt></dl>
+
+<dl><dt><a name="Dendrogram-add_column_metadata"><strong>add_column_metadata</strong></a>(self, column_metadata, header<font color="#909090">=True</font>)</dt><dd><tt>Adds&nbsp;column&nbsp;metadata&nbsp;in&nbsp;a&nbsp;form&nbsp;of&nbsp;list&nbsp;of&nbsp;lists&nbsp;(tuples).&nbsp;Column&nbsp;metadata&nbsp;doesn't&nbsp;have&nbsp;header&nbsp;row,&nbsp;first&nbsp;item&nbsp;in&nbsp;each&nbsp;row&nbsp;is&nbsp;used&nbsp;as&nbsp;label&nbsp;instead</tt></dd></dl>
+
+<dl><dt><a name="Dendrogram-add_column_metadata_from_file"><strong>add_column_metadata_from_file</strong></a>(self, column_metadata_file, delimiter<font color="#909090">=','</font>, header<font color="#909090">=True</font>)</dt><dd><tt>Adds&nbsp;column&nbsp;metadata&nbsp;from&nbsp;csv&nbsp;file.&nbsp;Column&nbsp;metadata&nbsp;doesn't&nbsp;have&nbsp;header.</tt></dd></dl>
 
 <dl><dt><a name="Dendrogram-add_metadata"><strong>add_metadata</strong></a>(self, metadata, header<font color="#909090">=True</font>, metadata_compressed_value<font color="#909090">='median'</font>)</dt><dd><tt>Adds&nbsp;metadata&nbsp;in&nbsp;a&nbsp;form&nbsp;of&nbsp;list&nbsp;of&nbsp;lists&nbsp;(tuples).<br>
 Metadata_compressed_value&nbsp;specifies&nbsp;the&nbsp;resulted&nbsp;value&nbsp;when&nbsp;the&nbsp;data&nbsp;are&nbsp;compressed&nbsp;(median/mean/frequency)</tt></dd></dl>

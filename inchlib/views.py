@@ -171,15 +171,15 @@ import inchlib_clust
 #instantiate the Cluster object
 c = inchlib_clust.Cluster()
 
-# read csv data file with specified delimiter, also specify whether there is a header row
-c.read_csv(filename="filename", delimiter=",", header=bool)
-# c.read_data(data, header=bool) use read_data() for list of lists instead of a data file
+# read csv data file with specified delimiter, also specify whether there is a header row, the type of the data (numeric/binary) and the string representation of missing/unknown values
+c.read_csv(filename="/path/to/file.csv", delimiter=",", header=bool, missing_value=str/False, datatype="numeric/binary")
+# c.read_data(data, header=bool, missing_value=str/False, datatype="numeric/binary") use read_data() for list of lists instead of a data file
 
 # normalize data to (0,1) scale, but after clustering write the original data to the heatmap
-c.normalize_data(feature_range=(0,1), write_original=True)
+c.normalize_data(feature_range=(0,1), write_original=bool)
 
 # cluster data according to the parameters
-c.cluster_data(data_type="numeric", row_distance="euclidean", row_linkage="single", axis="row", column_distance="euclidean", column_linkage="ward")
+c.cluster_data(row_distance="euclidean", row_linkage="single", axis="row", column_distance="euclidean", column_linkage="ward")
 
 # instantiate the Dendrogram class with the Cluster instance as an input
 d = inchlib_clust.Dendrogram(c)
@@ -188,14 +188,17 @@ d = inchlib_clust.Dendrogram(c)
 d.create_cluster_heatmap(compress=int, compressed_value="median", write_data=bool)
 
 # read metadata file with specified delimiter, also specify whether there is a header row
-d.add_metadata_from_file(metadata_file="filename", delimiter=",", header=bool, metadata_compressed_value="median")
-# d.add_metadata(metadata, header=bool, metadata_compressed_value="median") use add_metadata() for list of lists instead of a metadata file
+d.add_metadata_from_file(metadata_file="/path/to/file.csv", delimiter=",", header=bool, metadata_compressed_value="frequency")
+
+# read column metadata file with specified delimiter, also specify whether there is a 'header' column
+d.add_column_metadata_from_file(column_metadata_file="/path/to/file.csv", delimiter=",", header=bool)
 
 # export the cluster heatmap on the standard output or to the file if filename specified
-d.export_cluster_heatmap_as_json("filename")
-# d.export_cluster_heatmap_as_html("path/to/dir") simple HTML page with cluster heatmap and dependencies is stored in user defined directory"""
+d.export_cluster_heatmap_as_json("/home/ctibor/Desktop/to_delete.json")
+#d.export_cluster_heatmap_as_html("/path/to/directory") function exports simple HTML page with embedded cluster heatmap and dependencies to given directory 
+"""
 
-    bash = "python inchlib_clust.py input_file.csv -m metadata.csv -dh -mh -d euclidean -l ward -a both -dd , -md ,"
+    bash = "python inchlib_clust.py input_file.csv -m metadata.csv -cm column_metadata.csv -dh -mh -cmh -d euclidean -l ward -a both -dd , -md , -cmd ,"
 
     code = highlight(code, PythonLexer(), HtmlFormatter())
     bash = highlight(bash, BashLexer(), HtmlFormatter())

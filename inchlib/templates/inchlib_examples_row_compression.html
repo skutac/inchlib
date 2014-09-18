@@ -39,10 +39,6 @@
 			return false;
 		}
 
-		// dendrogram.events.row_onclick = function(object_ids, evt){
-		// 	console.log(object_ids);
-		// };
-
 		dendrogram.events.on_zoom = function(object_ids, node_id, evt){
 			$("#dendrogram").hide();
 			$.ajax({

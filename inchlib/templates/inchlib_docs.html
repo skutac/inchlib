@@ -74,6 +74,8 @@
         <li><a href="#unhighlight_rows">unhighlight_rows</a></li>
         <li><a href="#highlight_cluster">highlight_cluster</a></li>
         <li><a href="#unhighlight_cluster">unhighlight_cluster</a></li>
+        <li><a href="#highlight_column_cluster">highlight_column_cluster</a></li>
+        <li><a href="#unhighlight_column_cluster">unhighlight_column_cluster</a></li>
         <li><a href="#get_features_for_object">get_features_for_object</a></li>
         <li><a href="#add_color_scale">add_color_scale</a></li>
         <li class="pure-menu-heading"><b>Events</b></li>
@@ -107,7 +109,7 @@
 		</div>
 		<div class="doc">
 			<div class="small_title" id="read_data_from_file">read_data_from_file()</div>
-			<div class="description">read data form JSON data file</div>
+			<div class="description">read data from JSON data file</div>
 			<div class="default">
 				<div class="subtitle">Example:</div>
 				<div class="default_value">inchlib_instance.read_data_from_file("/path/to/file.json")</div>
@@ -186,6 +188,24 @@
 		</div>
 
 		<div class="doc">
+			<div class="small_title" id="highlight_column_cluster">highlight_column_cluster()</div>
+			<div class="description">highlight column cluster (column dendrogram node) specified by node ID</div>
+			<div class="default">
+				<div class="subtitle">Example:</div>
+				<div class="default_value">inchlib_instance.highlight_column_cluster("node_id_1")</div>
+			</div>
+		</div>
+
+		<div class="doc">
+			<div class="small_title" id="unhighlight_column_cluster">unhighlight_column_cluster()</div>
+			<div class="description">unhighlight currently highlighted column cluster (dendrogram node)</div>
+			<div class="default">
+				<div class="subtitle">Example:</div>
+				<div class="default_value">inchlib_instance.unhighlight_column_cluster()</div>
+			</div>
+		</div>
+
+		<div class="doc">
 			<div class="small_title" id="get_features_for_object">get_features_for_object()</div>
 			<div class="description">get features for object given by the <i>object_id</i> parameter</div>
 			<div class="default">
@@ -195,8 +215,8 @@
 		</div>
 
 		<div class="doc">
-			<div class="small_title" id="get_features_for_object">add_color_scale()</div>
-			<div class="description">add user defined color scale in the form shown below, the middle color is optional, first parameter is the color scale name and the second its definition</div>
+			<div class="small_title" id="add_color_scale">add_color_scale()</div>
+			<div class="description">add custom color scale in the form shown below, the middle color is optional, first parameter is the color scale name and the second its definition</div>
 			<div class="default">
 				<div class="subtitle">Example:</div>
 				<div class="default_value">inchlib_instance.add_color_scale("WhBk", 

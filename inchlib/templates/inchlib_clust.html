@@ -20,7 +20,7 @@
 
 <div class="description">
   <div class="title">inchlib_clust</div>
-    <b>inchlib_clust</b> is a python script that performs data clustering and prepares <a href="{% url input_format %}">input data for InCHlib</a>. <b>inchlib_clust</b> can be used both from command line or from Python code. Data for clustering are supplied to <b>inchlib_clust</b> as a csv file. The first row with attribute headers is optional. If command line option <i>-m</i> is specified, metadata are also supplied in a csv format.
+    <b>inchlib_clust</b> is a python script that performs data clustering and prepares <a href="{% url input_format %}">input data for InCHlib</a>. <b>inchlib_clust</b> can be used both from command line or from Python code. Data for clustering are supplied to <b>inchlib_clust</b> as a csv file. The first row with attribute headers is optional. If command line option <i>-m</i> is specified, metadata are also supplied in a csv format. <b>New in inchlib_clust 0.1.3: </b> If command line option <i>-cm</i> is specified, column metadata are also supplied in a csv format. 
 
 </div>
 
@@ -44,7 +44,13 @@
  5,class 3</div>
 </div>
 
-<div class="description">In the example below <b>inchlib_clust</b> is invoked from the command line. Input data for clustering are given in <a href="{% static "data/input_file.csv" %}">input_file.csv</a> which contains attribute names in the first row (<i>-dh</i> parameter), individual values are separated by a comma (<i>-dd ,</i> parameter). Metadata are supplied (<i>-m</i> parameter) in <a href="{% static "data/metadata.csv" %}">metadata.csv</a> file. It also contains medatadata names (<i>-mh</i> parameter), individual values are separated by a comma (<i>-md ,</i> parameter). Both rows and columns are clustered (<i>-a both</i> parameter) using <i>Ward’s</i> clustering (<i>-l ward</i> parameter) with <i>Euclidean</i> distance (<i>-d euclidean</i> parameter).
+<div class="interface">
+  <div class="small_title">Column metadata example (file containing comma-separated values)</div>
+    <div class="code"> Classification,active,inactive,inactive,active
+ Order,2,1,3,4</div>
+</div>
+
+<div class="description">In the example below <b>inchlib_clust</b> is invoked from the command line. Input data for clustering are given in <a href="{% static "data/input_file.csv" %}">input_file.csv</a> which contains attribute names in the first row (<i>-dh</i> parameter), individual values are separated by a comma (<i>-dd ,</i> parameter). Metadata are supplied (<i>-m</i> parameter) in <a href="{% static "data/metadata.csv" %}">metadata.csv</a> file. It also contains metadata names (<i>-mh</i> parameter), individual values are separated by a comma (<i>-md ,</i> parameter). Column metadata are supplied (<i>-cm</i> parameter) in <a href="{% static "data/column_metadata.csv" %}">column_metadata.csv</a> file. It also contains column metadata names (<i>-cmh</i> parameter) but unlike data and row metadata names, they are in the first column (because they have inverse orientation). Individual column metadata values are separated by a comma (<i>-cmd ,</i> parameter). Both rows and columns are clustered (<i>-a both</i> parameter) using <i>Ward’s</i> clustering (<i>-l ward</i> parameter) with <i>Euclidean</i> distance (<i>-d euclidean</i> parameter).
 </div>
 
 <div class="interface">
@@ -139,6 +145,18 @@
       <b>-wo, --write_original</b>
                             only when normalize is set to True
                             cluster normalized data, but write original data to the heatmap
+      <b>-cm COLUMN_METADATA, --column_metadata COLUMN_METADATA</b>
+                            csv(text) column metadata file with delimited values
+                            (<i>default:</i> None)
+      <b>-cmd COLUMN_METADATA_DELIMITER, --column_metadata_delimiter COLUMN_METADATA_DELIMITER</b>
+                            delimiter of values in column metadata file (<i>default:</i> ,)
+      <b>-cmh, --column_metadata_header</b>
+                            whether the first column of the column metadata is the
+                            row label ('header') (<i>default:</i> False)
+      <b>-mv MISSING_VALUES, --missing_values MISSING_VALUES</b>
+                            defines the string representing missing/unknown values in the
+                            data (<i>default:</i> False)
+
     </div>
 </div>
 

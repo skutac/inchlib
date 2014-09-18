@@ -622,3 +622,9 @@ sup{
 #around_dendrogram{
 	min-height: 800px;
 }
+
+.warning{
+	font-size: 20px;
+	font-weight: bold;
+	color: red;
+}

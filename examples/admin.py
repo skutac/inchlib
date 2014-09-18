@@ -1,5 +1,5 @@
 from django.contrib import admin
-from examples.models import Examples, ExampleTypes, SettingsAttributes
+from examples.models import Examples, ExampleTypes, SettingsAttributes, ExampleSettings
 
 
 class ExamplesAdmin(admin.ModelAdmin):
@@ -43,3 +43,18 @@ class SettingsAttributesAdmin(admin.ModelAdmin):
 
 admin.site.register(SettingsAttributes, SettingsAttributesAdmin)
 
+
+class ExampleSettingsAdmin(admin.ModelAdmin):
+    list_display = ('example', 'settingsattribute', 'value')
+    fieldsets = (
+        (None, {
+            'classes': ('wide',),
+            'fields': ('example', 'settingsattribute', 'value'),
+        }),
+    )
+    class Media:
+        css = {
+            "all": ("css/admin.css",)
+        }
+
+admin.site.register(ExampleSettings, ExampleSettingsAdmin)

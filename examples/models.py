@@ -11,11 +11,17 @@ class Examples(models.Model):
     exampletype = models.ForeignKey("ExampleTypes")
     order = models.IntegerField()
 
+    def __unicode__(self):
+        return self.title
+
 class SettingsAttributes(models.Model):
     settingsattributeid = models.AutoField(primary_key=True)
     name = models.CharField(max_length=255)
     description = models.TextField()
     settingsattributetype = models.IntegerField()
+
+    def __unicode__(self):
+        return self.name
 
 class ExampleSettings(models.Model):
     examplesettingsid = models.AutoField(primary_key=True)

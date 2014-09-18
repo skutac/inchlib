@@ -65,6 +65,18 @@
 			$("#redraw_button").click(function(){
 				dendrogram.redraw();
 			});
+			$("#add_color_scale_button").click(function(){
+				dendrogram.add_color_scale("Black&White", {start:{r:0,g:0,b:0}, end:{r:255,g:255,b:255}});
+				var scales = $(".color_scales");
+				if(scales.length){
+					scales.remove();
+				}
+			});
+
+			$("#get_features_button").click(function(){
+				var a = dendrogram.get_features_for_object(14019);
+				alert("The features of object with ID 14019 are: " + a);
+			});
 		{% endif %}
 	});
 
@@ -144,6 +156,8 @@ inchlib.draw(); //draw visualization</div>
 				<div class="pure-button inactive" id="unhighlight_cluster_button">inchlib.unhighlight_cluster();</div>
 				<div class="pure-button inactive" id="update_settings_button">inchlib.update_settings({"max_column_width": 20});</div>
 				<div class="pure-button inactive" id="redraw_button">inchlib.redraw();</div>
+				<div class="pure-button inactive" id="get_features_button">inchlib.get_features_for_object(14019);</div>
+				<div class="pure-button inactive" id="add_color_scale_button">inchlib.add_color_scale("Black&White", {start: {r:0, g:0, b:0}, end: {r:255, g:255, b:255}});</div>
 			</div>
 		{% endif %}
 
