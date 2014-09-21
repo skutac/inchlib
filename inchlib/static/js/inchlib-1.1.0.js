@@ -1944,31 +1944,6 @@ var InCHlib, _this;
         });
       }
 
-      if(_this.settings.show_settings_button){
-        var settings_icon = _this.objects_ref.icon.clone({
-              data: "M26.834,14.693c1.816-2.088,2.181-4.938,1.193-7.334l-3.646,4.252l-3.594-0.699L19.596,7.45l3.637-4.242c-2.502-0.63-5.258,0.13-7.066,2.21c-1.907,2.193-2.219,5.229-1.039,7.693L5.624,24.04c-1.011,1.162-0.888,2.924,0.274,3.935c1.162,1.01,2.924,0.888,3.935-0.274l9.493-10.918C21.939,17.625,24.918,16.896,26.834,14.693z",
-              x: _this.settings.width - 62,
-              y: 80,
-              id: "settings_icon",
-              label: "Settings"
-        });
-
-        var settings_overlay = _this._draw_icon_overlay(_this.settings.width - 62, 80);
-        _this.navigation_layer.add(settings_icon, settings_overlay);
-
-        settings_overlay.on("click", function(evt){
-            _this._settings_icon_click(this, evt);
-        });
-            
-        settings_overlay.on("mouseover", function(){
-            _this._icon_mouseover(settings_icon, settings_overlay, _this.navigation_layer);
-        });
-           
-        settings_overlay.on("mouseout", function(){
-            _this._icon_mouseout(settings_icon, settings_overlay, _this.navigation_layer);
-        });
-      }
-
       _this.stage.add(_this.navigation_layer);
   }
 
@@ -2823,8 +2798,8 @@ var InCHlib, _this;
     var color_options = {"heatmap_colors": "Heatmap data colors"};
 
     var value_options = {"max_percentile": "Max percentile value",
-                        "min_percentile": "Min percentile value",
                         "middle_percentile": "Middle percentile value",
+                        "min_percentile": "Min percentile value",
                       };
 
     if(_this.settings.metadata){
