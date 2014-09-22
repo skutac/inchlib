@@ -635,6 +635,11 @@ var InCHlib, _this;
                               strokeWidth: "1px"
                           }),
       };
+
+      _this.paths_ref = {
+            "zoom_icon": "M15.067,2.25c-5.979,0-11.035,3.91-12.778,9.309h3.213c1.602-3.705,5.271-6.301,9.565-6.309c5.764,0.01,10.428,4.674,10.437,10.437c-0.009,5.764-4.673,10.428-10.437,10.438c-4.294-0.007-7.964-2.605-9.566-6.311H2.289c1.744,5.399,6.799,9.31,12.779,9.312c7.419-0.002,13.437-6.016,13.438-13.438C28.504,8.265,22.486,2.252,15.067,2.25zM10.918,19.813l7.15-4.126l-7.15-4.129v2.297H-0.057v3.661h10.975V19.813z",
+            "unzoom_icon": "M24.086,20.904c-1.805,3.113-5.163,5.212-9.023,5.219c-5.766-0.01-10.427-4.672-10.438-10.435C4.636,9.922,9.297,5.261,15.063,5.25c3.859,0.007,7.216,2.105,9.022,5.218l3.962,2.284l0.143,0.082C26.879,6.784,21.504,2.25,15.063,2.248C7.64,2.25,1.625,8.265,1.624,15.688c0.002,7.42,6.017,13.435,13.439,13.437c6.442-0.002,11.819-4.538,13.127-10.589l-0.141,0.081L24.086,20.904zM28.4,15.688l-7.15-4.129v2.297H10.275v3.661H21.25v2.297L28.4,15.688z",
+      };
       
   }
 
@@ -1403,7 +1408,6 @@ var InCHlib, _this;
       if(_this.value_font_size < 4){
           _this.current_draw_values = false;
       }
-      _this.heatmap_distance = _this._hack_round(_this.distance + _this.dendrogram_heatmap_distance);
 
       var x1 = _this.heatmap_distance;
       var current_leaves_y = [];
@@ -1864,12 +1868,14 @@ var InCHlib, _this;
       }
 
       if(_this.zoomed_clusters["row"].length > 0){
-        x = _this.distance - 40;
+        x = _this.distance - 55;
         y = _this.header_height + _this.column_metadata_height - 40;
         var unzoom_icon = _this.objects_ref.icon.clone({
-            data: "M22.646,19.307c0.96-1.583,1.523-3.435,1.524-5.421C24.169,8.093,19.478,3.401,13.688,3.399C7.897,3.401,3.204,8.093,3.204,13.885c0,5.789,4.693,10.481,10.484,10.481c1.987,0,3.839-0.563,5.422-1.523l7.128,7.127l3.535-3.537L22.646,19.307zM13.688,20.369c-3.582-0.008-6.478-2.904-6.484-6.484c0.006-3.582,2.903-6.478,6.484-6.486c3.579,0.008,6.478,2.904,6.484,6.486C20.165,17.465,17.267,20.361,13.688,20.369zM8.854,11.884v4.001l9.665-0.001v-3.999L8.854,11.884z",
+            data: _this.paths_ref["unzoom_icon"],
             x: x,
             y: y,
+            rotation: 180,
+            offset: {x: 30, y: 30},
             scale: {x: 0.7, y: 0.7},
             label: "Unzoom\nrows"
         });
@@ -1893,11 +1899,13 @@ var InCHlib, _this;
 
       if(_this.zoomed_clusters["column"].length > 0){
           x = _this.settings.width - 85;
-          y = _this.header_height - 35;
+          y = _this.header_height - 50;
           var column_unzoom_icon = _this.objects_ref.icon.clone({
-              data: "M22.646,19.307c0.96-1.583,1.523-3.435,1.524-5.421C24.169,8.093,19.478,3.401,13.688,3.399C7.897,3.401,3.204,8.093,3.204,13.885c0,5.789,4.693,10.481,10.484,10.481c1.987,0,3.839-0.563,5.422-1.523l7.128,7.127l3.535-3.537L22.646,19.307zM13.688,20.369c-3.582-0.008-6.478-2.904-6.484-6.484c0.006-3.582,2.903-6.478,6.484-6.486c3.579,0.008,6.478,2.904,6.484,6.486C20.165,17.465,17.267,20.361,13.688,20.369zM8.854,11.884v4.001l9.665-0.001v-3.999L8.854,11.884z",
+              data: _this.paths_ref["unzoom_icon"],
               x: x,
               y: y,
+              rotation: 270,
+              offsetX: 30,
               scale: {x: 0.7, y: 0.7},
               label: "Unzoom\ncolumns"
           });
@@ -2179,40 +2187,41 @@ var InCHlib, _this;
       _this.row_cluster_group = new Kinetic.Group();
       var visible = _this._get_visible_count();
       var count = _this.data.nodes[path_id].count;
-      var x = _this.distance - 40;
+      var x = _this.distance - 30;
       var y = _this.header_height + _this.column_metadata_height - 40;
 
-      var rows_desc = _this.objects_ref.count.clone({x: x + 20,
-                                                        y: y - 5,
-                                                        text: count,
-                                                        fontSize: 12,
-                                                        fill: "#6d6b6a"
+      var rows_desc = _this.objects_ref.count.clone({x: x,
+                                                    y: y - 10,
+                                                    text: count,
+                                                    fontSize: 10,
+                                                    fill: "#6d6b6a"
                                                     });
 
       var zoom_icon = _this.objects_ref.icon.clone({
-                      data: "M22.646,19.307c0.96-1.583,1.523-3.435,1.524-5.421C24.169,8.093,19.478,3.401,13.688,3.399C7.897,3.401,3.204,8.093,3.204,13.885c0,5.789,4.693,10.481,10.484,10.481c1.987,0,3.839-0.563,5.422-1.523l7.128,7.127l3.535-3.537L22.646,19.307zM13.688,20.369c-3.582-0.008-6.478-2.904-6.484-6.484c0.006-3.582,2.903-6.478,6.484-6.486c3.579,0.008,6.478,2.904,6.484,6.486C20.165,17.465,17.267,20.361,13.688,20.369zM15.687,9.051h-4v2.833H8.854v4.001h2.833v2.833h4v-2.834h2.832v-3.999h-2.833V9.051z",
+                      data: _this.paths_ref["zoom_icon"],
                       x: x,
                       y: y,
                       scale: {x: 0.7, y: 0.7},
                       label: "Zoom\nrows",
                   });
 
+
       var zoom_overlay = _this._draw_icon_overlay(x, y);
 
-      x = 0;
+      x = _this.distance + _this.dendrogram_heatmap_distance;
       var width = visible*_this.pixels_for_dimension+_this.heatmap_distance;
       var upper_y = _this.highlighted_rows_y[0]-_this.pixels_for_leaf/2;
       var lower_y = _this.highlighted_rows_y[_this.highlighted_rows_y.length-1]+_this.pixels_for_leaf/2;
       
       var cluster_overlay_1 = _this.objects_ref.cluster_overlay.clone({
           x: x,
-          y: _this.header_height + _this.column_metadata_height,
+          y: _this.header_height + _this.column_metadata_height + 5,
           width: width,
-          height: upper_y-_this.header_height - _this.column_metadata_height,
+          height: _this._hack_round(upper_y -_this.header_height - _this.column_metadata_height - 5),
       });
 
       var cluster_border_1 = _this.objects_ref.cluster_border.clone({
-          points: [x, upper_y, x+width, upper_y],
+          points: [0, upper_y, width, upper_y],
       });
 
       var cluster_overlay_2 = _this.objects_ref.cluster_overlay.clone({
@@ -2223,7 +2232,7 @@ var InCHlib, _this;
       });
 
       var cluster_border_2 = _this.objects_ref.cluster_border.clone({
-          points: [x, lower_y, x+width, lower_y],
+          points: [0, lower_y, width, lower_y],
       });
 
       _this.row_cluster_group.add(rows_desc, cluster_overlay_1, cluster_overlay_2, zoom_icon, zoom_overlay, cluster_border_1, cluster_border_2);
@@ -2232,7 +2241,7 @@ var InCHlib, _this;
       rows_desc.moveToTop();
 
       _this.cluster_layer.draw();
-
+      _this.navigation_layer.moveToTop();
 
       zoom_overlay.on("mouseover", function(){
           _this._icon_mouseover(zoom_icon, zoom_overlay, _this.cluster_layer);
@@ -2258,17 +2267,19 @@ var InCHlib, _this;
   InCHlib.prototype._draw_column_cluster_layer = function(){
       _this.column_cluster_group = new Kinetic.Group();
       var x = _this.settings.width - 85;
-      var y = _this.header_height - 35;
+      var y = _this.header_height - 25;
 
       var cols_desc = _this.objects_ref.count.clone({x: x + 20,
-                                                        y: y,
+                                                        y: y - 5,
                                                         text: _this.current_column_ids.length,
-                                                        fontSize: 12,
+                                                        fontSize: 10,
                                                         fill: "#6d6b6a"
                                                     });
 
       var zoom_icon = _this.objects_ref.icon.clone({
-                      data: "M22.646,19.307c0.96-1.583,1.523-3.435,1.524-5.421C24.169,8.093,19.478,3.401,13.688,3.399C7.897,3.401,3.204,8.093,3.204,13.885c0,5.789,4.693,10.481,10.484,10.481c1.987,0,3.839-0.563,5.422-1.523l7.128,7.127l3.535-3.537L22.646,19.307zM13.688,20.369c-3.582-0.008-6.478-2.904-6.484-6.484c0.006-3.582,2.903-6.478,6.484-6.486c3.579,0.008,6.478,2.904,6.484,6.486C20.165,17.465,17.267,20.361,13.688,20.369zM15.687,9.051h-4v2.833H8.854v4.001h2.833v2.833h4v-2.834h2.832v-3.999h-2.833V9.051z",
+                      data: _this.paths_ref["zoom_icon"],
+                      rotation: 90,
+                      offsetY: 30,
                       x: x,
                       y: y,
                       scale: {x: 0.7, y: 0.7},
@@ -2310,7 +2321,7 @@ var InCHlib, _this;
       _this.cluster_layer.add(_this.column_cluster_group);
       _this.stage.add(_this.cluster_layer);
       _this.cluster_layer.draw();
-
+      _this.navigation_layer.moveToTop();
 
       zoom_overlay.on("mouseover", function(){
           _this._icon_mouseover(zoom_icon, zoom_overlay, _this.cluster_layer);
