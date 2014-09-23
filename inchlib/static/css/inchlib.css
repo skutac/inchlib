@@ -216,7 +216,7 @@ body{
 }
 
 #inchlib_citation{
-	margin-top: 10px;
+	margin-top: 20px;
 	background-color: #E6E6E6;
 	padding: 10px;
 	border-radius: 5px;
@@ -516,6 +516,7 @@ sup{
 #logos{
 	float: right;
 	margin-right: 100px;
+	margin-top: 20px;
 }
 
 #logos img{
