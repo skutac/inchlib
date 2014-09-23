@@ -27,7 +27,6 @@ class ExampleTypesAdmin(admin.ModelAdmin):
 
 admin.site.register(ExampleTypes, ExampleTypesAdmin)
 
-
 class SettingsAttributesAdmin(admin.ModelAdmin):
     list_display = ('name', 'description', 'settingsattributetype')
     fieldsets = (
