@@ -215,6 +215,21 @@ body{
 	/*font-weight: bold;*/
 }
 
+#inchlib_citation{
+	margin-top: 10px;
+	background-color: #E6E6E6;
+	padding: 10px;
+	border-radius: 5px;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#inchlib_citation > a{
+	font-style: normal;	
+	color: black;
+}
+
 .js_comment{
 	white-space: normal;
 }
