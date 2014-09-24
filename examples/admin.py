@@ -6,7 +6,7 @@ class ExamplesAdmin(admin.ModelAdmin):
     list_display = ('title', 'exampletype', 'order',)
     fieldsets = (
         (None, {
-        	'classes': ('wide',),
+            'classes': ('wide',),
             'fields': ('title', 'description', 'data', 'exampletype', 'order'),
         }),
     )
