@@ -70,6 +70,8 @@
         var x_pos = offset.left;
         var microarrays_element = $("#microarrays");
         var current = null;
+        var current_objects = ["ILMN_1737074"];
+        var current_columns = [];
         microarrays_element.css({"left": x_pos + target_element.width()-50, "top": min_y, "z-index": 100});
 
         window.dendrogram = new InCHlib(
@@ -84,13 +86,15 @@
 
         dendrogram.events.row_onclick = function(object_ids, evt){
             current = object_ids[0];
-            draw_boxplot(object_ids, evt.pageY);
-            dendrogram.highlight_rows(object_ids);
+            current_objects = object_ids;
+            draw_boxplot(current_objects, current_columns, evt.pageY);
+            dendrogram.highlight_rows(current_objects);
             dendrogram.unhighlight_cluster();
         };
 
         dendrogram.events.dendrogram_node_onclick = function(object_ids, node_id, evt){
-            draw_boxplot(object_ids, evt.pageY);
+            current_objects = object_ids;
+            draw_boxplot(current_objects, current_columns, evt.pageY);
             var i;
 
             for(i = 0; i<object_ids.length; i++){
@@ -100,6 +104,15 @@
             }
 
             dendrogram.highlight_rows([]);
+        };
+
+        dendrogram.events.column_dendrogram_node_highlight = function(column_ids, node_id){
+            draw_boxplot(current_objects, column_ids, 0);
+        };
+
+        dendrogram.events.column_dendrogram_node_unhighlight = function(){
+            current_columns = [];
+            draw_boxplot(current_objects, current_columns, 0);
         };
 
         dendrogram.events.on_zoom = function(node_id){
@@ -114,14 +127,24 @@
         dendrogram.read_data_from_file("{% static "data/microarrays.json" %}");
         dendrogram.draw();
 
-        draw_boxplot(["ILMN_1737074"], min_y);
-        dendrogram.highlight_rows(["ILMN_1737074"]);
+        draw_boxplot(current_objects, current_columns, min_y);
+        dendrogram.highlight_rows(current_objects);
 
-        function draw_boxplot(object_ids, y){
+        function draw_boxplot(object_ids, column_ids, y){
+            current_columns = column_ids;
+            var header = dendrogram.header;
+            if(current_columns.length === 0){
+                for(j = 0; j<header.length; j++){
+                    current_columns.push(j);
+                }
+            }
+
+            console.log(object_ids, current_columns)
+
             microarrays_element.hide();
             var class2values = {"tumour":[], "normal":[]};
             var max_y = min_y + target_element.height() - dendrogram.footer_height;
-            var i, j, values, row_id, done_rows = {};
+            var i, j, values, row_id, done_rows = {}, key;
             var header = dendrogram.header;
             var boxplot_height = 400;
             
@@ -136,8 +159,9 @@
                 if(!(row_id in done_rows)){
                     values = dendrogram.data.nodes[row_id].features;
                     done_rows[row_id] = "";
-                    for(j = 0; j<header.length; j++){
-                        class2values[header[j]].push(values[j]);
+                    for(j = 0; j<current_columns.length; j++){
+                        key = current_columns[j];
+                        class2values[header[key]].push(values[key]);
                     }
                 }
             }
