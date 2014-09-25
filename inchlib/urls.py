@@ -9,7 +9,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     # # Examples:
     url(r'^$', RedirectView.as_view(url="/".join([settings.BASE_URL, 'home/'])), name="redirect"),
-    url(r'^home/$', 'inchlib.views.index', name='index'),
+    url(r'^home/$', 'inchlib.views.index_construction', name='index'),
     url(r'^examples/(\d+)$', 'inchlib.views.examples', name='examples'),
     url(r'^use_cases/(\d+)$', 'inchlib.views.use_cases', name='use_cases'),
     url(r'^docs$', 'inchlib.views.docs', name='docs'),
