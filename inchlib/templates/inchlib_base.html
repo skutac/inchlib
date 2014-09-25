@@ -45,6 +45,7 @@
           if(evt.target.localName != "canvas" && evt.target.localName != "a" && !($(evt.target).hasClass('pure-button')) && evt.target.localName != "button" && !($(evt.target).hasClass('target_overlay')) && !($(evt.target).hasClass('scaffold_img'))){
             if(dendrogram !== null){
               dendrogram.unhighlight_cluster();
+              dendrogram.unhighlight_column_cluster();
               dendrogram.highlight_rows([]);
             }
           }
