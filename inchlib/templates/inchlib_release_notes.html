@@ -22,11 +22,11 @@
 	<ul>
 		<li class="warning">InCHlib 1.1.0 needs KineticJS 5.1.0 to run properly (KineticJS 5.1.0 is not compatible with its previous versions)</li>
 		<li>Column dendrogram is now also interactive and has the same functionality as the row dendrogram (selecting clusters, zooming-in/-out)</li>
-		<li>Added full-featured column metadata (see <a href="../input_format" target=blank>Input format section</a>)</li>
-		<li>Added <a target=blank href="../docs#max_percentile">max_percentile</a>, <a target=blank href="../docs#min_percentile">min_percentile</a> and <a target=blank href="../docs#middle_percentile">middle_percentile</a> attributes, these options also added to real-time coloring settings. <i>values_center</i> attribute was removed</li>	
-		<li>Added <a href="../docs#get_features_for_object" target=blank>get_features_for_object()</a> method which returns the features of object specified by object_id parameter</li>
-		<li>Added <a href="../docs#add_color_scale" target=blank>add_color_scale()</a> method which enables to add custom color scales</li>
-		<li>Added <a href="../docs#redraw_heatmap" target=blank>redraw_heatmap()</a> method which enables to redraw only the heatmap part of the visualization (when changing colors-related settings)</li>
+		<li>Added full-featured column metadata (see <a href="{% url input_format %}" target=blank>Input format section</a>)</li>
+		<li>Added <a target=blank href="{% url docs %}#max_percentile">max_percentile</a>, <a target=blank href="{% url docs %}#min_percentile">min_percentile</a> and <a target=blank href="{% url docs %}#middle_percentile">middle_percentile</a> attributes, these options also added to real-time coloring settings. <i>values_center</i> attribute was removed</li>	
+		<li>Added <a href="{% url docs %}#get_features_for_object" target=blank>get_features_for_object()</a> method which returns the features of object specified by object_id parameter</li>
+		<li>Added <a href="{% url docs %}#add_color_scale" target=blank>add_color_scale()</a> method which enables to add custom color scales</li>
+		<li>Added <a href="{% url docs %}#redraw_heatmap" target=blank>redraw_heatmap()</a> method which enables to redraw only the heatmap part of the visualization (when changing colors-related settings)</li>
 		<li>InChlib can handle missing values</li>
 		<li>Added possibility to zoom clusters by a long click of a left mouse button (700 ms)</li>
 		<li>Some bugfixes and minor improvements</li>
@@ -37,10 +37,10 @@
 <div class="description">
 	<h2>InCHlib 1.0.1 - August 2014</h2>
 	<ul>
-		<li>Added button to export cluster heatmap as a high resolution image (<a href="../docs#show_export_button" target=blank>show_export_button</a> settings attribute added)</li>
+		<li>Added button to export cluster heatmap as a high resolution image (<a href="{% url docs %}#show_export_button" target=blank>show_export_button</a> settings attribute added)</li>
 		<li>Added color scale icon which enables to change color scales of individual parts of heatmap in real time</li>
-		<li>Added <a href="../docs#update_settings" target=blank>update_settings()</a> method which enables to change visualization settings in real time</li>
-		<li>Added <a href="../docs#redraw" target=blank>redraw()</a> method for redrawing visualization e.g., with updated settings</li>
+		<li>Added <a href="{% url docs %}#update_settings" target=blank>update_settings()</a> method which enables to change visualization settings in real time</li>
+		<li>Added <a href="{% url docs %}#redraw" target=blank>redraw()</a> method for redrawing visualization e.g., with updated settings</li>
 		<li>Automatic detection of presence of individual parts of cluster heatmap (metadata, column dendrogram) i.e., when metadata attribute is not specified InCHlib automatically detects whether the metadata are present or not</li>
 		<li>Some bugfixes and code improvement</li>
 		<li>jQuery is now used in a compatibility mode</li>

@@ -36,6 +36,7 @@
 		dendrogram.draw();
 
 		dendrogram._unzoom_icon_click = function(){
+			dendrogram.events.on_unzoom();
 			return false;
 		}
 

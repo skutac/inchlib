@@ -200,7 +200,7 @@ d.add_metadata_from_file(metadata_file="/path/to/file.csv", delimiter=",", heade
 d.add_column_metadata_from_file(column_metadata_file="/path/to/file.csv", delimiter=",", header=bool)
 
 # export the cluster heatmap on the standard output or to the file if filename specified
-d.export_cluster_heatmap_as_json("/home/ctibor/Desktop/to_delete.json")
+d.export_cluster_heatmap_as_json("filename.json")
 #d.export_cluster_heatmap_as_html("/path/to/directory") function exports simple HTML page with embedded cluster heatmap and dependencies to given directory 
 """
 
