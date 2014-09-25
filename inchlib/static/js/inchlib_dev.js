@@ -1332,7 +1332,7 @@ var _date = new Date();
       _this.features = {};
 
       for(i=0; i<_this.dimensions["overall"]; i++){
-          _this.features[i] = 1;
+          _this.features[i] = true;
       }
 
       _this._set_on_features();
@@ -1346,7 +1346,7 @@ var _date = new Date();
       var features = [];
       for(var i = 0, keys = Object.keys(_this.features), len = keys.length; i < len; i++){
         key = keys[i];
-        if(_this.features[key] === 1){
+        if(_this.features[key]){
           features.push(key);
         }
       }
@@ -1510,7 +1510,7 @@ var _date = new Date();
           }
       }
 
-      if(_this.settings.count_column && _this.features[_this.dimensions["overall"]-1] == 1){
+      if(_this.settings.count_column && _this.features[_this.dimensions["overall"]-1]){
           x2 = x1 + _this.pixels_for_dimension;
           var count = node.objects.length;
           color = _this._get_color_for_value(count, _this.min_item_count, _this.max_item_count, _this.middle_item_count, _this.settings.count_column_colors);
@@ -1653,6 +1653,7 @@ var _date = new Date();
         current_headers.push(_this.header[_this.on_features["metadata"][i] + _this.dimensions["data"]]);
       }
       if(_this.settings.count_column && _this.features[_this.dimensions["overall"] - 1]){
+        console.log("ok")
         current_headers.push(_this.header[_this.dimensions["overall"] - 1]);
       }
       var max_text_length = _this._get_max_length(current_headers);
@@ -1712,7 +1713,7 @@ var _date = new Date();
     var index = -1;
     for(var i = 0, keys=Object.keys(_this.features), len=keys.length; i<len; i++){
       key = keys[i];
-      if(_this.features[key] === 1){
+      if(_this.features[key]){
         index++;
         if(column_index === index){
           return key;
@@ -2573,7 +2574,7 @@ var _date = new Date();
           filter_list = "";
           
           for(var attr in _this.header){
-              if(_this.features[attr] == 1){
+              if(_this.features[attr]){
                   symbol = "✔";
               }
               if(attr < _this.dimensions){
@@ -2629,9 +2630,9 @@ var _date = new Date();
           _this.target_element.find(".feature_switch").click(function(){
               var num = parseInt($(this).attr("data-num"));
               var symbol_element = $(this).find("span");
-              _this.features[num] = -_this.features[num];
+              _this.features[num] = !_this.features[num];
 
-              if(_this.features[num] == 1){
+              if(_this.features[num]){
                   symbol_element.text("✔");
                   $(this).css("color", "green");
               }
