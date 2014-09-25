@@ -139,8 +139,6 @@
                 }
             }
 
-            console.log(object_ids, current_columns)
-
             microarrays_element.hide();
             var class2values = {"tumour":[], "normal":[]};
             var max_y = min_y + target_element.height() - dendrogram.footer_height;
@@ -169,10 +167,16 @@
             while(boxplot.series.length > 0){
                 boxplot.series[0].remove(true);
             }
-
-            var normal = get_boxplot_parameters(class2values.normal)
-            var tumour = get_boxplot_parameters(class2values.tumour)
-
+            
+            var normal = [0,0,0,0,0];
+            if(class2values.normal.length){
+                normal = get_boxplot_parameters(class2values.normal)
+            }
+            var tumour = [0,0,0,0,0];
+            if(class2values.tumour.length){
+                tumour = get_boxplot_parameters(class2values.tumour)
+            }
+            
             boxplot.addSeries({data:[normal, tumour], name: "Average Signal"}, true);
             microarrays_element.show();
         }
