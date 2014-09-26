@@ -1653,7 +1653,6 @@ var _date = new Date();
         current_headers.push(_this.header[_this.on_features["metadata"][i] + _this.dimensions["data"]]);
       }
       if(_this.settings.count_column && _this.features[_this.dimensions["overall"] - 1]){
-        console.log("ok")
         current_headers.push(_this.header[_this.dimensions["overall"] - 1]);
       }
       var max_text_length = _this._get_max_length(current_headers);
@@ -2094,7 +2093,6 @@ var _date = new Date();
 
   InCHlib.prototype._highlight_column_cluster = function(path_id){
       var previous_cluster = _this.last_highlighted_column_cluster;
-
       if(previous_cluster){
         _this.unhighlight_column_cluster()
       }
@@ -2113,9 +2111,9 @@ var _date = new Date();
         _this._highlight_column_path(_this.last_highlighted_column_cluster, "grey");
         _this.column_dendrogram_layer.draw();
         _this.column_cluster_group.destroy();
-        _this.cluster_layer.draw(); 
-        _this.events.column_dendrogram_node_unhighlight(_this._unprefix(_this.last_highlighted_column_cluster));
+        _this.cluster_layer.draw();
         _this.current_column_ids = [];
+        _this.events.column_dendrogram_node_unhighlight(_this._unprefix(_this.last_highlighted_column_cluster));
         _this.last_highlighted_column_cluster = null;
       }
   }
@@ -3046,7 +3044,7 @@ var _date = new Date();
       help_element.show();
     }
     else{
-      help_element = $("<div class='inchlib_help'><ul><li>Zoom clusters by a long click (500 ms) on a dendrogram node.</li></ul></div>");
+      help_element = $("<div class='inchlib_help'><ul><li>Zoom clusters by a long click on a dendrogram node.</li></ul></div>");
       help_element.css({"position": "absolute",
                         "top": 70,
                         "left": _this.settings.width - 100,
