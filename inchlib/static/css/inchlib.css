@@ -12,6 +12,18 @@ body{
 	font-family: 'Ubuntu', sans-serif;
 }
 
+#head{
+	width: 300px;
+}
+
+#head a{
+	text-decoration: none;
+}
+
+#head:hover{
+	opacity: 0.8;
+}
+
 .center{
 	width: 90%;
 	margin-left: auto;
@@ -45,6 +57,7 @@ body{
 	margin-left: 20px;
 	font-size: 48px;
 	font-weight: bold;
+	color: black;
 }
 #sub_title{
 	margin-top: 5px;
