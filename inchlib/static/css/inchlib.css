@@ -215,6 +215,21 @@ body{
 	/*font-weight: bold;*/
 }
 
+#issue_tracking{
+	background-color: #8cd6a4;
+	border: solid #399757 3px;
+	padding: 10px;
+	border-radius: 5px;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#issue_tracking a{
+	text-decoration: none;
+	font-weight: bold;
+}
+
 #inchlib_citation{
 	margin-top: 20px;
 	background-color: #E6E6E6;
@@ -223,6 +238,8 @@ body{
 	width: 100%;
 	margin-left: auto;
 	margin-right: auto;
+	border: solid #666d68 3px;
+
 }
 
 #inchlib_citation > a{
