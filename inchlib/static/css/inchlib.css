@@ -238,8 +238,10 @@ body{
 	width: 100%;
 	margin-left: auto;
 	margin-right: auto;
-	border: solid #666d68 3px;
+}
 
+#inchlib_citation.bordered{
+	border: solid #666d68 3px;
 }
 
 #inchlib_citation > a{
