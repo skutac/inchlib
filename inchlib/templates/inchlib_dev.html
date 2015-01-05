@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="{% static "css/highlight.css" %}" type="text/css"/>
 <script src="{% static "js/jquery-2.0.3.min.js" %}"></script>
 <script src="{% static "js/kinetic-v5.1.0.min.js" %}"></script>
-<script src="{% static "js/inchlib-1.1.1.js" %}"></script>
+<script src="{% static "js/inchlib_dev.js" %}"></script>
 
 <title>InCHlib - Interactive Cluster Heatmap library</title>
 </head>
@@ -35,82 +35,84 @@ $(document).ready(function(){
                 // count_column: true,
                 // values_center: "median",
                 // independent_columns: false,
-                // max_percentile: 90,
-                // min_percentile: 20,
+                max_percentile: 90,
+                middle_percentile: 60,
+                min_percentile: 20,
+                columns_order: [0, 1, 2, 3, 4, 5, 6, 7, 8, 34, 10, 11, 12, 13, 14, 15, 16, 17, 35, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 9, 18, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 51, 51, 51, 51]
             });
     // dendrogram_1.add_color_scale("WhBk", {"start": {"r":255, "g": 255, "b": 255}, "middle": {"r": 236, "g": 158, "b": 56}, "end": {"r": 0, "g": 0, "b": 0}})
 
     dendrogram_1.read_data_from_file("{% static "data/microarrays.json" %}");
     dendrogram_1.draw();
 
-    dendrogram_1.events.row_onclick = function(object_ids, evt){
-        console.log("row_onclick", object_ids, evt);
-    };
+    // dendrogram_1.events.row_onclick = function(object_ids, evt){
+    //     console.log("row_onclick", object_ids, evt);
+    // };
 
-    dendrogram_1.events.row_onmouseover = function(object_ids, evt){
-        console.log("row_onmouseover", object_ids, evt);
-    };
+    // dendrogram_1.events.row_onmouseover = function(object_ids, evt){
+    //     console.log("row_onmouseover", object_ids, evt);
+    // };
 
-    dendrogram_1.events.row_onmouseout = function(evt){
-        console.log("row_onmouseout", evt);
-    };
+    // dendrogram_1.events.row_onmouseout = function(evt){
+    //     console.log("row_onmouseout", evt);
+    // };
 
       
-    dendrogram_1.events.dendrogram_node_onclick = function(object_ids, node_id, evt){
-        console.log("dendrogram_node_onclick", object_ids, node_id, evt);
-    };
+    // dendrogram_1.events.dendrogram_node_onclick = function(object_ids, node_id, evt){
+    //     console.log("dendrogram_node_onclick", object_ids, node_id, evt);
+    // };
 
-    dendrogram_1.events.column_dendrogram_node_onclick = function(column_indexes, node_id, evt){
-        console.log("column_dendrogram_node_onclick", column_indexes, node_id, evt);
-    };
+    // dendrogram_1.events.column_dendrogram_node_onclick = function(column_indexes, node_id, evt){
+    //     console.log("column_dendrogram_node_onclick", column_indexes, node_id, evt);
+    // };
 
-    dendrogram_1.events.dendrogram_node_highlight = function(object_ids, node_id){
-        console.log("dendrogram_node_highlight", object_ids, node_id);
-    };
+    // dendrogram_1.events.dendrogram_node_highlight = function(object_ids, node_id){
+    //     console.log("dendrogram_node_highlight", object_ids, node_id);
+    // };
 
-    dendrogram_1.events.column_dendrogram_node_highlight = function(column_indexes, node_id){
-        console.log("column_dendrogram_node_highlight", column_indexes, node_id);
-    };
+    // dendrogram_1.events.column_dendrogram_node_highlight = function(column_indexes, node_id){
+    //     console.log("column_dendrogram_node_highlight", column_indexes, node_id);
+    // };
 
-    dendrogram_1.events.dendrogram_node_unhighlight = function(node_id){
-        console.log("dendrogram_node_unhighlight", node_id);
-    };
+    // dendrogram_1.events.dendrogram_node_unhighlight = function(node_id){
+    //     console.log("dendrogram_node_unhighlight", node_id);
+    // };
 
-    dendrogram_1.events.column_dendrogram_node_unhighlight = function(node_id){
-        console.log("column_dendrogram_node_unhighlight", node_id);
-    };
+    // dendrogram_1.events.column_dendrogram_node_unhighlight = function(node_id){
+    //     console.log("column_dendrogram_node_unhighlight", node_id);
+    // };
 
-      dendrogram_1.events.heatmap_onmouseout = function(evt){
-        console.log("heatmap_onmouseout", evt);
-      };
-
-
-      dendrogram_1.events.on_zoom = function(object_ids, node_id){
-        console.log("on_zoom", object_ids, node_id);
-      };
+    //   dendrogram_1.events.heatmap_onmouseout = function(evt){
+    //     console.log("heatmap_onmouseout", evt);
+    //   };
 
 
-      dendrogram_1.events.on_unzoom = function(node_id){
-        console.log("on_unzoom", node_id);
-      };
+    //   dendrogram_1.events.on_zoom = function(object_ids, node_id){
+    //     console.log("on_zoom", object_ids, node_id);
+    //   };
 
 
-      dendrogram_1.events.on_columns_zoom = function(column_indexes, node_id){
-        console.log("on_columns_zoom", column_indexes, node_id);
-      };
-
-      dendrogram_1.events.on_columns_unzoom = function(node_id){
-        console.log("on_columns_unzoom", node_id);
-      };
+    //   dendrogram_1.events.on_unzoom = function(node_id){
+    //     console.log("on_unzoom", node_id);
+    //   };
 
 
-      dendrogram_1.events.on_refresh = function(){
-        console.log("on_refresh");
-      };
+    //   dendrogram_1.events.on_columns_zoom = function(column_indexes, node_id){
+    //     console.log("on_columns_zoom", column_indexes, node_id);
+    //   };
 
-      dendrogram_1.events.empty_space_onclick = function(evt){
-        console.log("empty_space_onclick", evt);
-      }
+    //   dendrogram_1.events.on_columns_unzoom = function(node_id){
+    //     console.log("on_columns_unzoom", node_id);
+    //   };
+
+
+    //   dendrogram_1.events.on_refresh = function(){
+    //     console.log("on_refresh");
+    //   };
+
+    //   dendrogram_1.events.empty_space_onclick = function(evt){
+    //     console.log("empty_space_onclick", evt);
+    //   }
     
     /*
     window.dendrogram_1 = new InCHlib(

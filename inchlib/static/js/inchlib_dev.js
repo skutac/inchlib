@@ -183,6 +183,7 @@ var _date = new Date();
           "max_percentile": 100,
           "min_percentile": 0,
           "middle_percentile": 50,
+          "columns_order": []
       };
 
       $.extend(_this.settings, settings);
@@ -1293,6 +1294,12 @@ var _date = new Date();
           _this.header.push("");
       }
 
+      if(_this.settings.columns_order.length === 0 || _this.settings.columns_order.length !== _this.dimensions["data"]){
+        for(i = 0; i < _this.dimensions["data"]; i++){
+          _this.settings.columns_order.push(i);
+        }
+      }
+
       _this.heatmap_header = false;
       _this.metadata_header = false;
       _this.current_label = null;
@@ -1434,8 +1441,9 @@ var _date = new Date();
       var row = new Kinetic.Group({id:node_id});
       var x2, y2, color, line, value, text, text_value, col_index;
       
-      for (var i = 0, len = _this.on_features["data"].length; i < len; i++){
-          col_index = _this.on_features["data"][i];
+      // for (var i = 0, len = _this.on_features["data"].length; i < len; i++){
+        for (var i = 0, len = _this.settings.columns_order.length; i < len; i++){
+          col_index = _this.settings.columns_order[i];
           x2 = x1 + _this.pixels_for_dimension;
           y2 = y1;
           value = node.features[col_index];
