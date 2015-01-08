@@ -301,7 +301,6 @@ class Dendrogram():
         leaves = {n:node for n, node in self.dendrogram["data"]["nodes"].items() if node["count"] == 1}
 
         if not self.compress:
-            
             for leaf_id, leaf in leaves.items():
                 try:
                     self.dendrogram["metadata"]["nodes"][leaf_id] = self.metadata[leaf["objects"][0]]
@@ -409,6 +408,41 @@ class Dendrogram():
         self.dendrogram["column_metadata"] = {"features":self.column_metadata}
         if self.column_metadata_header:
             self.dendrogram["column_metadata"]["feature_names"] = self.column_metadata_header
+
+    def add_alternative_data_from_file(self, alternative_data_file, delimiter=","):
+        """Adds alternative_data from csv file."""
+        self.add_alternative_data(self.__read_alternative_data_file__(alternative_data_file, delimiter))
+
+    def add_alternative_data(self, alternative_data):
+        """Adds alternative data in a form of list of lists (tuples)."""
+        
+        if self.cluster_object.clustering_axis == "both":
+            alt_data_without_id = [r[1:] for r in alternative_data]
+            reordered_data = self.cluster_object.__reorder_data__(alt_data_without_id, self.cluster_object.data_order)
+            rows = []
+            for i, r in enumerate(alternative_data):
+                row = [r[0]]
+                row.extend(reordered_data[i])
+                rows.append(row)
+            alternative_data = rows
+
+        self.alternative_data = self.__read_alternative_data__(alternative_data)
+
+        leaves = {n:node for n, node in self.dendrogram["data"]["nodes"].items() if node["count"] == 1}
+        self.dendrogram["alternative_data"] = {}
+            
+        for leaf_id, leaf in leaves.items():
+            try:
+                self.dendrogram["alternative_data"][leaf_id] = self.alternative_data[leaf["objects"][0]]
+            except Exception, e:
+                continue
+
+    def __read_alternative_data_file__(self, alternative_data_file, delimiter):
+        csv_reader = csv.reader(open(alternative_data_file, "r"), delimiter=delimiter)
+        return [r for r in csv_reader]
+
+    def __read_alternative_data__(self, alternative_data):
+        return {str(r[0]):r[1:] for r in alternative_data}
 
 class Cluster():
     """Class for data clustering"""
@@ -564,6 +598,9 @@ def _process_(arguments):
     
     if arguments.column_metadata:
         d.add_column_metadata_from_file(column_metadata_file=arguments.column_metadata, delimiter=arguments.column_metadata_delimiter, header=arguments.column_metadata_header)
+
+    if arguments.alternative_data:
+        d.add_alternative_data_from_file(alternative_data_file=arguments.alternative_data, delimiter=arguments.alternative_data_delimiter)
     
     if arguments.output_file or arguments.html_dir:
         if arguments.output_file:
@@ -600,6 +637,8 @@ if __name__ == '__main__':
     parser.add_argument("-cmd", "--column_metadata_delimiter", type=str, default=",", help="delimiter of values in column metadata file")
     parser.add_argument("-cmh", "--column_metadata_header", default=False, help="whether the first column of the column metadata is the row label ('header')", action="store_true")
     parser.add_argument("-mv", "--missing_values", type=str, default=False, help="define the string representating missing values in the data")
+    parser.add_argument("-ad", "--alternative_data", type=str, default=None, help="csv(text) alternative data file with delimited values without header")
+    parser.add_argument("-add", "--alternative_data_delimiter", type=str, default=",", help="delimiter of values in alternative data file")
     
     args = parser.parse_args()
     _process_(args)
