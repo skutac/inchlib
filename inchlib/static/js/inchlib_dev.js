@@ -174,7 +174,7 @@ var _date = new Date();
           "label_color": "#9E9E9E",
           "count_column": false,
           "count_column_colors": "Reds",
-          "min_row_height": false,
+          "min_row_height": 1,
           "max_row_height": 25,
           "max_column_width": 150,
           "font": "Helvetica",
@@ -664,25 +664,24 @@ var _date = new Date();
     * @param {object} [variable] Clustering in proper JSON format.
     */
   InCHlib.prototype.read_data = function(json){
-      _this.json = json;
-      _this.data = _this.json.data;
+      _this.data = json.data;
       var settings = {};
-      if(_this.json["metadata"] !== undefined){
-        _this.metadata = _this.json.metadata;
+      if(json["metadata"] !== undefined){
+        _this.metadata = json.metadata;
         settings.metadata = true;
       }
       else{
         settings.metadata = false;
       }
-      if(_this.json["column_dendrogram"] !== undefined){
-        _this.column_dendrogram = _this.json.column_dendrogram;
+      if(json["column_dendrogram"] !== undefined){
+        _this.column_dendrogram = json.column_dendrogram;
         settings.column_dendrogram = true;
       }
       else{
         settings.column_dendrogram = false;
       }
-      if(_this.json["column_metadata"] !== undefined){
-        _this.column_metadata = _this.json.column_metadata;
+      if(json["column_metadata"] !== undefined){
+        _this.column_metadata = json.column_metadata;
         settings.column_metadata = true;
       }
       else{
@@ -951,21 +950,26 @@ var _date = new Date();
       _this.last_highlighted_cluster = null;
       _this.current_object_ids = [];
       _this.current_column_ids = [];
+      _this.highlighted_rows_y = [];
       _this.heatmap_array = _this._preprocess_heatmap_data();
+      _this.on_features = {"data":[], "metadata":[], "count_column": []};
+
+      _this.column_metadata_rows = (_this.settings.column_metadata)?_this.column_metadata.features.length:0;
+      _this.column_metadata_height = _this.column_metadata_rows * _this.settings.column_metadata_row_height;
 
       if(_this.settings.heatmap){
         _this.last_column = null;
-        _this.on_features = {"data":[], "metadata":[]}
         _this.dimensions = _this._get_dimensions();
-        _this.column_metadata_rows = (_this.settings.column_metadata)?_this.column_metadata.features.length:0;
-        _this.column_metadata_height = _this.column_metadata_rows * _this.settings.column_metadata_row_height;
         _this._set_heatmap_settings();
-        _this._adjust_leaf_size(_this.heatmap_array.length);
       }
       else{
-        _this._adjust_horizontal_sizes();
         _this.dimensions = {"data": 0, "metadata": 0, "overall": 0};
+        _this.settings.heatmap_header = false;
+        _this.settings.column_dendrogram = false;
       }
+      _this._adjust_horizontal_sizes();
+      _this.top_heatmap_distance = _this.header_height + _this.column_metadata_height + _this.settings.column_metadata_row_height/2;
+      _this._adjust_leaf_size(_this.heatmap_array.length);
 
       if(_this.settings.column_dendrogram && _this.heatmap_header){
           _this.footer_height = 150;
@@ -976,6 +980,7 @@ var _date = new Date();
       });
 
       _this.settings.height = _this.heatmap_array.length*_this.pixels_for_leaf+_this.header_height+_this.footer_height;
+
       _this.stage.setWidth(_this.settings.width);
       _this.stage.setHeight(_this.settings.height);
       _this._draw_stage_layer();
@@ -998,6 +1003,7 @@ var _date = new Date();
         _this._reorder_heatmap(0);
         _this.ordered_by_index = 0;
       }
+
       _this._draw_heatmap();
       _this._draw_heatmap_header();
       _this._draw_navigation();
@@ -1044,7 +1050,6 @@ var _date = new Date();
       _this._draw_distance_scale(node.distance);
       _this.stage.add(_this.dendrogram_layer);
 
-
       _this._bind_dendrogram_hover_events(_this.dendrogram_layer);
       
       _this.dendrogram_layer.on("click", function(evt){
@@ -1065,11 +1070,11 @@ var _date = new Date();
           var node_neighbourhood = _this._get_node_neighbourhood(node, _this.data.nodes);
           var right_child = _this.data.nodes[node.right_child];
           var left_child = _this.data.nodes[node.left_child];
-
           var y1 = _this._get_y1(node_neighbourhood, current_left_count, current_right_count);
           var y2 = _this._get_y2(node_neighbourhood, current_left_count, current_right_count);
           var x1 = _this._hack_round(_this.distance - _this.distance_step*node.distance);
           x1 = (x1 == 0)? 2: x1;
+
           
           var x2 = x1;
           var left_distance = _this.distance - _this.distance_step*_this.data.nodes[node.left_child].distance;
@@ -1206,10 +1211,8 @@ var _date = new Date();
   }
 
   InCHlib.prototype._adjust_leaf_size = function(leaves){
+      console.log(_this.settings.max_height, _this.header_height, _this.footer_height, _this.column_metadata_height)
       _this.pixels_for_leaf = (_this.settings.max_height-_this.header_height-_this.footer_height-_this.column_metadata_height-5)/leaves;
-      if(_this.pixels_for_leaf > 2*_this.pixels_for_dimension){
-        _this.pixels_for_leaf = 2*_this.pixels_for_dimension;
-      }
 
       if(_this.pixels_for_leaf > _this.settings.max_row_height){
           _this.pixels_for_leaf = _this.settings.max_row_height;
@@ -1227,9 +1230,14 @@ var _date = new Date();
       _this.right_margin = 100;
       
       if(_this.settings.dendrogram){
-        _this.heatmap_width = (_this.settings.width - _this.right_margin - _this.dendrogram_heatmap_distance)*_this.settings.heatmap_part_width;
+        if(_this.settings.heatmap){
+          _this.heatmap_width = (_this.settings.width - _this.right_margin - _this.dendrogram_heatmap_distance)*_this.settings.heatmap_part_width;
+        }
+        else{
+          _this.heatmap_width = 0;
+        }
         _this.distance = _this.settings.width - _this.heatmap_width - _this.right_margin;
-        _this.heatmap_distance = _this.distance + _this.dendrogram_heatmap_distance;
+      _this.heatmap_distance = _this.distance + _this.dendrogram_heatmap_distance;
       }
       else{
         _this.heatmap_width = _this.settings.width - _this.right_margin;
@@ -1335,9 +1343,10 @@ var _date = new Date();
           _this.features[i] = true;
       }
 
+      if(_this.dimensions["overall"] == 0){
+        _this.settings.heatmap = false;
+      }
       _this._set_on_features();
-      _this._adjust_horizontal_sizes();
-      _this.top_heatmap_distance = _this.header_height + _this.column_metadata_height + _this.settings.column_metadata_row_height/2;
   }
 
   InCHlib.prototype._set_on_features = function(features){
@@ -1369,14 +1378,13 @@ var _date = new Date();
   }
 
   InCHlib.prototype._draw_heatmap = function(){
-      if(!_this.settings.heatmap || _this.dimensions["overall"]==0){
+      if(!_this.settings.heatmap){
           return;
       }
 
       var heatmap_row, row_id, col_number, col_label, row_values, y;
       _this.heatmap_layer = new Kinetic.Layer();
       _this.heatmap_overlay = new Kinetic.Layer();
-      _this.highlighted_rows_y = [];
       _this.current_draw_values = true;
       _this.max_value_length = _this._get_max_value_length();
       _this.value_font_size = _this._get_font_size(_this.max_value_length, _this.pixels_for_dimension, _this.pixels_for_leaf, 12);
@@ -1386,14 +1394,14 @@ var _date = new Date();
       }
 
       var x1 = _this.heatmap_distance;
-      var current_leaves_y = [];
+      // var current_leaves_y = [];
 
       for(var i = 0, keys = Object.keys(_this.leaves_y_coordinates), len = keys.length; i < len; i++){
           key = keys[i];
           y = _this.leaves_y_coordinates[key];
           heatmap_row = _this._draw_heatmap_row(key, x1, y);
           _this.heatmap_layer.add(heatmap_row);
-          current_leaves_y.push([key, y]);
+          // current_leaves_y.push([key, y]);
           _this._bind_row_events(heatmap_row);
       }
 
@@ -1410,7 +1418,7 @@ var _date = new Date();
       }
 
       if(_this.settings.draw_row_ids){
-          _this._draw_row_ids(current_leaves_y);
+          _this._draw_row_ids(_this.leaves_y_coordinates);
       }
 
       _this.highlighted_rows_layer = new Kinetic.Layer();
@@ -1791,10 +1799,12 @@ var _date = new Date();
       var x = 0;
       var y = 10;
 
-      _this._draw_color_scale();
+      if(_this.settings.heatmap){
+        _this._draw_color_scale();
+      }
       _this._draw_help();
 
-      if(!_this.settings.column_dendrogram){
+      if(!_this.settings.column_dendrogram && _this.settings.heatmap){
           var filter_icon = _this.objects_ref.icon.clone({
                   data: "M26.834,6.958c0-2.094-4.852-3.791-10.834-3.791c-5.983,0-10.833,1.697-10.833,3.791c0,0.429,0.213,0.84,0.588,1.224l8.662,15.002v4.899c0,0.414,0.709,0.75,1.583,0.75c0.875,0,1.584-0.336,1.584-0.75v-4.816l8.715-15.093h-0.045C26.625,7.792,26.834,7.384,26.834,6.958zM16,9.75c-6.363,0-9.833-1.845-9.833-2.792S9.637,4.167,16,4.167c6.363,0,9.834,1.844,9.834,2.791S22.363,9.75,16,9.75z",
                   x: x,
@@ -2385,6 +2395,7 @@ var _date = new Date();
       _this._draw_cluster(node_id);
       _this.highlight_rows(_this.settings.highlighted_rows);
       _this.events.on_zoom(_this.current_object_ids, _this._unprefix(node_id));
+      _this.highlighted_rows_y = [];
       _this.current_object_ids = [];
       _this.last_highlighted_cluster = null;
     }
@@ -2687,6 +2698,7 @@ var _date = new Date();
               _this._delete_all_layers();
               _this._draw_stage_layer();
               if(_this.settings.dendrogram){
+                _this._draw_dendrogram_layers();
                 _this._draw_row_dendrogram(node_id);
                 if(_this.settings.column_dendrogram && _this._visible_features_equal_column_dendrogram_count()){
                   _this._draw_column_dendrogram(_this.column_root_id);
@@ -3047,8 +3059,9 @@ var _date = new Date();
       help_element = $("<div class='inchlib_help'><ul><li>Zoom clusters by a long click on a dendrogram node.</li></ul></div>");
       help_element.css({"position": "absolute",
                         "top": 70,
-                        "left": _this.settings.width - 100,
+                        "left": _this.settings.width - 200,
                         "font-size": 12,
+                        "padding-right": 15,
                         "width": 200,
                         "background-color": "white",
                         "border-radius": 5,
