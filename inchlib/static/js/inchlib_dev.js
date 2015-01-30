@@ -123,6 +123,12 @@
 * @option {number} [middle_percentile=50]
 *   the value percentile which defines where the middle color of the color scale will be used
 
+* @option {array} [columns_order=[]]
+*   the order of columns defined by their indexes startin from 0, when not provided the columns are sorted in common order 0, 1, 2... etc.
+
+* @option {boolean} [alternative_data=false]
+*   use original data to compute heatmap but show the alternative values (alternative_data section must be present in input data)
+
 * 
 * @example
 *       window.instance = new InCHlib({
@@ -183,6 +189,8 @@ var _date = new Date();
           "max_percentile": 100,
           "min_percentile": 0,
           "middle_percentile": 50,
+          "columns_order": [],
+          "alternative_data": false
       };
 
       $.extend(_this.settings, settings);
@@ -664,7 +672,9 @@ var _date = new Date();
     * @param {object} [variable] Clustering in proper JSON format.
     */
   InCHlib.prototype.read_data = function(json){
-      _this.data = json.data;
+      _this.json = json;
+      _this.data = _this.json.data;
+      
       var settings = {};
       if(json["metadata"] !== undefined){
         _this.metadata = json.metadata;
@@ -686,6 +696,13 @@ var _date = new Date();
       }
       else{
         settings.column_metadata = false;
+      }
+
+      if(_this.json["alternative_data"] !== undefined && _this.settings.alternative_data){
+        _this.alternative_data = _this.json.alternative_data;
+      }
+      else{
+        settings.alternative_data = false; 
       }
 
       _this._update_user_settings(settings);
@@ -720,6 +737,15 @@ var _date = new Date();
             metadata[id] = _this.metadata.nodes[keys[i]];
         }
         _this.metadata.nodes = metadata;
+      }
+
+      if(_this.settings.alternative_data){
+        var alternative_data = {};
+        for(var i = 0, keys = Object.keys(_this.alternative_data), len = keys.length; i < len; i++){
+            id = [_this.settings.target, keys[i]].join("#");
+            alternative_data[id] = _this.alternative_data[keys[i]];
+        }
+        _this.alternative_data = alternative_data;
       }
 
       if(_this.column_dendrogram){
@@ -1301,6 +1327,31 @@ var _date = new Date();
           _this.header.push("");
       }
 
+      if(_this.settings.columns_order.length === 0 || _this.settings.columns_order.length !== _this.dimensions["data"]){
+         _this.settings.columns_order = [];
+        for(i = 0; i < _this.dimensions["data"]; i++){
+          _this.settings.columns_order.push(i);
+        }
+      }
+
+      if(_this.settings.metadata){
+        for(i = _this.dimensions["data"]; i < _this.dimensions["data"] + _this.dimensions["metadata"]; i++){
+          _this.settings.columns_order.push(i);
+        } 
+      }
+
+      if(_this.settings.count_column){
+          _this.settings.columns_order.push(_this.settings.columns_order.length);
+      }
+
+      _this.features = {};
+
+      for(i=0; i<_this.settings.columns_order.length; i++){
+          _this.features[i] = true;
+      }
+
+      _this._set_on_features();
+
       _this.heatmap_header = false;
       _this.metadata_header = false;
       _this.current_label = null;
@@ -1310,7 +1361,7 @@ var _date = new Date();
       if(_this.data.feature_names !== undefined){
           _this.heatmap_header = _this.data.feature_names;
           for(i=0; i<_this.dimensions["data"]; i++){
-              _this.header[i] = _this.heatmap_header[i];
+              _this.header[i] = _this.heatmap_header[_this.on_features["data"][i]];
           }
       }
 
@@ -1337,16 +1388,9 @@ var _date = new Date();
           _this.dimensions["overall"]++;
           _this.header.push("Count");
       }
-      _this.features = {};
 
-      for(i=0; i<_this.dimensions["overall"]; i++){
-          _this.features[i] = true;
-      }
-
-      if(_this.dimensions["overall"] == 0){
-        _this.settings.heatmap = false;
-      }
-      _this._set_on_features();
+      _this._adjust_horizontal_sizes();
+      _this.top_heatmap_distance = _this.header_height + _this.column_metadata_height + _this.settings.column_metadata_row_height/2;
   }
 
   InCHlib.prototype._set_on_features = function(features){
@@ -1356,13 +1400,13 @@ var _date = new Date();
       for(var i = 0, keys = Object.keys(_this.features), len = keys.length; i < len; i++){
         key = keys[i];
         if(_this.features[key]){
-          features.push(key);
+          features.push(_this.settings.columns_order[i]);
         }
       }
     }
 
     _this.on_features = {"data":[], "metadata":[], "count_column":[]}
-
+    
     for(var i = 0, len = features.length; i < len; i++){
       key = features[i];
       if(key < _this.dimensions["data"]){
@@ -1450,6 +1494,10 @@ var _date = new Date();
 
           if(value !== null){
             color = _this._get_color_for_value(value, _this.data_descs[col_index]["min"], _this.data_descs[col_index]["max"], _this.data_descs[col_index]["middle"], _this.settings.heatmap_colors);
+
+            if(_this.settings.alternative_data){
+              value = _this.alternative_data[node_id][col_index];
+            }
 
             line = _this.objects_ref.heatmap_line.clone({
                 stroke: color,
@@ -2700,6 +2748,7 @@ var _date = new Date();
               if(_this.settings.dendrogram){
                 _this._draw_dendrogram_layers();
                 _this._draw_row_dendrogram(node_id);
+                _this._draw_dendrogram_layers();
                 if(_this.settings.column_dendrogram && _this._visible_features_equal_column_dendrogram_count()){
                   _this._draw_column_dendrogram(_this.column_root_id);
                 }

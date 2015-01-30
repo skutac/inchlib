@@ -286,65 +286,13 @@ class Dendrogram():
         self.__connect_metadata_to_data__()
 
     def __connect_metadata_to_data__(self):
-        if len(set(self.metadata.keys()) & set(self.data_names)) == 0:
-            print("No metadata objects correspond with the clustered data according to their IDs. No metadata added.")
-            return
-
-        if not self.dendrogram:
-            raise Exception("You must create dendrogram before adding metadata.")
-
-        self.dendrogram["metadata"] = {"nodes":{}}
+        print("Adding metadata: {} rows".format(len(self.metadata)))
+        self.dendrogram["metadata"] = {}
 
         if self.metadata_header:
             self.dendrogram["metadata"]["feature_names"] = self.metadata_header
 
-        leaves = {n:node for n, node in self.dendrogram["data"]["nodes"].items() if node["count"] == 1}
-
-        if not self.compress:
-            
-            for leaf_id, leaf in leaves.items():
-                try:
-                    self.dendrogram["metadata"]["nodes"][leaf_id] = self.metadata[leaf["objects"][0]]
-                except Exception, e:
-                    continue
-        else:
-            compressed_value2fnc = {
-                "median": lambda values: round(numpy.median(col), 3),
-                "mean": lambda values: round(numpy.average(col), 3)
-            }
-
-            for leaf in leaves:
-                objects = []
-                for item in leaves[leaf]["objects"]:
-                    try:
-                        objects.append(self.metadata[item])
-                    except Exception, e:
-                        continue
-
-                cols = zip(*objects)
-                row = []
-                cols = [list(c) for c in cols]
-
-                for col in cols:
-                    
-                    if self.metadata_compressed_value in compressed_value2fnc:
-                        try:
-                            col = [float(c) for c in col]
-                            value = compressed_value2fnc[self.metadata_compressed_value](col)
-                        except ValueError:
-                            freq2val = {col.count(v):v for v in set(col)}
-                            value = freq2val[max(freq2val.keys())]
-                    
-                    elif self.metadata_compressed_value == "frequency":
-                        freq2val = {col.count(v):v for v in set(col)}
-                        value = freq2val[max(freq2val.keys())]
-                    
-                    else:
-                        raise Exception("Unkown type of metadata_compressed_value: {}. Possible values are: median, mean, frequency.".format(self.metadata_compressed_value))
-                    
-                    row.append(value)
-
-                self.dendrogram["metadata"]["nodes"][leaf] = row
+        self.dendrogram["metadata"]["nodes"] = self.__connect_additional_data_to_data__(self.metadata, self.metadata_compressed_value)
 
     def __read_metadata__(self, metadata, header):
         metadata_header = []
@@ -409,6 +357,99 @@ class Dendrogram():
         self.dendrogram["column_metadata"] = {"features":self.column_metadata}
         if self.column_metadata_header:
             self.dendrogram["column_metadata"]["feature_names"] = self.column_metadata_header
+
+    def add_alternative_data_from_file(self, alternative_data_file, delimiter, alternative_data_compressed_value):
+        """Adds alternative_data from csv file."""
+        self.alternative_data_compressed_value = alternative_data_compressed_value
+        self.add_alternative_data(self.__read_alternative_data_file__(alternative_data_file, delimiter), alternative_data_compressed_value)
+
+    def add_alternative_data(self, alternative_data, alternative_data_compressed_value):
+        """Adds alternative data in a form of list of lists (tuples)."""
+        self.alternative_data_compressed_value = alternative_data_compressed_value
+
+        if self.cluster_object.clustering_axis == "both":
+            alternative_data = self.__reorder_alternative_data__(alternative_data)
+
+        self.alternative_data = self.__read_alternative_data__(alternative_data)
+
+        print("Adding alternative data: {} rows".format(len(self.alternative_data)))
+        self.dendrogram["alternative_data"] = self.__connect_additional_data_to_data__(self.alternative_data, self.alternative_data_compressed_value)
+
+    def __reorder_alternative_data__(self, alternative_data):
+        alt_data_without_id = [r[1:] for r in alternative_data]
+        reordered_data = self.cluster_object.__reorder_data__(alt_data_without_id, self.cluster_object.data_order)
+        rows = []
+        for i, r in enumerate(alternative_data):
+            row = [r[0]]
+            row.extend(reordered_data[i])
+            rows.append(row)
+        return rows
+
+    def __read_alternative_data_file__(self, alternative_data_file, delimiter):
+        csv_reader = csv.reader(open(alternative_data_file, "r"), delimiter=delimiter)
+        return [r for r in csv_reader]
+
+    def __read_alternative_data__(self, alternative_data):
+        return {str(r[0]):r[1:] for r in alternative_data}
+
+    def __connect_additional_data_to_data__(self, additional_data, compressed_value):
+        if len(set(additional_data.keys()) & set(self.data_names)) == 0:
+            print("No data objects correspond with the clustered data according to their IDs. No additional data added.")
+            return
+
+        if not self.dendrogram:
+            raise Exception("You must create dendrogram before adding data to it.")
+
+        node2additional_data = {}
+
+        leaves = {n:node for n, node in self.dendrogram["data"]["nodes"].items() if node["count"] == 1}
+
+        if not self.compress:
+            for leaf_id, leaf in leaves.items():
+                try:
+                    node2additional_data[leaf_id] = additional_data[leaf["objects"][0]]
+                except Exception, e:
+                    continue
+        else:
+            compressed_value2fnc = {
+                "median": lambda values: round(numpy.median(col), 3),
+                "mean": lambda values: round(numpy.average(col), 3),
+                "frequency": lambda values: self.__get_most_frequent__(col)
+            }
+
+            for leaf in leaves:
+                objects = []
+                for item in leaves[leaf]["objects"]:
+                    try:
+                        objects.append(additional_data[item])
+                    except Exception, e:
+                        continue
+
+                cols = zip(*objects)
+                row = []
+                cols = [list(c) for c in cols]
+
+                for col in cols:
+                    if compressed_value in compressed_value2fnc:
+                        try:
+                            col = [float(c) for c in col]
+                            value = compressed_value2fnc[compressed_value](col)
+                        except ValueError:
+                            value = compressed_value2fnc["frequency"](col)
+                    
+                    else:
+                        raise Exception("Unkown type of metadata_compressed_value: {}. Possible values are: median, mean, frequency.".format(self.metadata_compressed_value))
+        
+                    row.append(value)
+
+                node2additional_data[leaf] = row
+
+        return node2additional_data
+
+    def __get_most_frequent__(self, col):
+        freq2val = {col.count(v):v for v in set(col)}
+        value = freq2val[max(freq2val.keys())]
+        return value
 
 class Cluster():
     """Class for data clustering"""
@@ -564,6 +605,9 @@ def _process_(arguments):
     
     if arguments.column_metadata:
         d.add_column_metadata_from_file(column_metadata_file=arguments.column_metadata, delimiter=arguments.column_metadata_delimiter, header=arguments.column_metadata_header)
+
+    if arguments.alternative_data:
+        d.add_alternative_data_from_file(alternative_data_file=arguments.alternative_data, delimiter=arguments.alternative_data_delimiter, alternative_data_compressed_value=arguments.alternative_data_compressed_value)
     
     if arguments.output_file or arguments.html_dir:
         if arguments.output_file:
@@ -592,7 +636,7 @@ if __name__ == '__main__':
     parser.add_argument("-mh", "--metadata_header", default=False, help="whether the first row of metadata file is a header", action="store_true")
     parser.add_argument("-c", "--compress", type=int, default=0, help="compress the data to contain maximum of specified count of rows")
     parser.add_argument("-cv", "--compressed_value", type=str, default="median", help="the resulted value from merged rows when the data are compressed (median/mean/frequency)")
-    parser.add_argument("-mcv", "--metadata_compressed_value", type=str, default="median", help="the resulted value from merged rows of metadata when the data are compressed (median/mean/count)")
+    parser.add_argument("-mcv", "--metadata_compressed_value", type=str, default="median", help="the resulted value from merged rows of metadata when the data are compressed (median/mean/frequency)")
     parser.add_argument("-dwd", "--dont_write_data", default=False, help="don't write clustered data to the inchlib data format", action="store_true")
     parser.add_argument("-n", "--normalize", default=False, help="normalize data to [0, 1] range", action="store_true")
     parser.add_argument("-wo", "--write_original", default=False, help="cluster normalized data but write the original ones to the heatmap", action="store_true")
@@ -600,6 +644,9 @@ if __name__ == '__main__':
     parser.add_argument("-cmd", "--column_metadata_delimiter", type=str, default=",", help="delimiter of values in column metadata file")
     parser.add_argument("-cmh", "--column_metadata_header", default=False, help="whether the first column of the column metadata is the row label ('header')", action="store_true")
     parser.add_argument("-mv", "--missing_values", type=str, default=False, help="define the string representating missing values in the data")
+    parser.add_argument("-ad", "--alternative_data", type=str, default=None, help="csv(text) alternative data file with delimited values without header")
+    parser.add_argument("-add", "--alternative_data_delimiter", type=str, default=",", help="delimiter of values in alternative data file")
+    parser.add_argument("-adcv", "--alternative_data_compressed_value", type=str, default="median", help="the resulted value from merged rows of alternative data when the data are compressed (median/mean/frequency)")
     
     args = parser.parse_args()
     _process_(args)

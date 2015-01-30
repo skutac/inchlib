@@ -12,6 +12,18 @@ body{
 	font-family: 'Ubuntu', sans-serif;
 }
 
+#head{
+	width: 300px;
+}
+
+#head a{
+	text-decoration: none;
+}
+
+#head:hover{
+	opacity: 0.8;
+}
+
 .center{
 	width: 90%;
 	margin-left: auto;
@@ -45,6 +57,7 @@ body{
 	margin-left: 20px;
 	font-size: 48px;
 	font-weight: bold;
+	color: black;
 }
 #sub_title{
 	margin-top: 5px;
@@ -215,6 +228,21 @@ body{
 	/*font-weight: bold;*/
 }
 
+#issue_tracking{
+	background-color: #8cd6a4;
+	border: solid #399757 3px;
+	padding: 10px;
+	border-radius: 5px;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#issue_tracking a{
+	text-decoration: none;
+	font-weight: bold;
+}
+
 #inchlib_citation{
 	margin-top: 20px;
 	background-color: #E6E6E6;
@@ -223,6 +251,10 @@ body{
 	width: 100%;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+#inchlib_citation.bordered{
+	border: solid #666d68 3px;
 }
 
 #inchlib_citation > a{
