@@ -24,10 +24,14 @@ $(document).ready(function(){
                 // column_metadata_row_height: 10,
                 // column_metadata_colors: "BuYl",
                 // dendrogram: true,
-                max_height: 1200,
+                max_height: 10000,
                 width: 800,
                 heatmap_colors: "BuWhRd",
                 column_dendrogram: false,
+                column_metadata: false,
+                // metadata: false,
+                max_row_height: 100,
+                max_column_width: 100,
                 // metadata_colors: "RdLrBu",
                 // highlight_colors: "PuOr",
                 // heatmap_font_color: "white",
@@ -35,15 +39,17 @@ $(document).ready(function(){
                 // count_column: true,
                 // values_center: "median",
                 // independent_columns: false,
-                max_percentile: 90,
-                middle_percentile: 60,
-                min_percentile: 20,
-                columns_order: [51, 51, 2, 3, 4, 5, 6, 7, 8, 34, 10, 11, 12, 13, 14, 15, 16, 17, 35, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 9, 18, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 51, 51, 51, 51, 1],
-                alternative_data: true
+                // max_percentile: 90,
+                // middle_percentile: 60,
+                // min_percentile: 20,
+                // columns_order: [51, 51, 2, 3, 4, 5, 6, 7, 8, 34, 10, 11, 12, 13, 14, 15, 16, 17, 35, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 9, 18, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 51, 51, 51, 51, 1],
+                alternative_data: true,
+                images_as_alternative_data: true,
+                images_path: {"dir": "static/img/test_images/", "ext": ".jpg"}
             });
     // dendrogram_1.add_color_scale("WhBk", {"start": {"r":255, "g": 255, "b": 255}, "middle": {"r": 236, "g": 158, "b": 56}, "end": {"r": 0, "g": 0, "b": 0}})
 
-    dendrogram_1.read_data_from_file("{% static "data/to_delete.json" %}");
+    dendrogram_1.read_data_from_file("{% static "data/example_5x3.json" %}");
     dendrogram_1.draw();
 
     // dendrogram_1.events.row_onclick = function(object_ids, evt){
