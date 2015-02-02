@@ -1455,7 +1455,7 @@ var _date = new Date();
       for(var i = 0, keys = Object.keys(_this.leaves_y_coordinates), len = keys.length; i < len; i++){
           key = keys[i];
           y = _this.leaves_y_coordinates[key];
-          heatmap_row = _this._draw_heatmap_row_images(key, x1, y);
+          heatmap_row = _this._draw_heatmap_row(key, x1, y);
           _this.heatmap_layer.add(heatmap_row);
           _this._bind_row_events(heatmap_row);
       }
