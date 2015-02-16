@@ -114,6 +114,9 @@
 * @option {boolean} [draw_row_ids=false]
 *   draws the row IDs next to the heatmap when there is enough space to visualize them
 
+* @option {boolean} [fixed_row_id_size=false]
+*   fixes the row id size on given number and extends the right margin of the visualization accordingly
+
 * @option {number} [max_percentile=100]
 *   the value percentile above which the color will be equal to the terminal color of the color scale
 
@@ -128,6 +131,12 @@
 
 * @option {boolean} [alternative_data=false]
 *   use original data to compute heatmap but show the alternative values (alternative_data section must be present in input data)
+
+* @option {boolean} [images_as_alternative_data=false]
+*   alternative data values can be used to identify image files (.png, .jpg) and draw them insted of the heatmap values
+
+* @option {object} [images_path=false]
+*   when using images_as_alternative_data option - set dir path of the image files and the image files extension to generate the whole file path ({"dir": "", "ext": ""})
 
 * 
 * @example
@@ -185,6 +194,7 @@ var _date = new Date();
           "max_column_width": 150,
           "font": "Helvetica",
           "draw_row_ids": false,
+          "fixed_row_id_size": false,
           "show_export_button": true,
           "max_percentile": 100,
           "min_percentile": 0,
@@ -1000,9 +1010,17 @@ var _date = new Date();
         _this.settings.heatmap_header = false;
         _this.settings.column_dendrogram = false;
       }
+      _this._adjust_leaf_size(_this.heatmap_array.length);
+
+      if(_this.settings.draw_row_ids){
+        _this._get_row_id_size();
+      }
+      else{
+        _this.right_margin = 100;
+      }
+
       _this._adjust_horizontal_sizes();
       _this.top_heatmap_distance = _this.header_height + _this.column_metadata_height + _this.settings.column_metadata_row_height/2;
-      _this._adjust_leaf_size(_this.heatmap_array.length);
 
       if(_this.settings.column_dendrogram && _this.heatmap_header){
           _this.footer_height = 150;
@@ -1252,6 +1270,10 @@ var _date = new Date();
   InCHlib.prototype._adjust_leaf_size = function(leaves){
       _this.pixels_for_leaf = (_this.settings.max_height-_this.header_height-_this.footer_height-_this.column_metadata_height-5)/leaves;
 
+      if(_this.settings.draw_row_ids && _this.settings.fixed_row_id_size){
+        _this.settings.min_row_height = _this.settings.fixed_row_id_size + 2;
+      }
+
       if(_this.pixels_for_leaf > _this.settings.max_row_height){
           _this.pixels_for_leaf = _this.settings.max_row_height;
       }
@@ -1265,7 +1287,6 @@ var _date = new Date();
       if(dimensions === undefined){
         dimensions = _this._get_visible_count();
       }
-      _this.right_margin = 100;
       
       if(_this.settings.dendrogram){
         if(_this.settings.heatmap){
@@ -1473,7 +1494,7 @@ var _date = new Date();
       }
 
       if(_this.settings.draw_row_ids){
-          _this._draw_row_ids(_this.leaves_y_coordinates);
+          _this._draw_row_ids();
       }
 
       _this.highlighted_rows_layer = new Kinetic.Layer();
@@ -1699,38 +1720,74 @@ var _date = new Date();
       });
   }
 
-  InCHlib.prototype._draw_row_ids = function(leaves_y){
-      if(_this.pixels_for_leaf < 6){
+  InCHlib.prototype._draw_row_ids = function(){
+      if(_this.pixels_for_leaf < 6 || _this.row_id_size < 5){
           return;
       }
       var i, objects, object_y = [], leaf, values = [], text;
       
-      for(i = 0; i < leaves_y.length; i++){
-          leaf = leaves_y[i];
-          objects = _this.data.nodes[leaf[0]].objects;
+      for(i = 0, keys = Object.keys(_this.leaves_y_coordinates), len = keys.length; i < len; i++){
+          leaf_id = keys[i];
+          objects = _this.data.nodes[leaf_id].objects;
           if(objects.length > 1){
               return;
           }
-          values.push(objects[0]);
-          object_y.push([objects[0], leaf[1]]);
+          object_y.push([objects[0], _this.leaves_y_coordinates[leaf_id]]);
       }
-      var max_length = _this._get_max_length(values);
-      var font_size = _this._get_font_size(max_length, 85, _this.pixels_for_leaf, 10);
+
       var x = _this.distance + _this._get_visible_count()*_this.pixels_for_dimension + 15;
       
-      if(font_size > 4){
-          for(i = 0; i < object_y.length; i++){
-              text = _this.objects_ref.heatmap_value.clone({
-                  x: x,
-                  y: _this._hack_round(object_y[i][1] - font_size/2),
-                  fontSize: font_size,
-                  text: object_y[i][0],
-                  fontStyle: 'italic',
-                  fill: "gray"
-              });
-              _this.heatmap_layer.add(text);
-          }
+      for(i = 0; i < object_y.length; i++){
+          text = _this.objects_ref.heatmap_value.clone({
+              x: x,
+              y: _this._hack_round(object_y[i][1] - _this.row_id_size/2),
+              fontSize: _this.row_id_size,
+              text: object_y[i][0],
+              fontStyle: 'italic',
+              fill: "gray"
+          });
+          _this.heatmap_layer.add(text);
       }
+      
+  }
+
+  InCHlib.prototype._get_row_id_size = function(){
+    var objects, object_y = [], leaf_id, values = [], text;
+
+    for(var i = 0, len = _this.heatmap_array.length; i < len; i++){
+        leaf_id = _this.heatmap_array[i][0];
+        objects = _this.data.nodes[leaf_id].objects;
+        if(objects.length > 1){
+            return;
+        }
+        values.push(objects[0]);
+    }
+    var max_length = _this._get_max_length(values);
+    var test_string = "";
+    for(var i = 0; i < max_length; i++){
+      test_string += "E";
+    }
+
+    if(_this.settings.fixed_row_id_size){
+      var test = new Kinetic.Text({
+                              fontFamily: _this.settings.font,
+                              fontSize: _this.settings.fixed_row_id_size,
+                              fontStyle: "italic",
+                              listening: false,
+                              text: test_string
+                          });
+      _this.row_id_size = _this.settings.fixed_row_id_size;
+      _this.right_margin = 20 + test.width();
+
+      if(this.right_margin < 100){
+        _this.right_margin = 100;
+      }
+    }
+    else{
+      _this.row_id_size = _this._get_font_size(max_length, 85, _this.pixels_for_leaf, 10);
+      _this.right_margin = 100;
+    }
+    
   }
 
   InCHlib.prototype._draw_heatmap_header = function(){
