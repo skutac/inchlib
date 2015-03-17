@@ -1,0 +1,144 @@
+{   
+    "alternative_data":{
+        "0":[4,5,6],
+        "1":[5,4,6],
+        "2":[6,5,4],
+        "3":[4,6,5],
+        "4":[5,6,4]
+    },
+    "data": {
+        "nodes": {
+            "0": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "13736"
+                ], 
+                "features": [
+                    4.0, 
+                    5.0, 
+                    6.0
+                ], 
+                "parent": 5
+            }, 
+            "1": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "13738"
+                ], 
+                "features": [
+                    5.0, 
+                    4.0, 
+                    6.0
+                ], 
+                "parent": 5
+            }, 
+            "2": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "13548"
+                ], 
+                "features": [
+                    6.0, 
+                    5.0, 
+                    4.0
+                ], 
+                "parent": 7
+            }, 
+            "3": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "7889"
+                ], 
+                "features": [
+                    4.0, 
+                    6.0, 
+                    5.0
+                ], 
+                "parent": 6
+            }, 
+            "4": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "10701"
+                ], 
+                "features": [
+                    5.0, 
+                    6.0, 
+                    4.0
+                ], 
+                "parent": 6
+            }, 
+            "5": {
+                "count": 2, 
+                "distance": 1.414, 
+                "left_child": 0, 
+                "parent": 8, 
+                "right_child": 1
+            }, 
+            "6": {
+                "count": 2, 
+                "distance": 1.414, 
+                "left_child": 3, 
+                "parent": 7, 
+                "right_child": 4
+            }, 
+            "7": {
+                "count": 3, 
+                "distance": 2.16, 
+                "left_child": 2, 
+                "parent": 8, 
+                "right_child": 6
+            }, 
+            "8": {
+                "count": 5, 
+                "distance": 3.246, 
+                "left_child": 5, 
+                "right_child": 7
+            }
+        }, 
+        "feature_names": [
+            "1x10-5 mol.dm-3", 
+            "1x10-4 mol.dm-3", 
+            " 1x10-3 mol.dm-3"
+        ]
+    }, 
+    "metadata": {
+        "nodes": {
+            "0": [
+                "2.788", 
+                "286.157", 
+                "1"
+            ], 
+            "1": [
+                "3.829", 
+                "314.188", 
+                "1"
+            ], 
+            "2": [
+                "4.45", 
+                "330.219", 
+                "0"
+            ], 
+            "3": [
+                "5.744", 
+                "392.235", 
+                "1"
+            ], 
+            "4": [
+                "5.209", 
+                "472.228", 
+                "1"
+            ]
+        }, 
+        "feature_names": [
+            "LogP", 
+            "Molecular Weight", 
+            "Aromatic Rings"
+        ]
+    }
+}
