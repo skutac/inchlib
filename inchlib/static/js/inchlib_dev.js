@@ -204,7 +204,7 @@ var _date = new Date();
           "middle_percentile": 50,
           "columns_order": [],
           "alternative_data": false,
-          "images_as_alternative_data": true,
+          "images_as_alternative_data": false,
           "images_path": {"dir": "", "ext": ""},
           "navigation_toggle": {"color_scale": true, "distance_scale": true, "export_button": true, "filter_button": true, "hint_button": true}
       };
@@ -925,10 +925,22 @@ var _date = new Date();
 
   InCHlib.prototype._get_max_value_length = function(){
     var self = this;
-      var nodes = self.data.nodes;
-      var max_length = 0;
-      var node_data, key;
+    var nodes = self.data.nodes;
+    var max_length = 0;
+    var node_data, key;
 
+    if(self.settings.alternative_data){
+      for(var i = 0, keys = Object.keys(self.alternative_data), len = keys.length; i < len; i++){
+          key = keys[i];
+          node_data = self.alternative_data[key];
+          for(var j = 0, len_2 = node_data.length; j < len_2; j++){
+              if((""+node_data[j]).length > max_length){
+                  max_length = (""+node_data[j]).length;
+              }
+          }
+      }
+    }
+    else{
       for(var i = 0, keys = Object.keys(nodes), len = keys.length; i < len; i++){
           key = keys[i];
           if(nodes[key].count == 1){
@@ -940,20 +952,21 @@ var _date = new Date();
               }
           }
       }
-      
-      if(self.settings.metadata){
-          nodes = self.metadata.nodes;
-          for(var i = 0, keys = Object.keys(nodes), len = keys.length; i < len; i++){
-              key = keys[i];
-              node_data = nodes[key];
-              for(var j = 0, len_2 = node_data.length; j < len_2; j++){
-                  if((""+node_data[j]).length > max_length){
-                      max_length = (""+node_data[j]).length;
-                  }
-              }
-          }
-      }
-      return max_length;
+    }
+    
+    if(self.settings.metadata){
+        nodes = self.metadata.nodes;
+        for(var i = 0, keys = Object.keys(nodes), len = keys.length; i < len; i++){
+            key = keys[i];
+            node_data = nodes[key];
+            for(var j = 0, len_2 = node_data.length; j < len_2; j++){
+                if((""+node_data[j]).length > max_length){
+                    max_length = (""+node_data[j]).length;
+                }
+            }
+        }
+    }
+    return max_length;
   }
 
   InCHlib.prototype._preprocess_heatmap_data = function(){
@@ -1600,7 +1613,7 @@ var _date = new Date();
             line = self.objects_ref.heatmap_line.clone({
                 stroke: color,
                 points: [x1, y1, x2, y2],
-                value: value,
+                value: text_value,
                 column: ["d", col_index].join("_"),
                 strokeWidth: self.pixels_for_leaf,
             });
@@ -1608,10 +1621,10 @@ var _date = new Date();
 
             if(self.current_draw_values){
               text = self.objects_ref.heatmap_value.clone({
-                  x: self._hack_round((x1 + x2)/2-(""+value).length*(self.value_font_size/4)),
+                  x: self._hack_round((x1 + x2)/2-(""+text_value).length*(self.value_font_size/4)),
                   y: self._hack_round(y1-self.value_font_size/2),
                   fontSize: self.value_font_size,
-                  text: value,
+                  text: text_value,
               });
               row.add(text);
             }

@@ -129,20 +129,22 @@ def get_neighbours(exampleid, examples):
     return next, previous
 
 def parse_settings(example_settings):
-    for k in example_settings.keys():
+    for k, val in example_settings.items():
         try:
-            val = float(example_settings[k])
-            example_settings[k] = val
+            example_settings[k] = float(val)
         except Exception, e:
-            if example_settings[k] == "True":
+            if val == "True":
                 example_settings[k] = True
 
-            elif example_settings[k] == "False":
+            elif val == "False":
                 example_settings[k] = False
 
-            elif example_settings[k].startswith("["):
-                example_settings[k] = list(example_settings[k].strip("[]").split(","))
+            elif val.startswith("["):
+                example_settings[k] = list(val.strip("[]").split(","))
 
+            elif val.startswith("{"):
+                example_settings[k] = eval(val)
+    print example_settings
     return example_settings
 
 def get_file_size(filepath):

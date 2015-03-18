@@ -25,6 +25,14 @@
 					else if(i == "row_onclick"||i=="dendrogram_node_onclick"){
 						val = settings[i];
 					}
+					else if(i == "navigation_toggle"){
+						var vals = [];
+						for(var j = 0, keys = Object.keys(settings[i]), len = keys.length; j<len; j++){
+							var key = keys[j];
+							vals.push("    " + key + ': ' + settings[i][key])
+						}
+						val = "{<br>" + vals.join(",<br>") + "<br>  }";
+					}
 					settings_string = settings_string + "  <a href='../docs#" + i +"' target=blank>" + i + "</a>" + ": " + val + ",\n";
 				}
 			}
