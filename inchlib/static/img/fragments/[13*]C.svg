@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<svg:svg version="1.1" baseProfile="full"
+        xmlns:svg="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        xml:space="preserve" width="300px" height="300px" >
+<svg:polygon fill="rgb(255,255,255)" stroke="none" stroke-width="0" points="0.00,0.00 300.00,0.00 300.00,300.00 0.00,300.00 0.00,0.00"></svg:polygon>
+<svg:g>  <svg:text font-family="helvetica"   font-size="12.00" fill="rgb(127,127,127)" x="115.86" y="157.20">13*</svg:text>
+</svg:g><svg:line x1="136.76" y1="150.00" x2="152.94" y2="150.00" stroke="rgb(127,127,127)" stroke-width="1"></svg:line>
+<svg:line x1="152.94" y1="150.00" x2="169.12" y2="150.00" stroke="rgb(0,0,0)" stroke-width="1"></svg:line>
+</svg:svg>

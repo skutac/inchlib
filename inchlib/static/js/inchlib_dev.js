@@ -2202,7 +2202,6 @@ var _date = new Date();
     var self = this;
     var color_scale = self.navigation_layer.find("#" + self.settings.target + "_color_scale");
 
-    console.log(color_scale)
     color_scale.fillLinearGradientColorStops([self.settings.min_percentile/100, self._get_color_for_value(0, 0, 1, 0.5, self.settings.heatmap_colors), self.settings.middle_percentile/100, self._get_color_for_value(0.5, 0, 1, 0.5, self.settings.heatmap_colors), self.settings.max_percentile/100, self._get_color_for_value(1, 0, 1, 0.5, self.settings.heatmap_colors)]);
     self.navigation_layer.draw();
   }

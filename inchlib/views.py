@@ -144,7 +144,7 @@ def parse_settings(example_settings):
 
             elif val.startswith("{"):
                 example_settings[k] = eval(val)
-    print example_settings
+    
     return example_settings
 
 def get_file_size(filepath):
