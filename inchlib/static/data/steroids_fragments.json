@@ -1,1070 +1,262 @@
 {
     "alternative_data": {
         "0": [
-            "[*]O", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "[11*]O", 
-            "[12*]=O", 
-            "[13*]C", 
-            " None"
-        ], 
-        "1": [
-            "[*]O", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "[11*]Br", 
-            "[12*]=O", 
-            "[13*]C", 
-            " None"
-        ], 
-        "2": [
             "[*]OC(C)=O", 
             "None", 
-            " None", 
+            "[11*]Br", 
+            "[12*]=O"
+        ], 
+        "1": [
+            "[*]OC(=O)C(O)C(O)C(O)[C@H](O)CO", 
             "None", 
-            " None", 
             "None", 
-            " None", 
+            "[12*]O"
+        ], 
+        "2": [
+            "[*]O", 
+            "[1*]O", 
             "None", 
-            "[12*]O", 
-            "[13*]C", 
-            " None"
+            "[12*]=O"
         ], 
         "3": [
             "[*]O", 
             "None", 
-            " None", 
             "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            "[12*]O", 
-            "[13*]C", 
-            " None"
+            "[12*]O"
         ], 
         "4": [
-            "[*]OC", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            "[12*]O", 
-            "[13*]C", 
-            " None"
-        ], 
-        "5": [
             "[*]OC(C)=O", 
             "None", 
-            " None", 
+            "[11*]O[12*]", 
+            "[12*]OC(C)=O"
+        ], 
+        "5": [
+            "[*]OC", 
             "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            "[12*]OC(C)=O", 
-            "[13*]C", 
-            " None"
+            "[11*]O[12*]", 
+            "[12*]ChashC"
         ], 
         "6": [
             "[*]OC(C)=O", 
             "None", 
-            " None", 
-            "None", 
-            "[6*]=O", 
-            "None", 
-            " None", 
-            "None", 
-            "[12*]OC(C)=O", 
-            "[13*]C", 
-            " None"
+            "[11*]OC(C)=O", 
+            "[12*]O"
         ], 
         "7": [
-            "[*]OC(C)=O", 
+            "[*]O", 
             "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "[11*]OC(C)=O", 
-            "[12*]=O", 
-            "[13*]C", 
-            " None"
+            "[11*]O", 
+            "[12*]O"
         ], 
         "8": [
             "[*]OC(C)=O", 
             "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
             "[11*]OC(C)=O", 
-            "[12*]=O", 
-            "[13*]C", 
-            " None"
+            "[12*]=O"
         ], 
         "9": [
-            "[*]OC(=O)C(O)C(O)C(O)[C@H](O)CO", 
+            "[*]OC(C)=O", 
             "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            "[12*]O", 
-            "[13*]C", 
-            " None"
+            "[11*]O", 
+            "[12*]OC(C)=O"
         ], 
         "10": [
-            "[*]O", 
-            "[1*]O", 
+            "[*]OC(=O)c1ccccc1", 
             "None", 
-            " None", 
             "None", 
-            " None", 
-            "None", 
-            " None", 
-            "[12*]=O", 
-            "[13*]C", 
-            " None"
+            "[12*]=O"
         ], 
         "11": [
             "[*]O", 
+            "[1*]F", 
             "None", 
-            " None", 
-            "None", 
-            "[6*]=NOCC(=O)O", 
-            "None", 
-            " None", 
-            "None", 
-            "[12*]O", 
-            "[13*]C", 
-            " None"
+            "[12*]O"
         ], 
         "12": [
-            "[*]OC", 
+            "[*]O", 
+            "[1*]F", 
             "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "[11*]O[12*]", 
-            "[12*]C#C", 
-            "[13*]C", 
-            " None"
+            "[12*]=O"
         ], 
         "13": [
             "[*]OC(C)=O", 
             "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "[11*]O[12*]", 
-            "[12*]OC(C)=O", 
-            "[13*]C", 
-            " None"
+            "[11*]O", 
+            "[12*]O"
         ], 
         "14": [
-            "[*]OC(C)=O", 
+            "[*]O", 
             "None", 
-            " None", 
             "None", 
-            " None", 
-            "None", 
-            " None", 
-            "[11*]OC(C)=O", 
-            "[12*]O", 
-            "[13*]C", 
-            " None"
+            "[12*]OC1OC(C(=O)O)C(O)C(O)C1O"
         ], 
         "15": [
-            "[*]OC(C)=O", 
+            "[*]O", 
+            "[1*][N+](=O)[O-]", 
             "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "[11*]Br", 
-            "[12*]=O", 
-            "[13*]C", 
-            " None"
+            "[12*]=O"
         ], 
         "16": [
-            "[*]OC1OC(C(=O)OC)C(O)C(O)C1O", 
+            "[*]O", 
             "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            "[12*]OC(C)=O", 
-            "[13*]C", 
-            " None"
+            "[11*]Br", 
+            "[12*]=O"
         ], 
         "17": [
             "[*]O", 
             "None", 
-            " None", 
             "None", 
-            " None", 
-            "None", 
-            " None", 
-            "[11*]OC(C)=O", 
-            "[12*]OC(C)=O", 
-            "[13*]C", 
-            " None"
+            "[12*]=O"
         ], 
         "18": [
-            "[*]OC(C)=O", 
+            "[*]OC", 
             "None", 
-            " None", 
             "None", 
-            " None", 
-            "None", 
-            " None", 
-            "[11*]OC(C)=O", 
-            "[12*]O", 
-            "[13*]C", 
-            " None"
+            "[12*]OS(=O)(=O)c1ccc(C)cc1"
         ], 
         "19": [
-            "[*]O", 
+            "[*]OCc1ccccc1", 
             "None", 
-            " None", 
             "None", 
-            " None", 
-            "None", 
-            " None", 
-            "[11*]O", 
-            "[12*]O", 
-            "[13*]C", 
-            " None"
+            "[12*]=O"
         ], 
         "20": [
-            "[*]O", 
+            "[*]OCC", 
             "None", 
-            " None", 
             "None", 
-            " None", 
-            "None", 
-            " None", 
-            "[11*]O", 
-            "[12*]O", 
-            "[13*]C", 
-            " None"
+            "[12*]=O"
         ], 
         "21": [
-            "[*]O", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "[11*]O", 
-            "[12*]O", 
-            "[13*]C", 
-            " None"
-        ], 
-        "22": [
-            "[*]OC(C)=O", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "[11*]OC(C)=O", 
-            "[12*]=O", 
-            "[13*]C", 
-            " None"
-        ], 
-        "23": [
-            "[*]O", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            "[12*]O", 
-            "[13*]C", 
-            " None"
-        ], 
-        "24": [
-            "[*]O", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            "[10*]O", 
-            "[11*]O", 
-            "[12*]O", 
-            "[13*]C", 
-            " None"
-        ], 
-        "25": [
             "[*]OC(=O)c1ccccc1", 
             "None", 
-            " None", 
             "None", 
-            " None", 
+            "[12*]OC(C)=O"
+        ], 
+        "22": [
+            "[*]OS(=O)(=O)O[Na]", 
             "None", 
-            " None", 
             "None", 
-            "[12*]O", 
-            "[13*]C", 
-            " None"
+            "[12*]=O"
+        ], 
+        "23": [
+            "[*]OC(C)=O", 
+            "None", 
+            "[11*]OC(C)=O", 
+            "[12*]OC(C)=O"
+        ], 
+        "24": [
+            "[*]OS(=O)(=O)O", 
+            "None", 
+            "None", 
+            "[12*]O"
+        ], 
+        "25": [
+            "[*]OC(C)=O", 
+            "None", 
+            "None", 
+            "[12*]O"
         ], 
         "26": [
-            "[*]OC(C)=O", 
+            "[*]OS(=O)(=O)O[Na]", 
             "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            "[10*]O", 
             "[11*]O", 
-            "[12*]OC(C)=O", 
-            "[13*]C", 
-            " None"
+            "[12*]O"
         ], 
         "27": [
-            "[*]O", 
+            "[*]OCc1ccccc1", 
             "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            "[12*]O", 
-            "[13*]C", 
-            " None"
+            "[11*]O", 
+            "[12*]=O"
         ], 
         "28": [
-            "[*]O", 
+            "[*]OC", 
+            "[1*]N", 
             "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "[11*]O", 
-            "[12*]O", 
-            "[13*]C", 
-            " None"
+            "[12*]=O"
         ], 
         "29": [
-            "[*]OC(C)=O", 
+            "[*]OC(=O)c1ccccc1", 
             "None", 
-            " None", 
             "None", 
-            " None", 
-            "None", 
-            " None", 
-            "[11*]O", 
-            "[12*]O", 
-            "[13*]C", 
-            " None"
+            "[12*]OS(=O)(=O)O[Na]"
         ], 
         "30": [
-            "[*]O", 
+            "[*]OC", 
             "None", 
-            " None", 
             "None", 
-            " None", 
-            "None", 
-            " None", 
-            "[11*]O", 
-            "[12*]=O", 
-            "[13*]C", 
-            " None"
+            "[12*]O"
         ], 
         "31": [
             "[*]O", 
-            "[1*]F", 
             "None", 
-            " None", 
             "None", 
-            " None", 
-            "None", 
-            " None", 
-            "[12*]O", 
-            "[13*]C", 
-            " None"
+            "[12*]OCCO[12*]"
         ], 
         "32": [
             "[*]O", 
             "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            "[12*]OC1OC(C(=O)O)C(O)C(O)C1O", 
-            "[13*]C", 
-            " None"
+            "[11*]OC(C)=O", 
+            "[12*]OC(C)=O"
         ], 
         "33": [
-            "[*]O", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "[11*]O", 
-            "[12*]O", 
-            "[13*]C", 
-            " None"
-        ], 
-        "34": [
-            "[*]OC", 
-            "[1*]N", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "[12*]=O", 
-            "[13*]C", 
-            " None"
-        ], 
-        "35": [
-            "[*]OS(=O)(=O)O[Na]", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            "[12*]=O", 
-            "[13*]C", 
-            " None"
-        ], 
-        "36": [
-            "[*]OS(=O)(=O)O", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            "[12*]O", 
-            "[13*]C", 
-            " None"
-        ], 
-        "37": [
-            "[*]OCc1ccccc1", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "[11*]O", 
-            "[12*]=O", 
-            "[13*]C", 
-            " None"
-        ], 
-        "38": [
             "[*]OC(C)=O", 
             "None", 
-            " None", 
             "None", 
-            " None", 
-            "None", 
-            " None", 
-            "[11*]OC(C)=O", 
-            "[12*]=O", 
-            "[13*]C", 
-            " None"
+            "[12*]OC(C)=O"
         ], 
-        "39": [
+        "34": [
+            "[*]O", 
+            "None", 
+            "[11*]O", 
+            "[12*]=O"
+        ], 
+        "35": [
+            "[*]OC1OC(C(=O)OC)C(O)C(O)C1O", 
+            "None", 
+            "None", 
+            "[12*]OC(C)=O"
+        ], 
+        "36": [
+            "[*]O", 
+            "None", 
+            "None", 
+            "[12*]OC(C)=O"
+        ], 
+        "37": [
+            "[*]OC(C)=O", 
+            "None", 
+            "None", 
+            "[12*]=O"
+        ], 
+        "38": [
             "[*]OC(=O)c1ccccc1", 
             "None", 
-            " None", 
             "None", 
-            " None", 
+            "[12*]O"
+        ], 
+        "39": [
+            "[*]OC(C)=O", 
+            "[1*]F", 
             "None", 
-            " None", 
-            "None", 
-            "[12*]OC(C)=O", 
-            "[13*]C", 
-            " None"
+            "[12*]=O"
         ], 
         "40": [
-            "[*]OS(=O)(=O)O[Na]", 
+            "[*]OC(=O)CCC(=O)O", 
             "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
             "[11*]O", 
-            "[12*]O", 
-            "[13*]C", 
-            " None"
+            "[12*]O"
         ], 
         "41": [
             "[*]O", 
+            "[1*]N", 
             "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            "[12*]OCCO[12*]", 
-            "[13*]C", 
-            " None"
+            "[12*]O"
         ], 
         "42": [
             "[*]O", 
             "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "[11*]Br", 
-            "[12*]=O", 
-            "[13*]C", 
-            " None"
-        ], 
-        "43": [
-            "[*]OC(=O)c1ccccc1", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            "[12*]=O", 
-            "[13*]C", 
-            " None"
-        ], 
-        "44": [
-            "[*]O", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            "[12*]O", 
-            "[13*]C", 
-            " None"
-        ], 
-        "45": [
-            "[*]O", 
-            "[1*]F", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "[12*]=O", 
-            "[13*]C", 
-            " None"
-        ], 
-        "46": [
-            "[*]OC", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            "[12*]OS(=O)(=O)c1ccc(C)cc1", 
-            "[13*]C", 
-            " None"
-        ], 
-        "47": [
-            "[*]O", 
-            "None", 
-            " None", 
-            "[5*][N+](=O)[O-]", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "[12*]=O", 
-            "[13*]C", 
-            " None"
-        ], 
-        "48": [
-            "[*]O", 
-            "[1*][N+](=O)[O-]", 
-            "None", 
-            "[5*][N+](=O)[O-]", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "[12*]=O", 
-            "[13*]C", 
-            " None"
-        ], 
-        "49": [
-            "[*]OCC", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            "[12*]=O", 
-            "[13*]C", 
-            " None"
-        ], 
-        "50": [
-            "[*]OCc1ccccc1", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            "[12*]=O", 
-            "[13*]C", 
-            " None"
-        ], 
-        "51": [
-            "[*]O", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "[11*]Br", 
-            "[12*]=O", 
-            "[13*]C", 
-            " None"
-        ], 
-        "52": [
-            "[*]O", 
-            "[1*]F", 
-            "None", 
-            " None", 
-            "[6*]=O", 
-            "None", 
-            " None", 
-            "None", 
-            "[12*]O", 
-            "[13*]C", 
-            " None"
-        ], 
-        "53": [
-            "[*]OC(C)=O", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "[11*]OC(C)=O", 
-            "[12*]OC(C)=O", 
-            "[13*]C", 
-            " None"
-        ], 
-        "54": [
-            "[*]O", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            "[10*]O", 
-            "None", 
-            "[12*]O", 
-            "[13*]C", 
-            " None"
-        ], 
-        "55": [
-            "[*]O", 
-            "None", 
-            " None", 
-            "None", 
-            "[6*]=O", 
-            "None", 
-            " None", 
-            "None", 
-            "[12*]O", 
-            "[13*]C", 
-            " None"
-        ], 
-        "56": [
-            "[*]OC(=O)c1ccccc1", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            "[12*]=O", 
-            "[13*]C", 
-            " None"
-        ], 
-        "57": [
-            "[*]OC(C)=O", 
-            "[1*]F", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "[12*]=O", 
-            "[13*]C", 
-            " None"
-        ], 
-        "58": [
-            "[*]OC(C)=O", 
-            "None", 
-            " None", 
-            "None", 
-            "[6*]=O", 
-            "None", 
-            " None", 
-            "None", 
-            "[12*]OC(C)=O", 
-            "[13*]C", 
-            " None"
-        ], 
-        "59": [
-            "[*]O", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "[11*]O", 
-            "[12*]O", 
-            "[13*]C", 
-            " None"
-        ], 
-        "60": [
-            "[*]O", 
-            "None", 
-            " None", 
-            "None", 
-            "[6*]=O", 
-            "None", 
-            " None", 
-            "[11*]O", 
-            "[12*]O", 
-            "[13*]C", 
-            " None"
-        ], 
-        "61": [
-            "[*]OC(C)=O", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "[11*]Br", 
-            "[12*]=O", 
-            "[13*]C", 
-            " None"
-        ], 
-        "62": [
-            "[*]O", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
             "[11*]I", 
-            "[12*]O", 
-            "[13*]C", 
-            " None"
-        ], 
-        "63": [
-            "[*]O", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "[11*]O", 
-            "[12*]O", 
-            "[13*]C", 
-            " None"
-        ], 
-        "64": [
-            "[*]OC(C)=O", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "[11*]OC(C)=O", 
-            "[12*]=O", 
-            "[13*]C", 
-            " None"
-        ], 
-        "65": [
-            "[*]OC(=O)c1ccccc1", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            "[12*]OS(=O)(=O)O[Na]", 
-            "[13*]C", 
-            " None"
-        ], 
-        "66": [
-            "[*]O", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            "[12*]OC1OC(C(=O)O)C(O)C(O)C1O", 
-            "[13*]C", 
-            " None"
-        ], 
-        "67": [
-            "[*]OC(C)=O", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "[11*]Br", 
-            "[12*]=O", 
-            "[13*]C", 
-            " None"
-        ], 
-        "68": [
-            "[*]OC(C)=O", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            "[10*]O", 
-            "[11*]O", 
-            "[12*]OC(C)=O", 
-            "[13*]C", 
-            " None"
-        ], 
-        "69": [
-            "[*]O", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            "[10*]O", 
-            "[11*]O", 
-            "[12*]O", 
-            "[13*]C", 
-            " None"
-        ], 
-        "70": [
-            "[*]O", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "[11*]O", 
-            "[12*]=O", 
-            "[13*]C", 
-            " None"
-        ], 
-        "71": [
-            "[*]OC(=O)CCC(=O)O", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "[11*]O", 
-            "[12*]O", 
-            "[13*]C", 
-            " None"
-        ], 
-        "72": [
-            "[*]O", 
-            "[1*]O", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "[12*]=O", 
-            "[13*]C", 
-            " None"
-        ], 
-        "73": [
-            "[*]O", 
-            "[1*]N", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "[12*]O", 
-            "[13*]C", 
-            " None"
-        ], 
-        "74": [
-            "[*]O", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            "[12*]OC(C)=O", 
-            "[13*]C", 
-            " None"
-        ], 
-        "75": [
-            "[*]OC(C)=O", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            "[12*]=O", 
-            "[13*]C", 
-            " None"
-        ], 
-        "76": [
-            "[*]O", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "[11*]O", 
-            "[12*]O", 
-            "[13*]C", 
-            " None"
-        ], 
-        "77": [
-            "[*]O", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "[11*]OC(C)=O", 
-            "[12*]OC(C)=O", 
-            "[13*]C", 
-            " None"
-        ], 
-        "78": [
-            "[*]O", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            "[12*]O", 
-            "[13*]C", 
-            " None"
-        ], 
-        "79": [
-            "[*]OC(C)=O", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "[11*]OC(C)=O", 
-            "[12*]=O", 
-            "[13*]C", 
-            " None"
-        ], 
-        "80": [
-            "[*]OS(=O)(=O)O", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            "[12*]O", 
-            "[13*]C", 
-            " None"
-        ], 
-        "81": [
-            "[*]OC(C)=O", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            " None", 
-            "None", 
-            "[12*]O", 
-            "[13*]C", 
-            " None"
+            "[12*]O"
         ]
     }, 
     "data": {
@@ -1073,1639 +265,907 @@
                 "count": 1, 
                 "distance": 0, 
                 "objects": [
-                    "13736"
+                    "13740"
                 ], 
-                "features": [
-                    6.675, 
-                    5.932, 
-                    4.799
-                ], 
-                "parent": 91
+                "features": [], 
+                "parent": 47
             }, 
             "1": {
                 "count": 1, 
                 "distance": 0, 
                 "objects": [
-                    "13739"
+                    "13841"
                 ], 
-                "features": [
-                    -0.143, 
-                    0.967, 
-                    4.263
-                ], 
-                "parent": 93
+                "features": [], 
+                "parent": 70
             }, 
             "2": {
                 "count": 1, 
                 "distance": 0, 
                 "objects": [
-                    "13738"
+                    "13843"
                 ], 
-                "features": [
-                    4.482, 
-                    10.458, 
-                    5.682
-                ], 
-                "parent": 102
+                "features": [], 
+                "parent": 53
             }, 
             "3": {
                 "count": 1, 
                 "distance": 0, 
                 "objects": [
-                    "10387"
+                    "13845"
                 ], 
-                "features": [
-                    -1.433, 
-                    -3.742, 
-                    -2.832
-                ], 
-                "parent": 110
+                "features": [], 
+                "parent": 52
             }, 
             "4": {
                 "count": 1, 
                 "distance": 0, 
                 "objects": [
-                    "8944"
+                    "13846"
                 ], 
-                "features": [
-                    -0.005, 
-                    -0.902, 
-                    3.253
-                ], 
-                "parent": 92
+                "features": [], 
+                "parent": 49
             }, 
             "5": {
                 "count": 1, 
                 "distance": 0, 
                 "objects": [
-                    "8165"
+                    "13847"
                 ], 
-                "features": [
-                    11.991, 
-                    19.095, 
-                    8.844
-                ], 
-                "parent": 111
+                "features": [], 
+                "parent": 68
             }, 
             "6": {
                 "count": 1, 
                 "distance": 0, 
                 "objects": [
-                    "8497"
+                    "13849"
                 ], 
-                "features": [
-                    15.86, 
-                    16.195, 
-                    27.987
-                ], 
-                "parent": 149
+                "features": [], 
+                "parent": 45
             }, 
             "7": {
                 "count": 1, 
                 "distance": 0, 
                 "objects": [
-                    "13877"
+                    "13850"
                 ], 
-                "features": [
-                    8.618, 
-                    4.277, 
-                    6.949
-                ], 
-                "parent": 118
+                "features": [], 
+                "parent": 52
             }, 
             "8": {
                 "count": 1, 
                 "distance": 0, 
                 "objects": [
-                    "8622"
+                    "13855"
                 ], 
-                "features": [
-                    4.029, 
-                    13.525, 
-                    10.618
-                ], 
-                "parent": 130
+                "features": [], 
+                "parent": 45
             }, 
             "9": {
                 "count": 1, 
                 "distance": 0, 
                 "objects": [
-                    "13841"
+                    "13864"
                 ], 
-                "features": [
-                    20.073, 
-                    8.506, 
-                    1.964
-                ], 
-                "parent": 142
+                "features": [], 
+                "parent": 43
             }, 
             "10": {
                 "count": 1, 
                 "distance": 0, 
                 "objects": [
-                    "13843"
+                    "10796"
                 ], 
-                "features": [
-                    4.775, 
-                    4.949, 
-                    8.977
-                ], 
-                "parent": 89
+                "features": [], 
+                "parent": 46
             }, 
             "11": {
                 "count": 1, 
                 "distance": 0, 
                 "objects": [
-                    "13845"
+                    "13873"
                 ], 
-                "features": [
-                    -1.64, 
-                    4.718, 
-                    5.185
-                ], 
-                "parent": 117
+                "features": [], 
+                "parent": 58
             }, 
             "12": {
                 "count": 1, 
                 "distance": 0, 
                 "objects": [
-                    "13847"
+                    "8244"
                 ], 
-                "features": [
-                    -1.491, 
-                    -0.157, 
-                    6.541
-                ], 
-                "parent": 96
+                "features": [], 
+                "parent": 56
             }, 
             "13": {
                 "count": 1, 
                 "distance": 0, 
                 "objects": [
-                    "13846"
+                    "13878"
                 ], 
-                "features": [
-                    2.479, 
-                    5.608, 
-                    2.606
-                ], 
-                "parent": 95
+                "features": [], 
+                "parent": 48
             }, 
             "14": {
                 "count": 1, 
                 "distance": 0, 
                 "objects": [
-                    "13849"
+                    "10295"
                 ], 
-                "features": [
-                    5.696, 
-                    3.309, 
-                    6.804
-                ], 
-                "parent": 98
+                "features": [], 
+                "parent": 72
             }, 
             "15": {
                 "count": 1, 
                 "distance": 0, 
                 "objects": [
-                    "13848"
+                    "10300"
                 ], 
-                "features": [
-                    2.884, 
-                    8.855, 
-                    -0.211
-                ], 
-                "parent": 127
+                "features": [], 
+                "parent": 69
             }, 
             "16": {
                 "count": 1, 
                 "distance": 0, 
                 "objects": [
-                    "13659"
+                    "10302"
                 ], 
-                "features": [
-                    -1.035, 
-                    -0.791, 
-                    7.615
-                ], 
-                "parent": 96
+                "features": [], 
+                "parent": 59
             }, 
             "17": {
                 "count": 1, 
                 "distance": 0, 
                 "objects": [
-                    "10504"
+                    "10305"
                 ], 
-                "features": [
-                    7.045, 
-                    15.297, 
-                    21.144
-                ], 
-                "parent": 112
+                "features": [], 
+                "parent": 53
             }, 
             "18": {
                 "count": 1, 
                 "distance": 0, 
                 "objects": [
-                    "13853"
+                    "10306"
                 ], 
-                "features": [
-                    0.002, 
-                    9.962, 
-                    5.311
-                ], 
-                "parent": 107
+                "features": [], 
+                "parent": 74
             }, 
             "19": {
                 "count": 1, 
                 "distance": 0, 
                 "objects": [
-                    "13850"
+                    "10307"
                 ], 
-                "features": [
-                    7.616, 
-                    4.013, 
-                    1.27
-                ], 
-                "parent": 140
+                "features": [], 
+                "parent": 44
             }, 
             "20": {
                 "count": 1, 
                 "distance": 0, 
                 "objects": [
-                    "13851"
+                    "10308"
                 ], 
-                "features": [
-                    13.451, 
-                    6.654, 
-                    1.334
-                ], 
-                "parent": 119
+                "features": [], 
+                "parent": 73
             }, 
             "21": {
                 "count": 1, 
                 "distance": 0, 
                 "objects": [
-                    "13854"
+                    "9808"
                 ], 
-                "features": [
-                    7.7, 
-                    9.265, 
-                    3.663
-                ], 
-                "parent": 88
+                "features": [], 
+                "parent": 57
             }, 
             "22": {
                 "count": 1, 
                 "distance": 0, 
                 "objects": [
-                    "13855"
+                    "14054"
                 ], 
-                "features": [
-                    5.78, 
-                    10.676, 
-                    5.33
-                ], 
-                "parent": 94
+                "features": [], 
+                "parent": 54
             }, 
             "23": {
                 "count": 1, 
                 "distance": 0, 
                 "objects": [
-                    "13858"
+                    "14028"
                 ], 
-                "features": [
-                    8.286, 
-                    10.491, 
-                    3.775
-                ], 
-                "parent": 104
+                "features": [], 
+                "parent": 51
             }, 
             "24": {
                 "count": 1, 
                 "distance": 0, 
                 "objects": [
-                    "13859"
+                    "14031"
                 ], 
-                "features": [
-                    -0.473, 
-                    3.438, 
-                    4.316
-                ], 
-                "parent": 90
+                "features": [], 
+                "parent": 67
             }, 
             "25": {
                 "count": 1, 
                 "distance": 0, 
                 "objects": [
-                    "8037"
+                    "7890"
                 ], 
-                "features": [
-                    7.869, 
-                    13.885, 
-                    23.029
-                ], 
-                "parent": 112
+                "features": [], 
+                "parent": 48
             }, 
             "26": {
                 "count": 1, 
                 "distance": 0, 
                 "objects": [
-                    "13864"
+                    "14037"
                 ], 
-                "features": [
-                    -0.88, 
-                    -1.142, 
-                    3.029
-                ], 
-                "parent": 83
+                "features": [], 
+                "parent": 54
             }, 
             "27": {
                 "count": 1, 
                 "distance": 0, 
                 "objects": [
-                    "8026"
+                    "14046"
                 ], 
-                "features": [
-                    18.96, 
-                    8.602, 
-                    8.979
-                ], 
-                "parent": 113
+                "features": [], 
+                "parent": 44
             }, 
             "28": {
                 "count": 1, 
                 "distance": 0, 
                 "objects": [
-                    "13883"
+                    "14051"
                 ], 
-                "features": [
-                    4.686, 
-                    7.406, 
-                    3.549
-                ], 
-                "parent": 105
+                "features": [], 
+                "parent": 61
             }, 
             "29": {
                 "count": 1, 
                 "distance": 0, 
                 "objects": [
-                    "13878"
+                    "14053"
                 ], 
-                "features": [
-                    9.828, 
-                    13.147, 
-                    3.937
-                ], 
-                "parent": 126
+                "features": [], 
+                "parent": 60
             }, 
             "30": {
                 "count": 1, 
                 "distance": 0, 
                 "objects": [
-                    "13879"
+                    "8944"
                 ], 
-                "features": [
-                    -1.805, 
-                    8.672, 
-                    2.33
-                ], 
-                "parent": 137
+                "features": [], 
+                "parent": 61
             }, 
             "31": {
                 "count": 1, 
                 "distance": 0, 
                 "objects": [
-                    "13873"
+                    "14036"
                 ], 
-                "features": [
-                    -0.104, 
-                    2.053, 
-                    9.114
-                ], 
-                "parent": 108
+                "features": [], 
+                "parent": 72
             }, 
             "32": {
                 "count": 1, 
                 "distance": 0, 
                 "objects": [
-                    "13876"
+                    "10504"
                 ], 
-                "features": [
-                    5.807, 
-                    1.983, 
-                    7.209
-                ], 
-                "parent": 98
+                "features": [], 
+                "parent": 51
             }, 
             "33": {
                 "count": 1, 
                 "distance": 0, 
                 "objects": [
-                    "8475"
+                    "8497"
                 ], 
-                "features": [
-                    20.281, 
-                    6.476, 
-                    9.374
-                ], 
-                "parent": 113
+                "features": [], 
+                "parent": 43
             }, 
             "34": {
                 "count": 1, 
                 "distance": 0, 
                 "objects": [
-                    "14051"
+                    "13879"
                 ], 
-                "features": [
-                    -3.265, 
-                    -1.813, 
-                    -0.691
-                ], 
-                "parent": 131
+                "features": [], 
+                "parent": 59
             }, 
             "35": {
                 "count": 1, 
                 "distance": 0, 
                 "objects": [
-                    "14054"
+                    "13659"
                 ], 
-                "features": [
-                    10.395, 
-                    8.503, 
-                    5.317
-                ], 
-                "parent": 116
+                "features": [], 
+                "parent": 71
             }, 
             "36": {
                 "count": 1, 
                 "distance": 0, 
                 "objects": [
-                    "14031"
+                    "13662"
                 ], 
-                "features": [
-                    13.146, 
-                    18.754, 
-                    10.93
-                ], 
-                "parent": 111
+                "features": [], 
+                "parent": 65
             }, 
             "37": {
                 "count": 1, 
                 "distance": 0, 
                 "objects": [
-                    "14046"
+                    "13665"
                 ], 
-                "features": [
-                    0.412, 
-                    1.673, 
-                    4.432
-                ], 
-                "parent": 82
+                "features": [], 
+                "parent": 47
             }, 
             "38": {
                 "count": 1, 
                 "distance": 0, 
                 "objects": [
-                    "14048"
+                    "8037"
                 ], 
-                "features": [
-                    -0.214, 
-                    9.993, 
-                    7.462
-                ], 
-                "parent": 107
+                "features": [], 
+                "parent": 46
             }, 
             "39": {
                 "count": 1, 
                 "distance": 0, 
                 "objects": [
-                    "9808"
+                    "13695"
                 ], 
-                "features": [
-                    5.209, 
-                    17.062, 
-                    6.899
-                ], 
-                "parent": 115
+                "features": [], 
+                "parent": 50
             }, 
             "40": {
                 "count": 1, 
                 "distance": 0, 
                 "objects": [
-                    "14037"
+                    "13711"
                 ], 
-                "features": [
-                    6.919, 
-                    5.794, 
-                    5.647
-                ], 
-                "parent": 91
+                "features": [], 
+                "parent": 70
             }, 
             "41": {
                 "count": 1, 
                 "distance": 0, 
                 "objects": [
-                    "14036"
+                    "13715"
                 ], 
-                "features": [
-                    5.276, 
-                    4.545, 
-                    5.834
-                ], 
-                "parent": 114
+                "features": [], 
+                "parent": 58
             }, 
             "42": {
                 "count": 1, 
                 "distance": 0, 
                 "objects": [
-                    "14038"
-                ], 
-                "features": [
-                    1.992, 
-                    4.872, 
-                    3.439
-                ], 
-                "parent": 95
-            }, 
-            "43": {
-                "count": 1, 
-                "distance": 0, 
-                "objects": [
-                    "10796"
-                ], 
-                "features": [
-                    3.63, 
-                    11.7, 
-                    3.822
-                ], 
-                "parent": 120
-            }, 
-            "44": {
-                "count": 1, 
-                "distance": 0, 
-                "objects": [
-                    "8934"
-                ], 
-                "features": [
-                    7.409, 
-                    27.481, 
-                    9.407
-                ], 
-                "parent": 132
-            }, 
-            "45": {
-                "count": 1, 
-                "distance": 0, 
-                "objects": [
-                    "8244"
-                ], 
-                "features": [
-                    -1.499, 
-                    2.768, 
-                    7.571
-                ], 
-                "parent": 108
-            }, 
-            "46": {
-                "count": 1, 
-                "distance": 0, 
-                "objects": [
-                    "10306"
-                ], 
-                "features": [
-                    0.27, 
-                    -3.603, 
-                    -2.968
-                ], 
-                "parent": 99
-            }, 
-            "47": {
-                "count": 1, 
-                "distance": 0, 
-                "objects": [
-                    "10305"
-                ], 
-                "features": [
-                    7.418, 
-                    9.063, 
-                    2.863
-                ], 
-                "parent": 88
-            }, 
-            "48": {
-                "count": 1, 
-                "distance": 0, 
-                "objects": [
-                    "10300"
-                ], 
-                "features": [
-                    -0.009, 
-                    -2.459, 
-                    -3.866
-                ], 
-                "parent": 85
-            }, 
-            "49": {
-                "count": 1, 
-                "distance": 0, 
-                "objects": [
-                    "10308"
-                ], 
-                "features": [
-                    -0.104, 
-                    -2.705, 
-                    -3.243
-                ], 
-                "parent": 86
-            }, 
-            "50": {
-                "count": 1, 
-                "distance": 0, 
-                "objects": [
-                    "10307"
-                ], 
-                "features": [
-                    -0.039, 
-                    -3.114, 
-                    -3.946
-                ], 
-                "parent": 85
-            }, 
-            "51": {
-                "count": 1, 
-                "distance": 0, 
-                "objects": [
-                    "10302"
-                ], 
-                "features": [
-                    0.029, 
-                    3.355, 
-                    -2.611
-                ], 
-                "parent": 143
-            }, 
-            "52": {
-                "count": 1, 
-                "distance": 0, 
-                "objects": [
-                    "10301"
-                ], 
-                "features": [
-                    8.398, 
-                    10.752, 
-                    -3.583
-                ], 
-                "parent": 134
-            }, 
-            "53": {
-                "count": 1, 
-                "distance": 0, 
-                "objects": [
-                    "14028"
-                ], 
-                "features": [
-                    -0.515, 
-                    21.476, 
-                    5.42
-                ], 
-                "parent": 145
-            }, 
-            "54": {
-                "count": 1, 
-                "distance": 0, 
-                "objects": [
-                    "13708"
-                ], 
-                "features": [
-                    -0.845, 
-                    -0.795, 
-                    3.32
-                ], 
-                "parent": 83
-            }, 
-            "55": {
-                "count": 1, 
-                "distance": 0, 
-                "objects": [
-                    "9057"
-                ], 
-                "features": [
-                    3.794, 
-                    23.395, 
-                    10.082
-                ], 
-                "parent": 132
-            }, 
-            "56": {
-                "count": 1, 
-                "distance": 0, 
-                "objects": [
-                    "8651"
-                ], 
-                "features": [
-                    8.59, 
-                    5.807, 
-                    9.803
-                ], 
-                "parent": 118
-            }, 
-            "57": {
-                "count": 1, 
-                "distance": 0, 
-                "objects": [
-                    "13695"
-                ], 
-                "features": [
-                    -0.998, 
-                    1.233, 
-                    5.008
-                ], 
-                "parent": 101
-            }, 
-            "58": {
-                "count": 1, 
-                "distance": 0, 
-                "objects": [
-                    "13696"
-                ], 
-                "features": [
-                    5.871, 
-                    9.676, 
-                    5.975
-                ], 
-                "parent": 94
-            }, 
-            "59": {
-                "count": 1, 
-                "distance": 0, 
-                "objects": [
-                    "13698"
-                ], 
-                "features": [
-                    -1.154, 
-                    1.818, 
-                    3.721
-                ], 
-                "parent": 101
-            }, 
-            "60": {
-                "count": 1, 
-                "distance": 0, 
-                "objects": [
-                    "13699"
-                ], 
-                "features": [
-                    -0.03, 
-                    0.206, 
-                    6.502
-                ], 
-                "parent": 103
-            }, 
-            "61": {
-                "count": 1, 
-                "distance": 0, 
-                "objects": [
-                    "13740"
-                ], 
-                "features": [
-                    1.175, 
-                    4.666, 
-                    10.06
-                ], 
-                "parent": 121
-            }, 
-            "62": {
-                "count": 1, 
-                "distance": 0, 
-                "objects": [
                     "13741"
                 ], 
-                "features": [
-                    0.318, 
-                    1.599, 
-                    4.566
-                ], 
-                "parent": 82
+                "features": [], 
+                "parent": 55
             }, 
-            "63": {
-                "count": 1, 
-                "distance": 0, 
-                "objects": [
-                    "10310"
-                ], 
-                "features": [
-                    32.725, 
-                    9.421, 
-                    -1.146
-                ], 
-                "parent": 155
-            }, 
-            "64": {
-                "count": 1, 
-                "distance": 0, 
-                "objects": [
-                    "14050"
-                ], 
-                "features": [
-                    3.282, 
-                    8.678, 
-                    3.838
-                ], 
-                "parent": 105
-            }, 
-            "65": {
-                "count": 1, 
-                "distance": 0, 
-                "objects": [
-                    "14053"
-                ], 
-                "features": [
-                    4.974, 
-                    13.418, 
-                    -0.936
-                ], 
-                "parent": 127
-            }, 
-            "66": {
-                "count": 1, 
-                "distance": 0, 
-                "objects": [
-                    "10295"
-                ], 
-                "features": [
-                    0.229, 
-                    0.352, 
-                    12.131
-                ], 
-                "parent": 129
-            }, 
-            "67": {
-                "count": 1, 
-                "distance": 0, 
-                "objects": [
-                    "14047"
-                ], 
-                "features": [
-                    0.078, 
-                    2.962, 
-                    4.22
-                ], 
-                "parent": 84
-            }, 
-            "68": {
-                "count": 1, 
-                "distance": 0, 
-                "objects": [
-                    "14040"
-                ], 
-                "features": [
-                    -0.617, 
-                    3.69, 
-                    3.379
-                ], 
-                "parent": 97
-            }, 
-            "69": {
-                "count": 1, 
-                "distance": 0, 
-                "objects": [
-                    "14042"
-                ], 
-                "features": [
-                    4.584, 
-                    4.502, 
-                    9.711
-                ], 
-                "parent": 89
-            }, 
-            "70": {
-                "count": 1, 
-                "distance": 0, 
-                "objects": [
-                    "9662"
-                ], 
-                "features": [
-                    13.228, 
-                    15.295, 
-                    7.472
-                ], 
-                "parent": 128
-            }, 
-            "71": {
-                "count": 1, 
-                "distance": 0, 
-                "objects": [
-                    "13711"
-                ], 
-                "features": [
-                    19.993, 
-                    17.282, 
-                    13.119
-                ], 
-                "parent": 146
-            }, 
-            "72": {
-                "count": 1, 
-                "distance": 0, 
-                "objects": [
-                    "13713"
-                ], 
-                "features": [
-                    -1.302, 
-                    -0.4, 
-                    3.827
-                ], 
-                "parent": 87
-            }, 
-            "73": {
-                "count": 1, 
-                "distance": 0, 
-                "objects": [
-                    "13715"
-                ], 
-                "features": [
-                    -0.661, 
-                    -0.794, 
-                    4.055
-                ], 
-                "parent": 87
-            }, 
-            "74": {
-                "count": 1, 
-                "distance": 0, 
-                "objects": [
-                    "13662"
-                ], 
-                "features": [
-                    10.938, 
-                    5.88, 
-                    5.311
-                ], 
-                "parent": 116
-            }, 
-            "75": {
-                "count": 1, 
-                "distance": 0, 
-                "objects": [
-                    "13665"
-                ], 
-                "features": [
-                    14.399, 
-                    3.474, 
-                    1.037
-                ], 
-                "parent": 119
-            }, 
-            "76": {
-                "count": 1, 
-                "distance": 0, 
-                "objects": [
-                    "13702"
-                ], 
-                "features": [
-                    -0.367, 
-                    2.62, 
-                    3.929
-                ], 
-                "parent": 84
-            }, 
-            "77": {
-                "count": 1, 
-                "distance": 0, 
-                "objects": [
-                    "13700"
-                ], 
-                "features": [
-                    0.18, 
-                    9.572, 
-                    9.926
-                ], 
-                "parent": 122
-            }, 
-            "78": {
-                "count": 1, 
-                "distance": 0, 
-                "objects": [
-                    "9661"
-                ], 
-                "features": [
-                    6.417, 
-                    7.262, 
-                    6.483
-                ], 
-                "parent": 109
-            }, 
-            "79": {
-                "count": 1, 
-                "distance": 0, 
-                "objects": [
-                    "9668"
-                ], 
-                "features": [
-                    5.996, 
-                    16.998, 
-                    9.433
-                ], 
-                "parent": 115
-            }, 
-            "80": {
-                "count": 1, 
-                "distance": 0, 
-                "objects": [
-                    "7892"
-                ], 
-                "features": [
-                    13.032, 
-                    15.791, 
-                    19.753
-                ], 
-                "parent": 138
-            }, 
-            "81": {
-                "count": 1, 
-                "distance": 0, 
-                "objects": [
-                    "7890"
-                ], 
-                "features": [
-                    12.357, 
-                    12.819, 
-                    12.489
-                ], 
-                "parent": 139
-            }, 
-            "82": {
+            "43": {
                 "count": 2, 
-                "distance": 0.18, 
-                "left_child": 37, 
-                "parent": 93, 
-                "right_child": 62
-            }, 
-            "83": {
-                "count": 2, 
-                "distance": 0.454, 
-                "left_child": 26, 
-                "parent": 92, 
-                "right_child": 54
-            }, 
-            "84": {
-                "count": 2, 
-                "distance": 0.632, 
-                "left_child": 67, 
-                "parent": 90, 
-                "right_child": 76
-            }, 
-            "85": {
-                "count": 2, 
-                "distance": 0.661, 
-                "left_child": 48, 
-                "parent": 86, 
-                "right_child": 50
-            }, 
-            "86": {
-                "count": 3, 
-                "distance": 0.777, 
-                "left_child": 49, 
-                "parent": 99, 
-                "right_child": 85
-            }, 
-            "87": {
-                "count": 2, 
-                "distance": 0.786, 
-                "left_child": 72, 
-                "parent": 100, 
-                "right_child": 73
-            }, 
-            "88": {
-                "count": 2, 
-                "distance": 0.872, 
-                "left_child": 21, 
-                "parent": 104, 
-                "right_child": 47
-            }, 
-            "89": {
-                "count": 2, 
-                "distance": 0.88, 
-                "left_child": 10, 
-                "parent": 125, 
-                "right_child": 69
-            }, 
-            "90": {
-                "count": 3, 
-                "distance": 0.883, 
-                "left_child": 24, 
-                "parent": 97, 
-                "right_child": 84
-            }, 
-            "91": {
-                "count": 2, 
-                "distance": 0.893, 
-                "left_child": 0, 
-                "parent": 109, 
-                "right_child": 40
-            }, 
-            "92": {
-                "count": 3, 
-                "distance": 0.997, 
-                "left_child": 4, 
-                "parent": 100, 
-                "right_child": 83
-            }, 
-            "93": {
-                "count": 3, 
-                "distance": 1.008, 
-                "left_child": 1, 
-                "parent": 106, 
-                "right_child": 82
-            }, 
-            "94": {
-                "count": 2, 
-                "distance": 1.193, 
-                "left_child": 22, 
-                "parent": 102, 
-                "right_child": 58
-            }, 
-            "95": {
-                "count": 2, 
-                "distance": 1.214, 
-                "left_child": 13, 
-                "parent": 124, 
-                "right_child": 42
-            }, 
-            "96": {
-                "count": 2, 
-                "distance": 1.328, 
-                "left_child": 12, 
-                "parent": 103, 
-                "right_child": 16
-            }, 
-            "97": {
-                "count": 4, 
-                "distance": 1.342, 
-                "left_child": 68, 
-                "parent": 117, 
-                "right_child": 90
-            }, 
-            "98": {
-                "count": 2, 
-                "distance": 1.391, 
-                "left_child": 14, 
-                "parent": 114, 
-                "right_child": 32
-            }, 
-            "99": {
-                "count": 4, 
-                "distance": 1.412, 
-                "left_child": 46, 
-                "parent": 110, 
-                "right_child": 86
-            }, 
-            "100": {
-                "count": 5, 
-                "distance": 1.415, 
-                "left_child": 87, 
-                "parent": 136, 
-                "right_child": 92
-            }, 
-            "101": {
-                "count": 2, 
-                "distance": 1.422, 
-                "left_child": 57, 
-                "parent": 106, 
-                "right_child": 59
-            }, 
-            "102": {
-                "count": 3, 
-                "distance": 1.586, 
-                "left_child": 2, 
-                "parent": 120, 
-                "right_child": 94
-            }, 
-            "103": {
-                "count": 3, 
-                "distance": 1.757, 
-                "left_child": 60, 
-                "parent": 136, 
-                "right_child": 96
-            }, 
-            "104": {
-                "count": 3, 
-                "distance": 1.844, 
-                "left_child": 23, 
-                "parent": 126, 
-                "right_child": 88
-            }, 
-            "105": {
-                "count": 2, 
-                "distance": 1.916, 
-                "left_child": 28, 
-                "parent": 124, 
-                "right_child": 64
-            }, 
-            "106": {
-                "count": 5, 
-                "distance": 1.98, 
-                "left_child": 93, 
-                "parent": 123, 
-                "right_child": 101
-            }, 
-            "107": {
-                "count": 2, 
-                "distance": 2.162, 
-                "left_child": 18, 
-                "parent": 122, 
-                "right_child": 38
-            }, 
-            "108": {
-                "count": 2, 
-                "distance": 2.2, 
-                "left_child": 31, 
-                "parent": 121, 
-                "right_child": 45
-            }, 
-            "109": {
-                "count": 3, 
-                "distance": 2.218, 
-                "left_child": 78, 
-                "parent": 133, 
-                "right_child": 91
-            }, 
-            "110": {
-                "count": 5, 
-                "distance": 2.259, 
-                "left_child": 3, 
-                "parent": 131, 
-                "right_child": 99
-            }, 
-            "111": {
-                "count": 2, 
-                "distance": 2.409, 
-                "left_child": 5, 
-                "parent": 128, 
-                "right_child": 36
-            }, 
-            "112": {
-                "count": 2, 
-                "distance": 2.495, 
-                "left_child": 17, 
-                "parent": 138, 
-                "right_child": 25
-            }, 
-            "113": {
-                "count": 2, 
-                "distance": 2.534, 
-                "left_child": 27, 
-                "parent": 151, 
+                "distance": 0.12, 
+                "left_child": 9, 
+                "parent": 49, 
                 "right_child": 33
             }, 
-            "114": {
-                "count": 3, 
-                "distance": 2.635, 
-                "left_child": 41, 
-                "parent": 125, 
-                "right_child": 98
-            }, 
-            "115": {
+            "44": {
                 "count": 2, 
-                "distance": 2.654, 
+                "distance": 0.13, 
+                "left_child": 19, 
+                "parent": 73, 
+                "right_child": 27
+            }, 
+            "45": {
+                "count": 2, 
+                "distance": 0.148, 
+                "left_child": 6, 
+                "parent": 66, 
+                "right_child": 8
+            }, 
+            "46": {
+                "count": 2, 
+                "distance": 0.167, 
+                "left_child": 10, 
+                "parent": 57, 
+                "right_child": 38
+            }, 
+            "47": {
+                "count": 2, 
+                "distance": 0.176, 
+                "left_child": 0, 
+                "parent": 50, 
+                "right_child": 37
+            }, 
+            "48": {
+                "count": 2, 
+                "distance": 0.176, 
+                "left_child": 13, 
+                "parent": 62, 
+                "right_child": 25
+            }, 
+            "49": {
+                "count": 3, 
+                "distance": 0.18, 
+                "left_child": 4, 
+                "parent": 65, 
+                "right_child": 43
+            }, 
+            "50": {
+                "count": 3, 
+                "distance": 0.265, 
                 "left_child": 39, 
-                "parent": 130, 
-                "right_child": 79
+                "parent": 62, 
+                "right_child": 47
             }, 
-            "116": {
+            "51": {
                 "count": 2, 
-                "distance": 2.679, 
-                "left_child": 35, 
-                "parent": 135, 
-                "right_child": 74
+                "distance": 0.294, 
+                "left_child": 23, 
+                "parent": 66, 
+                "right_child": 32
             }, 
-            "117": {
-                "count": 5, 
-                "distance": 2.98, 
+            "52": {
+                "count": 2, 
+                "distance": 0.333, 
+                "left_child": 3, 
+                "parent": 55, 
+                "right_child": 7
+            }, 
+            "53": {
+                "count": 2, 
+                "distance": 0.333, 
+                "left_child": 2, 
+                "parent": 56, 
+                "right_child": 17
+            }, 
+            "54": {
+                "count": 2, 
+                "distance": 0.35, 
+                "left_child": 22, 
+                "parent": 67, 
+                "right_child": 26
+            }, 
+            "55": {
+                "count": 3, 
+                "distance": 0.354, 
+                "left_child": 42, 
+                "parent": 64, 
+                "right_child": 52
+            }, 
+            "56": {
+                "count": 3, 
+                "distance": 0.354, 
+                "left_child": 12, 
+                "parent": 63, 
+                "right_child": 53
+            }, 
+            "57": {
+                "count": 3, 
+                "distance": 0.36, 
+                "left_child": 21, 
+                "parent": 60, 
+                "right_child": 46
+            }, 
+            "58": {
+                "count": 2, 
+                "distance": 0.364, 
                 "left_child": 11, 
-                "parent": 123, 
-                "right_child": 97
+                "parent": 64, 
+                "right_child": 41
             }, 
-            "118": {
+            "59": {
                 "count": 2, 
-                "distance": 3.238, 
-                "left_child": 7, 
-                "parent": 133, 
-                "right_child": 56
+                "distance": 0.364, 
+                "left_child": 16, 
+                "parent": 63, 
+                "right_child": 34
             }, 
-            "119": {
-                "count": 2, 
-                "distance": 3.332, 
-                "left_child": 20, 
-                "parent": 142, 
-                "right_child": 75
-            }, 
-            "120": {
+            "60": {
                 "count": 4, 
-                "distance": 3.568, 
-                "left_child": 43, 
-                "parent": 141, 
-                "right_child": 102
-            }, 
-            "121": {
-                "count": 3, 
-                "distance": 3.991, 
-                "left_child": 61, 
-                "parent": 129, 
-                "right_child": 108
-            }, 
-            "122": {
-                "count": 3, 
-                "distance": 4.127, 
-                "left_child": 77, 
-                "parent": 148, 
-                "right_child": 107
-            }, 
-            "123": {
-                "count": 10, 
-                "distance": 4.6, 
-                "left_child": 106, 
-                "parent": 144, 
-                "right_child": 117
-            }, 
-            "124": {
-                "count": 4, 
-                "distance": 4.766, 
-                "left_child": 95, 
-                "parent": 137, 
-                "right_child": 105
-            }, 
-            "125": {
-                "count": 5, 
-                "distance": 4.989, 
-                "left_child": 89, 
-                "parent": 147, 
-                "right_child": 114
-            }, 
-            "126": {
-                "count": 4, 
-                "distance": 5.034, 
+                "distance": 0.419, 
                 "left_child": 29, 
-                "parent": 141, 
-                "right_child": 104
+                "parent": 82, 
+                "right_child": 57
             }, 
-            "127": {
+            "61": {
                 "count": 2, 
-                "distance": 5.071, 
+                "distance": 0.5, 
+                "left_child": 28, 
+                "parent": 68, 
+                "right_child": 30
+            }, 
+            "62": {
+                "count": 5, 
+                "distance": 0.519, 
+                "left_child": 48, 
+                "parent": 80, 
+                "right_child": 50
+            }, 
+            "63": {
+                "count": 5, 
+                "distance": 0.561, 
+                "left_child": 56, 
+                "parent": 69, 
+                "right_child": 59
+            }, 
+            "64": {
+                "count": 5, 
+                "distance": 0.561, 
+                "left_child": 55, 
+                "parent": 77, 
+                "right_child": 58
+            }, 
+            "65": {
+                "count": 4, 
+                "distance": 0.585, 
+                "left_child": 36, 
+                "parent": 71, 
+                "right_child": 49
+            }, 
+            "66": {
+                "count": 4, 
+                "distance": 0.599, 
+                "left_child": 45, 
+                "parent": 76, 
+                "right_child": 51
+            }, 
+            "67": {
+                "count": 3, 
+                "distance": 0.643, 
+                "left_child": 24, 
+                "parent": 75, 
+                "right_child": 54
+            }, 
+            "68": {
+                "count": 3, 
+                "distance": 0.68, 
+                "left_child": 5, 
+                "parent": 74, 
+                "right_child": 61
+            }, 
+            "69": {
+                "count": 6, 
+                "distance": 0.696, 
                 "left_child": 15, 
-                "parent": 134, 
+                "parent": 79, 
+                "right_child": 63
+            }, 
+            "70": {
+                "count": 2, 
+                "distance": 0.703, 
+                "left_child": 1, 
+                "parent": 75, 
+                "right_child": 40
+            }, 
+            "71": {
+                "count": 5, 
+                "distance": 0.711, 
+                "left_child": 35, 
+                "parent": 76, 
                 "right_child": 65
             }, 
-            "128": {
-                "count": 3, 
-                "distance": 5.091, 
-                "left_child": 70, 
-                "parent": 139, 
-                "right_child": 111
-            }, 
-            "129": {
-                "count": 4, 
-                "distance": 5.251, 
-                "left_child": 66, 
-                "parent": 152, 
-                "right_child": 121
-            }, 
-            "130": {
-                "count": 3, 
-                "distance": 5.263, 
-                "left_child": 8, 
-                "parent": 153, 
-                "right_child": 115
-            }, 
-            "131": {
-                "count": 6, 
-                "distance": 5.464, 
-                "left_child": 34, 
-                "parent": 143, 
-                "right_child": 110
-            }, 
-            "132": {
+            "72": {
                 "count": 2, 
-                "distance": 5.497, 
-                "left_child": 44, 
-                "parent": 145, 
-                "right_child": 55
+                "distance": 0.724, 
+                "left_child": 14, 
+                "parent": 77, 
+                "right_child": 31
             }, 
-            "133": {
-                "count": 5, 
-                "distance": 5.557, 
-                "left_child": 109, 
-                "parent": 135, 
-                "right_child": 118
-            }, 
-            "134": {
+            "73": {
                 "count": 3, 
-                "distance": 6.237, 
-                "left_child": 52, 
-                "parent": 150, 
-                "right_child": 127
+                "distance": 0.725, 
+                "left_child": 20, 
+                "parent": 78, 
+                "right_child": 44
             }, 
-            "135": {
-                "count": 7, 
-                "distance": 6.393, 
-                "left_child": 116, 
-                "parent": 140, 
-                "right_child": 133
-            }, 
-            "136": {
-                "count": 8, 
-                "distance": 6.656, 
-                "left_child": 100, 
-                "parent": 144, 
-                "right_child": 103
-            }, 
-            "137": {
-                "count": 5, 
-                "distance": 6.851, 
-                "left_child": 30, 
-                "parent": 148, 
-                "right_child": 124
-            }, 
-            "138": {
-                "count": 3, 
-                "distance": 7.115, 
-                "left_child": 80, 
-                "parent": 149, 
-                "right_child": 112
-            }, 
-            "139": {
+            "74": {
                 "count": 4, 
-                "distance": 7.324, 
-                "left_child": 81, 
-                "parent": 146, 
-                "right_child": 128
+                "distance": 0.832, 
+                "left_child": 18, 
+                "parent": 78, 
+                "right_child": 68
             }, 
-            "140": {
-                "count": 8, 
-                "distance": 7.363, 
-                "left_child": 19, 
-                "parent": 147, 
-                "right_child": 135
-            }, 
-            "141": {
-                "count": 8, 
-                "distance": 7.498, 
-                "left_child": 120, 
-                "parent": 150, 
-                "right_child": 126
-            }, 
-            "142": {
-                "count": 3, 
-                "distance": 8.185, 
-                "left_child": 9, 
-                "parent": 151, 
-                "right_child": 119
-            }, 
-            "143": {
-                "count": 7, 
-                "distance": 8.273, 
-                "left_child": 51, 
-                "parent": 158, 
-                "right_child": 131
-            }, 
-            "144": {
-                "count": 18, 
-                "distance": 9.304, 
-                "left_child": 123, 
-                "parent": 152, 
-                "right_child": 136
-            }, 
-            "145": {
-                "count": 3, 
-                "distance": 9.785, 
-                "left_child": 53, 
-                "parent": 153, 
-                "right_child": 132
-            }, 
-            "146": {
+            "75": {
                 "count": 5, 
-                "distance": 10.139, 
-                "left_child": 71, 
-                "parent": 157, 
-                "right_child": 139
+                "distance": 0.922, 
+                "left_child": 67, 
+                "parent": 80, 
+                "right_child": 70
             }, 
-            "147": {
+            "76": {
+                "count": 9, 
+                "distance": 1.034, 
+                "left_child": 66, 
+                "parent": 83, 
+                "right_child": 71
+            }, 
+            "77": {
+                "count": 7, 
+                "distance": 1.092, 
+                "left_child": 64, 
+                "parent": 79, 
+                "right_child": 72
+            }, 
+            "78": {
+                "count": 7, 
+                "distance": 1.148, 
+                "left_child": 73, 
+                "parent": 81, 
+                "right_child": 74
+            }, 
+            "79": {
                 "count": 13, 
-                "distance": 10.41, 
-                "left_child": 125, 
-                "parent": 156, 
-                "right_child": 140
+                "distance": 1.191, 
+                "left_child": 69, 
+                "parent": 84, 
+                "right_child": 77
             }, 
-            "148": {
-                "count": 8, 
-                "distance": 10.931, 
-                "left_child": 122, 
-                "parent": 154, 
-                "right_child": 137
+            "80": {
+                "count": 10, 
+                "distance": 1.208, 
+                "left_child": 62, 
+                "parent": 81, 
+                "right_child": 75
             }, 
-            "149": {
-                "count": 4, 
-                "distance": 11.547, 
-                "left_child": 6, 
-                "parent": 159, 
-                "right_child": 138
+            "81": {
+                "count": 17, 
+                "distance": 1.345, 
+                "left_child": 78, 
+                "parent": 82, 
+                "right_child": 80
             }, 
-            "150": {
-                "count": 11, 
-                "distance": 12.732, 
-                "left_child": 134, 
-                "parent": 154, 
-                "right_child": 141
+            "82": {
+                "count": 21, 
+                "distance": 1.395, 
+                "left_child": 60, 
+                "parent": 83, 
+                "right_child": 81
             }, 
-            "151": {
-                "count": 5, 
-                "distance": 13.401, 
-                "left_child": 113, 
-                "parent": 155, 
-                "right_child": 142
+            "83": {
+                "count": 30, 
+                "distance": 1.596, 
+                "left_child": 76, 
+                "parent": 84, 
+                "right_child": 82
             }, 
-            "152": {
-                "count": 22, 
-                "distance": 13.843, 
-                "left_child": 129, 
-                "parent": 158, 
-                "right_child": 144
-            }, 
-            "153": {
-                "count": 6, 
-                "distance": 14.586, 
-                "left_child": 130, 
-                "parent": 157, 
-                "right_child": 145
-            }, 
-            "154": {
-                "count": 19, 
-                "distance": 18.16, 
-                "left_child": 148, 
-                "parent": 156, 
-                "right_child": 150
-            }, 
-            "155": {
-                "count": 6, 
-                "distance": 21.344, 
-                "left_child": 63, 
-                "parent": 160, 
-                "right_child": 151
-            }, 
-            "156": {
-                "count": 32, 
-                "distance": 23.703, 
-                "left_child": 147, 
-                "parent": 160, 
-                "right_child": 154
-            }, 
-            "157": {
-                "count": 11, 
-                "distance": 24.646, 
-                "left_child": 146, 
-                "parent": 159, 
-                "right_child": 153
-            }, 
-            "158": {
-                "count": 29, 
-                "distance": 29.3, 
-                "left_child": 143, 
-                "parent": 162, 
-                "right_child": 152
-            }, 
-            "159": {
-                "count": 15, 
-                "distance": 33.905, 
-                "left_child": 149, 
-                "parent": 161, 
-                "right_child": 157
-            }, 
-            "160": {
-                "count": 38, 
-                "distance": 46.608, 
-                "left_child": 155, 
-                "parent": 161, 
-                "right_child": 156
-            }, 
-            "161": {
-                "count": 53, 
-                "distance": 61.191, 
-                "left_child": 159, 
-                "parent": 162, 
-                "right_child": 160
-            }, 
-            "162": {
-                "count": 82, 
-                "distance": 83.833, 
-                "left_child": 158, 
-                "right_child": 161
+            "84": {
+                "count": 43, 
+                "distance": 2.138, 
+                "left_child": 79, 
+                "right_child": 83
             }
+        }, 
+        "feature_names": ["Position 1","Position 2","Position 12","Position 13"]
+    }, 
+    "metadata": {
+        "nodes": {
+            "0": [
+                "1.175", 
+                "4.666", 
+                "10.06"
+            ], 
+            "1": [
+                "20.073", 
+                "8.506", 
+                "1.964"
+            ], 
+            "2": [
+                "4.775", 
+                "4.949", 
+                "8.977"
+            ], 
+            "3": [
+                "-1.64", 
+                "4.718", 
+                "5.185"
+            ], 
+            "4": [
+                "2.479", 
+                "5.608", 
+                "2.606"
+            ], 
+            "5": [
+                "-1.491", 
+                "-0.157", 
+                "6.541"
+            ], 
+            "6": [
+                "5.696", 
+                "3.309", 
+                "6.804"
+            ], 
+            "7": [
+                "7.616", 
+                "4.013", 
+                "1.27"
+            ], 
+            "8": [
+                "5.78", 
+                "10.676", 
+                "5.33"
+            ], 
+            "9": [
+                "-0.88", 
+                "-1.142", 
+                "3.029"
+            ], 
+            "10": [
+                "3.63", 
+                "11.7", 
+                "3.822"
+            ], 
+            "11": [
+                "-0.104", 
+                "2.053", 
+                "9.114"
+            ], 
+            "12": [
+                "-1.499", 
+                "2.768", 
+                "7.571"
+            ], 
+            "13": [
+                "9.828", 
+                "13.147", 
+                "3.937"
+            ], 
+            "14": [
+                "0.229", 
+                "0.352", 
+                "12.131"
+            ], 
+            "15": [
+                "-0.009", 
+                "-2.459", 
+                "-3.866"
+            ], 
+            "16": [
+                "0.029", 
+                "3.355", 
+                "-2.611"
+            ], 
+            "17": [
+                "7.418", 
+                "9.063", 
+                "2.863"
+            ], 
+            "18": [
+                "0.27", 
+                "-3.603", 
+                "-2.968"
+            ], 
+            "19": [
+                "-0.039", 
+                "-3.114", 
+                "-3.946"
+            ], 
+            "20": [
+                "-0.104", 
+                "-2.705", 
+                "-3.243"
+            ], 
+            "21": [
+                "5.209", 
+                "17.062", 
+                "6.899"
+            ], 
+            "22": [
+                "10.395", 
+                "8.503", 
+                "5.317"
+            ], 
+            "23": [
+                "-0.515", 
+                "21.476", 
+                "5.42"
+            ], 
+            "24": [
+                "13.146", 
+                "18.754", 
+                "10.93"
+            ], 
+            "25": [
+                "12.357", 
+                "12.819", 
+                "12.489"
+            ], 
+            "26": [
+                "6.919", 
+                "5.794", 
+                "5.647"
+            ], 
+            "27": [
+                "0.412", 
+                "1.673", 
+                "4.432"
+            ], 
+            "28": [
+                "-3.265", 
+                "-1.813", 
+                "-0.691"
+            ], 
+            "29": [
+                "4.974", 
+                "13.418", 
+                "-0.936"
+            ], 
+            "30": [
+                "-0.005", 
+                "-0.902", 
+                "3.253"
+            ], 
+            "31": [
+                "5.276", 
+                "4.545", 
+                "5.834"
+            ], 
+            "32": [
+                "7.045", 
+                "15.297", 
+                "21.144"
+            ], 
+            "33": [
+                "15.86", 
+                "16.195", 
+                "27.987"
+            ], 
+            "34": [
+                "-1.805", 
+                "8.672", 
+                "2.33"
+            ], 
+            "35": [
+                "-1.035", 
+                "-0.791", 
+                "7.615"
+            ], 
+            "36": [
+                "10.938", 
+                "5.88", 
+                "5.311"
+            ], 
+            "37": [
+                "14.399", 
+                "3.474", 
+                "1.037"
+            ], 
+            "38": [
+                "7.869", 
+                "13.885", 
+                "23.029"
+            ], 
+            "39": [
+                "-0.998", 
+                "1.233", 
+                "5.008"
+            ], 
+            "40": [
+                "19.993", 
+                "17.282", 
+                "13.119"
+            ], 
+            "41": [
+                "-0.661", 
+                "-0.794", 
+                "4.055"
+            ], 
+            "42": [
+                "0.318", 
+                "1.599", 
+                "4.566"
+            ]
         }, 
         "feature_names": [
             "1x10-5 mol.dm-3", 
             "1x10-4 mol.dm-3", 
-            " 1x10-3 mol.dm-3"
+            "1x10-3 mol.dm-3"
         ]
     }
 }

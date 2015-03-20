@@ -1,131 +1,131 @@
-13740,[*]OC(C)=O,None, None,None, None,None, None,[11*]Br,[12*]=O,[13*]C, None
-13840,[*]OC,None, None,None, None,None, None,None,[12*]OC(=O)CCC(=O)O,[13*]C, None
-13841,[*]OC(=O)C(O)C(O)C(O)[C@H](O)CO,None, None,None, None,None, None,None,[12*]O,[13*]C, None
-13842,[*]O,[1*]O,None, None,None, None,None,[11*]O,[12*]O,[13*]C, None
-13843,[*]O,[1*]O,None, None,None, None,None, None,[12*]=O,[13*]C, None
-13844,[*]OC,None, None,None, None,None, None,None,[12*]C#C,[13*]C, None
-13845,[*]O,None, None,None,[6*]=NOCC(=O)O,None, None,None,[12*]O,[13*]C, None
-13846,[*]OC(C)=O,None, None,None, None,None, None,[11*]O[12*],[12*]OC(C)=O,[13*]C, None
-13847,[*]OC,None, None,None, None,None, None,[11*]O[12*],[12*]C#C,[13*]C, None
-13848,[*]OC(C)=O,None, None,None, None,None, None,[11*]Br,[12*]=O,[13*]C, None
-13849,[*]OC(C)=O,None, None,None, None,None, None,[11*]OC(C)=O,[12*]O,[13*]C, None
-13850,[*]O,None, None,None, None,None, None,[11*]O,[12*]O,[13*]C, None
-13851,[*]O,None, None,None, None,None, None,[11*]O,[12*]O,[13*]C, None
-13853,[*]OC(C)=O,None, None,None, None,None, None,[11*]OC(C)=O,[12*]O,[13*]C, None
-13854,[*]O,None, None,None, None,None, None,[11*]O,[12*]O,[13*]C, None
-13855,[*]OC(C)=O,None, None,None, None,None, None,[11*]OC(C)=O,[12*]=O,[13*]C, None
-13857,[*]OC(C)=O,[1*]OC(C)=O,None, None,None, None,None, None,[12*]=O,[13*]C, None
-13858,[*]O,None, None,None, None,None, None,None,[12*]O,[13*]C, None
-13859,[*]O,None, None,None, None,None,[10*]O,[11*]O,[12*]O,[13*]C, None
-13860,[*]OC(C)=O,[1*]OC(C)=O,None, None,None, None,None, None,[12*]OC(C)=O,[13*]C, None
-13864,[*]OC(C)=O,None, None,None, None,None,[10*]O,[11*]O,[12*]OC(C)=O,[13*]C, None
-13865,[*]OCc1ccccc1,None, None,None, None,None, None,None,[12*]OC(C)=O,[13*]C, None
-10796,[*]OC(=O)c1ccccc1,None, None,None, None,None, None,None,[12*]=O,[13*]C, None
-13873,[*]O,[1*]F,None, None,None, None,None, None,[12*]O,[13*]C, None
-13874,[*]O,[1*]OC,None, None,None, None,None, None,[12*]=O,[13*]C, None
-8244,[*]O,[1*]F,None, None,None, None,None, None,[12*]=O,[13*]C, None
-13877,[*]OC(C)=O,None, None,None, None,None, None,[11*]OC(C)=O,[12*]=O,[13*]C, None
-13878,[*]OC(C)=O,None, None,None, None,None, None,[11*]O,[12*]O,[13*]C, None
-10295,[*]O,None, None,None, None,None, None,None,[12*]OC1OC(C(=O)O)C(O)C(O)C1O,[13*]C, None
-13880,[*]OCc1ccccc1,None, None,None, None,None, None,[11*]OC(C)=O,[12*]=O,[13*]C, None
-13881,[*]O,None, None,None,[6*]O,[7*]O,None, None,[12*]O,[13*]C, None
-13883,[*]O,None, None,None, None,None, None,[11*]O,[12*]O,[13*]C, None
-10300,[*]O,[1*][N+](=O)[O-],None,[5*][N+](=O)[O-],None, None,None, None,[12*]=O,[13*]C, None
-10301,[*]O,[1*]F,None, None,[6*]=O,None, None,None,[12*]O,[13*]C, None
-10302,[*]O,None, None,None, None,None, None,[11*]Br,[12*]=O,[13*]C, None
-10303,[*]O,None, None,[5*]Br,None, None,None, None,[12*]=O,[13*]C, None
-10305,[*]O,None, None,[5*][N+](=O)[O-],None, None,None, None,[12*]=O,[13*]C, None
-10306,[*]OC,None, None,None, None,None, None,None,[12*]OS(=O)(=O)c1ccc(C)cc1,[13*]C, None
-10307,[*]OCc1ccccc1,None, None,None, None,None, None,None,[12*]=O,[13*]C, None
-10308,[*]OCC,None, None,None, None,None, None,None,[12*]=O,[13*]C, None
-10310,[*]O,None, None,None, None,None, None,[11*]O,[12*]O,[13*]C, None
-10311,[*]O,None, None,None,[6*]O,None, None,None,[12*]O,[13*]C, None
-9808,[*]OC(=O)c1ccccc1,None, None,None, None,None, None,None,[12*]OC(C)=O,[13*]C, None
-13405,[*]OC,[1*]OC,None, None,None, None,None, None,[12*]OC(C)=O,[13*]C, None
-9057,[*]O,None, None,None,[6*]=O,None, None,None,[12*]O,[13*]C, None
-10375,[*]O,None, None,None, None,None, None,None,[12*]OS(=O)(=O)O[Na],[13*]C, None
-10386,[*]O,None, None,None, None,None, None,None,[12*]=O,[13*]C, None
-10387,[*]O,None, None,None, None,None, None,None,[12*]O,[13*]C, None
-14054,[*]OS(=O)(=O)O[Na],None, None,None, None,None, None,None,[12*]=O,[13*]C, None
-10438,[*]O,None, None,None, None,None, None,None,[12*]O,[13*]C,[15*]c1ccc(OCCCCCS(=O)(=O)CCCC(F)(F)C(F)(F)F)cc1
-10440,[*]O,None, None,None, None,None, None,None,[12*]O,[13*]C, None
-14028,[*]OC(C)=O,None, None,None, None,None, None,[11*]OC(C)=O,[12*]OC(C)=O,[13*]C, None
-14030,[*]OC(C)=O,None, None,None, None,None,[10*]O,[11*]O,[12*]OC(C)=O,[13*]C, None
-14031,[*]OS(=O)(=O)O,None, None,None, None,None, None,None,[12*]O,[13*]C, None
-14032,[*]O,None, None,None, None,None, None,None,[12*]OCCO[12*],[13*]C, None
-14033,[*]O,[1*]OC,None,[5*]Br,None, None,None, None,[12*]O,[13*]C, None
-7890,[*]OC(C)=O,None, None,None, None,None, None,None,[12*]O,[13*]C, None
-14035,[*]OC(C)=O,None, None,None, None,None, None,[11*]OC(C)=O,[12*]OC,[13*]C, None
-7892,[*]OS(=O)(=O)O,None, None,None, None,None, None,None,[12*]O,[13*]C, None
-14037,[*]OS(=O)(=O)O[Na],None, None,None, None,None, None,[11*]O,[12*]O,[13*]C, None
-14038,[*]O,None, None,None, None,None, None,[11*]Br,[12*]=O,[13*]C, None
-14040,[*]OC(C)=O,None, None,None, None,None,[10*]O,[11*]O,[12*]OC(C)=O,[13*]C, None
-14041,[*]OC1OC(COC)C(O)C(O)C1O,None, None,None, None,None, None,[11*]OC(C)=O,[12*]OC(C)=O,[13*]C, None
-14042,[*]O,None, None,None, None,None,[10*]O,[11*]O,[12*]O,[13*]C, None
-14043,[*]OC(C)=O,None, None,None, None,None,[10*]O,[11*]O,[12*]OC(C)=O,[13*]C, None
-14044,[*]OC,[1*]OC,None, None,None, None,None, None,[12*]O,[13*]C, None
-14046,[*]OCc1ccccc1,None, None,None, None,None, None,[11*]O,[12*]=O,[13*]C, None
-14047,[*]OC(C)=O,None, None,None, None,None, None,[11*]Br,[12*]=O,[13*]C, None
-10464,[*]O,None, None,None,[6*]=O,None, None,None,[12*]O,[13*]C, None
-14050,[*]OC(C)=O,None, None,None, None,None, None,[11*]OC(C)=O,[12*]=O,[13*]C, None
-14051,[*]OC,[1*]N,None, None,None, None,None, None,[12*]=O,[13*]C, None
-14052,[*]OS(=O)(=O)O[Na],None, None,None, None,None, None,None,[12*]OS(=O)(=O)O[Na],[13*]C, None
-14053,[*]OC(=O)c1ccccc1,None, None,None, None,None, None,None,[12*]OS(=O)(=O)O[Na],[13*]C, None
-8934,[*]O,None, None,None, None,None, None,None,[12*]O,[13*]C, None
-14055,[*]O,None, None,None, None,None, None,None,[12*]OS(=O)(=O)O[Na],[13*]C, None
-14034,[*]OC(C)=O,None, None,None, None,None, None,[11*]Br,[12*]OCCO[12*],[13*]C, None
-8944,[*]OC,None, None,None, None,None, None,None,[12*]O,[13*]C, None
-14036,[*]O,None, None,None, None,None, None,None,[12*]OCCO[12*],[13*]C, None
-10111,[*]O,None,[2*]C,None, None,None, None,None,[12*]C(C)CCCC(C)C,[13*]C, None
-7936,[*]OS(=O)(=O)c1ccc(C)cc1,None, None,None, None,None, None,None,[12*]=O,[13*]C, None
-10504,[*]O,None, None,None, None,None, None,[11*]OC(C)=O,[12*]OC(C)=O,[13*]C, None
-8475,[*]O,None, None,None, None,None, None,[11*]O,[12*]O,[13*]C, None
-8497,[*]OC(C)=O,None, None,None,[6*]=O,None, None,None,[12*]OC(C)=O,[13*]C, None
-13876,[*]O,None, None,None, None,None, None,None,[12*]OC1OC(C(=O)O)C(O)C(O)C1O,[13*]C, None
-14048,[*]OC(C)=O,None, None,None, None,None, None,[11*]OC(C)=O,[12*]=O,[13*]C, None
-13640,[*]OCc1ccccc1,None, None,None, None,None, None,None,[12*]OC(C)=O,[13*]C, None
-13879,[*]O,None, None,None, None,None, None,[11*]O,[12*]=O,[13*]C, None
-8026,[*]O,None, None,None, None,None, None,None,[12*]O,[13*]C, None
-13659,[*]OC1OC(C(=O)OC)C(O)C(O)C1O,None, None,None, None,None, None,None,[12*]OC(C)=O,[13*]C, None
-13660,[*]OC1OC(C(=O)OC)C(O)C(O)C1O,None, None,None, None,None, None,None,[12*]=O,[13*]C, None
-13661,[*]OC(C)=O,None, None,None, None,None, None,None,[12*]OC1OC(C(=O)OC)C(O)C(O)C1O,[13*]C, None
-13662,[*]O,None, None,None, None,None, None,None,[12*]OC(C)=O,[13*]C, None
-13663,[*]OC1OC(C(=O)OC)C(O)C(O)C1O,None, None,None, None,None, None,None,[12*]OC1OC(C(=O)OC)C(O)C(O)C1O,[13*]C, None
-13664,[*]O,None, None,[5*]OC,None, None,None, None,[12*]O,[13*]C, None
-13665,[*]OC(C)=O,None, None,None, None,None, None,None,[12*]=O,[13*]C, None
-8037,[*]OC(=O)c1ccccc1,None, None,None, None,None, None,None,[12*]O,[13*]C, None
-10100,[*]OC(C)=O,None,[2*]C,None, None,None, None,None,[12*]C(C)CCCC(C)C,[13*]C, None
-13693,[*]O,[1*]O,None, None,None, None,None,[11*]O,[12*]O,[13*]C, None
-13695,[*]OC(C)=O,[1*]F,None, None,None, None,None, None,[12*]=O,[13*]C, None
-13696,[*]OC(C)=O,None, None,None,[6*]=O,None, None,None,[12*]OC(C)=O,[13*]C, None
-13697,[*]OC1OC(C(=O)OC)C(O)C(O)C1O,None, None,None, None,None, None,[11*]OC(C)=O,[12*]OC(C)=O,[13*]C, None
-13698,[*]O,None, None,None, None,None, None,[11*]O,[12*]O,[13*]C, None
-13699,[*]O,None, None,None,[6*]=O,None, None,[11*]O,[12*]O,[13*]C, None
-13700,[*]O,None, None,None, None,None, None,[11*]OC(C)=O,[12*]OC(C)=O,[13*]C, None
-13701,[*]O,None, None,[5*]Br,None, None,None, None,[12*]=O,[13*]C, None
-13702,[*]O,None, None,None, None,None, None,[11*]O,[12*]O,[13*]C, None
-13703,[*]O,[1*]Br,None,[5*]Br,None, None,None, None,[12*]O,[13*]C, None
-13708,[*]O,None, None,None, None,None,[10*]O,None,[12*]O,[13*]C, None
-13711,[*]OC(=O)CCC(=O)O,None, None,None, None,None, None,[11*]O,[12*]O,[13*]C, None
-13712,[*]O,[1*]O,None, None,None, None,None, None,[12*]O,[13*]C, None
-13713,[*]O,[1*]O,None, None,None, None,None, None,[12*]=O,[13*]C, None
-13715,[*]O,[1*]N,None, None,None, None,None, None,[12*]O,[13*]C, None
-13717,[*]O,[1*]N,None, None,None, None,None, None,[12*]=O,[13*]C, None
-11165,None,None, None,None,[6*]=O,None, None,None,[12*]C(C)CCCC(C)C,[13*]C, None
-11166,None,None, None,None,[6*]=O,None, None,None,[12*]C(C)CCCC(C)C,[13*]C, None
-10143,None,None,[2*]OC(C)=O,[5*]C,None, None,None, None,[12*]OC(C)=O,[13*]C, None
-13728,[*]O,[1*]O,None, None,None, None,None, None,[12*]O,[13*]C, None
-13736,[*]O,None, None,None, None,None, None,[11*]O,[12*]=O,[13*]C, None
-13738,[*]OC(C)=O,None, None,None, None,None, None,None,[12*]O,[13*]C, None
-13739,[*]O,None, None,None, None,None, None,[11*]Br,[12*]=O,[13*]C, None
-8620,[*]OCc1ccccc1,None, None,None, None,None, None,None,[12*]=O,[13*]C, None
-13741,[*]O,None, None,None, None,None, None,[11*]I,[12*]O,[13*]C, None
-8622,[*]OC(C)=O,None, None,None, None,None, None,[11*]OC(C)=O,[12*]=O,[13*]C, None
-13727,[*]O,[1*]O,None, None,None, None,None, None,[12*]OC(C)=O,[13*]C, None
-9661,[*]O,None, None,None, None,None, None,None,[12*]O,[13*]C, None
-9662,[*]O,None, None,None, None,None, None,[11*]O,[12*]=O,[13*]C, None
-9668,[*]OC(C)=O,None, None,None, None,None, None,[11*]OC(C)=O,[12*]=O,[13*]C, None
-8651,[*]OC(=O)c1ccccc1,None, None,None, None,None, None,None,[12*]=O,[13*]C, None
-8165,[*]OC(C)=O,None, None,None, None,None, None,None,[12*]OC(C)=O,[13*]C, None
-8176,[*]OCc1ccccc1,None, None,None, None,None, None,[11*]O,[12*]=O,[13*]C, None
-8178,[*]O,[1*]OC,None, None,None, None,None, None,[12*]OC(C)=O,[13*]C, None
+13740,[*]OC(C)=O,None,[11*]Br,[12*]=O
+13840,[*]OC,None,None,[12*]OC(=O)CCC(=O)O
+13841,[*]OC(=O)C(O)C(O)C(O)[C@H](O)CO,None,None,[12*]O
+13842,[*]O,[1*]O,[11*]O,[12*]O
+13843,[*]O,[1*]O,None,[12*]=O
+13844,[*]OC,None,None,[12*]C#C
+13845,[*]O,None,None,[12*]O
+13846,[*]OC(C)=O,None,[11*]O[12*],[12*]OC(C)=O
+13847,[*]OC,None,[11*]O[12*],[12*]C#C
+13848,[*]OC(C)=O,None,[11*]Br,[12*]=O
+13849,[*]OC(C)=O,None,[11*]OC(C)=O,[12*]O
+13850,[*]O,None,[11*]O,[12*]O
+13851,[*]O,None,[11*]O,[12*]O
+13853,[*]OC(C)=O,None,[11*]OC(C)=O,[12*]O
+13854,[*]O,None,[11*]O,[12*]O
+13855,[*]OC(C)=O,None,[11*]OC(C)=O,[12*]=O
+13857,[*]OC(C)=O,[1*]OC(C)=O,None,[12*]=O
+13858,[*]O,None,None,[12*]O
+13859,[*]O,None,[11*]O,[12*]O
+13860,[*]OC(C)=O,[1*]OC(C)=O,None,[12*]OC(C)=O
+13864,[*]OC(C)=O,None,[11*]O,[12*]OC(C)=O
+13865,[*]OCc1ccccc1,None,None,[12*]OC(C)=O
+10796,[*]OC(=O)c1ccccc1,None,None,[12*]=O
+13873,[*]O,[1*]F,None,[12*]O
+13874,[*]O,[1*]OC,None,[12*]=O
+8244,[*]O,[1*]F,None,[12*]=O
+13877,[*]OC(C)=O,None,[11*]OC(C)=O,[12*]=O
+13878,[*]OC(C)=O,None,[11*]O,[12*]O
+10295,[*]O,None,None,[12*]OC1OC(C(=O)O)C(O)C(O)C1O
+13880,[*]OCc1ccccc1,None,[11*]OC(C)=O,[12*]=O
+13881,[*]O,None,None,[12*]O
+13883,[*]O,None,[11*]O,[12*]O
+10300,[*]O,[1*][N+](=O)[O-],None,[12*]=O
+10301,[*]O,[1*]F,None,[12*]O
+10302,[*]O,None,[11*]Br,[12*]=O
+10303,[*]O,None,None,[12*]=O
+10305,[*]O,None,None,[12*]=O
+10306,[*]OC,None,None,[12*]OS(=O)(=O)c1ccc(C)cc1
+10307,[*]OCc1ccccc1,None,None,[12*]=O
+10308,[*]OCC,None,None,[12*]=O
+10310,[*]O,None,[11*]O,[12*]O
+10311,[*]O,None,None,[12*]O
+9808,[*]OC(=O)c1ccccc1,None,None,[12*]OC(C)=O
+13405,[*]OC,[1*]OC,None,[12*]OC(C)=O
+9057,[*]O,None,None,[12*]O
+10375,[*]O,None,None,[12*]OS(=O)(=O)O[Na]
+10386,[*]O,None,None,[12*]=O
+10387,[*]O,None,None,[12*]O
+14054,[*]OS(=O)(=O)O[Na],None,None,[12*]=O
+10438,[*]O,None,None,[12*]O
+10440,[*]O,None,None,[12*]O
+14028,[*]OC(C)=O,None,[11*]OC(C)=O,[12*]OC(C)=O
+14030,[*]OC(C)=O,None,[11*]O,[12*]OC(C)=O
+14031,[*]OS(=O)(=O)O,None,None,[12*]O
+14032,[*]O,None,None,[12*]OCCO[12*]
+14033,[*]O,[1*]OC,None,[12*]O
+7890,[*]OC(C)=O,None,None,[12*]O
+14035,[*]OC(C)=O,None,[11*]OC(C)=O,[12*]OC
+7892,[*]OS(=O)(=O)O,None,None,[12*]O
+14037,[*]OS(=O)(=O)O[Na],None,[11*]O,[12*]O
+14038,[*]O,None,[11*]Br,[12*]=O
+14040,[*]OC(C)=O,None,[11*]O,[12*]OC(C)=O
+14041,[*]OC1OC(COC)C(O)C(O)C1O,None,[11*]OC(C)=O,[12*]OC(C)=O
+14042,[*]O,None,[11*]O,[12*]O
+14043,[*]OC(C)=O,None,[11*]O,[12*]OC(C)=O
+14044,[*]OC,[1*]OC,None,[12*]O
+14046,[*]OCc1ccccc1,None,[11*]O,[12*]=O
+14047,[*]OC(C)=O,None,[11*]Br,[12*]=O
+10464,[*]O,None,None,[12*]O
+14050,[*]OC(C)=O,None,[11*]OC(C)=O,[12*]=O
+14051,[*]OC,[1*]N,None,[12*]=O
+14052,[*]OS(=O)(=O)O[Na],None,None,[12*]OS(=O)(=O)O[Na]
+14053,[*]OC(=O)c1ccccc1,None,None,[12*]OS(=O)(=O)O[Na]
+8934,[*]O,None,None,[12*]O
+14055,[*]O,None,None,[12*]OS(=O)(=O)O[Na]
+14034,[*]OC(C)=O,None,[11*]Br,[12*]OCCO[12*]
+8944,[*]OC,None,None,[12*]O
+14036,[*]O,None,None,[12*]OCCO[12*]
+10111,[*]O,None,None,[12*]C(C)CCCC(C)C
+7936,[*]OS(=O)(=O)c1ccc(C)cc1,None,None,[12*]=O
+10504,[*]O,None,[11*]OC(C)=O,[12*]OC(C)=O
+8475,[*]O,None,[11*]O,[12*]O
+8497,[*]OC(C)=O,None,None,[12*]OC(C)=O
+13876,[*]O,None,None,[12*]OC1OC(C(=O)O)C(O)C(O)C1O
+14048,[*]OC(C)=O,None,[11*]OC(C)=O,[12*]=O
+13640,[*]OCc1ccccc1,None,None,[12*]OC(C)=O
+13879,[*]O,None,[11*]O,[12*]=O
+8026,[*]O,None,None,[12*]O
+13659,[*]OC1OC(C(=O)OC)C(O)C(O)C1O,None,None,[12*]OC(C)=O
+13660,[*]OC1OC(C(=O)OC)C(O)C(O)C1O,None,None,[12*]=O
+13661,[*]OC(C)=O,None,None,[12*]OC1OC(C(=O)OC)C(O)C(O)C1O
+13662,[*]O,None,None,[12*]OC(C)=O
+13663,[*]OC1OC(C(=O)OC)C(O)C(O)C1O,None,None,[12*]OC1OC(C(=O)OC)C(O)C(O)C1O
+13664,[*]O,None,None,[12*]O
+13665,[*]OC(C)=O,None,None,[12*]=O
+8037,[*]OC(=O)c1ccccc1,None,None,[12*]O
+10100,[*]OC(C)=O,None,None,[12*]C(C)CCCC(C)C
+13693,[*]O,[1*]O,[11*]O,[12*]O
+13695,[*]OC(C)=O,[1*]F,None,[12*]=O
+13696,[*]OC(C)=O,None,None,[12*]OC(C)=O
+13697,[*]OC1OC(C(=O)OC)C(O)C(O)C1O,None,[11*]OC(C)=O,[12*]OC(C)=O
+13698,[*]O,None,[11*]O,[12*]O
+13699,[*]O,None,[11*]O,[12*]O
+13700,[*]O,None,[11*]OC(C)=O,[12*]OC(C)=O
+13701,[*]O,None,None,[12*]=O
+13702,[*]O,None,[11*]O,[12*]O
+13703,[*]O,[1*]Br,None,[12*]O
+13708,[*]O,None,None,[12*]O
+13711,[*]OC(=O)CCC(=O)O,None,[11*]O,[12*]O
+13712,[*]O,[1*]O,None,[12*]O
+13713,[*]O,[1*]O,None,[12*]=O
+13715,[*]O,[1*]N,None,[12*]O
+13717,[*]O,[1*]N,None,[12*]=O
+11165,None,None,None,[12*]C(C)CCCC(C)C
+11166,None,None,None,[12*]C(C)CCCC(C)C
+10143,None,None,None,[12*]OC(C)=O
+13728,[*]O,[1*]O,None,[12*]O
+13736,[*]O,None,[11*]O,[12*]=O
+13738,[*]OC(C)=O,None,None,[12*]O
+13739,[*]O,None,[11*]Br,[12*]=O
+8620,[*]OCc1ccccc1,None,None,[12*]=O
+13741,[*]O,None,[11*]I,[12*]O
+8622,[*]OC(C)=O,None,[11*]OC(C)=O,[12*]=O
+13727,[*]O,[1*]O,None,[12*]OC(C)=O
+9661,[*]O,None,None,[12*]O
+9662,[*]O,None,[11*]O,[12*]=O
+9668,[*]OC(C)=O,None,[11*]OC(C)=O,[12*]=O
+8651,[*]OC(=O)c1ccccc1,None,None,[12*]=O
+8165,[*]OC(C)=O,None,None,[12*]OC(C)=O
+8176,[*]OCc1ccccc1,None,[11*]O,[12*]=O
+8178,[*]O,[1*]OC,None,[12*]OC(C)=O

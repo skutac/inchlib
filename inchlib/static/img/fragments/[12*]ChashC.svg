@@ -17,32 +17,22 @@
 <symbol overflow="visible" id="glyph1-1">
 <path style="stroke:none;" d="M 7.53125 -9.75 L 4.71875 -8.234375 L 7.53125 -6.703125 L 7.078125 -5.9375 L 4.453125 -7.53125 L 4.453125 -4.578125 L 3.5625 -4.578125 L 3.5625 -7.53125 L 0.9375 -5.9375 L 0.484375 -6.703125 L 3.28125 -8.234375 L 0.484375 -9.75 L 0.9375 -10.515625 L 3.5625 -8.9375 L 3.5625 -11.875 L 4.453125 -11.875 L 4.453125 -8.9375 L 7.078125 -10.515625 Z M 7.53125 -9.75 "/>
 </symbol>
-<symbol overflow="visible" id="glyph1-2">
-<path style="stroke:none;" d="M 1.578125 -11.671875 L 3.703125 -11.671875 L 8.875 -1.90625 L 8.875 -11.671875 L 10.40625 -11.671875 L 10.40625 0 L 8.28125 0 L 3.109375 -9.765625 L 3.109375 0 L 1.578125 0 Z M 1.578125 -11.671875 "/>
-</symbol>
-<symbol overflow="visible" id="glyph1-3">
-<path style="stroke:none;" d="M 1.578125 -11.671875 L 3.15625 -11.671875 L 3.15625 -6.890625 L 8.890625 -6.890625 L 8.890625 -11.671875 L 10.46875 -11.671875 L 10.46875 0 L 8.890625 0 L 8.890625 -5.5625 L 3.15625 -5.5625 L 3.15625 0 L 1.578125 0 Z M 1.578125 -11.671875 "/>
-</symbol>
 </g>
 </defs>
-<g id="surface1701">
+<g id="surface125">
 <rect x="0" y="0" width="100" height="50" style="fill:rgb(100%,100%,100%);fill-opacity:1;stroke:none;"/>
-<path style="fill:none;stroke-width:1.2;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(50%,50%,50%);stroke-opacity:1;stroke-miterlimit:10;" d="M 30.875 25 L 50 25 "/>
-<path style="fill:none;stroke-width:1.2;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,100%);stroke-opacity:1;stroke-miterlimit:10;" d="M 50 25 L 69.125 25 "/>
-<path style=" stroke:none;fill-rule:nonzero;fill:rgb(100%,100%,100%);fill-opacity:1;" d="M 13.875 14 L 30.875 14 L 30.875 36 L 13.875 36 Z M 13.875 14 "/>
+<path style="fill:none;stroke-width:1.2;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(50%,50%,50%);stroke-opacity:1;stroke-miterlimit:10;" d="M 11.75 25 L 30.875 25 "/>
+<path style="fill:none;stroke-width:1.2;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 30.875 25 L 50 25 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(100%,100%,100%);fill-opacity:1;" d="M -13.25 14 L 11.75 14 L 11.75 36 L -13.25 36 Z M -13.25 14 "/>
 <g style="fill:rgb(50%,50%,50%);fill-opacity:1;">
-  <use xlink:href="#glyph0-1" x="13.875" y="26.375977"/>
+  <use xlink:href="#glyph0-1" x="-13.25" y="26.375977"/>
+  <use xlink:href="#glyph0-2" x="-4.770508" y="26.375977"/>
 </g>
 <g style="fill:rgb(50%,50%,50%);fill-opacity:1;">
-  <use xlink:href="#glyph1-1" x="22.354492" y="31.258789"/>
+  <use xlink:href="#glyph1-1" x="3.708984" y="31.258789"/>
 </g>
-<path style=" stroke:none;fill-rule:nonzero;fill:rgb(100%,100%,100%);fill-opacity:1;" d="M 53.125 13.5 L 86.125 13.5 L 86.125 36.5 L 53.125 36.5 Z M 53.125 13.5 "/>
-<g style="fill:rgb(0%,0%,100%);fill-opacity:1;">
-  <use xlink:href="#glyph1-2" x="53.125" y="28.351562"/>
-  <use xlink:href="#glyph1-3" x="65.09375" y="28.351562"/>
-</g>
-<g style="fill:rgb(0%,0%,100%);fill-opacity:1;">
-  <use xlink:href="#glyph0-2" x="77.125" y="33.234375"/>
-</g>
+<path style="fill:none;stroke-width:1.2;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 50 25 L 88.25 25 "/>
+<path style="fill:none;stroke-width:1.2;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 53.824219 34 L 84.425781 34 "/>
+<path style="fill:none;stroke-width:1.2;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 53.824219 16 L 84.425781 16 "/>
 </g>
 </svg>
