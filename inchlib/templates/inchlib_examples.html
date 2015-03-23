@@ -29,7 +29,7 @@
 						var vals = [];
 						for(var j = 0, keys = Object.keys(settings[i]), len = keys.length; j<len; j++){
 							var key = keys[j];
-							vals.push("    " + key + ': ' + settings[i][key])
+							vals.push("    " + key + ': ' + ((i=="images_path")?'"':"") + settings[i][key] + ((i=="images_path")?'"':""))
 						}
 						val = "{<br>" + vals.join(",<br>") + "<br>  }";
 					}

@@ -99,6 +99,8 @@ def use_cases(req, exampleid):
         template = "inchlib_use_cases_chemical_biology.html"
     elif exampleid == "12":
         template = "inchlib_use_cases_microarrays.html"
+    elif exampleid == "24":
+        template = "inchlib_use_cases_fragments.html"
     
     return render_to_response(template, {"examples":examples, "example": example, "settings": example_settings})
 

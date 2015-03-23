@@ -1,0 +1,93 @@
+{% extends "inchlib_base.html" %}
+
+{% block content %}
+{% load staticfiles %}
+
+<script>
+    $(document).ready(function(){
+        $("#menu_use_cases").addClass('pure-menu-selected'); 
+
+        window.dendrogram = new InCHlib({{ settings }});
+        dendrogram.settings.highlight_colors = "Reds";
+
+        dendrogram.events.row_onclick = function(ids){
+            current = ids[0];
+            dendrogram.unhighlight_cluster();
+            dendrogram.highlight_rows(ids);
+        };
+
+        dendrogram.events.dendrogram_node_highlight = function(ids, node_id){
+            
+        };
+        dendrogram.events.dendrogram_node_unhighlight = function(node_id){
+            
+        };
+        
+        dendrogram.events.dendrogram_node_onclick = function(object_ids){
+            var i;
+
+            for(i = 0; i<object_ids.length; i++){
+                if(object_ids[i] == current){
+                    return;
+                }
+            }
+            dendrogram.highlight_rows([]);
+        }
+
+        dendrogram.events.empty_space_onclick = function(){
+            set_markers([]);
+            dendrogram.highlight_rows([]);
+        };
+
+        dendrogram.read_data_from_file("{% static "data/"|add:example.data %}");
+        dendrogram.draw();
+
+
+        $(document).click(function(evt){
+            if(evt.target.localName != "canvas" && evt.target.localName != "a"){
+                set_markers([]);
+            }
+        });
+
+});
+</script>
+
+<div class="pure-menu pure-menu-open pure-menu-horizontal">
+    <ul>
+        {% for e in examples %}
+            {% if e.exampleid == example.exampleid %}
+                <li class="pure-menu-selected"><a href="{% url use_cases e.exampleid %}">{{ e.title }}</a></li>
+            {% else %}
+                <li><a href="{% url use_cases e.exampleid %}">{{ e.title }}</a></li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</div>
+<hr/>
+
+<div class="description">
+<p>This use case demonstrates a new feature of <b>InCHlib 1.2</b> to display images in place of the original heatmap values. 
+
+Data do not originate from a  biomedical domain, and <b>InCHlib</b> is integrated with the Google map service. Map services are commonly used for data visualization in disciplines, such as population geography or linguistics.</p>
+
+<p>The displayed data set consists fragment images of 4 most substituted skeleton position (1,2,3 ...) for 43 Estrogen receptor ligands...</p>
+
+<p>The data were clustered using Euclidean distance and Ward's linkage. The map is provided by Google Maps and manipulated using <a href="https://developers.google.com/maps/" target=blank>Google Maps API</a>.</p>
+
+<div class="small_title">Data set information</div>
+<ul>
+<li>instances: 43 ligands with estradiol skeleton</li>
+<li>features: fragments on 4 most substituted skeleton positions</li>
+</ul>
+
+
+<div class="small_title">Source: <a href='https://www.mathstat.strath.ac.uk/outreach/nessie/nessie_whisky.html' target=blank>Classification of whiskies</a></div>
+
+<p>When the heatmap row is clicked, the position of the distillery is shown in the map. Similarly, when the cluster is selected, the positions of all distilleries are labeled.</p>
+</div>
+
+    
+    <div id="dendrogram"></div>
+<hr/>
+
+{% endblock %}
