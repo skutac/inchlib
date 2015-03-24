@@ -722,7 +722,7 @@ var _date = new Date();
     }
 
     if(self.json["alternative_data"] !== undefined && self.settings.alternative_data){
-      self.alternative_data = self.json.alternative_data;
+      self.alternative_data = self.json.alternative_data.nodes;
     }
     else{
       settings.alternative_data = false; 
@@ -1446,11 +1446,17 @@ var _date = new Date();
 
       self._set_color_settings();
 
-      if(self.data.feature_names !== undefined){
-          self.heatmap_header = self.data.feature_names;
-          for(i=0; i<self.dimensions["data"]; i++){
-              self.header[i] = self.heatmap_header[self.on_features["data"][i]];
-          }
+      if(self.settings.alternative_data && self.json.alternative_data.feature_names !== undefined){
+        self.heatmap_header = self.json.alternative_data.feature_names;
+      }
+      else if(self.data.feature_names !== undefined){
+        self.heatmap_header = self.data.feature_names;
+      }
+
+      if(self.heatmap_header){
+        for(i=0; i<self.dimensions["data"]; i++){
+            self.header[i] = self.heatmap_header[self.on_features["data"][i]];
+        }
       }
 
       if(self.settings.metadata){
@@ -1585,9 +1591,10 @@ var _date = new Date();
           if(self.settings.alternative_data){
               text_value = self.alternative_data[node_id][col_index];
 
-              if(self.settings.images_as_alternative_data && text_value != "None"){
+              if(self.settings.images_as_alternative_data && text_value != "None" && text_value != ""){
                 value = null;
                 var filepath = self.settings.images_path.dir + text_value + self.settings.images_path.ext;
+                filepath = escape(filepath);
 
 
                 if(self.path2image[text_value] === undefined){

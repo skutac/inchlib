@@ -150,6 +150,10 @@ inchlib.draw(); //draw visualization</div>
 		<div class="small_title">Example data</div>
 		{% if example.exampleid == 10 or example.exampleid == 4 or example.exampleid == 7 or example.exampleid == 5 %}
 			<div class="example_data">The activities of several ligands measured at three different concentrations. Data are clustered using <i>Euclidean</i> distance and <i>Ward's</i> linkage. <i>LogP (octanol/water partition coefficent), molecular weight and the number of aromatic rings</i> descriptors are used as metadata. <a href="{% static "data/"|add:example.data %}" id="example_data_link" target=blank><b>Show data >></b></a></div>
+
+		{% elif example.exampleid == 23 %}
+
+			<div class="example_data">Binary fingerprints of substitution fragments of ERα ligands which contain steran (core structure of steroid compounds) as their core structure. Data are clustered using <i>Jaccard</i> distance and <i>Ward's</i> linkage. <i>pIC50 value (-log(IC50), IC50 = inhibition concentration, i.e., concentration, for which 50% of receptors are inhibitied)</i> is used as the metadata column. <a href="{% static "data/"|add:example.data %}" id="example_data_link" target=blank><b>Show data >></b></a></div>
 		{% else %}
 			<div class="example_data">The activities of several ligands measured at three different concentrations. Data are clustered using <i>Euclidean</i> distance and <i>Ward's</i> linkage. <a href="{% static "data/"|add:example.data %}" id="example_data_link" target=blank><b>Show data >></b></a></div>
 		{% endif %}

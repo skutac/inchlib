@@ -6,46 +6,84 @@
 <script>
     $(document).ready(function(){
         $("#menu_use_cases").addClass('pure-menu-selected'); 
+        var current_mol; 
 
         window.dendrogram = new InCHlib({{ settings }});
-        dendrogram.settings.highlight_colors = "Reds";
+        dendrogram.settings.highlight_colors = "Greens";
 
-        dendrogram.events.row_onclick = function(ids){
-            current = ids[0];
-            dendrogram.unhighlight_cluster();
-            dendrogram.highlight_rows(ids);
-        };
-
-        dendrogram.events.dendrogram_node_highlight = function(ids, node_id){
-            
-        };
-        dendrogram.events.dendrogram_node_unhighlight = function(node_id){
-            
-        };
-        
-        dendrogram.events.dendrogram_node_onclick = function(object_ids){
-            var i;
-
-            for(i = 0; i<object_ids.length; i++){
-                if(object_ids[i] == current){
-                    return;
-                }
-            }
-            dendrogram.highlight_rows([]);
-        }
-
-        dendrogram.events.empty_space_onclick = function(){
-            set_markers([]);
-            dendrogram.highlight_rows([]);
-        };
-
-        dendrogram.read_data_from_file("{% static "data/"|add:example.data %}");
+        dendrogram.read_data_from_file("{% static "data/era_fragments.json" %}");
         dendrogram.draw();
 
+        var molecule_url = "{% static "img/era_molecules/" %}";
+        var chembl_url = "https://www.ebi.ac.uk/chembl/compound/inspect/"
+        var target_element = $("#dendrogram");
+        var offset = target_element.offset();
+        var max_y = offset.top + 150;
+        var x_pos = offset.left + dendrogram.settings.width - 90;
+        var mol_element = $("#molecule").css({"left": x_pos});
+        var img_element = $("#molecule_img");
+        var mol_id_element = $("#mol_id");
+        var mol_link = $("#molecule a");
 
-        $(document).click(function(evt){
-            if(evt.target.localName != "canvas" && evt.target.localName != "a"){
-                set_markers([]);
+        bind_dendrogram_events();
+
+        function show_molecule(mol_id, evt){
+            var filepath = molecule_url + mol_id + "_subs.png";
+            var y = evt.evt.pageY-300;
+            if(y < max_y){
+                y = max_y;
+            }
+            mol_element.css({"top": y, "border-width": "1px"});
+            img_element.attr("src", filepath);
+            mol_id_element.text(mol_id);
+            mol_link.attr("href", chembl_url+mol_id);
+            mol_element.show();
+
+        }
+
+        function hide_molecule(ids, evt){
+            mol_element.hide();
+        }
+
+        function fix_molecule(){
+            dendrogram.events.row_onmouseover = function(){};
+            dendrogram.events.heatmap_onmouseout = function(){};
+        }
+
+        function bind_dendrogram_events(){
+            dendrogram.events.row_onmouseover = function(ids, evt){
+                show_molecule(ids, evt);
+            };
+            dendrogram.events.heatmap_onmouseout = function(evt){
+                hide_molecule(evt);
+            };
+            dendrogram.events.row_onclick = function(ids, evt){
+                show_molecule(ids[0], evt);
+                fix_molecule(ids[0]);
+                current_mol = ids[0];
+                dendrogram.highlight_rows(ids);
+                mol_element.css({"border-width": "2px"});
+                dendrogram.unhighlight_cluster();
+            };
+
+            dendrogram.events.dendrogram_node_highlight = function(object_ids, evt){
+            }
+
+            dendrogram.events.dendrogram_node_unhighlight = function(){
+                
+            }
+
+            dendrogram.events.empty_space_onclick = function(){
+                hide_molecule();
+                dendrogram.highlight_rows([]);
+                bind_dendrogram_events();
+            }
+        }
+
+        $(document).click(function(evt){            
+            if(evt.target.localName != "img" && evt.target.localName != "canvas" && evt.target.localName != "a"){
+                hide_molecule();
+                bind_dendrogram_events();
             }
         });
 
@@ -65,27 +103,32 @@
 </div>
 <hr/>
 
-<div class="description">
-<p>This use case demonstrates a new feature of <b>InCHlib 1.2</b> to display images in place of the original heatmap values. 
+<div class="description"><p><b>Estrogen alpha receptor</b> (<i>ERα</i>) belongs to the family of nuclear receptors, subfamily of steroid hormone receptors. ERα is a ligand-inducible transcription factor that controls essential physiological, developmental, reproductive and metabolic processes.  Estrogen receptors are overexpressed in around 70% of breast cancer cases and have also been implicated in ovarian, colon and prostate cancers. Thus, ERs represent an important target for therapeutic intervention.</p>
 
-Data do not originate from a  biomedical domain, and <b>InCHlib</b> is integrated with the Google map service. Map services are commonly used for data visualization in disciplines, such as population geography or linguistics.</p>
+<p>This use case demonstrates a new feature of <b>InCHlib 1.2</b> to display images in place of the original heatmap values.</p>
 
 <p>The displayed data set consists fragment images of 4 most substituted skeleton position (1,2,3 ...) for 43 Estrogen receptor ligands...</p>
 
-<p>The data were clustered using Euclidean distance and Ward's linkage. The map is provided by Google Maps and manipulated using <a href="https://developers.google.com/maps/" target=blank>Google Maps API</a>.</p>
+<p>Binary fingerprints of substitution fragments of ERα ligands which contain steran (core structure of steroid compounds) as their core structure. Data are clustered using <i>Jaccard</i> distance and <i>Ward's</i> linkage. <i>pIC50 value (-log(IC50), IC50 = inhibition concentration, i.e., concentration, for which 50% of receptors are inhibitied)</i> is used as the metadata column.</p>
 
 <div class="small_title">Data set information</div>
 <ul>
-<li>instances: 43 ligands with estradiol skeleton</li>
-<li>features: fragments on 4 most substituted skeleton positions</li>
+<li>instances: 22 <i>ERα</i> ligands with steran core structure</li>
+<li>features: molecular fragments on 7 substituted positions (originally clustered by ECFP4 fingerprints, 256 bits for each fragment)</li>
 </ul>
 
 
-<div class="small_title">Source: <a href='https://www.mathstat.strath.ac.uk/outreach/nessie/nessie_whisky.html' target=blank>Classification of whiskies</a></div>
+<div class="small_title">Source: <a href='https://www.ebi.ac.uk/chembl/target/inspect/CHEMBL206' target=blank>ChEMBL - Estrogen receptor alpha</a></div>
 
 <p>When the heatmap row is clicked, the position of the distillery is shown in the map. Similarly, when the cluster is selected, the positions of all distilleries are labeled.</p>
 </div>
 
+<div id="molecule">
+    <a href="" target=blank>
+        <img src="" id="molecule_img"></img>
+        <div id="mol_id"></div>
+    </a>
+</div>
     
     <div id="dendrogram"></div>
 <hr/>

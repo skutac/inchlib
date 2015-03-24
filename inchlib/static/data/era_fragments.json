@@ -1,0 +1,634 @@
+{
+    "alternative_data": {
+        "nodes": {
+            "0": [
+                "[1*]O", 
+                "", 
+                "", 
+                "", 
+                "", 
+                "[13*]O", 
+                "[14*]C"
+            ], 
+            "1": [
+                "[1*]O", 
+                "[2*]OC", 
+                "", 
+                "", 
+                "", 
+                "[13*]=O", 
+                "[14*]C"
+            ], 
+            "2": [
+                "[1*]O", 
+                "", 
+                "", 
+                "", 
+                "", 
+                "[13*]=O", 
+                "[14*]C"
+            ], 
+            "3": [
+                "[1*]O", 
+                "", 
+                "", 
+                "[8*]CCC[C@H](C)CCC[C@H](C)CCCC(C)C", 
+                "", 
+                "[13*]O", 
+                "[14*]C"
+            ], 
+            "4": [
+                "[1*]O", 
+                "", 
+                "", 
+                "", 
+                "[12*]O", 
+                "[13*]O", 
+                "[14*]C"
+            ], 
+            "5": [
+                "[1*]O", 
+                "", 
+                "", 
+                "", 
+                "", 
+                "[13*]C(=O)OCCC", 
+                "[14*]C"
+            ], 
+            "6": [
+                "[1*]O", 
+                "", 
+                "[7*]=O", 
+                "[8*]SCCCCCCCCCCC(=O)N(C)CCCC", 
+                "", 
+                "[13*]O", 
+                "[14*]C"
+            ], 
+            "7": [
+                "[1*]O", 
+                "", 
+                "", 
+                "", 
+                "", 
+                "[13*]ChashC", 
+                "[14*]C"
+            ], 
+            "8": [
+                "[1*]O", 
+                "", 
+                "", 
+                "[8*]Sc1ccc(C=CC(=O)O)cc1", 
+                "", 
+                "[13*]O", 
+                "[14*]C"
+            ], 
+            "9": [
+                "[1*]O", 
+                "", 
+                "[7*]O", 
+                "[8*]Sc1ccc(Br)cc1", 
+                "", 
+                "[13*]O", 
+                "[14*]C"
+            ], 
+            "10": [
+                "[1*]O", 
+                "", 
+                "", 
+                "[8*]Sc1ccc(C=CC(=O)N(C)C)cc1", 
+                "", 
+                "[13*]O", 
+                "[14*]C"
+            ], 
+            "11": [
+                "[1*]O", 
+                "", 
+                "", 
+                "[8*]SCCCCCCCCCCC(=O)N(C)CCCC", 
+                "", 
+                "[13*]O", 
+                "[14*]C"
+            ], 
+            "12": [
+                "[1*]OC", 
+                "", 
+                "", 
+                "", 
+                "", 
+                "[13*]ChashC", 
+                "[14*]C"
+            ], 
+            "13": [
+                "[1*]O", 
+                "", 
+                "", 
+                "[8*]CCCCCCCCC[S+]([O-])CCCC(F)(F)C(F)(F)F", 
+                "", 
+                "[13*]O", 
+                "[14*]C"
+            ], 
+            "14": [
+                "[1*]O", 
+                "", 
+                "", 
+                "[8*]CCCCCCNC(=O)CCCNC(=O)c1cc(NC(=O)c2cc(NC(=O)CCS(C)(=O)=O)cn2C)cn1C", 
+                "", 
+                "[13*]O", 
+                "[14*]C"
+            ], 
+            "15": [
+                "[1*]O", 
+                "", 
+                "[7*]O", 
+                "[8*]SCCCCCCCCCCC(=O)N(C)CCCC", 
+                "", 
+                "[13*]O", 
+                "[14*]C"
+            ], 
+            "16": [
+                "[1*]OC", 
+                "[2*]C=O", 
+                "", 
+                "", 
+                "", 
+                "[13*]OC(C)=O", 
+                "[14*]C"
+            ], 
+            "17": [
+                "[1*]OC", 
+                "[2*]CCC(=O)c1ccc(O)c(OC)c1", 
+                "", 
+                "", 
+                "", 
+                "[13*]O", 
+                "[14*]C"
+            ], 
+            "18": [
+                "[1*]OC", 
+                "", 
+                "", 
+                "", 
+                "", 
+                "[13*]OC(C)=O", 
+                "[14*]C"
+            ], 
+            "19": [
+                "[1*]O", 
+                "", 
+                "", 
+                "", 
+                "", 
+                "[13*]c1ccc2c(c1)COC2", 
+                "[14*]C"
+            ], 
+            "20": [
+                "[1*]OC(=O)c1ccccc1", 
+                "", 
+                "", 
+                "", 
+                "", 
+                "[13*]O", 
+                "[14*]C"
+            ], 
+            "21": [
+                "[1*]O", 
+                "", 
+                "", 
+                "", 
+                "", 
+                "[13*]OC(C)C[C@@H]([13*])C", 
+                "[14*]C"
+            ]
+        }, 
+        "feature_names": [
+            "Position 1", 
+            "Position 2", 
+            "Position 7", 
+            "Position 8", 
+            "Position 12", 
+            "Position 13", 
+            "Position 14"
+        ]
+    }, 
+    "data": {
+        "nodes": {
+            "0": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL1096975"
+                ], 
+                "features": [], 
+                "parent": 25
+            }, 
+            "1": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL425194"
+                ], 
+                "features": [], 
+                "parent": 27
+            }, 
+            "2": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL1405"
+                ], 
+                "features": [], 
+                "parent": 27
+            }, 
+            "3": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL1628029"
+                ], 
+                "features": [], 
+                "parent": 30
+            }, 
+            "4": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL193482"
+                ], 
+                "features": [], 
+                "parent": 25
+            }, 
+            "5": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL3099429"
+                ], 
+                "features": [], 
+                "parent": 32
+            }, 
+            "6": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL1628199"
+                ], 
+                "features": [], 
+                "parent": 22
+            }, 
+            "7": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL691"
+                ], 
+                "features": [], 
+                "parent": 28
+            }, 
+            "8": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL1628170"
+                ], 
+                "features": [], 
+                "parent": 26
+            }, 
+            "9": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL1627353"
+                ], 
+                "features": [], 
+                "parent": 29
+            }, 
+            "10": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL1627356"
+                ], 
+                "features": [], 
+                "parent": 26
+            }, 
+            "11": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL1627354"
+                ], 
+                "features": [], 
+                "parent": 22
+            }, 
+            "12": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL1201151"
+                ], 
+                "features": [], 
+                "parent": 28
+            }, 
+            "13": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL1358"
+                ], 
+                "features": [], 
+                "parent": 30
+            }, 
+            "14": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL1818254"
+                ], 
+                "features": [], 
+                "parent": 33
+            }, 
+            "15": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL1627351"
+                ], 
+                "features": [], 
+                "parent": 23
+            }, 
+            "16": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL2441818"
+                ], 
+                "features": [], 
+                "parent": 24
+            }, 
+            "17": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL2441819"
+                ], 
+                "features": [], 
+                "parent": 36
+            }, 
+            "18": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL2441817"
+                ], 
+                "features": [], 
+                "parent": 24
+            }, 
+            "19": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL1097377"
+                ], 
+                "features": [], 
+                "parent": 34
+            }, 
+            "20": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL282575"
+                ], 
+                "features": [], 
+                "parent": 34
+            }, 
+            "21": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "CHEMBL3099431"
+                ], 
+                "features": [], 
+                "parent": 32
+            }, 
+            "22": {
+                "count": 2, 
+                "distance": 0.077, 
+                "left_child": 6, 
+                "parent": 23, 
+                "right_child": 11
+            }, 
+            "23": {
+                "count": 3, 
+                "distance": 0.091, 
+                "left_child": 15, 
+                "parent": 40, 
+                "right_child": 22
+            }, 
+            "24": {
+                "count": 2, 
+                "distance": 0.231, 
+                "left_child": 16, 
+                "parent": 36, 
+                "right_child": 18
+            }, 
+            "25": {
+                "count": 2, 
+                "distance": 0.25, 
+                "left_child": 0, 
+                "parent": 31, 
+                "right_child": 4
+            }, 
+            "26": {
+                "count": 2, 
+                "distance": 0.268, 
+                "left_child": 8, 
+                "parent": 29, 
+                "right_child": 10
+            }, 
+            "27": {
+                "count": 2, 
+                "distance": 0.4, 
+                "left_child": 1, 
+                "parent": 31, 
+                "right_child": 2
+            }, 
+            "28": {
+                "count": 2, 
+                "distance": 0.412, 
+                "left_child": 7, 
+                "parent": 38, 
+                "right_child": 12
+            }, 
+            "29": {
+                "count": 3, 
+                "distance": 0.563, 
+                "left_child": 9, 
+                "parent": 39, 
+                "right_child": 26
+            }, 
+            "30": {
+                "count": 2, 
+                "distance": 0.636, 
+                "left_child": 3, 
+                "parent": 33, 
+                "right_child": 13
+            }, 
+            "31": {
+                "count": 4, 
+                "distance": 0.681, 
+                "left_child": 25, 
+                "parent": 35, 
+                "right_child": 27
+            }, 
+            "32": {
+                "count": 2, 
+                "distance": 0.714, 
+                "left_child": 5, 
+                "parent": 35, 
+                "right_child": 21
+            }, 
+            "33": {
+                "count": 3, 
+                "distance": 0.798, 
+                "left_child": 14, 
+                "parent": 39, 
+                "right_child": 30
+            }, 
+            "34": {
+                "count": 2, 
+                "distance": 0.841, 
+                "left_child": 19, 
+                "parent": 37, 
+                "right_child": 20
+            }, 
+            "35": {
+                "count": 6, 
+                "distance": 0.859, 
+                "left_child": 31, 
+                "parent": 37, 
+                "right_child": 32
+            }, 
+            "36": {
+                "count": 3, 
+                "distance": 0.871, 
+                "left_child": 17, 
+                "parent": 41, 
+                "right_child": 24
+            }, 
+            "37": {
+                "count": 8, 
+                "distance": 0.891, 
+                "left_child": 34, 
+                "parent": 38, 
+                "right_child": 35
+            }, 
+            "38": {
+                "count": 10, 
+                "distance": 0.949, 
+                "left_child": 28, 
+                "parent": 41, 
+                "right_child": 37
+            }, 
+            "39": {
+                "count": 6, 
+                "distance": 1.041, 
+                "left_child": 29, 
+                "parent": 40, 
+                "right_child": 33
+            }, 
+            "40": {
+                "count": 9, 
+                "distance": 1.059, 
+                "left_child": 23, 
+                "parent": 42, 
+                "right_child": 39
+            }, 
+            "41": {
+                "count": 13, 
+                "distance": 1.158, 
+                "left_child": 36, 
+                "parent": 42, 
+                "right_child": 38
+            }, 
+            "42": {
+                "count": 22, 
+                "distance": 1.633, 
+                "left_child": 40, 
+                "right_child": 41
+            }
+        }
+    }, 
+    "metadata": {
+        "nodes": {
+            "0": [
+                "6.31"
+            ], 
+            "1": [
+                "4.96"
+            ], 
+            "2": [
+                "6.68"
+            ], 
+            "3": [
+                "6.71"
+            ], 
+            "4": [
+                "8.77"
+            ], 
+            "5": [
+                "7.04"
+            ], 
+            "6": [
+                "7.48"
+            ], 
+            "7": [
+                "8.7"
+            ], 
+            "8": [
+                "7.34"
+            ], 
+            "9": [
+                "6.4"
+            ], 
+            "10": [
+                "7.03"
+            ], 
+            "11": [
+                "8.05"
+            ], 
+            "12": [
+                "7.74"
+            ], 
+            "13": [
+                "8.22"
+            ], 
+            "14": [
+                "8.95"
+            ], 
+            "15": [
+                "7.49"
+            ], 
+            "16": [
+                "4.19"
+            ], 
+            "17": [
+                "4.19"
+            ], 
+            "18": [
+                "4.19"
+            ], 
+            "19": [
+                "7.13"
+            ], 
+            "20": [
+                "7.19"
+            ], 
+            "21": [
+                "6.32"
+            ]
+        }, 
+        "feature_names": [
+            "pIC50"
+        ]
+    }
+}
