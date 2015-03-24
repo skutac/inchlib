@@ -103,24 +103,30 @@
 </div>
 <hr/>
 
-<div class="description"><p><b>Estrogen alpha receptor</b> (<i>ERα</i>) belongs to the family of nuclear receptors, subfamily of steroid hormone receptors. ERα is a ligand-inducible transcription factor that controls essential physiological, developmental, reproductive and metabolic processes.  Estrogen receptors are overexpressed in around 70% of breast cancer cases and have also been implicated in ovarian, colon and prostate cancers. Thus, ERs represent an important target for therapeutic intervention.</p>
-
+<div class="description">
 <p>This use case demonstrates a new feature of <b>InCHlib 1.2</b> to display images in place of the original heatmap values.</p>
 
-<p>The displayed data set consists fragment images of 4 most substituted skeleton position (1,2,3 ...) for 43 Estrogen receptor ligands...</p>
+<p><b>Estrogen alpha receptor</b> (<i>ERα</i>) belongs to the family of nuclear receptors, subfamily of steroid hormone receptors. ERα is a ligand-inducible transcription factor that controls essential physiological, developmental, reproductive and metabolic processes.  Estrogen receptors are overexpressed in around 70% of breast cancer cases and have also been implicated in ovarian, colon and prostate cancers. Thus, ERs represent an important target for therapeutic intervention.</p>
 
-<p>Binary fingerprints of substitution fragments of ERα ligands which contain steran (core structure of steroid compounds) as their core structure. Data are clustered using <i>Jaccard</i> distance and <i>Ward's</i> linkage. <i>pIC50 value (-log(IC50), IC50 = inhibition concentration, i.e., concentration, for which 50% of receptors are inhibitied)</i> is used as the metadata column.</p>
+<p> From the set of <i>ERα</i> ligands were filtered only the ones containing steran core structure (core structure of steroid compounds) with aromatic A ring (<i>see the picture</i>).</p>
+
+<img class="center" id="steran_img" src="{% static "img/steran_numbered.png" %}">
+
+<p>The idea is that if the ligands share the same core the differences in their bioactivities must result from the fragments on individual core positions (<i><a href="http://onlinelibrary.wiley.com/doi/10.1002/qsar.19880070303/abstract" target="blank">Free-Wilson analysis</a></i>).</p>
+
+<p>Data consist of 1792 bit long binary fingerprints (<a href="http://pubs.acs.org/doi/abs/10.1021/ci100050t" target="blank">ECFP4</a>, 256 bits for each fragment). Fingerprints were clustered using Jaccard's distance and Ward's linkage. Since binary data this long are not very well suited for the visualization actual position fragments are displayed instead of the heatmap. <i>pIC50 value (-log(IC50), IC50 = inhibition concentration, i.e., concentration, for which 50% of receptors are inhibitied)</i> is used as the metadata column.</p>
 
 <div class="small_title">Data set information</div>
 <ul>
 <li>instances: 22 <i>ERα</i> ligands with steran core structure</li>
 <li>features: molecular fragments on 7 substituted positions (originally clustered by ECFP4 fingerprints, 256 bits for each fragment)</li>
+<li>metadata: pIC50 values of ligands</li>
 </ul>
 
 
 <div class="small_title">Source: <a href='https://www.ebi.ac.uk/chembl/target/inspect/CHEMBL206' target=blank>ChEMBL - Estrogen receptor alpha</a></div>
 
-<p>When the heatmap row is clicked, the position of the distillery is shown in the map. Similarly, when the cluster is selected, the positions of all distilleries are labeled.</p>
+<p>When the cursor hovers over the heatmap, ligand structures are shown (steran core structure is in red). Upon clicking, the heatmap row gets fixed and clicking the depiction of ligand structure on the right opens the corresponding ChEMBL record in a new tab.</p>
 </div>
 
 <div id="molecule">

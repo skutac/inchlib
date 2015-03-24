@@ -311,8 +311,10 @@ def get_target_ligands(tid=19):
 if __name__ == '__main__':
     # prepare_data_for_images_example()
     # create_fragment_images()
-    ligands = [{"chemblid": l["cmpd_chembl_id"], "value": l["pchembl_value"], "smiles": l["canonical_smiles"]} for l in get_target_ligands()]
-    data = get_ligands_fragments(ligands)
+    scaffold = "c1ccc2c(c1)CCC1C3CCCC3CCC21"
+    generate_mol_svg(scaffold, "steran", ext="png", size=(500, 300), path="")
+    # ligands = [{"chemblid": l["cmpd_chembl_id"], "value": l["pchembl_value"], "smiles": l["canonical_smiles"]} for l in get_target_ligands()]
+    # data = get_ligands_fragments(ligands)
     # create_era_files(ligands)
     # create_fragment_fps()
     # print get_morgan_fingerprint_for_smiles("[12*]O", radius=2, length=256)

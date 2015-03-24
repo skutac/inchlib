@@ -108,6 +108,20 @@
 </div>
 </div>
 
+<div class="description">Alternative data block contains text values that can be displayed in the heatmap instead of the original object features, e.g., when object features are normalized values, but you want to display raw values (the heatmap coloring is still based on the original object features).</div>
+
+<div class="description">
+    <div class="small_title">Alternative data example</div>
+    <div class="code">"alternative_data": {    <span class="js_comment">//contains nodes and feature_names section of alt. data</span>
+    "<span id="format_alternative_data_feature_names">feature_names</span>": ["Text value 1", "Text value 2", "Text value 3"],    <span class="js_comment">//the array of the alt. data feature_names</span>
+    "<span id="format_metadata_nodes">nodes</span>": {    <span class="js_comment">//contains object IDs with alt. data values</span>
+        "leaf_1": ["whatever 1", "whatever 2", "whatever 3"],    <span class="js_comment">//the array of alt. data values</span>
+        "leaf_2": ["whatever 1", "whatever 2", "whatever 3"],
+    }
+}, 
+</div>
+</div>
+
 <div class="description">For the generation of <b>InCHlib</b> data format you can use our python wrapper called <b><a href="inchlib_clust">inchlib_clust</a></b>.</div>
 
 
@@ -192,6 +206,14 @@
         ], 
         "feature_names": ["Numeric", "Categoric"]   <span class="js_comment">//the array of the column metadata feature_names</span>
     }, 
+</div>
+<div class="data" id="alternative_data">    "alternative_data": {    <span class="js_comment">//contains nodes and feature_names section of alt. data</span>
+        "<span id="format_alternative_data_feature_names">feature_names</span>": ["Text value 1", "Text value 2", "Text value 3"],    <span class="js_comment">//the array of the alt. data feature_names</span>
+        "<span id="format_metadata_nodes">nodes</span>": {    <span class="js_comment">//contains object IDs with alt. data values</span>
+            "leaf_1": ["whatever 1", "whatever 2", "whatever 3"],    <span class="js_comment">//the array of alt. data values</span>
+            "leaf_2": ["whatever 1", "whatever 2", "whatever 3"],
+        }
+    } 
 }</div>
 </div>
 
