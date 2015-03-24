@@ -32,11 +32,23 @@
 		for(attr in dendrogram.settings){
 			var element = $("#docs").find("#" + attr).parent().find(".default_value");
 
-			if(attr == "highlighted_rows"){
+			if(attr == "highlighted_rows" || attr == "columns_order"){
 				text = attr + ": []" ;
 			}
-			else{
+			else if(dendrogram.settings[attr] === false || dendrogram.settings[attr] === true){
 				text = attr + ": " + dendrogram.settings[attr];
+			}
+			else if(attr == "images_path" || attr == "navigation_toggle"){
+				var vals = [];
+				for(var j = 0, keys = Object.keys(dendrogram.settings[attr]), len = keys.length; j<len; j++){
+					var key = keys[j];
+					vals.push("" + key + ': ' + ((attr=="images_path")?'"':"") + dendrogram.settings[attr][key] + ((attr=="images_path")?'"':""))
+				}
+				text = "{" + vals.join(", ") + "}";
+			}
+			else{
+				var val = ($.isNumeric(dendrogram.settings[attr]) || dendrogram.settings[attr]===null)?dendrogram.settings[attr]:"'" + dendrogram.settings[attr] + "'";
+				text = attr + ": " + val;
 			}
 			element.text(text);
 		}
