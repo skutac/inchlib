@@ -18,9 +18,22 @@
 <hr/>
 
 <div class="description">
+	<h2>InCHlib 1.2.0 - March 2015</h2>
+	<ul>
+		<li>Alternative data support added (see <a href="{% url input_format %}" target=blank>Input format section</a> and <a href="{% url examples 21 %}" target=blank>Alternative data example</a>)</li>
+		<li>Added support to display images instead of heatmap values (see <a href="{% url examples 23 %}" target=blank>Images as alternative data example</a> and <a href="{% url use_cases 24 %}" target=blank>Fragment analysis use case</a>)</li>
+		<li><a href="{% url docs %}#fixed_row_id_size" target="blank">fixed_row_id_size</a> option added to display row IDs with given font size</li>
+		<li><a href="{% url docs %}#columns_order" target="blank">columns_order</a> option added as a possibility to change columns order in the heatmap</li>
+		<li><a href="{% url docs %}#navigation_toggle" target="blank">navigation_toggle</a> option added to turn off unwanted navigation features</li>
+		<li>Bugfixes and minor improvements</li>
+	</ul>
+</div>
+<hr />
+
+<div class="description">
 	<h2>InCHlib 1.1.0 - September 2014</h2>
 	<ul>
-		<li class="warning">InCHlib 1.1.0 needs KineticJS 5.1.0 to run properly (KineticJS 5.1.0 is not compatible with its previous versions)</li>
+		<li class="warning">InCHlib 1.1.0 needs KineticJS 5.1.0 to run properly (KineticJS 5.1.0 is not compatible with previous KineticJS versions)</li>
 		<li>Column dendrogram is now also interactive and has the same functionality as the row dendrogram (selecting clusters, zooming-in/-out)</li>
 		<li>Added full-featured column metadata (see <a href="{% url input_format %}" target=blank>Input format section</a>)</li>
 		<li>Added <a target=blank href="{% url docs %}#max_percentile">max_percentile</a>, <a target=blank href="{% url docs %}#min_percentile">min_percentile</a> and <a target=blank href="{% url docs %}#middle_percentile">middle_percentile</a> attributes, these options also added to real-time coloring settings. <i>values_center</i> attribute was removed</li>	

@@ -95,6 +95,8 @@ As&nbsp;an&nbsp;input&nbsp;it&nbsp;takes&nbsp;a&nbsp;<a href="#Cluster">Cluster<
 
 <dl><dt><a name="Dendrogram-__compress_data__"><strong>__compress_data__</strong></a>(self)</dt></dl>
 
+<dl><dt><a name="Dendrogram-__connect_additional_data_to_data__"><strong>__connect_additional_data_to_data__</strong></a>(self, additional_data, compressed_value)</dt></dl>
+
 <dl><dt><a name="Dendrogram-__connect_metadata_to_data__"><strong>__connect_metadata_to_data__</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="Dendrogram-__get_cluster_heatmap__"><strong>__get_cluster_heatmap__</strong></a>(self, write_data)</dt></dl>
@@ -103,11 +105,23 @@ As&nbsp;an&nbsp;input&nbsp;it&nbsp;takes&nbsp;a&nbsp;<a href="#Cluster">Cluster<
 
 <dl><dt><a name="Dendrogram-__get_distance_treshold__"><strong>__get_distance_treshold__</strong></a>(self, cluster_count)</dt></dl>
 
+<dl><dt><a name="Dendrogram-__get_most_frequent__"><strong>__get_most_frequent__</strong></a>(self, col)</dt></dl>
+
 <dl><dt><a name="Dendrogram-__init__"><strong>__init__</strong></a>(self, clustering)</dt></dl>
+
+<dl><dt><a name="Dendrogram-__read_alternative_data__"><strong>__read_alternative_data__</strong></a>(self, alternative_data)</dt></dl>
+
+<dl><dt><a name="Dendrogram-__read_alternative_data_file__"><strong>__read_alternative_data_file__</strong></a>(self, alternative_data_file, delimiter)</dt></dl>
 
 <dl><dt><a name="Dendrogram-__read_metadata__"><strong>__read_metadata__</strong></a>(self, metadata, header)</dt></dl>
 
 <dl><dt><a name="Dendrogram-__read_metadata_file__"><strong>__read_metadata_file__</strong></a>(self, metadata_file, delimiter, header)</dt></dl>
+
+<dl><dt><a name="Dendrogram-__reorder_alternative_data__"><strong>__reorder_alternative_data__</strong></a>(self, alternative_data)</dt></dl>
+
+<dl><dt><a name="Dendrogram-add_alternative_data"><strong>add_alternative_data</strong></a>(self, alternative_data, header, alternative_data_compressed_value)</dt><dd><tt>Adds&nbsp;alternative&nbsp;data&nbsp;in&nbsp;a&nbsp;form&nbsp;of&nbsp;list&nbsp;of&nbsp;lists&nbsp;(tuples).</tt></dd></dl>
+
+<dl><dt><a name="Dendrogram-add_alternative_data_from_file"><strong>add_alternative_data_from_file</strong></a>(self, alternative_data_file, delimiter, header, alternative_data_compressed_value)</dt><dd><tt>Adds&nbsp;alternative_data&nbsp;from&nbsp;csv&nbsp;file.</tt></dd></dl>
 
 <dl><dt><a name="Dendrogram-add_column_metadata"><strong>add_column_metadata</strong></a>(self, column_metadata, header<font color="#909090">=True</font>)</dt><dd><tt>Adds&nbsp;column&nbsp;metadata&nbsp;in&nbsp;a&nbsp;form&nbsp;of&nbsp;list&nbsp;of&nbsp;lists&nbsp;(tuples).&nbsp;Column&nbsp;metadata&nbsp;doesn't&nbsp;have&nbsp;header&nbsp;row,&nbsp;first&nbsp;item&nbsp;in&nbsp;each&nbsp;row&nbsp;is&nbsp;used&nbsp;as&nbsp;label&nbsp;instead</tt></dd></dl>
 

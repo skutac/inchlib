@@ -153,9 +153,9 @@ def get_file_size(filepath):
     return round(os.path.getsize(os.path.join(settings.ROOT, filepath))/1024.0, 2)
 
 def download(req):
-    files = {"inchlib_file": {"name": "inchlib-1.1.0.js", "size": get_file_size("static/js/inchlib-1.1.0.js"), "version": "1.1.0"},
-        "inchlib_min_file": {"name": "inchlib-1.1.0.min.js", "size": get_file_size("static/js/inchlib-1.1.0.min.js"), "version": "1.1.0"},
-        "inchlib_clust_file": {"name": "inchlib_clust-0.1.3.zip", "size": get_file_size("static/inchlib_clust/inchlib_clust-0.1.3.zip"), "version": "0.1.3"}
+    files = {"inchlib_file": {"name": "inchlib-1.2.0.js", "size": get_file_size("static/js/inchlib-1.2.0.js"), "version": "1.2.0"},
+        "inchlib_min_file": {"name": "inchlib-1.2.0.min.js", "size": get_file_size("static/js/inchlib-1.2.0.min.js"), "version": "1.2.0"},
+        "inchlib_clust_file": {"name": "inchlib_clust-0.1.4.zip", "size": get_file_size("static/inchlib_clust/inchlib_clust-0.1.4.zip"), "version": "0.1.4"}
     }
     return render_to_response("inchlib_download.html", {"files":files})
 
