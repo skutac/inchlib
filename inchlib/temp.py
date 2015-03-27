@@ -76,7 +76,7 @@ class FragmentAnalyzer():
 
 
 def get_cursor(db):
-    conn = MySQLdb.connect(host = "localhost", user = "root", passwd = "gugoun", db = db)
+    conn = MySQLdb.connect(host = "localhost", user = "", passwd = "", db = db)
     cursor = conn.cursor(cursorclass=MySQLdb.cursors.DictCursor)
     return cursor
 

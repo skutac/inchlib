@@ -50,6 +50,16 @@
  Order,2,1,3,4</div>
 </div>
 
+<div class="interface">
+  <div class="small_title">Alternative data example (file containing comma-separated values)</div>
+    <div class="code"> id,alt. header 1,alt. header 2,alt. header 3,alt. header 4
+ 1,alt. value 1,alt. value 2,alt. value 3,alt. value 4
+ 2,alt. value 1,alt. value 2,alt. value 3,alt. value 4
+ 3,alt. value 1,alt. value 2,alt. value 3,alt. value 4
+ 4,alt. value 1,alt. value 2,alt. value 3,alt. value 4
+ 5,alt. value 1,alt. value 2,alt. value 3,alt. value 4</div>
+</div>
+
 <div class="description">In the example below <b>inchlib_clust</b> is invoked from the command line. Input data for clustering are given in <a href="{% static "data/input_file.csv" %}">input_file.csv</a> which contains attribute names in the first row (<i>-dh</i> parameter), individual values are separated by a comma (<i>-dd ,</i> parameter). Metadata are supplied (<i>-m</i> parameter) in <a href="{% static "data/metadata.csv" %}">metadata.csv</a> file. It also contains metadata names (<i>-mh</i> parameter), individual values are separated by a comma (<i>-md ,</i> parameter). Column metadata are supplied (<i>-cm</i> parameter) in <a href="{% static "data/column_metadata.csv" %}">column_metadata.csv</a> file. It also contains column metadata names (<i>-cmh</i> parameter) but unlike data and row metadata names, they are in the first column (because they have inverse orientation). Individual column metadata values are separated by a comma (<i>-cmd ,</i> parameter). Both rows and columns are clustered (<i>-a both</i> parameter) using <i>Ward’s</i> clustering (<i>-l ward</i> parameter) with <i>Euclidean</i> distance (<i>-d euclidean</i> parameter).
 </div>
 
