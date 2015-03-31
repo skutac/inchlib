@@ -155,7 +155,6 @@
 */
 
 var InCHlib;
-var _date = new Date();
 
 (function($){
   
@@ -1348,16 +1347,21 @@ var _date = new Date();
         else{
           self.heatmap_width = 0;
         }
+        
+        self.pixels_for_dimension = (dimensions > 0 && self.heatmap_width > 0)?self.heatmap_width/dimensions:0;
+        if(self.pixels_for_dimension === 0){
+          self.heatmap_width = 0;
+        }
+
         self.distance = self.settings.width - self.heatmap_width - self.right_margin;
-      self.heatmap_distance = self.distance + self.dendrogram_heatmap_distance;
+        self.heatmap_distance = self.distance + self.dendrogram_heatmap_distance;
       }
       else{
         self.heatmap_width = self.settings.width - self.right_margin;
         self.distance = self.right_margin/2;
         self.heatmap_distance = self.distance;
-
+        self.pixels_for_dimension = dimensions?self.heatmap_width/dimensions:0;
       }
-      self.pixels_for_dimension = dimensions?self.heatmap_width/dimensions:0;
 
       if(self.settings.max_column_width && self.settings.max_column_width < self.pixels_for_dimension){
         self.pixels_for_dimension = self.settings.max_column_width;
