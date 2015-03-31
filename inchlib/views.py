@@ -45,10 +45,10 @@ except Exception, e:
     COMPOUND2SCAFFOLD = {}
 
 
-# def index(req):
-#     return render_to_response("inchlib_index.html", {})
-
 def index(req):
+    return render_to_response("inchlib_index.html", {})
+
+def index_construction(req):
     return render_to_response("inchlib_construction.html", {})
 
 def release_notes(req):
