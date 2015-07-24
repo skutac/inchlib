@@ -1834,6 +1834,7 @@ var InCHlib;
 
   InCHlib.prototype._draw_row_ids = function(){
     var self = this;
+    
       if(self.pixels_for_leaf < 6 || self.row_id_size < 5){
           return;
       }
@@ -2677,6 +2678,7 @@ var InCHlib;
     var self = this;
     self._delete_layers([self.dendrogram_layer, self.heatmap_layer, self.heatmap_overlay, self.cluster_layer, self.navigation_layer, self.header_layer, self.highlighted_rows_layer], [self.dendrogram_hover_layer]);
     self._draw_row_dendrogram(node_id);
+    self._get_row_id_size();
     self._draw_heatmap();
     self._draw_heatmap_header();
     self._draw_navigation();
