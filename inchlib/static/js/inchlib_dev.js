@@ -1122,26 +1122,24 @@ var InCHlib;
     });
   };
 
-  InCHlib.prototype._get_max_tree_length = function(nodes){
+  InCHlib.prototype._get_node_levels = function(nodes){
     var self = this;
-    var max_count = 0;
 
     for(var i = 0, keys=Object.keys(nodes), len=keys.length; i<len; i++){
       var key = keys[i];
+      var level = 1
       if(nodes[key].count == 1){
-        var count = 0;
+        nodes[key].level = level;
+        level++;
+
         var node = nodes[key];
         while("parent" in node){
+          nodes[node.parent].level = level;
+          level++;
           node = nodes[node.parent];
-          count++;
-        }
-        if(count > max_count){
-          max_count = count;
         }
       }
     }
-
-    return max_count-1;
   }
 
   InCHlib.prototype._draw_row_dendrogram = function(node_id){
@@ -1163,18 +1161,16 @@ var InCHlib;
       var current_left_count = 0;
       var current_right_count = 0;
       var y = self.header_height + self.column_metadata_height + self.pixels_for_leaf/2;
-      var level = false;
       
       if(node.count > 1){
           current_left_count = self.data.nodes[node.left_child].count;
           current_right_count = self.data.nodes[node.right_child].count;
       }
       if(self.settings.unified_dendrogram_distance){
-        var max_length = self._get_max_tree_length(self.data.nodes);
-        self.unified_distance_step = self._hack_round(self.data.nodes[node_id].distance/max_length);
-        level = max_length;
+        self._get_node_levels(self.data.nodes);
+        self.unified_distance_step = self.data.nodes[node_id].distance/self.data.nodes[node_id].level;
       }
-      self._draw_row_dendrogram_node(node_id, node, current_left_count, current_right_count, 0, y, level);
+      self._draw_row_dendrogram_node(node_id, node, current_left_count, current_right_count, 0, y);
       self.middle_item_count = (self.min_item_count+self.max_item_count)/2;
       self._draw_distance_scale(node.distance);
       self.stage.add(self.dendrogram_layer);
@@ -1194,7 +1190,7 @@ var InCHlib;
       });
   }
 
-  InCHlib.prototype._draw_row_dendrogram_node = function(node_id, node, current_left_count, current_right_count, x, y, level){
+  InCHlib.prototype._draw_row_dendrogram_node = function(node_id, node, current_left_count, current_right_count, x, y){
     var self = this;
       if(node.count != 1){
           var node_neighbourhood = self._get_node_neighbourhood(node, self.data.nodes);
@@ -1202,28 +1198,37 @@ var InCHlib;
           var left_child = self.data.nodes[node.left_child];
           var y1 = self._get_y1(node_neighbourhood, current_left_count, current_right_count);
           var y2 = self._get_y2(node_neighbourhood, current_left_count, current_right_count);
+          var left_distance = self.distance;
+          var right_distance = self.distance;
+
           if(self.settings.unified_dendrogram_distance){
-            var x1 = self._hack_round(self.distance - level*self.distance_step*self.unified_distance_step);
-            level--;
-            console.log(level)
+            var x1 = self._hack_round(self.distance - node.level*self.distance_step*self.unified_distance_step);
+            console.log(x1)
+            
+            // if(self.data.nodes[node.left_child].count > 1){
+            left_distance = self.distance - self.data.nodes[node.left_child].level*self.distance_step*self.unified_distance_step;
+            // }
+
+            // if(self.data.nodes[node.right_child].count > 1){
+            right_distance = self.distance - self.data.nodes[node.right_child].level*self.distance_step*self.unified_distance_step;
+            // }
           }
           else{
             var x1 = self._hack_round(self.distance - self.distance_step*node.distance); 
-          }
-          x1 = (x1 == 0)? 2: x1;
+            left_distance = self.distance - self.distance_step*self.data.nodes[node.left_child].distance;
+            right_distance = self.distance - self.distance_step*self.data.nodes[node.right_child].distance;
 
-          
+          }
+          x1 = (x1 == 0)? 2: x1;          
           var x2 = x1;
-          var left_distance = self.distance - self.distance_step*self.data.nodes[node.left_child].distance;
-          var right_distance = self.distance - self.distance_step*self.data.nodes[node.right_child].distance;
 
           if(right_child.count == 1){
               y2 = y2 + self.pixels_for_leaf/2;
           }
 
           self.dendrogram_layer.add(self._draw_horizontal_path(node_id, x1, y1, x2, y2, left_distance, right_distance));
-          self._draw_row_dendrogram_node(node.left_child, left_child, current_left_count - node_neighbourhood.left_node.right_count, current_right_count + node_neighbourhood.left_node.right_count, left_distance, y1, level);
-          self._draw_row_dendrogram_node(node.right_child, right_child, current_left_count + node_neighbourhood.right_node.left_count, current_right_count - node_neighbourhood.right_node.left_count, right_distance, y2, level);
+          self._draw_row_dendrogram_node(node.left_child, left_child, current_left_count - node_neighbourhood.left_node.right_count, current_right_count + node_neighbourhood.left_node.right_count, left_distance, y1);
+          self._draw_row_dendrogram_node(node.right_child, right_child, current_left_count + node_neighbourhood.right_node.left_count, current_right_count - node_neighbourhood.right_node.left_count, right_distance, y2);
       }
       else{
           var objects = node.objects;
