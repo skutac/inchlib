@@ -728,6 +728,13 @@ var InCHlib;
       settings.alternative_data = false; 
     }
 
+    if(self.data.feature_names !== undefined && self.data.feature_names.length > 0){
+      self.settings.heatmap_header = true;
+    }
+    else{
+      self.settings.heatmap_header = false;
+    }
+
     self._update_user_settings(settings);
     self._add_prefix();
   }
@@ -1129,12 +1136,16 @@ var InCHlib;
       var key = keys[i];
       var level = 1
       if(nodes[key].count == 1){
-        nodes[key].level = level;
+        if(nodes[key].level == undefined || nodes[key].level < level){
+          nodes[key].level = level;
+        }
         level++;
 
         var node = nodes[key];
         while("parent" in node){
-          nodes[node.parent].level = level;
+          if(nodes[key].level == undefined || nodes[key].level < level){
+            nodes[node.parent].level = level;
+          }
           level++;
           node = nodes[node.parent];
         }
@@ -1170,6 +1181,7 @@ var InCHlib;
         self._get_node_levels(self.data.nodes);
         self.unified_distance_step = self.data.nodes[node_id].distance/self.data.nodes[node_id].level;
       }
+
       self._draw_row_dendrogram_node(node_id, node, current_left_count, current_right_count, 0, y);
       self.middle_item_count = (self.min_item_count+self.max_item_count)/2;
       self._draw_distance_scale(node.distance);
@@ -1192,7 +1204,7 @@ var InCHlib;
 
   InCHlib.prototype._draw_row_dendrogram_node = function(node_id, node, current_left_count, current_right_count, x, y){
     var self = this;
-      if(node.count != 1){
+      if(node.count > 1){
           var node_neighbourhood = self._get_node_neighbourhood(node, self.data.nodes);
           var right_child = self.data.nodes[node.right_child];
           var left_child = self.data.nodes[node.left_child];
@@ -1203,15 +1215,14 @@ var InCHlib;
 
           if(self.settings.unified_dendrogram_distance){
             var x1 = self._hack_round(self.distance - node.level*self.distance_step*self.unified_distance_step);
-            console.log(x1)
             
-            // if(self.data.nodes[node.left_child].count > 1){
-            left_distance = self.distance - self.data.nodes[node.left_child].level*self.distance_step*self.unified_distance_step;
-            // }
+            if(self.data.nodes[node.left_child].count > 1){
+              left_distance = self.distance - self.data.nodes[node.left_child].level*self.distance_step*self.unified_distance_step;
+            }
 
-            // if(self.data.nodes[node.right_child].count > 1){
-            right_distance = self.distance - self.data.nodes[node.right_child].level*self.distance_step*self.unified_distance_step;
-            // }
+            if(self.data.nodes[node.right_child].count > 1){
+              right_distance = self.distance - self.data.nodes[node.right_child].level*self.distance_step*self.unified_distance_step;
+            }
           }
           else{
             var x1 = self._hack_round(self.distance - self.distance_step*node.distance); 
@@ -1418,6 +1429,7 @@ var InCHlib;
           self.heatmap_distance = self.distance;
         }
       }
+      console.log(self.distance, self.settings.width, self.heatmap_width, self.right_margin)
   }
 
   InCHlib.prototype._set_color_settings = function(){
@@ -1878,6 +1890,8 @@ var InCHlib;
         leaf_id = self.heatmap_array[i][0];
         objects = self.data.nodes[leaf_id].objects;
         if(objects.length > 1){
+            self.settings.draw_row_ids = false;
+            self.right_margin = 100;
             return;
         }
         values.push(objects[0]);
@@ -1907,6 +1921,7 @@ var InCHlib;
       self.row_id_size = self._get_font_size(max_length, 85, self.pixels_for_leaf, 10);
       self.right_margin = 100;
     }
+    console.log(self.right_margin)
     
   }
 
@@ -2011,7 +2026,7 @@ var InCHlib;
           points: [x1, y1, x2, y2],
           stroke: "black",
           listening: false,
-      })
+      });
 
       var circle = new Konva.Circle({
           x: x2, 
@@ -2019,7 +2034,7 @@ var InCHlib;
           radius: 3,
           fill: "black",
           listening: false,
-      })
+      });
 
       var number = 0;
       var marker_tail = 3;
