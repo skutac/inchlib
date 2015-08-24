@@ -33,7 +33,7 @@ $(document).ready(function(){
                 // metadata: false,
                 max_row_height: 30,
                 max_column_width: 100,
-                unified_dendrogram_distance: false,
+                unified_dendrogram_distance: true,
                 // min_row_height: 7,
 
                 // metadata_colors: "RdLrBu",
@@ -54,7 +54,7 @@ $(document).ready(function(){
             });
     // dendrogram_1.add_color_scale("WhBk", {"start": {"r":255, "g": 255, "b": 255}, "middle": {"r": 236, "g": 158, "b": 56}, "end": {"r": 0, "g": 0, "b": 0}})
 
-    dendrogram_1.read_data_from_file("{% static "data/min_test_original.json" %}");
+    dendrogram_1.read_data_from_file("{% static "data/chembl_era_normalized.json" %}");
     dendrogram_1.draw();
 
     // window.dendrogram_2 = new InCHlib(

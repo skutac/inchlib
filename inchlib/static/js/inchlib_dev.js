@@ -1136,18 +1136,17 @@ var InCHlib;
       var key = keys[i];
       var level = 1
       if(nodes[key].count == 1){
-        if(nodes[key].level == undefined || nodes[key].level < level){
-          nodes[key].level = level;
-        }
+        nodes[key].level = level;
         level++;
 
         var node = nodes[key];
         while("parent" in node){
-          if(nodes[key].level == undefined || nodes[key].level < level){
-            nodes[node.parent].level = level;
+          var parent_id = node.parent;
+          if(nodes[parent_id].level == undefined || nodes[parent_id].level < level){
+            nodes[parent_id].level = level;
           }
           level++;
-          node = nodes[node.parent];
+          node = nodes[parent_id];
         }
       }
     }
@@ -1429,7 +1428,6 @@ var InCHlib;
           self.heatmap_distance = self.distance;
         }
       }
-      console.log(self.distance, self.settings.width, self.heatmap_width, self.right_margin)
   }
 
   InCHlib.prototype._set_color_settings = function(){
@@ -1921,7 +1919,6 @@ var InCHlib;
       self.row_id_size = self._get_font_size(max_length, 85, self.pixels_for_leaf, 10);
       self.right_margin = 100;
     }
-    console.log(self.right_margin)
     
   }
 
