@@ -15,7 +15,7 @@
 * @author <a href="mailto:ctibor.skuta@img.cas.cz">Ctibor Škuta</a>
 * @author <a href="mailto:petr.bartunek@img.cas.cz">Petr Bartůněk</a>
 * @author <a href="mailto:svozild@vscht.cz">Daniel Svozil</a>
-* @version 1.2.0
+* @version dev
 * @category 1
 * @license InCHlib - Interactive Cluster Heatmap Library http://openscreen.cz/software/inchlib Copyright 2014, Ctibor Škuta, Petr Bartůněk, Daniel Svozil Licensed under the MIT license.
 * 
@@ -43,8 +43,8 @@
 * @requires <a href='http://code.jquery.com/jquery-2.0.3.min.js'>jQuery Core 2.0.3</a>
 * @dependency <script language="JavaScript" type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
 * 
-* @requires <a href='http://kineticjs.com/'>KineticJS 5.1.0</a>
-* @dependency <script language="JavaScript" type="text/javascript" src="http://openscreen.cz/software/inchlib/static/js/kinetic-v5.1.0.min.js"></script>
+* @requires <a href='https://cdn.rawgit.com/konvajs/konva/0.9.5/konva.min.js'>KonvaJS 0.9.5</a>
+* @dependency <script language="JavaScript" type="text/javascript" src="https://cdn.rawgit.com/konvajs/konva/0.9.5/konva.min.js"></script>
 *
 * @param {Object} options An object with the options for the InCHlib component.
 *
@@ -560,7 +560,7 @@ var InCHlib;
       };
 
       /**
-      * Default kineticjs objects references
+      * Default konvajs objects references
       * @name InCHlib#objects_ref
       */
       self.objects_ref = {
