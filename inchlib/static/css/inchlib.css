@@ -555,6 +555,11 @@ sup{
 	margin-top: 20px;
 }
 
+#logos > *{
+	display: inline-block;
+	vertical-align: middle;
+}
+
 #logos img{
 	margin-right: 50px;
 	margin-top: 30px;
@@ -680,4 +685,16 @@ sup{
 #steran_img{
 	width: 400px;
 	
+}
+
+#tacr, #tacr_logo{
+	width: 200px;
+}
+
+#openscreen_logo{
+	width: 300px;
+}
+
+#tacr.description{
+	font-size: 10px;
 }
