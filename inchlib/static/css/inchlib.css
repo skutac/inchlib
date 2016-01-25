@@ -557,12 +557,12 @@ sup{
 
 #logos > *{
 	display: inline-block;
-	vertical-align: middle;
+	vertical-align: top;
 }
 
 #logos img{
 	margin-right: 50px;
-	margin-top: 30px;
+	/*margin-top: 30px;*/
 }
 
 #logos img:hover{
@@ -693,8 +693,14 @@ sup{
 
 #openscreen_logo{
 	width: 300px;
+	margin-top: 40px;
+}
+
+#lich_logo{
+	margin-top: 20px;
 }
 
 #tacr.description{
 	font-size: 10px;
+	margin-top: 0px;
 }
