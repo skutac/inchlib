@@ -206,7 +206,8 @@ var InCHlib;
           "images_as_alternative_data": false,
           "images_path": {"dir": "", "ext": ""},
           "navigation_toggle": {"color_scale": true, "distance_scale": true, "export_button": true, "filter_button": true, "hint_button": true},
-          "unified_dendrogram_distance": false
+          "unified_dendrogram_distance": false,
+          "row_id_in_tooltip": false
       };
 
       self.update_settings(settings)
@@ -237,8 +238,12 @@ var InCHlib;
             * ); 
             * 
             */
-          "row_onclick": function(object_ids, evt){
+          "row_click": function(object_ids, evt){
               return;
+          },
+
+          "row_onclick": function(object_ids, evt){
+              self.events.row_click(object_ids, evt);
           },
 
           /**
@@ -256,8 +261,12 @@ var InCHlib;
             * ); 
             * 
             */
-          "row_onmouseover": function(object_ids, evt){
+          "row_mouseover": function(object_ids, evt){
               return;
+          },
+
+          "row_onmouseover": function(object_ids, evt){
+              self.events.row_mouseover(object_ids, evt);
           },
 
           /**
@@ -274,8 +283,12 @@ var InCHlib;
             * ); 
             * 
             */
-          "row_onmouseout": function(evt){
+          "row_mouseout": function(evt){
               return;
+          },
+
+          "row_onmouseout": function(evt){
+              self.events.row_mouseout(evt);
           },
 
           /**
@@ -294,8 +307,12 @@ var InCHlib;
             * ); 
             * 
             */
-          "dendrogram_node_onclick": function(object_ids, node_id, evt){
+          "dendrogram_node_click": function(object_ids, node_id, evt){
               return;
+          },
+
+          "dendrogram_node_onclick": function(object_ids, node_id, evt){
+              self.events.dendrogram_node_click(object_ids, node_id, evt);
           },
 
           /**
@@ -314,8 +331,13 @@ var InCHlib;
             * ); 
             * 
             */
-          "column_dendrogram_node_onclick": function(column_indexes, node_id, evt){
+
+          "column_dendrogram_node_click": function(column_indexes, node_id, evt){
               return;
+          },
+
+          "column_dendrogram_node_onclick": function(column_indexes, node_id, evt){
+              self.events.column_dendrogram_node_click(column_indexes, node_id, evt);
           },
 
           /**
@@ -516,8 +538,51 @@ var InCHlib;
             * ); 
             * 
             */
-          "empty_space_onclick": function(evt){
+
+          "empty_space_click": function(evt){
               return;
+          },
+
+          "empty_space_onclick": function(evt){
+              self.events.empty_space_click(evt);
+          },
+
+          /**
+            * @name InCHlib#cell_click
+            * @event
+            * @param {function} function() callback function for click on a cell in a heatmap row
+            * @eventData {object} object containing value and header attributes
+            * @eventData {object} event event object
+
+            * @example 
+            * instance.events.cell_click = (
+            *    function(obj, evt) {
+            *       alert(obj);
+            *    }
+            * ); 
+            * 
+            */
+          "cell_click" : function(obj, evt){
+            return;
+          },
+
+          /**
+            * @name InCHlib#cell_mouseover
+            * @event
+            * @param {function} function() callback function for the mouseover event of a cell in a heatmap row
+            * @eventData {object} object containing value and header attributes
+            * @eventData {object} event event object
+
+            * @example 
+            * instance.events.cell_mouseover = (
+            *    function(obj, evt) {
+            *       alert(obj);
+            *    }
+            * ); 
+            * 
+            */
+          "cell_mouseover" : function(obj, evt){
+            return;
           }
 
       }
@@ -784,6 +849,8 @@ var InCHlib;
         self.column_dendrogram.nodes = self._add_prefix_to_data(self.column_dendrogram.nodes);
       }
   }
+
+  InCHlib
 
   InCHlib.prototype._add_prefix_to_data = function(data){
     var self = this;
@@ -1843,6 +1910,8 @@ var InCHlib;
               }
               
               self.events.row_onclick(item_ids, evt);
+              var cell = self._get_cell_data(evt);
+              self.events.cell_click(cell, evt);
           }
       });
   }
@@ -3604,8 +3673,26 @@ var InCHlib;
       self.events.row_onmouseout(evt);
   };
 
-  InCHlib.prototype._draw_col_label = function(evt){
+  InCHlib.prototype._get_cell_data = function(evt){
     var self = this;
+    var attrs = evt.target.attrs;
+    var column = attrs.column.split("_");
+    var header_type2value = {"d": self.heatmap_header[column[1]],
+                             "m": self.metadata_header[column[1]],
+                             "Count": "Count"};
+    
+    if(self.column_metadata_header !== undefined){
+      header_type2value["cm"] = self.column_metadata_header[column[1]];
+    }
+    
+    return {"value": attrs.value, "header": header_type2value[column[0]]};
+
+  }
+
+  InCHlib.prototype._draw_col_label = function(evt){
+
+      var self = this;
+      var row_id = self.data.nodes[evt.target.parent.getAttr("id")].objects.join(", ");
       var i, line;
       var attrs = evt.target.attrs;
       var points = attrs.points;
@@ -3620,7 +3707,6 @@ var InCHlib;
         header_type2value["cm"] = self.column_metadata_header[column[1]];
       }
       
-      var value = attrs.value;
       var header = header_type2value[column[0]];
 
       if(header !== self.last_column){
@@ -3635,9 +3721,17 @@ var InCHlib;
         self.heatmap_overlay.add(self.column_overlay);
       }
       
-      if(header !== undefined){
-          value = [header, value].join("\n");
+      self.events.cell_mouseover({"value": value, "header": header}, evt);
+      var values = [];
+      if(self.settings.row_id_in_tooltip){
+        values.push(row_id);
       }
+
+      if(header !== undefined){
+        values.push(header);
+      }
+      values.push(attrs.value);
+      var value = values.join("\n");
 
       var tooltip = self.objects_ref.tooltip_label.clone({x: x, y:y, id: "col_label",});
       tooltip.add(self.objects_ref.tooltip_tag.clone({pointerDirection: 'down'}), self.objects_ref.tooltip_text.clone({text: value}));
@@ -3717,6 +3811,44 @@ var InCHlib;
     self._draw_heatmap_header();
     self.heatmap_layer.moveToBottom();
     self.heatmap_layer.moveUp();
+  }
+
+  /**
+    * Add metadata column
+    * @name [String] name of the column
+    * @data [Object] data object in format {leaf_id: value}
+    */
+  InCHlib.prototype.add_metadata_column = function(name, data){
+    var self = this;
+    if(self.metadata == undefined){
+      self.metadata = {
+        "feature_names": [name],
+        "nodes": {}
+      }
+    }
+    else{
+      self.metadata.feature_names.push(name);
+    }
+
+    var keys = Object.keys(self.data.nodes);
+
+    for(var i = 0, len=keys.length; i<len; i++){
+      var key = keys[i];
+      if(self.data.nodes[key].objects !== undefined){
+        var row_id = self.data.nodes[key].objects[0];
+        var value = data[row_id];
+        if(value === undefined){
+          value = null;
+        }
+
+        if(self.metadata.nodes[key] === undefined){
+          self.metadata.nodes[key] = [value];
+        }
+        else{
+          self.metadata.nodes[key].push(value); 
+        }
+      }
+    }
   }
 
 }(jQuery));
