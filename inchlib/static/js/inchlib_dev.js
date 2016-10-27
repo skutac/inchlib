@@ -1772,7 +1772,7 @@ var InCHlib;
                   x: self._hack_round((x1 + x2)/2-(""+text_value).length*(self.value_font_size/4)),
                   y: self._hack_round(y1-self.value_font_size/2),
                   fontSize: self.value_font_size,
-                  text: text_value,
+                  text: text_value.toString(),
               });
               row.add(text);
             }
@@ -3252,32 +3252,32 @@ var InCHlib;
 
   InCHlib.prototype._color_scale_click = function(icon, evt){
     var self = this;
-    var i, option, key, value;
-    var color_options = {"heatmap_colors": "Heatmap data colors"};
-
-    var value_options = {"max_percentile": "Max percentile value",
-                        "middle_percentile": "Middle percentile value",
-                        "min_percentile": "Min percentile value",
-                      };
-
-    if(self.settings.metadata){
-      color_options["metadata_colors"] = "Metadata colors";
-    }
-
-    if(self.settings.column_metadata){
-      color_options["column_metadata_colors"] = "Column metadata colors";
-    }
-
-    var form_id = "settings_form_" + self.settings.target;
-    var settings_form = $("#" + form_id);
+    var settings_form = self.target_element.find(".settings_form");
     var overlay = self._draw_target_overlay();
 
     if(settings_form.length){
       settings_form.fadeIn("fast");
     }
     else{
-      settings_form = $("<form class='settings_form' id='" + form_id + "'></form>");
+      var i, option, key, value;
+      var color_options = {"heatmap_colors": "Heatmap data colors"};
+      settings_form = $("<form class='settings_form'></form>");
+
+      if(self.settings.metadata){
+        color_options["metadata_colors"] = "Metadata colors";
+      }
+
+      if(self.settings.column_metadata){
+        color_options["column_metadata_colors"] = "Column metadata colors";
+      }
+
+
+      var value_options = {"max_percentile": "Max value",
+                          "middle_percentile": "Middle value",
+                          "min_percentile": "Min value",
+                        };
       var options = "", color_1, color_2, color_3;
+      var color_scales = $("<div class='color_scales'></div>");
 
       for(i = 0, keys = Object.keys(color_options), len = keys.length; i < len; i++){
         key = keys[i];
@@ -3285,46 +3285,82 @@ var InCHlib;
         color_2 = self._get_color_for_value(0.5,0,1,0.5,self.settings[key]);
         color_3 = self._get_color_for_value(1,0,1,0.5,self.settings[key]);
 
-        option = "<div><div class='form_label'>" + color_options[key] + "</div><input type='text' name='" + key +"' value='"+ self.settings[key] + "'/> <div class='color_button' style='background: linear-gradient(to right, " + color_1 + "," + color_2 + "," + color_3 + ")'></div></div>";
-        options += option;
+        color_scales.append("<div class='color_scale'>\
+            <div class='form_label'>" + color_options[key] + "</div>\
+            <div class='scale_input'>\
+              <input type='text' name='" + key +"' value='"+ self.settings[key] + "'/>\
+              <div class='color_button' style='background: linear-gradient(to right, " + color_1 + "," + color_2 + "," + color_3 + ")'></div>\
+            </div>\
+          </div>");
       }
+      settings_form.append(color_scales);
 
+      var values_select = $("<div class='values_select'>\
+        <div class='form_label'>Values</div>\
+        <select name='value_types'>\
+          <option value='percentile' selected>Percentile</option>\
+          <option value='value'>Value</option>\
+        </select>\
+      </div>").css({"margin-top": 10});
+      settings_form.append(values_select);
+
+      var color_values = $("<div class='color_values'></div>").css({"margin-top": 10});
       for(i = 0, keys = Object.keys(value_options), len = keys.length; i < len; i++){
         key = keys[i];
-        option = "<div><div class='form_label'>" + value_options[key] + "</div><input type='text' name='" + key +"' value='"+ self.settings[key] + "'/></div>";
-        options += option;
+        color_values.append("<div class='color_value'>\
+          <div class='form_label'>" + value_options[key] + "</div>\
+          <input type='text' name='" + key +"' value='"+ self.settings[key] + "'/>\
+        </div>");
       }
-      option = "<div><div class='form_label'>Heatmap coloring</div>\
-                <select name='independent_columns'>"
-      
-      if(self.settings.independent_columns){
-        option += "<option value='true' selected>By columns</option>\
-                  <option value='false'>Entire heatmap</option>"
-      }
-      else{
-        option += "<option value='true'>By columns</option>\
-                  <option value='false' selected>Entire heatmap</option>" 
-      }
-      option += "</select></div>";
-      options += option;
+      settings_form.append(color_values);
 
-      options = options + '<button type="submit">Redraw</button>'
-      settings_form.html(options);
+      var coloring_select = $("<div class='heatmap_coloring'>\
+        <div class='form_label'>Heatmap coloring</div>\
+        <select name='independent_columns'>\
+          <option value='columns' selected>By columns</option>\
+          <option value='heatmap'>Entire heatmap</option>\
+        </select>\
+      </div>").css({"margin-top": 10});
+      settings_form.append(coloring_select);
+      settings_form.append("<button type='submit'>Redraw</button>");
 
       self.target_element.append(settings_form);
-      settings_form.css({"z-index": 1000, "position": "absolute", "top": 110, "left": 0, "padding": "10px", "border": "solid #D2D2D2 2px", "border-radius": "5px", "background-color": "white"});
-      $("#" + form_id + " .color_button").css({"border": "solid #D2D2D2 1px", "height": "15px", "width": "30px", "display": "inline-block"});  
-      $("#" + form_id + " > div").css({"font-size": "12px", "margin-bottom": "10px"});  
-      $("#" + form_id + " input").css({"border-radius": "5px", "width": "100px"});  
-      $("#" + form_id + " .form_label").css({"color": "gray", "margin-bottom": "5px", "font-style": "italic"});  
-      $("#" + form_id + " button").css({"padding-top": "7px", "padding-bottom": "5px", "padding-right": "5px", "padding-left": "5px", "color": "white", "border": "solid #D2D2D2 1px", "border-radius": "5px", "width": "100%", "background-color": "#2171b5", "font-weight": "bold"});  
+      settings_form.css({
+        "z-index": 1000,
+        "position": "absolute",
+        "top": 110,
+        "left": 0,
+        "padding": "10px",
+        "border": "solid #D2D2D2 2px",
+        "border-radius": "5px",
+        "background-color": "white",
+        "font-size": "small"
+      });
+      
+      settings_form.find("input").css({"border-radius": "3px", "width": 120, "border": "solid #D2D2D2 1px", "padding": 3, "text-align": "right"});  
+      settings_form.find(".color_button").css({"border": "solid #D2D2D2 1px","height": "15px", "width": "30px"});  
+      settings_form.find(".color_value").css({"margin-top": 3});  
+      settings_form.find(".scale_input").css({"width": 120, "display": "flex", "align-items": "center", "justify-content": "space-between"});
+      settings_form.find(".color_scales input").css({"width": 80, "text-align": "left"});
+      settings_form.find(".form_label").css({"color": "#666666", "margin-bottom": "5px", "font-weight": "bold", "border-bottom": "solid #D2D2D2 2px", "padding": 3});  
+      settings_form.find("select").css({"width": 120, "background-color": "white", "padding": 3, "border-radius": 3})
+      settings_form.find("button").css({
+        "margin-top": 10,
+        "padding": 5,
+        "color": "white",
+        "border": "solid #D2D2D2 1px",
+        "border-radius": 5,
+        "width": "100%",
+        "background-color": "#2171b5",
+        "font-weight": "bold"
+      });
 
       overlay.click(function(){
         settings_form.fadeOut("fast");
         overlay.fadeOut("fast");
       });
 
-      var color_buttons = $("#" + form_id + " .color_button");
+      var color_buttons = settings_form.find(".color_button");
       
       color_buttons.hover(
         function(){$(this).css({"cursor": "pointer", "opacity": 0.7})},
@@ -3362,6 +3398,118 @@ var InCHlib;
       })
     }
   }
+
+  // InCHlib.prototype._color_scale_click_backup = function(icon, evt){
+  //   var self = this;
+  //   var i, option, key, value;
+  //   var color_options = {"heatmap_colors": "Heatmap data colors"};
+
+  //   var value_options = {"max_percentile": "Max percentile value",
+  //                       "middle_percentile": "Middle percentile value",
+  //                       "min_percentile": "Min percentile value",
+  //                     };
+
+  //   if(self.settings.metadata){
+  //     color_options["metadata_colors"] = "Metadata colors";
+  //   }
+
+  //   if(self.settings.column_metadata){
+  //     color_options["column_metadata_colors"] = "Column metadata colors";
+  //   }
+
+  //   var settings_form = $("#" + form_id);
+  //   var overlay = self._draw_target_overlay();
+
+  //   if(settings_form.length){
+  //     settings_form.fadeIn("fast");
+  //   }
+  //   else{
+  //     settings_form = $("<form class='settings_form'></form>");
+  //     var options = "", color_1, color_2, color_3;
+
+  //     for(i = 0, keys = Object.keys(color_options), len = keys.length; i < len; i++){
+  //       key = keys[i];
+  //       color_1 = self._get_color_for_value(0,0,1,0.5,self.settings[key]);
+  //       color_2 = self._get_color_for_value(0.5,0,1,0.5,self.settings[key]);
+  //       color_3 = self._get_color_for_value(1,0,1,0.5,self.settings[key]);
+
+  //       option = "<div><div class='form_label'>" + color_options[key] + "</div><input type='text' name='" + key +"' value='"+ self.settings[key] + "'/> <div class='color_button' style='background: linear-gradient(to right, " + color_1 + "," + color_2 + "," + color_3 + ")'></div></div>";
+  //       options += option;
+  //     }
+
+  //     for(i = 0, keys = Object.keys(value_options), len = keys.length; i < len; i++){
+  //       key = keys[i];
+  //       option = "<div><div class='form_label'>" + value_options[key] + "</div><input type='text' name='" + key +"' value='"+ self.settings[key] + "'/></div>";
+  //       options += option;
+  //     }
+  //     option = "<div><div class='form_label'>Heatmap coloring</div>\
+  //               <select name='independent_columns'>"
+      
+  //     if(self.settings.independent_columns){
+  //       option += "<option value='true' selected>By columns</option>\
+  //                 <option value='false'>Entire heatmap</option>"
+  //     }
+  //     else{
+  //       option += "<option value='true'>By columns</option>\
+  //                 <option value='false' selected>Entire heatmap</option>" 
+  //     }
+  //     option += "</select></div>";
+  //     options += option;
+
+  //     options = options + '<button type="submit">Redraw</button>'
+  //     settings_form.html(options);
+
+  //     self.target_element.append(settings_form);
+  //     settings_form.css({"z-index": 1000, "position": "absolute", "top": 110, "left": 0, "padding": "10px", "border": "solid #D2D2D2 2px", "border-radius": "5px", "background-color": "white"});
+  //     $("#" + form_id + " .color_button").css({"border": "solid #D2D2D2 1px", "height": "15px", "width": "30px", "display": "inline-block"});  
+  //     $("#" + form_id + " > div").css({"font-size": "12px", "margin-bottom": "10px"});  
+  //     $("#" + form_id + " input").css({"border-radius": "5px", "width": "100px"});  
+  //     $("#" + form_id + " .form_label").css({"color": "gray", "margin-bottom": "5px", "font-style": "italic"});  
+  //     $("#" + form_id + " button").css({"padding-top": "7px", "padding-bottom": "5px", "padding-right": "5px", "padding-left": "5px", "color": "white", "border": "solid #D2D2D2 1px", "border-radius": "5px", "width": "100%", "background-color": "#2171b5", "font-weight": "bold"});  
+
+  //     overlay.click(function(){
+  //       settings_form.fadeOut("fast");
+  //       overlay.fadeOut("fast");
+  //     });
+
+  //     var color_buttons = $("#" + form_id + " .color_button");
+      
+  //     color_buttons.hover(
+  //       function(){$(this).css({"cursor": "pointer", "opacity": 0.7})},
+  //       function(){$(this).css({"opacity": 1})}
+  //     );
+
+  //     color_buttons.click(function(evt){
+  //       self._draw_color_scales_select(this, evt);
+  //     });
+
+  //     settings_form.submit(function(evt){
+  //       var settings = {};
+  //       var settings_fieldset = $(this).find("input, select");
+
+  //       settings_fieldset.each(function(){
+  //           option = $(this);
+  //           key = option.attr("name");
+  //           value = option.val();
+  //           if(value != ""){
+  //               if(value === "true"){
+  //                   value = true;
+  //               }
+  //               else if(value === "false"){
+  //                 value = false;
+  //               }
+  //               settings[key] = value;
+  //           }
+  //       });
+  //       self.update_settings(settings);
+  //       self.redraw_heatmap();
+  //       self._update_color_scale();
+  //       overlay.trigger('click');
+  //       evt.preventDefault();
+  //       evt.stopPropagation();
+  //     })
+  //   }
+  // }
 
   InCHlib.prototype._draw_color_scales_select = function(element, evt){
     var self = this;
