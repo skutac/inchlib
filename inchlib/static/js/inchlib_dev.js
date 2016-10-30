@@ -207,7 +207,29 @@ var InCHlib;
           "images_path": {"dir": "", "ext": ""},
           "navigation_toggle": {"color_scale": true, "distance_scale": true, "export_button": true, "filter_button": true, "hint_button": true},
           "unified_dendrogram_distance": false,
-          "row_id_in_tooltip": false
+          "row_id_in_tooltip": false,
+          "color_by": "percentile",
+          
+          // "colors":{
+          //   "data":{
+          //     "color_scale": "Greens",
+          //     "color_by": "columns",
+          //     "value_type": "percentile",
+          //     "values": {"min": false, "max": false, "middle": false}              
+          //   },
+          //   "metadata":{
+          //     "color_scale": "Reds",
+          //     "color_by": "columns",
+          //     "value_type": "percentile",
+          //     "values": {"min": false, "max": false, "middle": false}              
+          //   },
+          //   "column_metadata":{
+          //     "color_scale": "Blues",
+          //     "color_by": "columns",
+          //     "value_type": "percentile",
+          //     "values": {"min": false, "max": false, "middle": false}              
+          //   }
+          // }
       };
 
       self.update_settings(settings)
@@ -1515,14 +1537,27 @@ var InCHlib;
     }
     
     self.data_descs = {};
-    if(self.settings.independent_columns){
-        self.data_descs = self._get_data_min_max_middle(data);
+    if(self.settings.color_by == "value"){
+      var inputs = self.target_element.find(".color_values");
+      var min_max_middle = [
+        parseFloat(inputs.find("input[name='min_percentile']").val()),
+        parseFloat(inputs.find("input[name='max_percentile']").val()),
+        parseFloat(inputs.find("input[name='middle_percentile']").val())
+      ]
+      for(i = 0; i < self.dimensions["data"]; i++){
+        self.data_descs[i] = {"min": min_max_middle[0], "max": min_max_middle[1], "middle": min_max_middle[2]};
+      }
     }
     else{
-        var min_max_middle = self._get_min_max_middle(data);
-        for(i = 0; i < self.dimensions["data"]; i++){
-          self.data_descs[i] = {"min": min_max_middle[0], "max": min_max_middle[1], "middle": min_max_middle[2]};
-        }
+      if(self.settings.independent_columns){
+          self.data_descs = self._get_data_min_max_middle(data);
+      }
+      else{
+          var min_max_middle = self._get_min_max_middle(data);
+          for(i = 0; i < self.dimensions["data"]; i++){
+            self.data_descs[i] = {"min": min_max_middle[0], "max": min_max_middle[1], "middle": min_max_middle[2]};
+          }
+      }
     }
 
     if(self.settings.metadata){
@@ -3298,11 +3333,13 @@ var InCHlib;
       var values_select = $("<div class='values_select'>\
         <div class='form_label'>Values</div>\
         <select name='value_types'>\
-          <option value='percentile' selected>Percentile</option>\
+          <option value='percentile'>Percentile</option>\
           <option value='value'>Value</option>\
         </select>\
       </div>").css({"margin-top": 10});
       settings_form.append(values_select);
+
+      values_select.find("select").val(self.settings.color_by);
 
       var color_values = $("<div class='color_values'></div>").css({"margin-top": 10});
       for(i = 0, keys = Object.keys(value_options), len = keys.length; i < len; i++){
@@ -3513,15 +3550,15 @@ var InCHlib;
 
   InCHlib.prototype._draw_color_scales_select = function(element, evt){
     var self = this;
-    var scales_div = self.target_element.find(".color_scales");
+    var scales_div = self.target_element.find(".color_scales_select");
     var scale_divs;
 
     if(scales_div.length){
       scales_div.fadeIn("fast");
-      scale_divs = scales_div.find(".color_scale");
+      scale_divs = scales_div.find(".cs");
     }
     else{
-      scales_div = $("<div class='color_scales'></div>").css({"z-index": 10});
+      scales_div = $("<div class='color_scales_select'></div>").css({"z-index": 10});
       var scale, color_1, color_2, color_3, key;
 
       for(var i = 0, keys = Object.keys(self.colors), len = keys.length; i < len; i++){
@@ -3529,7 +3566,7 @@ var InCHlib;
         color_1 = self._get_color_for_value(0,0,1,0.5,key);
         color_2 = self._get_color_for_value(0.5,0,1,0.5,key);
         color_3 = self._get_color_for_value(1,0,1,0.5,key);
-        scale = "<div class='color_scale' data-scale_acronym='" + key + "' style='background: linear-gradient(to right, " + color_1 + "," + color_2 + "," + color_3 + ")'></div>";
+        scale = "<div class='cs' data-scale_acronym='" + key + "' style='background: linear-gradient(to right, " + color_1 + "," + color_2 + "," + color_3 + ")'></div>";
         scales_div.append(scale);
       }
       self.target_element.append(scales_div);
@@ -3541,7 +3578,7 @@ var InCHlib;
                      "left": 170,
                      "background-color": "white"});
 
-      scale_divs = self.target_element.find(".color_scale");
+      scale_divs = self.target_element.find(".cs");
       scale_divs.css({"margin-top":"3px",
                       "width": "80px",
                       "height": "20px",
@@ -3742,45 +3779,45 @@ var InCHlib;
 
   InCHlib.prototype._get_color_for_value = function(value, min, max, middle, color_scale){
     var self = this;
-      var color = self.colors[color_scale];
-      var c1 = color["start"];
-      var c2 = color["end"];
+    var color = self.colors[color_scale];
+    var c1 = color["start"];
+    var c2 = color["end"];
 
-      if(value > max){
-        return 'rgb('+c2.r+','+c2.g+','+c2.b+')';
-      }
+    if(value > max){
+      return 'rgb('+c2.r+','+c2.g+','+c2.b+')';
+    }
 
-      if(min == max || value < min){
-        return 'rgb('+c1.r+','+c1.g+','+c1.b+')';
-      }
+    if(min == max || value < min){
+      return 'rgb('+c1.r+','+c1.g+','+c1.b+')';
+    }
 
 
-      if(color["middle"] !== undefined){
-          
-          if(value >= middle){
-              if(middle == max){
-                return 'rgb('+c2.r+','+c2.g+','+c2.b+')';
-              }
+    if(color["middle"] !== undefined){
+        
+        if(value >= middle){
+            if(middle == max){
+              return 'rgb('+c2.r+','+c2.g+','+c2.b+')';
+            }
 
-              min = middle;
-              c1 = color["middle"];
-              c2 = color["end"];
-          }
-          else{
-              if(middle == min){
-                return 'rgb('+c1.r+','+c1.g+','+c1.b+')';
-              }
-              max = middle;
-              c1 = color["start"];
-              c2 = color["middle"];
-          }
-      }
+            min = middle;
+            c1 = color["middle"];
+            c2 = color["end"];
+        }
+        else{
+            if(middle == min){
+              return 'rgb('+c1.r+','+c1.g+','+c1.b+')';
+            }
+            max = middle;
+            c1 = color["start"];
+            c2 = color["middle"];
+        }
+    }
 
-      var position = (value-min)/(max-min);
-      var r = self._hack_round(c1.r+(position*(c2.r-c1.r)));
-      var g = self._hack_round(c1.g+(position*(c2.g-c1.g)));
-      var b = self._hack_round(c1.b+(position*(c2.b-c1.b)));
-      return 'rgb('+r+','+g+','+b+')';
+    var position = (value-min)/(max-min);
+    var r = self._hack_round(c1.r+(position*(c2.r-c1.r)));
+    var g = self._hack_round(c1.g+(position*(c2.g-c1.g)));
+    var b = self._hack_round(c1.b+(position*(c2.b-c1.b)));
+    return 'rgb('+r+','+g+','+b+')';
   }
 
   InCHlib.prototype._get_font_size = function(text_length, width, height, max_font_size){

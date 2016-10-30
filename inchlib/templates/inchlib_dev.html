@@ -35,6 +35,7 @@ $(document).ready(function(){
                 max_column_width: 100,
                 unified_dendrogram_distance: false,
                 heatmap_part_width: 0.8,
+                color_by: "value",
                 // min_row_height: 7,
 
                 // metadata_colors: "RdLrBu",
@@ -58,7 +59,7 @@ $(document).ready(function(){
 
     // dendrogram_1.read_data_from_file("{% static "data/export_165_166_167.json" %}");
     // dendrogram_1.read_data_from_file("{% static "data/export_165_166_167_168_329_correlation.json" %}");
-    dendrogram_1.read_data_from_file("{% static "data/export_326_171_169.json" %}");
+    dendrogram_1.read_data_from_file("{% static "data/chembl_era.json" %}");
     dendrogram_1.draw();
 
     // window.dendrogram_2 = new InCHlib(
