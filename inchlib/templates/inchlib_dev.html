@@ -14,51 +14,57 @@
 </head>
 <script>
 $(document).ready(function(){
-
     window.dendrogram_1 = new InCHlib(
             {
                 target: "dendrogram_1",
                 // heatmap: false,
-                // heatmap_header: true,
+                heatmap_header: false,
                 draw_row_ids: true,
                 // fixed_row_id_size: 20,
                 // column_metadata_row_height: 10,
                 // column_metadata_colors: "BuYl",
                 dendrogram: true,
                 max_height: 800,
-                width: 1200,
-                heatmap_colors: "BuWhRd",
+                width: 1000,
+                heatmap_colors: "Greens",
+                heatmap_values: true,
                 column_dendrogram: true,
                 column_metadata: true,
                 // metadata: false,
-                max_row_height: 30,
-                max_column_width: 100,
+                // max_row_height: 10,
+                // max_column_width: 10,
                 unified_dendrogram_distance: false,
                 heatmap_part_width: 0.8,
                 color_by: "value",
+                font: "Ubuntu",
+                // unified_dendrogram_distance: true,
                 // min_row_height: 7,
 
-                // metadata_colors: "RdLrBu",
+                metadata_colors: "RdLrBu",
                 // highlight_colors: "PuOr",
                 // heatmap_font_color: "white",
                 // show_export_button: true,
                 // count_column: true,
                 // values_center: "median",
-                // independent_columns: false,
-                // max_percentile: 90,
-                // middle_percentile: 60,
-                // min_percentile: 20,
+                independent_columns: true,
+                max_percentile: 99,
+                middle_percentile: 50,
+                min_percentile: 1,
                 // columns_order: [51, 51, 2, 3, 4, 5, 6, 7, 8, 34, 10, 11, 12, 13, 14, 15, 16, 17, 35, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 9, 18, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 51, 51, 51, 51, 1],
                 // alternative_data: true,
                 // images_as_alternative_data: true,
                 // images_path: {"dir": "static/img/test_images/", "ext": ".jpg"}
-                navigation_toggle: {"distance_scale": true, "filter_button": false, "export_button": true, "color_scale": true, "hint_button": false},
-                row_id_in_tooltip: true
+                // navigation_toggle: {"distance_scale": true, "filter_button": false, "export_button": true, "color_scale": true, "hint_button": false},
+                // row_id_in_tooltip: true
             });
     // dendrogram_1.add_color_scale("WhBk", {"start": {"r":255, "g": 255, "b": 255}, "middle": {"r": 236, "g": 158, "b": 56}, "end": {"r": 0, "g": 0, "b": 0}})
+    // var filename = "/static/data/david_cluster_heatmaps/169_326_325_328_folds_100_rows.json";
+    // $(".title").text("169. let-7B, 326. let-7Mut (3T3)");
+    // $(".title").text("169. let-7B, 326. let-7Mut, 325. miR-30B, 328. miR-30P (3T3)");
+    // dendrogram_1.read_data_from_file("/static/data/test.json");
 
-    // dendrogram_1.read_data_from_file("{% static "data/export_165_166_167.json" %}");
     // dendrogram_1.read_data_from_file("{% static "data/export_165_166_167_168_329_correlation.json" %}");
+    // console.log("ok")
     dendrogram_1.read_data_from_file("{% static "data/chembl_era.json" %}");
     dendrogram_1.draw();
 
@@ -66,39 +72,48 @@ $(document).ready(function(){
     //         {
     //             target: "dendrogram_2",
     //             // heatmap: false,
-    //             // heatmap_header: true,
+    //             heatmap_header: false,
     //             draw_row_ids: true,
-    //             // fixed_row_id_size: 15,
+    //             // fixed_row_id_size: 20,
     //             // column_metadata_row_height: 10,
     //             // column_metadata_colors: "BuYl",
-    //             // dendrogram: true,
-    //             max_height: 400,
+    //             dendrogram: true,
+    //             max_height: 1000,
     //             width: 800,
     //             heatmap_colors: "BuWhRd",
+    //             heatmap_values: false,
     //             column_dendrogram: true,
     //             column_metadata: true,
     //             // metadata: false,
-    //             max_row_height: 30,
-    //             max_column_width: 100,
+    //             max_row_height: 15,
+    //             max_column_width: 15,
+    //             unified_dendrogram_distance: false,
+    //             heatmap_part_width: 0.8,
+    //             color_by: "value",
+    //             font: "Ubuntu",
+    //             // unified_dendrogram_distance: true,
+    //             // min_row_height: 7,
 
     //             // metadata_colors: "RdLrBu",
-    //             // highlight_colors: "PuOr",
+    //             highlight_colors: "RdYlGn",
     //             // heatmap_font_color: "white",
     //             // show_export_button: true,
     //             // count_column: true,
     //             // values_center: "median",
-    //             // independent_columns: false,
-    //             // max_percentile: 90,
-    //             // middle_percentile: 60,
-    //             // min_percentile: 20,
+    //             independent_columns: false,
+    //             max_percentile: 5,
+    //             middle_percentile: 1,
+    //             min_percentile: 0,
     //             // columns_order: [51, 51, 2, 3, 4, 5, 6, 7, 8, 34, 10, 11, 12, 13, 14, 15, 16, 17, 35, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 9, 18, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 51, 51, 51, 51, 1],
     //             // alternative_data: true,
     //             // images_as_alternative_data: true,
     //             // images_path: {"dir": "static/img/test_images/", "ext": ".jpg"}
+    //             navigation_toggle: {"distance_scale": true, "filter_button": false, "export_button": true, "color_scale": true, "hint_button": false},
+    //             row_id_in_tooltip: true
     //         });
     // // dendrogram_1.add_color_scale("WhBk", {"start": {"r":255, "g": 255, "b": 255}, "middle": {"r": 236, "g": 158, "b": 56}, "end": {"r": 0, "g": 0, "b": 0}})
 
-    // dendrogram_2.read_data_from_file("{% static "data/whiskey.json" %}");
+    // dendrogram_2.read_data_from_file("/static/data/david_cluster_heatmaps/169_326_325_328_folds.json");
     // dendrogram_2.draw();
 
     // dendrogram_1.events.row_onclick = function(object_ids, evt){
@@ -215,20 +230,29 @@ $(document).ready(function(){
     dendrogram_1.events.row_onmouseover = function(leaf_id){
         dendrogram_2.highlight_rows([leaf_id]);
     }
-
-    dendrogram_1.events.dendrogram_node_onclick = function(leaf_ids){
-        dendrogram_2.highlight_rows(leaf_ids);
-    }
     */
+
+    // dendrogram_1.events.dendrogram_node_onclick = function(leaf_ids){
+    //     console.log("OK")
+    //     window.open('https://www.codexworld.com', '_blank');
+    // };
+
+    dendrogram_1.events.row_onclick = function(leaf_ids, evt){
+         window.open('https://probes-drugs.org/compound/' + "PD000001", '_blank');
+    };
+
 });
 </script>
 
 
 <body id="dev">
-    <h1>DEV</h1>
+    {# <h1>DEV</h1> #}
+    <div class='title'></div>
        
-    <div id="dendrogram_1"></div>
-    <div id="dendrogram_2"></div>
+    <div id="dendrograms">
+        <div id="dendrogram_1"></div>
+        <div id="dendrogram_2"></div>
+    </div>
 </body>
 </html>
 

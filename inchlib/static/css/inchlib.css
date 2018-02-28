@@ -12,6 +12,17 @@ body{
 	font-family: 'Ubuntu', sans-serif;
 }
 
+#dev{
+	width: 100%;
+	max-width: none;
+	padding: 20px;
+}
+
+#dendrograms{
+	display: flex;
+	justify-content: space-around;
+}
+
 #head{
 	width: 300px;
 }

@@ -162,7 +162,6 @@ var InCHlib;
       var self = this;
       self.user_settings = settings;
       self.target_element = $("#" + settings.target);
-      var target_width = self.target_element.width();
       self.target_element.css({"position": "relative"});
 
       /**
@@ -180,7 +179,7 @@ var InCHlib;
           "column_metadata_row_height": 8,
           "column_metadata_colors": "RdLrBu",
           "max_height" : 800,
-          "width" : target_width,
+          "width" : "dynamic",
           "heatmap_colors" : "Greens",
           "heatmap_font_color" : "black",
           "heatmap_part_width" : 0.7,
@@ -207,32 +206,11 @@ var InCHlib;
           "images_path": {"dir": "", "ext": ""},
           "navigation_toggle": {"color_scale": true, "distance_scale": true, "export_button": true, "filter_button": true, "hint_button": true},
           "unified_dendrogram_distance": false,
-          "row_id_in_tooltip": false,
-          "color_by": "percentile",
-          
-          // "colors":{
-          //   "data":{
-          //     "color_scale": "Greens",
-          //     "color_by": "columns",
-          //     "value_type": "percentile",
-          //     "values": {"min": false, "max": false, "middle": false}              
-          //   },
-          //   "metadata":{
-          //     "color_scale": "Reds",
-          //     "color_by": "columns",
-          //     "value_type": "percentile",
-          //     "values": {"min": false, "max": false, "middle": false}              
-          //   },
-          //   "column_metadata":{
-          //     "color_scale": "Blues",
-          //     "color_by": "columns",
-          //     "value_type": "percentile",
-          //     "values": {"min": false, "max": false, "middle": false}              
-          //   }
-          // }
+          "row_id_in_tooltip": false
       };
 
       self.update_settings(settings)
+      self.settings.font= "Ubuntu";
       self.settings.width = (settings.max_width && settings.max_width < target_width)?settings.max_width:self.settings.width;
       self.settings.heatmap_part_width = (self.settings.heatmap_part_width>0.9)?0.9:self.settings.heatmap_part_width;
 
@@ -1537,27 +1515,14 @@ var InCHlib;
     }
     
     self.data_descs = {};
-    if(self.settings.color_by == "value"){
-      var inputs = self.target_element.find(".color_values");
-      var min_max_middle = [
-        parseFloat(inputs.find("input[name='min_percentile']").val()),
-        parseFloat(inputs.find("input[name='max_percentile']").val()),
-        parseFloat(inputs.find("input[name='middle_percentile']").val())
-      ]
-      for(i = 0; i < self.dimensions["data"]; i++){
-        self.data_descs[i] = {"min": min_max_middle[0], "max": min_max_middle[1], "middle": min_max_middle[2]};
-      }
+    if(self.settings.independent_columns){
+        self.data_descs = self._get_data_min_max_middle(data);
     }
     else{
-      if(self.settings.independent_columns){
-          self.data_descs = self._get_data_min_max_middle(data);
-      }
-      else{
-          var min_max_middle = self._get_min_max_middle(data);
-          for(i = 0; i < self.dimensions["data"]; i++){
-            self.data_descs[i] = {"min": min_max_middle[0], "max": min_max_middle[1], "middle": min_max_middle[2]};
-          }
-      }
+        var min_max_middle = self._get_min_max_middle(data);
+        for(i = 0; i < self.dimensions["data"]; i++){
+          self.data_descs[i] = {"min": min_max_middle[0], "max": min_max_middle[1], "middle": min_max_middle[2]};
+        }
     }
 
     if(self.settings.metadata){
@@ -3287,32 +3252,32 @@ var InCHlib;
 
   InCHlib.prototype._color_scale_click = function(icon, evt){
     var self = this;
-    var settings_form = self.target_element.find(".settings_form");
+    var i, option, key, value;
+    var color_options = {"heatmap_colors": "Heatmap data colors"};
+
+    var value_options = {"max_percentile": "Max percentile value",
+                        "middle_percentile": "Middle percentile value",
+                        "min_percentile": "Min percentile value",
+                      };
+
+    if(self.settings.metadata){
+      color_options["metadata_colors"] = "Metadata colors";
+    }
+
+    if(self.settings.column_metadata){
+      color_options["column_metadata_colors"] = "Column metadata colors";
+    }
+
+    var form_id = "settings_form_" + self.settings.target;
+    var settings_form = $("#" + form_id);
     var overlay = self._draw_target_overlay();
 
     if(settings_form.length){
       settings_form.fadeIn("fast");
     }
     else{
-      var i, option, key, value;
-      var color_options = {"heatmap_colors": "Heatmap data colors"};
-      settings_form = $("<form class='settings_form'></form>");
-
-      if(self.settings.metadata){
-        color_options["metadata_colors"] = "Metadata colors";
-      }
-
-      if(self.settings.column_metadata){
-        color_options["column_metadata_colors"] = "Column metadata colors";
-      }
-
-
-      var value_options = {"max_percentile": "Max value",
-                          "middle_percentile": "Middle value",
-                          "min_percentile": "Min value",
-                        };
+      settings_form = $("<form class='settings_form' id='" + form_id + "'></form>");
       var options = "", color_1, color_2, color_3;
-      var color_scales = $("<div class='color_scales'></div>");
 
       for(i = 0, keys = Object.keys(color_options), len = keys.length; i < len; i++){
         key = keys[i];
@@ -3320,84 +3285,46 @@ var InCHlib;
         color_2 = self._get_color_for_value(0.5,0,1,0.5,self.settings[key]);
         color_3 = self._get_color_for_value(1,0,1,0.5,self.settings[key]);
 
-        color_scales.append("<div class='color_scale'>\
-            <div class='form_label'>" + color_options[key] + "</div>\
-            <div class='scale_input'>\
-              <input type='text' name='" + key +"' value='"+ self.settings[key] + "'/>\
-              <div class='color_button' style='background: linear-gradient(to right, " + color_1 + "," + color_2 + "," + color_3 + ")'></div>\
-            </div>\
-          </div>");
+        option = "<div><div class='form_label'>" + color_options[key] + "</div><input type='text' name='" + key +"' value='"+ self.settings[key] + "'/> <div class='color_button' style='background: linear-gradient(to right, " + color_1 + "," + color_2 + "," + color_3 + ")'></div></div>";
+        options += option;
       }
-      settings_form.append(color_scales);
 
-      var values_select = $("<div class='values_select'>\
-        <div class='form_label'>Values</div>\
-        <select name='value_types'>\
-          <option value='percentile'>Percentile</option>\
-          <option value='value'>Value</option>\
-        </select>\
-      </div>").css({"margin-top": 10});
-      settings_form.append(values_select);
-
-      values_select.find("select").val(self.settings.color_by);
-
-      var color_values = $("<div class='color_values'></div>").css({"margin-top": 10});
       for(i = 0, keys = Object.keys(value_options), len = keys.length; i < len; i++){
         key = keys[i];
-        color_values.append("<div class='color_value'>\
-          <div class='form_label'>" + value_options[key] + "</div>\
-          <input type='text' name='" + key +"' value='"+ self.settings[key] + "'/>\
-        </div>");
+        option = "<div><div class='form_label'>" + value_options[key] + "</div><input type='text' name='" + key +"' value='"+ self.settings[key] + "'/></div>";
+        options += option;
       }
-      settings_form.append(color_values);
+      option = "<div><div class='form_label'>Heatmap coloring</div>\
+                <select name='independent_columns'>"
+      
+      if(self.settings.independent_columns){
+        option += "<option value='true' selected>By columns</option>\
+                  <option value='false'>Entire heatmap</option>"
+      }
+      else{
+        option += "<option value='true'>By columns</option>\
+                  <option value='false' selected>Entire heatmap</option>" 
+      }
+      option += "</select></div>";
+      options += option;
 
-      var coloring_select = $("<div class='heatmap_coloring'>\
-        <div class='form_label'>Heatmap coloring</div>\
-        <select name='independent_columns'>\
-          <option value='columns' selected>By columns</option>\
-          <option value='heatmap'>Entire heatmap</option>\
-        </select>\
-      </div>").css({"margin-top": 10});
-      settings_form.append(coloring_select);
-      settings_form.append("<button type='submit'>Redraw</button>");
+      options = options + '<button type="submit">Redraw</button>'
+      settings_form.html(options);
 
       self.target_element.append(settings_form);
-      settings_form.css({
-        "z-index": 1000,
-        "position": "absolute",
-        "top": 110,
-        "left": 0,
-        "padding": "10px",
-        "border": "solid #D2D2D2 2px",
-        "border-radius": "5px",
-        "background-color": "white",
-        "font-size": "small"
-      });
-      
-      settings_form.find("input").css({"border-radius": "3px", "width": 120, "border": "solid #D2D2D2 1px", "padding": 3, "text-align": "right"});  
-      settings_form.find(".color_button").css({"border": "solid #D2D2D2 1px","height": "15px", "width": "30px"});  
-      settings_form.find(".color_value").css({"margin-top": 3});  
-      settings_form.find(".scale_input").css({"width": 120, "display": "flex", "align-items": "center", "justify-content": "space-between"});
-      settings_form.find(".color_scales input").css({"width": 80, "text-align": "left"});
-      settings_form.find(".form_label").css({"color": "#666666", "margin-bottom": "5px", "font-weight": "bold", "border-bottom": "solid #D2D2D2 2px", "padding": 3});  
-      settings_form.find("select").css({"width": 120, "background-color": "white", "padding": 3, "border-radius": 3})
-      settings_form.find("button").css({
-        "margin-top": 10,
-        "padding": 5,
-        "color": "white",
-        "border": "solid #D2D2D2 1px",
-        "border-radius": 5,
-        "width": "100%",
-        "background-color": "#2171b5",
-        "font-weight": "bold"
-      });
+      settings_form.css({"z-index": 1000, "position": "absolute", "top": 110, "left": 0, "padding": "10px", "border": "solid #D2D2D2 2px", "border-radius": "5px", "background-color": "white"});
+      $("#" + form_id + " .color_button").css({"border": "solid #D2D2D2 1px", "height": "15px", "width": "30px", "display": "inline-block"});  
+      $("#" + form_id + " > div").css({"font-size": "12px", "margin-bottom": "10px"});  
+      $("#" + form_id + " input").css({"border-radius": "5px", "width": "100px"});  
+      $("#" + form_id + " .form_label").css({"color": "gray", "margin-bottom": "5px", "font-style": "italic"});  
+      $("#" + form_id + " button").css({"padding-top": "7px", "padding-bottom": "5px", "padding-right": "5px", "padding-left": "5px", "color": "white", "border": "solid #D2D2D2 1px", "border-radius": "5px", "width": "100%", "background-color": "#2171b5", "font-weight": "bold"});  
 
       overlay.click(function(){
         settings_form.fadeOut("fast");
         overlay.fadeOut("fast");
       });
 
-      var color_buttons = settings_form.find(".color_button");
+      var color_buttons = $("#" + form_id + " .color_button");
       
       color_buttons.hover(
         function(){$(this).css({"cursor": "pointer", "opacity": 0.7})},
@@ -3436,129 +3363,17 @@ var InCHlib;
     }
   }
 
-  // InCHlib.prototype._color_scale_click_backup = function(icon, evt){
-  //   var self = this;
-  //   var i, option, key, value;
-  //   var color_options = {"heatmap_colors": "Heatmap data colors"};
-
-  //   var value_options = {"max_percentile": "Max percentile value",
-  //                       "middle_percentile": "Middle percentile value",
-  //                       "min_percentile": "Min percentile value",
-  //                     };
-
-  //   if(self.settings.metadata){
-  //     color_options["metadata_colors"] = "Metadata colors";
-  //   }
-
-  //   if(self.settings.column_metadata){
-  //     color_options["column_metadata_colors"] = "Column metadata colors";
-  //   }
-
-  //   var settings_form = $("#" + form_id);
-  //   var overlay = self._draw_target_overlay();
-
-  //   if(settings_form.length){
-  //     settings_form.fadeIn("fast");
-  //   }
-  //   else{
-  //     settings_form = $("<form class='settings_form'></form>");
-  //     var options = "", color_1, color_2, color_3;
-
-  //     for(i = 0, keys = Object.keys(color_options), len = keys.length; i < len; i++){
-  //       key = keys[i];
-  //       color_1 = self._get_color_for_value(0,0,1,0.5,self.settings[key]);
-  //       color_2 = self._get_color_for_value(0.5,0,1,0.5,self.settings[key]);
-  //       color_3 = self._get_color_for_value(1,0,1,0.5,self.settings[key]);
-
-  //       option = "<div><div class='form_label'>" + color_options[key] + "</div><input type='text' name='" + key +"' value='"+ self.settings[key] + "'/> <div class='color_button' style='background: linear-gradient(to right, " + color_1 + "," + color_2 + "," + color_3 + ")'></div></div>";
-  //       options += option;
-  //     }
-
-  //     for(i = 0, keys = Object.keys(value_options), len = keys.length; i < len; i++){
-  //       key = keys[i];
-  //       option = "<div><div class='form_label'>" + value_options[key] + "</div><input type='text' name='" + key +"' value='"+ self.settings[key] + "'/></div>";
-  //       options += option;
-  //     }
-  //     option = "<div><div class='form_label'>Heatmap coloring</div>\
-  //               <select name='independent_columns'>"
-      
-  //     if(self.settings.independent_columns){
-  //       option += "<option value='true' selected>By columns</option>\
-  //                 <option value='false'>Entire heatmap</option>"
-  //     }
-  //     else{
-  //       option += "<option value='true'>By columns</option>\
-  //                 <option value='false' selected>Entire heatmap</option>" 
-  //     }
-  //     option += "</select></div>";
-  //     options += option;
-
-  //     options = options + '<button type="submit">Redraw</button>'
-  //     settings_form.html(options);
-
-  //     self.target_element.append(settings_form);
-  //     settings_form.css({"z-index": 1000, "position": "absolute", "top": 110, "left": 0, "padding": "10px", "border": "solid #D2D2D2 2px", "border-radius": "5px", "background-color": "white"});
-  //     $("#" + form_id + " .color_button").css({"border": "solid #D2D2D2 1px", "height": "15px", "width": "30px", "display": "inline-block"});  
-  //     $("#" + form_id + " > div").css({"font-size": "12px", "margin-bottom": "10px"});  
-  //     $("#" + form_id + " input").css({"border-radius": "5px", "width": "100px"});  
-  //     $("#" + form_id + " .form_label").css({"color": "gray", "margin-bottom": "5px", "font-style": "italic"});  
-  //     $("#" + form_id + " button").css({"padding-top": "7px", "padding-bottom": "5px", "padding-right": "5px", "padding-left": "5px", "color": "white", "border": "solid #D2D2D2 1px", "border-radius": "5px", "width": "100%", "background-color": "#2171b5", "font-weight": "bold"});  
-
-  //     overlay.click(function(){
-  //       settings_form.fadeOut("fast");
-  //       overlay.fadeOut("fast");
-  //     });
-
-  //     var color_buttons = $("#" + form_id + " .color_button");
-      
-  //     color_buttons.hover(
-  //       function(){$(this).css({"cursor": "pointer", "opacity": 0.7})},
-  //       function(){$(this).css({"opacity": 1})}
-  //     );
-
-  //     color_buttons.click(function(evt){
-  //       self._draw_color_scales_select(this, evt);
-  //     });
-
-  //     settings_form.submit(function(evt){
-  //       var settings = {};
-  //       var settings_fieldset = $(this).find("input, select");
-
-  //       settings_fieldset.each(function(){
-  //           option = $(this);
-  //           key = option.attr("name");
-  //           value = option.val();
-  //           if(value != ""){
-  //               if(value === "true"){
-  //                   value = true;
-  //               }
-  //               else if(value === "false"){
-  //                 value = false;
-  //               }
-  //               settings[key] = value;
-  //           }
-  //       });
-  //       self.update_settings(settings);
-  //       self.redraw_heatmap();
-  //       self._update_color_scale();
-  //       overlay.trigger('click');
-  //       evt.preventDefault();
-  //       evt.stopPropagation();
-  //     })
-  //   }
-  // }
-
   InCHlib.prototype._draw_color_scales_select = function(element, evt){
     var self = this;
-    var scales_div = self.target_element.find(".color_scales_select");
+    var scales_div = self.target_element.find(".color_scales");
     var scale_divs;
 
     if(scales_div.length){
       scales_div.fadeIn("fast");
-      scale_divs = scales_div.find(".cs");
+      scale_divs = scales_div.find(".color_scale");
     }
     else{
-      scales_div = $("<div class='color_scales_select'></div>").css({"z-index": 10});
+      scales_div = $("<div class='color_scales'></div>").css({"z-index": 10});
       var scale, color_1, color_2, color_3, key;
 
       for(var i = 0, keys = Object.keys(self.colors), len = keys.length; i < len; i++){
@@ -3566,7 +3381,7 @@ var InCHlib;
         color_1 = self._get_color_for_value(0,0,1,0.5,key);
         color_2 = self._get_color_for_value(0.5,0,1,0.5,key);
         color_3 = self._get_color_for_value(1,0,1,0.5,key);
-        scale = "<div class='cs' data-scale_acronym='" + key + "' style='background: linear-gradient(to right, " + color_1 + "," + color_2 + "," + color_3 + ")'></div>";
+        scale = "<div class='color_scale' data-scale_acronym='" + key + "' style='background: linear-gradient(to right, " + color_1 + "," + color_2 + "," + color_3 + ")'></div>";
         scales_div.append(scale);
       }
       self.target_element.append(scales_div);
@@ -3578,7 +3393,7 @@ var InCHlib;
                      "left": 170,
                      "background-color": "white"});
 
-      scale_divs = self.target_element.find(".cs");
+      scale_divs = self.target_element.find(".color_scale");
       scale_divs.css({"margin-top":"3px",
                       "width": "80px",
                       "height": "20px",
@@ -3779,45 +3594,45 @@ var InCHlib;
 
   InCHlib.prototype._get_color_for_value = function(value, min, max, middle, color_scale){
     var self = this;
-    var color = self.colors[color_scale];
-    var c1 = color["start"];
-    var c2 = color["end"];
+      var color = self.colors[color_scale];
+      var c1 = color["start"];
+      var c2 = color["end"];
 
-    if(value > max){
-      return 'rgb('+c2.r+','+c2.g+','+c2.b+')';
-    }
+      if(value > max){
+        return 'rgb('+c2.r+','+c2.g+','+c2.b+')';
+      }
 
-    if(min == max || value < min){
-      return 'rgb('+c1.r+','+c1.g+','+c1.b+')';
-    }
+      if(min == max || value < min){
+        return 'rgb('+c1.r+','+c1.g+','+c1.b+')';
+      }
 
 
-    if(color["middle"] !== undefined){
-        
-        if(value >= middle){
-            if(middle == max){
-              return 'rgb('+c2.r+','+c2.g+','+c2.b+')';
-            }
+      if(color["middle"] !== undefined){
+          
+          if(value >= middle){
+              if(middle == max){
+                return 'rgb('+c2.r+','+c2.g+','+c2.b+')';
+              }
 
-            min = middle;
-            c1 = color["middle"];
-            c2 = color["end"];
-        }
-        else{
-            if(middle == min){
-              return 'rgb('+c1.r+','+c1.g+','+c1.b+')';
-            }
-            max = middle;
-            c1 = color["start"];
-            c2 = color["middle"];
-        }
-    }
+              min = middle;
+              c1 = color["middle"];
+              c2 = color["end"];
+          }
+          else{
+              if(middle == min){
+                return 'rgb('+c1.r+','+c1.g+','+c1.b+')';
+              }
+              max = middle;
+              c1 = color["start"];
+              c2 = color["middle"];
+          }
+      }
 
-    var position = (value-min)/(max-min);
-    var r = self._hack_round(c1.r+(position*(c2.r-c1.r)));
-    var g = self._hack_round(c1.g+(position*(c2.g-c1.g)));
-    var b = self._hack_round(c1.b+(position*(c2.b-c1.b)));
-    return 'rgb('+r+','+g+','+b+')';
+      var position = (value-min)/(max-min);
+      var r = self._hack_round(c1.r+(position*(c2.r-c1.r)));
+      var g = self._hack_round(c1.g+(position*(c2.g-c1.g)));
+      var b = self._hack_round(c1.b+(position*(c2.b-c1.b)));
+      return 'rgb('+r+','+g+','+b+')';
   }
 
   InCHlib.prototype._get_font_size = function(text_length, width, height, max_font_size){
@@ -4026,6 +3841,15 @@ var InCHlib;
       self.settings.navigation_toggle = navigation_toggle;
       $.extend(self.settings.navigation_toggle, settings_object.navigation_toggle);
     }
+
+    self.dynamic_width = false;
+    if(self.settings.width === "dynamic"){
+      self.dynamic_width = true;
+      if(self.target_element.width() === 0){
+        self.target_element.css({"width": "100%"});
+      }
+      self.settings.width = self.target_element.width();
+    }
   }
 
   /**
@@ -4033,6 +3857,11 @@ var InCHlib;
     */
   InCHlib.prototype.redraw = function(){
     var self = this;
+
+    if(self.dynamic_width){
+      self.settings.width = self.target_element.width();
+    }
+    
     self._delete_all_layers();
     self.draw();
   }

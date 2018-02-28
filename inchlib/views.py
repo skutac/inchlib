@@ -168,6 +168,12 @@ def performance(req):
 def dev(req):
     return render_to_response("inchlib_dev.html", {})
 
+def mirna(req):
+    return render_to_response("mirna_cluster_heatmaps.html", {})
+
+def affps(req):
+    return render_to_response("affps.html", {})
+
 def inchlib_clust_doc(req):
     return render_to_response("inchlib_clust_doc.html", {})
 
